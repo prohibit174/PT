@@ -92,7 +92,7 @@
 
                 <div id="highlights-of-the-games">
 
-
+</div>
     <section class="text-post" itemscope itemtype="http://schema.org/NewsArticle" >
 </div>
 </body>

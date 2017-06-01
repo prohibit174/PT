@@ -1039,7 +1039,7 @@
 					<div class="hold lang-switcher-container">
 						
 						<ul class="social-links">
-							<li class="button_base b01_simple_rollover"><a href="#" id="login-button">LOGIN</a></li>
+							<li class="button_base b01_simple_rollover"><a href="/login_form" id="login-button">LOGIN</a></li>
 							<li class="button_base b01_simple_rollover"><a href="#">SIGN UP</a></li>
 							<li><a href="https://twitter.com/olympics" class="ss-icon">twitter</a></li>
 							<li><a href="https://www.youtube.com/user/olympic"

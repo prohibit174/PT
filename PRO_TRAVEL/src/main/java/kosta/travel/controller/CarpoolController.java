@@ -15,4 +15,8 @@ public class CarpoolController {
 			return "/carpool/carpool_list";
 	}
 	
+		   @RequestMapping(value = "/insert", method = RequestMethod.GET)
+		   public String insert() {
+		      return "/carpool/carpool_insert";
+		   }
 }
