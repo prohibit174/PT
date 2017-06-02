@@ -53,38 +53,7 @@
             </i>
         </a>
     </li>
-    <li class="">
-        <a href="#mascots" data-class="games2014-2" target="">
-            Mascots
-            <i class="icon-arrow-right">
-                <span class="hide">arrow</span>
-            </i>
-        </a>
-    </li>
-    <li class="">
-        <a href="#torch" data-class="games2014-2" target="">
-            Torch
-            <i class="icon-arrow-right">
-                <span class="hide">arrow</span>
-            </i>
-        </a>
-    </li>
-    <li class="">
-        <a href="#poster" data-class="games2014-2" target="">
-            Poster
-            <i class="icon-arrow-right">
-                <span class="hide">arrow</span>
-            </i>
-        </a>
-    </li>
-    <li class="">
-        <a href="#official-reports" data-class="games2014-2" target="">
-            Official Reports
-            <i class="icon-arrow-right">
-                <span class="hide">arrow</span>
-            </i>
-        </a>
-    </li>
+
                 </ul>
             </div>
             

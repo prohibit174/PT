@@ -3109,16 +3109,14 @@ hr.alt + .related-posts {
 .tabs-section {
   margin-bottom: 60px; 
   }
-  
-  
-  
+
   .tabs-section.alt {
-    margin-top: 60px; 
+    margin-top: 30px; 
     }
   .tabs-section .tabset {
     float: left;
-    width: 270px;
-    margin: 0 90px 0 0;
+    width: 225px;
+    margin: 0 0 0 0;
     font-size: 0.914em;
     line-height: 1.641em;
     font-weight: bold;
