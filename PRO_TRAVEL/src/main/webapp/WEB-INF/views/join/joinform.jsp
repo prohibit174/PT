@@ -33,7 +33,7 @@
 </head>
 
 <%@include file="../include/header.jsp" %>
-
+<%@include file="../include/mypage_sidebar.jsp" %>
 <body>
 
 
@@ -123,21 +123,23 @@
 										</tr>
 
 										<tr> 
-<td>성별</td> 
-<td> 
-<input type="radio" name="u_sex" id="u_sex_m" value="남자"><label for="u_sex_m" class="radioSpan">남자</label> 
-<input type="radio" name="u_sex" id="u_sex_f" value="여자"> <label for="u_sex_f" class="radioSpan">여자</label> 
-&nbsp; <span class="mandatory">*</span> 
-</td> 
-</tr>
+											<td>성별</td> 
+											<td> 
+											<input type="radio" name="u_sex" id="u_sex_m" value="남자"><label for="u_sex_m" class="radioSpan">남자</label> 
+											<input type="radio" name="u_sex" id="u_sex_f" value="여자"> <label for="u_sex_f" class="radioSpan">여자</label> 
+											&nbsp; <span class="mandatory">*</span> 
+											</td> 
+											</tr>
 
 										<tr><td></tr>
 
 										<tr>
 											<td class="label"><label for="u_license">운전면허 유무</label></td>
 											<td><input type="radio" name="u_license" id="u_license"
-												value="운전면허 소지"> 유 &nbsp;&nbsp; <input type="radio"
-												name="u_license" id="u_license" value="운전면허 미소지"> 무
+												value="운전면허 소지"><label>유</label> 
+												 <input type="radio"
+												name="u_license" id="u_license" value="운전면허 미소지"> 
+												<label>무</label>
 
 												&nbsp; <span class="mandatory">*</span>
 												<ul class="errorField">
