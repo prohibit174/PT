@@ -149,6 +149,7 @@
 		<nav class="nav-box">
 		<div class="nav-holder">
 			<div class="nav-frame">
+			<span class="welcome"><%=session.getAttribute("login") %>님 환영합니다.</span>
 				<ul id="nav">
 					<li><a href="/olympic-games">HOME</a>
 						<div class="drop">
