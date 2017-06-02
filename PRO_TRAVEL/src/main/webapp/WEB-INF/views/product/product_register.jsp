@@ -51,7 +51,7 @@
 
 				<form id="form_checkout" class="uniForm checkout"
 					enctype="application/x-www-form-urlencoded"
-					action="product_list" method="post">
+					action="product_register" method="post">
 					<div class="box-full" id="creationaccount">
 						<div class="top"></div>
 						<div class="form">
@@ -65,7 +65,7 @@
 										<tr>
 											<td class="label"><label for="u_lang">Product
 													Number</label></td>
-											<td class="value"><input type="text" name="u_lang"
+											<td class="value"><input type="text" name="p_num"
 												id="p_num" value="" /> &nbsp; <span class="mandatory"></span>
 												<ul class="errorField">
 												</ul></td>
@@ -74,14 +74,14 @@
 										<tr>
 											<td class="label"><label for="u_lang">Product
 													Name</label></td>
-											<td class="value"><input type="text" name="u_lang"
+											<td class="value"><input type="text" name="p_name"
 												id="p_name" value="" /> &nbsp; <span class="mandatory"></span>
 												<ul class="errorField">
 												</ul></td>
 										</tr>
 										<tr>
 											<td class="label"><label for="u_lang">User ID</label></td>
-											<td class="value"><input type="text" name="u_lang"
+											<td class="value"><input type="text" name="u_id"
 												id="u_id" value="" /> &nbsp; <span class="mandatory"></span>
 												<ul class="errorField">
 												</ul></td>
@@ -90,27 +90,27 @@
 										<tr>
 											<td class="label"><label for="u_lang">Product
 													Detail</label></td>
-											<td class="value"><input type="text" name="u_religion"
+											<td class="value"><input type="text" name="p_detail"
 												id="p_detail" value="" /> &nbsp; <span class="mandatory"></span>
 												<ul class="errorField">
 												</ul></td>
 										</tr>
 										<tr>
 											<td class="label"><label for="u_lang">Price</label></td>
-											<td class="value"><input type="text" name="u_style"
+											<td class="value"><input type="text" name="p_price"
 												id="p_price" value="" /></td>
 										</tr>
 
 										<tr>
 											<td class="label"><label for="u_lang">Date</label></td>
-											<td class="value"><input type="text" name="u_style"
-												id="p_term" value="" /></td>
+											<td class="value"><input type="text" name="p_date"
+												id="p_date" value="" /></td>
 										</tr>
 										
 										<tr>
 											<td class="label"><label for="u_lang">Product
 													Image</label></td>
-											<td class="value"><input type="file" name="u_img"
+											<td class="value"><input type="file" name="p_img"
 												id="p_img" value="" /> &nbsp; <span class="mandatory"></span>
 												<ul class="errorField">
 												</ul></td>
