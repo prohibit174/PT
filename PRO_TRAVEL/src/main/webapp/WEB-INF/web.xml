@@ -20,8 +20,6 @@
     <servlet-name>appServlet</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
-  
-  <!-- 한글 출력하기 위한 필터 start -->
   <filter>
     <filter-name>encoding</filter-name>
     <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -34,18 +32,12 @@
     <filter-name>encoding</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-    <!-- 한글 출력하기 위한 필터 end -->
-    
-    <!-- 브라우저가 put, patch, delete 방식 지원하지 않는 것을 대비해서.. start -->
   <filter>
-  	<filter-name>hiddenHttpMethodFilter</filter-name>
-  	<filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
+    <filter-name>hiddenHttpMethodFilter</filter-name>
+    <filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
   </filter>
-  
   <filter-mapping>
-  	<filter-name>hiddenHttpMethodFilter</filter-name>
-  	<url-pattern>/*</url-pattern>
+    <filter-name>hiddenHttpMethodFilter</filter-name>
+    <url-pattern>/*</url-pattern>
   </filter-mapping>
-    <!-- 브라우저가 put, patch, delete 방식 지원하지 않는 것을 대비해서.. end -->
-
 </web-app>
