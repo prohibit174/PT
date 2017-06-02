@@ -1,6 +1,6 @@
 
 $(function(){
-	$('.nlogin_btn').click(function(){
+	$('.primaryAction').click(function(){
 		if($('#u_id').val()==""){
 			alert('아이디는 필수 사항 입니다.');
 			$('#u_id').focus();
@@ -24,7 +24,7 @@ $(function(){
 		}else if($('#law_agree').is(":checked")==false){
 			alert('이용 약관에 동의가 필요합니다.');
 			return false;
-		}else if($('#priv_agree').is(':checked')==false){
+		}else if($('#privacy_policy').is(':checked')==false){
 			alert('개인정보수집에 동의가 필요합니다.');
 			return false;
 		}else{
