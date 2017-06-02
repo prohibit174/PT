@@ -19,7 +19,7 @@ public class ProductDAOImpl implements ProductDAO {
 	@Inject
 	private SqlSession session;
 	
-	private static String namespace="kosta.travel.mappers.ProductMapper";
+	private static String namespace="kosta.travel.mappers.productMapper";
 
 	@Override
 	public int insertProduct(ProductVO product) {
@@ -28,7 +28,6 @@ public class ProductDAOImpl implements ProductDAO {
 
 	@Override
 	public List<ProductVO> listProduct(RowBounds row, Product_SearchVO search) {
-		
 		return null;
 	}
 
