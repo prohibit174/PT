@@ -40,20 +40,14 @@
 
 	
 	<!-- 로그인 세션(인터셉트) -->
-<!-- 	<beans:bean id="loginInterceptor" class="org.zerock.interceptor.LoginInterceptor"/>
-	<beans:bean id="authInterceptor" class="org.zerock.interceptor.AuthInterceptor"/> -->
+	<beans:bean id="loginInterceptor" class="kosta.travel.interceptor.LoginInterceptor"/>
 	
-<!-- 	<interceptors>
+ 	<interceptors>
 		<interceptor>
-			<mapping path="/user/loginPost"/>
+			<mapping path="/loginAction"/>
 			<beans:ref bean="loginInterceptor"/>
 		</interceptor>
-		
-		<interceptor>
-			<mapping path="/sboard/register"/>
-			<mapping path="/sboard/modifyPage"/>
-			<mapping path="/sboard/removePage"/>
-			<beans:ref bean="authInterceptor"/>
-		</interceptor>
-	</interceptors> -->
+
+	</interceptors>
+	
 </beans:beans>

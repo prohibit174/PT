@@ -13,6 +13,7 @@ public class UserServiceImpl implements UserService {
 
 	@Inject
 	public UserDAO dao;
+	
 	@Override
 	public UsersVO login(LoginDTO dto) throws Exception {
 		return dao.login(dto);
