@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
     <%@ include file="/WEB-INF/views/include/header.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -25,20 +25,20 @@
                 <div class="tab-content">
                     <div class="tab-slider">
                         <div class="tab-section">
-                            <form id="results-form" action="javascript:redirectFromGames()" class="results-form">
+                            <form id="results-form" action="/loginAction" class="results-form">
                                 <div class="row">
-                                    <input type="text" value="���̵� �Է��ϼ���" onfocus="this.value='';"/>
+                                    <input type="text" value="아이디를 입력하세요" onfocus="this.value='';"/>
                                     <br><br>
-                                    <span class="txt" onclick="">* �ʼ� �Է� ����</span>
+                                    <span class="txt" onclick="">* 필수 입력 사항</span>
                                 </div>
                                 <div class="row">
-                                    <input type="text" value="��й�ȣ�� �Է��ϼ���" onfocus="this.value='';"/>
+                                    <input type="text" value="비밀번호를 입력하세요" onfocus="this.value='';"/>
                                     <br><br>
-                                    <span class="txt" onclick="">* �ʼ� �Է� ����</span>
+                                    <span class="txt" onclick="">* 필수 입력 사항</span>
                                 </div>
                                 <div class="row">
-									<button>ȸ���� �ƴϽ� ���� <a href="#"> '����' </a>�� Ŭ���ؼ� �����Ͻ� �� �ֽ��ϴ�.</button>
-                                    <span class="txt">* Optional</span>
+									<button>회원이 아니신 분은 <a href="#"> '여기' </a>를 클릭해서 가입하실 수 있습니다.</button>
+                                   
                                 </div>
                                 <div class="row">
                                     <input type="submit" value="LOGIN" />
@@ -133,6 +133,7 @@
                 </div>
             </div>
         </div>
-   </div>>
+   </div>
+   <%@ include file="/WEB-INF/views/include/footer.jsp" %>
 </body>
 </html>
