@@ -180,7 +180,7 @@
       </dependency>
 		<!-- tiles end-->
 		
-<<<<<<< HEAD
+
 		 <!-- validaton -->
    <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator -->
    <dependency>
@@ -188,7 +188,7 @@
        <artifactId>hibernate-validator</artifactId>
        <version>4.3.2.Final</version>
    </dependency>
-=======
+
 		
 		<!-- jason -->
 		<!-- https://mvnrepository.com/artifact/org.kuali.commons/commons-beanutils -->
@@ -250,7 +250,6 @@
 		
 		
 		
->>>>>>> branch '김두두' of https://github.com/prohibit174/PT
 		
 	</dependencies>
 
