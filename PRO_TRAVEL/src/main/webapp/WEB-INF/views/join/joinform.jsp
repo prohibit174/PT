@@ -20,21 +20,22 @@
 	src="${pageContext.request.contextPath}/resources/js/AgoFiles/UsersJS/CheckEssential.js"></script>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/js/AgoFiles/UsersJS/IdCheck.js"></script>
+	<!-- Have to work for ID check -->
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/js/AgoFiles/UsersJS/join_checkInfo.js"></script>
-<script type="text/javascript"
+	<!-- Have to work for PW REGEXP -->
+<%-- <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/js/AgoFiles/UsersJS/JoinCheck.js"></script>
-
+ --%>
+ <!-- No need to JoinCheck.JS -->
 
 
 </head>
 
 <%@include file="../include/header.jsp" %>
-<%@include file="../include/mypage_sidebar_test.jsp" %>
 
 <body>
 
-	<h3>JoinForm</h3>
 
 
 
@@ -121,18 +122,14 @@
 												</ul></td>
 										</tr>
 
-										<tr>
-											<td>성별</td>
-
-											<td><input type="radio" name="u_sex" id="u_sex"
-												value="남자"> 남자 <input type="radio" name="u_sex"
-												id="u_sex" value="여자"> 여자
-												
-												&nbsp; <span class="mandatory">*</span>
-												
-												</td>
-
-										</tr>
+										<tr> 
+<td>성별</td> 
+<td> 
+<input type="radio" name="u_sex" id="u_sex_m" value="남자"><label for="u_sex_m" class="radioSpan">남자</label> 
+<input type="radio" name="u_sex" id="u_sex_f" value="여자"> <label for="u_sex_f" class="radioSpan">여자</label> 
+&nbsp; <span class="mandatory">*</span> 
+</td> 
+</tr>
 
 										<tr><td></tr>
 
