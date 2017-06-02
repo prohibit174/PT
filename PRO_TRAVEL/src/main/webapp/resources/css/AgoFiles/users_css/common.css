@@ -10,6 +10,14 @@
  *
  * This CSS is built to override the all.css and module.css styles of IOC standard header/footer.
  */
+ 
+ /* 139#라인 errorField부분 봉현 수정
+ 원래 : 
+ 	 #main .process .errorField, .mfp-wrap .process .errorField {
+    margin: 0px;
+    padding: 0px;
+    color: #ec374e;
+    list-style-type: none; } */
 #wrapper {
   min-height: 100%;
   padding-bottom: 10px; }
@@ -1386,11 +1394,14 @@
   #main .process .visa .content, .mfp-wrap .process .visa .content {
     padding: 0px;
     font-size: 11px; }
-  #main .process .errorField, .mfp-wrap .process .errorField {
+ #main .process .errorField, .mfp-wrap .process .errorField,
+  #main .process .PWerrorField, #main .process .PWCerrorField,
+  .mfp-wrap .process .PWerrorField, .mfp-wrap .process .PWCerrorField {
     margin: 0px;
     padding: 0px;
     color: #ec374e;
     list-style-type: none; }
+    
   #main form, .mfp-wrap form {
     font-size: 13px; }
   #main form td.label, .mfp-wrap form td.label {
