@@ -10,9 +10,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/product/*")
 public class ProductController {
 	
-		@RequestMapping(value = "/register", method = RequestMethod.GET)
-		public String register() {
-			return "/product/register";
-	}
+		@RequestMapping(value = "/product_register", method = RequestMethod.GET)
+		public String product_register() {
+			return "/product/product_register";
+		}
+		
+		@RequestMapping(value = "/product_list", method = RequestMethod.GET)
+		public String product_list() {
+			return "/product/product_list";
+		}
 	
 }
