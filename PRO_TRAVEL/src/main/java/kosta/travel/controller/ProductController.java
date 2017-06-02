@@ -44,9 +44,8 @@ public class ProductController {
 			return "/product/product_list";
 		}
 		
-		@RequestMapping(value = "/test", method = RequestMethod.GET)
-		public String test()throws Exception {
-			return "/product/side";
-		}
-	
+		@RequestMapping(value = "/product_detail", method = RequestMethod.GET)
+		      public String product_detail() {
+		         return "/product/product_detail";
+		      }
 }
