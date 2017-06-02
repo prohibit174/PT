@@ -7,5 +7,51 @@
 		SELECT u_id, u_pwd FROM users WHERE u_id=#{u_id} AND u_pwd=#{u_pwd}
 	</select>
 	
+	<insert id="insertUsers" parameterType="UsersVO">
+		insert into users(
+			u_id, u_pwd, u_name, u_birth,  u_sex, u_address, u_job,
+			 u_lang, u_religion,  u_license, u_img 
+			 ts_name
+		)values(
+			#{u_id},#{u_pwd}, #{u_name},  #{u_birth}, #{u_sex}, #{u_address},#{u_job},
+			#{u_lang},#{u_religion}, #{u_license}, #{u_img} 
+		)
+		
+	</insert>
+	
+	<!-- <insert id="insertUsers2" parameterType="Users">
+		insert into users(
+			u_id, u_pwd, u_name, u_birth,  u_sex, u_address, u_job,
+			 u_lang, u_religion,  u_license, u_img, u_style
+		)values(
+			#{u_id},#{u_pwd}, #{u_name},  #{u_birth}, #{u_sex}, #{u_address},#{u_job},
+			#{u_lang},#{u_religion},  #{u_license} , #{u_img}, #{u_style , jdbcType=VARCHAR} 
+		)
+	</insert> -->
+	
+	<!-- id 중복 확인 -->
+	<select id="idCheck" parameterType="String" resultType="int">
+		SELECT count(*) FROM users WHERE u_id = #{u_id}
+	</select>
+	
+	<!-- 한명 정보만 가져오기 -->
+	<select id="userDetail" parameterType="String" resultType="UsersVO" >
+		SELECT * FROM users WHERE u_id = #{u_id}
+	</select>
+	
+	<!-- 정보 수정 -->
+	<update id="userUpdate" parameterType="UsersVO">
+	UPDATE users SET u_pwd = #{u_pwd}, u_address = #{u_address}, u_job = #{u_job}, 
+	u_lang = #{u_lang}, u_religion = #{u_religion}, u_license = #{u_license}, 
+	<!-- u_img = #{u_img}, --> u_style = #{u_style}
+	WHERE u_id = #{u_id}
+	
+	</update>
+
+
+	<select id="checkPw" parameterType="map" resultType="int">
+		SELECT count(*) FROM users WHERE u_id = #{u_id} AND u_pwd = #{u_pwd}
+	
+	</select>
 
 </mapper>

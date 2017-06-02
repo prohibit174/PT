@@ -15,9 +15,9 @@ public class JoinController {
 	}
 	
 	@RequestMapping(value="/joinform", method=RequestMethod.POST)
-	public Model JoinUser(Model model){
-		model.addAttribute("UserInfo", model);
-		return model;
+	public String JoinUser(Model model){
+		model.addAttribute("User", model);
+		return "";
 	}
 	
 	@RequestMapping("/terms_conditions")
