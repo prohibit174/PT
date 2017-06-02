@@ -5,26 +5,26 @@ $(function(){
 
 
 	$('#u_pwd').keyup(function(){ 
-		$('#PWerrorField').text(''); 
+		$('#check').text(''); 
 
 		if($('#u_pwd').val().length<6 || $('#u_pwd').val().length>12){ 
-			$('.PWerrorField').text(''); 
-			$('.PWerrorField').html('적합하지 않은 길이입니다'); 
+			$('#check').text(''); 
+			$('#check').html('적합하지 않은 길이입니다'); 
 		} 
 		if(!($('#u_pwd').val().match(regexp)))
 	/*	if( !regexp.test($('#u_pwd').val()))*/{ 
-			$('.PWerrorField').text(''); 
-			$('.PWerrorField').html('조건에 맞지않습니다'); 
+			$('#check').text(''); 
+			$('#check').html('조건에 맞지않습니다'); 
 		} 
 	}); 
 
 	$('#pwcheck').keyup(function(){ 
 		if($('#u_pwd').val()!=$('#pwcheck').val()){ 
-			$('.PWCerrorField').text(''); 
-			$('.PWCerrorField').html('암호를 다시 확인하세요'); 
+			$('#check').text(''); 
+			$('#check').html('암호를 다시 확인하세요'); 
 		} else{ 
-			$('.PWCerrorField').text(''); 
-			$('.PWCerrorField').html(''); 
+			$('#check').text(''); 
+			$('#check').html(''); 
 		} 
 	});
 })

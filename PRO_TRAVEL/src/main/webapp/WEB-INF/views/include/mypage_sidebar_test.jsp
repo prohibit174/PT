@@ -1,16 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>ÌîÑÎ°ú ÎèôÌñâÎü¨</title>
+<title>«¡∑Œ µø«‡∑Ø</title>
 </head>
 <body>
-<div id="sidebar">
+<span id="sidebar">
   <section class="tabs-section alt" id="tabsSection" >
         <nav>
-            <div class="tabset-box">
+            <span class="tabset-box">
                 <ul class="tabset">
 
     <li class="active">
@@ -86,14 +86,14 @@
         </a>
     </li>
                 </ul>
-            </div>
+            </span>
             
         </nav>
 
-                <div id="highlights-of-the-games">
+                <span id="highlights-of-the-games">
 
-</div>
+</span>
     <section class="text-post" itemscope itemtype="http://schema.org/NewsArticle" >
-</div>
+</span>
 </body>
 </html>
