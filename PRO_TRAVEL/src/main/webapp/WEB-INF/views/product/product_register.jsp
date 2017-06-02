@@ -32,6 +32,7 @@
 <body>
 <%@ include file="../include/header.jsp" %>
 <%@ include file="../include/product_sidebar.jsp" %>
+
 	<div id="wrapper" data-speed="3">
 		<main id="main">
 		<div class="wrapper-content">
@@ -147,12 +148,16 @@
 								class="primaryAction">
 								<span>Register</span>
 							</button>
+							
 							<div class="clear"></div>
+							
 						</div>
 				</form>
+				
 			</div>
 			</section>
 		</div>
+
 		<!-- 맞을까 닫음태그? --> <!--         
                 <div class="panel cio">
                     <div class="wrapper-content">
@@ -171,7 +176,7 @@
 	</div>
 
 	<div id="profiler"></div>
-<%@ include file="..//include/footer.jsp" %>
+<%@ include file="..//include/footer.jsp" %> 
 
 </body>
 </html>
