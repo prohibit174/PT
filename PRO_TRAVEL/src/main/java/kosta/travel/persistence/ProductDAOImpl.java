@@ -23,7 +23,7 @@ public class ProductDAOImpl implements ProductDAO {
 
 	@Override
 	public int insertProduct(ProductVO product) {
-		return session.insert(namespace+".create", product);
+		return session.insert(namespace+".insertProduct", product);
 	}
 
 	@Override
