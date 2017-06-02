@@ -10,9 +10,12 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import kosta.travel.domain.RouteList;
 import kosta.travel.domain.RouteVO;
 import kosta.travel.service.AccompanyService;
 
@@ -38,10 +41,11 @@ public class AccompanyController{
 		return "/accompany/Accomp_main";
 	}
 	
-	@RequestMapping(value = "/enroll")
-	public String main9(Model model, HttpSession session){
+	@ResponseBody
+	@RequestMapping(value = "/enroll", method=RequestMethod.POST)
+	public String main9(@RequestBody RouteList list){
 		try {
-			model.addAttribute("list" ,service.getUserRoute(Integer.parseInt(session.getId())));
+			/*service.insertRoute(list);*/
 			
 		} catch (Exception e) {
 			e.printStackTrace();
