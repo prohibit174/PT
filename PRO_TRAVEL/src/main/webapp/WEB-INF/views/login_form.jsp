@@ -44,12 +44,12 @@ function changePW(){
                         <div class="tab-section">
                             <form id="results-form" action="/loginAction" class="results-form" method="post">
                                 <div class="row">
-                                    <input type="text" id="insert_id" value="아이디를 입력하세요" onfocus="this.value='';"/>
+                                    <input type="text" id="insert_id" name="u_id" value="아이디를 입력하세요" onfocus="this.value='';"/>
                                     <br><br>
                                     <span class="txt" onclick="">* 필수 입력 사항</span>
                                 </div>
                                 <div class="row">
-                                    <input type="text" id="insert_pwd" value="비밀번호를 입력하세요" onfocus="changePW()"/>
+                                    <input type="text" id="insert_pwd" name="u_pwd" value="비밀번호를 입력하세요" onfocus="changePW()"/>
                                     <br><br>
                                     <span class="txt" onclick="">* 필수 입력 사항</span>
                                 </div>

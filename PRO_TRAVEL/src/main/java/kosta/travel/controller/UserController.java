@@ -33,4 +33,8 @@ public class UserController {
 		}
 		model.addAttribute("usersVO", vo);
 	}
+	@RequestMapping(value="/test", method=RequestMethod.GET)
+	public String test(){
+		return "test";
+	}
 }
