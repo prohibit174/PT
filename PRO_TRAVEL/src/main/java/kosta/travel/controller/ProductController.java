@@ -25,4 +25,9 @@ public class ProductController {
 			return "/product/side";
 		}
 	
+
+		@RequestMapping(value = "/product_detail", method = RequestMethod.GET)
+		public String product_detail() {
+			return "/product/product_detail";
+		}
 }
