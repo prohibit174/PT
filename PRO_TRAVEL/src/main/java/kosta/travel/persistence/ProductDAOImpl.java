@@ -19,17 +19,16 @@ public class ProductDAOImpl implements ProductDAO {
 	@Inject
 	private SqlSession session;
 	
-	private static String namespace="org.zerock.mapper.BoardMapper";
+	private static String namespace="kosta.travel.mappers.ProductMapper";
 
 	@Override
 	public int insertProduct(ProductVO product) {
-		// TODO Auto-generated method stub
-		return 0;
+		return session.insert(namespace+".create", product);
 	}
 
 	@Override
 	public List<ProductVO> listProduct(RowBounds row, Product_SearchVO search) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
