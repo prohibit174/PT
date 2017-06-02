@@ -8,7 +8,7 @@
 </head>
 <body>
 <div id="sidebar">
-  <section class="tabs-section alt" id="tabsSection" >
+<section class="tabs-section alt" id="tabsSection" >
         <nav>
             <div class="tabset-box">
                 <ul class="tabset">
@@ -89,11 +89,7 @@
             </div>
             
         </nav>
-
-                <div id="highlights-of-the-games">
-
-</div>
-    <section class="text-post" itemscope itemtype="http://schema.org/NewsArticle" >
+<section class="text-post" itemscope itemtype="http://schema.org/NewsArticle" >
 </div>
 </body>
 </html>
