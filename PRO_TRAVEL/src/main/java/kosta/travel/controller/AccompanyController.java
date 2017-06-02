@@ -45,7 +45,7 @@ public class AccompanyController{
 	@RequestMapping(value = "/enroll", method=RequestMethod.POST)
 	public String main9(@RequestBody RouteList list){
 		try {
-			service.insertRoute(list);
+			/*service.insertRoute(list);*/
 			
 		} catch (Exception e) {
 			e.printStackTrace();
