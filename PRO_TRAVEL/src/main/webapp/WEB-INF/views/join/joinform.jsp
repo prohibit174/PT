@@ -67,7 +67,7 @@
 
 
 				<form id="form_checkout" class="uniForm checkout"
-					enctype="application/x-www-form-urlencoded" action="JoinForm"
+					enctype="application/x-www-form-urlencoded" action="joinform"
 					method="post">
 					<!-- <div class="box-full" id="creationaccount"> -->
 						<div class="top"></div>
