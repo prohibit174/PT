@@ -103,8 +103,8 @@
 
 										<tr>
 											<td class="label"><label for="u_lang">Date</label></td>
-											<td class="value"><input type="text" name="p_term"
-												id="p_term" value="" /></td>
+											<td class="value"><input type="text" name="p_date"
+												id="p_date" value="" /></td>
 										</tr>
 										
 										<tr>
