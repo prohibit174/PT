@@ -15,45 +15,37 @@ import kosta.travel.service.ProductService;
 @Controller
 @RequestMapping("/product/*")
 public class ProductController {
-		
-	private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
+      
+   private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
 
 
-		@Inject
-		private ProductService service;
-	
-		@RequestMapping(value = "/product_register", method = RequestMethod.GET)
-		public String product_registerGET()throws Exception {
-			System.out.println("registerget method call");
-			
-			return "/product/product_register";
-		}
-		
-		@RequestMapping(value = "/product_register", method = RequestMethod.POST)
-		public String product_registerPOST(ProductVO product, RedirectAttributes rttr)throws Exception {
-			System.out.println("registerpost method call");
-			logger.info(product.toString());
-			service.insert(product);
-			
-			
-			return "redirect:/product/product_list";
-		}
-		
-		@RequestMapping(value = "/product_list", method = RequestMethod.GET)
-		public String product_list()throws Exception {
-			return "/product/product_list";
-		}
-
-		@RequestMapping(value = "/test", method = RequestMethod.GET)
-		public String test() {
-			return "/product/side";
-		}
-	
-
-		@RequestMapping(value = "/product_detail", method = RequestMethod.GET)
-		public String product_detail() {
-			return "/product/product_detail";
-		}
-
-
+      @Inject
+      private ProductService service;
+   
+      @RequestMapping(value = "/product_register", method = RequestMethod.GET)
+      public String product_registerGET()throws Exception {
+         System.out.println("registerget method call");
+         
+         return "/product/product_register";
+      }
+      
+      @RequestMapping(value = "/product_register", method = RequestMethod.POST)
+      public String product_registerPOST(ProductVO product, RedirectAttributes rttr)throws Exception {
+         System.out.println("registerpost method call");
+         logger.info(product.toString());
+         service.insert(product);
+         
+         
+         return "redirect:/product/product_list";
+      }
+      
+      @RequestMapping(value = "/product_list", method = RequestMethod.GET)
+      public String product_list()throws Exception {
+         return "/product/product_list";
+      }
+      
+      @RequestMapping(value = "/product_detail", method = RequestMethod.GET)
+            public String product_detail() {
+               return "/product/product_detail";
+            }
 }
