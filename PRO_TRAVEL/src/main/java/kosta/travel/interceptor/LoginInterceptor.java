@@ -26,7 +26,9 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 
 		if(usersVO != null){
 			session.setAttribute("login", usersVO);
-			response.sendRedirect("/");
+			//response.sendRedirect("/");
+			Object dest = session.getAttribute("dest");
+			response.sendRedirect(dest != null ? (String)dest:"/");
 		}else{
 	         response.setContentType("text/html;charset=utf-8");
 	         out.println("<script>");

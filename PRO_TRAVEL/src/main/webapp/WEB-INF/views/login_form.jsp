@@ -59,6 +59,9 @@ function changePW(){
                                    
                                 </div>
                                 <div class="row">
+                                	<span class="txt" style="float: left; font-size: 13px; padding-top: 5px; padding-left: 5px;" >
+                                	AUTO LOGIN
+                                	</span>&nbsp<input type="checkbox" style=""/>
                                     <input type="submit" value="LOGIN" />
                                     <input type="reset" value="Clear" />
                                 </div>

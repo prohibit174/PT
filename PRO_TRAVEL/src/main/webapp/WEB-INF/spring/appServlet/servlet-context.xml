@@ -41,6 +41,7 @@
 	
 	<!-- 로그인 세션(인터셉트) -->
 	<beans:bean id="loginInterceptor" class="kosta.travel.interceptor.LoginInterceptor"/>
+	<beans:bean id="authInterceptor" class="kosta.travel.interceptor.AuthInterceptor"/>
 	
  	<interceptors>
 		<interceptor>
@@ -48,6 +49,10 @@
 			<beans:ref bean="loginInterceptor"/>
 		</interceptor>
 
+		<interceptor>
+			<mapping path=""/>
+			<beans:ref bean="authInterceptor"/>
+		</interceptor>
 	</interceptors>
 	
 </beans:beans>
