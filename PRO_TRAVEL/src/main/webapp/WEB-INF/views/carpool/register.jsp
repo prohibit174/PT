@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
-<%@ include file="/WEB-INF/views/include/carpool_sidebar.jsp"%>
+<%@ include file="/WEB-INF/views/include/product_sidebar.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -27,7 +27,7 @@
 
 		<div>
 			<section class="events-section"> <header class="heading">
-			<form action="/ioc-event-calendar" class="calendar-form">
+			<form id='registerForm' role="form" method="post">
 
 
 				<select title="Year" name="y" class="calendar-select">

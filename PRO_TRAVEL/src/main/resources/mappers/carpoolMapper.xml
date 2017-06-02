@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/td/mybatis-3-mapper.dtd">
+
+<mapper namespace="kosta.travel.mappers.carpoolMapper">
+	<insert id="create">
+		insert into car_list(
+			c_num,  u_id,  start_point,  dest_point,  way_point,  c_price,
+			 c_person,  c_year,  c_month,  c_date,  c_hour,  c_minute, u_img
+		)
+		values(
+			1, 1, 1, 1, 1, #{c_price}, #{c_person}, 
+			#{c_year}, #{c_month}, #{c_date}, #{c_hour}, #{c_minute}, 1
+		)
+	</insert>
+	
+	<select id = "read">
+		select c_num,  u_id,  start_point,  dest_point,  way_point,  c_price,
+			 c_person,  c_year,  c_month,  c_date,  c_hour,  c_minute, u_img
+		from
+			car_list
+		where c_num=#{c_num}
+	</select>
+	
+
+</mapper>
