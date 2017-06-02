@@ -27,7 +27,7 @@
 
 		<div>
 			<section class="events-section"> <header class="heading">
-			<form action="/ioc-event-calendar" class="calendar-form">
+			<form id='registerForm' role="form" method="post">
 
 
 				<select title="Year" name="y" class="calendar-select">
