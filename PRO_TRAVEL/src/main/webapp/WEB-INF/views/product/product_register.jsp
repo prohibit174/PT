@@ -16,22 +16,24 @@
     <div class="holder">
             <h1>Register Goods</h1>
             <div class="tab-gallery">
-                <ul class="tabset">
+            <!--     <ul class="tabset">
                     <li class="active"><a href="#">Login</a></li>
                     <li><a href="#">Find Info</a></li>
-                </ul>
+                </ul> -->
 
                 <div class="tab-content">
                     <div class="tab-slider">
                         <div class="tab-section">
                             <form id="results-form" action="javascript:redirectFromGames()" class="results-form">
                                 <div class="row">
-                                    <select id="sel-games" class="ajax-select" title="Games">
+<!--                                   <select id="sel-games" class="ajax-select" title="Games">
                                         <option class="default">아이디를 입력하세요.....</option>
 		
-                                    </select>
-                                    <input type="text" value="아이디를 입력하세요" id="login-box">
-                                    <span class="txt" onclick="">한글</span> <span class="txt">English</span>
+                                    </select> -->
+                                    <!-- boram add-->
+                                    <input type="text" class="txt" value="상품명">
+
+									<!-- boram add-->
                                 </div>
                                 <div class="row">
                                     <select id="sel-disc" class="ajax-select" title="Sports">
@@ -46,7 +48,7 @@
                                     <span class="txt">* Optional</span>
                                 </div>
                                 <div class="row">
-                                    <input type="submit" value="Results" />
+                                    <input type="submit" value="Submit" />
                                     <input type="reset" value="Clear" />
                                 </div>
                             </form>

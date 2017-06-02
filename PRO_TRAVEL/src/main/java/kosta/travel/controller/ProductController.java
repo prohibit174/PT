@@ -12,7 +12,7 @@ public class ProductController {
 	
 		@RequestMapping(value = "/product_register", method = RequestMethod.GET)
 		public String product_register() {
-			return "/product/product_register";
+			return "/product/product_register3";
 		}
 		
 		@RequestMapping(value = "/product_list", method = RequestMethod.GET)
