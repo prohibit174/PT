@@ -1,7 +1,10 @@
 package kosta.travel.domain;
 
+import javax.validation.constraints.Size;
+
 public class UsersVO{
 
+	@Size(min=4, max=12, message="아이디는 4~12자로 등록해주세요.")
 	private String u_id;
 	private String u_pwd;
 	private String u_name;

@@ -5,7 +5,7 @@ $(function(){
 	
 	$("#u_idcheck").click(function(){
 		$.ajax({
-			url : "IdCheckAction.users",
+			url : "IdCheckAction",
 			type : "post",
 			data : $("#u_id").serialize(),
 			success : function(data){

@@ -38,4 +38,10 @@ public class JoinController {
 	public String privacy_policy(){
 		return "/join/privacy_policy";
 	}
+	
+	@RequestMapping("/IdCheckAction")
+	public String idCheck(){
+		return "";
+	}
+	
 }
