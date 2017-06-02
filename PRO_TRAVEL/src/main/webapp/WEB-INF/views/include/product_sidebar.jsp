@@ -16,50 +16,21 @@
             <ul class="tabset">
 
                <li class="active"><a href="#highlights-of-the-games"
-                  data-class="games2014-2" target=""> Highlights of the Games <i
+                  data-class="games2014-2" target=""> Product List <i
                      class="icon-arrow-right"> <span class="hide">arrow</span>
                   </i>
                </a></li>
                <li class=""><a href="#more-about" data-class="games2014-2"
-                  target=""> More About <i class="icon-arrow-right"> <span
+                  target=""> Product Register <i class="icon-arrow-right"> <span
                         class="hide">arrow</span>
                   </i>
                </a></li>
                <li class=""><a href="#all-facts" data-class="games2014-2"
-                  target=""> All Facts <i class="icon-arrow-right"> <span
+                  target=""> Recommand Product <i class="icon-arrow-right"> <span
                         class="hide">arrow</span>
                   </i>
                </a></li>
-               <li class=""><a href="#emblem" data-class="games2014-2"
-                  target=""> Emblem <i class="icon-arrow-right"> <span
-                        class="hide">arrow</span>
-                  </i>
-               </a></li>
-               <li class=""><a href="#medals" data-class="games2014-2"
-                  target=""> Medals <i class="icon-arrow-right"> <span
-                        class="hide">arrow</span>
-                  </i>
-               </a></li>
-               <li class=""><a href="#mascots" data-class="games2014-2"
-                  target=""> Mascots <i class="icon-arrow-right"> <span
-                        class="hide">arrow</span>
-                  </i>
-               </a></li>
-               <li class=""><a href="#torch" data-class="games2014-2"
-                  target=""> Torch <i class="icon-arrow-right"> <span
-                        class="hide">arrow</span>
-                  </i>
-               </a></li>
-               <li class=""><a href="#poster" data-class="games2014-2"
-                  target=""> Poster <i class="icon-arrow-right"> <span
-                        class="hide">arrow</span>
-                  </i>
-               </a></li>
-               <li class=""><a href="#official-reports"
-                  data-class="games2014-2" target=""> Official Reports <i
-                     class="icon-arrow-right"> <span class="hide">arrow</span>
-                  </i>
-               </a></li>
+              
             </ul>
          
 

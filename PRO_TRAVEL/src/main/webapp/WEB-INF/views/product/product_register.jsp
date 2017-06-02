@@ -30,8 +30,8 @@
 </head>
 
 <body>
-<%@ include file="../include/header.jsp" %>
-<%@ include file="../include/product_sidebar.jsp" %>
+<%@ include file="/WEB-INF/views/include/header.jsp" %>
+<%@ include file="/WEB-INF/views/include/product_sidebar.jsp" %>
 
 	<div id="wrapper" data-speed="3">
 		<main id="main">
@@ -51,7 +51,7 @@
 
 				<form id="form_checkout" class="uniForm checkout"
 					enctype="application/x-www-form-urlencoded"
-					action="product_register" method="post">
+					action="product_list" method="post">
 					<div class="box-full" id="creationaccount">
 						<div class="top"></div>
 						<div class="form">
