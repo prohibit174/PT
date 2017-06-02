@@ -11,7 +11,6 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 public class LoginInterceptor extends HandlerInterceptorAdapter {
-	private static final String LOGIN = "login";
 	
 	@Override
 	public void postHandle(
@@ -26,7 +25,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 		System.out.println(usersVO);
 
 		if(usersVO != null){
-			session.setAttribute(LOGIN, usersVO);
+			session.setAttribute("login", usersVO);
 			response.sendRedirect("/test");
 		}else{
 	         response.setContentType("text/html;charset=utf-8");
@@ -45,8 +44,8 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 			) throws Exception{
 		HttpSession session = request.getSession();
 		
-		if(session.getAttribute(LOGIN) != null){
-			session.removeAttribute(LOGIN);
+		if(session.getAttribute("login") != null){
+			session.removeAttribute("login");
 		}
 		return true;
 	}

@@ -36,7 +36,7 @@ public class UserController {
 
 		         return;
 		      }
-			 model.addAttribute("usersVO", vo);
+			 model.addAttribute("usersVO", vo.getU_id());
 			 
 	}
 		
