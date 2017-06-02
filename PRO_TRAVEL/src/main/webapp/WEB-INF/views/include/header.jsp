@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>ЗБ·О µїЗа·Ї</title>
+<title>н”„лЎњ лЏ™н–‰лџ¬</title>
 <meta charset="utf-8" />
 <meta name="googlepagetype" content="Games" />
 <meta name="googlepageid"
@@ -63,10 +63,15 @@
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="msapplication-TileImage" content="/mstile-144x144.png">
 <meta name="theme-color" content="#ffffff">
+
 <link media="all" rel="stylesheet" type="text/css"
-	href="https://stillres.olympic.org/css/modules.css" />
-<link media="all" rel="stylesheet" type="text/css"
-	href="https://stillres.olympic.org/css/all.css" />
+   href="https://stillres.olympic.org/css/modules.css" />
+
+
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/all.css">
+
+
+
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/button.css">
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/login.js"></script>
