@@ -816,7 +816,8 @@ hr.alt + .related-posts {
   top: 0; }
 
 #main, .main {
-  max-width: 800px;
+	float: center;
+  width: 33%;
   margin: 0 auto;
   padding: 0 15px;
   position: relative; }
@@ -8120,6 +8121,8 @@ body > .jcf-select-drop.jcf-drop-flipped {
       margin-right: -40px; }
       #main .breakMain .cta-carousel-news .mask-l, .main .breakMain .cta-carousel-news .mask-l {
         left: 0; }
+        
+        
       #main .breakMain .cta-carousel-news .mask-r, .main .breakMain .cta-carousel-news .mask-r {
         right: 0; }
 
