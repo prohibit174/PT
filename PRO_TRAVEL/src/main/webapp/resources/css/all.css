@@ -3143,7 +3143,7 @@ hr.alt + .related-posts {
         font-size: 11.7px;
         line-height: 15px;
         letter-spacing: 0;
-        display: inline-block;
+        display: inline;
         vertical-align: top;
         border: 0;
         border: 1px solid #ddd;
