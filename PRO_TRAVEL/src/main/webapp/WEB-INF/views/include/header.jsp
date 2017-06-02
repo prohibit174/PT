@@ -4,7 +4,7 @@
 <html>
 <head>
 <title>프로 동행러</title>
-<meta charset="utf-8" />
+<meta charset="UTF-8" />
 <meta name="googlepagetype" content="Games" />
 <meta name="googlepageid"
 	content="{535B8008-29D0-44BB-8B14-E2B29CC79DD5}" />

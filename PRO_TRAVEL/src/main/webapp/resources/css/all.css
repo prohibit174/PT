@@ -1,3 +1,5 @@
+
+
 html {
   box-sizing: border-box; }
 
@@ -816,7 +818,7 @@ hr.alt + .related-posts {
   top: 0; }
 
 #main, .main {
-  max-width: 800px;
+  max-width: 1090px;
   margin: 0 auto;
   padding: 0 15px;
   position: relative; }
@@ -3105,14 +3107,14 @@ hr.alt + .related-posts {
   margin: 0 0 58px; }
 
 .tabs-section {
-		position: relative;
-	width: 800px;
-	height: 50px;
-  margin-bottom: 30px; 
-  
+  margin-bottom: 60px; 
   }
+  
+  
+  
   .tabs-section.alt {
-    margin-top: 30px; }
+    margin-top: 60px; 
+    }
   .tabs-section .tabset {
     float: left;
     width: 270px;
