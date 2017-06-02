@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>«¡∑Œ µø«‡∑Ø</title>
+<title>ÌîÑÎ°ú ÎèôÌñâÎü¨</title>
 </head>
 <body>
 <div id="sidebar">
@@ -15,7 +15,7 @@
 
     <li class="active">
         <a href="#highlights-of-the-games" data-class="games2014-2" target="">
-            Highlights of the Games
+            CARPOOL MAIN
             <i class="icon-arrow-right">
                 <span class="hide">arrow</span>
             </i>
@@ -23,7 +23,7 @@
     </li>
     <li class="">
         <a href="#more-about" data-class="games2014-2" target="">
-            More About
+           CARPOOL REGISTER
             <i class="icon-arrow-right">
                 <span class="hide">arrow</span>
             </i>
@@ -31,7 +31,7 @@
     </li>
     <li class="">
         <a href="#all-facts" data-class="games2014-2" target="">
-            All Facts
+            CARPOOL LIST
             <i class="icon-arrow-right">
                 <span class="hide">arrow</span>
             </i>
@@ -39,47 +39,7 @@
     </li>
     <li class="">
         <a href="#emblem" data-class="games2014-2" target="">
-            Emblem
-            <i class="icon-arrow-right">
-                <span class="hide">arrow</span>
-            </i>
-        </a>
-    </li>
-    <li class="">
-        <a href="#medals" data-class="games2014-2" target="">
-            Medals
-            <i class="icon-arrow-right">
-                <span class="hide">arrow</span>
-            </i>
-        </a>
-    </li>
-    <li class="">
-        <a href="#mascots" data-class="games2014-2" target="">
-            Mascots
-            <i class="icon-arrow-right">
-                <span class="hide">arrow</span>
-            </i>
-        </a>
-    </li>
-    <li class="">
-        <a href="#torch" data-class="games2014-2" target="">
-            Torch
-            <i class="icon-arrow-right">
-                <span class="hide">arrow</span>
-            </i>
-        </a>
-    </li>
-    <li class="">
-        <a href="#poster" data-class="games2014-2" target="">
-            Poster
-            <i class="icon-arrow-right">
-                <span class="hide">arrow</span>
-            </i>
-        </a>
-    </li>
-    <li class="">
-        <a href="#official-reports" data-class="games2014-2" target="">
-            Official Reports
+            MY CARPOOL
             <i class="icon-arrow-right">
                 <span class="hide">arrow</span>
             </i>
@@ -93,7 +53,23 @@
                 <div id="highlights-of-the-games">
 
 </div>
+
+
     <section class="text-post" itemscope itemtype="http://schema.org/NewsArticle" >
 </div>
+
+                <div id="google-ad-sense" style="margin-top:20px;float:left;" data-type="260x260">
+                  <script type="text/javascript">
+                    google_ad_client = "ca-pub-9419115827273897";
+                    google_ad_slot = "3548612763";
+                    google_ad_width = 260;
+                    google_ad_height = 260;
+                  </script>
+                  <!-- search-260x260 -->
+                  
+                  <script type="text/javascript"
+                          src="//pagead2.googlesyndication.com/pagead/show_ads.js">
+                  </script>
+                </div>
 </body>
 </html>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-    <%@ include file="/WEB-INF/views/include/header.jsp" %>
+<%@ include file="/WEB-INF/views/include/header.jsp" %>
+<%@ include file="/WEB-INF/views/include/product_sidebar.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,17 +9,15 @@
 <title>Insert title here</title>
 <link media="all" rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/login.css" />
 <link media="all" rel="stylesheet" type="text/css" href="https://stillres.olympic.org/css/modules.css" />
-<style type="text/css">
 
-</style>
 </head>
 <body>
 <div class="results-box">
     <div class="holder">
-            <h1>Pro Travel</h1>
+            <h1>Register Goods</h1>
             <div class="tab-gallery">
                 <ul class="tabset">
-                    <li class="active"><a href="/">Login</a></li>
+                    <li class="active"><a href="#">Login</a></li>
                     <li><a href="#">Find Info</a></li>
                 </ul>
 
@@ -27,21 +26,27 @@
                         <div class="tab-section">
                             <form id="results-form" action="javascript:redirectFromGames()" class="results-form">
                                 <div class="row">
-                                    <input type="text" value="아이디를 입력하세요" onfocus="this.value='';"/>
-                                    <br><br>
-                                    <span class="txt" onclick="">* 필수 입력 사항</span>
+                                    <select id="sel-games" class="ajax-select" title="Games">
+                                        <option class="default">아이디를 입력하세요.....</option>
+		
+                                    </select>
+                                    <input type="text" value="아이디를 입력하세요" id="login-box">
+                                    <span class="txt" onclick="">한글</span> <span class="txt">English</span>
                                 </div>
                                 <div class="row">
-                                    <input type="text" value="비밀번호를 입력하세요" onfocus="this.value='';"/>
-                                    <br><br>
-                                    <span class="txt" onclick="">* 필수 입력 사항</span>
+                                    <select id="sel-disc" class="ajax-select" title="Sports">
+                                        <option selected="selected">비밀번호를 입력하세요</option>
+                                    </select>
+                                    <span class="txt">* Required</span>
                                 </div>
                                 <div class="row">
-									<button>회원이 아니신 분은 <a href="#"> '여기' </a>를 클릭해서 가입하실 수 있습니다.</button>
+                                    <select id="sel-evt" class="ajax-select" title="Events" disabled="disabled">
+                                        <option>Events</option>
+                                    </select>
                                     <span class="txt">* Optional</span>
                                 </div>
                                 <div class="row">
-                                    <input type="submit" value="LOGIN" />
+                                    <input type="submit" value="Results" />
                                     <input type="reset" value="Clear" />
                                 </div>
                             </form>
@@ -116,6 +121,8 @@
                                         <option>Events</option>
                                     </select>
                                     <span class="txt">* Required</span>
+                                    
+                                    sdf
                                 </div>
                                 <div class="row">
                                     <select id="sel-games-s" class="ajax-select" title="Games" disabled="disabled">
@@ -133,6 +140,7 @@
                 </div>
             </div>
         </div>
-   </div>>
+   </div>
+<%@ include file="/WEB-INF/views/include/footer.jsp" %>
 </body>
 </html>
