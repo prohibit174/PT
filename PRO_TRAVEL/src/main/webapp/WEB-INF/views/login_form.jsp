@@ -8,7 +8,9 @@
 <title>Insert title here</title>
 <link media="all" rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/login.css" />
 <link media="all" rel="stylesheet" type="text/css" href="https://stillres.olympic.org/css/modules.css" />
+<style type="text/css">
 
+</style>
 </head>
 <body>
 <div class="results-box">
@@ -25,27 +27,21 @@
                         <div class="tab-section">
                             <form id="results-form" action="javascript:redirectFromGames()" class="results-form">
                                 <div class="row">
-                                    <select id="sel-games" class="ajax-select" title="Games">
-                                        <option class="default">아이디를 입력하세요.....</option>
-		
-                                    </select>
-                                    <input type="text" value="아이디를 입력하세요" id="login-box">
-                                    <span class="txt" onclick="">한글</span> <span class="txt">English</span>
+                                    <input type="text" value="아이디를 입력하세요" onfocus="this.value='';"/>
+                                    <br><br>
+                                    <span class="txt" onclick="">* 필수 입력 사항</span>
                                 </div>
                                 <div class="row">
-                                    <select id="sel-disc" class="ajax-select" title="Sports">
-                                        <option selected="selected">비밀번호를 입력하세요</option>
-                                    </select>
-                                    <span class="txt">* Required</span>
+                                    <input type="text" value="비밀번호를 입력하세요" onfocus="this.value='';"/>
+                                    <br><br>
+                                    <span class="txt" onclick="">* 필수 입력 사항</span>
                                 </div>
                                 <div class="row">
-                                    <select id="sel-evt" class="ajax-select" title="Events" disabled="disabled">
-                                        <option>Events</option>
-                                    </select>
+									<button>회원이 아니신 분은 <a href="#"> '여기' </a>를 클릭해서 가입하실 수 있습니다.</button>
                                     <span class="txt">* Optional</span>
                                 </div>
                                 <div class="row">
-                                    <input type="submit" value="Results" />
+                                    <input type="submit" value="LOGIN" />
                                     <input type="reset" value="Clear" />
                                 </div>
                             </form>
