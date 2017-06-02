@@ -4348,6 +4348,35 @@ hr ~ .add-cols {
   padding: 0;
   margin: 10px 0 0 10px;
   font-weight: bold; }
+  
+  .results-form button {
+  float: center;
+  width: 95%;
+  height: 45px;
+  border: 2px solid #acacac;
+  font-size: 14px;
+  line-height: 16px;
+  color: #959595;
+  outline: none;
+  cursor: pointer;
+  background: none;
+  padding-left: 10px;
+  margin: 10px 0 0 10px;
+  font-weight: bold; }
+  .results-form input[type="text"]{
+    float: center;
+  width: 95%;
+  height: 45px;
+  border: 1.5px solid #acacac;
+  font-size: 14px;
+  line-height: 16px;
+  color: #959595;
+  outline: none;
+  background: none;
+  padding-left: 10px;
+  margin: 10px 0 0 10px;
+  font-weight: bold; }
+  
 .results-form input[type="submit"]:hover {
   border: 2px solid #0081c8;
   background-color: #0081c8;
@@ -11091,7 +11120,21 @@ body > .jcf-select-drop.jcf-drop-flipped {
     margin: 17px 0 0 16px; }
   .results-form input[type="reset"] {
     margin-top: 14px; }
-
+  .results-form #insert_id {
+	  float: right;
+	  width: 50%;
+	  height: 45px;
+	  border: 2px solid #acacac;
+	  font-size: 14px;
+	  line-height: 16px;
+	  color: #959595;
+	  outline: none;
+	  cursor: pointer;
+	  background: none;
+	  padding: 0;
+	  margin: 10px 0 0 10px;
+	  font-weight: bold;
+    }
   .jcf-list {
     font-size: 12px; }
 
