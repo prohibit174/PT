@@ -19,9 +19,11 @@
 <% request.setCharacterEncoding("utf-8"); %>
 <% 
 
-String id =(String)session.getAttribute("member_id");
+String id = "0";
 
-/* System.out.println(request.getContextPath()); 
+
+/* String id =(String)session.getAttribute("member_id");
+System.out.println(request.getContextPath()); 
 
 
 
@@ -86,6 +88,10 @@ for(int i=0;i< allAccompanyList.size() ;i++)
 <!DOCTYPE html>
 
 <html>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js'></script>
+<script src='${pageContext.request.contextPath}/resources/js/accompanyJs/fullcalendar.js'></script>
+<link rel='stylesheet' href='/resources/css/accompany/fullcalendar.css' />
+
 <%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/css/carpool_css/city-main-styles.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/carpool_css/carpoolJoin.css" />--%>
 <%--  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/carpool_css/carpoolJoin2.css" />
@@ -104,9 +110,7 @@ for(int i=0;i< allAccompanyList.size() ;i++)
 
 <head>
 <!-- <script type="text/javascript" src="http://www.nowarch.com/resources/js/jquery-1.10.2.min.js"></script> -->
-<script src='${pageContext.request.contextPath}/resources/js/accompanyJs/moment.js'></script>
-<script src='${pageContext.request.contextPath}/resources/js/accompanyJs/fullcalendar.js'></script>
-<link rel='stylesheet' href='/resources/css/accompany/fullcalendar.css' />
+
 
 
   <style>

@@ -1,37 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
-
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/AgoFiles/users_css/all.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/AgoFiles/users_css/common.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/AgoFiles/users_css/jquery.js.selecter.css">
-
-
-<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/resources/js/AgoFiles/UsersJS/CheckEssential.js"></script>
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/resources/js/AgoFiles/UsersJS/IdCheck.js"></script>
-	<!-- Have to work for ID check -->
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/resources/js/AgoFiles/UsersJS/join_checkInfo.js"></script>
-	<!-- Have to work for PW REGEXP -->
-<%-- <script type="text/javascript"
-	src="${pageContext.request.contextPath}/resources/js/AgoFiles/UsersJS/JoinCheck.js"></script>
- --%>
- <!-- No need to JoinCheck.JS -->
-
-
 </head>
-
 <%@include file="/WEB-INF/views/include/header.jsp" %>
 <%@include file="/WEB-INF/views/include/mypage_sidebar.jsp" %>
 <body>
@@ -67,7 +41,7 @@
 
 
 				<form id="form_checkout" class="uniForm checkout"
-					enctype="application/x-www-form-urlencoded" action="joinform"
+					enctype="application/x-www-form-urlencoded" action="JoinForm"
 					method="post">
 					<!-- <div class="box-full" id="creationaccount"> -->
 						<div class="top"></div>
@@ -82,42 +56,20 @@
 									<table cellpadding="0" cellspacing="0" class="tab">
 										<tr>
 											<td class="label"><label for="u_id">아이디</label></td>
-											<td class="value"><input type="text"
-												name="u_id"
-												id="u_id" value="" /> &nbsp; <span
+											<td class="value">${user.u_id } &nbsp; <span
 												class="mandatory">*</span> <br>
 											<span>영문소문자 / 숫자, 4~12자</span> <input type="button"
 												id="u_idcheck" value="중복체크">
 												<ul class="errorField">
 												</ul></td>
 										</tr>
-								<!-- 	</table>
-								</div>
-								<div class="right">
-									<table cellpadding="0" cellspacing="0" class="tab"> -->
-										<tr>
-											<td class="label"><label for="pwd">비밀번호</label></td>
-											<td class="value"><input type="password"
-												name="u_pwd"
-												id="u_pwd" value="" />
-												&nbsp; <span class="mandatory">*</span>
-												<ul class="PWerrorField">
-												</ul></td>
-										</tr>
-										<tr>
-											<td class="label"><label for="pwd">비밀번호 확인</label></td>
-											<td class="value"><input type="password"
-												name="pwcheck"
-												id="pwcheck" value="" />
-												&nbsp; <span class="mandatory">*</span>
-												<ul class="PWCerrorField">
-												</ul></td>
-										</tr>
+								
+										
 
 										<tr>
 											<td class="label"><label for="name">닉네임</label></td>
-											<td class="value"><input type="text" name="u_name"
-												id="u_name" value="" /> &nbsp; <span class="mandatory">*</span>
+											<td class="value">
+											${user.u_name } &nbsp; <span class="mandatory">*</span>
 												<ul class="errorField">
 												</ul></td>
 										</tr>
@@ -125,8 +77,7 @@
 										<tr> 
 											<td>성별</td> 
 											<td> 
-											<input type="radio" name="u_sex" id="u_sex_m" value="남자"><label for="u_sex_m" class="radioSpan">남자</label> 
-											<input type="radio" name="u_sex" id="u_sex_f" value="여자"> <label for="u_sex_f" class="radioSpan">여자</label> 
+											${user.u_sex }
 											&nbsp; <span class="mandatory">*</span> 
 											</td> 
 											</tr>
@@ -135,12 +86,7 @@
 
 										<tr>
 											<td class="label"><label for="u_license">운전면허 유무</label></td>
-											<td><input type="radio" name="u_license" id="u_license"
-												value="운전면허 소지"><label>유</label> 
-												 <input type="radio"
-												name="u_license" id="u_license" value="운전면허 미소지"> 
-												<label>무</label>
-
+											<td>${user.u_license }
 												&nbsp; <span class="mandatory">*</span>
 												<ul class="errorField">
 												</ul></td>
@@ -150,8 +96,7 @@
 
 										<tr>
 											<td class="label"><label for="lastname">생년월일</label></td>
-											<td class="value"><input type="text" name="u_birth"
-												id="u_birth" value="" /> &nbsp; <span class="mandatory">*</span>
+											<td class="value">${user.u_birth } &nbsp; <span class="mandatory">*</span>
 												<ul class="errorField">
 												</ul></td>
 										</tr>
@@ -159,8 +104,7 @@
 
 										<tr>
 											<td class="label"><label for="u_address">거주지역</label></td>
-											<td class="value"><input type="text" name="u_address"
-												id="u_address" value="" /> &nbsp; <span class="mandatory">*</span>
+											<td class="value">${user.u_address } &nbsp; <span class="mandatory">*</span>
 												<ul class="errorField">
 												</ul></td>
 										</tr>
@@ -190,15 +134,13 @@
 									<table cellpadding="0" cellspacing="0" class="tab"> -->
 										<tr>
 											<td class="label"><label for="u_lang">사용언어</label></td>
-											<td class="value"><input type="text" name="u_lang"
-												id="u_lang" value="" /> &nbsp; 
+											<td class="value">${user.u_lang } &nbsp; 
 												<ul class="errorField">
 												</ul></td>
 										</tr>
 										<tr>
 											<td class="label"><label for="u_religion">종교</label></td>
-											<td class="value"><input type="text" name="u_religion"
-												id="u_religion" value="" /> &nbsp;
+											<td class="value">${user.u_religion }&nbsp;
 												<ul class="errorField">
 												</ul></td>
 										</tr>
@@ -214,20 +156,8 @@
 										<tr>
 											<td class="label"><label for="u_style">여행 스타일</label></td>
 											<td class="value">
-											<select name="u_style">
-											<option value="힐링">힐링</option>
-											<option value="관광">관광</option>
-											<option value="맛집">맛집</option>
-											<option value="액티비티">액티비티</option>
-											<option value="휴양">휴양</option>
-											
-											</select>
-											<input type="radio" name="u_style" value="힐링" checked="checked"><label>힐링</label>
-											<input type="radio" name="u_style" value="관광"><label>관광</label>
-							<input type="radio" name="u_style" value="맛집"> <label>맛집</label>
-							<input type="radio" name="u_style" value="액티비티"> <label>액티비티</label>
-							<input type="radio" name="u_style" value="휴양"><label>휴양</label>
-							&nbsp;&nbsp;<!-- <span>하나만 선택해주세요</span> --></td>
+											${user.u_style }
+											</td>
 										</tr>
 									</table>
 								</div>
@@ -260,34 +190,11 @@
 </style>
 
 
-							<div class="terms">
-
-								<input type="hidden" name="terms" value="0" /><input
-									type="checkbox" name="law_agree" id="law_agree" value="1" />
-									<a href="terms_conditions">이용약관</a>에 동의합니다.
-									<br><br>
-									<!-- 
-									 I accept
-								the <a target="_blank" href="/terms-conditions/"
-									class="secondaryAction linkPopinTermsConditions"
-									title="terms and conditions">terms and conditions</a><br />  -->
-									
-									<input
-									type="hidden" name="privacy_policy" value="0" />
-									<input type="checkbox" name="privacy_policy" id="privacy_policy"
-									value="1" /> 
-									<a href="privacy_policy">개인정보수집및이용</a>에 동의합니다.
-									
-									
-									<!-- I accept the <a target="_blank"
-									href="/privacy-policy/"
-									class="secondaryAction linkPopinPrivacyPolicy"
-									title="privacy policy">privacy policy</a> -->
-							</div>
+							
 
 							<button name="submit" id="validate_order" type="submit"
 								class="primaryAction">
-								<span>가입하기</span>
+								<span>수정하기하기</span>
 							</button>
 							<div class="clear"></div>
 						</div>
