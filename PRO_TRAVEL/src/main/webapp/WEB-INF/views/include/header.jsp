@@ -73,8 +73,10 @@
 
 
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/button.css">
+
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/login.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/login_success.js"></script>
 
 <script type="text/javascript">window.jQuery || document.write('<script src="https://stillres.olympic.org/js/jquery-1.11.1.min.js"><\/script>')</script>
 <script type="text/javascript"
@@ -148,7 +150,9 @@
 		</div>
 		<nav class="nav-box">
 		<div class="nav-holder">
+		
 			<div class="nav-frame">
+			
 				<ul id="nav">
 					<li><a href="/olympic-games">HOME</a>
 						<div class="drop">
@@ -1044,6 +1048,7 @@
 					<div class="hold lang-switcher-container">
 						
 						<ul class="social-links">
+							<li class="welcome" style="display:none;"><span class="session" ><%=session.getAttribute("login") %></span>님 환영합니다.</li>
 							<li class="button_base b01_simple_rollover"><a href="/login_form" id="login-button">LOGIN</a></li>
 							<li class="button_base b01_simple_rollover"><a href="#">SIGN UP</a></li>
 							<li><a href="https://twitter.com/olympics" class="ss-icon">twitter</a></li>
