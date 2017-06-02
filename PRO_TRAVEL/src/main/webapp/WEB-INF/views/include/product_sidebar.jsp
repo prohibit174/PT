@@ -8,7 +8,7 @@
 </head>
 <body>
 <div id="sidebar">
-  <section class="tabs-section alt" id="tabsSection" >
+<section class="tabs-section alt" id="tabsSection" >
         <nav>
             <div class="tabset-box">
                 <ul class="tabset">
@@ -53,47 +53,12 @@
             </i>
         </a>
     </li>
-    <li class="">
-        <a href="#mascots" data-class="games2014-2" target="">
-            Mascots
-            <i class="icon-arrow-right">
-                <span class="hide">arrow</span>
-            </i>
-        </a>
-    </li>
-    <li class="">
-        <a href="#torch" data-class="games2014-2" target="">
-            Torch
-            <i class="icon-arrow-right">
-                <span class="hide">arrow</span>
-            </i>
-        </a>
-    </li>
-    <li class="">
-        <a href="#poster" data-class="games2014-2" target="">
-            Poster
-            <i class="icon-arrow-right">
-                <span class="hide">arrow</span>
-            </i>
-        </a>
-    </li>
-    <li class="">
-        <a href="#official-reports" data-class="games2014-2" target="">
-            Official Reports
-            <i class="icon-arrow-right">
-                <span class="hide">arrow</span>
-            </i>
-        </a>
-    </li>
+
                 </ul>
             </div>
             
         </nav>
-
-                <div id="highlights-of-the-games">
-
-</div>
-    <section class="text-post" itemscope itemtype="http://schema.org/NewsArticle" >
+<section class="text-post" itemscope itemtype="http://schema.org/NewsArticle" >
 </div>
 </body>
 </html>

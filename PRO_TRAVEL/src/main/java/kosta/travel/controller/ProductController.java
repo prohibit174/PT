@@ -19,5 +19,10 @@ public class ProductController {
 		public String product_list() {
 			return "/product/product_list";
 		}
+		
+		@RequestMapping(value = "/test", method = RequestMethod.GET)
+		public String test() {
+			return "/product/side";
+		}
 	
 }

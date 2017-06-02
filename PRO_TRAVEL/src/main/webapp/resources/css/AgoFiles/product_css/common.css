@@ -22,7 +22,7 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  background: #efeeed;
+  background: #fff;
   font: 10px "tomregular", arial !important;
   height: 100%;
   width: 100%;
@@ -331,7 +331,9 @@
     padding: 0; }
   #main .wrapper-content, .mfp-wrap .wrapper-content {
     width: 1000px;
-    margin: auto; }
+    margin: auto;
+ 
+     }
   #main .wrapper-content .wrapper-content, .mfp-wrap .wrapper-content .wrapper-content {
     width: auto; }
   #main .fixed main > .wrapper-content, .mfp-wrap .fixed main > .wrapper-content {
