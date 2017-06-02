@@ -28,11 +28,9 @@ public class AccompanyController{
 	
 	
 	@RequestMapping(value = "/")
-	public String main1(Model model/*, HttpSession session*/){
+	public String main(Model model, HttpSession session){
 		try {
-			model.addAttribute("list" ,service.getUserRoute(/*Integer.parseInt(session.getId())*/ 0 ));
-			
-			
+			model.addAttribute("list" ,service.getUserRoute(Integer.parseInt(session.getId())));
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -40,17 +38,18 @@ public class AccompanyController{
 		return "/accompany/Accomp_main";
 	}
 	
-	@RequestMapping(value = "/Accomp_main", method = RequestMethod.GET)
-	public String main(Model model /*, HttpSession session*/){
+	@RequestMapping(value = "/enroll")
+	public String main9(Model model, HttpSession session){
 		try {
-			model.addAttribute("list" ,service.getUserRoute(/*Integer.parseInt(session.getId())*/ 0 ));
-			
+			model.addAttribute("list" ,service.getUserRoute(Integer.parseInt(session.getId())));
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return "/accompany/Accomp_main";
+		return "/accompany/enroll";
 	}
+	
+	
 	       
 	       	   
 }
