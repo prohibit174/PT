@@ -24,6 +24,21 @@ public class UserServiceImpl implements UserService {
 		dao.insertUsers(users);
 		
 	}
+
+	@Override
+	public int idCheck(String u_id) throws Exception {
+		return dao.idCheck(u_id);
+	}
+
+	@Override
+	public UsersVO userDetail(String u_id) throws Exception {
+		return dao.userDetail(u_id);
+	}
+
+	@Override
+	public UsersVO userUpdate(UsersVO users) throws Exception {
+		return dao.userUpdate(users);
+	}
 	
 	
 
