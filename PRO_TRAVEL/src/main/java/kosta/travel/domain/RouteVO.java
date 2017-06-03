@@ -1,18 +1,26 @@
 package kosta.travel.domain;
 
+import java.util.List;
+
 public class RouteVO {
+	
+	
 	public RouteVO(String tp_num, String cor_region, String u_id, String tp_date) {
 		super();
 		this.tp_num = tp_num;
 		this.cor_region = cor_region;
 		this.u_id = u_id;
 		this.tp_date = tp_date;
+		
+		
 	}
 	public RouteVO(){}
 	private String tp_num;
 	private String cor_region;
 	private String u_id;
 	private String tp_date;
+	private List<String> title;
+	private List<String> eventdate;
 	
 	public String getTp_num() {
 		return tp_num;
@@ -38,5 +46,20 @@ public class RouteVO {
 	public void setTp_date(String tp_date) {
 		this.tp_date = tp_date;
 	}
+	public List<String> getTitle() {
+		return title;
+	}
+	public void setTitle(List<String> title) {
+		this.title = title;
+	}
+	public List<String> getEventdate() {
+		return eventdate;
+	}
+	public void setEventdate(List<String> eventdate) {
+		this.eventdate = eventdate;
+	}
+	
 
+	
+	
 }

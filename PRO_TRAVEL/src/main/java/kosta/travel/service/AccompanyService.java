@@ -25,41 +25,96 @@ public class AccompanyService {
 	@Inject
 	private AccompanyDao dao;
 	
-	private RouteVO route;
-	
-	
 	public List<AccompanyVO> getUserRoute(int id) throws Exception {
 		return dao.getUserRoute(id);
 	}
 
-	@ResponseBody
-	public void insertRoute()throws Exception{
-		/*RouteDao dao = RouteDao.getInstance();
+	public void insertRoute(RouteList[] list)throws Exception{
 		
-		String id =(String)request.getSession().getAttribute("member_id");
-		String json=request.getParameter("json");
-		System.out.println(json);
-		//for(int i=0;i<jsonArray.size())
-		//jsonArray.add(index, value);
-		  
-	  	  Object obj = JSONValue.parseWithException(json);
-	      JSONArray jsonArray = (JSONArray)obj;
-	      
-	      for(int i=0;i<jsonArray.size();i++) {
-	    	  Route route = new Route();
-	    	  JSONObject rstJson = (JSONObject)jsonArray.get(i);
+			RouteVO route = new RouteVO();
+		
+			System.out.println("배열크기"+list.length);
+	      for(int i=0;i<list.length;i++) {
+	   
 	  		  Random r=new Random();
 	  		  int random=r.nextInt(100000000);
 	  		  route.setTp_num(random+"");
-	    	  route.setU_id(id);
-	    	  route.setCor_region(rstJson.get("title").toString());
-	    	  //route.setTp_date(rstJson.get("date").toString());
-	    	  route.setTp_date(rstJson.get("eventdate").toString());
+	    	  route.setU_id(list[i].getId());
+	    	  route.setCor_region(list[i].getTitle());
+	    	  route.setTp_date(list[i].getEventdate());
+	    	  
+	    	  
 	    	  dao.insertRoute(route);
 	      }
 		
-		*/
+	
 	}
 
+	
+/*
+	String id = "0";
+
+
+	String id =(String)session.getAttribute("member_id");
+	System.out.println(request.getContextPath()); 
+
+
+
+	AccompanyDao dao = AccompanyDao.getInstance();
+	RouteVO route=new RouteVO();
+	AccompanyService ser = new AccompanyService();
+
+	route.setU_id("0");
+	//  로그인 후 route.setU_id(id);
+	List<AccompanyVO> list = dao.getUserRoute(0);
+
+
+	request.setAttribute("list", list);
+
+	List<AccompanyVO> allAccompanyList=dao.getUserRoute(0);
+
+	allAccompanyList.clear();
+
+
+	for(int i=0;i< "${list}".size() ;i++)
+		{
+		  
+		  List<AccompanyVO> userRoutesInfo  = dao.getUserInfo(list.get(i).getU_id());//get user's route whose id is "0"
+		  //get routes of logined user.
+		  //userRoutesInfo[0] contains 5.1 Nice, id, trip_style and so on...
+		  //userRoutesInfo[1] contains 5.2 Nice, id, trip_style and so on...
+		  //userRoutesInfo[2] contains 5.3 Swiss, id, trip_style and so on...
+		  //userRoutesInfo[3] contains 5.4 Swiss, id, trip_style and so on...
+		  String name=userRoutesInfo.get(i).getU_name();
+		  String region=userRoutesInfo.get(i).getCor_region();
+		  String date=userRoutesInfo.get(i).getTp_date();
+		  System.out.println(i+"번째"+date+"의 "+region);
+		  System.out.println();
+
+		  //List<Accompany> temp=dao.findAccompany(userRoutesInfo.get(i));
+		  List<AccompanyVO> temp=dao.getAccompanies(userRoutesInfo.get(i));
+		  allAccompanyList.addAll(temp);
+		  
+		}
+	System.out.println();
+	System.out.println("allAccompanyList.size : " +allAccompanyList.size());
+		
+
+	for(int i=0;i< allAccompanyList.size() ;i++)
+		{ String name=allAccompanyList.get(i).getU_name();
+		  String region=allAccompanyList.get(i).getCor_region();
+		  String date=allAccompanyList.get(i).getTp_date();
+		  String lati=allAccompanyList.get(i).getCor_lati();
+		  String longi=allAccompanyList.get(i).getCor_longi();
+		  System.out.println(date+"의 "+region+"에서의 동행은 "+name+"입니다"+"lat/long : "+lati+" / "+longi);
+		}
+		   request.setAttribute("allAccompanyList", allAccompanyList);
+		   
+		   
+	*/
+	
+	
+	
+	
 	
 }

@@ -3,12 +3,9 @@
 
   <head>
 <%@include file="../include/header.jsp" %>  
-<link rel='stylesheet' href='${pageContext.request.contextPath}/GoogleAPI/fullcalendar.css' />
-<%-- <script src='${pageContext.request.contextPath}/GoogleAPI/lib/jquery.min.js'></script> --%>
-<script src='${pageContext.request.contextPath}/GoogleAPI/lib/moment.min.js'></script>
-<!-- <script src='jquery-ui.js'></script>
-<script src='jquery-ui.min.js'></script> -->
-<script src='${pageContext.request.contextPath}/GoogleAPI/fullcalendar.js'></script>
+<link rel='stylesheet' href='/resources/css/accompany/fullcalendar.css' />
+<script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js'></script>
+<script src='${pageContext.request.contextPath}/resources/js/accompanyJs/fullcalendar.js'></script>
 
     <style>
        #map {
@@ -69,7 +66,7 @@
               createLine(latLngList, map);
               
               collectEvent();
-                jsonEncode = JSON.stringify(allEvent);
+               jsonEncode = JSON.stringify(allEvent);
                obj.value = jsonEncode;
                console.log(obj);
              }
@@ -467,7 +464,7 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnrWQ2SHvedNrvdozheYo32pHwCbuvPgs&callback=initMap">
     </script>   
     
-   <form action="insertRoute.route" method="post">
+   <form action="/accompany/enroll" method="post">
       <input type="hidden" name="json" value="" id="json">
             <input type="submit" value="send">
    </form>
