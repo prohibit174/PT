@@ -14,22 +14,16 @@
 		)
 	</insert>
 	
-	<!-- <select id="listProduct" resultType="ProductVO" parameterType="Product_Search">
+	<select id="listProduct" resultType="ProductVO" >
 		select * from product
-		
-		<if test="product_search !=null">
-		<where>
-		<foreach collection="product_search" item="item" separator="or" open="(" close=")">
-			${item} LIKE #{searchKey}
-		</foreach>
-		</where>
-		</if>
 	</select>
-	
-	<select id="detailProduct" resultType="Product" parameterType="String">
+	 
+	 
+	<select id="detailProduct" resultType="ProductVO" parameterType="String">
 		select * from product where p_num = #{p_num}
 	</select>
 	
+	<!-- 
 	<update id="updateProduct" parameterType="Product">
 		update product set p_num = #{p_num}, p_img = #{p_img} where p_num = #{p_num}
 	</update>

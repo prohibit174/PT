@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 <%@ include file="/WEB-INF/views/include/product_sidebar.jsp"%>
 
@@ -94,74 +97,35 @@
                   
                   <div class="ajax-area" data-tmpl="load3_tmpl" style="background-color: white">
                      <ul class="sets-list ajax-content">
+				<c:forEach var="product" items="${list}">
+					 <li itemscope="" itemtype="http://schema.org/ImageObject" class="same-height">
+                           <a href="product_detail/${product.p_num }" style="color:DarkSlateGray";> 
+                           <picture class="img"> 
+				
+					<c:if test="${product.p_img!=null}">
+					 <c:set var="head"
+                     value="${fn:substring(product.p_img, 0, fn:length(product.p_img)-4) }"></c:set>
+                  <c:set var="pattern"
+                     value="${fn:substring(product.p_img, fn:length(head)+1, fn:length(product.p_img)) }"></c:set>
 
-                        <li itemscope="" itemtype="http://schema.org/ImageObject"
-                           class="same-height"><a href="/photos/tokyo-2020" style="color:DarkSlateGray";> 
-                           <picture class="img"> <img
-                                 srcset="https://stillmed.olympic.org/media/Photos/2016/11/2016-09-21-flag-Tokyo-2.jpg?interpolation=lanczos-none&fit=around|340:191&crop=340:191;*,*, https://stillmed.olympic.org/media/Photos/2016/11/2016-09-21-flag-Tokyo-2.jpg?interpolation=lanczos-none&fit=around|680:382&crop=680:382;*,* 2x"
-                                 alt="Tokyo 2020"></picture>
-
+                  <c:choose>
+                     <c:when test="${pattern=='jpg' || pattern =='gif' || pattern =='png' }">
+                        <img src="upload/${head }_small.${pattern}" alt="img /">
+                     </c:when>
+                     <c:otherwise>
+                        <c:out value="No IMAGE"></c:out>
+                     </c:otherwise>
+                  </c:choose>
+               </c:if>
+				
+                           <%-- <img srcset="${product.p_img}"> --%>
+                           </picture>
                         </a>
                            <h2 itemprop="name">
-                              <a href="/photos/tokyo-2020" itemprop="url" style="color:DarkSlateGray";>product name</a>
-                           </h2> <span>작성자</span></li>
-
-                        <li itemscope="" itemtype="http://schema.org/ImageObject"
-                           class="same-height"><a href="/photos/pyeongchang-2018" style="color:DarkSlateGray";>
-                              <picture class="img"> <img
-                                 srcset="https://stillmed.olympic.org/media/Photos/2017/02/2017-02-07-p2018-9.jpg?interpolation=lanczos-none&fit=around|340:191&crop=340:191;*,*, https://stillmed.olympic.org/media/Photos/2017/02/2017-02-07-p2018-9.jpg?interpolation=lanczos-none&fit=around|680:382&crop=680:382;*,* 2x"
-                                 alt="PyeongChang 2018"></picture>
-
-                        </a>
-                           <h2 itemprop="name">
-                              <a href="/photos/pyeongchang-2018" itemprop="url" style="color:DarkSlateGray";>PyeongChang
-                                 2018</a>
-                           </h2> <span class="sss-picture"></span> <span>3 Photos</span></li>
-
-                        <li itemscope="" itemtype="http://schema.org/ImageObject"
-                           class="same-height"><a href="/photos/rio-2016" style="color:DarkSlateGray";> <picture
-                                 class="img"> <img
-                                 srcset="https://stillmed.olympic.org/media/Photos/2011/06/10/Cristo%20Redentor_130892.jpg?interpolation=lanczos-none&fit=around|340:191&crop=340:191;*,*, https://stillmed.olympic.org/media/Photos/2011/06/10/Cristo%20Redentor_130892.jpg?interpolation=lanczos-none&fit=around|680:382&crop=680:382;*,* 2x"
-                                 alt=""></picture>
-
-                        </a>
-                           <h2 itemprop="name">
-                              <a href="/photos/rio-2016" itemprop="url" style="color:DarkSlateGray"; >Rio 2016</a>
-                           </h2> <span class="sss-picture"></span> <span>2141 Photos</span></li>
-
-                        <li itemscope="" itemtype="http://schema.org/ImageObject"
-                           class="same-height"><a href="/photos/sochi-2014" style="color:DarkSlateGray";> <picture
-                                 class="img"> <img
-                                 srcset="https://stillmed.olympic.org/media/Photos/2014/02/05/Pre%20Games%20%20Sebastien%20Gattuso%20and%20Patrice%20Servelle%20of%20Monaco%20during%20Practice223245.jpg?interpolation=lanczos-none&fit=around|340:191&crop=340:191;*,*, https://stillmed.olympic.org/media/Photos/2014/02/05/Pre%20Games%20%20Sebastien%20Gattuso%20and%20Patrice%20Servelle%20of%20Monaco%20during%20Practice223245.jpg?interpolation=lanczos-none&fit=around|680:382&crop=680:382;*,* 2x"
-                                 alt=""></picture>
-
-                        </a>
-                           <h2 itemprop="name">
-                              <a href="/photos/sochi-2014" itemprop="url" style="color:DarkSlateGray";>Sochi 2014</a>
-                           </h2> <span class="sss-picture"></span> <span>1493 Photos</span></li>
-
-                        <li itemscope="" itemtype="http://schema.org/ImageObject"
-                           class="same-height"><a href="/photos/london-2012" style="color:DarkSlateGray";> <picture
-                                 class="img"> <img
-                                 srcset="https://stillmed.olympic.org/media/Photos/2012/08/10/Taylor%20USA%20winces%20as%20Miller%20BAH%20passes172305.jpg?interpolation=lanczos-none&fit=around|340:191&crop=340:191;*,*, https://stillmed.olympic.org/media/Photos/2012/08/10/Taylor%20USA%20winces%20as%20Miller%20BAH%20passes172305.jpg?interpolation=lanczos-none&fit=around|680:382&crop=680:382;*,* 2x"
-                                 alt=""></picture>
-
-                        </a>
-                           <h2 itemprop="name">
-                              <a href="/photos/london-2012" itemprop="url" style="color:DarkSlateGray";>London 2012</a>
-                           </h2> <span class="sss-picture"></span> <span>1547 Photos</span></li>
-
-                        <li itemscope="" itemtype="http://schema.org/ImageObject"
-                           class="same-height"><a href="/photos/vancouver-2010" style="color:DarkSlateGray";>
-                              <picture class="img"> <img
-                                 srcset="https://stillmed.olympic.org/media/Photos/Default/Giuliano%20Razzoli%20-%202010%20Vancouver%20Olympic%20Winter%20Games_137094.jpg?interpolation=lanczos-none&fit=around|340:191&crop=340:191;*,*, https://stillmed.olympic.org/media/Photos/Default/Giuliano%20Razzoli%20-%202010%20Vancouver%20Olympic%20Winter%20Games_137094.jpg?interpolation=lanczos-none&fit=around|680:382&crop=680:382;*,* 2x"
-                                 alt=""></picture>
-
-                        </a>
-                           <h2 itemprop="name">
-                              <a href="/photos/vancouver-2010" itemprop="url" style="color:DarkSlateGray";>Vancouver
-                                 2010</a>
-                           </h2> <span class="sss-picture"></span> <span>1621 Photos</span></li>
+ 
+                              <a href="product_detail?p_num=${product.p_num }" itemprop="url" style="color:DarkSlateGray";>${product.p_name }</a>
+                           </h2> <span>판매자: ${product.u_id }</span></li>
+				</c:forEach>
                      </ul>
                      <span class="btn-more"> <a
                         href="/ajaxscript/loadmoreoverviewmedia/{B4C7581B-72EC-4637-A3ED-52F225BFE686}/6/0/MiddleOverview">More</a>

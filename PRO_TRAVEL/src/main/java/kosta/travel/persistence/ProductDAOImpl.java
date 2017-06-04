@@ -27,14 +27,13 @@ public class ProductDAOImpl implements ProductDAO {
 	}
 
 	@Override
-	public List<ProductVO> listProduct(RowBounds row, Product_SearchVO search) {
-		return null;
+	public List<ProductVO> listProduct() {
+		return session.selectList(namespace+".listProduct");
 	}
 
 	@Override
 	public ProductVO detailProduct(String p_num) {
-		// TODO Auto-generated method stub
-		return null;
+		return session.selectOne(namespace+".detailProduct");
 	}
 
 	@Override

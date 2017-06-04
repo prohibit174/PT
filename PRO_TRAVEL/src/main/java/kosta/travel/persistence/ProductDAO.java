@@ -11,7 +11,7 @@ import kosta.travel.domain.Product_SearchVO;
 public interface ProductDAO {
 	
 	int insertProduct(ProductVO product);
-	List<ProductVO> listProduct(RowBounds row,Product_SearchVO search);
+	List<ProductVO> listProduct();
 	ProductVO detailProduct(String p_num);
 	int updateProduct(ProductVO product);
 	int deleteProduct(ProductVO product);

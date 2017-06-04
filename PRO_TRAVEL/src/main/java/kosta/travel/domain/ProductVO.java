@@ -1,5 +1,7 @@
 package kosta.travel.domain;
 
+import java.util.Arrays;
+
 public class ProductVO {
 	private String p_num;
 	private String u_id;
@@ -10,12 +12,13 @@ public class ProductVO {
 	private String p_date;
 	private String p_ox;
 	
-	public ProductVO(){}
+	private String[] files;
 	
+	public ProductVO(){}
 	
 
 	public ProductVO(String p_num, String u_id, String p_img, String p_detail, String p_price, String p_name,
-			String p_date, String p_ox) {
+			String p_date, String p_ox, String[] files) {
 		super();
 		this.p_num = p_num;
 		this.u_id = u_id;
@@ -25,6 +28,7 @@ public class ProductVO {
 		this.p_name = p_name;
 		this.p_date = p_date;
 		this.p_ox = p_ox;
+		this.files = files;
 	}
 
 
@@ -69,11 +73,11 @@ public class ProductVO {
 		this.p_price = p_price;
 	}
 
-	public String getp_name() {
+	public String getP_name() {
 		return p_name;
 	}
 
-	public void setp_name(String p_name) {
+	public void setP_name(String p_name) {
 		this.p_name = p_name;
 	}
 
@@ -81,7 +85,7 @@ public class ProductVO {
 		return p_date;
 	}
 
-	public void setP_term(String p_date) {
+	public void setP_date(String p_date) {
 		this.p_date = p_date;
 	}
 
@@ -93,14 +97,25 @@ public class ProductVO {
 		this.p_ox = p_ox;
 	}
 
+	public String[] getFiles() {
+		return files;
+	}
+
+	public void setFiles(String[] files) {
+		this.files = files;
+	}
+
 
 
 	@Override
 	public String toString() {
 		return "ProductVO [p_num=" + p_num + ", u_id=" + u_id + ", p_img=" + p_img + ", p_detail=" + p_detail
-				+ ", p_price=" + p_price + ", p_name=" + p_name + ", p_date=" + p_date + ", p_ox=" + p_ox + "]";
+				+ ", p_price=" + p_price + ", p_name=" + p_name + ", p_date=" + p_date + ", p_ox=" + p_ox + ", files="
+				+ Arrays.toString(files) + "]";
 	}
-
+	
+	
+	
 	
 	
 }
