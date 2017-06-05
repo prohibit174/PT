@@ -137,7 +137,7 @@
 	width: 155px;
 }
 </style>
-<button name="submit" id="validate_order1" type="submit"
+<button name="submit" id="validate_order" type="submit"
 								class="primaryAction">
 								<span>Request Register</span>
 							</button>
