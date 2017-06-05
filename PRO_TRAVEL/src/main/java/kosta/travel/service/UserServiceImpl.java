@@ -39,6 +39,12 @@ public class UserServiceImpl implements UserService {
 	public UsersVO userUpdate(UsersVO users) throws Exception {
 		return dao.userUpdate(users);
 	}
+
+	@Override
+	public UsersVO checkPw(String u_id, String u_pwd) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 
