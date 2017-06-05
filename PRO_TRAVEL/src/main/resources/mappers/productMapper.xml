@@ -43,6 +43,7 @@
 			#{pr_reqnum}, #{u_id}, #{p_num},
 			#{pr_ox},#{pr_place},#{pr_date}
 		)
+		
 	</insert>
 	
 	<!--  <select id="detailProductReq" resultType="Product_Request" parameterType="String">

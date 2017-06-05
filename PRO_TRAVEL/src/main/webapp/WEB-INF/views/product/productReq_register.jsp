@@ -30,8 +30,8 @@
 </head>
 
 <body>
-<%@ include file="/WEB-INF/views/include/header.jsp" %>
-<%@ include file="/WEB-INF/views/include/product_sidebar.jsp" %>
+	<%@ include file="/WEB-INF/views/include/header.jsp"%>
+	<%@ include file="/WEB-INF/views/include/product_sidebar.jsp"%>
 
 	<div id="wrapper" data-speed="3">
 		<main id="main">
@@ -50,8 +50,8 @@
 
 
 				<form id="form_checkout" class="uniForm checkout"
-					
-					action="product_list" >
+					action="product_list">
+					<!--  method="post" 이거 왜에러나지ㅠ  -->
 					<div class="box-full" id="creationaccount">
 						<div class="top"></div>
 						<div class="form">
@@ -72,15 +72,15 @@
 										</tr>
 
 										<tr>
-											<td class="label"><label for="u_lang">User
-													ID</label></td>
+											<td class="label"><label for="u_lang">User ID</label></td>
 											<td class="value"><input type="text" name="u_id"
 												id="u_id" value="" /> &nbsp; <span class="mandatory"></span>
 												<ul class="errorField">
 												</ul></td>
 										</tr>
 										<tr>
-											<td class="label"><label for="u_lang">Product Number</label></td>
+											<td class="label"><label for="u_lang">Product
+													Number</label></td>
 											<td class="value"><input type="text" name="p_num"
 												id="p_num" value="" /> &nbsp; <span class="mandatory"></span>
 												<ul class="errorField">
@@ -88,8 +88,8 @@
 										</tr>
 
 										<tr>
-											<td class="label"><label for="u_lang">Product Request
-													Status</label></td>
+											<td class="label"><label for="u_lang">Product
+													Request Status</label></td>
 											<td class="value"><input type="text" name="pr_ox"
 												id="pr_ox" value="" /> &nbsp; <span class="mandatory"></span>
 												<ul class="errorField">
@@ -106,8 +106,8 @@
 											<td class="value"><input type="text" name="pr_date"
 												id="pr_date" value="" /></td>
 										</tr>
-										
-									
+
+
 									</table>
 								</div>
 
@@ -138,20 +138,19 @@
 }
 </style>
 
-<button name="submit" id="validate_order" type="submit"
+							<button name="submit" id="validate_order" type="submit"
 								class="primaryAction">
 								<span>Request Register</span>
 							</button>
-							
+
 							<div class="clear"></div>
-							
+
 						</div>
 				</form>
-				
+
 			</div>
 			</section>
 		</div>
-
 	</div>
 	</main>
 
@@ -159,7 +158,7 @@
 	</div>
 
 	<div id="profiler"></div>
-<%@ include file="..//include/footer.jsp" %> 
+	<%@ include file="..//include/footer.jsp"%>
 
 </body>
 </html>
