@@ -59,4 +59,21 @@ public class ProductController {
     	  
                return "/product/product_detail2";
             }
+      
+      
+  	@RequestMapping(value="/product_update", method = RequestMethod.GET)
+  	public void product_update(String p_num, Model model)throws Exception{
+  		model.addAttribute(service.detailProduct(p_num));
+  	}
+  	
+  	@RequestMapping(value="/product_update", method = RequestMethod.POST)
+  	public String product_update(ProductVO product /*RedirectAttributes rttr*/)throws Exception{
+  		logger.info("mod post...........");
+  		
+  		service.updateProduct(product);
+  		/*rttr.addFlashAttribute("msg", "SUCCESS");*/
+  		
+  		return "redirect:/product/product_list";
+  	}
+  	
 }

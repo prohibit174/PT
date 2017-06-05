@@ -30,4 +30,10 @@ public class ProductServiceImpl implements ProductService {
 		return dao.detailProduct(p_num);
 	}
 
+	@Override
+	public void updateProduct(ProductVO product) throws Exception {
+		dao.updateProduct(product);
+		
+	}
+
 }

@@ -23,12 +23,12 @@
 		select * from product where p_num = #{p_num}
 	</select>
 	
-	<!-- 
+	 
 	<update id="updateProduct" parameterType="Product">
 		update product set p_num = #{p_num}, p_img = #{p_img} where p_num = #{p_num}
 	</update>
 	
-	<delete id="deleteProduct" parameterType="Product">
+	<!-- <delete id="deleteProduct" parameterType="Product">
 		delete from product where p_num = #{p_num}
 	</delete>
 	
@@ -74,7 +74,7 @@
       select * from product_req
       where pr_ox ='x'
    
-   </select> -->
+   </select> --> 
 	
 
 </mapper>

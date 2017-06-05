@@ -70,10 +70,20 @@
 <link media="all" rel="stylesheet" type="text/css"
 	href="https://stillres.olympic.org/css/all.css" />
 
-
-
-<style>
-</style>
+  <script type="text/javascript">
+  
+  $(document).ready(function(){
+  	
+  	var formObj = $("form[role='form']");
+  	
+  	console.log(formObj);
+  	
+  	$("#modifyBtn").on("click", function(){
+  		formObj.attr("action", "/product_update");
+  		formObj.attr("method", "get");		
+  		formObj.submit();
+  	});
+	</script>
 
 
 <!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="https://stillres.olympic.org/css/ie.css" /><![endif]-->
@@ -138,7 +148,7 @@
 				
 					
 					<div class="row">
-						<button>수정</button>
+						 <button type="submit" class="btn btn-warning" id="modifyBtn">수정</button> 		 
 						<button>삭제</button>
 					</div>
 				</div>

@@ -38,8 +38,7 @@ public class ProductDAOImpl implements ProductDAO {
 
 	@Override
 	public int updateProduct(ProductVO product) {
-		// TODO Auto-generated method stub
-		return 0;
+		return session.update(namespace+".updateProduct", product);
 	}
 
 	@Override
