@@ -53,6 +53,8 @@ public class MypageController {
 		System.out.println(u_id + u_pwd);
 		
 		boolean result = userService.checkPw(u_id, u_pwd);
+		
+		
 		return "/mypage/mypage_userCheckForm";
 	}
 }
