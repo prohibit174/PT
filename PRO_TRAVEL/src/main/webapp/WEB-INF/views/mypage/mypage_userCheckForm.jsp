@@ -5,6 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/AgoFiles/users_css/all.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/AgoFiles/users_css/common.css">
 </head>
 <%@include file="/WEB-INF/views/include/header.jsp" %>
 <%@include file="/WEB-INF/views/include/mypage_sidebar.jsp" %>
@@ -41,8 +45,7 @@
 
 
 				<form id="form_checkout" class="uniForm checkout"
-					enctype="application/x-www-form-urlencoded" action="checkPW"
-					method="post">
+					enctype="application/x-www-form-urlencoded" action="checkPW">
 					<!-- <div class="box-full" id="creationaccount"> -->
 						<div class="top"></div>
 						<div class="form">
@@ -58,10 +61,7 @@
 											<td class="label"><label for="u_id">아이디</label></td>
 											<td class="value">${user.u_id } &nbsp; <span
 												class="mandatory">*</span> <br>
-											<span>영문소문자 / 숫자, 4~12자</span> <input type="button"
-												id="u_idcheck" value="중복체크">
-												<ul class="errorField">
-												</ul></td>
+										</td>
 										</tr>
 								
 										
@@ -124,9 +124,7 @@
 
 										<tr>
 											<td class="label"><label for="u_job">직업</label></td>
-											<td class="value"><input type="text"
-												name="u_job"
-												id="u_job" value="" /></td>
+											<td class="value">${user.u_job }&nbsp;</td>
 										</tr>
 									<!-- </table>
 								</div>
@@ -146,13 +144,13 @@
 										</tr>
 
 
-										<tr>
+										<!-- <tr>
 											<td class="label"><label for="u_img">프로필 이미지</label></td>
 											<td class="value"><input type="file" name="u_img"
 												id="u_img" value="" /> &nbsp; 
 												<ul class="errorField">
 												</ul></td>
-										</tr>
+										</tr> -->
 										<tr>
 											<td class="label"><label for="u_style">여행 스타일</label></td>
 											<td class="value">

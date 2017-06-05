@@ -1,38 +1,104 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/AgoFiles/users_css/all.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/AgoFiles/users_css/common.css">
 </head>
+<%@include file="/WEB-INF/views/include/header.jsp" %>
+<%@include file="/WEB-INF/views/include/mypage_sidebar.jsp" %>
 <body>
 
-<form class="join_checkout" method="post" action="UpdateUserAction.mypage">
+<div id="wrapper" data-speed="3">
+
+		<main id="main">
+
+
+		<div class="wrapper-content">
+
+
+
+			<section class="section w12-h bg-white process">
+			<div class="content">
+				<div id="conteneurform" class="contenu_full">
+
+
+				<form id="form_checkout" class="uniForm checkout"
+					enctype="application/x-www-form-urlencoded" action="checkPW" method="post">
+					<!-- <div class="box-full" id="creationaccount"> -->
+						<div class="top"></div>
+						<div class="form">
+
+							<input type="hidden" name="newuser" value="0" id="newuser" />
+							<div id="creationaccountform">
+
+								<h3>Check Password</h3>
+
+								<div class="left">
+									<table cellpadding="0" cellspacing="0" class="tab">
+										<tr>
+											<td class="label"><label for="u_pwd">ë¹„ë°€ë²ˆí˜¸</label></td>
+											<td class="value"><input type="password" name="u_pwd" id="u_pwd"> &nbsp; <span
+												class="mandatory">*</span> <br>
+												<span>ë³¸ì¸ í™•ì¸ì„ ìœ„í•´ ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.</span>
+										</td>
+										
+									</table>
+								</div>
+
+								<div class="clear"></div>
+							</div>
+
+							<div class="bottom"></div>
+
+							<br />
+
+
+							<div class="clear"></div>
+
+							<div class="bottom"></div>
+						</div>
+						<br />
+
+						<div class="clear"></div>
+
+
+						<br />
+
+						<div class="buttonHolder">
+							<style type="text/css">
+/*ie7onli - skin bouton */
+*+html .primaryAction {
+	width: 155px;
+}
+</style>
+
+
+							
+
+							<button name="submit" id="validate_order" type="submit"
+								class="primaryAction">
+								<span>ìˆ˜ì •í•˜ê¸°</span>
+							</button>
+							<div class="clear"></div>
+						</div>
+				</form>
+			</div>
+			</section>
+		</div>
 	
-			<h3>Password Check</h3>
+                </main>
+	</div>
 			
-			<div class = "requestPW">
-				<table cellpadding="0" cellspacing="0" class="tab">
-					<tr>
-						<td class="label"><label for="u_pwd">ºñ¹Ğ¹øÈ£</label></td>
-						<td class="value"><input type="password" name="u_pwd" id="u_pwd" value=""/>
-						&nbsp;
-						<br><span>°³ÀÎ Á¤º¸ º¸È£¸¦ À§ÇØ ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.</span>
-				<br>
-				<br>
 				
-				
-				<!-- http://doublesprogramming.tistory.com/94 -->
-				</table>
 	
 
-				
-				
-		<button type = "submit" class = "nlogin_btn">¼öÁ¤ÇÏ±â</button>	 
-		
-
-		</form>
-
+			
+<%@include file="../include/footer.jsp" %>
 </body>
 </html>
