@@ -39,7 +39,7 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public Map<String, String> checkPw(Integer u_pwd) throws Exception {
+	public UsersVO checkPw(String u_id, String u_pwd) throws Exception {
 		return session.selectOne(namespace+".checkPw", u_pwd);
 	}
 
