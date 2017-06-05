@@ -50,8 +50,8 @@
 
 
 				<form id="form_checkout" class="uniForm checkout"
-					enctype="application/x-www-form-urlencoded"
-					action="product_register" method="post">
+					
+					action="product_list" >
 					<div class="box-full" id="creationaccount">
 						<div class="top"></div>
 						<div class="form">
@@ -137,6 +137,7 @@
 	width: 155px;
 }
 </style>
+
 <button name="submit" id="validate_order" type="submit"
 								class="primaryAction">
 								<span>Request Register</span>
