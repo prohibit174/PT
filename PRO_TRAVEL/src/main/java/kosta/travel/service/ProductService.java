@@ -9,5 +9,7 @@ public interface ProductService {
 	public void insert(ProductVO product)throws Exception;
 	public List<ProductVO> listProduct()throws Exception; 
 	public ProductVO detailProduct(String p_num)throws Exception;
+	public void updateProduct(ProductVO product)throws Exception;
+	public void deleteProduct(String p_num)throws Exception;
 
 }

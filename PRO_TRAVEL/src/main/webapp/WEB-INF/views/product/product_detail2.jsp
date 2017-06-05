@@ -1,160 +1,197 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-            <title></title>    
-       <meta name="robots" content="noodp" />
-
-    <script type="text/javascript">
-        if (document.all && document.documentMode && 8 === document.documentMode) {
-            //alert('IE8 or IE9+ in IE8 compatibility mode');
-            document.location.href = "/en/home/index/ie6/";
-        }
-        if (document.all && (!document.documentMode || (document.documentMode && document.documentMode < 8))) {
-            //alert('IE7 or lower or IE8+ in IE7 compatibility mode');
-            document.location.href = "/en/home/index/ie6/";
-        }
-    </script>
-
- <link href="${pageContext.request.contextPath}/resources/css/AgoFiles/product_css/jquery.fs.selecter.css" media="screen" rel="stylesheet" type="text/css" />
-<link href="${pageContext.request.contextPath}/resources/css/AgoFiles/product_css/stylesheet.css" media="screen" rel="stylesheet" type="text/css" />
-<link href="${pageContext.request.contextPath}/resources/css/AgoFiles/product_css/font-awesome.min.css" media="screen" rel="stylesheet" type="text/css" />
-<link href="/vendor/bower_components/swiper/dist/idangerous.swiper.css" media="screen" rel="stylesheet" type="text/css" />
-<link href="${pageContext.request.contextPath}/resources/css/AgoFiles/product_css/module.css" media="screen" rel="stylesheet" type="text/css" />
-<link href="${pageContext.request.contextPath}/resources/css/AgoFiles/product_css/all.css" media="screen" rel="stylesheet" type="text/css" />
-<link href="${pageContext.request.contextPath}/resources/css/AgoFiles/product_css/common.css" media="screen" rel="stylesheet" type="text/css" />
-<link href="${pageContext.request.contextPath}/resources/css/AgoFiles/product_css/magnific-popup.css" media="screen" rel="stylesheet" type="text/css" />    <script type="text/javascript" src="/vendor/bower_components/jquery/dist/jquery.min.js"></script>
-<script type="text/javascript" src="/vendor/bower_components/swiper/dist/idangerous.swiper.min.js"></script>
-<script type="text/javascript" src="/vendor/common.js"></script>
-<script type="text/javascript" src="/javascript/jquery/jquery-ui.min.js"></script>
-<script type="text/javascript" src="/javascript/jquery/jquery.cookie.js"></script>
-<script type="text/javascript" src="/javascript/jquery/jquery.main.js"></script>
-<script type="text/javascript" src="/javascript/jquery/jquery.collageCaption.js"></script>
-<script type="text/javascript" src="/javascript/jquery/jquery.collagePlus.js"></script>
-<script type="text/javascript" src="/javascript/jquery/jquery.betd.js"></script>
-<script type="text/javascript" src="/javascript/jquery/jquery.removeWhitespace.js"></script>
-<script type="text/javascript" src="/javascript/functions.js"></script>
-<script type="text/javascript" src="/javascript/profile.js"></script>
-<script type="text/javascript" src="/javascript/selecter-master/jquery.fs.selecter.min.js"></script>
-<script type="text/javascript" src="/javascript/ss-social.js"></script>
-<script type="text/javascript" src="/javascript/ss-standard.js"></script>
-<script type="text/javascript" src="/javascript/magnific-popup/magnific-popup.js"></script>
-<script type="text/javascript" src="/javascript/callback.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            var cookie_domain = '.shop.olympic.org';
-            currentProfile.initialize({cookie_domain: cookie_domain, language: 'en'});
-            $("select").selecter();
-        });
-    </script>
-
-                    <script type="text/javascript">
-                        (function (i, s, o, g, r, a, m) {
-                        i['GoogleAnalyticsObject'] = r;
-                        i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date();
-                        a = s.createElement(o), m = s.getElementsByTagName(o)[0];
-                        a.async = 1; a.src = g;
-                        m.parentNode.insertBefore(a, m)
-                        })
-                        (window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-                        ga('create', 'UA-19719445-1', 'olympic.org<http://olympic.org>');
-                        ga('require', 'linkid', 'linkid.js');
-                        ga('require', 'displayfeatures');
-                        ga('set', 'dimension1', 'en');
-                        ga('send', 'pageview');
-                        ga('require', 'ecommerce');
-                    </script><script type="text/javascript"></script>
-    <script>
-    </script>
-</head>
-<body>
+	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 <%@ include file="/WEB-INF/views/include/product_sidebar.jsp"%>
-    <div id="wrapper" data-speed="3">
-        <main id="main">
-            <div class="wrapper-content">
-                
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Olympic Photos, Galleries &amp; Slideshows | Top Olympic
+	Images</title>
+<meta charset="utf-8" />
+<meta name="googlepagetype" content="MediaLanding" />
+<meta name="googlepageid"
+	content="{B4C7581B-72EC-4637-A3ED-52F225BFE686}" />
+<meta name="description"
+	content="View the best photos from all past Olympic Games, including Rio 2016, Sochi 2014 and London 2012. Galleries of 52 Games and 56 Sports." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.olympic.org/photos" />
+<meta property="article:published_time"
+	content="2017-02-23T06:09:48+01:00" />
+<meta property="article:modified_time"
+	content="2017-02-23T06:09:48+01:00" />
+<meta property="article:publisher" content="209361989215" />
+<meta property="og:site_name" content="International Olympic Committee" />
+<meta property="fb:admins" content="209361989215" />
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@olympics">
+<meta name="twitter:creator" content="@olympics">
+<link rel="alternate" href="https://www.olympic.org/en/Home/Photos"
+	hreflang="en" />
+<link rel="alternate" href="https://www.olympic.org/fr-FR/Home/Photos"
+	hreflang="fr" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<link rel="apple-touch-icon" sizes="57x57"
+	href="/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60"
+	href="/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72"
+	href="/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76"
+	href="/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114"
+	href="/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120"
+	href="/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144"
+	href="/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152"
+	href="/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180"
+	href="/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/favicon-32x32.png"
+	sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-194x194.png"
+	sizes="194x194">
+<link rel="icon" type="image/png" href="/favicon-96x96.png"
+	sizes="96x96">
+<link rel="icon" type="image/png" href="/android-chrome-192x192.png"
+	sizes="192x192">
+<link rel="icon" type="image/png" href="/favicon-16x16.png"
+	sizes="16x16">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#333333">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<link media="all" rel="stylesheet" type="text/css"
+	href="https://stillres.olympic.org/css/modules.css" />
+<link media="all" rel="stylesheet" type="text/css"
+	href="https://stillres.olympic.org/css/all.css" />
+
+  <script>
+  
+  $(document).ready(function(){
+	  
+		var formObj = $("form[role='form']");
+		console.log(formObj); 
+  	
+  	$(".btn-warning").on("click", function(){
+  		formObj.attr("action", "/product/product_update");
+  		formObj.attr("method", "get");		
+  		formObj.submit();
+  	});
+  
+  	
+  	
+ $(".btn-danger").on("click", function(){
+	
+		formObj.attr("action", "/product/product_delete");
+		formObj.submit();
+	});	
+	
+  }); 
+	</script>
 
 
-<div class="panel">
-    <div class="wrapper-content">
-        <!-- START -->
-        <section class="section no-margin w12-h bg-white product-detail">
-
-            <div class="breadcrumb"><div itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a id="breadcrumb-home" href="/en"><span>Home</span></a></div><div itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a id="breadcrumb-473" href="/en/product/index/list/id/473/category/en-chf-accessories"><span>Accessories</span></a></div><div itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a id="breadcrumb-477" href="/en/product/index/list/id/477/category/en-chf-women-s"><span>Women's</span></a></div><div itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a id="breadcrumb-478" href="/en/product/index/list/id/478/category/en-chf-bags"><span>Bags</span></a></div></div>
-            <div class="section w6-h">
-
-                <figure class="image">
-                    <a class="image-link" href="/assets/files/product/6476/bagisnot-mw-2.jpg">
-                        <img src="/assets/files/product/6476/zoom/bagisnot-mw-2.jpg">
-                    </a>
-                </figure>
-
-                <div class="thumbnails">
-                                            <figure class="image">
-                            <a href="/assets/files/product/6476/bagisnot-mw-2.jpg"
-                               data-zoom-img="/assets/files/product/6476/bagisnot-mw-2.jpg">
-                                <img src="/assets/files/product/6476/normal/bagisnot-mw-2.jpg"/>
-                            </a>
-                        </figure>
-                                    </div>
-
-                <div class="zoom">
-                    <a class="" href="#"><i class="fa fa-search"></i> zoom</a>
-                </div>
-
-            </div>
+<!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="https://stillres.olympic.org/css/ie.css" /><![endif]-->
+</head>
+<body>
 
 
-            <div class="section w6-h">
-                <h1>${product.p_name }</h1>
-                <div class="product-header">
-                    <span class="price">CHF 9.90                        <span class="sub-price" data-currency="eur">(EUR 9.10)</span>
-                        <span class="sub-price" data-currency="usd">(USD 9.10)</span>
-                    </span>
-                </div>
 
-                
-                <input class="product" value="6476" type="hidden">
+	<section class="id-card-box" itemtype="http://schema.org/Organization"
+		itemscope="" style="margin: 0px 200px 100px 0px"; >
+		<div class="logo-box" itemprop="image">
+			<picture> <!--[if IE 9]><video style="display: none;"><![endif]-->
+			
+				<form role="form" method="post">
 
-                <span class="quantity">Quantity</span>
-                <input class="quantity" size="3" value="1" type="text">
-                <a class="link cart" href="#">
-                    Add to basket                </a>
+					<input type='hidden' name='p_num' value="${productVO.p_num}"> <%-- <input
+						type='hidden' name='page' value="${cri.page}"> <input
+						type='hidden' name='perPageNum' value="${cri.perPageNum}">
+					<input type='hidden' name='searchType' value="${cri.searchType}">
+					<input type='hidden' name='keyword' value="${cri.keyword}"> --%>
 
-                <a class="link wishlist" href="/en/favourite/index/add/id/6476">
-                    add to my wishlist                </a>
+				</form>
+			
 
-                <div class="description readmore">
-                    <p><span class="irc_su" style="text-align: left;" dir="ltr">
-<p>&nbsp;Shopping is not a sport on the Olympic programme.</p>
-<p>Its practical size makes this mini-shopping bag ideal for everyday trips to the shops. <br /> Size:<br /> (cm) 40x30x15<br /> (inches) 15x12x6</p>
-</span></p>
-                </div>
+		<!-- 	<source
+				srcset="https://stillmed.olympic.org/media/Images/OlympicOrg/Countries/B/Bermuda/CNO-BER.jpg?interpolation=lanczos-none&resize=253:*, https://stillmed.olympic.org/media/Images/OlympicOrg/Countries/B/Bermuda/CNO-BER.jpg?interpolation=lanczos-none&resize=506:* 2x"
+				media="(min-width: 1024px)">
+			<source
+				srcset="https://stillmed.olympic.org/media/Images/OlympicOrg/Countries/B/Bermuda/CNO-BER.jpg?interpolation=lanczos-none&resize=223:*, https://stillmed.olympic.org/media/Images/OlympicOrg/Countries/B/Bermuda/CNO-BER.jpg?interpolation=lanczos-none&resize=446:* 2x"
+				media="(min-width: 768px)"> -->
+			<!--[if IE 9]></video><![endif]--> <img
+				srcset="${product.p_img}"
+				alt="물품사진"></picture>
 
-                <div class="reference-social">
-                    <span class="reference">reference : BAGISNOT-MW</span>
+		</div>
+		<div class="items active">
+			<div class="item-list">
+				<div style="display: block;" class="slide">
+					<div class="row">
+						<span class="label">판매자</span>
+						<div class="txt">${product.u_id}</div>
+					</div>
 
-                    <div class="social">
-                        <a class="facebook" target="_blank"
-                           href="https://www.facebook.com/sharer.php?u=http://shop.olympic.org/en/product/index/view/id/6476/product/en-chf-shopping-bag-shopping-is-not-6476&t=Shopping bag "Shopping Is Not ..."">
-                            <i class="fa fa-facebook"></i>
-                        </a>
-                        <a class="twitter" href="https://twitter.com/intent/tweet?url=http://shop.olympic.org/en/product/index/view/id/6476/product/en-chf-shopping-bag-shopping-is-not-6476" target="_blank">
-                            <i class="fa fa-twitter"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- EO -->
-    </div>
-</div>
+					<div class="row">
+						<span class="label">상품명</span>
+						<div class="txt" itemprop="streetAddress">
+							<address>
+								${product.p_name}
+							</address>
+						</div>
+					</div>
+					<div class="row">
+						<span class="label">가격</span>
+						<div class="txt" itemprop="telephone">${product.p_price}</div>
+					</div>
+					<div class="row">
+						<span class="label">판매기간</span>
+						<div class="txt" itemprop="faxNumber">${product.p_date}</div>
+					</div>
+					<div class="row">
+						<span class="label">내용</span>
+						<div class="txt">
+							<a href="mailto:olympics@ibl.bm" itemprop="email">${product.p_detail}</a>
+						</div>
+					</div>
+					<div class="row">
+						<span class="label">판매여부</span>
+						<div class="txt">
 
-<div>
-  <%@ include file="/WEB-INF/views/include/footer.jsp"%>
-  </div>
-    </body>
+							<a href="http://www.olympics.bm" target="_blank" itemprop="url">${product.p_ox}</a>
+						</div>
+					</div>
+				
+				<ul class="mailbox-attachments clearfix uploadedList"></ul>	
+					<div class="row">
+						 <button type="submit" class="btn btn-warning" id="modifyBtn">수정</button>
+						    <button type="submit" class="btn btn-danger" id="removeBtn">삭제</button> 		 
+			
+					</div>
+				</div>
+			</div>
+			<span class="btn-more"> <a title="more link" href="#">More</a>
+			</span>
+			
+		</div>
+		
+	</section>
+
+
+	<hr>
+
+
+
+
+</body>
+
+
+<%@ include file="/WEB-INF/views/include/footer.jsp"%>
+
+
+
 </html>

@@ -6,11 +6,12 @@
 <mapper namespace="pro_travel.mapper.accompanyMapper">
 
 	<select id="getUserRoute" resultType="AccompanyVO"
-		parameterType="int">
+		parameterType="String">
 		select tp_num, c.cor_region, cor_longi, cor_lati, u_id, tp_date
 		from cordinates c, trip_plan t where c.cor_region = t.cor_region and
 		t.u_id=#{u_id}
 	</select>
+	
 	<select id="getUserInfo" resultType="AccompanyVO" parameterType="String">
 		select tp_num, c.cor_region, cor_longi, cor_lati, u.u_id, tp_date,
 		u_birth,u_sex,u_lang,u_religion,u_job

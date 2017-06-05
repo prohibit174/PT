@@ -59,4 +59,35 @@ public class ProductController {
     	  
                return "/product/product_detail2";
             }
+      
+      
+  	@RequestMapping(value="/product_update", method = RequestMethod.GET)
+  	public void product_update(@RequestParam("p_num") String p_num, Model model)throws Exception{
+  		ProductVO product=service.detailProduct(p_num);
+  		model.addAttribute("product", product);
+  	
+  	}
+  	
+  	@RequestMapping(value="/product_update", method = RequestMethod.POST)
+  	public String product_update(ProductVO product ,RedirectAttributes rttr)throws Exception{
+  		logger.info("mod post...........");
+  		
+  		service.updateProduct(product);
+  		rttr.addFlashAttribute("msg", "SUCCESS");
+  		
+  		return "redirect:/product/product_list";
+  	}
+  	
+  	
+  	
+
+	@RequestMapping(value="/product_delete", method=RequestMethod.POST)
+	public String remove(@RequestParam("p_num") String p_num) throws Exception{
+		service.deleteProduct(p_num);
+		
+		
+		return "redirect:/product/product_list";
+		
+	}
+  	
 }

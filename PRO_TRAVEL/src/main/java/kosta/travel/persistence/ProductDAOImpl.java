@@ -33,19 +33,17 @@ public class ProductDAOImpl implements ProductDAO {
 
 	@Override
 	public ProductVO detailProduct(String p_num) {
-		return session.selectOne(namespace+".detailProduct");
+		return session.selectOne(namespace+".detailProduct", p_num);
 	}
 
 	@Override
-	public int updateProduct(ProductVO product) {
-		// TODO Auto-generated method stub
-		return 0;
+	public void updateProduct(ProductVO product) {
+		 session.update(namespace+".updateProduct", product);
 	}
 
 	@Override
-	public int deleteProduct(ProductVO product) {
-		// TODO Auto-generated method stub
-		return 0;
+	public void deleteProduct(String p_num) {
+		 session.delete(namespace+".deleteProduct",p_num);
 	}
 
 	@Override
