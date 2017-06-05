@@ -33,7 +33,7 @@ public class ProductDAOImpl implements ProductDAO {
 
 	@Override
 	public ProductVO detailProduct(String p_num) {
-		return session.selectOne(namespace+".detailProduct");
+		return session.selectOne(namespace+".detailProduct", p_num);
 	}
 
 	@Override
