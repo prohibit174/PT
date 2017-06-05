@@ -1,3 +1,4 @@
+<%@page import="kosta.travel.domain.ProductVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 
@@ -64,9 +65,7 @@
             </div>
 
 
-            <form role="form" class="uniForm checkout"
-enctype="application/x-www-form-urlencoded"
-               action="product_register" method="post">
+            <form role="form" method="post">
                <div class="box-full" id="creationaccount">
                   <!-- <div class="top"></div> -->
                   <div class="form">
@@ -81,8 +80,8 @@ enctype="application/x-www-form-urlencoded"
                                  <td class="label"><label for="u_lang">Product
                                        Number</label></td>
                                  <td class="value">
-                                 <input type="text" name="p_num"
-                                    id="p_num" value="${productVO.p_num}" /> &nbsp; <span class="mandatory"></span>
+                                  <input type="text" name='p_num'
+                                     value="${product.p_num}" readonly="readonly">  &nbsp; <span class="mandatory"></span>
                                     <ul class="errorField">
                                     </ul></td>
                               </tr>
@@ -91,14 +90,14 @@ enctype="application/x-www-form-urlencoded"
                                  <td class="label"><label for="u_lang">Product
                                        Name</label></td>
                                  <td class="value"><input type="text" name="p_name"
-                                    id="p_name" value="${productVO.p_name}" /> &nbsp; <span class="mandatory"></span>
+                                    id="p_name" value="${product.p_name}" /> &nbsp; <span class="mandatory"></span>
                                     <ul class="errorField">
                                     </ul></td>
                               </tr>
                               <tr>
                                  <td class="label"><label for="u_lang">User ID</label></td>
                                  <td class="value"><input type="text" name="u_id"
-                                    id="u_id" value="${productVO.u_id}" /> &nbsp; <span class="mandatory"></span>
+                                    id="u_id" value="${product.u_id}" readonly="readonly" /> &nbsp; <span class="mandatory"></span>
                                     <ul class="errorField">
                                     </ul></td>
                               </tr>
@@ -107,30 +106,30 @@ enctype="application/x-www-form-urlencoded"
                                  <td class="label"><label for="u_lang">Product
                                        Detail</label></td>
                                  <td class="value"><input type="text" name="p_detail"
-                                    id="p_detail" value="${productVO.p_detail}" /> &nbsp; <span class="mandatory"></span>
+                                    id="p_detail" value="${product.p_detail}" /> &nbsp; <span class="mandatory"></span>
                                     <ul class="errorField">
                                     </ul></td>
                               </tr>
                               <tr>
                                  <td class="label"><label for="u_lang">Price</label></td>
                                  <td class="value"><input type="text" name="p_price"
-                                    id="p_price" value="${productVO.p_price}" /></td>
+                                    id="p_price" value="${product.p_price}" /></td>
                               </tr>
 
                               <tr>
                                  <td class="label"><label for="u_lang">Date</label></td>
                                  <td class="value"><input type="text" name="p_date"
-                                    id="p_date" value="${productVO.p_date}" /></td>
+                                    id="p_date" value="${product.p_date}" /></td>
                               </tr>
                               
-                           <!--    <tr>
+                             <tr>
                                  <td class="label"><label for="u_lang">Product
                                        Image</label></td>
                                  <td class="value"><input type="file" name="p_img"
                                     id="p_img" value="" /> &nbsp; <span class="mandatory"></span>
                                     <ul class="errorField">
                                     </ul></td>
-                              </tr> -->
+                              </tr> 
                            </table>
                         </div>
 
@@ -161,8 +160,8 @@ enctype="application/x-www-form-urlencoded"
 }
 </style>
 
-<button name="submit" /* id="validate_order" */ type="submit" class="btn btn-primary">수정</button>
-<button name="submit"/*  id="validate_order" */ type="submit" class="btn btn-warning">취소</button>
+<button type="submit" class="btn btn-primary">수정</button>
+<button type="submit" class="btn btn-warning">취소</button>
                      
                      <div class="clear"></div>
                      
