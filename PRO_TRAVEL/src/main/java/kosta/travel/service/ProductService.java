@@ -3,6 +3,7 @@ package kosta.travel.service;
 import java.util.List;
 
 import kosta.travel.domain.ProductVO;
+import kosta.travel.domain.Product_RequestVO;
 
 public interface ProductService {
 	
@@ -11,5 +12,5 @@ public interface ProductService {
 	public ProductVO detailProduct(String p_num)throws Exception;
 	public void updateProduct(ProductVO product)throws Exception;
 	public void deleteProduct(String p_num)throws Exception;
-
+	public void insertProductReq(Product_RequestVO proReq)throws Exception;
 }

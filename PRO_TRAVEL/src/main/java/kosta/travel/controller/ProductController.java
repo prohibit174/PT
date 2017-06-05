@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kosta.travel.domain.ProductVO;
+import kosta.travel.domain.Product_RequestVO;
 import kosta.travel.service.ProductService;
 
 @Controller
@@ -42,6 +43,7 @@ public class ProductController {
          
          return "redirect:/product/product_list";
       }
+      
       
       @RequestMapping(value = "/product_list", method = RequestMethod.GET)
       public String product_list(Model model)throws Exception {
@@ -73,6 +75,7 @@ public class ProductController {
   		logger.info("mod post...........");
   		
   		service.updateProduct(product);
+  		logger.info(product.getU_id());
   		rttr.addFlashAttribute("msg", "SUCCESS");
   		
   		return "redirect:/product/product_list";
@@ -85,9 +88,27 @@ public class ProductController {
 	public String remove(@RequestParam("p_num") String p_num) throws Exception{
 		service.deleteProduct(p_num);
 		
-		
 		return "redirect:/product/product_list";
 		
 	}
+	
+	
+	 @RequestMapping(value = "/productReq_register", method = RequestMethod.GET)
+     public String productReq_registerGET()throws Exception {
+    
+        
+        return "/product/productReq_register";
+     }
+	 
+	 
+	 @RequestMapping(value = "/productReq_register", method = RequestMethod.POST)
+     public String productReq_registerPOST(Product_RequestVO proReq, RedirectAttributes rttr)throws Exception {
+        System.out.println("registerpost method call");
+        logger.info(proReq.toString());
+        service.insertProductReq(proReq);
+        
+        
+        return "redirect:/product/product_list";
+     }
   	
 }

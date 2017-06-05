@@ -65,7 +65,7 @@
             </div>
 
 
-            <form role="form" method="post">
+            <form role="form" method="post" enctype="application/x-www-form-urlencoded">
                <div class="box-full" id="creationaccount">
                   <!-- <div class="top"></div> -->
                   <div class="form">
@@ -81,7 +81,7 @@
                                        Number</label></td>
                                  <td class="value">
                                   <input type="text" name='p_num'
-                                     value="${product.p_num}" readonly="readonly">  &nbsp; <span class="mandatory"></span>
+                                     value="${product.p_num}"  readonly="readonly">  &nbsp; <span class="mandatory"></span>
                                     <ul class="errorField">
                                     </ul></td>
                               </tr>
@@ -97,7 +97,7 @@
                               <tr>
                                  <td class="label"><label for="u_lang">User ID</label></td>
                                  <td class="value"><input type="text" name="u_id"
-                                    id="u_id" value="${product.u_id}" readonly="readonly" /> &nbsp; <span class="mandatory"></span>
+                                    id="u_id" value="${product.u_id}"  readonly="readonly" /> &nbsp; <span class="mandatory"></span>
                                     <ul class="errorField">
                                     </ul></td>
                               </tr>
@@ -112,8 +112,8 @@
                               </tr>
                               <tr>
                                  <td class="label"><label for="u_lang">Price</label></td>
-                                 <td class="value"><input type="text" name="p_price"
-                                    id="p_price" value="${product.p_price}" /></td>
+                                 <td class="value"><input type="text" name='p_price'
+                                    value="${product.p_price}" /></td>
                               </tr>
 
                               <tr>
