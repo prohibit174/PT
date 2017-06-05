@@ -214,9 +214,6 @@
      
     
     <script>
-    
-   
-    
     function showRightAccom(rightIndex, markerIndex){
     	console.log('Index : '+ rightIndex);
     	console.log('accom_index : '+ accom_index);
@@ -1111,6 +1108,6 @@ function showLeftAccom(leftIndex, markerIndex){
 
     </style>
 
-<%-- <%@include file="../include/footer.jsp" %> --%>
+<%@include file="../include/footer.jsp" %>
 </body>
 </html>

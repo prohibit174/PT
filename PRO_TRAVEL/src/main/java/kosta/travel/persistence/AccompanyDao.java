@@ -24,7 +24,7 @@ public class AccompanyDao {
 	
 	private static String namespace = "pro_travel.mapper.accompanyMapper";
 	
-	public List<AccompanyVO> getUserRoute(int id) throws Exception {
+	public List<AccompanyVO> getUserRoute(String id) throws Exception {
 		return session.selectList(namespace+".getUserRoute", id);
 	}
 	
