@@ -1,6 +1,7 @@
 package kosta.travel.controller;
 
 import java.io.PrintWriter;
+import java.util.Date;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
@@ -37,6 +38,11 @@ public class UserController {
 		         return;
 		      }
 			 model.addAttribute("usersVO", vo.getU_id());
+			 if(dto.isUseCookie()){
+				 int amount = 60 * 60 * 24 * 7;
+				 Date sessionLimit = new Date(System.currentTimeMillis() + (1000 * amount));
+				 service.keepLogin(vo.getU_id(), session.getId(), sessionLimit);
+			 }
 			 
 	}
 		

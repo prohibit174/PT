@@ -1,5 +1,7 @@
 package kosta.travel.persistence;
 
+import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.inject.Inject;
@@ -46,6 +48,21 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public UsersVO userUpdate(UsersVO users) throws Exception {
 		return session.selectOne(namespace+"userUpdate", users);
+	}
+
+	@Override
+	public void keepLogin(String u_id, String sessionId, Date next) {
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("u_id", u_id);
+		paramMap.put("sessionId", sessionId);
+		paramMap.put("next", next);
+		
+		session.update(namespace + ".keepLogin", paramMap);
+	}
+
+	@Override
+	public UsersVO checkUserWithSessionKey(String value) {
+		return session.selectOne(namespace + ".checkUserWithSessionKey", value);
 	}
 
 	

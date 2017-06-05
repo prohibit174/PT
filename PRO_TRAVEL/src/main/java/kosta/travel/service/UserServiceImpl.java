@@ -1,5 +1,7 @@
 package kosta.travel.service;
 
+import java.util.Date;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
@@ -44,6 +46,16 @@ public class UserServiceImpl implements UserService {
 	public UsersVO checkPw(String u_id, String u_pwd) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void keepLogin(String u_id, String sessionId, Date next) throws Exception {
+		dao.keepLogin(u_id, sessionId, next);
+	}
+
+	@Override
+	public UsersVO checkLoginBefore(String value) {
+		return dao.checkUserWithSessionKey(value);
 	}
 	
 	

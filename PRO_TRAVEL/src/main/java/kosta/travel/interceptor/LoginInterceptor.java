@@ -2,6 +2,7 @@ package kosta.travel.interceptor;
 
 import java.io.PrintWriter;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -27,6 +28,13 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 		if(usersVO != null){
 			session.setAttribute("login", usersVO);
 			//response.sendRedirect("/");
+			System.out.println(request.getParameter("useCookie"));
+			if(request.getParameter("useCookie") != null){
+				Cookie loginCookie = new Cookie("loginCookie", session.getId());
+				loginCookie.setPath("/");
+				loginCookie.setMaxAge(60 * 60 * 24 * 7);
+				response.addCookie(loginCookie);
+			}
 			Object dest = session.getAttribute("dest");
 			response.sendRedirect(dest != null ? (String)dest:"/");
 		}else{
