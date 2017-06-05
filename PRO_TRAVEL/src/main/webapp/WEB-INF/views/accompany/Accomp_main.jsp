@@ -21,10 +21,11 @@
 <!DOCTYPE html>
 
 <html>
-<!-- <script type="text/javascript" src="http://www.nowarch.com/resources/js/jquery-1.10.2.min.js"></script> -->
+<script type="text/javascript" src="http://www.nowarch.com/resources/js/jquery-1.10.2.min.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js'></script>
 <script src='${pageContext.request.contextPath}/resources/js/accompanyJs/fullcalendar.js'></script>
 <link rel='stylesheet' href='/resources/css/accompany/fullcalendar.css' />
+
 
 <%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/css/carpool_css/city-main-styles.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/carpool_css/carpoolJoin.css" />--%>
@@ -89,12 +90,13 @@
             
             </div><!-- e//tabs-list -->
 <form action="" method="post">	
-    <div id="carpool_map">
+  	  <div id="carpool_map"></div>
     	<h3 id="carpool_title">추천 동행인</h3>
     	<br>
     	<div id="map"></div>
-    	
-    	<script type="text/javascript">
+  </form>
+    
+    <script type="text/javascript">
     var index=0;
     var tp_num=[];
     var region=[];
