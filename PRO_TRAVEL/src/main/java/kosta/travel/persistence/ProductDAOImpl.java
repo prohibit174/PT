@@ -54,8 +54,7 @@ public class ProductDAOImpl implements ProductDAO {
 
 	@Override
 	public int insertProductReq(Product_RequestVO proReq) {
-		// TODO Auto-generated method stub
-		return 0;
+		return session.insert(namespace+".insertProductReq", proReq);
 	}
 
 	@Override

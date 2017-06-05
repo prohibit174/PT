@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import kosta.travel.domain.ProductVO;
+import kosta.travel.domain.Product_RequestVO;
 import kosta.travel.persistence.ProductDAO;
 
 @Service
@@ -42,6 +43,12 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public void deleteProduct(String p_num) throws Exception {
 		dao.deleteProduct(p_num);
+		
+	}
+
+	@Override
+	public void insertProductReq(Product_RequestVO proReq) throws Exception {
+		dao.insertProductReq(proReq);
 		
 	}
 

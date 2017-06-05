@@ -97,6 +97,7 @@
 					<div class="ajax-area" data-tmpl="load3_tmpl"
 						style="background-color: white">
 						<ul class="sets-list ajax-content">
+						
 							<c:forEach var="product" items="${list}">
 								<li itemscope="" itemtype="http://schema.org/ImageObject"
 									class="same-height"><a

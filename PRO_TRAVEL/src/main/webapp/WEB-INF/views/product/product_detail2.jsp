@@ -82,8 +82,7 @@
   		formObj.attr("method", "get");		
   		formObj.submit();
   	});
-  
-  	
+
   	
  $(".btn-danger").on("click", function(){
 	
@@ -108,11 +107,8 @@
 			
 				<form role="form" method="post">
 
-					<input type='hidden' name='p_num' value="${productVO.p_num}"> <%-- <input
-						type='hidden' name='page' value="${cri.page}"> <input
-						type='hidden' name='perPageNum' value="${cri.perPageNum}">
-					<input type='hidden' name='searchType' value="${cri.searchType}">
-					<input type='hidden' name='keyword' value="${cri.keyword}"> --%>
+					<input type='hidden' name='p_num' value="${product.p_num}">
+					
 
 				</form>
 			
