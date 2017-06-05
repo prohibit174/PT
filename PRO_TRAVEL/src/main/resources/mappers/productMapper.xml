@@ -24,15 +24,16 @@
 	</select>
 	
 	 
-	<update id="updateProduct" parameterType="Product">
+	<update id="updateProduct" parameterType="ProductVO">
 		update product set p_num = #{p_num}, p_img = #{p_img} where p_num = #{p_num}
 	</update>
 	
-	<!-- <delete id="deleteProduct" parameterType="Product">
+	 <delete id="deleteProduct" parameterType="String">
 		delete from product where p_num = #{p_num}
 	</delete>
 	
-	혜진 거래요청 insert, detail
+	
+	<!-- 혜진 거래요청 insert, detail
 	<insert id="insertProductReq" parameterType="Product_Request">
 		insert into product_req(
 			pr_reqnum, u_id, p_num, pr_ox, pr_place, pr_date

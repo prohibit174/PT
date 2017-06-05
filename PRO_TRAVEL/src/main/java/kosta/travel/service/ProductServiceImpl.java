@@ -5,6 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import kosta.travel.domain.ProductVO;
 import kosta.travel.persistence.ProductDAO;
@@ -29,10 +30,18 @@ public class ProductServiceImpl implements ProductService {
 	public ProductVO detailProduct(String p_num) throws Exception {
 		return dao.detailProduct(p_num);
 	}
+	
+	
 
 	@Override
 	public void updateProduct(ProductVO product) throws Exception {
 		dao.updateProduct(product);
+		
+	}
+
+	@Override
+	public void deleteProduct(String p_num) throws Exception {
+		dao.deleteProduct(p_num);
 		
 	}
 

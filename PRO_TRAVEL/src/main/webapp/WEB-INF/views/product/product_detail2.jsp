@@ -70,19 +70,28 @@
 <link media="all" rel="stylesheet" type="text/css"
 	href="https://stillres.olympic.org/css/all.css" />
 
-  <script type="text/javascript">
+  <script>
   
   $(document).ready(function(){
+	  
+		var formObj = $("form[role='form']");
+		console.log(formObj); 
   	
-  	var formObj = $("form[role='form']");
-  	
-  	console.log(formObj);
-  	
-  	$("#modifyBtn").on("click", function(){
-  		formObj.attr("action", "/product_update");
+  	$(".btn-warning").on("click", function(){
+  		formObj.attr("action", "/product/product_update");
   		formObj.attr("method", "get");		
   		formObj.submit();
   	});
+  
+  	
+  	
+ $(".btn-danger").on("click", function(){
+	
+		formObj.attr("action", "/product/product_delete");
+		formObj.submit();
+	});	
+	
+  }); 
 	</script>
 
 
@@ -96,6 +105,17 @@
 		itemscope="" style="margin: 0px 200px 100px 0px"; >
 		<div class="logo-box" itemprop="image">
 			<picture> <!--[if IE 9]><video style="display: none;"><![endif]-->
+			
+				<form role="form" method="post">
+
+					<input type='hidden' name='p_num' value="${productVO.p_num}"> <%-- <input
+						type='hidden' name='page' value="${cri.page}"> <input
+						type='hidden' name='perPageNum' value="${cri.perPageNum}">
+					<input type='hidden' name='searchType' value="${cri.searchType}">
+					<input type='hidden' name='keyword' value="${cri.keyword}"> --%>
+
+				</form>
+			
 
 		<!-- 	<source
 				srcset="https://stillmed.olympic.org/media/Images/OlympicOrg/Countries/B/Bermuda/CNO-BER.jpg?interpolation=lanczos-none&resize=253:*, https://stillmed.olympic.org/media/Images/OlympicOrg/Countries/B/Bermuda/CNO-BER.jpg?interpolation=lanczos-none&resize=506:* 2x"
@@ -146,10 +166,11 @@
 						</div>
 					</div>
 				
-					
+				<ul class="mailbox-attachments clearfix uploadedList"></ul>	
 					<div class="row">
-						 <button type="submit" class="btn btn-warning" id="modifyBtn">수정</button> 		 
-						<button>삭제</button>
+						 <button type="submit" class="btn btn-warning" id="modifyBtn">수정</button>
+						    <button type="submit" class="btn btn-danger" id="removeBtn">삭제</button> 		 
+			
 					</div>
 				</div>
 			</div>
