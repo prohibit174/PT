@@ -4,6 +4,7 @@ package kosta.travel.controller;
 
 
 import javax.annotation.Resource;
+import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -26,14 +27,16 @@ public class AccompanyController{
 	
 	static final Logger logger = LoggerFactory.getLogger(AccompanyController.class);
 	
-	@Resource
+	@Inject
 	AccompanyService service;
 	
 	
 	@RequestMapping(value = "/", method=RequestMethod.GET)
-	public String main(Model model, HttpSession session){
+	public String main(Model model, HttpServletRequest request){
+		
 		try {
-			/*model.addAttribute("list" ,service.getUserRoute(Integer.parseInt(session.getId())));*/
+			model.addAttribute("list" ,service.getUserRoute());
+			model.addAttribute("allAccompanyList" ,service.getAccompanies());
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -54,21 +57,23 @@ public class AccompanyController{
 	
 	@RequestMapping(value = "/enroll", method=RequestMethod.POST)
 	public String insertRoute(HttpServletRequest req){
-		System.out.println("controller");
+		
+		if(req.getParameter("json").isEmpty()){
+			return "redirect:/accompany/";
+		}
 		try {
-			
-			String json = req.getParameter("json").substring(1, req.getParameter("json").length()-1);
+			/*String json = req.getParameter("json").substring(1, req.getParameter("json").length()-1);*/
 			ObjectMapper maper = new ObjectMapper();			
+				
 			RouteList[] list = maper.readValue(req.getParameter("json"), RouteList[].class);
-			
 			logger.info("insertRoute controller : "+ list[0].getEventdate());
 			/*service.insertRoute(route, (String)session.getAttribute("member_id"));*/
 			service.insertRoute(list);
-			
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			e.printStackTrace();
 		}
-		return "/accompany/Accomp_main";
+		return "redirect:/accompany/";
 	}
 	
 	
