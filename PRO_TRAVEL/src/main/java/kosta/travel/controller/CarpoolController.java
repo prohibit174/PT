@@ -33,5 +33,8 @@ public class CarpoolController {
 	@RequestMapping(value = "/listAll", method = RequestMethod.GET)
 	public void listAll() {
 	}
-
+	@RequestMapping(value = "/carpool/main", method = RequestMethod.GET)
+	public String carpoolMain() {
+		return "carpool/carpool_main";
+	}
 }
