@@ -4,7 +4,7 @@ import javax.validation.constraints.Size;
 
 public class UsersVO{
 
-	@Size(min=4, max=12, message="아이디는 4~12자로 등록해주세요.")
+	@Size(min=4, max=12, message="�븘�씠�뵒�뒗 4~12�옄濡� �벑濡앺빐二쇱꽭�슂.")
 	private String u_id;
 	private String u_pwd;
 	private String u_name;

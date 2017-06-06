@@ -4,7 +4,7 @@ $(function(){
 				location.href="login_form";
 			}
 			else if($('#login-button').text() === "LOGOUT"){
-				location.href = "/test";
+				location.href = "logout";
 			}
 		});
 });
