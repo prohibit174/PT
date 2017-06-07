@@ -114,7 +114,7 @@
 											<c:choose>
 												<c:when
 													test="${pattern=='jpg' || pattern =='gif' || pattern =='png' }">
-													<img src="C:/upload/${head }_small.${pattern}" alt="img /">
+													<img src="/resource/upload/${head }_small.${pattern}" alt="img /">
 												</c:when>
 												<c:otherwise>
 													<c:out value="No IMAGE"></c:out>

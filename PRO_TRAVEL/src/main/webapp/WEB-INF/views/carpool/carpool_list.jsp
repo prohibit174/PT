@@ -11,6 +11,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
+
+<script type="text/javascript">
+function applyLink(URL){
+	if(confirm("신청하시겠습니까?") == true){
+		location.href=URL;
+		alert('신청되었습니다');
+
+	}
+	else{
+		alert('Cancle');
+	}
+}
+</script>
 </head>
 <body>
 <section class="results ajax-area" data-tmpl="athleteResults_tmpl">
@@ -28,7 +41,7 @@
                     <div class="th col2"> START DATE </div>
                     <div class="th col3"> SEAT </div>
                     <div class="th col5"> PRICE </div>
-                    <div class="th col4"> COURSE </div>
+                    <div class="th col4"> SIGN UP </div>
             </li>
             
             <c:forEach items="${list}" var="carpoolVO">
@@ -88,15 +101,11 @@
 
                 <div class="area">
                     <ul class="medal-box">
+
                         <li>
-                            <div class="medal"> <span>M</span> <span class="num">${carpoolVO.c_month }</span> </div>
+                            <a href="javascript:applyLink('/carpool/request?c_num=${carpoolVO.c_num}')" class="btn-calendar">GO</a>
                         </li>
-                        <li>
-                            <div class="medal silver"> <span>D</span> <span class="num">${carpoolVO.c_date }</span> </div>
-                        </li>
-                        <li>
-                            <div class="medal bronze"> <span>H</span> <span class="num">${carpoolVO.c_hour }</span> </div>
-                        </li>
+
                     </ul>
                 </div>
                 </div>
@@ -104,116 +113,7 @@
             </c:forEach>
 
 
-    <li>
-                <div class="td col-first">
-
-        <div class="profile-row">
-            <div class="flag-image">
-            </div>
-            <span>RUS</span>
-        </div>
-                </div>
-                <div class="td col1">
-
-
-
-    <a href="/victor-an">
-<picture class="picture">
-<!--[if IE 9]><video style="display: none;"><![endif]-->
-
-<source srcset="https://stillmed.olympic.org/media/Images/OlympicOrg/Athletes/A/Ahn_Hyun_Soo_An_Victor/Ahn_Hyun_Soo_An_Victor_mugshot.jpg?interpolation=lanczos-none&resize=45:45, https://stillmed.olympic.org/media/Images/OlympicOrg/Athletes/A/Ahn_Hyun_Soo_An_Victor/Ahn_Hyun_Soo_An_Victor_mugshot.jpg?interpolation=lanczos-none&resize=90:90 2x" media="(min-width: 1024px)">
-<source srcset="https://stillmed.olympic.org/media/Images/OlympicOrg/Athletes/A/Ahn_Hyun_Soo_An_Victor/Ahn_Hyun_Soo_An_Victor_mugshot.jpg?interpolation=lanczos-none&resize=45:45, https://stillmed.olympic.org/media/Images/OlympicOrg/Athletes/A/Ahn_Hyun_Soo_An_Victor/Ahn_Hyun_Soo_An_Victor_mugshot.jpg?interpolation=lanczos-none&resize=90:90 2x" media="(min-width: 768px)">
-<!--[if IE 9]></video><![endif]-->
-
-<img srcset="https://stillmed.olympic.org/media/Images/OlympicOrg/Athletes/A/Ahn_Hyun_Soo_An_Victor/Ahn_Hyun_Soo_An_Victor_mugshot.jpg?interpolation=lanczos-none&resize=45:45, https://stillmed.olympic.org/media/Images/OlympicOrg/Athletes/A/Ahn_Hyun_Soo_An_Victor/Ahn_Hyun_Soo_An_Victor_mugshot.jpg?interpolation=lanczos-none&resize=90:90 2x" alt="AHN Hyun-Soo (AN Victor)">
-<span class="mask"></span>
-</picture>
-        <div class="area">
-            <strong class="name">Victor AN</strong>
-        </div>
-    </a>
-                </div>
-                <div class="td col2">
-
-        <div class="area">
-            <strong>Short Track Speed Skating</strong>
-        </div>
-                </div>
-                <div class="td col4">
-
-
-                <div class="area">
-                    <ul class="medal-box">
-                        <li>
-                            <div class="medal"> <span>G</span> <span class="num">3</span> </div>
-                        </li>
-                        <li>
-                            <div class="medal silver"> <span>S</span> <span class="num">0</span> </div>
-                        </li>
-                        <li>
-                            <div class="medal bronze"> <span>B</span> <span class="num">1</span> </div>
-                        </li>
-                    </ul>
-                </div>
-                </div>
-    </li>
-
-    <li>
-                <div class="td col-first">
-
-        <div class="profile-row">
-            <div class="flag-image">
-                <div class="flag18 blr">
-                    <div class="mask"></div>
-                </div>
-            </div>
-            <span>BLR</span>
-        </div>
-                </div>
-                <div class="td col1">
-
-
-
-    <a href="/darya-domracheva">
-<picture class="picture">
-<!--[if IE 9]><video style="display: none;"><![endif]-->
-
-<source srcset="https://stillmed.olympic.org/media/Images/OlympicOrg/Athletes/D/Domracheva_Daria/Domracheva_Daria_mugshot.jpg?interpolation=lanczos-none&resize=45:45, https://stillmed.olympic.org/media/Images/OlympicOrg/Athletes/D/Domracheva_Daria/Domracheva_Daria_mugshot.jpg?interpolation=lanczos-none&resize=90:90 2x" media="(min-width: 1024px)">
-<source srcset="https://stillmed.olympic.org/media/Images/OlympicOrg/Athletes/D/Domracheva_Daria/Domracheva_Daria_mugshot.jpg?interpolation=lanczos-none&resize=45:45, https://stillmed.olympic.org/media/Images/OlympicOrg/Athletes/D/Domracheva_Daria/Domracheva_Daria_mugshot.jpg?interpolation=lanczos-none&resize=90:90 2x" media="(min-width: 768px)">
-<!--[if IE 9]></video><![endif]-->
-
-<img srcset="https://stillmed.olympic.org/media/Images/OlympicOrg/Athletes/D/Domracheva_Daria/Domracheva_Daria_mugshot.jpg?interpolation=lanczos-none&resize=45:45, https://stillmed.olympic.org/media/Images/OlympicOrg/Athletes/D/Domracheva_Daria/Domracheva_Daria_mugshot.jpg?interpolation=lanczos-none&resize=90:90 2x" alt="DOMRACHEVA Daria ">
-<span class="mask"></span>
-</picture>
-        <div class="area">
-            <strong class="name">Darya DOMRACHEVA</strong>
-        </div>
-    </a>
-                </div>
-                <div class="td col2">
-
-        <div class="area">
-            <strong>Biathlon</strong>
-        </div>
-                </div>
-                <div class="td col4">
-
-
-                <div class="area">
-                    <ul class="medal-box">
-                        <li>
-                            <div class="medal"> <span>G</span> <span class="num">3</span> </div>
-                        </li>
-                        <li>
-                            <div class="medal silver"> <span>S</span> <span class="num">0</span> </div>
-                        </li>
-                        <li>
-                            <div class="medal bronze"> <span>B</span> <span class="num">0</span> </div>
-                        </li>
-                    </ul>
-                </div>
-                </div>
-    </li>
+    
 
    
         </ul>

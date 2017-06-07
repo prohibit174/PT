@@ -1,6 +1,7 @@
 package kosta.travel.controller;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -54,8 +55,30 @@ public class CarpoolController {
 		return "/carpool/read";
 	}
 	
-
+	@RequestMapping(value = "/remove", method = RequestMethod.GET)
+	public String remove(@RequestParam("c_num") int c_num, RedirectAttributes rttr) throws Exception {
+		service.remove(c_num);
 		
+		rttr.addFlashAttribute("msg", "SUCCESS");
+		
+		return "redirect:/carpool/listAll";
+	}
+
+	@RequestMapping(value = "/request", method = RequestMethod.GET)
+	public String request(@RequestParam("c_num") int c_num, RedirectAttributes rttr) throws Exception {
+
+		service.remove(c_num);
+		
+		rttr.addFlashAttribute("msg", "SUCCESS");
+		
+		return "redirect:/mypage/carpoolCheck";
+		
+	}
+	
+
+	
+
+
 }
 
 
