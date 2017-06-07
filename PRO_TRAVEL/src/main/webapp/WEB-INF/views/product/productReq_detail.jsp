@@ -70,20 +70,17 @@
 <link media="all" rel="stylesheet" type="text/css"
 	href="https://stillres.olympic.org/css/all.css" />
 
-  <script>
-   
-  $(document).ready(function(){
-	  
+<!-- <script>
+	$(document).ready(function() {
+
 		var formObj = $("form[role='form']");
-		console.log(formObj); 
-  	
-		$(".btn-primary").on("click", function(){
+		console.log(formObj);
+
+		$(".btn-primary").on("click", function() {
 			self.location = "/product/product_list";
 		});
-  });
-  	
-
-	</script>
+	});
+</script> -->
 
 
 <!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="https://stillres.olympic.org/css/ie.css" /><![endif]-->
@@ -95,69 +92,60 @@
 	<section class="id-card-box" itemtype="http://schema.org/Organization"
 		itemscope="" style="margin: 0px 200px 100px 0px"; >
 		<div class="logo-box" itemprop="image">
-			 
-				<form role="form" method="get">
 
-					<input type='hidden' name='pr_reqnum' value="${proReq.pr_reqnum}">
+			 <form role="form" action="/product/product_list"> 
+
+				<div class="items active">
+					<div class="item-list">
+						<div style="display: block;" class="slide">
+							<div class="row">
+								<span class="label">거래번호</span>
+								<div class="txt">${proReq.pr_reqnum}</div>
+							</div>
+
+							<div class="row">
+								<span class="label">사용자 아이디</span>
+								<div class="txt" itemprop="streetAddress">
+									<address>${proReq.u_id}</address>
+								</div>
+							</div>
+							<div class="row">
+								<span class="label">상품번호</span>
+								<div class="txt" itemprop="telephone">${proReq.p_num}</div>
+							</div>
+						<%-- 	<div class="row">
+								<span class="label">거래요청여부</span>
+								<div class="txt" itemprop="faxNumber">${proReq.pr_ox}</div>
+							</div> --%>
+							<div class="row">
+								<span class="label">거래장소</span>
+								<div class="txt">
+									<a href="mailto:olympics@ibl.bm" itemprop="email">${proReq.pr_place}</a>
+								</div>
+							</div>
+							<div class="row">
+								<span class="label">거래날짜</span>
+								<div class="txt">
+
+									<a href="http://www.olympics.bm" target="_blank" itemprop="url">${proReq.pr_date}</a>
+								</div>
+							</div>
+
+							<ul class="mailbox-attachments clearfix uploadedList"></ul>
+							<div class="row">
+								<button type="submit" class="btn btn-primary">목록으로 가기</button>
+
+							</div>
+						</div>
+					</div>
 					
-
-				</form> 
-			
-
-		
-		</div>
-		<div class="items active">
-			<div class="item-list">
-				<div style="display: block;" class="slide">
-					<div class="row">
-						<span class="label">거래번호</span>
-						<div class="txt">${proReq.pr_reqnum}</div>
-					</div>
-
-					<div class="row">
-						<span class="label">사용자 아이디</span>
-						<div class="txt" itemprop="streetAddress">
-							<address>
-								${proReq.u_id}
-							</address>
-						</div>
-					</div>
-					<div class="row">
-						<span class="label">상품번호</span>
-						<div class="txt" itemprop="telephone">${proReq.p_num}</div>
-					</div>
-					<div class="row">
-						<span class="label">거래요청여부</span>
-						<div class="txt" itemprop="faxNumber">${proReq.pr_ox}</div>
-					</div>
-					<div class="row">
-						<span class="label">거래장소</span>
-						<div class="txt">
-							<a href="mailto:olympics@ibl.bm" itemprop="email">${proReq.pr_place}</a>
-						</div>
-					</div>
-					<div class="row">
-						<span class="label">거래날짜</span>
-						<div class="txt">
-
-							<a href="http://www.olympics.bm" target="_blank" itemprop="url">${proReq.pr_date}</a>
-						</div>
-					</div>
-				
-				<ul class="mailbox-attachments clearfix uploadedList"></ul>	
-					<div class="row">
-						 <button type="submit" class="btn btn-primary">목록으로 가기</button>
-
-				 
-			
-					</div>
-				</div>
-			</div>
-			<span class="btn-more"> <a title="more link" href="#">More</a>
-			</span>
+					<span class="btn-more"> <a title="more link" href="#">More</a>
+					</span>
+			</div></form>
 			
 		</div>
-		
+
+
 	</section>
 
 
