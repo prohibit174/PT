@@ -6,17 +6,27 @@
 	<insert id="create">
 		insert into car_list(
 			c_num,  u_id,  start_point,  dest_point,  way_point,  c_price,
-			 c_person,  c_year,  c_month,  c_date,  c_hour,  c_minute, u_img
+			 c_year,  c_month,  c_date,  c_hour,  c_minute, c_person
 		)
 		values(
-			1, 1, 1, 1, 1, #{c_price}, #{c_person}, 
-			#{c_year}, #{c_month}, #{c_date}, #{c_hour}, #{c_minute}, 1
+			#{c_num}, #{u_id}, '1', '1', '1', #{c_price}, #{c_year}, #{c_month}, #{c_date}, #{c_hour}, #{c_minute}
+	
+			, #{c_person}
 		)
 	</insert>
 	
-	<select id = "read">
+	<select id="listAll" resultType="kosta.travel.domain.CarpoolVO">
+		select * from car_list where c_num>0
+		order by c_num desc
+	</select>
+	
+	<select id="maxSelect" resultType="integer">
+		select max(c_num) from car_list
+	</select>
+	
+	<select id = "read" resultType="kosta.travel.domain.CarpoolVO">
 		select c_num,  u_id,  start_point,  dest_point,  way_point,  c_price,
-			 c_person,  c_year,  c_month,  c_date,  c_hour,  c_minute, u_img
+			c_year,  c_month,  c_date,  c_hour,  c_minute, c_person
 		from
 			car_list
 		where c_num=#{c_num}

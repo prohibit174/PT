@@ -15,4 +15,6 @@ public interface CarpoolDAO {
 	public void delete(Integer c_num)throws Exception;
 	
 	public List<CarpoolVO> listAll()throws Exception;
+	
+	public Integer maxSelect()throws Exception;
 }
