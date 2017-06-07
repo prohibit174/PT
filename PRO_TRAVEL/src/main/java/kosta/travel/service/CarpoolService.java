@@ -15,5 +15,7 @@ public interface CarpoolService {
 	public void remove(Integer c_num)throws Exception;
 	
 	public List<CarpoolVO> listAll() throws Exception;
+	
+	public Integer maxSelect()throws Exception;
 
 }
