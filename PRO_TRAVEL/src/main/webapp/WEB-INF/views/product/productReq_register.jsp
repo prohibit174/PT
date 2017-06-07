@@ -64,10 +64,9 @@ $(document).ready(function(){
 
          <form role="form" method="post">
 
-               <input type='hidden' name='pr_reqnum' value="${roduct.pr_reqnum}">
-         </form>
-               
-
+            <%--    <input type='hidden'  name="pr_reqnum" value="${Product_RequestVO.pr_reqnum}">  --%>
+         
+                
          
                <div class="box-full" id="creationaccount">
                   <div class="top"></div>
@@ -82,7 +81,7 @@ $(document).ready(function(){
                               <tr>
                                  <td class="label"><label for="u_lang">Product
                                        Request Number</label></td>
-                                 <td class="value"><input type="text" name='pr_reqnum'
+                                 <td class="value"><input type="text" name="pr_reqnum"
                                     id="pr_reqnum" value="" /> &nbsp; <span class="mandatory"></span>
                                     <ul class="errorField">
                                     </ul></td>
@@ -155,7 +154,7 @@ $(document).ready(function(){
 }
 </style>
 
-                     <button name="submit" id="validate_order" type="submit"
+                     <button  id="validate_order" type="submit"
                         class="primaryAction">
                         <span>Request Register</span>
                      </button>
@@ -164,15 +163,12 @@ $(document).ready(function(){
 
                   </div>
             
-
+</form>  
          </div>
          </section>
       </div>
    </div>
-   </main>
-
-
-   </div>
+  
 
    <div id="profiler"></div>
    <%@ include file="..//include/footer.jsp"%>
