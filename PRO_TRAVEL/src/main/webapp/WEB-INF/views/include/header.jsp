@@ -660,7 +660,7 @@
 								</div>
 							</div>
 						</div></li>
-					<li>&nbsp&nbsp&nbsp<a href="/national-olympic-committees">Exchange of
+					<li>&nbsp&nbsp&nbsp<a href="/product/product_list">Exchange of
 							goods</a>
 						<div class="drop">
 							<div class="drop-holder">
