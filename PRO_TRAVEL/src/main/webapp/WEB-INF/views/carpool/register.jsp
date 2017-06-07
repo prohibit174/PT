@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
@@ -13,20 +12,19 @@
 
 
 <title>Insert title here</title>
-    <style>
-       #map {
-        height: 400px;
-        width: 70%;
-        margin-left: 300px;
-       }
-       #calendar {
-        height:600px;
-        width: 45%;
-       }
-    </style>
+<style>
+#map {
+	height: 500px;
+	width: 75%;
+	margin-left: 300px;
+}
+
+</style>
 </head>
 <body>
-    <div id="map"></div>
+   <div id="map"></div>
+    <div id='calendar'></div>
+    
     <script>
        var markerPosition;   
        var marker_zoom4=[];
@@ -468,38 +466,159 @@
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnrWQ2SHvedNrvdozheYo32pHwCbuvPgs&callback=initMap">
-    </script>   
+    </script>  
+    <br><br>
+    <div style="font-size: 30px; font-weight: bold; margin-left: 130px;">Register Your Carpool !</div>
+    <br><br>
+	<div class="id-card-box" style="width: 100%">
+	<form
+		action="/ioc/what we do/celebrate olympic games/from candidate to host city/calendareventlisting"
+		class="calendar-form">
+
+			<div class="item-list" style="width: 1400px; padding-right: 30px;">
+					<div class="row" style="font-size: 20px;">
+						<span class="label">Location</span> 
+						 <select class="destination">
+							<option>목적지를 지도에 마크하세요</option>
+						</select> 
+						<select  class="start">
+							<option>출발지를 지도에 마크하세요</option>
+						</select>
+					</div>
+					<div class="row" style="font-size: 20px;">
+						<span class="label">Date</span> 
+						<select class="day">
+							<option value="day">day</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+							<option value="19">19</option>
+							<option value="20">20</option>
+							<option value="21">21</option>
+							<option value="22">22</option>
+							<option value="23">23</option>
+							<option value="24">24</option>
+							<option value="25">25</option>
+							<option value="26">26</option>
+							<option value="27">27</option>
+							<option value="28">28</option>
+							<option value="29">29</option>
+							<option value="30">30</option>
+							<option value="31">31</option>
+						</select>
+						<select class="month">
+							<option value="month">month</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+						</select>
+						<select class="year">
+							<option value="year">year</option>
+							<option value="2017">2017</option>
+							<option value="2018">2018</option>
+							<option value="2019">2019</option>
+						</select> 
+					</div>
+
+					<div class="row"  style="font-size: 20px;">
+						<span class="label">Time</span> 
+						<select class="minute">
+							<option value="minute">MINUTE</option>
+							<option value="10">10</option>
+							<option value="20">20</option>
+							<option value="30">30</option>
+							<option value="40">40</option>
+							<option value="50">50</option>
+							<option value="00">00</option>
+						</select>
+						<select class="hour">
+							<option value="hour">HOUR</option>
+							<option value="AM1">AM 1</option>
+							<option value="AM2">AM 2</option>
+							<option value="AM3">AM 3</option>
+							<option value="AM4">AM 4</option>
+							<option value="AM5">AM 5</option>
+							<option value="AM6">AM 6</option>
+							<option value="AM7">AM 7</option>
+							<option value="AM8">AM 8</option>
+							<option value="AM9">AM 9</option>
+							<option value="AM10">AM 10</option>
+							<option value="AM11">AM 11</option>
+							<option value="AM12">AM 12</option>
+							<option value="PM1">PM 1</option>
+							<option value="PM2">PM 2</option>
+							<option value="PM3">PM 3</option>
+							<option value="PM4">PM 4</option>
+							<option value="PM5">PM 5</option>
+							<option value="PM6">PM 6</option>
+							<option value="PM7">PM 7</option>
+							<option value="PM8">PM 8</option>
+							<option value="PM9">PM 9</option>
+							<option value="PM10">PM 10</option>
+							<option value="PM11">PM 11</option>
+							<option value="PM12">PM 12</option>
+						</select> 
+					</div>
+					<div class="row" style="font-size: 20px;">
+						<span class="label">Seat</span> 
+						<select class="person">
+							<option value="person">PERSON</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+						</select>
+					</div>
+					<div class="row" style="font-size: 20px;">
+						<span class="label">PRICE</span> 
+						<select class="price">
+							<option value="price">PRICE</option>
+							<option value="10">$10</option>
+							<option value="20">$20</option>
+							<option value="30">$30</option>
+							<option value="40">$40</option>
+							<option value="50">$50</option>
+							<option value="60">$60</option>
+						</select>
+					</div>
+
+					<div class="row"></div>
+				</div>
+				<div>
+		<input class="btn-more" type="submit" value="register" style="margin-right: 50%; margin-top: 10px; width: 120px; height: 50px;" />
+		</div>
+	</form>
+	</div>
 
 
-  <header class="heading">
-            <form action="/ioc/what we do/celebrate olympic games/from candidate to host city/calendareventlisting" class="calendar-form">
-                <input type="submit" value="Go" />
-                <select title="Year" name="y" class="calendar-select">
-                        <option selected value="Year">Year</option>
-                        <option value="2017">2017</option>
-                        <option value="2016">2016</option>
-                        <option value="2015">2015</option>
-
-                </select>
-                <select title="Month" name="m" class="calendar-select">
-                        <option selected value="Month">Month</option>
-                        <option value="1">January</option>
-                        <option value="2">February</option>
-                        <option value="3">March</option>
-                        <option value="4">April</option>
-                        <option value="5">May</option>
-                        <option value="6">June</option>
-                        <option value="7">July</option>
-                        <option value="8">August</option>
-                        <option value="9">September</option>
-                        <option value="10">October</option>
-                        <option value="11">November</option>
-                        <option value="12">December</option>
-
-                </select>
-            </form>
-            <h2>EVENTS</h2>
-        </header>
 
 
 	<%@ include file="/WEB-INF/views/include/footer.jsp"%>
