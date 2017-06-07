@@ -131,15 +131,15 @@
           console.log(this.getTitle());
           if(count%2 != 0){
           $.ajax({
-              url :   '/WEB-INF/views/ajax_register.jsp',
+              url :  '${pageContext.request.contextPath}/ajax_register',
              type : 'post',
              data : {
                 start : this.getTitle()
              },
              success: function sendHandler(data) {
-                  $('select.start').val("");
-               $('select.start').val(data);
-               
+            	  $('select.start option.start').text("");
+                  $('select.start option.start').text(data);
+                  $('select.start option.start').text(data).attr("selected", "selected");
                }
           });
           alert("출발지가 추가 되었습니다.")
@@ -147,14 +147,15 @@
           }else{
           
            $.ajax({
-             url :   '/WEB-INF/views/ajax_register.jsp',
+             url : '${pageContext.request.contextPath}/ajax_register',
             type : 'post',
             data : {
                start : this.getTitle()
             },
             success: function sendHandler(data) {
-               $('select.destination').val("");
-               $('select.destination').val(data);
+          	  $('select.destination option.destination').text("");
+              $('select.destination option.destination').text(data);
+              $('select.destination option.destination').text(data).attr("selected", "selected");
                
                }
          });
@@ -174,15 +175,15 @@
 
        if(count%2 != 0){
        $.ajax({
-           url :   '/WEB-INF/views/ajax_register.jsp',
+           url :  '${pageContext.request.contextPath}/ajax_register',
           type : 'post',
           data : {
              start : this.getTitle()
           },
           success: function sendHandler(data) {
-               $('select.start').val("");
-               $('select.start').val(data);
-               
+        	  $('select.start option.start').text("");
+              $('select.start option.start').text(data);
+              $('select.start option.start').text(data).attr("selected", "selected");
             }
        });
        alert("출발지가 추가 되었습니다.")
@@ -190,15 +191,15 @@
        }else{
        
         $.ajax({
-          url :   '/WEB-INF/views/ajax_register.jsp',
+          url : '${pageContext.request.contextPath}/ajax_register',
          type : 'post',
          data : {
             start : this.getTitle()
          },
          success: function sendHandler(data) {
-            $('select.destination').val("");
-            $('select.destination').val(data);
-            
+          	  $('select.destination option.destination').text("");
+              $('select.destination option.destination').text(data);
+              $('select.destination option.destination').text(data).attr("selected", "selected");
             }
       });
       alert("목적지가 추가 되었습니다.")
@@ -255,10 +256,10 @@
 					<div class="row" style="font-size: 20px;">
 						<span class="label">Location</span> 
 						 <select class="destination">
-							<option>목적지를 지도에 마크하세요</option>
+							<option class="destination">목적지를 지도에 마크하세요</option>
 						</select> 
 						<select  class="start">
-							<option>출발지를 지도에 마크하세요</option>
+							<option class="start">출발지를 지도에 마크하세요</option>
 						</select>
 					</div>
 					<div class="row" style="font-size: 20px;">

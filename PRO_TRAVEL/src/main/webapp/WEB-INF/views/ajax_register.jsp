@@ -8,6 +8,6 @@
    request.setCharacterEncoding("utf-8");
    
    String start = request.getParameter("start");
-
    out.print(start);
+   System.out.println(start);
    %>
