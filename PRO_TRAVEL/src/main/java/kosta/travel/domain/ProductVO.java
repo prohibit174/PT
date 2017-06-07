@@ -12,13 +12,11 @@ public class ProductVO {
 	private String p_date;
 	private String p_ox;
 	
-	private String[] files;
-	
 	public ProductVO(){}
 	
 
 	public ProductVO(String p_num, String u_id, String p_img, String p_detail, String p_price, String p_name,
-			String p_date, String p_ox, String[] files) {
+			String p_date, String p_ox) {
 		super();
 		this.p_num = p_num;
 		this.u_id = u_id;
@@ -28,7 +26,6 @@ public class ProductVO {
 		this.p_name = p_name;
 		this.p_date = p_date;
 		this.p_ox = p_ox;
-		this.files = files;
 	}
 
 
@@ -97,25 +94,12 @@ public class ProductVO {
 		this.p_ox = p_ox;
 	}
 
-	public String[] getFiles() {
-		return files;
-	}
-
-	public void setFiles(String[] files) {
-		this.files = files;
-	}
-
-
 
 	@Override
 	public String toString() {
 		return "ProductVO [p_num=" + p_num + ", u_id=" + u_id + ", p_img=" + p_img + ", p_detail=" + p_detail
-				+ ", p_price=" + p_price + ", p_name=" + p_name + ", p_date=" + p_date + ", p_ox=" + p_ox + ", files="
-				+ Arrays.toString(files) + "]";
+				+ ", p_price=" + p_price + ", p_name=" + p_name + ", p_date=" + p_date + ", p_ox=" + p_ox + "]";
 	}
-	
-	
-	
-	
+
 	
 }
