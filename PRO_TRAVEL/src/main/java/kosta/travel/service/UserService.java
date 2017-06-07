@@ -12,8 +12,8 @@ public interface UserService {
 	public void regist(UsersVO users) throws Exception;
 	public int idCheck(String u_id) throws Exception;
 	public UsersVO userDetail(String u_id) throws Exception;
-	public UsersVO checkPw(String u_id, String u_pwd) throws Exception;
-	public UsersVO userUpdate(UsersVO users)throws Exception;
+	public boolean checkPw(String u_id, String u_pwd) throws Exception;
+	public void userUpdate(UsersVO users)throws Exception;
 	public void keepLogin(String u_id, String sessionId, Date next) throws Exception;
 	public UsersVO checkLoginBefore(String value);
 }
