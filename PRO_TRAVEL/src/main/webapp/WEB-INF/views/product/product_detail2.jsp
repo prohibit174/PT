@@ -1,8 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>	
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 <%@ include file="/WEB-INF/views/include/product_sidebar.jsp"%>
-
+<% String id = (String)session.getAttribute("login");
+		request.setAttribute("id", id);
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,28 +75,31 @@
 <link media="all" rel="stylesheet" type="text/css"
 	href="https://stillres.olympic.org/css/all.css" />
 
-  <script>
+<script type="text/javascript">
   
-  $(document).ready(function(){
-	  
-		var formObj = $("form[role='form']");
-		console.log(formObj); 
-  	
-  	$(".btn-warning").on("click", function(){
-  		formObj.attr("action", "/product/product_update");
-  		formObj.attr("method", "get");		
-  		formObj.submit();
-  	});
+	function btn_js_update_click(){
+  	  /* confirm(문자열, 초기값) */
+  	  var check = confirm("수정하시겠습니까?");
+  	  /* if(check == true) else false */
+  	  if(check) document.location.href="product_update?p_num=${product.p_num}";
+  	}
+ 
+	function btn_js_delete_click(){
+    	  /* confirm(문자열, 초기값) */
+    	  var check = confirm("삭제하시겠습니까?");
+    	  /* if(check == true) else false */
+    	  if(check) document.location.href="product_delete?p_num=${product.p_num}";
+    	}
 
-  	
- $(".btn-danger").on("click", function(){
-	
-		formObj.attr("action", "/product/product_delete");
-		formObj.submit();
-	});	
-	
-  }); 
-	</script>
+	function btn_js_request_click(){
+  	  /* confirm(문자열, 초기값) */
+  	  var check = confirm("요청하시겠습니까?");
+  	  /* if(check == true) else false */
+  	  if(check) document.location.href="productReq_register?p_num=${product.p_num}";
+  	  
+		} 
+  </script>
+  
 
 
 <!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="https://stillres.olympic.org/css/ie.css" /><![endif]-->
@@ -104,14 +112,8 @@
 		itemscope="" style="margin: 0px 200px 100px 0px"; >
 		<div class="logo-box" itemprop="image">
 			<picture> <!--[if IE 9]><video style="display: none;"><![endif]-->
-			
-				<form role="form" method="post">
+				<input type='hidden' name='p_num' value="${product.p_num}">
 
-					<input type='hidden' name='p_num' value="${product.p_num}">
-					
-
-				</form>
-			
 
 		<!-- 	<source
 				srcset="https://stillmed.olympic.org/media/Images/OlympicOrg/Countries/B/Bermuda/CNO-BER.jpg?interpolation=lanczos-none&resize=253:*, https://stillmed.olympic.org/media/Images/OlympicOrg/Countries/B/Bermuda/CNO-BER.jpg?interpolation=lanczos-none&resize=506:* 2x"
@@ -119,7 +121,7 @@
 			<source
 				srcset="https://stillmed.olympic.org/media/Images/OlympicOrg/Countries/B/Bermuda/CNO-BER.jpg?interpolation=lanczos-none&resize=223:*, https://stillmed.olympic.org/media/Images/OlympicOrg/Countries/B/Bermuda/CNO-BER.jpg?interpolation=lanczos-none&resize=446:* 2x"
 				media="(min-width: 768px)"> -->
-			<!--[if IE 9]></video><![endif]--> <img src="webapps\\upload\\${product.p_img }"></picture>
+			<!--[if IE 9]></video><![endif]--> <img src="/resources/upload/${product.p_img }"></picture>
 
 		</div>
 		<div class="items active">
@@ -161,11 +163,19 @@
 					</div>
 				
 				<ul class="mailbox-attachments clearfix uploadedList"></ul>	
-					<div class="row">
-						 <button type="submit" class="btn btn-warning" id="modifyBtn">수정</button>
-						    <button type="submit" class="btn btn-danger" id="removeBtn">삭제</button> 		 
-			
-					</div>
+				
+			<div class="row">
+						<c:choose>
+					       <c:when test="${id == product.u_id}">
+						 <button type="submit" class="btn btn-warning" id="modifyBtn" onclick="btn_js_update_click()">수정</button>
+						 <button type="submit" class="btn btn-danger" id="removeBtn" onclick="btn_js_delete_click()">삭제</button> 		 
+							</c:when>
+					    <c:otherwise>
+							 <button type="submit" class="btn btn-request" id="removeBtn" onclick="btn_js_request_click()">거래요청</button> 
+						 </c:otherwise>
+				 	  </c:choose>	 
+			</div>
+
 				</div>
 			</div>
 			<span class="btn-more"> <a title="more link" href="#">More</a>

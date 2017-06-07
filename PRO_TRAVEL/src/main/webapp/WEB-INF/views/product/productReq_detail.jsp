@@ -113,10 +113,10 @@
 								<span class="label">상품번호</span>
 								<div class="txt" itemprop="telephone">${proReq.p_num}</div>
 							</div>
-							<div class="row">
+						<%-- 	<div class="row">
 								<span class="label">거래요청여부</span>
 								<div class="txt" itemprop="faxNumber">${proReq.pr_ox}</div>
-							</div>
+							</div> --%>
 							<div class="row">
 								<span class="label">거래장소</span>
 								<div class="txt">

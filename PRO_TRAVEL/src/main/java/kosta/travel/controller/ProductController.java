@@ -86,6 +86,8 @@ public class ProductController {
 
    @RequestMapping(value = "/product_update", method = RequestMethod.GET)
    public void product_update(@RequestParam("p_num") String p_num, Model model) throws Exception {
+	   
+	   logger.info("product updateGET method call..");
       ProductVO product = service.detailProduct(p_num);
       model.addAttribute("product", product);
 

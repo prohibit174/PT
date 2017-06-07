@@ -16,6 +16,7 @@
    
    <select id="listProduct" resultType="ProductVO" >
       select * from product
+      order by p_date desc
    </select>
     
     
@@ -41,7 +42,7 @@
          )
       values(
          #{pr_reqnum}, #{u_id}, #{p_num},
-         #{pr_ox},#{pr_place},#{pr_date}
+         'x',#{pr_place},#{pr_date}
       )
       
    </insert>

@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
+   
+<% String id = (String)session.getAttribute("login");
+		request.setAttribute("id", id);
+		
+		String p_num = request.getParameter("p_num");
+		request.setAttribute("p_num", p_num);
+%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -90,7 +97,7 @@ $(document).ready(function(){
                               <tr>
                                  <td class="label"><label for="u_lang">User ID</label></td>
                                  <td class="value"><input type="text" name="u_id"
-                                    id="u_id" value="" /> &nbsp; <span class="mandatory"></span>
+                                    id="u_id" value="${id }" /> &nbsp; <span class="mandatory"></span>
                                     <ul class="errorField">
                                     </ul></td>
                               </tr>
@@ -98,19 +105,19 @@ $(document).ready(function(){
                                  <td class="label"><label for="u_lang">Product
                                        Number</label></td>
                                  <td class="value"><input type="text" name="p_num"
-                                    id="p_num" value="" /> &nbsp; <span class="mandatory"></span>
+                                    id="p_num" value="${p_num }" /> &nbsp; <span class="mandatory"></span>
                                     <ul class="errorField">
                                     </ul></td>
                               </tr>
 
-                              <tr>
+<!--                               <tr>
                                  <td class="label"><label for="u_lang">Product
                                        Request Status</label></td>
                                  <td class="value"><input type="text" name="pr_ox"
-                                    id="pr_ox" value="" /> &nbsp; <span class="mandatory"></span>
+                                    id="pr_ox" value="x" /> &nbsp; <span class="mandatory"></span>
                                     <ul class="errorField">
                                     </ul></td>
-                              </tr>
+                              </tr> -->
                               <tr>
                                  <td class="label"><label for="u_lang">Place</label></td>
                                  <td class="value"><input type="text" name="pr_place"
