@@ -16,6 +16,7 @@
     pageEncoding="UTF-8"%>
 <%@include file="../include/header.jsp" %>
 
+
 <% request.setCharacterEncoding("utf-8"); %>
 
 <!DOCTYPE html>
@@ -69,7 +70,7 @@
                 
                 <ul class="tabs-list">
             <li><a href="main.accompany" class="first-tag active"><span>Accompany</span></a></li>
-            <li><a class="accomp_createRoute"><span>여행 일정 등록</span></a></li>     
+            <li><a href="enroll" class="accomp_createRoute"><span>여행 일정 등록</span></a></li>     
             <li><a href="list.carpool" data-id="2d8eef384cefda06" class=""><span>동행 검색</span></a></li>
             
 		</ul>
