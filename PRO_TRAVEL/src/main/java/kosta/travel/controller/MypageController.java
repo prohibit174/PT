@@ -46,6 +46,7 @@ public class MypageController {
 	@RequestMapping(value="/usercheckInfo", method=RequestMethod.POST)
 	public String updateUserInfo(UsersVO users, HttpSession session) throws Exception{
 		String u_id = (String)session.getAttribute("login");
+		users.setU_id(u_id);
 		userService.userUpdate(users);
 		
 		return "redirect:/mypage/usercheckInfo";
