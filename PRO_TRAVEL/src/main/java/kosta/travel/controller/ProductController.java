@@ -35,15 +35,14 @@ public class ProductController {
    private ProductService service;
 
    @RequestMapping(value = "/product_register", method = RequestMethod.GET)
-   public String product_registerGET() throws Exception {
+   public void product_registerGET() throws Exception {
       System.out.println("registerget method call");
-
-      return "/product/product_register";
    }
 
    @RequestMapping(value = "/product_register", method = RequestMethod.POST)
    public String product_registerPOST(ProductVO product, MultipartFile file, Model model) throws Exception {
-      System.out.println("registerpost method call");
+      
+	   System.out.println("registerpost method call");
       logger.info(product.toString());
       logger.info("originalName: "+file.getOriginalFilename());
       
