@@ -37,30 +37,30 @@
 
 				</select> <select title="c_month" name="c_month" class="calendar-select">
 					<option selected value="Month">Month</option>
-					<option value="1">January</option>
-					<option value="2">February</option>
-					<option value="3">March</option>
-					<option value="4">April</option>
-					<option value="5">May</option>
-					<option value="6">June</option>
-					<option value="7">July</option>
-					<option value="8">August</option>
-					<option value="9">September</option>
+					<option value="01">January</option>
+					<option value="02">February</option>
+					<option value="03">March</option>
+					<option value="04">April</option>
+					<option value="05">May</option>
+					<option value="06">June</option>
+					<option value="07">July</option>
+					<option value="08">August</option>
+					<option value="09">September</option>
 					<option value="10">October</option>
 					<option value="11">November</option>
 					<option value="12">December</option>
 
 				</select> <select title="Date" name="c_date" class="calendar-select">
 					<option selected value="Date">Date</option>
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-					<option value="6">6</option>
-					<option value="7">7</option>
-					<option value="8">8</option>
-					<option value="9">9</option>
+					<option value="01">1</option>
+					<option value="02">2</option>
+					<option value="03">3</option>
+					<option value="04">4</option>
+					<option value="05">5</option>
+					<option value="06">6</option>
+					<option value="07">7</option>
+					<option value="08">8</option>
+					<option value="09">9</option>
 					<option value="10">10</option>
 					<option value="11">11</option>
 					<option value="12">12</option>
@@ -128,12 +128,12 @@
 				<br> <input type="submit" value="SIGN" /> <select
 					title="Person" name="c_person" class="calendar-select">
 					<option selected value="Seat">Seat</option>
-					<option value="00">1</option>
-					<option value="10">2</option>
-					<option value="20">3</option>
-					<option value="30">4</option>
-					<option value="40">5</option>
-					<option value="50">6</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
 
 
 				</select> <select title="Price" name="c_price" class="calendar-select">
