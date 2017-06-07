@@ -6,11 +6,12 @@
 	<insert id="create">
 		insert into car_list(
 			c_num,  u_id,  start_point,  dest_point,  way_point,  c_price,
-			 c_person,  c_year,  c_month,  c_date,  c_hour,  c_minute, u_img
+			 c_year,  c_month,  c_date,  c_hour,  c_minute, c_person
 		)
 		values(
-			1, 1, 1, 1, 1, #{c_price}, #{c_person}, 
-			#{c_year}, #{c_month}, #{c_date}, #{c_hour}, #{c_minute}, 1
+			'1', '1', '1', '1', '1', #{c_price}, #{c_year}, #{c_month}, #{c_date}, #{c_hour}, #{c_minute}
+	
+			, #{c_person}
 		)
 	</insert>
 	

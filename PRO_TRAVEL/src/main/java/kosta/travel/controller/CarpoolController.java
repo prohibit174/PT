@@ -1,5 +1,7 @@
 package kosta.travel.controller;
 
+import javax.inject.Inject;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -14,6 +16,7 @@ import kosta.travel.service.CarpoolService;
 @RequestMapping("/carpool/*")
 public class CarpoolController {
 	
+	@Inject
 	private CarpoolService service;
 
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
@@ -31,7 +34,8 @@ public class CarpoolController {
 	}
 	
 	@RequestMapping(value = "/listAll", method = RequestMethod.GET)
-	public void listAll() {
+	public String lsitAll(CarpoolVO carpool, Model model) throws Exception {
+		return "/carpool/listAll";
 	}
-
+		
 }
