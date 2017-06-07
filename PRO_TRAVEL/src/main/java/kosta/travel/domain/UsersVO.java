@@ -1,7 +1,10 @@
 package kosta.travel.domain;
 
+import javax.validation.constraints.Size;
+
 public class UsersVO{
 
+	@Size(min=4, max=12, message="�븘�씠�뵒�뒗 4~12�옄濡� �벑濡앺빐二쇱꽭�슂.")
 	private String u_id;
 	private String u_pwd;
 	private String u_name;

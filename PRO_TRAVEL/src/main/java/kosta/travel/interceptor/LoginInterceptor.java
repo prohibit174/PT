@@ -2,6 +2,7 @@ package kosta.travel.interceptor;
 
 import java.io.PrintWriter;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -11,7 +12,6 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 public class LoginInterceptor extends HandlerInterceptorAdapter {
-	private static final String LOGIN = "login";
 	
 	@Override
 	public void postHandle(
@@ -26,8 +26,17 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 		System.out.println(usersVO);
 
 		if(usersVO != null){
-			session.setAttribute(LOGIN, usersVO);
-			response.sendRedirect("/test");
+			session.setAttribute("login", usersVO);
+			//response.sendRedirect("/");
+			System.out.println(request.getParameter("useCookie"));
+			if(request.getParameter("useCookie") != null){
+				Cookie loginCookie = new Cookie("loginCookie", session.getId());
+				loginCookie.setPath("/");
+				loginCookie.setMaxAge(60 * 60 * 24 * 7);
+				response.addCookie(loginCookie);
+			}
+			Object dest = session.getAttribute("dest");
+			response.sendRedirect(dest != null ? (String)dest:"/");
 		}else{
 	         response.setContentType("text/html;charset=utf-8");
 	         out.println("<script>");
@@ -45,8 +54,8 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 			) throws Exception{
 		HttpSession session = request.getSession();
 		
-		if(session.getAttribute(LOGIN) != null){
-			session.removeAttribute(LOGIN);
+		if(session.getAttribute("login") != null){
+			session.removeAttribute("login");
 		}
 		return true;
 	}

@@ -21,9 +21,10 @@ public class AccompanyDao {
 	@Inject
 	private SqlSessionTemplate session;
 	
+	
 	private static String namespace = "pro_travel.mapper.accompanyMapper";
 	
-	public List<AccompanyVO> getUserRoute(int id) throws Exception {
+	public List<AccompanyVO> getUserRoute(String id) throws Exception {
 		return session.selectList(namespace+".getUserRoute", id);
 	}
 	
@@ -33,6 +34,10 @@ public class AccompanyDao {
 
 	public List<AccompanyVO> getAccompanies(AccompanyVO accompany) throws Exception {
 		return session.selectList(namespace+".getAccompanies", accompany);
+	}
+	
+	public void insertRoute(RouteVO route){
+		session.insert(namespace+".insertRoute", route);
 	}
 	
 }

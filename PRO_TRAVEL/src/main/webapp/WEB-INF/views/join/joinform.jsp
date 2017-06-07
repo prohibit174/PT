@@ -20,21 +20,22 @@
 	src="${pageContext.request.contextPath}/resources/js/AgoFiles/UsersJS/CheckEssential.js"></script>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/js/AgoFiles/UsersJS/IdCheck.js"></script>
+	<!-- Have to work for ID check -->
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/js/AgoFiles/UsersJS/join_checkInfo.js"></script>
-<script type="text/javascript"
+	<!-- Have to work for PW REGEXP -->
+<%-- <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/js/AgoFiles/UsersJS/JoinCheck.js"></script>
-
+ --%>
+ <!-- No need to JoinCheck.JS -->
 
 
 </head>
 
-<%@include file="../include/header.jsp" %>
-<%@include file="../include/mypage_sidebar_test.jsp" %>
-
+<%@include file="/WEB-INF/views/include/header.jsp" %>
+<%@include file="/WEB-INF/views/include/mypage_sidebar.jsp" %>
 <body>
 
-	<h3>JoinForm</h3>
 
 
 
@@ -66,9 +67,9 @@
 
 
 				<form id="form_checkout" class="uniForm checkout"
-					enctype="application/x-www-form-urlencoded" action="JoinForm"
+					enctype="application/x-www-form-urlencoded" action="joinform"
 					method="post">
-					<div class="box-full" id="creationaccount">
+					<!-- <div class="box-full" id="creationaccount"> -->
 						<div class="top"></div>
 						<div class="form">
 
@@ -121,26 +122,24 @@
 												</ul></td>
 										</tr>
 
-										<tr>
-											<td>성별</td>
-
-											<td><input type="radio" name="u_sex" id="u_sex"
-												value="남자"> 남자 <input type="radio" name="u_sex"
-												id="u_sex" value="여자"> 여자
-												
-												&nbsp; <span class="mandatory">*</span>
-												
-												</td>
-
-										</tr>
+										<tr> 
+											<td>성별</td> 
+											<td> 
+											<input type="radio" name="u_sex" id="u_sex_m" value="남자"><label for="u_sex_m" class="radioSpan">남자</label> 
+											<input type="radio" name="u_sex" id="u_sex_f" value="여자"> <label for="u_sex_f" class="radioSpan">여자</label> 
+											&nbsp; <span class="mandatory">*</span> 
+											</td> 
+											</tr>
 
 										<tr><td></tr>
 
 										<tr>
 											<td class="label"><label for="u_license">운전면허 유무</label></td>
 											<td><input type="radio" name="u_license" id="u_license"
-												value="운전면허 소지"> 유 &nbsp;&nbsp; <input type="radio"
-												name="u_license" id="u_license" value="운전면허 미소지"> 무
+												value="운전면허 소지"><label>유</label> 
+												 <input type="radio"
+												name="u_license" id="u_license" value="운전면허 미소지"> 
+												<label>무</label>
 
 												&nbsp; <span class="mandatory">*</span>
 												<ul class="errorField">
@@ -182,13 +181,13 @@
 										<tr>
 											<td class="label"><label for="u_job">직업</label></td>
 											<td class="value"><input type="text"
-												name="form_checkout[billing][address2]"
-												id="form_checkout-billing-address2" value="" /></td>
+												name="u_job"
+												id="u_job" value="" /></td>
 										</tr>
-									</table>
+									<!-- </table>
 								</div>
 								<div class="right">
-									<table cellpadding="0" cellspacing="0" class="tab">
+									<table cellpadding="0" cellspacing="0" class="tab"> -->
 										<tr>
 											<td class="label"><label for="u_lang">사용언어</label></td>
 											<td class="value"><input type="text" name="u_lang"
@@ -215,11 +214,19 @@
 										<tr>
 											<td class="label"><label for="u_style">여행 스타일</label></td>
 											<td class="value">
-											<input type="radio" name="u_style" value="힐링" checked="checked">힐링&nbsp;&nbsp; 
-											<input type="radio" name="u_style" value="관광">관광&nbsp;&nbsp;
-							<input type="radio" name="u_style" value="맛집"> 맛집&nbsp;&nbsp;
-							<input type="radio" name="u_style" value="액티비티"> 액티비티&nbsp;&nbsp;
-							<input type="radio" name="u_style" value="휴양">휴양
+											<select name="u_style">
+											<option value="힐링">힐링</option>
+											<option value="관광">관광</option>
+											<option value="맛집">맛집</option>
+											<option value="액티비티">액티비티</option>
+											<option value="휴양">휴양</option>
+											
+											</select>
+											<input type="radio" name="u_style" value="힐링" checked="checked"><label>힐링</label>
+											<input type="radio" name="u_style" value="관광"><label>관광</label>
+							<input type="radio" name="u_style" value="맛집"> <label>맛집</label>
+							<input type="radio" name="u_style" value="액티비티"> <label>액티비티</label>
+							<input type="radio" name="u_style" value="휴양"><label>휴양</label>
 							&nbsp;&nbsp;<!-- <span>하나만 선택해주세요</span> --></td>
 										</tr>
 									</table>
@@ -299,11 +306,12 @@
                         FOOTER END
                     </div>
                 </div> -->
+                </main>
 	</div>
-	</main>
 
 
-	</div>
+
+
 
 	<div id="profiler"></div>
 <%@include file="../include/footer.jsp" %>

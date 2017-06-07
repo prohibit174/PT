@@ -17,75 +17,16 @@
 <%@include file="../include/header.jsp" %>
 
 <% request.setCharacterEncoding("utf-8"); %>
-<% 
 
-String id =(String)session.getAttribute("member_id");
-
-/* System.out.println(request.getContextPath()); 
-
-
-
-AccompanyDao dao = AccompanyDao.getInstance();
-RouteVO route=new RouteVO();
-AccompanyService ser = new AccompanyService();
-
-route.setU_id("0");
-//  로그인 후 route.setU_id(id);
-List<AccompanyVO> list = dao.getUserRoute(0);
-
-
-request.setAttribute("list", list);
-
-List<AccompanyVO> allAccompanyList=dao.getUserRoute(0);
-
-allAccompanyList.clear();
-
-
- //System.out.println("allAccompanyList.size : " +allAccompanyList.size());
-
-
-
-for(int i=0;i< "${list}".size() ;i++)
-	{
-	  
-	  List<AccompanyVO> userRoutesInfo  = dao.getUserInfo(list.get(i).getU_id());//get user's route whose id is "0"
-	  //get routes of logined user.
-	  //userRoutesInfo[0] contains 5.1 Nice, id, trip_style and so on...
-	  //userRoutesInfo[1] contains 5.2 Nice, id, trip_style and so on...
-	  //userRoutesInfo[2] contains 5.3 Swiss, id, trip_style and so on...
-	  //userRoutesInfo[3] contains 5.4 Swiss, id, trip_style and so on...
-	  String name=userRoutesInfo.get(i).getU_name();
-	  String region=userRoutesInfo.get(i).getCor_region();
-	  String date=userRoutesInfo.get(i).getTp_date();
-	  System.out.println(i+"번째"+date+"의 "+region);
-	  System.out.println();
-
-	  //List<Accompany> temp=dao.findAccompany(userRoutesInfo.get(i));
-	  List<AccompanyVO> temp=dao.getAccompanies(userRoutesInfo.get(i));
-	  allAccompanyList.addAll(temp);
-	  
-	}
-System.out.println();
-System.out.println("allAccompanyList.size : " +allAccompanyList.size());
-	
-
-for(int i=0;i< allAccompanyList.size() ;i++)
-	{ String name=allAccompanyList.get(i).getU_name();
-	  String region=allAccompanyList.get(i).getCor_region();
-	  String date=allAccompanyList.get(i).getTp_date();
-	  String lati=allAccompanyList.get(i).getCor_lati();
-	  String longi=allAccompanyList.get(i).getCor_longi();
-	  System.out.println(date+"의 "+region+"에서의 동행은 "+name+"입니다"+"lat/long : "+lati+" / "+longi);
-	}
-	   request.setAttribute("allAccompanyList", allAccompanyList);
-	   
-	   */
-	   
-	   
-%>
 <!DOCTYPE html>
 
 <html>
+<script type="text/javascript" src="http://www.nowarch.com/resources/js/jquery-1.10.2.min.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js'></script>
+<script src='${pageContext.request.contextPath}/resources/js/accompanyJs/fullcalendar.js'></script>
+<link rel='stylesheet' href='/resources/css/accompany/fullcalendar.css' />
+
+
 <%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/css/carpool_css/city-main-styles.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/carpool_css/carpoolJoin.css" />--%>
 <%--  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/carpool_css/carpoolJoin2.css" />
@@ -103,10 +44,8 @@ for(int i=0;i< allAccompanyList.size() ;i++)
 <%-- <script src="${pageContext.request.contextPath}/JS/loginPopup/loginPopup.js"></script> --%>
 
 <head>
-<!-- <script type="text/javascript" src="http://www.nowarch.com/resources/js/jquery-1.10.2.min.js"></script> -->
-<script src='${pageContext.request.contextPath}/resources/js/accompanyJs/moment.js'></script>
-<script src='${pageContext.request.contextPath}/resources/js/accompanyJs/fullcalendar.js'></script>
-<link rel='stylesheet' href='/resources/css/accompany/fullcalendar.css' />
+
+
 
 
   <style>
@@ -151,12 +90,13 @@ for(int i=0;i< allAccompanyList.size() ;i++)
             
             </div><!-- e//tabs-list -->
 <form action="" method="post">	
-    <div id="carpool_map">
+  	  <div id="carpool_map"></div>
     	<h3 id="carpool_title">추천 동행인</h3>
     	<br>
     	<div id="map"></div>
-    	
-    	<script type="text/javascript">
+  </form>
+    
+    <script type="text/javascript">
     var index=0;
     var tp_num=[];
     var region=[];
@@ -219,8 +159,8 @@ for(int i=0;i< allAccompanyList.size() ;i++)
     
     </script>
     
-    <%--
-    <c:for Each var="accompany" items="${allAccompanyList}">
+    
+    <c:forEach var="accompany" items="${allAccompanyList}">
     
                   <c:set var="tp_num" value="${accompany.tp_num}"></c:set>
                   <c:set var="cor_region" value="${accompany.cor_region}"></c:set>
@@ -271,14 +211,11 @@ for(int i=0;i< allAccompanyList.size() ;i++)
  </c:forEach>
  
  
-     --%>
+    
      
      
-     <!-- 
+    
     <script>
-    
-   
-    
     function showRightAccom(rightIndex, markerIndex){
     	console.log('Index : '+ rightIndex);
     	console.log('accom_index : '+ accom_index);
@@ -539,7 +476,7 @@ function showLeftAccom(leftIndex, markerIndex){
     	  }
     </script> 
     
-    -->
+    
     
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnrWQ2SHvedNrvdozheYo32pHwCbuvPgs&callback=initMap">
@@ -1066,7 +1003,7 @@ function showLeftAccom(leftIndex, markerIndex){
 												<div class="nlogin_form_section">
 													<div class="nlogin_select" id="nlogin_year">
 														<input type="hidden" id="nlogin_year_value" name="birth_y">
-														<p data-value="choice"><span>아이디 : <%=id %></span></p>
+														<p data-value="choice"><span>아이디 : <%-- <%=id %> --%></span></p>
 														
 													</div>
 													<div class="nlogin_select" id="nlogin_month">
@@ -1173,6 +1110,6 @@ function showLeftAccom(leftIndex, markerIndex){
 
     </style>
 
-<%-- <%@include file="../include/footer.jsp" %> --%>
+<%@include file="../include/footer.jsp" %>
 </body>
 </html>

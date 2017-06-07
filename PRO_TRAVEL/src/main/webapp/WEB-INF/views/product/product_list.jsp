@@ -96,8 +96,8 @@
                      <ul class="sets-list ajax-content">
 
                         <li itemscope="" itemtype="http://schema.org/ImageObject"
-                           class="same-height"><a href="/photos/tokyo-2020" style="color:DarkSlateGray";> <picture
-                                 class="img"> <img
+                           class="same-height"><a href="/photos/tokyo-2020" style="color:DarkSlateGray";> 
+                           <picture class="img"> <img
                                  srcset="https://stillmed.olympic.org/media/Photos/2016/11/2016-09-21-flag-Tokyo-2.jpg?interpolation=lanczos-none&fit=around|340:191&crop=340:191;*,*, https://stillmed.olympic.org/media/Photos/2016/11/2016-09-21-flag-Tokyo-2.jpg?interpolation=lanczos-none&fit=around|680:382&crop=680:382;*,* 2x"
                                  alt="Tokyo 2020"></picture>
 

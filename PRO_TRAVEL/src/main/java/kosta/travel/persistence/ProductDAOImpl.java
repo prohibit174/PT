@@ -19,35 +19,31 @@ public class ProductDAOImpl implements ProductDAO {
 	@Inject
 	private SqlSession session;
 	
-	private static String namespace="kosta.travel.mappers.ProductMapper";
+	private static String namespace="kosta.travel.mappers.productMapper";
 
 	@Override
 	public int insertProduct(ProductVO product) {
-		return session.insert(namespace+".create", product);
+		return session.insert(namespace+".insertProduct", product);
 	}
 
 	@Override
-	public List<ProductVO> listProduct(RowBounds row, Product_SearchVO search) {
-		
-		return null;
+	public List<ProductVO> listProduct() {
+		return session.selectList(namespace+".listProduct");
 	}
 
 	@Override
 	public ProductVO detailProduct(String p_num) {
-		// TODO Auto-generated method stub
-		return null;
+		return session.selectOne(namespace+".detailProduct", p_num);
 	}
 
 	@Override
-	public int updateProduct(ProductVO product) {
-		// TODO Auto-generated method stub
-		return 0;
+	public void updateProduct(ProductVO product) {
+		 session.update(namespace+".updateProduct", product);
 	}
 
 	@Override
-	public int deleteProduct(ProductVO product) {
-		// TODO Auto-generated method stub
-		return 0;
+	public void deleteProduct(String p_num) {
+		 session.delete(namespace+".deleteProduct",p_num);
 	}
 
 	@Override
@@ -58,8 +54,7 @@ public class ProductDAOImpl implements ProductDAO {
 
 	@Override
 	public int insertProductReq(Product_RequestVO proReq) {
-		// TODO Auto-generated method stub
-		return 0;
+		return session.insert(namespace+".insertProductReq", proReq);
 	}
 
 	@Override

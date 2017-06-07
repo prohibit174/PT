@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>���� ���෯</title>
+<title>프로 동행러</title>
 </head>
 <body>
 <div id="sidebar">
@@ -14,8 +14,8 @@
                 <ul class="tabset">
 
     <li class="active">
-        <a href="#highlights-of-the-games" data-class="games2014-2" target="">
-            Highlights of the Games
+        <a href="accompany/enroll" data-class="games2014-2" target="">
+            여행등록
             <i class="icon-arrow-right">
                 <span class="hide">arrow</span>
             </i>
@@ -23,7 +23,7 @@
     </li>
     <li class="">
         <a href="#more-about" data-class="games2014-2" target="">
-            More About
+            페이지2
             <i class="icon-arrow-right">
                 <span class="hide">arrow</span>
             </i>
@@ -31,7 +31,7 @@
     </li>
     <li class="">
         <a href="#all-facts" data-class="games2014-2" target="">
-            All Facts
+            페이지3
             <i class="icon-arrow-right">
                 <span class="hide">arrow</span>
             </i>
@@ -39,7 +39,7 @@
     </li>
     <li class="">
         <a href="#emblem" data-class="games2014-2" target="">
-            Emblem
+            페이지4
             <i class="icon-arrow-right">
                 <span class="hide">arrow</span>
             </i>
@@ -47,7 +47,7 @@
     </li>
     <li class="">
         <a href="#medals" data-class="games2014-2" target="">
-            Medals
+            페이지5
             <i class="icon-arrow-right">
                 <span class="hide">arrow</span>
             </i>
@@ -55,7 +55,7 @@
     </li>
     <li class="">
         <a href="#mascots" data-class="games2014-2" target="">
-            Mascots
+            페이지6
             <i class="icon-arrow-right">
                 <span class="hide">arrow</span>
             </i>
@@ -63,23 +63,7 @@
     </li>
     <li class="">
         <a href="#torch" data-class="games2014-2" target="">
-            Torch
-            <i class="icon-arrow-right">
-                <span class="hide">arrow</span>
-            </i>
-        </a>
-    </li>
-    <li class="">
-        <a href="#poster" data-class="games2014-2" target="">
-            Poster
-            <i class="icon-arrow-right">
-                <span class="hide">arrow</span>
-            </i>
-        </a>
-    </li>
-    <li class="">
-        <a href="#official-reports" data-class="games2014-2" target="">
-            Official Reports
+            페이지7
             <i class="icon-arrow-right">
                 <span class="hide">arrow</span>
             </i>
