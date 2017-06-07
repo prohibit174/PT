@@ -5478,9 +5478,15 @@ body > .jcf-select-drop.jcf-drop-flipped {
       background: #ddd; }
   .calendar-form .jcf-select {
     float: right;
-    width: 160px;
+    width: 300px;
     height: 35px;
     margin: 0 0 0 21px; }
+    .calendar-form input[type="text"]{
+     float: right;
+    width: 300px;
+    height: 35px;
+    margin: 0 0 0 21px; 
+    }
     .calendar-form .jcf-select .jcf-select-text {
       line-height: 34px; }
     .calendar-form .jcf-select .jcf-select-opener {
