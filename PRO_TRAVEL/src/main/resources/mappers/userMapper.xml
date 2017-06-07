@@ -49,6 +49,12 @@
 	<select id="checkPw" parameterType="map" resultType="int">
 		SELECT count(*) FROM users WHERE u_id = #{u_id} AND u_pwd = #{u_pwd}
 	</select>
+	
+	<!-- 회원탈퇴 -->
+	<update id ="userWithdrawal">
+		UPDATE users SET u_status = 3 WHERE u_id = #{u_id} AND u_pwd = #{u_pwd}
+		<!-- status에 3으로 숫자를 줌. -->
+	</update>
 
 	<!-- 쿠키를 통한 자동 로그인 -->
 	<update id="keepLogin">

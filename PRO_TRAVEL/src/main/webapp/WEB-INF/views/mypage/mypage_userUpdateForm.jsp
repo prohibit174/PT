@@ -217,7 +217,13 @@
 								class="primaryAction">
 								<span>수정완료</span>
 							</button>
-							<div class="clear"></div>
+							
+							<button name = "submit" type = "submit">
+							<span>탈퇴하기</span>
+							</button>
+							<!-- <input type = "button"  value = "탈퇴하기" id="validate_order" class="primaryAction">
+							<span>탈퇴하기</span> -->
+							
 						</div>
 				</form>
 			</div>
