@@ -7,10 +7,10 @@
 
 	<insert id="insertProduct" parameterType="ProductVO">
 		insert into product(
-		p_num, p_name, u_id, p_detail, p_price, p_date, p_img, p_ox
+		p_num, p_name, u_id, p_detail, p_price, p_date, file, p_ox
 		)
 		values(
-			#{p_num}, #{p_name}, #{u_id},#{p_detail},#{p_price},sysdate,#{p_img}, 'x'
+			#{p_num}, #{p_name}, #{u_id},#{p_detail},#{p_price},sysdate,#{file}, 'x'
 		)
 	</insert>
 	

@@ -50,13 +50,13 @@
 
 
 				<form id="form_checkout" class="uniForm checkout"
-					enctype="application/x-www-form-urlencoded"
-					action="product_register" method="post">
+					enctype="multipart/form-data" 
+					action="/product/product_register" method="post">
 					<div class="box-full" id="creationaccount">
 						<div class="top"></div>
 						<div class="form">
 
-							<input type="hidden" name="newuser" value="0" id="newuser" />
+							
 							<div class="clear"></div>
 							<div id="billingaddress">
 
@@ -110,7 +110,7 @@
 										<tr>
 											<td class="label"><label for="u_lang">Product
 													Image</label></td>
-											<td class="value"><input type="file" name="p_img"
+											<td class="value"><input type="file" name="file"
 												id="p_img" value="" /> &nbsp; <span class="mandatory"></span>
 												<ul class="errorField">
 												</ul></td>
@@ -138,45 +138,30 @@
 						<br />
 
 						<div class="buttonHolder">
-							<style type="text/css">
+<!-- <style type="text/css">
 /*ie7onli - skin bouton */
 *+html .primaryAction {
 	width: 155px;
 }
-</style>
+</style> -->
 <button name="submit" id="validate_order" type="submit"
 								class="primaryAction">
 								<span>Register</span>
-							</button>
-							
-							<div class="clear"></div>
-							
-						</div>
+</button>
+
+						</div></div>
 				</form>
 				
 			</div>
 			</section>
 		</div>
-
-		<!-- 맞을까 닫음태그? --> <!--         
-                <div class="panel cio">
-                    <div class="wrapper-content">
-                        FOOTER START
-                        <section class="section w12-h bg-white">
-                            <div class="content">
-   
-</div>                        </section>
-                        FOOTER END
-                    </div>
-                </div> -->
+</main>
 	</div>
-	</main>
+	
 
 
-	</div>
 
-	<div id="profiler"></div>
-<%@ include file="..//include/footer.jsp" %> 
+<%@ include file="../include/footer.jsp" %> 
 
 </body>
 </html>

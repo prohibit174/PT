@@ -2,6 +2,7 @@
 <html>
 
   <head>
+  
 <%@include file="../include/header.jsp" %>  
 <link rel='stylesheet' href='/resources/css/accompany/fullcalendar.css' />
 <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js'></script>
@@ -75,9 +76,12 @@
        
        
        function collectEvent(){
+           var useridSu = '<%=session.getAttribute("login") %>'; 
+        	 
            var cal=[];
            allEvent=[];
            cal=$('#calendar').fullCalendar( 'clientEvents');
+           /* var id = session.getid(); */
            
            for(var i=0;i<cal.length;i++){
             
@@ -92,7 +96,7 @@
                    var durationdays = (-duration.asDays());      //차� ��  � ��  �  � � � ��  
                    
                     for(var a=0; a < durationdays;a++){
-                      allEvent.push(new storeEvent(0 ,cal[i].title, moment(valDate).format("YYYY-MM-DD")));
+                      allEvent.push(new storeEvent(useridSu ,cal[i].title, moment(valDate).format("YYYY-MM-DD")));
                       valDate = new moment(valDate).add(1, 'days');
                     }  //event store in arry
               }//event store in var End
