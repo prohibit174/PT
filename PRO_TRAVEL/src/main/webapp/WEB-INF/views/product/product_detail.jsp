@@ -2,7 +2,6 @@
    pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 <%@ include file="/WEB-INF/views/include/product_sidebar.jsp"%>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
