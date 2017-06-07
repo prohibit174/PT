@@ -50,7 +50,7 @@
 
 
 				<form id="form_checkout" class="uniForm checkout"
-					enctype="application/x-www-form-urlencoded"
+					enctype="multipart/form-data"
 					action="product_register" method="post">
 					<div class="box-full" id="creationaccount">
 						<div class="top"></div>
