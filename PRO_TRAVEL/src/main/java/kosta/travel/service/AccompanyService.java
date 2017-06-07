@@ -5,15 +5,9 @@ import java.util.List;
 import java.util.Random;
 
 import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
-import org.slf4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import kosta.travel.domain.AccompanyVO;
 import kosta.travel.domain.RouteList;
@@ -28,21 +22,20 @@ public class AccompanyService {
 	
 	private List<AccompanyVO> list;
 	
-	public List<AccompanyVO> getUserRoute() throws Exception {
+	public List<AccompanyVO> getUserRoute(HttpSession session) throws Exception {
 		
 		
 		
 		if(list != null){
 		list.clear();
 		}
-		/*String id = "0";*/
-		/*id = (String)session.getAttribute("member_id");*/
+		String id = (String)session.getAttribute("login");
 		/*System.out.println(request.getContextPath()); */
 		RouteVO route = new RouteVO();
-		route.setU_id("0");
-		//  로그인 후 route.setU_id(id);
+		route.setU_id(id);
 		
-		list = dao.getUserRoute("0");
+		
+		list = dao.getUserRoute(id);
 	
 		/*request.setAttribute("list", list);*/
 
@@ -52,7 +45,6 @@ public class AccompanyService {
 	public List<AccompanyVO> getAccompanies() throws Exception {
 		
 		List<AccompanyVO> allAccompanyList = new ArrayList<AccompanyVO>();
-		//동행들 목록 찾기
 		for(int i=0;i< list.size() ;i++)
 			{
 			  List<AccompanyVO> userRoutesInfo  = dao.getUserInfo(list.get(i).getU_id());//get user's route whose id is "0"
@@ -62,7 +54,7 @@ public class AccompanyService {
 		/*    String name = userRoutesInfo.get(i).getU_name();
 			  String region = userRoutesInfo.get(i).getCor_region();
 			  String date = userRoutesInfo.get(i).getTp_date();
-			  System.out.println(i+"번째"+date+"의 "+region);
+			  System.out.println(i+"踰덉㎏"+date+"�쓽 "+region);
 			  System.out.println();*/
 			  List<AccompanyVO> temp = dao.getAccompanies(userRoutesInfo.get(i));
 			  allAccompanyList.addAll(temp);
@@ -71,14 +63,14 @@ public class AccompanyService {
 		System.out.println("allAccompanyList.size : " +allAccompanyList.size());
 		*/
 		
-		/* 동행 목록 콘솔 확인
+		/* �룞�뻾 紐⑸줉 肄섏넄 �솗�씤
 		 * for(int i=0;i< allAccompanyList.size() ;i++)
 			{ String name = allAccompanyList.get(i).getU_name();
 			  String region = allAccompanyList.get(i).getCor_region();
 			  String date = allAccompanyList.get(i).getTp_date();
 			  String lati = allAccompanyList.get(i).getCor_lati();
 			  String longi = allAccompanyList.get(i).getCor_longi();
-			  System.out.println(date+"의 "+region+"에서의 동행은 "+name+"입니다"+"lat/long : "+lati+" / "+longi);
+			  System.out.println(date+"�쓽 "+region+"�뿉�꽌�쓽 �룞�뻾�� "+name+"�엯�땲�떎"+"lat/long : "+lati+" / "+longi);
 			}*/
 			   /*request.setAttribute("allAccompanyList", allAccompanyList);*/
 		return allAccompanyList;
@@ -90,7 +82,6 @@ public class AccompanyService {
 		
 			RouteVO route = new RouteVO();
 		
-			System.out.println("배열크기"+list.length);
 	      for(int i=0;i<list.length;i++) {
 	   
 	  		  Random r=new Random();
