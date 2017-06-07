@@ -121,19 +121,19 @@ public class ProductController {
          System.out.println("registerpost method call");
          logger.info(proReq.toString());
          service.insertProductReq(proReq);
-         /*
-         model.addAttribute("proReq", proReq);*/
+         
+        /* model.addAttribute("proReq", proReq);*/
 
          return "/product/productReq_detail";
       }
 
       @RequestMapping(value = "/productReq_detail", method = RequestMethod.GET)
-      public String productReq_detail(@RequestParam("pr_reqnum") String pr_reqnum, Model model) throws Exception {
+      public String productReq_detail(Product_RequestVO proReq, Model model) throws Exception {
          logger.info("product_detail method call");
-         Product_RequestVO proReq = service.detailProductReq(pr_reqnum);
-         /* logger.info(product.toString()); */
+         
+         logger.info(proReq.toString()); 
          model.addAttribute("proReq", proReq);
-
+         
          return "/product/productReq_detail";
       }
 
