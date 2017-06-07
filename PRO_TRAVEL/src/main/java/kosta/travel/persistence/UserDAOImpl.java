@@ -42,14 +42,14 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public boolean checkPw(String u_id, String u_pwd) throws Exception {
-		Map<String, Object> map = new HashMap<>();
+		Map<String, Object> map = new HashMap<String, Object>();
 		int re = -1;
 		boolean result = false;
 		map.put("u_id", u_id);
 		map.put("u_pwd", u_pwd);
 		
 		try {
-			re = session.selectOne(namespace+".checkPW", map);
+			re = session.selectOne(namespace+".checkPw", map);
 			if(re>0){
 				result = true;
 			}else{
@@ -63,8 +63,8 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public UsersVO userUpdate(UsersVO users) throws Exception {
-		return session.selectOne(namespace+"userUpdate", users);
+	public Integer userUpdate(UsersVO users) throws Exception {
+		return session.update(namespace+".userUpdate", users);
 	}
 
 	@Override

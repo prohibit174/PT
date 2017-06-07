@@ -41,20 +41,32 @@ public class MypageController {
 		model.addAttribute("user", users);
 		return "/mypage/mypage_userCheckForm";
 	}
+	
+	//Once update Information, and return to information check page
+	@RequestMapping(value="/usercheckInfo", method=RequestMethod.POST)
+	public String updateUserInfo(UsersVO users, HttpSession session) throws Exception{
+		String u_id = (String)session.getAttribute("login");
+		userService.userUpdate(users);
+		
+		return "redirect:/mypage/usercheckInfo";
+	}
 
+	
 	@RequestMapping(value="/checkPW", method=RequestMethod.GET)
 	public String pwCheck(){
 		return "/mypage/mypage_checkPW";
 	}
 	
 	@RequestMapping(value="/checkPW", method=RequestMethod.POST)
-	public String pwCheckPost(HttpSession session, HttpServletRequest request, @RequestParam("u_pwd") String u_pwd) throws Exception{
+	public String pwCheckPost(HttpSession session, HttpServletRequest request, @RequestParam("u_pwd") String u_pwd, Model model) throws Exception{
 		String u_id = (String)session.getAttribute("login");
+		UsersVO users = userService.userDetail(u_id);
 		System.out.println(u_id + u_pwd);
 		
 		boolean result = userService.checkPw(u_id, u_pwd);
 		System.out.println("controller "+result);
 		if(result==true){
+			model.addAttribute("user", users);
 			return "/mypage/mypage_userUpdateForm";
 		}else{
 			return "/mypage/mypage_failCheckPW";

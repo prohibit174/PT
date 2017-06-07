@@ -222,12 +222,13 @@
 											<option value="휴양">휴양</option>
 											
 											</select>
-											<input type="radio" name="u_style" value="힐링" checked="checked"><label>힐링</label>
+										<!-- 	<input type="radio" name="u_style" value="힐링" checked="checked"><label>힐링</label>
 											<input type="radio" name="u_style" value="관광"><label>관광</label>
 							<input type="radio" name="u_style" value="맛집"> <label>맛집</label>
 							<input type="radio" name="u_style" value="액티비티"> <label>액티비티</label>
 							<input type="radio" name="u_style" value="휴양"><label>휴양</label>
-							&nbsp;&nbsp;<!-- <span>하나만 선택해주세요</span> --></td>
+							&nbsp;&nbsp;<span>하나만 선택해주세요</span> -->
+											</td>
 										</tr>
 									</table>
 								</div>
