@@ -48,7 +48,7 @@ public class ProductController {
       
       String savedName = UploadFile(product.getFile1().getOriginalFilename(), product.getFile1().getBytes());
 
-      product.setP_img(product.getFile1().getOriginalFilename());
+      product.setP_img(savedName);
       service.insert(product);
       
       model.addAttribute("savedName",savedName);
