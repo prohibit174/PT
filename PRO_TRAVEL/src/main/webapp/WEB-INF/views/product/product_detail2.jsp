@@ -120,7 +120,7 @@
 				srcset="https://stillmed.olympic.org/media/Images/OlympicOrg/Countries/B/Bermuda/CNO-BER.jpg?interpolation=lanczos-none&resize=223:*, https://stillmed.olympic.org/media/Images/OlympicOrg/Countries/B/Bermuda/CNO-BER.jpg?interpolation=lanczos-none&resize=446:* 2x"
 				media="(min-width: 768px)"> -->
 			<!--[if IE 9]></video><![endif]--> <img
-				srcset="${product.file}"
+				srcset="${product.p_img}"
 				alt="물품사진"></picture>
 
 		</div>
