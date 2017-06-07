@@ -2,10 +2,12 @@ package kosta.travel.domain;
 
 import java.util.Arrays;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class ProductVO {
 	private String p_num;
 	private String u_id;
-	private String file;
+	private MultipartFile file;
 	private String p_detail;
 	private String p_price;
 	private String p_name;
@@ -30,11 +32,11 @@ public class ProductVO {
 		this.u_id = u_id;
 	}
 
-	public String getFile() {
+	public MultipartFile getFile() {
 		return file;
 	}
 
-	public void setFile(String file) {
+	public void setFile(MultipartFile file) {
 		this.file = file;
 	}
 
@@ -83,7 +85,7 @@ public class ProductVO {
 		return "ProductVO [p_num=" + p_num + ", u_id=" + u_id + ", file=" + file + ", p_detail=" + p_detail
 				+ ", p_price=" + p_price + ", p_name=" + p_name + ", p_date=" + p_date + ", p_ox=" + p_ox + "]";
 	}
-	
 
+	
 	
 }

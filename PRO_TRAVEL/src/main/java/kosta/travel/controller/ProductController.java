@@ -40,13 +40,16 @@ public class ProductController {
    }
 
    @RequestMapping(value = "/product_register", method = RequestMethod.POST)
-   public String product_registerPOST(ProductVO product, MultipartFile file, Model model) throws Exception {
+   public String product_registerPOST(Model model, ProductVO product) throws Exception {
       
 	   System.out.println("registerpost method call");
       logger.info(product.toString());
-      logger.info("originalName: "+file.getOriginalFilename());
       
-      String savedName = UploadFile(file.getOriginalFilename(), file.getBytes());
+	 //logger.info(file.toString());
+      logger.info("originalName: "+product.getFile().getOriginalFilename());
+      
+      String savedName = UploadFile(product.getFile().getOriginalFilename(), product.getFile().getBytes());
+
       service.insert(product);
       
       model.addAttribute("savedName",savedName);
@@ -106,6 +109,12 @@ public class ProductController {
 
       return "redirect:/product/product_list";
 
+   }
+   
+   @RequestMapping(value = "/productReq_register", method = RequestMethod.GET)
+   public String productReq_register()throws Exception {
+  
+      return "/product/productReq_register";
    }
 
      @RequestMapping(value = "/productReq_register", method = RequestMethod.POST)
