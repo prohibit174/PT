@@ -121,8 +121,8 @@ public class ProductController {
          System.out.println("registerpost method call");
          logger.info(proReq.toString());
          service.insertProductReq(proReq);
-         /*
-         model.addAttribute("proReq", proReq);*/
+         
+         /*model.addAttribute("proReq", proReq);*/
 
          return "/product/productReq_detail";
       }
