@@ -3,7 +3,6 @@ package kosta.travel.controller;
 
 
 
-import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -32,10 +31,10 @@ public class AccompanyController{
 	
 	
 	@RequestMapping(value = "/", method=RequestMethod.GET)
-	public String main(Model model, HttpServletRequest request){
+	public String main(Model model, HttpSession session){
 		
 		try {
-			model.addAttribute("list" ,service.getUserRoute());
+			model.addAttribute("list" ,service.getUserRoute(session));
 			model.addAttribute("allAccompanyList" ,service.getAccompanies());
 			
 		} catch (Exception e) {

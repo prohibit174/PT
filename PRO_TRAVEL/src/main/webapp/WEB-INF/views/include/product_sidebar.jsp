@@ -15,17 +15,17 @@
          <span class="tabset-box">
             <ul class="tabset">
 
-               <li class="active"><a href="product/product_list2"
+               <li class="active"><a href="product_list"
                   data-class="games2014-2" target=""> Product List <i
                      class="icon-arrow-right"> <span class="hide">arrow</span>
                   </i>
                </a></li>
-               <li class=""><a href="product/product_register" data-class="games2014-2"
+               <li class=""><a href="product_register" data-class="games2014-2"
                   target=""> Product Register <i class="icon-arrow-right"> <span
                         class="hide">arrow</span>
                   </i>
                </a></li>
-               <li class=""><a href="#product/product_recommand" data-class="games2014-2"
+               <li class=""><a href="product_recommand" data-class="games2014-2"
                   target=""> Recommand Product <i class="icon-arrow-right"> <span
                         class="hide">arrow</span>
                   </i>

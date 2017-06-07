@@ -154,7 +154,7 @@
 			<div class="nav-frame">
 			
 				<ul id="nav">
-					<li><a href="/olympic-games">HOME</a>
+					<li><a href="/">HOME</a>
 						<div class="drop">
 							<div class="drop-holder filters-area" data-cols="5" data-rows="5">
 								<div class="filters-box">
@@ -485,7 +485,7 @@
 								</div>
 							</div>
 						</div></li>
-					<li>&nbsp&nbsp&nbsp<a href="/sports">ACCOMPANY</a>
+					<li>&nbsp&nbsp&nbsp<a href="/accompany/">ACCOMPANY</a>
 						<div class="drop">
 							<div class="drop-holder">
 								<div class="drop-col">
@@ -573,7 +573,7 @@
 							</div>
 						</div></li>
 
-					<li>&nbsp&nbsp&nbsp<a href="/athletes">CARPOOL</a>
+					<li>&nbsp&nbsp&nbsp<a href="/carpool/main">CARPOOL</a>
 						<div class="drop">
 							<div class="drop-holder">
 								<div class="drop-col">
@@ -660,7 +660,7 @@
 								</div>
 							</div>
 						</div></li>
-					<li>&nbsp&nbsp&nbsp<a href="/national-olympic-committees">Exchange of
+					<li>&nbsp&nbsp&nbsp<a href="/product/product_list">Exchange of
 							goods</a>
 						<div class="drop">
 							<div class="drop-holder">

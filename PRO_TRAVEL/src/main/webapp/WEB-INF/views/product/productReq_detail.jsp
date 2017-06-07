@@ -71,26 +71,18 @@
 	href="https://stillres.olympic.org/css/all.css" />
 
   <script>
-  
+   
   $(document).ready(function(){
 	  
 		var formObj = $("form[role='form']");
 		console.log(formObj); 
   	
-  	$(".btn-warning").on("click", function(){
-  		formObj.attr("action", "/product/product_update");
-  		formObj.attr("method", "get");		
-  		formObj.submit();
-  	});
-
+		$(".btn-primary").on("click", function(){
+			self.location = "/product/product_list";
+		});
+  });
   	
- $(".btn-danger").on("click", function(){
-	
-		formObj.attr("action", "/product/product_delete");
-		formObj.submit();
-	});	
-	
-  }); 
+
 	</script>
 
 
@@ -103,69 +95,60 @@
 	<section class="id-card-box" itemtype="http://schema.org/Organization"
 		itemscope="" style="margin: 0px 200px 100px 0px"; >
 		<div class="logo-box" itemprop="image">
-			<picture> <!--[if IE 9]><video style="display: none;"><![endif]-->
-			
-				<form role="form" method="post">
+			 
+				<form role="form" method="get">
 
-					<input type='hidden' name='p_num' value="${product.p_num}">
+					<input type='hidden' name='pr_reqnum' value="${proReq.pr_reqnum}">
 					
 
-				</form>
+				</form> 
 			
 
-		<!-- 	<source
-				srcset="https://stillmed.olympic.org/media/Images/OlympicOrg/Countries/B/Bermuda/CNO-BER.jpg?interpolation=lanczos-none&resize=253:*, https://stillmed.olympic.org/media/Images/OlympicOrg/Countries/B/Bermuda/CNO-BER.jpg?interpolation=lanczos-none&resize=506:* 2x"
-				media="(min-width: 1024px)">
-			<source
-				srcset="https://stillmed.olympic.org/media/Images/OlympicOrg/Countries/B/Bermuda/CNO-BER.jpg?interpolation=lanczos-none&resize=223:*, https://stillmed.olympic.org/media/Images/OlympicOrg/Countries/B/Bermuda/CNO-BER.jpg?interpolation=lanczos-none&resize=446:* 2x"
-				media="(min-width: 768px)"> -->
-			<!--[if IE 9]></video><![endif]--> <img
-				srcset="${product.file}"
-				alt="물품사진"></picture>
-
+		
 		</div>
 		<div class="items active">
 			<div class="item-list">
 				<div style="display: block;" class="slide">
 					<div class="row">
-						<span class="label">판매자</span>
-						<div class="txt">${product.u_id}</div>
+						<span class="label">거래번호</span>
+						<div class="txt">${proReq.pr_reqnum}</div>
 					</div>
 
 					<div class="row">
-						<span class="label">상품명</span>
+						<span class="label">사용자 아이디</span>
 						<div class="txt" itemprop="streetAddress">
 							<address>
-								${product.p_name}
+								${proReq.u_id}
 							</address>
 						</div>
 					</div>
 					<div class="row">
-						<span class="label">가격</span>
-						<div class="txt" itemprop="telephone">${product.p_price}</div>
+						<span class="label">상품번호</span>
+						<div class="txt" itemprop="telephone">${proReq.p_num}</div>
 					</div>
 					<div class="row">
-						<span class="label">판매기간</span>
-						<div class="txt" itemprop="faxNumber">${product.p_date}</div>
+						<span class="label">거래요청여부</span>
+						<div class="txt" itemprop="faxNumber">${proReq.pr_ox}</div>
 					</div>
 					<div class="row">
-						<span class="label">내용</span>
+						<span class="label">거래장소</span>
 						<div class="txt">
-							<a href="mailto:olympics@ibl.bm" itemprop="email">${product.p_detail}</a>
+							<a href="mailto:olympics@ibl.bm" itemprop="email">${proReq.pr_place}</a>
 						</div>
 					</div>
 					<div class="row">
-						<span class="label">판매여부</span>
+						<span class="label">거래날짜</span>
 						<div class="txt">
 
-							<a href="http://www.olympics.bm" target="_blank" itemprop="url">${product.p_ox}</a>
+							<a href="http://www.olympics.bm" target="_blank" itemprop="url">${proReq.pr_date}</a>
 						</div>
 					</div>
 				
 				<ul class="mailbox-attachments clearfix uploadedList"></ul>	
 					<div class="row">
-						 <button type="submit" class="btn btn-warning" id="modifyBtn">수정</button>
-						    <button type="submit" class="btn btn-danger" id="removeBtn">삭제</button> 		 
+						 <button type="submit" class="btn btn-primary">목록으로 가기</button>
+
+				 
 			
 					</div>
 				</div>

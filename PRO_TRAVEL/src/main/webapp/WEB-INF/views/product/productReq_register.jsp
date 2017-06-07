@@ -26,7 +26,20 @@
 	src="${pageContext.request.contextPath}/resources/js/AgoFiles/prouduct_javascript/JoinCheck.js"></script>
 
 
+<script type="text/javascript">
 
+$(document).ready(function(){
+	  
+	var formObj = $("form[role='form']");
+	console.log(formObj); 
+	
+	$("#validate_order").on("click", function(){
+		formObj.attr("action", "/product/productReq_detail");
+		formObj.attr("method", "get");		
+		formObj.submit();
+	})
+});
+</script>
 </head>
 
 <body>
@@ -49,14 +62,18 @@
 				</div>
 
 
-				<form id="form_checkout" class="uniForm checkout"
-					action="product_list">
-					<!--  method="post" 이거 왜에러나지ㅠ  -->
+			<form role="form" method="post">
+
+					<input type='hidden' name='pr_reqnum' value="${proReq.pr_reqnum}">
+					
+
+			
+					
 					<div class="box-full" id="creationaccount">
 						<div class="top"></div>
 						<div class="form">
 
-							<input type="hidden" name="newuser" value="0" id="newuser" />
+							<!-- <input type="hidden" name="newuser" value="0" id="newuser" /> -->
 							<div class="clear"></div>
 							<div id="billingaddress">
 
