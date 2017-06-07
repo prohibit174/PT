@@ -57,7 +57,7 @@
              for(var i=0; i < cal.length; i++){
                 for(var a=0; a < marker_zoom4.length; a++){
                    if(marker_zoom4[a].title == cal[i].title){
-                      latLngList.push(marker_zoom4[a].getPosition());
+                      latLng`.push(marker_zoom4[a].getPosition());
                    }
                  }
                 for(var a=0; a < marker_zoom5.length; a++){
