@@ -13,4 +13,5 @@ public interface ProductService {
 	public void updateProduct(ProductVO product)throws Exception;
 	public void deleteProduct(String p_num)throws Exception;
 	public void insertProductReq(Product_RequestVO proReq)throws Exception;
+	public Product_RequestVO detailProductReq(String pr_reqnum)throws Exception;
 }

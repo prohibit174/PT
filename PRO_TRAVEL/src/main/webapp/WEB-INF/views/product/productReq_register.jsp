@@ -50,7 +50,7 @@
 
 
 				<form id="form_checkout" class="uniForm checkout"
-					action="product_list">
+					action="productReq_register" method="post">
 					<!--  method="post" 이거 왜에러나지ㅠ  -->
 					<div class="box-full" id="creationaccount">
 						<div class="top"></div>

@@ -52,4 +52,9 @@ public class ProductServiceImpl implements ProductService {
 		
 	}
 
+	@Override
+	public Product_RequestVO detailProductReq(String pr_reqnum) throws Exception {
+		return dao.detailProductReq(pr_reqnum);
+	}
+
 }
