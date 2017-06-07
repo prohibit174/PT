@@ -119,7 +119,7 @@
 			<source
 				srcset="https://stillmed.olympic.org/media/Images/OlympicOrg/Countries/B/Bermuda/CNO-BER.jpg?interpolation=lanczos-none&resize=223:*, https://stillmed.olympic.org/media/Images/OlympicOrg/Countries/B/Bermuda/CNO-BER.jpg?interpolation=lanczos-none&resize=446:* 2x"
 				media="(min-width: 768px)"> -->
-			<!--[if IE 9]></video><![endif]--> <img src="C:\\upload\\5cdd340b-d6b6-4672-a83f-106c616ee4fb_Tulips.jpg"></picture>
+			<!--[if IE 9]></video><![endif]--> <img src="webapps\\upload\\${product.p_img }"></picture>
 
 		</div>
 		<div class="items active">

@@ -25,7 +25,7 @@
    
     
    <update id="updateProduct" parameterType="ProductVO">
-      update product set p_num = #{p_num}, p_img = #{p_img} where p_num = #{p_num}
+      update product set p_name = #{p_name} where p_num = #{p_num}
    </update>
    
     <delete id="deleteProduct" parameterType="String">
