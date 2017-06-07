@@ -43,9 +43,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public UsersVO checkPw(String u_id, String u_pwd) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public boolean checkPw(String u_id, String u_pwd) throws Exception {
+		return dao.checkPw(u_id, u_pwd);
 	}
 
 	@Override

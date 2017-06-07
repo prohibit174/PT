@@ -11,7 +11,7 @@ public interface UserDAO {
 	public Integer insertUsers(UsersVO users) throws Exception;
 	public Integer idCheck(String u_id) throws Exception;
 	public UsersVO userDetail(String u_id) throws Exception;
-	public UsersVO checkPw(String u_id, String u_pwd) throws Exception;
+	public boolean checkPw(String u_id, String u_pwd) throws Exception;
 	public UsersVO userUpdate(UsersVO users) throws Exception;
 	public void keepLogin(String u_id, String sessionId, Date next);
 	public UsersVO checkUserWithSessionKey(String value);

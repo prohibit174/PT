@@ -41,8 +41,25 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public UsersVO checkPw(String u_id, String u_pwd) throws Exception {
-		return session.selectOne(namespace+".checkPw", u_pwd);
+	public boolean checkPw(String u_id, String u_pwd) throws Exception {
+		Map<String, Object> map = new HashMap<>();
+		int re = -1;
+		boolean result = false;
+		map.put("u_id", u_id);
+		map.put("u_pwd", u_pwd);
+		
+		try {
+			re = session.selectOne(namespace+".checkPW", map);
+			if(re>0){
+				result = true;
+			}else{
+				result = false;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println("DAO" + result);
+		return result;
 	}
 
 	@Override
