@@ -6,15 +6,18 @@ import java.util.UUID;
 
 import javax.annotation.Resource;
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cglib.core.DefaultNamingPolicy;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kosta.travel.domain.ProductVO;
@@ -39,7 +42,7 @@ public class ProductController {
    }
 
    @RequestMapping(value = "/product_register", method = RequestMethod.POST)
-   public String product_registerPOST(Model model, ProductVO product) throws Exception {
+   public String product_registerPOST(Model model, ProductVO product, HttpServletRequest request) throws Exception {
       
       System.out.println("registerpost method call");
       logger.info(product.toString());
@@ -52,7 +55,8 @@ public class ProductController {
       service.insert(product);
       
       model.addAttribute("savedName",savedName);
-
+      
+      
       return "redirect:/product/product_list";
    }
 
