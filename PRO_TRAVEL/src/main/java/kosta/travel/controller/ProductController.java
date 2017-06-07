@@ -6,15 +6,18 @@ import java.util.UUID;
 
 import javax.annotation.Resource;
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cglib.core.DefaultNamingPolicy;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kosta.travel.domain.ProductVO;
@@ -39,7 +42,7 @@ public class ProductController {
    }
 
    @RequestMapping(value = "/product_register", method = RequestMethod.POST)
-   public String product_registerPOST(Model model, ProductVO product) throws Exception {
+   public String product_registerPOST(Model model, ProductVO product, HttpServletRequest request) throws Exception {
       
       System.out.println("registerpost method call");
       logger.info(product.toString());
@@ -48,11 +51,12 @@ public class ProductController {
       
       String savedName = UploadFile(product.getFile1().getOriginalFilename(), product.getFile1().getBytes());
 
-      product.setP_img(product.getFile1().getOriginalFilename());
+      product.setP_img(savedName);
       service.insert(product);
       
       model.addAttribute("savedName",savedName);
-
+      
+      
       return "redirect:/product/product_list";
    }
 
@@ -86,6 +90,8 @@ public class ProductController {
 
    @RequestMapping(value = "/product_update", method = RequestMethod.GET)
    public void product_update(@RequestParam("p_num") String p_num, Model model) throws Exception {
+	   
+	   logger.info("product updateGET method call..");
       ProductVO product = service.detailProduct(p_num);
       model.addAttribute("product", product);
 
@@ -121,19 +127,19 @@ public class ProductController {
          System.out.println("registerpost method call");
          logger.info(proReq.toString());
          service.insertProductReq(proReq);
-         /*
-         model.addAttribute("proReq", proReq);*/
+         
+        /* model.addAttribute("proReq", proReq);*/
 
          return "/product/productReq_detail";
       }
 
       @RequestMapping(value = "/productReq_detail", method = RequestMethod.GET)
-      public String productReq_detail(@RequestParam("pr_reqnum") String pr_reqnum, Model model) throws Exception {
+      public String productReq_detail(Product_RequestVO proReq, Model model) throws Exception {
          logger.info("product_detail method call");
-         Product_RequestVO proReq = service.detailProductReq(pr_reqnum);
-         /* logger.info(product.toString()); */
+         
+         logger.info(proReq.toString()); 
          model.addAttribute("proReq", proReq);
-
+         
          return "/product/productReq_detail";
       }
 

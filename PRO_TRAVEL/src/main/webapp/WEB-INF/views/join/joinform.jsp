@@ -20,9 +20,8 @@
 	src="${pageContext.request.contextPath}/resources/js/AgoFiles/UsersJS/CheckEssential.js"></script>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/js/AgoFiles/UsersJS/IdCheck.js"></script>
-	<!-- Have to work for ID check -->
 <script type="text/javascript"
-	src="${pageContext.request.contextPath}/resources/js/AgoFiles/UsersJS/join_checkInfo.js"></script>
+	src="${pageContext.request.contextPath}/resources/js/AgoFiles/UsersJS/join_checkInfo.js?version=20170607"></script>
 	<!-- Have to work for PW REGEXP -->
 <%-- <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/js/AgoFiles/UsersJS/JoinCheck.js"></script>
@@ -89,7 +88,9 @@
 											<span>영문소문자 / 숫자, 4~12자</span> <input type="button"
 												id="u_idcheck" value="중복체크">
 												<ul class="errorField">
-												</ul></td>
+												</ul>
+												<font id="idcheck" size="2" color="green"></font>
+												</td>
 										</tr>
 								<!-- 	</table>
 								</div>
@@ -222,12 +223,13 @@
 											<option value="휴양">휴양</option>
 											
 											</select>
-											<input type="radio" name="u_style" value="힐링" checked="checked"><label>힐링</label>
+										<!-- 	<input type="radio" name="u_style" value="힐링" checked="checked"><label>힐링</label>
 											<input type="radio" name="u_style" value="관광"><label>관광</label>
 							<input type="radio" name="u_style" value="맛집"> <label>맛집</label>
 							<input type="radio" name="u_style" value="액티비티"> <label>액티비티</label>
 							<input type="radio" name="u_style" value="휴양"><label>휴양</label>
-							&nbsp;&nbsp;<!-- <span>하나만 선택해주세요</span> --></td>
+							&nbsp;&nbsp;<span>하나만 선택해주세요</span> -->
+											</td>
 										</tr>
 									</table>
 								</div>

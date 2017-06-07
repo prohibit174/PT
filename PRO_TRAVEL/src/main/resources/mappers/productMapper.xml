@@ -16,6 +16,7 @@
    
    <select id="listProduct" resultType="ProductVO" >
       select * from product
+      order by p_date desc
    </select>
     
     
@@ -25,7 +26,7 @@
    
     
    <update id="updateProduct" parameterType="ProductVO">
-      update product set p_num = #{p_num}, p_img = #{p_img} where p_num = #{p_num}
+      update product set p_name = #{p_name} where p_num = #{p_num}
    </update>
    
     <delete id="deleteProduct" parameterType="String">
@@ -41,7 +42,7 @@
          )
       values(
          #{pr_reqnum}, #{u_id}, #{p_num},
-         #{pr_ox},#{pr_place},#{pr_date}
+         'x',#{pr_place},#{pr_date}
       )
       
    </insert>

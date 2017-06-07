@@ -65,7 +65,7 @@
             </div>
 
 
-            <form role="form" method="post" enctype="application/x-www-form-urlencoded">
+            <form role="form" method="post" enctype="multipart/form-data">
                <div class="box-full" id="creationaccount">
                   <!-- <div class="top"></div> -->
                   <div class="form">
@@ -122,14 +122,14 @@
                                     id="p_date" value="${product.p_date}" /></td>
                               </tr>
                               
-                             <tr>
+<!--                              <tr>
                                  <td class="label"><label for="u_lang">Product
                                        Image</label></td>
                                  <td class="value"><input type="file" name="p_img"
                                     id="p_img" value="" /> &nbsp; <span class="mandatory"></span>
                                     <ul class="errorField">
                                     </ul></td>
-                              </tr> 
+                              </tr>  -->
                            </table>
                         </div>
 

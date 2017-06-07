@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<% String id = (String)session.getAttribute("login");
+		request.setAttribute("id", id);
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
@@ -82,7 +84,7 @@
 										<tr>
 											<td class="label"><label for="u_lang">User ID</label></td>
 											<td class="value"><input type="text" name="u_id"
-												id="u_id" value="" /> &nbsp; <span class="mandatory"></span>
+												id="u_id" value="${id }" /> &nbsp; <span class="mandatory"></span>
 												<ul class="errorField">
 												</ul></td>
 										</tr>
