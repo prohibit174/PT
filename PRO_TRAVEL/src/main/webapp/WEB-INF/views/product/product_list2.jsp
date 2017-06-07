@@ -105,11 +105,11 @@
 											itemprop="url" 
 									style="color: DarkSlateGray";> <picture class="img">
 
-										<c:if test="${product.file!=null}">
+										<c:if test="${product.p_img!=null}">
 											<c:set var="head"
-												value="${fn:substring(product.p_img, 0, fn:length(product.file)-4) }"></c:set>
+												value="${fn:substring(product.p_img, 0, fn:length(product.p_img)-4) }"></c:set>
 											<c:set var="pattern"
-												value="${fn:substring(product.p_img, fn:length(head)+1, fn:length(product.file)) }"></c:set>
+												value="${fn:substring(product.p_img, fn:length(head)+1, fn:length(product.p_img)) }"></c:set>
 
 											<c:choose>
 												<c:when

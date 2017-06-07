@@ -29,20 +29,24 @@ public class CarpoolServiceImpl implements CarpoolService {
 
 	@Override
 	public void modify(CarpoolVO carpool) throws Exception {
-		// TODO Auto-generated method stub
+		dao.update(carpool);
 		
 	}
 
 	@Override
 	public void remove(Integer c_num) throws Exception {
-		// TODO Auto-generated method stub
+		dao.delete(c_num);
 		
 	}
 
 	@Override
 	public List<CarpoolVO> listAll() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.listAll();
+	}
+
+	@Override
+	public Integer maxSelect() throws Exception {
+		return dao.maxSelect();
 	}
 
 

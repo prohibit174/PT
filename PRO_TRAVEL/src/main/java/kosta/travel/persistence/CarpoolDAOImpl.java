@@ -47,4 +47,9 @@ public class CarpoolDAOImpl implements CarpoolDAO {
 		return session.selectList(namespace+".listAll");
 	}
 
+	@Override
+	public Integer maxSelect() throws Exception {
+		return session.selectOne(namespace+".maxSelect");
+	}
+
 }
