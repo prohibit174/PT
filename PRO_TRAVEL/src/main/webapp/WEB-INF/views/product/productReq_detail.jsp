@@ -71,18 +71,16 @@
 	href="https://stillres.olympic.org/css/all.css" />
 
   <script>
-/*   
+   
   $(document).ready(function(){
 	  
 		var formObj = $("form[role='form']");
 		console.log(formObj); 
   	
-  	$(".btn-warning").on("click", function(){
-  		formObj.attr("action", "/product/product_update");
-  		formObj.attr("method", "get");		
-  		formObj.submit();
-  	});
- */
+		$(".btn-primary").on("click", function(){
+			self.location = "/product/product_list";
+		});
+  });
   	
 
 	</script>
@@ -148,7 +146,8 @@
 				
 				<ul class="mailbox-attachments clearfix uploadedList"></ul>	
 					<div class="row">
-						 <button type="submit" class="btn btn-warning" id="modifyBtn">목록으로 가기</button>
+						 <button type="submit" class="btn btn-primary">목록으로 가기</button>
+
 				 
 			
 					</div>
