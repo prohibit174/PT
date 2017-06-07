@@ -110,7 +110,7 @@
 										<tr>
 											<td class="label"><label for="u_lang">Product
 													Image</label></td>
-											<td class="value"><input type="file" name="file"
+											<td class="value"><input type="file" name="file1"
 												id="p_img" value="" /> &nbsp; <span class="mandatory"></span>
 												<ul class="errorField">
 												</ul></td>

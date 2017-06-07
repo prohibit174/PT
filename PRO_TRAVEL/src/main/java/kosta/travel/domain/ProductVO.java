@@ -1,18 +1,18 @@
 package kosta.travel.domain;
 
-import java.util.Arrays;
 
 import org.springframework.web.multipart.MultipartFile;
 
 public class ProductVO {
 	private String p_num;
 	private String u_id;
-	private MultipartFile file;
+	private String p_img;
 	private String p_detail;
 	private String p_price;
 	private String p_name;
 	private String p_date;
 	private String p_ox;
+	private MultipartFile file1;
 	
 	public ProductVO(){}
 
@@ -32,12 +32,12 @@ public class ProductVO {
 		this.u_id = u_id;
 	}
 
-	public MultipartFile getFile() {
-		return file;
+	public String getP_img() {
+		return p_img;
 	}
 
-	public void setFile(MultipartFile file) {
-		this.file = file;
+	public void setP_img(String p_img) {
+		this.p_img = p_img;
 	}
 
 	public String getP_detail() {
@@ -80,12 +80,18 @@ public class ProductVO {
 		this.p_ox = p_ox;
 	}
 
-	@Override
-	public String toString() {
-		return "ProductVO [p_num=" + p_num + ", u_id=" + u_id + ", file=" + file + ", p_detail=" + p_detail
-				+ ", p_price=" + p_price + ", p_name=" + p_name + ", p_date=" + p_date + ", p_ox=" + p_ox + "]";
+	public MultipartFile getFile1() {
+		return file1;
 	}
 
-	
-	
+	public void setFile1(MultipartFile file1) {
+		this.file1 = file1;
+	}
+
+	@Override
+	public String toString() {
+		return "ProductVO [p_num=" + p_num + ", u_id=" + u_id + ", p_img=" + p_img + ", p_detail=" + p_detail
+				+ ", p_price=" + p_price + ", p_name=" + p_name + ", p_date=" + p_date + ", p_ox=" + p_ox + ", file1="
+				+ file1 + "]";
+	}
 }

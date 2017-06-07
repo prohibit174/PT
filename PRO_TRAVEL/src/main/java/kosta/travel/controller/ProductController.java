@@ -15,7 +15,6 @@ import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kosta.travel.domain.ProductVO;
@@ -45,11 +44,11 @@ public class ProductController {
 	   System.out.println("registerpost method call");
       logger.info(product.toString());
       
-	 //logger.info(file.toString());
-      logger.info("originalName: "+product.getFile().getOriginalFilename());
+      logger.info("originalName: "+product.getFile1().getOriginalFilename());
       
-      String savedName = UploadFile(product.getFile().getOriginalFilename(), product.getFile().getBytes());
+      String savedName = UploadFile(product.getFile1().getOriginalFilename(), product.getFile1().getBytes());
 
+      product.setP_img(product.getFile1().getOriginalFilename());
       service.insert(product);
       
       model.addAttribute("savedName",savedName);
