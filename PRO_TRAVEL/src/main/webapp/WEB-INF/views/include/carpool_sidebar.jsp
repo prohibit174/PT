@@ -18,17 +18,17 @@
 						class="icon-arrow-right"> <span class="hide">arrow</span>
 					</i>
 				</a></li>
-				<li class=""><a href="#more-about" data-class="games2014-2"
+				<li class=""><a href="/carpool/" data-class="games2014-2"
 					target=""> CARPOOL REGISTER <i class="icon-arrow-right"> <span
 							class="hide">arrow</span>
 					</i>
 				</a></li>
-				<li class=""><a href="#all-facts" data-class="games2014-2"
+				<li class=""><a href="/carpool/listAll" data-class="games2014-2"
 					target=""> CARPOOL LIST <i class="icon-arrow-right"> <span
 							class="hide">arrow</span>
 					</i>
 				</a></li>
-				<li class=""><a href="#emblem" data-class="games2014-2"
+				<li class=""><a href="/mypage/carpoolCheck" data-class="games2014-2"
 					target=""> MY CARPOOL <i class="icon-arrow-right"> <span
 							class="hide">arrow</span>
 					</i>

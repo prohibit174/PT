@@ -22,7 +22,7 @@
 </style>
 </head>
 <body>
-<<<<<<< HEAD
+
     <div id="map"></div>
     <script>
        var markerPosition;   
