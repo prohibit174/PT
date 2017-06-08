@@ -1,6 +1,7 @@
 package kosta.travel.controller;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -34,14 +35,13 @@ public class CarpoolController {
 	}
 	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String registerPOST(CarpoolVO carpool, RedirectAttributes rttr, HttpSession session) throws Exception {
-		
+	public String registerPOST(CarpoolVO carpool, HttpSession session) throws Exception {
+		System.out.println("들어오냐");
 		carpool.setU_id((String)session.getAttribute("login"));
 		carpool.setC_num(service.maxSelect()+1);
 		
 		service.regist(carpool);
 		
-		rttr.addFlashAttribute("msg", "SUCCESS");
 		
 		return "redirect:/carpool/listAll";
 	}
