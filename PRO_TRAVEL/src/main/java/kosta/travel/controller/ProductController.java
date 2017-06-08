@@ -14,6 +14,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -108,7 +109,7 @@ public class ProductController {
 
 	
 	@RequestMapping(value = "/product_detail", method = RequestMethod.GET)
-	public String product_detail(@RequestParam("p_num") String p_num, Model model) throws Exception {
+	public String product_detail(@RequestParam("p_num") String p_num, @ModelAttribute("cri") Criteria cri, Model model) throws Exception {
 		logger.info("product_detail method call");
 		ProductVO product = service.detailProduct(p_num);
 		/* logger.info(product.toString()); */
@@ -116,9 +117,12 @@ public class ProductController {
 
 		return "/product/product_detail2";
 	}
+	
+	
+		
 
 	@RequestMapping(value = "/product_update", method = RequestMethod.GET)
-	public void product_update(@RequestParam("p_num") String p_num, Model model) throws Exception {
+	public void product_update(@RequestParam("p_num") String p_num,@ModelAttribute("cri") Criteria cri ,Model model) throws Exception {
 
 		logger.info("product updateGET method call..");
 		ProductVO product = service.detailProduct(p_num);
@@ -138,14 +142,22 @@ public class ProductController {
 	}
 
 	@RequestMapping(value = "/product_delete", method = RequestMethod.GET)
-	public String remove(@RequestParam("p_num") String p_num) throws Exception {
+	public String product_delete(@RequestParam("p_num") String p_num,Criteria cri, RedirectAttributes rttr) throws Exception {
 
-		logger.info("delete method");
+	/*	logger.info("delete method");*/
 		service.deleteProduct(p_num);
+		
+		rttr.addAttribute("page", cri.getPage());
+		rttr.addAttribute("perPageNum", cri.getPerPageNum());
+		rttr.addFlashAttribute("msg", "SUCCESS");
 
 		return "redirect:/product/product_list";
 
 	}
+	
+	
+	
+
 
 	@RequestMapping(value = "/productReq_register", method = RequestMethod.GET)
 	public String productReq_register() throws Exception {

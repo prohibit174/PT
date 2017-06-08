@@ -35,7 +35,7 @@
 		console.log(formObj);
   	
   	$(".btn-warning").on("click", function(){
-  		self.location="/product/product_list";
+  		self.location=self.location="/product/product_list?page=${cri.page}&perPageNum=${cri.perPageNum}";
   	});
   	
 	$(".btn-primary").on("click", function(){
@@ -67,6 +67,9 @@
 
             <form role="form" method="post" enctype="multipart/form-data">
                <div class="box-full" id="creationaccount">
+               
+               <input type='hidden' name='page' value="${cri.page}"> 
+					<input type='hidden' name='perPageNum' value="${cri.perPageNum}">
                   <!-- <div class="top"></div> -->
                   <div class="form">
 
