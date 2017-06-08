@@ -15,6 +15,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="../include/header.jsp" %>
+<%@include file="../include/accompany_sidebar.jsp" %>
 
 
 <% request.setCharacterEncoding("utf-8"); %>
@@ -46,15 +47,25 @@
 
 <head>
 
-
-
-
-  <style>
+ <style>
        #map {
         height: 400px;
         width: 50%;
+
        }
+       #calendar {
+        height:600px;
+        width: 50%;
+       }
+		#carpool_map{
+		margin-left: 300px;
+		}
+		#footer{
+		height: 30%;
+		}
+
     </style>
+
 </head>
 
 
@@ -68,12 +79,12 @@
         <div class="present">
             <div class="tabs-list">
                 
-                <ul class="tabs-list">
+          <!--       <ul class="tabs-list">
             <li><a href="main.accompany" class="first-tag active"><span>Accompany</span></a></li>
             <li><a href="enroll" class="accomp_createRoute"><span>여행 일정 등록</span></a></li>     
             <li><a href="list.carpool" data-id="2d8eef384cefda06" class=""><span>동행 검색</span></a></li>
             
-		</ul>
+		</ul> -->
 
                 <div id="google-ad-sense" style="margin-top:20px;float:left;" data-type="260x260">
                   <script type="text/javascript">
@@ -499,8 +510,8 @@ function showLeftAccom(leftIndex, markerIndex){
         padding-left: 10px" >
     </div>
             </div>
-
-						<div class="nlogin_total_box">
+				<%-- <form>
+					 	<div class="nlogin_total_box">
 							<h3 class="nlogin_title nlogin_email_title">카풀 등록 정보</h3>
 							<div class="nlogin_content">
 								<div class="email_member_join">
@@ -1004,7 +1015,7 @@ function showLeftAccom(leftIndex, markerIndex){
 												<div class="nlogin_form_section">
 													<div class="nlogin_select" id="nlogin_year">
 														<input type="hidden" id="nlogin_year_value" name="birth_y">
-														<p data-value="choice"><span>아이디 : <%-- <%=id %> --%></span></p>
+														<p data-value="choice"><span>아이디 : <%=id %></span></p>
 														
 													</div>
 													<div class="nlogin_select" id="nlogin_month">
@@ -1081,35 +1092,156 @@ function showLeftAccom(leftIndex, markerIndex){
 								
 							</div>
 
-						</div>
+						</div> 
 						
 						</div>
 						
-						</div>
 						
 						<div class="nlogin_join_center">
 							<button class="nlogin_btn" type="submit">카풀 등록</button>
 					    </div>
 </form>					 
+--%>
 
-    <style>
-       #map {
-        height: 400px;
-        width: 100%;
+<script type="text/javascript">
+function searchPeople(){
+	console.log(" 기능 ");
+}
+</script>
+<div class="id-card-box" style="width: 100% ;border: black;">
+	<form
+		action="/accompany/searchPeople"
+		class="calendar-form">
 
-       }
-       #calendar {
-        height:600px;
-        width: 50%;
-       }
-		#carpool_map{
-		margin-left: 300px;
-		}
-		#footer{
-		height: 30%;
-		}
+			<div class="item-list" style="width: 1400px; padding-right: 30px;">
+					<div class="row" style="font-size: 20px;">
+						<span class="label">Location</span> 
+						 <select class="destination">
+							<option class="destination">목적지를 지도에 마크하세요</option>
+						</select> 
+						<select  class="start">
+							<option class="start">출발지를 지도에 마크하세요</option>
+						</select>
+					</div>
+					<div class="row" style="font-size: 20px;">
+						<span class="label">Date</span> 
+						<select class="day">
+							<option value="day">day</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+							<option value="19">19</option>
+							<option value="20">20</option>
+							<option value="21">21</option>
+							<option value="22">22</option>
+							<option value="23">23</option>
+							<option value="24">24</option>
+							<option value="25">25</option>
+							<option value="26">26</option>
+							<option value="27">27</option>
+							<option value="28">28</option>
+							<option value="29">29</option>
+							<option value="30">30</option>
+							<option value="31">31</option>
+						</select>
+						<select class="month">
+							<option value="month">month</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+						</select>
+						<select class="year">
+							<option value="year">year</option>
+							<option value="2017">2017</option>
+							<option value="2018">2018</option>
+							<option value="2019">2019</option>
+						</select> 
+					</div>
 
-    </style>
+					<!-- <div class="row"  style="font-size: 20px;">
+						<span class="label">Time</span> 
+						<select class="minute">
+							<option value="minute">MINUTE</option>
+							<option value="10">10</option>
+							<option value="20">20</option>
+							<option value="30">30</option>
+							<option value="40">40</option>
+							<option value="50">50</option>
+							<option value="00">00</option>
+						</select>
+						<select class="hour">
+							<option value="hour">HOUR</option>
+							<option value="AM1">AM 1</option>
+							<option value="AM2">AM 2</option>
+							<option value="AM3">AM 3</option>
+							<option value="AM4">AM 4</option>
+							<option value="AM5">AM 5</option>
+							<option value="AM6">AM 6</option>
+							<option value="AM7">AM 7</option>
+							<option value="AM8">AM 8</option>
+							<option value="AM9">AM 9</option>
+							<option value="AM10">AM 10</option>
+							<option value="AM11">AM 11</option>
+							<option value="AM12">AM 12</option>
+							<option value="PM1">PM 1</option>
+							<option value="PM2">PM 2</option>
+							<option value="PM3">PM 3</option>
+							<option value="PM4">PM 4</option>
+							<option value="PM5">PM 5</option>
+							<option value="PM6">PM 6</option>
+							<option value="PM7">PM 7</option>
+							<option value="PM8">PM 8</option>
+							<option value="PM9">PM 9</option>
+							<option value="PM10">PM 10</option>
+							<option value="PM11">PM 11</option>
+							<option value="PM12">PM 12</option>
+						</select> 
+					</div> -->
+					<!-- <div class="row" style="font-size: 20px;">
+						<span class="label">Seat</span> 
+						<select class="person">
+							<option value="person">PERSON</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+						</select>
+					</div> -->
+
+				</div>
+		<div>
+		<input class="btn-more" type="submit" value="register" style="margin-right: 50%; margin-top: 10px; width: 120px; height: 50px;" />
+		</div>
+	</form>
+	</div>
 
 <%@include file="../include/footer.jsp" %>
 </body>

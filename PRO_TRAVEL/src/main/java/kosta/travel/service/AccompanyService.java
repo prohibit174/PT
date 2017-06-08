@@ -48,31 +48,9 @@ public class AccompanyService {
 		for(int i=0;i< list.size() ;i++)
 			{
 			  List<AccompanyVO> userRoutesInfo  = dao.getUserInfo(list.get(i).getU_id());//get user's route whose id is "0"
-			  //get routes of logined user.
-			  //userRoutesInfo[0] contains 5.1 Nice, id, trip_style and so on...
-			  //userRoutesInfo[1] contains 5.2 Nice, id, trip_style and so on...
-		/*    String name = userRoutesInfo.get(i).getU_name();
-			  String region = userRoutesInfo.get(i).getCor_region();
-			  String date = userRoutesInfo.get(i).getTp_date();
-			  System.out.println(i+"踰덉㎏"+date+"�쓽 "+region);
-			  System.out.println();*/
 			  List<AccompanyVO> temp = dao.getAccompanies(userRoutesInfo.get(i));
 			  allAccompanyList.addAll(temp);
 			}
-	/*	System.out.println();
-		System.out.println("allAccompanyList.size : " +allAccompanyList.size());
-		*/
-		
-		/* �룞�뻾 紐⑸줉 肄섏넄 �솗�씤
-		 * for(int i=0;i< allAccompanyList.size() ;i++)
-			{ String name = allAccompanyList.get(i).getU_name();
-			  String region = allAccompanyList.get(i).getCor_region();
-			  String date = allAccompanyList.get(i).getTp_date();
-			  String lati = allAccompanyList.get(i).getCor_lati();
-			  String longi = allAccompanyList.get(i).getCor_longi();
-			  System.out.println(date+"�쓽 "+region+"�뿉�꽌�쓽 �룞�뻾�� "+name+"�엯�땲�떎"+"lat/long : "+lati+" / "+longi);
-			}*/
-			   /*request.setAttribute("allAccompanyList", allAccompanyList);*/
 		return allAccompanyList;
 	} 
 	
