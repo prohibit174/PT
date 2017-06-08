@@ -30,7 +30,13 @@
      var marker_zoom4=[];
      var marker_zoom5=[];
      var latLngList=[];
-
+     <!-- 경유지 찍을 때 지도 마커 모양 변경..-->
+ 	var iconBase = "https://maps.google.com/mapfiles/kml/shapes/";
+ 	var icons = {
+ 			parking: {
+ 				icon: iconBase + "parking_lot_maps.png"
+ 			}
+ 	}
      
      function createLine(latLngList, map){ 
          var movingPath = new google.maps.Polyline({
@@ -61,8 +67,8 @@
       var munichLocation = {lat: 48.133333, lng: 11.566667};
       var bernLocation = {lat: 46.95, lng: 7.45};
       var zurichLocation = {lat: 47.366667, lng: 8.55};
-      
-    
+      var hamburgLocation = {lat: 53.551085, lng: 9.993682};
+      var frankfurtLocation = {lat: 50.110922, lng: 8.682127};
      
        marker_zoom4[0] = new google.maps.Marker({//Ã«Â§Â Ã¬Â»Â¤Ã«Â¥Â¼ uluruÃ¬Â Â  Ã¬Â°Â Ã¬Â Â 
           position: franceLocation,
@@ -108,7 +114,7 @@
      marker_zoom5[4] = new google.maps.Marker({//Ã«Â§Â Ã¬Â»Â¤Ã«Â¥Â¼ uluruÃ¬Â Â  Ã¬Â°Â Ã¬Â Â 
           position: munichLocation,
           map: map,
-          title:'munich'
+          title:'munich',
         });
      marker_zoom5[5] = new google.maps.Marker({//Ã«Â§Â Ã¬Â»Â¤Ã«Â¥Â¼ uluruÃ¬Â Â  Ã¬Â°Â Ã¬Â Â 
           position: bernLocation,
@@ -120,7 +126,16 @@
           map: map,
           title:'zurich'
         });
-     
+     marker_zoom5[7] = new google.maps.Marker({
+         position: hamburgLocation,
+         map: map,
+         title:'hamburg'
+       });
+     marker_zoom5[8] = new google.maps.Marker({
+         position: frankfurtLocation,
+         map: map,
+         title:'frankfurt'
+       });
     /* 지도 좌표 정보 ajax */
      for(i=0;i<marker_zoom4.length;i++)
     {
@@ -140,6 +155,7 @@
                  success: function sendHandler(data) {
                     $('select.start option.start').text("");
                    $('select.start option.start').text(data);
+                   $('select.start option.start').val(data);
                    $('select.start option.start').text(data).attr("selected", "selected");
                     
                     }
@@ -157,9 +173,8 @@
             success: function sendHandler(data) {
                 $('select.destination option.destination').text("");
                 $('select.destination option.destination').text(data);
+                $('select.destination option.destination').val(data);
                 $('select.destination option.destination').text(data).attr("selected", "selected");
-                 
-               
                }
          });
          alert("목적지가 추가 되었습니다.")
@@ -176,7 +191,7 @@
          console.log(this.getTitle());
        createLine(latLngList, map);
 
-       if(count%2 != 0){
+       if(count == 1){
        $.ajax({
            url :   '${pageContext.request.contextPath}/ajax_register',
           type : 'post',
@@ -186,13 +201,14 @@
           success: function sendHandler(data) {
               $('select.start option.start').text("");
               $('select.start option.start').text(data);
+              $('select.start option.start').val(data);
               $('select.start option.start').text(data).attr("selected", "selected");
                
             }
        });
        alert("출발지가 추가 되었습니다.")
        return false;
-       }else{
+       }else if(count == 2){
        
         $.ajax({
           url :   '${pageContext.request.contextPath}/ajax_register',
@@ -203,13 +219,41 @@
          success: function sendHandler(data) {
              $('select.destination option.destination').text("");
              $('select.destination option.destination').text(data);
+             $('select.destination option.destination').val(data);
              $('select.destination option.destination').text(data).attr("selected", "selected");
             
             }
       });
-      alert("목적지가 추가 되었습니다.")
+      alert("목적지가 추가 되었습니다.");
       return false;
-       }
+       }else if(count == 3){
+    	   if(confirm("경유지로 추가 하시겠습니까?") == true){
+    		   this.setMap(null);
+    		     marker_zoom5[i] = new google.maps.Marker({
+    		          position: this.getPosition(),
+    		          map: map,
+    		          title: this.getTitle(),
+    		          icon: icons.parking.icon
+    		        });
+   	        $.ajax({
+	            url :   '${pageContext.request.contextPath}/ajax_register',
+	           type : 'post',
+	           data : {
+	              start : this.getTitle()
+	           },
+	           success: function sendHandler(data) {
+	               $('select.way_point option.way_point').text("");
+	               $('select.way_point option.way_point').text(data);
+	               $('select.way_point option.way_point').val(data);
+	               $('select.way_point option.way_point').text(data).attr("selected", "selected");
+	   
+	              }
+
+	        });
+
+
+    	      }
+    	      }
     });   
  }
 
@@ -222,20 +266,20 @@
           if(map.getZoom()<5){
 
              if(marker_zoom5[0]!=null){
-                for(i=0; i<7; i++){
+                for(i=0; i<marker_zoom5.length; i++){
                     marker_zoom5[i].setMap(null);
                  } 
              }
-             for(i=0; i<4; i++){
+             for(i=0; i<marker_zoom4.length; i++){
              marker_zoom4[i].setMap(map);
              }
            }
           else if(map.getZoom()>=5){
              
-          for(i=0; i<4; i++){
+          for(i=0; i<marker_zoom4.length; i++){
                 marker_zoom4[i].setMap(null);
              }   
-            for(i=0; i<7; i++){
+            for(i=0; i<marker_zoom5.length; i++){
                 marker_zoom5[i].setMap(map);
              }
           }
@@ -264,6 +308,12 @@
           movingPath = [];
 
      }
+
+    
+
+
+    	
+    
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnrWQ2SHvedNrvdozheYo32pHwCbuvPgs&callback=initMap">
@@ -278,12 +328,18 @@
 					<div class="row" style="font-size: 20px;">
 						<span class="label">Location</span> 
 						 <select class="destination" name="dest_point">
-							<option class="destination">목적지를 지도에 마크하세요</option>
+							<option class="destination"  value="">목적지를 지도에 마크하세요</option>
 						</select> 
 						<select  class="start"  name="start_point">
-							<option class="start">출발지를 지도에 마크하세요</option>
+							<option class="start" value="">출발지를 지도에 마크하세요</option>
 						</select>
 					</div>
+					<div class="row" style="font-size: 20px;">
+						<span class="label">WayPoint</span> 
+						 <select class="way_point" name="way_point">
+							<option class="way_point"  value="">경유지를 지도에 마크하세요</option>
+						</select> 
+					</div>					
 					<div class="row" style="font-size: 20px;">
 						<span class="label">Date</span> 
 						<select class="day" name="c_date">
