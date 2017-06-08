@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import kosta.travel.domain.CarpoolVO;
+import kosta.travel.domain.Carpool_RequestVO;
 import kosta.travel.persistence.CarpoolDAO;
 
 
@@ -51,6 +52,12 @@ public class CarpoolServiceImpl implements CarpoolService {
 	
 	public List<CarpoolVO> myMakeCarpool(String u_id) throws Exception{
 		return dao.myMakeCarpool(u_id);
+	}
+
+	@Override
+	public void regist(Carpool_RequestVO request) throws Exception {
+		dao.createRequest(request);
+		
 	}
 
 
