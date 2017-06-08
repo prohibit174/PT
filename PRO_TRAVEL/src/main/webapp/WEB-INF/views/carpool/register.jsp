@@ -321,16 +321,16 @@
 			<div class="item-list" style="width: 1400px; padding-right: 30px;">
 					<div class="row" style="font-size: 20px;">
 						<span class="label">Location</span> 
-						 <select class="destination">
+						 <select class="destination" name="dest_point">
 							<option class="destination">목적지를 지도에 마크하세요</option>
 						</select> 
-						<select  class="start">
+						<select  class="start"  name="start_point">
 							<option class="start">출발지를 지도에 마크하세요</option>
 						</select>
 					</div>
 					<div class="row" style="font-size: 20px;">
 						<span class="label">Date</span> 
-						<select class="day">
+						<select class="day" name="c_date">
 							<option value="day">day</option>
 							<option value="1">1</option>
 							<option value="2">2</option>
@@ -364,7 +364,7 @@
 							<option value="30">30</option>
 							<option value="31">31</option>
 						</select>
-						<select class="month">
+						<select class="month" name="c_month">
 							<option value="month">month</option>
 							<option value="1">1</option>
 							<option value="2">2</option>
@@ -379,7 +379,7 @@
 							<option value="11">11</option>
 							<option value="12">12</option>
 						</select>
-						<select class="year">
+						<select class="year" name="c_year">
 							<option value="year">year</option>
 							<option value="2017">2017</option>
 							<option value="2018">2018</option>
@@ -389,7 +389,7 @@
 
 					<div class="row"  style="font-size: 20px;">
 						<span class="label">Time</span> 
-						<select class="minute">
+						<select class="minute" name="c_minute">
 							<option value="minute">MINUTE</option>
 							<option value="10">10</option>
 							<option value="20">20</option>
@@ -398,7 +398,7 @@
 							<option value="50">50</option>
 							<option value="00">00</option>
 						</select>
-						<select class="hour">
+						<select class="hour" name="c_hour">
 							<option value="hour">HOUR</option>
 							<option value="AM1">AM 1</option>
 							<option value="AM2">AM 2</option>
@@ -428,7 +428,7 @@
 					</div>
 					<div class="row" style="font-size: 20px;">
 						<span class="label">Seat</span> 
-						<select class="person">
+						<select class="person" name="c_person">
 							<option value="person">PERSON</option>
 							<option value="1">1</option>
 							<option value="2">2</option>
@@ -442,7 +442,7 @@
 					</div>
 					<div class="row" style="font-size: 20px;">
 						<span class="label">PRICE</span> 
-						<select class="price">
+						<select class="price" name="c_price">
 							<option value="price">PRICE</option>
 							<option value="10">$10</option>
 							<option value="20">$20</option>
