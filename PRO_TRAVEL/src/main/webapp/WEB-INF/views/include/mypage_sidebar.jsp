@@ -14,38 +14,38 @@
                 <ul class="tabset">
 
     <li class="active">
-        <a href="#highlights-of-the-games" data-class="games2014-2" target="">
-            Highlights of the Games
-            <i class="icon-arrow-right">
+        <a href="usercheckInfo" data-class="games2014-2" target="">
+           Check My Info
+            <!-- <i class="icon-arrow-right">
                 <span class="hide">arrow</span>
-            </i>
+            </i> -->
         </a>
     </li>
     <li class="">
         <a href="#more-about" data-class="games2014-2" target="">
-            More About
-            <i class="icon-arrow-right">
+            My Accompany
+           <!--  <i class="icon-arrow-right">
                 <span class="hide">arrow</span>
-            </i>
+            </i> -->
         </a>
     </li>
     <li class="">
         <a href="#all-facts" data-class="games2014-2" target="">
-            All Facts
-            <i class="icon-arrow-right">
+            My Carpool
+            <!-- <i class="icon-arrow-right">
                 <span class="hide">arrow</span>
-            </i>
+            </i> -->
         </a>
     </li>
     <li class="">
         <a href="#emblem" data-class="games2014-2" target="">
-            Emblem
-            <i class="icon-arrow-right">
+            My Goods
+            <!-- <i class="icon-arrow-right">
                 <span class="hide">arrow</span>
-            </i>
+            </i> -->
         </a>
     </li>
-    <li class="">
+    <!-- <li class="">
         <a href="#medals" data-class="games2014-2" target="">
             Medals
             <i class="icon-arrow-right">
@@ -84,7 +84,7 @@
                 <span class="hide">arrow</span>
             </i>
         </a>
-    </li>
+    </li> -->
                 </ul>
             </div>
             
