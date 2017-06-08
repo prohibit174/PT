@@ -1,6 +1,7 @@
 package kosta.travel.controller;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -18,10 +19,15 @@ import kosta.travel.service.CarpoolService;
 
 @Controller
 @RequestMapping("/carpool/*")
-public class CarpoolController {
+public class CarpoolController {	
 	
 	@Inject
 	private CarpoolService service;
+	
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String registerGET() throws Exception {
+		return "/carpool/main";
+	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public String registerGET(CarpoolVO carpool, Model model) throws Exception {
@@ -29,14 +35,13 @@ public class CarpoolController {
 	}
 	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String registerPOST(CarpoolVO carpool, RedirectAttributes rttr, HttpSession session) throws Exception {
-		
+	public String registerPOST(CarpoolVO carpool, HttpSession session) throws Exception {
+		System.out.println("들어오냐");
 		carpool.setU_id((String)session.getAttribute("login"));
 		carpool.setC_num(service.maxSelect()+1);
 		
 		service.regist(carpool);
 		
-		rttr.addFlashAttribute("msg", "SUCCESS");
 		
 		return "redirect:/carpool/listAll";
 	}
@@ -45,7 +50,7 @@ public class CarpoolController {
 	public String listAll(Model model) throws Exception {
 		model.addAttribute("list", service.listAll());
 		
-		return "/carpool/carpool_list";
+		return "/carpool/list";
 	}
 	
 	@RequestMapping(value = "/read", method = RequestMethod.GET)
