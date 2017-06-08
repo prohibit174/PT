@@ -35,7 +35,8 @@
 		console.log(formObj);
   	
   	$(".btn-warning").on("click", function(){
-  		self.location="/product/product_list";
+  		self.location="/product/product_listPage?page=${cri.page}&perPageNum=${cri.perPageNum}";
+  		
   	});
   	
 	$(".btn-primary").on("click", function(){
