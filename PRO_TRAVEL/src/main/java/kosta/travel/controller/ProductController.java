@@ -144,7 +144,7 @@ public class ProductController {
 	}
 
 	@RequestMapping(value = "/product_delete", method = RequestMethod.GET)
-	public String product_delete(@RequestParam("p_num") String p_num,Criteria cri, RedirectAttributes rttr) throws Exception {
+	public String product_delete(@RequestParam("p_num") String p_num, Criteria cri, RedirectAttributes rttr) throws Exception {
 
 	/*	logger.info("delete method");*/
 		service.deleteProduct(p_num);
@@ -153,7 +153,7 @@ public class ProductController {
 		rttr.addAttribute("perPageNum", cri.getPerPageNum());
 		rttr.addFlashAttribute("msg", "SUCCESS");
 
-		return "redirect:/product/product_list2";
+		return "redirect:/product/product_list";
 
 	}
 	
