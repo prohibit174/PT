@@ -76,6 +76,8 @@
 	href="https://stillres.olympic.org/css/all.css" />
 
 <script type="text/javascript">
+
+
   
 	function btn_js_update_click(){
   	  /* confirm(문자열, 초기값) */
@@ -99,14 +101,21 @@
   	  
 		} 
   </script>
-  
+
+	
 
 
 <!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="https://stillres.olympic.org/css/ie.css" /><![endif]-->
 </head>
 <body>
 
-
+<form role="form" action="product_update" method="post">
+    
+    <input type='hidden' name='p_num' value ="${product.p_num}">
+    <input type='hidden' name='page' value ="${cri.page}">
+    <input type='hidden' name='perPageNum' value ="${cri.perPageNum}">
+    
+ </form>   
 
 	<section class="id-card-box" itemtype="http://schema.org/Organization"
 		itemscope="" style="margin: 0px 200px 100px 0px"; >

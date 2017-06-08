@@ -18,6 +18,7 @@ import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kosta.travel.domain.UsersVO;
@@ -39,34 +40,16 @@ public class JoinController {
 	
 	
 	@RequestMapping(value="/joinform", method=RequestMethod.POST)
-	public String JoinUser(Model model, UsersVO users)throws Exception{
+	public String JoinUser(Model model,UsersVO users)throws Exception{
 		System.out.println("JoinForm in");
 		String savedName = UploadFile(users.getImg_file().getOriginalFilename(), users.getImg_file().getBytes());
 		
 		users.setU_img(savedName);
 		
 		service.regist(users);
-		model.addAttribute("savedName", savedName);
-		System.out.println(model);
+
+		System.out.println(users.toString());
 		
-		 try { 
-	         
-	           String pattern = savedName.substring(savedName.lastIndexOf(".")+1);
-	         String headName = savedName.substring(0, savedName.lastIndexOf("."));
-	      
-	       File originalFileNm = new File(uploadPath+"\\"+savedName);
-	       File thumbnailFileNm = new File(uploadPath+"\\" +headName+"_small."+pattern);
-	       
-	       int width = 130; int height = 200; 
-	       // ����� �̹��� ���� 
-	      BufferedImage originalImg = ImageIO.read(originalFileNm); BufferedImage thumbnailImg = new BufferedImage(width, height, BufferedImage.TYPE_3BYTE_BGR); 
-	      // ����� �׸��� 
-	      Graphics2D g = thumbnailImg.createGraphics(); g.drawImage(originalImg, 0, 0, width, height, null); 
-	      // ���ϻ���
-	      ImageIO.write(thumbnailImg, pattern, thumbnailFileNm);   } 
-	      catch (Exception e) { 
-	         e.printStackTrace();
-	      }
 		return "/home";
 	}
 	

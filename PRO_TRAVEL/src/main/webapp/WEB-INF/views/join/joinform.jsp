@@ -307,7 +307,7 @@ jQuery(function($) {
 
 										<tr>
 											<td class="label"><label for="u_img">프로필 이미지</label></td>
-											<td class="value"><input type="file" name="u_img"
+											<td class="value"><input type="file" name="img_file"
 												id="u_img" value="" /> &nbsp; 
 												<ul class="errorField">
 												</ul></td>
@@ -393,7 +393,6 @@ jQuery(function($) {
 							</button>
 							<div class="clear"></div> 
 						</div>
-						<input type="submit" value="가입2">
 				</form>
 			</div>
 			</section>

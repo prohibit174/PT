@@ -176,6 +176,15 @@ public class UsersVO{
 	}
 
 
+	@Override
+	public String toString() {
+		return "UsersVO [u_id=" + u_id + ", u_pwd=" + u_pwd + ", u_name=" + u_name + ", u_birth=" + u_birth + ", u_sex="
+				+ u_sex + ", u_address=" + u_address + ", u_job=" + u_job + ", u_lang=" + u_lang + ", u_religion="
+				+ u_religion + ", u_license=" + u_license + ", u_img=" + u_img + ", u_style=" + u_style + ", img_file="
+				+ img_file + "]";
+	}
+	
+	
 	
 
 	
