@@ -1,5 +1,12 @@
 package kosta.travel.controller;
 
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.util.UUID;
+
+import javax.annotation.Resource;
+import javax.imageio.ImageIO;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -8,6 +15,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -19,20 +27,59 @@ import kosta.travel.service.UserService;
 @RequestMapping("/join/*")
 public class JoinController {
 
+	@Resource(name="uploadPath")
+	private String uploadPath;
 	@Inject
 	private UserService service;
 	
 	@RequestMapping(value="/joinform", method=RequestMethod.GET)
-	public String Joinform(){
+	public String Joinform() throws Exception{
 		return "/join/joinform";
 	}
 	
+	
 	@RequestMapping(value="/joinform", method=RequestMethod.POST)
-	public String JoinUser(UsersVO users, Model model)throws Exception{
+	public String JoinUser(Model model, UsersVO users)throws Exception{
+		System.out.println("JoinForm in");
+		String savedName = UploadFile(users.getImg_file().getOriginalFilename(), users.getImg_file().getBytes());
+		
+		users.setU_img(savedName);
+		
 		service.regist(users);
-		model.addAttribute("result", "success");
+		model.addAttribute("savedName", savedName);
+		System.out.println(model);
+		
+		 try { 
+	         
+	           String pattern = savedName.substring(savedName.lastIndexOf(".")+1);
+	         String headName = savedName.substring(0, savedName.lastIndexOf("."));
+	      
+	       File originalFileNm = new File(uploadPath+"\\"+savedName);
+	       File thumbnailFileNm = new File(uploadPath+"\\" +headName+"_small."+pattern);
+	       
+	       int width = 130; int height = 200; 
+	       // ����� �̹��� ���� 
+	      BufferedImage originalImg = ImageIO.read(originalFileNm); BufferedImage thumbnailImg = new BufferedImage(width, height, BufferedImage.TYPE_3BYTE_BGR); 
+	      // ����� �׸��� 
+	      Graphics2D g = thumbnailImg.createGraphics(); g.drawImage(originalImg, 0, 0, width, height, null); 
+	      // ���ϻ���
+	      ImageIO.write(thumbnailImg, pattern, thumbnailFileNm);   } 
+	      catch (Exception e) { 
+	         e.printStackTrace();
+	      }
 		return "/home";
 	}
+	
+	  private String UploadFile(String originalFilename, byte[] fileData)throws Exception {
+	      
+	      UUID uid = UUID.randomUUID();
+	      String savedName = uid.toString() + "_" + originalFilename;
+	      File target = new File(uploadPath, savedName);
+	      
+	      FileCopyUtils.copy(fileData, target);
+	      
+	      return savedName;
+	   }
 	
 	@RequestMapping("/terms_conditions")
 	public String terms_conditions(){
@@ -44,6 +91,7 @@ public class JoinController {
 		return "/join/privacy_policy";
 	}
 	
+	//AJAX for ID Check
 	@ResponseBody
 	@RequestMapping(value="/IdCheckAction", method=RequestMethod.POST)
 	public Integer idCheck(HttpServletRequest request) throws Exception{
