@@ -73,4 +73,25 @@ public class MypageController {
 			return "/mypage/mypage_failCheckPW";
 		}
 	}
+	
+	@RequestMapping(value = "/withdrawal", method=RequestMethod.GET)
+	public String withdrawlPW(){
+		return "/mypage/mypage_userWithdrawal";
+	}
+	
+	@RequestMapping(value = "/Withdrawal", method=RequestMethod.POST)
+	public String withdrawl(HttpSession session, HttpServletRequest request, @RequestParam("u_pwd") String u_pwd, Model model) throws Exception{
+		String u_id = (String)session.getAttribute("login");
+		UsersVO users = userService.userDetail(u_id);
+		//get user information
+		
+		boolean result = userService.checkPw(u_id, u_pwd);
+		
+		if(result==true){
+			return "/mypage/mypage_confirmLeave";
+		}else{
+			return "/mypage/mypage_failCheckPW";
+		}
+		
+	}
 }

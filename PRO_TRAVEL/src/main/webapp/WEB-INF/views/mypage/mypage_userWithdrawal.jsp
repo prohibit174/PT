@@ -10,11 +10,10 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/AgoFiles/users_css/common.css">
 </head>
-
 <%@include file="/WEB-INF/views/include/header.jsp" %>
 <%@include file="/WEB-INF/views/include/mypage_sidebar.jsp" %>
-
 <body>
+
 <div id="wrapper" data-speed="3">
 
 		<main id="main">
@@ -30,7 +29,7 @@
 
 
 				<form id="form_checkout" class="uniForm checkout"
-					enctype="application/x-www-form-urlencoded" action="checkPW">
+					enctype="application/x-www-form-urlencoded" action="Withdrawal" method="post">
 					<!-- <div class="box-full" id="creationaccount"> -->
 						<div class="top"></div>
 						<div class="form">
@@ -38,14 +37,26 @@
 							<input type="hidden" name="newuser" value="0" id="newuser" />
 							<div id="creationaccountform">
 
-								<h3>Check Password</h3>
+								<h3>Withdrawal ProTraveler</h3>
 
 								<div class="left">
-									<div>잘못된 비밀번호입니다. 비밀번호를 다시 확인해주세요.</div>
+									<table cellpadding="0" cellspacing="0" class="tab">
+										<tr>
+											<td class="label"><label for="u_pwd">비밀번호</label></td>
+											<td class="value"><input type="password" name="u_pwd" id="u_pwd"> &nbsp; <span
+												class="mandatory">*</span> <br>
+												<span>본인 확인을 위해 비밀번호를 입력해주세요.</span>
+										</td>
+										
+									</table>
 								</div>
 
 								<div class="clear"></div>
 							</div>
+
+							<div class="bottom"></div>
+
+							<br />
 
 
 							<div class="clear"></div>
@@ -72,7 +83,7 @@
 
 							<button name="submit" id="validate_order" type="submit"
 								class="primaryAction">
-								<span>돌아가기</span>
+								<span>탈퇴하기</span>
 							</button>
 							<div class="clear"></div>
 						</div>
@@ -89,6 +100,5 @@
 
 			
 <%@include file="../include/footer.jsp" %>
-
 </body>
 </html>
