@@ -9,7 +9,7 @@
 			 c_year,  c_month,  c_date,  c_hour,  c_minute, c_person
 		)
 		values(
-			#{c_num}, #{u_id}, '1', '1', '1', #{c_price}, #{c_year}, #{c_month}, #{c_date}, #{c_hour}, #{c_minute}
+			#{c_num}, #{u_id}, #{start_point}, #{dest_point}, #{way_point}, #{c_price}, #{c_year}, #{c_month}, #{c_date}, #{c_hour}, #{c_minute}
 	
 			, #{c_person}
 		)
