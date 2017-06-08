@@ -19,8 +19,13 @@ public interface CarpoolService {
 	
 	public Integer maxSelect()throws Exception;
 	
+	//Mypage
 	public List<CarpoolVO> myMakeCarpool(String u_id)throws Exception;
 	
+	public List<Carpool_RequestVO> myMakeRequest(int c_num)throws Exception;
+	
+	//Request
 	public void registRequest(Carpool_RequestVO request)throws Exception;
 
+	public Integer maxSelectRequest()throws Exception;
 }

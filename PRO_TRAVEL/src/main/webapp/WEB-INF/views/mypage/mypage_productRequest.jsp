@@ -15,6 +15,9 @@
 <%@include file="/WEB-INF/views/include/mypage_sidebar.jsp" %>
 <body>
 
+<% 
+%>
+
 
 <%@include file="/WEB-INF/views/include/footer.jsp" %>
 </body>
