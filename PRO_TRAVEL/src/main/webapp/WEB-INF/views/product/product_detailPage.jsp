@@ -210,23 +210,19 @@ $(document).ready(function(){
 	console.log(formObj);
 	
  	$(".btn-warning").on("click", function(){
-		formObj.attr("action", "/board/modifyPage");
+		formObj.attr("action", "/product/product_updatePage");
 		formObj.attr("method", "get");		
 		formObj.submit();
 	});
 	
 	$(".btn-danger").on("click", function(){
-		formObj.attr("action", "/board/removePage");
+		formObj.attr("action", "/product/product_delatePage");
 		formObj.submit();
 	}); 
 	
-/* 	$(".btn-primary").on("click", function(){
-		formObj.attr("method", "get");
-		formObj.attr("action", "/product/product_list");
-		formObj.submit();
-	});
 	
-}); */
+	
+});
 </script>
 
 
