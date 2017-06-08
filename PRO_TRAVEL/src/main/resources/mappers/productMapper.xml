@@ -75,14 +75,18 @@
        where p_num > 0 
        ]]>
    </select>
+   
+    <select id="listProductRequest" resultType="Product_RequestVO" parameterType="String"> 
+    	<![CDATA[
+		select * from product_req where p_num IN (select p_num from product where 
+		u_id = #{u_id})
+		 ]]>
+   </select> 
 
 
 	<!--
 		    
-   <select id="listProductRequest" resultType="Product_Request" parameterType="String"> 
-		select * from product_req where p_num IN (select p_num from product where 
-		u_id = #{u_id})
-   </select> 
+  
    
 		 <select id="countProduct" resultType="int" parameterType="Product_Search"> 
 		select count(*) from product Product list paging work <if test="product_search 
