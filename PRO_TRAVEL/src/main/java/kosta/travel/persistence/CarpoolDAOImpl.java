@@ -53,15 +53,31 @@ public class CarpoolDAOImpl implements CarpoolDAO {
 		return session.selectOne(namespace+".maxSelect");
 	}
 
+	
+	//Mypage
 	@Override
 	public List<CarpoolVO> myMakeCarpool(String u_id) throws Exception {
 		return session.selectList(namespace+".myMakeCarpool", u_id);
 	}
+	
+	@Override
+	public List<Carpool_RequestVO> myMakeRequest(int c_num) throws Exception {
+		return session.selectList(namespace+".myMakeRequest", c_num);
+	}
 
+	
+	//Request
 	@Override
 	public void createRequest(Carpool_RequestVO vo) {
 		session.insert(namespace+".createRequest", vo);
 		
 	}
+
+	@Override
+	public Integer maxSelectRequest() throws Exception {
+		return session.selectOne(namespace+".maxSelectRequest");
+	}
+
+
 
 }
