@@ -3,6 +3,7 @@ package kosta.travel.persistence;
 import java.util.List;
 
 import kosta.travel.domain.CarpoolVO;
+import kosta.travel.domain.Carpool_RequestVO;
 
 public interface CarpoolDAO {
 	
@@ -18,5 +19,9 @@ public interface CarpoolDAO {
 	
 	public Integer maxSelect()throws Exception;
 	
+	//마이페이지
 	public List<CarpoolVO> myMakeCarpool(String u_id)throws Exception;
+	
+	//Request
+	public void createRequest(Carpool_RequestVO vo);
 }

@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import kosta.travel.domain.Criteria;
 import kosta.travel.domain.ProductVO;
 import kosta.travel.domain.Product_RequestVO;
 import kosta.travel.persistence.ProductDAO;
@@ -55,6 +56,16 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public Product_RequestVO detailProductReq(String pr_reqnum) throws Exception {
 		return dao.detailProductReq(pr_reqnum);
+	}
+
+	@Override
+	public List<ProductVO> listCriteria(Criteria cri) throws Exception {
+		return dao.listCriteria(cri);
+	}
+
+	@Override
+	public int listCountCriteria(Criteria cri) throws Exception {
+		return dao.countPaging(cri);
 	}
 
 }

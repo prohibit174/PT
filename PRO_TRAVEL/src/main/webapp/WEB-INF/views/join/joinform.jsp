@@ -12,7 +12,10 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/AgoFiles/users_css/common.css">
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/AgoFiles/users_css/jquery.js.selecter.css">
+	href="${pageContext.request.contextPath}/resources/css/AgoFiles/users_css/style.css">
+<%-- <link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/AgoFiles/users_css/jquery.js.selecter.css"> --%>
+	
 
 
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -21,13 +24,20 @@
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/js/AgoFiles/UsersJS/IdCheck.js"></script>
 <script type="text/javascript"
-	src="${pageContext.request.contextPath}/resources/js/AgoFiles/UsersJS/join_checkInfo.js?version=20170607"></script>
-	<!-- Have to work for PW REGEXP -->
-<%-- <script type="text/javascript"
-	src="${pageContext.request.contextPath}/resources/js/AgoFiles/UsersJS/JoinCheck.js"></script>
- --%>
- <!-- No need to JoinCheck.JS -->
+	src="${pageContext.request.contextPath}/resources/js/AgoFiles/UsersJS/join_checkInfo.js?version=20170608"></script>
+	<!-- Have to work for PW REGEXP --> 
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/resources/js/AgoFiles/UsersJS/jquery.pwstrength.js"></script>
 
+<script>
+
+jQuery(function($) { 
+    $('#u_pwd').pwstrength(); 
+});
+           
+
+</script>
 
 </head>
 
@@ -97,14 +107,31 @@
 								<div class="right">
 									<table cellpadding="0" cellspacing="0" class="tab"> -->
 										<tr>
-											<td class="label"><label for="pwd">비밀번호</label></td>
+											<td class="label"><label for="u_pwd">비밀번호</label></td>
 											<td class="value"><input type="password"
 												name="u_pwd"
-												id="u_pwd" value="" />
+												id="u_pwd" value=""  data-indicator="pwindicator"/>
 												&nbsp; <span class="mandatory">*</span>
+												  <div id="pwindicator">
+												<div class="bar"></div>
+       										     <div class="label"></div>
+       										     </div>
 												<ul class="PWerrorField">
 												</ul></td>
 										</tr>
+										
+									<!-- 	<tr><td>
+	<form action="#" method="post">
+        <label for="field">Password:</label><br>
+        <input type="password" id="field">
+        <div id="pwindicator">
+            <div class="bar"></div>
+            <div class="label"></div>
+        </div>
+    </form>                    
+										
+										<td></tr> -->
+										
 										<tr>
 											<td class="label"><label for="pwd">비밀번호 확인</label></td>
 											<td class="value"><input type="password"

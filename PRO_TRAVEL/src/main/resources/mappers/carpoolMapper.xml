@@ -51,5 +51,10 @@
 	<select id="myMakeCarpool" resultType="kosta.travel.domain.CarpoolVO" >
 	select * from car_list where u_id=#{u_id}
 	</select> 
+	
+	<!-- Request -->
+	<insert id="createRequest">
+	insert into car_request(cr_num, cr_ox, c_num, u_id) VALUES(10, 'x', #{c_num}, #{u_id})
+	</insert>
 
 </mapper>

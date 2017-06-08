@@ -8,6 +8,7 @@ import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import kosta.travel.domain.Criteria;
 import kosta.travel.domain.ProductVO;
 import kosta.travel.domain.Product_RequestVO;
 import kosta.travel.domain.Product_SearchVO;
@@ -85,5 +86,17 @@ public class ProductDAOImpl implements ProductDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	
+	@Override
+	public List<ProductVO> listCriteria(Criteria cri) throws Exception {
+		return session.selectList(namespace+".listCriteria", cri);
+	}
+
+	@Override
+	public int countPaging(Criteria cri) throws Exception {
+		return session.selectOne(namespace+".countPaging", cri);
+	}
+
 
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.session.RowBounds;
 
+import kosta.travel.domain.Criteria;
 import kosta.travel.domain.ProductVO;
 import kosta.travel.domain.Product_RequestVO;
 import kosta.travel.domain.Product_SearchVO;
@@ -22,6 +23,9 @@ public interface ProductDAO {
 	public List<ProductVO> listProduct(Product_SearchVO proSearch)throws Exception;
 	public int updateAccept(Product_RequestVO proReq)throws Exception;
 	public List<Product_RequestVO> listNotAceept()throws Exception;
+	public List<ProductVO> listCriteria(Criteria cri)throws Exception;
+	public int countPaging(Criteria cri)throws Exception;
+
 
 
 }

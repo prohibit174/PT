@@ -1,6 +1,7 @@
 package kosta.travel.controller;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -14,14 +15,22 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kosta.travel.domain.CarpoolVO;
+import kosta.travel.domain.Carpool_RequestVO;
 import kosta.travel.service.CarpoolService;
 
 @Controller
 @RequestMapping("/carpool/*")
-public class CarpoolController {
+public class CarpoolController {	
 	
 	@Inject
 	private CarpoolService service;
+	
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String registerGET(Model model) throws Exception {
+		model.addAttribute("list", service.listAll());
+		
+		return "/carpool/main";
+	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public String registerGET(CarpoolVO carpool, Model model) throws Exception {
@@ -29,14 +38,12 @@ public class CarpoolController {
 	}
 	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String registerPOST(CarpoolVO carpool, RedirectAttributes rttr, HttpSession session) throws Exception {
-		
+	public String registerPOST(CarpoolVO carpool, HttpSession session) throws Exception {
 		carpool.setU_id((String)session.getAttribute("login"));
 		carpool.setC_num(service.maxSelect()+1);
 		
 		service.regist(carpool);
 		
-		rttr.addFlashAttribute("msg", "SUCCESS");
 		
 		return "redirect:/carpool/listAll";
 	}
@@ -45,7 +52,7 @@ public class CarpoolController {
 	public String listAll(Model model) throws Exception {
 		model.addAttribute("list", service.listAll());
 		
-		return "/carpool/carpool_list";
+		return "/carpool/list";
 	}
 	
 	@RequestMapping(value = "/read", method = RequestMethod.GET)
@@ -56,20 +63,23 @@ public class CarpoolController {
 	}
 	
 	@RequestMapping(value = "/remove", method = RequestMethod.GET)
-	public String remove(@RequestParam("c_num") int c_num, RedirectAttributes rttr) throws Exception {
+	public String remove(@RequestParam("c_num") int c_num) throws Exception {
 		service.remove(c_num);
 		
-		rttr.addFlashAttribute("msg", "SUCCESS");
 		
 		return "redirect:/carpool/listAll";
 	}
 
 	@RequestMapping(value = "/request", method = RequestMethod.GET)
-	public String request(@RequestParam("c_num") int c_num, RedirectAttributes rttr) throws Exception {
-
-		service.remove(c_num);
+	public String request(Carpool_RequestVO carpoolRequest, @RequestParam("c_num") int c_num,  HttpSession session) throws Exception {
 		
-		rttr.addFlashAttribute("msg", "SUCCESS");
+		String id = (String)session.getAttribute("login");
+		System.out.println(id);
+		System.out.println(c_num);
+		carpoolRequest.setU_id(id);
+		carpoolRequest.setC_num(c_num);
+		
+		service.registRequest(carpoolRequest);
 		
 		return "redirect:/mypage/carpoolCheck";
 		

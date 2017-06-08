@@ -13,22 +13,22 @@
 		<div class="tabset-box">
 			<ul class="tabset">
 
-				<li class="active"><a href="#highlights-of-the-games"
+				<li class="active"><a href="/carpool/"
 					data-class="games2014-2" target=""> CARPOOL MAIN <i
 						class="icon-arrow-right"> <span class="hide">arrow</span>
 					</i>
 				</a></li>
-				<li class=""><a href="#more-about" data-class="games2014-2"
+				<li class=""><a href="/carpool/register" data-class="games2014-2"
 					target=""> CARPOOL REGISTER <i class="icon-arrow-right"> <span
 							class="hide">arrow</span>
 					</i>
 				</a></li>
-				<li class=""><a href="#all-facts" data-class="games2014-2"
+				<li class=""><a href="/carpool/listAll" data-class="games2014-2"
 					target=""> CARPOOL LIST <i class="icon-arrow-right"> <span
 							class="hide">arrow</span>
 					</i>
 				</a></li>
-				<li class=""><a href="#emblem" data-class="games2014-2"
+				<li class=""><a href="/mypage/carpoolCheck" data-class="games2014-2"
 					target=""> MY CARPOOL <i class="icon-arrow-right"> <span
 							class="hide">arrow</span>
 					</i>
