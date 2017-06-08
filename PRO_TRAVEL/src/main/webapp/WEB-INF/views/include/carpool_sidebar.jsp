@@ -13,12 +13,12 @@
 		<div class="tabset-box">
 			<ul class="tabset">
 
-				<li class="active"><a href="#highlights-of-the-games"
+				<li class="active"><a href="/carpool/"
 					data-class="games2014-2" target=""> CARPOOL MAIN <i
 						class="icon-arrow-right"> <span class="hide">arrow</span>
 					</i>
 				</a></li>
-				<li class=""><a href="/carpool/" data-class="games2014-2"
+				<li class=""><a href="/carpool/register" data-class="games2014-2"
 					target=""> CARPOOL REGISTER <i class="icon-arrow-right"> <span
 							class="hide">arrow</span>
 					</i>
