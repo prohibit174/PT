@@ -90,7 +90,8 @@ public class ProductDAOImpl implements ProductDAO {
 	
 	@Override
 	public List<ProductVO> listCriteria(Criteria cri) throws Exception {
-		return session.selectList(namespace+".listCriteria", cri);
+		return session.selectList(namespace+".listCriteria", cri,
+				new RowBounds(cri.getPageStart(), cri.getPerPageNum()));
 	}
 
 	@Override

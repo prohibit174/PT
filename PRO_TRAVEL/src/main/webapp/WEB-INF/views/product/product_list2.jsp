@@ -7,6 +7,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <title>Olympic Photos, Galleries &amp; Slideshows | Top Olympic
 	Images</title>
@@ -86,22 +87,25 @@
 </style>
 
 
+
 <!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="https://stillres.olympic.org/css/ie.css" /><![endif]-->
 </head>
+
 <body>
+
+
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 <%@ include file="/WEB-INF/views/include/product_sidebar.jsp"%>
-
 
 	<div id="highlights-of-the-games"></div>
 	<section class="text-post"
 		itemscopeitemtype="http://schema.org/NewsArticle">
 		<div class="main" style="margin-right: 150px;">
-			<div class="main-holder photovideo">
+			<div class="main-holder photovideo"  style="margin-left: 100px;">
 
 
 
-				<section class="sets-section" style="background-color: white";>
+				<section class="sets-section" style="background-color: white;">
 
 					<div class="ajax-area" data-tmpl="load3_tmpl"
 						style="background-color: white">
@@ -210,21 +214,22 @@
 		<div class="text-center">
 			<ul class="pagination">
 
-				<c:if test="${pageMaker.prev}">
-					<li><a href="product_list?page=${pageMaker.startPage - 1}">&laquo;</a></li>
-				</c:if>
+					<c:if test="${pageMaker.prev}">
+								<li><a href="${pageMaker.startPage - 1}">&laquo;</a></li>
+							</c:if>
 
-				<c:forEach begin="${pageMaker.startPage }"
-					end="${pageMaker.endPage }" var="idx">
-					<li
-						<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
-						<a href="${idx}">${idx}</a>
-					</li>
-				</c:forEach>
+							<c:forEach begin="${pageMaker.startPage }"
+								end="${pageMaker.endPage }" var="idx">
+								<li
+									<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
+									<a href="${idx}">${idx}</a>
+								</li>
+							</c:forEach>
 
-				<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-					<li><a href="product_list?page=${pageMaker.endPage +1}">&raquo;</a></li>
-				</c:if>
+							<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+								<li><a
+									href="${pageMaker.endPage +1}">&raquo;</a></li>
+							</c:if>
 
 			</ul>
 		</div>
