@@ -39,6 +39,7 @@ public class ProductController2 {
 
 	}
 
+	
 	@RequestMapping(value = "/product_listPage", method = RequestMethod.GET)
 	public void listPage(Criteria cri, Model model) throws Exception {
 		/* logger.info(cri.toString()); */
