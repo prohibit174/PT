@@ -265,15 +265,15 @@
     	     		 if( accom_sex[index]=='man')
     	     			 gender="<img src='../resources/images/accompany/man.png' width='10' height='10'>"
     	     			 else
-    	     				gender="<img src='/PRO_TRAVEL/main/webapp/resources/images/Accompany/woman.png' width='10' height='10'>"
+    	     				gender="<img src='/resources/images/accompany/woman.png' width='10' height='10'>"
     	     				
     					var newContent=
         	    		     gender
          	    		     +accom_name[index]+'&nbsp'
          	    		  	 +'<br>'
-         	    		     +'<img src="/PRO_TRAVEL/main/webapp/resources/images/Accompany/cal.png" width="10" height="10">'
+         	    		     +'<img src="/resources/images/accompany/cal.png" width="10" height="10">'
              	    		 +accom_tp_date[index]+'<br>'
-             	    	     +'<img src="/PRO_TRAVEL/main/webapp/resources/images/Accompany/age.png" width="10" height="10">'
+             	    	     +'<img src="/resources/images/accompany/age.png" width="10" height="10">'
              	    		 +age+'살'+'<br>'
              	    		 + "<button onclick='showLeftAccom("+index+","+markerIndex+" )' style='font-size:8px'>&lt</button>"  
              	    		 +'<button style="font-size:8px">'+currentCount+'/'+totalCount+'</button>'
@@ -326,17 +326,17 @@ function showLeftAccom(leftIndex, markerIndex){
     	     		 
     	     		 var gender;
     	     		 if( accom_sex[index]=='man')
-    	     			 gender="<img src='../resources/images/accompany/man.png' width='10' height='10'>"
+    	     			 gender="<img src='/resources/images/accompany/man.png' width='10' height='10'>"
     	     			 else
-    	     				gender="<img src='/PRO_TRAVEL/main/webapp/resources/images/Accompany/woman.png' width='10' height='10'>"
+    	     				gender="<img src='/resources/images/accompany/woman.png' width='10' height='10'>"
     	     				
     					var newContent=
         	    		     gender
          	    		     +accom_name[index]+'&nbsp'
          	    		  	 +'<br>'
-         	    		     +'<img src="/PRO_TRAVEL/main/webapp/resources/images/Accompany/cal.png" width="10" height="10">'
+         	    		     +'<img src="/resources/images/accompany/cal.png" width="10" height="10">'
              	    		 +accom_tp_date[index]+'<br>'
-             	    	     +'<img src="/PRO_TRAVEL/main/webapp/resources/images/Accompany/age.png" width="10" height="10">'
+             	    	     +'<img src="/resources/images/accompany/age.png" width="10" height="10">'
              	    		 +age+'살'+'<br>'
              	    		 + "<button onclick='showLeftAccom("+index+","+markerIndex+" )' style='font-size:8px'>&lt</button>"  
              	    		 +'<button style="font-size:8px">'+currentCount+'/'+totalCount+'</button>'
@@ -415,18 +415,18 @@ function showLeftAccom(leftIndex, markerIndex){
         	     		 
         	     		 var gender;
         	     		 if( accom_sex[j]=='man')
-        	     			 gender="<img src='/PRO_TRAVEL/main/webapp/resources/images/Accompany/man.png' width='10' height='10'>"
+        	     			 gender="<img src='/resources/images/accompany/man.png' width='10' height='10'>"
         	     			 else
-        	     				gender="<img src='/PRO_TRAVEL/main/webapp/resources/images/Accompany/woman.png' width='10' height='10'>"
+        	     				gender="<img src='/resources/images/accompany/woman.png' width='10' height='10'>"
         	     			 
         	    		 infowindow[markerIndex] = new google.maps.InfoWindow({
      	    		    content: 
      	    		     gender
      	    		     +accom_name[j]+'&nbsp'
      	    		   +'<br>'
-     	    		    +'<img src="/PRO_TRAVEL/main/webapp/resources/images/Accompany/cal.png" width="10" height="10">'
+     	    		    +'<img src="/resources/images/accompany/cal.png" width="10" height="10">'
          	    		 +accom_tp_date[j]+'<br>'
-         	    	     +'<img src="/PRO_TRAVEL/main/webapp/resources/images/Accompany/age.png" width="10" height="10">'
+         	    	     +'<img src="/resources/images/accompany/age.png" width="10" height="10">'
          	    		 +age+'살'+'<br>'
          	    		 + "<button onclick='showLeftAccom("+j+","+markerIndex+" )' style='font-size:8px'>&lt</button>"  
          	    		 +'<button style="font-size:8px">'+'1'+'/'+totalCount+'</button>'
@@ -589,14 +589,47 @@ function searchPeople(){
 							<option value="2019">2019</option>
 						</select> 
 					</div>
-
+					
 
 				</div>
 		<div>
 		<input class="btn-more" type="submit" value="search" style="margin-right: 50%; margin-top: 10px; width: 120px; height: 50px;" />
 		</div>
 	</form>
+	
 	</div>
+	
+	<div>
+	<ul class="appendp">
+	<li><input><input><input><img class="appendcp" src="../resources/images/accompany/plus.png" width="10" height="10"><img class="appendcm" src="../resources/images/accompany/miners.png" width="10" height="10"></li>
+	</ul>
+	</div>
+	
+<script type="text/javascript">
+var ct = 0;
+/* $(".appendcp").click(function () {
+	ct += 1;
+	  $(".appendp").append('<li><input><input>'+ct+'<input><img class="appendcp" src="../resources/images/accompany/plus.png" width="10" height="10"><img class="appendcm" src="../resources/images/accompany/miners.png" width="10" height="10"></li>');
+	
+	console.log("plus");
+	});
+
+$(".appendcm").click(function () {
+	$(this).parent('li').remove();
+	console.log("minuse");
+}); */
+
+$('.appendcp').on('click', '.appendcm', function(events){
+	ct += 1;
+	$(".appendp").append('<li><input><input>'+ct+'<input><img class="appendcp" src="../resources/images/accompany/plus.png" width="10" height="10"><img class="appendcm" src="../resources/images/accompany/miners.png" width="10" height="10"></li>');
+	});
+
+$('.appendcm').on('click', '.appendcm', function(events){
+	   $(this).parents('li').remove();
+	});
+
+
+</script>
 
 <%@include file="../include/footer.jsp" %>
 </body>
