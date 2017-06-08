@@ -21,6 +21,6 @@ public interface CarpoolService {
 	
 	public List<CarpoolVO> myMakeCarpool(String u_id)throws Exception;
 	
-	public void regist(Carpool_RequestVO request)throws Exception;
+	public void registRequest(Carpool_RequestVO request)throws Exception;
 
 }

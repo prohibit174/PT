@@ -55,7 +55,7 @@ public class CarpoolServiceImpl implements CarpoolService {
 	}
 
 	@Override
-	public void regist(Carpool_RequestVO request) throws Exception {
+	public void registRequest(Carpool_RequestVO request) throws Exception {
 		dao.createRequest(request);
 		
 	}

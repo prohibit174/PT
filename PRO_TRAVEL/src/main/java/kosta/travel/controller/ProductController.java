@@ -1,23 +1,24 @@
 package kosta.travel.controller;
 
 
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.UUID;
 
 import javax.annotation.Resource;
+import javax.imageio.ImageIO;
 import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
+
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.cglib.core.DefaultNamingPolicy;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kosta.travel.domain.ProductVO;
@@ -42,21 +43,40 @@ public class ProductController {
    }
 
    @RequestMapping(value = "/product_register", method = RequestMethod.POST)
-   public String product_registerPOST(Model model, ProductVO product, HttpServletRequest request) throws Exception {
+   public String product_registerPOST(Model model, ProductVO product) throws Exception {
       
       System.out.println("registerpost method call");
-      logger.info(product.toString());
+      
       
       logger.info("originalName: "+product.getFile1().getOriginalFilename());
       
       String savedName = UploadFile(product.getFile1().getOriginalFilename(), product.getFile1().getBytes());
 
       product.setP_img(savedName);
+      
+      logger.info(product.toString());
       service.insert(product);
+
       
-      model.addAttribute("savedName",savedName);
+      try { 
+         
+           String pattern = savedName.substring(savedName.lastIndexOf(".")+1);
+         String headName = savedName.substring(0, savedName.lastIndexOf("."));
       
-      
+       File originalFileNm = new File(uploadPath+"\\"+savedName);
+       File thumbnailFileNm = new File(uploadPath+"\\" +headName+"_small."+pattern);
+       
+       int width = 130; int height = 200; 
+       // 썸네일 이미지 생성 
+      BufferedImage originalImg = ImageIO.read(originalFileNm); BufferedImage thumbnailImg = new BufferedImage(width, height, BufferedImage.TYPE_3BYTE_BGR); 
+      // 썸네일 그리기 
+      Graphics2D g = thumbnailImg.createGraphics(); g.drawImage(originalImg, 0, 0, width, height, null); 
+      // 파일생성
+      ImageIO.write(thumbnailImg, pattern, thumbnailFileNm);   } 
+      catch (Exception e) { 
+         e.printStackTrace();
+      }
+
       return "redirect:/product/product_list";
    }
 
@@ -90,8 +110,8 @@ public class ProductController {
 
    @RequestMapping(value = "/product_update", method = RequestMethod.GET)
    public void product_update(@RequestParam("p_num") String p_num, Model model) throws Exception {
-	   
-	   logger.info("product updateGET method call..");
+      
+      logger.info("product updateGET method call..");
       ProductVO product = service.detailProduct(p_num);
       model.addAttribute("product", product);
 
@@ -108,8 +128,10 @@ public class ProductController {
       return "redirect:/product/product_list";
    }
 
-   @RequestMapping(value = "/product_delete", method = RequestMethod.POST)
+   @RequestMapping(value = "/product_delete", method = RequestMethod.GET)
    public String remove(@RequestParam("p_num") String p_num) throws Exception {
+      
+     logger.info("delete method");
       service.deleteProduct(p_num);
 
       return "redirect:/product/product_list";
@@ -142,5 +164,8 @@ public class ProductController {
          
          return "/product/productReq_detail";
       }
+      
+
+   
 
 }
