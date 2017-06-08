@@ -68,4 +68,9 @@ public class ProductServiceImpl implements ProductService {
 		return dao.countPaging(cri);
 	}
 
+	@Override
+	public List<Product_RequestVO> listProductRequest(String u_id) throws Exception {
+		return dao.listProductRequest(u_id);
+	}
+
 }
