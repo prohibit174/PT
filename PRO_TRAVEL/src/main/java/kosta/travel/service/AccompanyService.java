@@ -24,21 +24,15 @@ public class AccompanyService {
 	
 	public List<AccompanyVO> getUserRoute(HttpSession session) throws Exception {
 		
-		
-		
 		if(list != null){
 		list.clear();
 		}
 		String id = (String)session.getAttribute("login");
-		/*System.out.println(request.getContextPath()); */
 		RouteVO route = new RouteVO();
 		route.setU_id(id);
 		
-		
 		list = dao.getUserRoute(id);
 	
-		/*request.setAttribute("list", list);*/
-
 		return list;
 	}
 

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
-<%-- <%@include file="/WEB-INF/views/include/accompany_sidebar.jsp" %> --%>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -170,10 +170,7 @@ input[type="button"] {
                   <div id='calendar'></div>
 <br>
 
-          
-
               <script>
-       var markerPosition;   
        var marker_zoom4=[];
        var marker_zoom5=[];
        latLngList = [];
@@ -211,6 +208,11 @@ input[type="button"] {
                    }
                  }
              }
+             
+/*              for(var a=0; a < movingPath.length; a++){
+                 console.log(movingPath[a].lat(), movingPath[a].lng() );
+                 
+               } */
               createLine(latLngList, map);
               
               collectEvent();
@@ -301,6 +303,7 @@ input[type="button"] {
       var calEventColor=[];
       calEventColor=["#CEFFC7","#FFFF5A","#D7FF6C","#FFD6FD","#B5B2FF", "#B6FFFF", "FFEDA2", "notReachable"];
       var indexOfCalEventColor=0;
+      
       function nextEventColor(){
          if(indexOfCalEventColor==calEventColor.length-1)
             indexOfCalEventColor=0;
@@ -547,13 +550,38 @@ input[type="button"] {
           strokeOpacity: 1.0,
           strokeWeight: 1
         });
-         movingPath[c].setMap(map);
-       c++;
+            movingPath[c].setMap(map);
+             c++;
+             
+             
          } // calcRoute End
       } // createLine End
+      
+      function revert(){
+         //revert polylines
+         for(var i=0; i<movingPath.length;i++){
+            if(movingPath[i]!=null){
+                movingPath[i].setMap(null);
+            }
+           }
+         //revert calendar events
+          $('#calendar').fullCalendar('removeEventSources');
+         initVariables();
+     }
+      
+      function initVariables(){
+          //variables related to google maps
+          latLngList=[];
+          jsonEncode=null;
+          movingPath = [];
+          c = 0;
+          //variables related to calendar(Fullcalendar)
+          susDay = null;
+          susEnd = null;
+          allEvent=[];
+          cal =[];
+     }
     
-    
-       /* ------------------------initMap() start --------------------------------------------------------*/
       /* ------------------------Calendar ÃªÂ´ï¿½ Ã«Â Â¨ Ã¬ï¿½ Â¤ï¿½ ï¿½ Â¸Ã«Â¦Â½ï¿½ ï¿½ Â¸ Ã¬ï¿½ ï¿½ Ã¬ï¿½ ï¿½  ------------------------------------------------*/
       
    
@@ -611,10 +639,7 @@ input[type="button"] {
            obj = document.getElementById('json'); 
         });   
         
-        function revert(){
-           
-           
-        }
+     
         
     </script>
     <script async defer
@@ -629,15 +654,17 @@ input[type="button"] {
                             <form id="results-form" action="/accompany/enroll"  method="post" class="results-form">
                                 <div class="row">
                                        <input type="hidden" name="json" value="" id="json">
-                                   <input type="button" value="cancel" onclick="/accompany/enroll">
+                                   <input type="button" value="cancel" onclick="revert()">
                                    <input type="submit" value="send">
 
                                 </div>
                             </form>
                         </div>
    <br>
-   
+
    <%@include file="../include/footer.jsp"%>
+
+
 
 </body>
 </html>   
