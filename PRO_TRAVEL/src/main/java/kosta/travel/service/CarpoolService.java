@@ -3,6 +3,7 @@ package kosta.travel.service;
 import java.util.List;
 
 import kosta.travel.domain.CarpoolVO;
+import kosta.travel.domain.Carpool_RequestVO;
 
 public interface CarpoolService {
 	
@@ -19,5 +20,7 @@ public interface CarpoolService {
 	public Integer maxSelect()throws Exception;
 	
 	public List<CarpoolVO> myMakeCarpool(String u_id)throws Exception;
+	
+	public void regist(Carpool_RequestVO request)throws Exception;
 
 }

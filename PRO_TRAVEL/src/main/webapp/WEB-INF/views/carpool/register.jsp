@@ -24,73 +24,7 @@
 <body>
 
     <div id="map"></div>
-    <script>
-       var markerPosition;   
-       var marker_zoom4=[];
-       var marker_zoom5=[];
-       latLngList = [];
-       susDay = null;
-       susEnd = null;
-       var allEvent=[];
-       var jsonEncode;
-       var obj;
-       var map;
-       var cal =[];
-       var movingPath = [];
-       var c = 0;
-      
-       function collectEventForLine(map){
-          
-          if(cal != null){
-            cal = $('#calendar').fullCalendar( 'clientEvents');
-           cal.sort(function(a,b){
-             return a.start < b.start ? -1 : a.start > b.start ? 1 : 0;  
-                       });
-          }else{
-             cal = $('#calendar').fullCalendar( 'clientEvents');
-          }
-             if(cal.length > 0){
-            latLngList.splice(0, latLngList.length);
-             for(var i=0; i < cal.length; i++){
-                for(var a=0; a < marker_zoom4.length; a++){
-                   if(marker_zoom4[a].title == cal[i].title){
-                      latLng.push(marker_zoom4[a].getPosition());
-                   }
-                 }
-                for(var a=0; a < marker_zoom5.length; a++){
-                   if(marker_zoom5[a].title == cal[i].title){
-                      latLngList.push(marker_zoom5[a].getPosition());
-                   }
-                 }
-             }
-              createLine(latLngList, map);
-              
-              collectEvent();
-               jsonEncode = JSON.stringify(allEvent);
-               obj.value = jsonEncode;
-               console.log(obj);
-             }
-            
-         };  //collectEventForLine End
-       
-       
-       function collectEvent(){
-           var useridSu = '<%=session.getAttribute("login") %>'; 
-        	 
-           var cal=[];
-           allEvent=[];
-           cal=$('#calendar').fullCalendar( 'clientEvents');
-           /* var id = session.getid(); */
-           
-           for(var i=0;i<cal.length;i++){
-            
-               var valDate = cal[i].start.format("YYYY-MM-DD");
-                    var sdate = new moment(cal[i].start).format("YYYY-MM-DD");
-
-   <div id="map"></div>
-    
-     <script>
-
+   <script>
 
     var markerPosition;   
      var marker_zoom4=[];
@@ -196,32 +130,34 @@
           createLine(latLngList, map);
           console.log(this.getTitle());
           if(count%2 != 0){
-          $.ajax({
-              url :  '${pageContext.request.contextPath}/ajax_register',
-             type : 'post',
-             data : {
-                start : this.getTitle()
-             },
-             success: function sendHandler(data) {
-            	  $('select.start option.start').text("");
-                  $('select.start option.start').text(data);
-                  $('select.start option.start').text(data).attr("selected", "selected");
-               }
-          });
-          alert("출발지가 추가 되었습니다.")
-          return false;
-          }else{
+              $.ajax({
+                  url : '${pageContext.request.contextPath}/ajax_register',
+                 type : 'post',
+                 data : {
+                    start : this.getTitle()
+                 },
+                 success: function sendHandler(data) {
+                    $('select.start option.start').text("");
+                   $('select.start option.start').text(data);
+                   $('select.start option.start').text(data).attr("selected", "selected");
+                    
+                    }
+              });
+              alert("출발지가 추가 되었습니다.");
+              return false;
+               }else{
           
            $.ajax({
-             url : '${pageContext.request.contextPath}/ajax_register',
+             url :   '${pageContext.request.contextPath}/ajax_register',
             type : 'post',
             data : {
                start : this.getTitle()
             },
             success: function sendHandler(data) {
-          	  $('select.destination option.destination').text("");
-              $('select.destination option.destination').text(data);
-              $('select.destination option.destination').text(data).attr("selected", "selected");
+                $('select.destination option.destination').text("");
+                $('select.destination option.destination').text(data);
+                $('select.destination option.destination').text(data).attr("selected", "selected");
+                 
                
                }
          });
@@ -241,15 +177,16 @@
 
        if(count%2 != 0){
        $.ajax({
-           url :  '${pageContext.request.contextPath}/ajax_register',
+           url :   '${pageContext.request.contextPath}/ajax_register',
           type : 'post',
           data : {
              start : this.getTitle()
           },
           success: function sendHandler(data) {
-        	  $('select.start option.start').text("");
+              $('select.start option.start').text("");
               $('select.start option.start').text(data);
               $('select.start option.start').text(data).attr("selected", "selected");
+               
             }
        });
        alert("출발지가 추가 되었습니다.")
@@ -257,15 +194,16 @@
        }else{
        
         $.ajax({
-          url : '${pageContext.request.contextPath}/ajax_register',
+          url :   '${pageContext.request.contextPath}/ajax_register',
          type : 'post',
          data : {
             start : this.getTitle()
          },
          success: function sendHandler(data) {
-          	  $('select.destination option.destination').text("");
-              $('select.destination option.destination').text(data);
-              $('select.destination option.destination').text(data).attr("selected", "selected");
+             $('select.destination option.destination').text("");
+             $('select.destination option.destination').text(data);
+             $('select.destination option.destination').text(data).attr("selected", "selected");
+            
             }
       });
       alert("목적지가 추가 되었습니다.")
@@ -309,14 +247,12 @@
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnrWQ2SHvedNrvdozheYo32pHwCbuvPgs&callback=initMap">
-    </script>  
+    </script>
     <br><br>
     <div style="font-size: 30px; font-weight: bold; margin-left: 130px;">Register Your Carpool !</div>
     <br><br>
 	<div class="id-card-box" style="width: 100% ;border: black;">
-	<form
-		action="/ioc/what we do/celebrate olympic games/from candidate to host city/calendareventlisting"
-		class="calendar-form">
+	<form role="form" method="post" class="calendar-form">
 
 			<div class="item-list" style="width: 1400px; padding-right: 30px;">
 					<div class="row" style="font-size: 20px;">

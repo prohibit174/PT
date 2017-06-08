@@ -33,6 +33,13 @@ public class AccompanyController{
 	@RequestMapping(value = "/", method=RequestMethod.GET)
 	public String main(Model model, HttpSession session){
 		
+		// when user not login
+		if(session.getAttribute("login") == null){
+			return "/accompany/Accomp_main";
+			
+		}
+		
+		// when user login
 		try {
 			model.addAttribute("list" ,service.getUserRoute(session));
 			model.addAttribute("allAccompanyList" ,service.getAccompanies());
@@ -40,6 +47,8 @@ public class AccompanyController{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		
 		return "/accompany/Accomp_main";
 	}
 	
@@ -75,7 +84,12 @@ public class AccompanyController{
 		return "redirect:/accompany/";
 	}
 	
-	
+
+	@RequestMapping(value = "/searchPeople", method=RequestMethod.POST)
+	public void search(Model model, HttpSession session){
+		System.out.println("@@ searchPeople Controller @@");
+		
+	}
 	       
 	       	   
 }

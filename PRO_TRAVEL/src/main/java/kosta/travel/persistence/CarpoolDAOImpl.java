@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import kosta.travel.domain.CarpoolVO;
+import kosta.travel.domain.Carpool_RequestVO;
 
 @Repository
 public class CarpoolDAOImpl implements CarpoolDAO {
@@ -55,6 +56,12 @@ public class CarpoolDAOImpl implements CarpoolDAO {
 	@Override
 	public List<CarpoolVO> myMakeCarpool(String u_id) throws Exception {
 		return session.selectList(namespace+".myMakeCarpool", u_id);
+	}
+
+	@Override
+	public void createRequest(Carpool_RequestVO vo) {
+		session.insert(namespace+".createRequest");
+		
 	}
 
 }

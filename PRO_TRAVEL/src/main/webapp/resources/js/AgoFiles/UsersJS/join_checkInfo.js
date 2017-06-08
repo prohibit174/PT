@@ -1,6 +1,6 @@
 //암호확인
 $(function(){ 
-	//var regexp = "^(?=([a-zA-Z]+[0-9]+[a-zA-Z0-9]*|[0-9]+[a-zA-Z]+[a-zA-Z0-9]*)$)";
+/*	//var regexp = "^(?=([a-zA-Z]+[0-9]+[a-zA-Z0-9]*|[0-9]+[a-zA-Z]+[a-zA-Z0-9]*)$)";
 	//var regexp = "/[(\w)\w[`~!@@#$%^&*<>+-.]/";
 	var regexp = "/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{6,12}$/";
 	//숫자, 영어 대/소문자 조합으로 6-12자리
@@ -10,7 +10,7 @@ $(function(){
 		$('#PWerrorField').text(''); 
 
 		if(($('#u_pwd').val().match(regexp)))
-		/*	if( !regexp.test($('#u_pwd').val()))*/{ 
+			if( !regexp.test($('#u_pwd').val())){ 
 				$('.PWerrorField').text(''); 
 				$('.PWerrorField').html('조건에 맞지않습니다'); 
 			} 
@@ -20,7 +20,7 @@ $(function(){
 		} 
 		alert('#u_pwd'.length);
 	}); 
-
+*/
 	$('#pwcheck').keyup(function(){ 
 		if($('#u_pwd').val()!=$('#pwcheck').val()){ 
 			$('.PWCerrorField').text(''); 
