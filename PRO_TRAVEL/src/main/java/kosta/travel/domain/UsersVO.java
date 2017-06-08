@@ -2,9 +2,11 @@ package kosta.travel.domain;
 
 import javax.validation.constraints.Size;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class UsersVO{
 
-	@Size(min=4, max=12, message="Please check ID condition")
+	//@Size(min=4, max=12, message="Please check ID condition")
 	private String u_id;
 	private String u_pwd;
 	private String u_name;
@@ -17,6 +19,9 @@ public class UsersVO{
 	private String u_license;
 	private String u_img;
 	private String u_style;
+	private MultipartFile img_file;
+	
+
 
 	public UsersVO(){}
 
@@ -132,9 +137,16 @@ public class UsersVO{
 	public void setU_style(String u_style) {
 		this.u_style = u_style;
 	}
+	
+	public MultipartFile getImg_file() {
+		return img_file;
+	}
 
-	
-	
+	public void setImg_file(MultipartFile img_file) {
+		this.img_file = img_file;
+	}
+
+
 	
 }
 

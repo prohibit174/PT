@@ -11,10 +11,10 @@
 	href="${pageContext.request.contextPath}/resources/css/AgoFiles/users_css/all.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/AgoFiles/users_css/common.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/AgoFiles/users_css/style.css">
-<%-- <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/AgoFiles/users_css/jquery.js.selecter.css"> --%>
+<%--  <link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/AgoFiles/users_css/style.css">  --%>
+ <link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/AgoFiles/users_css/jquery.js.selecter.css"> 
 	
 
 
@@ -25,7 +25,8 @@
 	src="${pageContext.request.contextPath}/resources/js/AgoFiles/UsersJS/IdCheck.js"></script>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/js/AgoFiles/UsersJS/join_checkInfo.js?version=20170608"></script>
-	<!-- Have to work for PW REGEXP --> 
+
+
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/js/AgoFiles/UsersJS/jquery.pwstrength.js"></script>
@@ -38,6 +39,77 @@ jQuery(function($) {
            
 
 </script>
+
+<style type="text/css">
+/* password indicator CSS */
+#pwindicator {
+    margin-top: 4px;
+    width: 150px;
+}
+
+.bar {
+    height: 2px;
+}
+
+.pw-very-weak .bar {
+    background: #d00;
+    width: 30px;
+}
+
+.pw-very-weak .label {
+    color: #d00;
+}
+
+.pw-weak .bar {
+    background: #d00;
+    width: 60px;
+}
+
+.pw-weak .label {
+    color: #d00;
+}
+
+.pw-mediocre .bar {
+    background: #f3f01a;
+    width: 90px;
+}
+
+.pw-mediocre .label {
+    color: #f3f01a;
+}
+
+.pw-strong .bar {
+    background: #f3b31a;
+    width: 120px;
+}
+
+.pw-strong .label {
+    color: #f3b31a;
+}
+
+.pw-very-strong .bar {
+    background: #0d0;
+    width: 150px;
+}
+
+.pw-very-strong .label {
+    color: #0d0;
+}
+
+.fork img {
+    border: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.download {
+    float: right;
+}
+
+
+
+</style>
 
 </head>
 
@@ -76,7 +148,7 @@ jQuery(function($) {
 
 
 				<form id="form_checkout" class="uniForm checkout"
-					enctype="application/x-www-form-urlencoded" action="joinform"
+					enctype="multipart/form-data" action="joinform"
 					method="post">
 					<!-- <div class="box-full" id="creationaccount"> -->
 						<div class="top"></div>
@@ -318,7 +390,7 @@ jQuery(function($) {
 								class="primaryAction">
 								<span>가입하기</span>
 							</button>
-							<div class="clear"></div>
+							<div class="clear"></div> 
 						</div>
 				</form>
 			</div>
