@@ -3,8 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@ include file="/WEB-INF/views/include/header.jsp"%>
-<%@ include file="/WEB-INF/views/include/product_sidebar.jsp"%>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -72,7 +71,16 @@
 	href="https://stillres.olympic.org/css/modules.css" />
 <link media="all" rel="stylesheet" type="text/css"
 	href="https://stillres.olympic.org/css/all.css" />
-
+<link
+	href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	rel="stylesheet">
+<script src="//code.jquery.com/jquery-2.0.3.min.js"
+	type="text/javascript"></script>
+<script
+	src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script
+	src="../esimakin-twbs-pagination-9b6d211/jquery.twbsPagination.js"
+	type="text/javascript"></script>
 
 <style>
 </style>
@@ -81,7 +89,8 @@
 <!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="https://stillres.olympic.org/css/ie.css" /><![endif]-->
 </head>
 <body>
-
+<%@ include file="/WEB-INF/views/include/header.jsp"%>
+<%@ include file="/WEB-INF/views/include/product_sidebar.jsp"%>
 
 
 	<div id="highlights-of-the-games"></div>
@@ -97,12 +106,11 @@
 					<div class="ajax-area" data-tmpl="load3_tmpl"
 						style="background-color: white">
 						<ul class="sets-list ajax-content">
-						
+
 							<c:forEach var="product" items="${list}">
 								<li itemscope="" itemtype="http://schema.org/ImageObject"
 									class="same-height"><a
-									href="product_detail?p_num=${product.p_num }"
-											itemprop="url" 
+									href="/product/product_detail${pageMaker.makeQuery(pageMaker.cri.page) }&p_num=${product.p_num }" itemprop="url"
 									style="color: DarkSlateGray";> <picture class="img">
 
 										<c:if test="${product.p_img!=null}">
@@ -110,14 +118,14 @@
 												value="${fn:substring(product.p_img, 0, fn:length(product.p_img)-4) }"></c:set>
 											<c:set var="pattern"
 												value="${fn:substring(product.p_img, fn:length(head)+1, fn:length(product.p_img)) }"></c:set>
-											<c:set var="small"
-												value="_small"></c:set>
+											<c:set var="small" value="_small"></c:set>
 
 											<c:choose>
 												<c:when
 													test="${pattern=='jpg' || pattern =='gif' || pattern =='png' }">
 													<!-- <img srcset="resources/upload/${head }_small.${pattern}" alt="img /"> -->
-													<img src="/resources/upload/${head}${small}.${pattern}" alt="img /">
+													<img src="/resources/upload/${head}${small}.${pattern}"
+														alt="img /">
 												</c:when>
 												<c:otherwise>
 													<c:out value="No IMAGE"></c:out>
@@ -129,7 +137,7 @@
 
 										<a href="product_detail?p_num=${product.p_num }"
 											itemprop="url" style="color: DarkSlateGray";>${product.p_name }</a>
-											
+
 									</h2> <span>판매자: ${product.u_id }</span></li>
 							</c:forEach>
 						</ul>
@@ -195,6 +203,74 @@
 			</div>
 		</div>
 	</section>
+
+
+	<div class="box-footer">
+
+		<div class="text-center">
+			<ul class="pagination">
+
+				<c:if test="${pageMaker.prev}">
+					<li><a href="product_list?page=${pageMaker.startPage - 1}">&laquo;</a></li>
+				</c:if>
+
+				<c:forEach begin="${pageMaker.startPage }"
+					end="${pageMaker.endPage }" var="idx">
+					<li
+						<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
+						<a href="${idx}">${idx}</a>
+					</li>
+				</c:forEach>
+
+				<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+					<li><a href="product_list?page=${pageMaker.endPage +1}">&raquo;</a></li>
+				</c:if>
+
+			</ul>
+		</div>
+
+
+	</div>
+	<!-- /.box-footer-->
+
+	<!--/.col (left) -->
+
+
+	<!-- /.row -->
+
+	<!-- /.content -->
+
+	<form id="jobForm">
+		<input type='hidden' name="page" value=${pageMaker.cri.perPageNum}>
+		<input type='hidden' name="perPageNum"
+			value=${pageMaker.cri.perPageNum}>
+	</form>
+
+
+	<script>
+		var result = '${msg}';
+
+		if (result == 'SUCCESS') {
+			alert("처리가 완료되었습니다.");
+		}
+
+		$(".pagination li a").on(
+				"click",
+				function(event) {
+
+					event.preventDefault();
+
+					var targetPage = $(this).attr("href");
+
+					var jobForm = $("#jobForm");
+					jobForm.find("[name='page']").val(targetPage);
+					jobForm.attr("action", "/product/product_list").attr(
+							"method", "get");
+					jobForm.submit();
+				});
+	</script>
+
+
 
 
 
