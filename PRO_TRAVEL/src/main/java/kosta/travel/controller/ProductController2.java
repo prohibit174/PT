@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import kosta.travel.domain.Criteria;
 import kosta.travel.domain.PageMaker;
+import kosta.travel.domain.ProductVO;
 import kosta.travel.service.ProductService;
 
 @Controller
@@ -52,7 +53,8 @@ public class ProductController2 {
 	@RequestMapping(value = "/product_detailPage", method = RequestMethod.GET)
 	public void product_detailPage(@RequestParam("p_num") String p_num, @ModelAttribute("cri") Criteria cri, Model model)
 			throws Exception {
-		model.addAttribute(service.detailProduct(p_num));
+		ProductVO product =service.detailProduct(p_num);
+		model.addAttribute("product", product);
 	}
 
 }
