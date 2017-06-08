@@ -54,7 +54,7 @@
 	
 	<!-- Request -->
 	<insert id="createRequest">
-	insert into carpool_request VALUES(#{cr_num}, 'x', #{c_num}, #{u_id})
+	insert into carpool_request VALUES(1, 'x', #{c_num}, #{u_id})
 	</insert>
 
 </mapper>
