@@ -22,6 +22,10 @@ public interface CarpoolDAO {
 	//마이페이지
 	public List<CarpoolVO> myMakeCarpool(String u_id)throws Exception;
 	
+	public List<Carpool_RequestVO>myMakeRequest(int c_num)throws Exception;
+	
 	//Request
 	public void createRequest(Carpool_RequestVO vo);
+	
+	public Integer maxSelectRequest()throws Exception;
 }

@@ -49,12 +49,22 @@
 	
 	<!--  마이페이지 --> 
 	<select id="myMakeCarpool" resultType="kosta.travel.domain.CarpoolVO" >
-	select * from car_list where u_id=#{u_id}
+	select * from car_list where u_id=#{u_id} order by c_num desc
 	</select> 
+	
+	<select id="myMakeRequest" resultType="kosta.travel.domain.Carpool_RequestVO">
+		select * from car_request where c_num=#{c_num}
+		order by cr_num desc
+	</select>
 	
 	<!-- Request -->
 	<insert id="createRequest">
-	insert into car_request(cr_num, cr_ox, c_num, u_id) VALUES(10, 'x', #{c_num}, #{u_id})
+	insert into car_request(cr_num, cr_ox, c_num, u_id) VALUES(#{cr_num}, 'x', #{c_num}, #{u_id})
 	</insert>
+	
+	<select id="maxSelectRequest" resultType="integer">
+		select max(cr_num) from car_request
+	</select>
+	
 
 </mapper>
