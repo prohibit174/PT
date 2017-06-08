@@ -21,10 +21,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
-
-
 import kosta.travel.domain.ProductVO;
 import kosta.travel.domain.Product_RequestVO;
 import kosta.travel.service.ProductService;
@@ -168,5 +164,8 @@ public class ProductController {
          
          return "/product/productReq_detail";
       }
+      
+
+   
 
 }
