@@ -106,7 +106,13 @@
 </head>
 <body>
 
-
+ <form role="form" action="product_updatePage" method="post">
+    
+    <input type='hidden' name='p_num' value ="${product.p_num}">
+    <input type='hidden' name='page' value ="${cri.page}">
+    <input type='hidden' name='perPageNum' value ="${cri.perPageNum}">
+    
+ </form>   
 
 	<section class="id-card-box" itemtype="http://schema.org/Organization"
 		itemscope="" style="margin: 0px 200px 100px 0px"; >
@@ -203,22 +209,18 @@ $(document).ready(function(){
 	
 	console.log(formObj);
 	
-	$(".btn-warning").on("click", function(){
-		formObj.attr("action", "/board/modifyPage");
+ 	$(".btn-warning").on("click", function(){
+		formObj.attr("action", "/product/product_updatePage");
 		formObj.attr("method", "get");		
 		formObj.submit();
 	});
 	
 	$(".btn-danger").on("click", function(){
-		formObj.attr("action", "/board/removePage");
+		formObj.attr("action", "/product/product_delatePage");
 		formObj.submit();
-	});
+	}); 
 	
-	$(".btn-primary").on("click", function(){
-		formObj.attr("method", "get");
-		formObj.attr("action", "/board/listPage");
-		formObj.submit();
-	});
+	
 	
 });
 </script>
