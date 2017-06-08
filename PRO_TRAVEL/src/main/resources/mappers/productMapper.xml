@@ -23,7 +23,6 @@
        ]]>
 	</select>
 
-
 	<select id="detailProduct" resultType="ProductVO" parameterType="String">
 		select * from product where p_num = #{p_num}
 	</select>
@@ -80,7 +79,7 @@
    <select id="listProductRequest" resultType="Product_Request" parameterType="String"> 
 		select * from product_req where p_num IN (select p_num from product where 
 		u_id = #{u_id})
-		 </select> 
+   </select> 
    
 
 	<!--

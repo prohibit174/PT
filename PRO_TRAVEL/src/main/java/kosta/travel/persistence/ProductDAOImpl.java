@@ -59,8 +59,8 @@ public class ProductDAOImpl implements ProductDAO {
 
 	@Override
 	public List<Product_RequestVO> listProductRequest(String u_id) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return session.selectList(namespace+".listProductRequest", u_id);
 	}
 
 	@Override
