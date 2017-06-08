@@ -30,6 +30,7 @@
      var marker_zoom4=[];
      var marker_zoom5=[];
      var latLngList=[];
+
      
      function createLine(latLngList, map){ 
          var movingPath = new google.maps.Polyline({
@@ -243,7 +244,26 @@
 
    /* 지도 좌표 정보 ajax */
    
+	/*이어진 경로 취소하기*/
+	      function revert(){
+    	console.log("확인");
+         //revert polylines
+         movingPath.setMap(map);
+         /* for(var i=0; i<c;i++){
+                movingPath[i].setMap(null);
+           } */
+         //revert calendar events
+         
+         initVariables();
+     }
+      
+      function initVariables(){
+          //variables related to google maps
+          latLngList=[];
+          jsonEncode=null;
+          movingPath = [];
 
+     }
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnrWQ2SHvedNrvdozheYo32pHwCbuvPgs&callback=initMap">
@@ -353,7 +373,6 @@
 							<option value="PM3">PM 3</option>
 							<option value="PM4">PM 4</option>
 							<option value="PM5">PM 5</option>
-							<option value="PM6">PM 6</option>
 							<option value="PM7">PM 7</option>
 							<option value="PM8">PM 8</option>
 							<option value="PM9">PM 9</option>
@@ -393,6 +412,7 @@
 				</div>
 				<div>
 		<input class="btn-more" type="submit" value="register" style="margin-right: 50%; margin-top: 10px; width: 120px; height: 50px;" />
+		<input type="button" value="revert" onclick="revert()" style="margin-right: 50%; margin-top: 10px; width: 120px; height: 50px;"/>
 		</div>
 	</form>
 	</div>
