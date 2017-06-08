@@ -18,7 +18,9 @@
 	
 
 
-<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<!-- <script src="//code.jquery.com/jquery-1.11.0.min.js"></script> -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/js/AgoFiles/UsersJS/CheckEssential.js"></script>
 <script type="text/javascript"
@@ -27,7 +29,6 @@
 	src="${pageContext.request.contextPath}/resources/js/AgoFiles/UsersJS/join_checkInfo.js?version=20170608"></script>
 
 
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/js/AgoFiles/UsersJS/jquery.pwstrength.js"></script>
 
@@ -36,7 +37,7 @@
 jQuery(function($) { 
     $('#u_pwd').pwstrength(); 
 });
-           
+            
 
 </script>
 
@@ -147,9 +148,9 @@ jQuery(function($) {
 				</div>
 
 
-				<form id="form_checkout" class="uniForm checkout"
-					enctype="multipart/form-data" action="joinform"
-					method="post">
+				<form action="/join/joinform"
+					method="post" id="form_checkout" class="uniForm checkout"
+					enctype="multipart/form-data">
 					<!-- <div class="box-full" id="creationaccount"> -->
 						<div class="top"></div>
 						<div class="form">
@@ -392,6 +393,7 @@ jQuery(function($) {
 							</button>
 							<div class="clear"></div> 
 						</div>
+						<input type="submit" value="가입2">
 				</form>
 			</div>
 			</section>
