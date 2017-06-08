@@ -22,9 +22,75 @@
 </style>
 </head>
 <body>
+
+    <div id="map"></div>
+    <script>
+       var markerPosition;   
+       var marker_zoom4=[];
+       var marker_zoom5=[];
+       latLngList = [];
+       susDay = null;
+       susEnd = null;
+       var allEvent=[];
+       var jsonEncode;
+       var obj;
+       var map;
+       var cal =[];
+       var movingPath = [];
+       var c = 0;
+      
+       function collectEventForLine(map){
+          
+          if(cal != null){
+            cal = $('#calendar').fullCalendar( 'clientEvents');
+           cal.sort(function(a,b){
+             return a.start < b.start ? -1 : a.start > b.start ? 1 : 0;  
+                       });
+          }else{
+             cal = $('#calendar').fullCalendar( 'clientEvents');
+          }
+             if(cal.length > 0){
+            latLngList.splice(0, latLngList.length);
+             for(var i=0; i < cal.length; i++){
+                for(var a=0; a < marker_zoom4.length; a++){
+                   if(marker_zoom4[a].title == cal[i].title){
+                      latLng.push(marker_zoom4[a].getPosition());
+                   }
+                 }
+                for(var a=0; a < marker_zoom5.length; a++){
+                   if(marker_zoom5[a].title == cal[i].title){
+                      latLngList.push(marker_zoom5[a].getPosition());
+                   }
+                 }
+             }
+              createLine(latLngList, map);
+              
+              collectEvent();
+               jsonEncode = JSON.stringify(allEvent);
+               obj.value = jsonEncode;
+               console.log(obj);
+             }
+            
+         };  //collectEventForLine End
+       
+       
+       function collectEvent(){
+           var useridSu = '<%=session.getAttribute("login") %>'; 
+        	 
+           var cal=[];
+           allEvent=[];
+           cal=$('#calendar').fullCalendar( 'clientEvents');
+           /* var id = session.getid(); */
+           
+           for(var i=0;i<cal.length;i++){
+            
+               var valDate = cal[i].start.format("YYYY-MM-DD");
+                    var sdate = new moment(cal[i].start).format("YYYY-MM-DD");
+
    <div id="map"></div>
     
      <script>
+
 
     var markerPosition;   
      var marker_zoom4=[];

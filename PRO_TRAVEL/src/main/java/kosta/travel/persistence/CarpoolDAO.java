@@ -17,4 +17,6 @@ public interface CarpoolDAO {
 	public List<CarpoolVO> listAll()throws Exception;
 	
 	public Integer maxSelect()throws Exception;
+	
+	public List<CarpoolVO> myMakeCarpool(String u_id)throws Exception;
 }

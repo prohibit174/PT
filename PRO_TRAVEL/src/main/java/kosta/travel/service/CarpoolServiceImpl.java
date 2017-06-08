@@ -48,6 +48,10 @@ public class CarpoolServiceImpl implements CarpoolService {
 	public Integer maxSelect() throws Exception {
 		return dao.maxSelect();
 	}
+	
+	public List<CarpoolVO> myMakeCarpool(String u_id) throws Exception{
+		return dao.myMakeCarpool(u_id);
+	}
 
 
 

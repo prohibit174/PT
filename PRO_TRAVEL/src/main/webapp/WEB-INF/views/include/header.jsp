@@ -573,7 +573,7 @@
 							</div>
 						</div></li>
 
-					<li>&nbsp&nbsp&nbsp<a href="/carpool/main">CARPOOL</a>
+					<li>&nbsp&nbsp&nbsp<a href="/carpool/">CARPOOL</a>
 						<div class="drop">
 							<div class="drop-holder">
 								<div class="drop-col">
@@ -1050,8 +1050,8 @@
 						<ul class="social-links">
 							<li class="welcome" style="display:none;"><span class="session" style="font-weight: bold;" ><%=session.getAttribute("login") %></span>님 환영합니다.</li>
 							<li class="button_base b01_simple_rollover"><a style="cursor:pointer" id="login-button">LOGIN</a></li>
-							<li class="button_base b01_simple_rollover"><a href="#">SIGN UP</a></li>
-							<li class="button_base b01_simple_rollover" id="mypage"><a href="#">MY PAGE</a></li>
+							<li class="button_base b01_simple_rollover"><a href="/join/joinform">SIGN UP</a></li>
+							<li class="button_base b01_simple_rollover" id="mypage"><a href="/mypage/usercheckInfo">MY PAGE</a></li>
 							<li><a href="https://twitter.com/olympics" class="ss-icon">twitter</a></li>
 							<li><a href="https://www.youtube.com/user/olympic"
 								class="ss-icon">youtube</a></li>
