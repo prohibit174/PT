@@ -60,7 +60,7 @@ public class CarpoolDAOImpl implements CarpoolDAO {
 
 	@Override
 	public void createRequest(Carpool_RequestVO vo) {
-		session.insert(namespace+".createRequest");
+		session.insert(namespace+".createRequest", vo);
 		
 	}
 

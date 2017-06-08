@@ -26,7 +26,9 @@ public class CarpoolController {
 	private CarpoolService service;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String registerGET() throws Exception {
+	public String registerGET(Model model) throws Exception {
+		model.addAttribute("list", service.listAll());
+		
 		return "/carpool/main";
 	}
 
@@ -69,15 +71,15 @@ public class CarpoolController {
 	}
 
 	@RequestMapping(value = "/request", method = RequestMethod.GET)
-	public String request(Carpool_RequestVO request, @RequestParam("c_num") int c_num,  HttpSession session) throws Exception {
+	public String request(Carpool_RequestVO carpoolRequest, @RequestParam("c_num") int c_num,  HttpSession session) throws Exception {
 		
 		String id = (String)session.getAttribute("login");
+		System.out.println(id);
+		System.out.println(c_num);
+		carpoolRequest.setU_id(id);
+		carpoolRequest.setC_num(c_num);
 		
-		
-		request.setU_id(id);
-		request.setC_num(c_num);
-		
-		service.registRequest(request);
+		service.registRequest(carpoolRequest);
 		
 		return "redirect:/mypage/carpoolCheck";
 		
