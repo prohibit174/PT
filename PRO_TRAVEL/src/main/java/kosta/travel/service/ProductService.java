@@ -15,6 +15,7 @@ public interface ProductService {
 	public void deleteProduct(String p_num)throws Exception;
 	public void insertProductReq(Product_RequestVO proReq)throws Exception;
 	public Product_RequestVO detailProductReq(String pr_reqnum)throws Exception;
+	public List<Product_RequestVO> listProductRequest(String u_id)throws Exception;
 	public List<ProductVO> listCriteria(Criteria cri)throws Exception;
 	public int listCountCriteria(Criteria cri)throws Exception;
 }
