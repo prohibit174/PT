@@ -140,7 +140,7 @@ public class ProductController {
 		rttr.addAttribute("perPageNum", cri.getPerPageNum());
 		rttr.addFlashAttribute("msg", "SUCCESS");
 
-		return "redirect:/product/product_list2";
+		return "redirect:/product/product_list";
 	}
 
 	@RequestMapping(value = "/product_delete", method = RequestMethod.GET)

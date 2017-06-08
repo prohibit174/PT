@@ -111,7 +111,7 @@ $(document).ready(function(){
 	console.log(formObj);
 	
 	$(".btn-warning").on("click", function(){
-		formObj.attr("action", "/board/modifyPage");
+		formObj.attr("action", "/product/product_update");
 		formObj.attr("method", "get");		
 		formObj.submit();
 	});

@@ -65,7 +65,7 @@
             </div>
 
 
-            <form role="form" method="post" enctype="multipart/form-data">
+            <form role="form" action="product_update" method="post" enctype="multipart/form-data">
                <div class="box-full" id="creationaccount">
                
                <input type='hidden' name='page' value="${cri.page}"> 
