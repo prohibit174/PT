@@ -93,7 +93,7 @@ public class ProductController {
 	}
 
 	@RequestMapping(value = "/product_list", method = RequestMethod.GET)
-	public String product_list(Criteria cri, Model model) throws Exception {
+	public String product_list(@ModelAttribute("cri") Criteria cri, Model model) throws Exception {
 
 		/*model.addAttribute("list", service.listProduct());*/
 
@@ -131,14 +131,16 @@ public class ProductController {
 	}
 
 	@RequestMapping(value = "/product_update", method = RequestMethod.POST)
-	public String product_update(ProductVO product, RedirectAttributes rttr) throws Exception {
+	public String product_update(ProductVO product, Criteria cri, RedirectAttributes rttr) throws Exception {
 		logger.info("mod post...........");
 
 		service.updateProduct(product);
-		/* logger.info(product.getU_id()); */
+		
+		rttr.addAttribute("page", cri.getPage());
+		rttr.addAttribute("perPageNum", cri.getPerPageNum());
 		rttr.addFlashAttribute("msg", "SUCCESS");
 
-		return "redirect:/product/product_list";
+		return "redirect:/product/product_list2";
 	}
 
 	@RequestMapping(value = "/product_delete", method = RequestMethod.GET)
@@ -151,7 +153,7 @@ public class ProductController {
 		rttr.addAttribute("perPageNum", cri.getPerPageNum());
 		rttr.addFlashAttribute("msg", "SUCCESS");
 
-		return "redirect:/product/product_list";
+		return "redirect:/product/product_list2";
 
 	}
 	
