@@ -14,8 +14,8 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@include file="../include/header.jsp" %>
-<%@include file="../include/accompany_sidebar.jsp" %>
+<%-- <%@include file="../include/header.jsp" %>
+<%@include file="../include/accompany_sidebar.jsp" %> --%>
 
 
 <% request.setCharacterEncoding("utf-8"); %>
@@ -519,17 +519,18 @@ function searchPeople(){
 <div class="id-card-box" style="width: 100% ;border: black;">
 	<form
 		action="/accompany/searchPeople"
-		class="calendar-form" style="float: none;" method="post">
+		class="calendar-form" method="post" role="form">
 
-			<div class="item-list" style="width: 90%; padding-right: 30px;">
+			<div class="item-list" style="width: 1000px; padding-right: 30px;">
 					<div class="row" style="font-size: 20px;">
 						<span class="label">Location</span> 
-						 <select class="destination">
-							<option class="destination">목적지를 지도에 마크하세요</option>
+						 <select class="label">
+							<option class="destination" style="margin-bottom: 10px">목적지를 지도에 마크하세요</option>
 						</select> 
-						<select  class="start">
+						<select  class="label">
 							<option class="start">출발지를 지도에 마크하세요</option>
 						</select>
+							<img class="appendcp" src="../resources/images/accompany/plus.png" width="30" height="30">
 					</div>
 					<div class="row" style="font-size: 20px;">
 						<span class="label">Date</span> 
@@ -599,38 +600,20 @@ function searchPeople(){
 	
 	</div>
 	
-	<div>
-	<ul class="appendp">
-	<li><input><input><input><img class="appendcp" src="../resources/images/accompany/plus.png" width="10" height="10"><img class="appendcm" src="../resources/images/accompany/miners.png" width="10" height="10"></li>
-	</ul>
-	</div>
-	
 <script type="text/javascript">
 var ct = 0;
-/* $(".appendcp").click(function () {
-	ct += 1;
-	  $(".appendp").append('<li><input><input>'+ct+'<input><img class="appendcp" src="../resources/images/accompany/plus.png" width="10" height="10"><img class="appendcm" src="../resources/images/accompany/miners.png" width="10" height="10"></li>');
-	
+ct += 1;
+ $(document).on('click','.appendcp',function() {
+	  $(this).parent('div.item-list').append('<div class="row" style="font-size: 20px;"><span class="label">Location</span><select class="destination"><option class="destination">목적지를 지도에 마크하세요</option></select><select  class="start"><option class="start">출발지를 지도에 마크하세요</option></select><img class="appendcp" src="../resources/images/accompany/plus.png" width="30" height="30"><img class="appendcm" src="../resources/images/accompany/miners.png" width="30" height="30"></div>')
 	console.log("plus");
-	});
-
-$(".appendcm").click(function () {
-	$(this).parent('li').remove();
-	console.log("minuse");
-}); */
-
-$('.appendcp').on('click', '.appendcm', function(events){
-	ct += 1;
-	$(".appendp").append('<li><input><input>'+ct+'<input><img class="appendcp" src="../resources/images/accompany/plus.png" width="10" height="10"><img class="appendcm" src="../resources/images/accompany/miners.png" width="10" height="10"></li>');
-	});
-
-$('.appendcm').on('click', '.appendcm', function(events){
-	   $(this).parents('li').remove();
-	});
-
-
+});
+ 
+ $(document).on('click','.appendcm',function() {
+		$(this).parent('div.row').remove();
+		console.log("minuse");
+});
 </script>
 
-<%@include file="../include/footer.jsp" %>
+<%-- <%@include file="../include/footer.jsp" %> --%>
 </body>
 </html>
