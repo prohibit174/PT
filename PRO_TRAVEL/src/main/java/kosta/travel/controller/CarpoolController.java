@@ -18,10 +18,15 @@ import kosta.travel.service.CarpoolService;
 
 @Controller
 @RequestMapping("/carpool/*")
-public class CarpoolController {
+public class CarpoolController {	
 	
 	@Inject
 	private CarpoolService service;
+	
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String registerGET() throws Exception {
+		return "/carpool/main";
+	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public String registerGET(CarpoolVO carpool, Model model) throws Exception {
@@ -45,7 +50,7 @@ public class CarpoolController {
 	public String listAll(Model model) throws Exception {
 		model.addAttribute("list", service.listAll());
 		
-		return "/carpool/carpool_list";
+		return "/carpool/list";
 	}
 	
 	@RequestMapping(value = "/read", method = RequestMethod.GET)
