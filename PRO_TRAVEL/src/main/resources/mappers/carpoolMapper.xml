@@ -66,5 +66,10 @@
 		select max(cr_num) from car_request
 	</select>
 	
+	<update id="updateRequest">
+		update car_request set 
+		cr_ox ='o'
+		where cr_num = #{cr_num}
+	</update>
 
 </mapper>

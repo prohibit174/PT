@@ -78,6 +78,12 @@ public class CarpoolDAOImpl implements CarpoolDAO {
 		return session.selectOne(namespace+".maxSelectRequest");
 	}
 
+	@Override
+	public void updateRequest(Carpool_RequestVO vo) throws Exception {
+		session.update(namespace+".updateRequest", vo);
+		
+	}
+
 
 
 }

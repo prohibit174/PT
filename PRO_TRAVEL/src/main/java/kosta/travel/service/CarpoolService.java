@@ -25,7 +25,9 @@ public interface CarpoolService {
 	public List<Carpool_RequestVO> myMakeRequest(int c_num)throws Exception;
 	
 	//Request
-	public void registRequest(Carpool_RequestVO request)throws Exception;
+	public void registRequest(Carpool_RequestVO carpoolRequest)throws Exception;
 
 	public Integer maxSelectRequest()throws Exception;
+	
+	public void updateRequest(Carpool_RequestVO carpoolRequest)throws Exception;
 }

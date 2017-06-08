@@ -62,14 +62,20 @@ public class CarpoolServiceImpl implements CarpoolService {
 
 	//Request
 	@Override
-	public void registRequest(Carpool_RequestVO request) throws Exception {
-		dao.createRequest(request);
+	public void registRequest(Carpool_RequestVO carpoolRequest) throws Exception {
+		dao.createRequest(carpoolRequest);
 		
 	}
 
 	@Override
 	public Integer maxSelectRequest() throws Exception {
 		return  dao.maxSelectRequest();
+	}
+
+	@Override
+	public void updateRequest(Carpool_RequestVO carpoolRequest) throws Exception {
+		dao.updateRequest(carpoolRequest);
+		
 	}
 
 
