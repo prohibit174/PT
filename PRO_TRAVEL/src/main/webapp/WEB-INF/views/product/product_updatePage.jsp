@@ -35,7 +35,8 @@
 		console.log(formObj);
   	
   	$(".btn-warning").on("click", function(){
-  		self.location=self.location="/product/product_list?page=${cri.page}&perPageNum=${cri.perPageNum}";
+  		self.location="/product/product_listPage?page=${cri.page}&perPageNum=${cri.perPageNum}";
+  		
   	});
   	
 	$(".btn-primary").on("click", function(){
@@ -65,14 +66,12 @@
             </div>
 
 
-            <form role="form" action="product_update" method="post" enctype="multipart/form-data">
+            <form role="form" method="post" enctype="multipart/form-data">
                <div class="box-full" id="creationaccount">
-               
-               <input type='hidden' name='page' value="${cri.page}"> 
-					<input type='hidden' name='perPageNum' value="${cri.perPageNum}">
                   <!-- <div class="top"></div> -->
                   <div class="form">
-
+					<input type='hidden' name='page' value="${cri.page}"> 
+					<input type='hidden' name='perPageNum' value="${cri.perPageNum}">
                      <input type="hidden" name="newuser" value="0" id="newuser" />
                      <div class="clear"></div>
                      <div id="billingaddress">
