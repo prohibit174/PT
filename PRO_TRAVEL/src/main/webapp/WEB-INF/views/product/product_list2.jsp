@@ -110,11 +110,14 @@
 												value="${fn:substring(product.p_img, 0, fn:length(product.p_img)-4) }"></c:set>
 											<c:set var="pattern"
 												value="${fn:substring(product.p_img, fn:length(head)+1, fn:length(product.p_img)) }"></c:set>
+											<c:set var="small"
+												value="_small"></c:set>
 
 											<c:choose>
 												<c:when
 													test="${pattern=='jpg' || pattern =='gif' || pattern =='png' }">
-													<img src="/resource/upload/${head }_small.${pattern}" alt="img /">
+													<!-- <img srcset="resources/upload/${head }_small.${pattern}" alt="img /"> -->
+													<img src="/resources/upload/${head}${small}.${pattern}" alt="img /">
 												</c:when>
 												<c:otherwise>
 													<c:out value="No IMAGE"></c:out>

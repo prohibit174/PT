@@ -15,7 +15,7 @@
 <body>
 <section class="results ajax-area" data-tmpl="athleteResults_tmpl">
         <div class="heading">
-            <h2>carpool</h2>
+            <h2>MY CARPOOL</h2>
             <ul class="add-links">
 
             </ul>
@@ -28,7 +28,7 @@
                     <div class="th col2"> START DATE </div>
                     <div class="th col3"> SEAT </div>
                     <div class="th col5"> PRICE </div>
-                    <div class="th col4"> COURSE </div>
+                    <div class="th col4"> MORE </div>
             </li>
             
             <c:forEach items="${list}" var="carpoolVO">
@@ -63,7 +63,7 @@
 
         <div class="area">
             <strong>Start : ${carpoolVO.start_point }</strong><br>
-            <strong><a href = '/mypage/read?c_num=${carpoolVO.c_num }'> More </strong>
+            <strong>Dest : ${carpoolVO.c_num } </strong>
         </div>
                 </div>
                 
@@ -86,31 +86,21 @@
 
                 <div class="area">
                     <ul class="medal-box">
-                        <li>
-                            <div class="medal"> <span>M</span> <span class="num">${carpoolVO.c_month }</span> </div>
-                        </li>
-                        <li>
-                            <div class="medal silver"> <span>D</span> <span class="num">${carpoolVO.c_date }</span> </div>
-                        </li>
-                        <li>
-                            <div class="medal bronze"> <span>H</span> <span class="num">${carpoolVO.c_hour }</span> </div>
-                        </li>
+                    <strong><a href = '/mypage/read?c_num=${carpoolVO.c_num }'> Go </strong>
                     </ul>
                 </div>
                 </div>
     </li>
             </c:forEach>
 
+        </ul>
+        
 
+    </section>
+    
     
 
-   
-        </ul>
-                <span class="btn-more">
-                    <a href="/ajaxscript/loadmoretablelist/games/athletes/{535B8008-29D0-44BB-8B14-E2B29CC79DD5}/3/3">More</a>
-                </span>
-    </section>
-
 <%@ include file="/WEB-INF/views/include/footer.jsp" %>
+
 </body>
 </html>

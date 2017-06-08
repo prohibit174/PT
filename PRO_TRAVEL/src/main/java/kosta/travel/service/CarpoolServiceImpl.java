@@ -50,15 +50,28 @@ public class CarpoolServiceImpl implements CarpoolService {
 		return dao.maxSelect();
 	}
 	
+	//Mypage
 	public List<CarpoolVO> myMakeCarpool(String u_id) throws Exception{
 		return dao.myMakeCarpool(u_id);
 	}
-
+	
 	@Override
-	public void regist(Carpool_RequestVO request) throws Exception {
+	public List<Carpool_RequestVO> myMakeRequest(int c_num) throws Exception {
+		return dao.myMakeRequest(c_num);
+	}
+
+	//Request
+	@Override
+	public void registRequest(Carpool_RequestVO request) throws Exception {
 		dao.createRequest(request);
 		
 	}
+
+	@Override
+	public Integer maxSelectRequest() throws Exception {
+		return  dao.maxSelectRequest();
+	}
+
 
 
 
