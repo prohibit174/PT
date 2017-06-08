@@ -33,20 +33,7 @@
    src="${pageContext.request.contextPath}/resources/js/AgoFiles/prouduct_javascript/JoinCheck.js"></script>
 
 
-<script>
 
-$(document).ready(function(){
-     
-   var formObj = $("form[role='form']");
-   console.log(formObj); 
-   
-   $("#validate_order").on("click", function(){
-      formObj.attr("action", "/product/productReq_detail");
-      formObj.attr("method", "get");      
-      formObj.submit();
-   });
-});
-</script>
 </head>
 
 <body>
@@ -69,7 +56,7 @@ $(document).ready(function(){
             </div>
 
 
-         <form role="form" method="post">
+         <form role="form" method="post" action="/product/productReq_register">
 
             <%--    <input type='hidden'  name="pr_reqnum" value="${Product_RequestVO.pr_reqnum}">  --%>
          

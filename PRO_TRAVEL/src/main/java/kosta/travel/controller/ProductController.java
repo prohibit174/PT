@@ -67,11 +67,11 @@ public class ProductController {
        File thumbnailFileNm = new File(uploadPath+"\\" +headName+"_small."+pattern);
        
        int width = 130; int height = 200; 
-       // ½æ³×ÀÏ ÀÌ¹ÌÁö »ý¼º 
+       // ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
       BufferedImage originalImg = ImageIO.read(originalFileNm); BufferedImage thumbnailImg = new BufferedImage(width, height, BufferedImage.TYPE_3BYTE_BGR); 
-      // ½æ³×ÀÏ ±×¸®±â 
+      // ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½ï¿½ï¿½ 
       Graphics2D g = thumbnailImg.createGraphics(); g.drawImage(originalImg, 0, 0, width, height, null); 
-      // ÆÄÀÏ»ý¼º
+      // ï¿½ï¿½ï¿½Ï»ï¿½ï¿½ï¿½
       ImageIO.write(thumbnailImg, pattern, thumbnailFileNm);   } 
       catch (Exception e) { 
          e.printStackTrace();
@@ -140,30 +140,42 @@ public class ProductController {
    
    @RequestMapping(value = "/productReq_register", method = RequestMethod.GET)
    public String productReq_register()throws Exception {
-  
+	   logger.info("productReq_register1 method call");
       return "/product/productReq_register";
    }
 
      @RequestMapping(value = "/productReq_register", method = RequestMethod.POST)
-      public String productReq_register(Product_RequestVO proReq, Model model) throws Exception {
-         System.out.println("registerpost method call");
+      public String productReq_register(Product_RequestVO proReq,Model model) throws Exception {
+    	 
+    	 logger.info("productReq_register2 method call");
          logger.info(proReq.toString());
+         
          service.insertProductReq(proReq);
          
-        /* model.addAttribute("proReq", proReq);*/
+        model.addAttribute("proReq", proReq);
 
          return "/product/productReq_detail";
       }
+     
+     @RequestMapping(value = "/productReq_detail", method = RequestMethod.POST)
+     public String productReq_detail1(Product_RequestVO proReq, Model model) throws Exception {
+        logger.info("productReq_detail1 method call");
+        
+        //logger.info(proReq.toString()); 
+        model.addAttribute("proReq", proReq);
+        
+        return "/product/productReq_detail";
+     }
 
-      @RequestMapping(value = "/productReq_detail", method = RequestMethod.GET)
-      public String productReq_detail(Product_RequestVO proReq, Model model) throws Exception {
-         logger.info("product_detail method call");
-         
-         logger.info(proReq.toString()); 
-         model.addAttribute("proReq", proReq);
-         
-         return "/product/productReq_detail";
-      }
+//      @RequestMapping(value = "/productReq_detail", method = RequestMethod.GET)
+//      public String productReq_detail2(Product_RequestVO proReq, Model model) throws Exception {
+//         logger.info("productReq_detail2 method call");
+//         
+//         logger.info(proReq.toString()); 
+//         model.addAttribute("proReq", proReq);
+//         
+//         return "/product/productReq_detail";
+//      }
       
 
    

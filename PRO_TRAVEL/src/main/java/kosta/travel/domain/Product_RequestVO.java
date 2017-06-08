@@ -69,12 +69,13 @@ public class Product_RequestVO implements Serializable{
 
 	public void setPr_date(String pr_date) {
 		this.pr_date = pr_date;
+	}
+
+	@Override
+	public String toString() {
+		return "Product_RequestVO [pr_reqnum=" + pr_reqnum + ", u_id=" + u_id + ", p_num=" + p_num + ", pr_ox=" + pr_ox
+				+ ", pr_place=" + pr_place + ", pr_date=" + pr_date + "]";
 	};
-	
-	
-	
-	
-	
-	
+
 
 }
