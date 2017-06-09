@@ -8,8 +8,74 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
+<script type="text/javascript">
+ $(function(){
+	var count = 2;
+	var send = "count=" + count;
+	$(".btn-more a:nth-child(1)").on("click", function(){
+	$.ajax({
+		url: "${pageContext.request.contextPath}/carpool/more_register",
+		type: "post",
+		data: send,
+		success: function sendHandler(data) {
+			location.reload();
+		 }
+		});
+	});
+	});
+	
+ $(function(){
+	var count = 2;
+	var send = "count=" + count;
+	$(".btn-more a:nth-child(2)").on("click", function(){
+	$.ajax({
+		url: "${pageContext.request.contextPath}/carpool/fold_register",
+		type: "post",
+		data: send,
+		success: function sendHandler(data) {
+			location.reload();
+		 }
+		});
+	});
+	});
+
+ 	
+ 	$(function(){
+ 		 $(".btn-more a:nth-child(3)").on("click", function(){
+ 			 location.href= "${pageContext.request.contextPath}/carpool/listAll";
+ 		 });
+ 	});
+</script>
+<script type="text/javascript">
+function startTime() {
+    var today = new Date();
+    var year = 2017;
+    var month = today.getMonth() + 1;
+    var day = today.getDay() + 4;
+    var hour = today.getHours();
+    var minute = today.getMinutes();
+    var seconds = today.getSeconds();
+    minute = checkTime(minute);
+    seconds = checkTime(seconds);
+    document.getElementById('today').innerHTML =
+        year + "년" + month + "월" + day + "일" + hour + ":" + minute + ":" + seconds;
+    var time = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+    if (i < 10) {i = "0" + i}; // 숫자가 10보다 작을 경우 앞에 0을 붙여줌
+    return i;
+}
+
+
+
+</script>
+
+<!-- 웹 크롤링 -->
+<script type="text/javascript">
+
+</script>
 </head>
-<body>
+<body onload = "startTime()">
 	<section class="profiles alt2">
 	<div class="btn-hold">
 		<a href="/london-2012"> <span class="btn-prev"> <span
@@ -66,28 +132,26 @@
 			<ul>
 				<li>
 					<div class="text-box">
-						<strong class="title">TODAY</strong> 07 Feb - 23 Feb
+						<strong class="title">TODAY</strong> 
+						<a id="today" style="cursor: pointer; font-size: 30px;"></a>
 					</div>
 				</li>
 				<li>
 					<div class="text-box">
-						<strong class="title">대기중인 카풀 리스트</strong> <a
-							href="/russian-federation">Russian Federation</a>
+						<strong class="title">대기중인 카풀 목록</strong>
+						<a style="cursor: pointer; font-size: 30px;">Wating Carpool</a>
 					</div>
 				</li>
 				<li>
 					<div class="text-box">
-						<strong class="title">Athletes</strong> 2780
+						<strong class="title">대여 가능한 렌트 목록</strong>
+						<a style="cursor: pointer; font-size: 30px;">Rental Car List</a>
 					</div>
 				</li>
 				<li>
 					<div class="text-box">
-						<strong class="title">Countries</strong> 88
-					</div>
-				</li>
-				<li>
-					<div class="text-box">
-						<strong class="title">Events</strong> 98
+						<strong class="title">카풀 등록하기</strong>
+						<a style="cursor: pointer; font-size: 30px;">Register your Carpool</a>
 					</div>
 				</li>
 			</ul>
@@ -96,10 +160,10 @@
 	</div>
 	</section>
 	<div>
-<%@ include file="/WEB-INF/views/include/carpool_sidebar.jsp"%>
 <section class="results ajax-area" data-tmpl="athleteResults_tmpl">
         <div class="heading">
-            <h2>carpool</h2>
+        <br><br>
+            <h2>Waiting Carpool</h2>
             <ul class="add-links">
 
             </ul>
@@ -115,7 +179,7 @@
                     <div class="th col4"> SIGN UP </div>
             </li>
             
-            <c:forEach items="${list}" var="carpoolVO">
+            <c:forEach items="${list}" var="carpoolVO" end="${count }">
                 <li>
                 <div class="td col-first">
 
@@ -132,7 +196,6 @@
     <!-- <a href="/victor-an"> -->
     <a href = '/carpool/read?c_num=${carpoolVO.c_num }'>
 <picture class="picture">
-
 
 <source srcset="https://stillmed.olympic.org/media/Images/OlympicOrg/Athletes/A/Ahn_Hyun_Soo_An_Victor/Ahn_Hyun_Soo_An_Victor_mugshot.jpg?interpolation=lanczos-none&resize=45:45, https://stillmed.olympic.org/media/Images/OlympicOrg/Athletes/A/Ahn_Hyun_Soo_An_Victor/Ahn_Hyun_Soo_An_Victor_mugshot.jpg?interpolation=lanczos-none&resize=90:90 2x" media="(min-width: 1024px)">
 <source srcset="https://stillmed.olympic.org/media/Images/OlympicOrg/Athletes/A/Ahn_Hyun_Soo_An_Victor/Ahn_Hyun_Soo_An_Victor_mugshot.jpg?interpolation=lanczos-none&resize=45:45, https://stillmed.olympic.org/media/Images/OlympicOrg/Athletes/A/Ahn_Hyun_Soo_An_Victor/Ahn_Hyun_Soo_An_Victor_mugshot.jpg?interpolation=lanczos-none&resize=90:90 2x" media="(min-width: 768px)">
@@ -188,9 +251,12 @@
 
    
         </ul>
-                <span class="btn-more">
-                    <a href="/ajaxscript/loadmoretablelist/games/athletes/{535B8008-29D0-44BB-8B14-E2B29CC79DD5}/3/3">More</a>
+                <span class="btn-more" >
+                 <a style="cursor: pointer;">More</a>   
+                 <a style="cursor: pointer;">Fold</a>  
+                 <a style="cursor: pointer;">Go List Page</a>  
                 </span>
+
     </section>
 </div>
 
