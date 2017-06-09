@@ -94,118 +94,120 @@
 <body>
 
 
-<%@ include file="/WEB-INF/views/include/header.jsp"%>
-<%@ include file="/WEB-INF/views/include/product_sidebar.jsp"%>
+	<%@ include file="/WEB-INF/views/include/header.jsp"%>
+	<%@ include file="/WEB-INF/views/include/product_sidebar.jsp"%>
 
 	<div id="highlights-of-the-games"></div>
 	<section class="text-post"
 		itemscopeitemtype="http://schema.org/NewsArticle">
 		<div class="main" style="margin-right: 150px;">
-			<div class="main-holder photovideo"  style="margin-left: 100px;">
+			<div class="main-holder photovideo" style="margin-left: 100px;">
+				
+			
 
 
+			
+					<section class="sets-section" style="background-color: white;">
 
-				<section class="sets-section" style="background-color: white;">
+						<div class="ajax-area" data-tmpl="load3_tmpl"
+							style="background-color: white">
+							<ul class="sets-list ajax-content">
 
-					<div class="ajax-area" data-tmpl="load3_tmpl"
-						style="background-color: white">
-						<ul class="sets-list ajax-content">
+								<c:forEach var="product" items="${list}">
+									<li itemscope="" itemtype="http://schema.org/ImageObject"
+										class="same-height"><a
+										href="/product/product_detail${pageMaker.makeQuery(pageMaker.cri.page) }&p_num=${product.p_num }"
+										itemprop="url" style="color: DarkSlateGray";><!-- makeQuery --> <picture
+												class="img"> <c:if test="${product.p_img!=null}">
+												<c:set var="head"
+													value="${fn:substring(product.p_img, 0, fn:length(product.p_img)-4) }"></c:set>
+												<c:set var="pattern"
+													value="${fn:substring(product.p_img, fn:length(head)+1, fn:length(product.p_img)) }"></c:set>
+												<c:set var="small" value="_small"></c:set>
 
-							<c:forEach var="product" items="${list}">
-								<li itemscope="" itemtype="http://schema.org/ImageObject"
-									class="same-height"><a
-									href="/product/product_detail${pageMaker.makeQuery(pageMaker.cri.page) }&p_num=${product.p_num }" itemprop="url"
-									style="color: DarkSlateGray";> <picture class="img">
+												<c:choose>
+													<c:when
+														test="${pattern=='jpg' || pattern =='gif' || pattern =='png' }">
+														<!-- <img srcset="resources/upload/${head }_small.${pattern}" alt="img /"> -->
+														<img src="/resources/upload/${head}${small}.${pattern}"
+															alt="img /">
+													</c:when>
+													<c:otherwise>
+														<c:out value="No IMAGE"></c:out>
+													</c:otherwise>
+												</c:choose>
+											</c:if> <%-- <img srcset="${product.p_img}"> --%> </picture>
+									</a>
+										<h2 itemprop="name">
 
-										<c:if test="${product.p_img!=null}">
-											<c:set var="head"
-												value="${fn:substring(product.p_img, 0, fn:length(product.p_img)-4) }"></c:set>
-											<c:set var="pattern"
-												value="${fn:substring(product.p_img, fn:length(head)+1, fn:length(product.p_img)) }"></c:set>
-											<c:set var="small" value="_small"></c:set>
+											<a href="product_detail?p_num=${product.p_num }"
+												itemprop="url" style="color: DarkSlateGray";>${product.p_name }</a>
 
-											<c:choose>
-												<c:when
-													test="${pattern=='jpg' || pattern =='gif' || pattern =='png' }">
-													<!-- <img srcset="resources/upload/${head }_small.${pattern}" alt="img /"> -->
-													<img src="/resources/upload/${head}${small}.${pattern}"
-														alt="img /">
-												</c:when>
-												<c:otherwise>
-													<c:out value="No IMAGE"></c:out>
-												</c:otherwise>
-											</c:choose>
-										</c:if> <%-- <img srcset="${product.p_img}"> --%> </picture>
-								</a>
-									<h2 itemprop="name">
+										</h2> <span>판매자: ${product.u_id }</span></li>
+								</c:forEach>
+							</ul>
+							<span class="btn-more"> <a
+								href="/ajaxscript/loadmoreoverviewmedia/{B4C7581B-72EC-4637-A3ED-52F225BFE686}/6/0/MiddleOverview">More</a>
+							</span>
+							<noscript>
+								<div class="paging">
+									<ul>
+										<li><a><span class="icon-arrow-left"><span
+													class="hide">&lt;</span></span></a></li>
+										<li class="active"><a
+											href="https://www.olympic.org/photos">1</a></li>
+										<li class=""><a href="https://www.olympic.org/photos/2">2</a></li>
+										<li class=""><a href="https://www.olympic.org/photos/3">3</a></li>
+										<li class=""><a href="https://www.olympic.org/photos/4">4</a></li>
+										<li><a>&hellip;</a></li>
+										<li class=""><a href="https://www.olympic.org/photos/6">6</a></li>
+										<li class=""><a href="https://www.olympic.org/photos/7">7</a></li>
+										<li class=""><a href="https://www.olympic.org/photos/8">8</a></li>
+										<li class=""><a href="https://www.olympic.org/photos/9">9</a></li>
+										<li><a class="next"
+											href="https://www.olympic.org/photos/2" rel="next"><span
+												class="icon-arrow-right"><span class="hide">&gt;</span></span></a></li>
+									</ul>
+								</div>
+							</noscript>
 
-										<a href="product_detail?p_num=${product.p_num }"
-											itemprop="url" style="color: DarkSlateGray";>${product.p_name }</a>
-
-									</h2> <span>판매자: ${product.u_id }</span></li>
-							</c:forEach>
-						</ul>
-						<span class="btn-more"> <a
-							href="/ajaxscript/loadmoreoverviewmedia/{B4C7581B-72EC-4637-A3ED-52F225BFE686}/6/0/MiddleOverview">More</a>
-						</span>
-						<noscript>
-							<div class="paging">
-								<ul>
-									<li><a><span class="icon-arrow-left"><span
-												class="hide">&lt;</span></span></a></li>
-									<li class="active"><a
-										href="https://www.olympic.org/photos">1</a></li>
-									<li class=""><a href="https://www.olympic.org/photos/2">2</a></li>
-									<li class=""><a href="https://www.olympic.org/photos/3">3</a></li>
-									<li class=""><a href="https://www.olympic.org/photos/4">4</a></li>
-									<li><a>&hellip;</a></li>
-									<li class=""><a href="https://www.olympic.org/photos/6">6</a></li>
-									<li class=""><a href="https://www.olympic.org/photos/7">7</a></li>
-									<li class=""><a href="https://www.olympic.org/photos/8">8</a></li>
-									<li class=""><a href="https://www.olympic.org/photos/9">9</a></li>
-									<li><a class="next"
-										href="https://www.olympic.org/photos/2" rel="next"><span
-											class="icon-arrow-right"><span class="hide">&gt;</span></span></a></li>
-								</ul>
-							</div>
-						</noscript>
-
-					</div>
-			</div>
-		</div>
-
-
-		<a href="#wrapper" class="accessibility">back to top</a>
-
-		<div class="popup-holder">
-			<div id="popup2" class="lightbox-link simple-size">
-				<div class="share-social">
-					<h2>Share.Popup.Title</h2>
-					<ul class="social-networks">
-						<li><a
-							href="http://www.facebook.com/sharer/sharer.php?u=https://www.olympic.org/photos"
-							onclick="ga('send', 'social', 'Facebook', 'share', 'https://www.olympic.org/photos');"
-							class="facebook" target="_blank"></a></li>
-						<li><a
-							href="http://twitter.com/share?url=https://www.olympic.org/photos&text=Olympic Photos, Galleries &amp; Slideshows | Top Olympic Images&via=olympics"
-							onclick="ga('send', 'social', 'Twitter', 'share', 'https://www.olympic.org/photos');"
-							class="twitter" target="_blank"></a></li>
-						<li><a
-							href="http://www.linkedin.com/shareArticle?url=https://www.olympic.org/photos&title=Olympic Photos, Galleries &amp; Slideshows | Top Olympic Images&summary=Olympic Photos, Galleries &amp; Slideshows | Top Olympic Images"
-							onclick="ga('send', 'social', 'Linkedin', 'share', 'https://www.olympic.org/photos');"
-							class="linkedin" target="_blank"></a></li>
-						<li><a
-							href="https://pinterest.com/pin/create/button/?url=https://www.olympic.org/photos&media=&description=Olympic Photos, Galleries &amp; Slideshows | Top Olympic Images"
-							onclick="ga('send', 'social', 'Pinterest', 'share', 'https://www.olympic.org/photos');"
-							class="pinterest" target="_blank"></a></li>
-						<li><a
-							href="http://vk.com/share.php?url=https://www.olympic.org/photos&title=Olympic Photos, Galleries &amp; Slideshows | Top Olympic Images&description=Olympic Photos, Galleries &amp; Slideshows | Top Olympic Images&image="
-							onclick="ga('send', 'social', 'Vkontakte', 'share', 'https://www.olympic.org/photos');"
-							class="vkontakte" target="_blank"></a></li>
-					</ul>
+						</div>
+						</section>
 				</div>
 			</div>
-		</div>
+
+
+			<a href="#wrapper" class="accessibility">back to top</a>
+
+			<div class="popup-holder">
+				<div id="popup2" class="lightbox-link simple-size">
+					<div class="share-social">
+						<h2>Share.Popup.Title</h2>
+						<ul class="social-networks">
+							<li><a
+								href="http://www.facebook.com/sharer/sharer.php?u=https://www.olympic.org/photos"
+								onclick="ga('send', 'social', 'Facebook', 'share', 'https://www.olympic.org/photos');"
+								class="facebook" target="_blank"></a></li>
+							<li><a
+								href="http://twitter.com/share?url=https://www.olympic.org/photos&text=Olympic Photos, Galleries &amp; Slideshows | Top Olympic Images&via=olympics"
+								onclick="ga('send', 'social', 'Twitter', 'share', 'https://www.olympic.org/photos');"
+								class="twitter" target="_blank"></a></li>
+							<li><a
+								href="http://www.linkedin.com/shareArticle?url=https://www.olympic.org/photos&title=Olympic Photos, Galleries &amp; Slideshows | Top Olympic Images&summary=Olympic Photos, Galleries &amp; Slideshows | Top Olympic Images"
+								onclick="ga('send', 'social', 'Linkedin', 'share', 'https://www.olympic.org/photos');"
+								class="linkedin" target="_blank"></a></li>
+							<li><a
+								href="https://pinterest.com/pin/create/button/?url=https://www.olympic.org/photos&media=&description=Olympic Photos, Galleries &amp; Slideshows | Top Olympic Images"
+								onclick="ga('send', 'social', 'Pinterest', 'share', 'https://www.olympic.org/photos');"
+								class="pinterest" target="_blank"></a></li>
+							<li><a
+								href="http://vk.com/share.php?url=https://www.olympic.org/photos&title=Olympic Photos, Galleries &amp; Slideshows | Top Olympic Images&description=Olympic Photos, Galleries &amp; Slideshows | Top Olympic Images&image="
+								onclick="ga('send', 'social', 'Vkontakte', 'share', 'https://www.olympic.org/photos');"
+								class="vkontakte" target="_blank"></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
 	</section>
 
 
@@ -213,29 +215,30 @@
 
 		<div class="text-center">
 			<ul class="pagination">
+			
 
-					<c:if test="${pageMaker.prev}">
-								<li><a href="${pageMaker.startPage - 1}">&laquo;</a></li>
-							</c:if>
+				<c:if test="${pageMaker.prev}">
+					<li><a href="${pageMaker.startPage - 1}">&laquo;</a></li>
+				</c:if>
 
-							<c:forEach begin="${pageMaker.startPage }"
-								end="${pageMaker.endPage }" var="idx">
-								<li
-									<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
-									<a href="${idx}">${idx}</a>
-								</li>
-							</c:forEach>
+				<c:forEach begin="${pageMaker.startPage }"
+					end="${pageMaker.endPage }" var="idx">
+					<li
+						<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
+						<a href="${idx}">${idx}</a>
+					</li>
+				</c:forEach>
 
-							<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-								<li><a
-									href="${pageMaker.endPage +1}">&raquo;</a></li>
-							</c:if>
+				<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
+					<li><a href="${pageMaker.endPage +1}">&raquo;</a></li>
+				</c:if>
 
 			</ul>
 		</div>
 
 
 	</div>
+	
 	<!-- /.box-footer-->
 
 	<!--/.col (left) -->

@@ -5,6 +5,7 @@ import java.util.List;
 import kosta.travel.domain.Criteria;
 import kosta.travel.domain.ProductVO;
 import kosta.travel.domain.Product_RequestVO;
+import kosta.travel.domain.SearchCriteria;
 
 public interface ProductService {
 	
@@ -18,4 +19,7 @@ public interface ProductService {
 	public List<Product_RequestVO> listProductRequest(String u_id)throws Exception;
 	public List<ProductVO> listCriteria(Criteria cri)throws Exception;
 	public int listCountCriteria(Criteria cri)throws Exception;
+	public List<ProductVO> listSearchCriteria(SearchCriteria cri)throws Exception;
+	public int listSearchCount(SearchCriteria cri)throws Exception;
+	
 }
