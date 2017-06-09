@@ -75,7 +75,7 @@
 <link media="all" rel="stylesheet" type="text/css"
 	href="https://stillres.olympic.org/css/all.css" />
 
-<!-- <script type="text/javascript">
+ <script type="text/javascript">
 
 
 
@@ -101,9 +101,9 @@
   	  if(check) document.location.href="productReq_register?p_num=${product.p_num}";
   	  
 		} 
-  </script> -->
+  </script> 
 
-<script>
+<!-- <script>
 $(document).ready(function(){
 	
 	var formObj = $("form[role='form']");
@@ -124,7 +124,7 @@ $(document).ready(function(){
 	
 	
 });
-</script>
+</script> -->
 	
 
 
