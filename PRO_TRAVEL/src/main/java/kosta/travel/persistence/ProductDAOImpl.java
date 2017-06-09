@@ -12,6 +12,7 @@ import kosta.travel.domain.Criteria;
 import kosta.travel.domain.ProductVO;
 import kosta.travel.domain.Product_RequestVO;
 import kosta.travel.domain.Product_SearchVO;
+import kosta.travel.domain.SearchCriteria;
 
 
 @Repository
@@ -97,6 +98,16 @@ public class ProductDAOImpl implements ProductDAO {
 	@Override
 	public int countPaging(Criteria cri) throws Exception {
 		return session.selectOne(namespace+".countPaging", cri);
+	}
+
+	@Override
+	public List<ProductVO> listSearch(SearchCriteria cri) throws Exception {
+		return session.selectList(namespace + ".listSearch", cri);
+	}
+
+	@Override
+	public int listSearchCount(SearchCriteria cri) throws Exception {
+		return session.selectOne(namespace+ ".listSearchCount", cri);
 	}
 
 

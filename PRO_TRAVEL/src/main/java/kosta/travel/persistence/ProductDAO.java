@@ -8,6 +8,7 @@ import kosta.travel.domain.Criteria;
 import kosta.travel.domain.ProductVO;
 import kosta.travel.domain.Product_RequestVO;
 import kosta.travel.domain.Product_SearchVO;
+import kosta.travel.domain.SearchCriteria;
 
 public interface ProductDAO {
 	
@@ -25,6 +26,8 @@ public interface ProductDAO {
 	public List<Product_RequestVO> listNotAceept()throws Exception;
 	public List<ProductVO> listCriteria(Criteria cri)throws Exception;
 	public int countPaging(Criteria cri)throws Exception;
+	public List<ProductVO> listSearch(SearchCriteria cri)throws Exception;
+	public int listSearchCount(SearchCriteria cri)throws Exception;
 
 
 

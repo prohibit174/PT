@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import kosta.travel.domain.Criteria;
 import kosta.travel.domain.ProductVO;
 import kosta.travel.domain.Product_RequestVO;
+import kosta.travel.domain.SearchCriteria;
 import kosta.travel.persistence.ProductDAO;
 
 @Service
@@ -71,6 +72,16 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public List<Product_RequestVO> listProductRequest(String u_id) throws Exception {
 		return dao.listProductRequest(u_id);
+	}
+
+	@Override
+	public List<ProductVO> listSearchCriteria(SearchCriteria cri) throws Exception {
+		return dao.listSearch(cri);
+	}
+
+	@Override
+	public int listSearchCount(SearchCriteria cri) throws Exception {
+		return dao.listSearchCount(cri);
 	}
 
 }

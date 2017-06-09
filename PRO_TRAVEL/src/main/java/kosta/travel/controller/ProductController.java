@@ -24,6 +24,7 @@ import kosta.travel.domain.Criteria;
 import kosta.travel.domain.PageMaker;
 import kosta.travel.domain.ProductVO;
 import kosta.travel.domain.Product_RequestVO;
+import kosta.travel.domain.SearchCriteria;
 import kosta.travel.service.ProductService;
 
 @Controller
@@ -93,7 +94,7 @@ public class ProductController {
 	}
 
 	@RequestMapping(value = "/product_list", method = RequestMethod.GET)
-	public String product_list(@ModelAttribute("cri") Criteria cri, Model model) throws Exception {
+	public String product_list(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
 
 		/*model.addAttribute("list", service.listProduct());*/
 
