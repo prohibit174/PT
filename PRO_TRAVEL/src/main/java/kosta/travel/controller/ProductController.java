@@ -3,6 +3,7 @@ package kosta.travel.controller;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.util.List;
 import java.util.UUID;
 
 import javax.annotation.Resource;
@@ -99,6 +100,7 @@ public class ProductController {
 		/*model.addAttribute("list", service.listProduct());*/
 
 		model.addAttribute("list", service.listCriteria(cri));
+
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
 		pageMaker.setTotalCount(service.listCountCriteria(cri));
@@ -199,7 +201,6 @@ public class ProductController {
 	// logger.info(proReq.toString());
 	// model.addAttribute("proReq", proReq);
 	//
-	// return "/product/productReq_detail";
 	// }
 
 }
