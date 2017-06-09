@@ -98,8 +98,11 @@ public class MypageController {
 	}
 	
 	@RequestMapping()
-	public String doneWithdrawal(HttpSession session, HttpServletRequest request, @RequestParam("u_pwd") String u_pwd){
+	public String doneWithdrawal(HttpSession session, HttpServletRequest request, @RequestParam("u_pwd") String u_pwd) throws Exception{
 		String u_id = (String)session.getAttribute("login");
+		UsersVO users = userService.userDetail(u_id);
+		
+		userService.userWithdrawal(users);
 		return "/home";
 	}
 }
