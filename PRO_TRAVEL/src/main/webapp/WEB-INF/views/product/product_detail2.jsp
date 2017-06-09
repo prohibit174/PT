@@ -74,6 +74,8 @@
 	href="https://stillres.olympic.org/css/modules.css" />
 <link media="all" rel="stylesheet" type="text/css"
 	href="https://stillres.olympic.org/css/all.css" />
+	
+	
 
  <script type="text/javascript">
 
@@ -200,7 +202,11 @@ $(document).ready(function(){
 				
 			<div class="row">
 						<c:choose>
-					       <c:when test="${id == product.u_id}">
+					        <c:when test="${id == product.u_id}">
+					       <!-- <button name="submit" id="validate_order" type="submit"
+								class="primaryAction">
+								<span>Register</span>  -->
+								
 						 <button type="submit" class="btn btn-warning" id="modifyBtn" onclick="btn_js_update_click()">수정</button>
 						 <button type="submit" class="btn btn-danger" id="removeBtn" onclick="btn_js_delete_click()">삭제</button> 		 
 							</c:when>
