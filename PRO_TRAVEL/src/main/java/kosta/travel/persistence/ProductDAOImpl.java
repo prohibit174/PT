@@ -102,7 +102,8 @@ public class ProductDAOImpl implements ProductDAO {
 
 	@Override
 	public List<ProductVO> listSearch(SearchCriteria cri) throws Exception {
-		return session.selectList(namespace + ".listSearch", cri);
+		return session.selectList(namespace + ".listSearch", cri,
+				new RowBounds(cri.getPageStart(), cri.getPerPageNum()));
 	}
 
 	@Override

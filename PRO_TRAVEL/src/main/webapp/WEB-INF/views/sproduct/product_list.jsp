@@ -85,8 +85,50 @@
 
 <style>
 </style>
+<!-- 	<script>
+ 		 var result = '${msg}';
 
+		if (result == 'SUCCESS') {
+			alert("처리가 완료되었습니다.");
+		}
 
+		$(".pagination li a").on(
+				"click",
+				function(event) {
+
+					event.preventDefault();
+
+					var targetPage = $(this).attr("href");
+
+					var jobForm = $("#jobForm");
+					jobForm.find("[name='page']").val(targetPage);
+					jobForm.attr("action", "/product/product_list").attr(
+							"method", "get");
+					jobForm.submit();
+				}); 
+		
+	 </script>
+ -->
+<script>
+		$(document).ready(
+				function() {
+
+					$('#searchBtn').on(
+							"click",
+							function(event) {
+
+								self.location = "product_list"
+										+ '${pageMaker.makeQuery(1)}'
+										+ "&searchType="
+										+ $("select option:selected").val()
+										+ "&keyword=" + $('#keywordInput').val();
+
+							});
+					
+					
+
+				});
+		</script>
 
 <!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="https://stillres.olympic.org/css/ie.css" /><![endif]-->
 </head>
@@ -109,7 +151,7 @@
 						<option value="n"
 							<c:out value="${cri.searchType == null?'selected':''}"/>>
 							---</option>
-						<option value="t"
+						<option value="t" 
 							<c:out value="${cri.searchType eq 't'?'selected':''}"/>>
 							ProductName</option>
 						<option value="c"
@@ -127,8 +169,9 @@
 						<option value="tcw"
 							<c:out value="${cri.searchType eq 'tcw'?'selected':''}"/>>
 							ProductName OR Content OR UserId</option>
-					</select> <input type="text" name='keyword' id="keywordInput"
-						value='${cri.keyword }'>
+					</select>
+					
+					 <input type="text" name='keyword' id="keywordInput" value='${cri.keyword }'>
 					<button id='searchBtn'>Search</button>
 
 
@@ -172,7 +215,7 @@
 								</a>
 									<h2 itemprop="name">
 
-										<a href="product_detail?p_num=${product.p_num }"
+										<a href="/sproduct/product_detail${pageMaker.makeSearch(pageMaker.cri.page) }&p_num=${product.p_num }""
 											itemprop="url" style="color: DarkSlateGray";>${product.p_name }</a>
 
 									</h2> <span>판매자: ${product.u_id }</span></li>
@@ -291,47 +334,9 @@
 	</form>
 
 
-	<script>
-		$(document).ready(
-				function() {
-
-					$('#searchBtn').on(
-							"click",
-							function(event) {
-
-								self.location = "product_list"
-										+ '${pageMaker.makeQuery(1)}'
-										+ "&searchType="
-										+ $("select option:selected").val()
-										+ "&keyword="
-										+ $('#keywordInput').val();
-
-							});
-
-				});
-		/* var result = '${msg}';
-
-		if (result == 'SUCCESS') {
-			alert("처리가 완료되었습니다.");
-		}
-
-		$(".pagination li a").on(
-				"click",
-				function(event) {
-
-					event.preventDefault();
-
-					var targetPage = $(this).attr("href");
-
-					var jobForm = $("#jobForm");
-					jobForm.find("[name='page']").val(targetPage);
-					jobForm.attr("action", "/product/product_list").attr(
-							"method", "get");
-					jobForm.submit();
-				}); */
-	</script>
-
-
+	
+		
+	
 
 
 
