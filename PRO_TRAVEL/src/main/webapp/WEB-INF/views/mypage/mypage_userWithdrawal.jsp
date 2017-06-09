@@ -29,7 +29,7 @@
 
 
 				<form id="form_checkout" class="uniForm checkout"
-					enctype="application/x-www-form-urlencoded" action="Withdrawal" method="post">
+					enctype="application/x-www-form-urlencoded" action="withdrawal" method="post">
 					<!-- <div class="box-full" id="creationaccount"> -->
 						<div class="top"></div>
 						<div class="form">

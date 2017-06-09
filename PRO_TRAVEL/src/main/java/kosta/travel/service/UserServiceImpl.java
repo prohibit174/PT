@@ -62,6 +62,12 @@ public class UserServiceImpl implements UserService {
 	public List<UsersVO> userAll() throws Exception {
 		return dao.userAll();
 	}
+
+	@Override
+	public void userWithdrawal(UsersVO users) throws Exception {
+		dao.userWithdrawal(users);
+		
+	}
 	
 	
 

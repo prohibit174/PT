@@ -17,4 +17,5 @@ public interface UserDAO {
 	public void keepLogin(String u_id, String sessionId, Date next);
 	public UsersVO checkUserWithSessionKey(String value);
 	public List<UsersVO> userAll()throws Exception;
+	public Integer userWithdrawal(UsersVO users) throws Exception;
 }
