@@ -75,6 +75,7 @@
 		select * 
 		from car_list c, users u
 		where c.u_id=u.u_id
+		order by c_num desc
 	
 	</select>
 </mapper>
