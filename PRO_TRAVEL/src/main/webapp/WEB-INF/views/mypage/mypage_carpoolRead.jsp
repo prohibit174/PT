@@ -84,7 +84,7 @@ function applyLink(URL){
         <div class="profile-row">
             <div class="flag-image">
             </div>
-            <span>${carpool_RequestVO.cr_num }</span>
+            <span>${carpool_RequestVO.cr_num }</span>${u_name }
         </div>
                 </div>
                 <div class="td col1">

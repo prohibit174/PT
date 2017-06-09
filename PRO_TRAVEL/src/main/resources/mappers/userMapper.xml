@@ -66,4 +66,10 @@
 		SELECT * FROM users WHERE sessionKey = #{value}
 		AND sessionLimit > now()
 	</select>
+	
+	
+	<!-- user 전체목록 -->
+	<select id="userAll" resultType="kosta.travel.domain.UsersVO">
+		select * from users 
+	</select>
 </mapper>
