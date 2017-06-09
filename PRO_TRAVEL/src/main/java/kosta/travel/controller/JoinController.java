@@ -50,6 +50,29 @@ public class JoinController {
 
 		System.out.println(users.toString());
 		
+		try {
+			//Create Thumbnail image as small size.
+			String pattern = savedName.substring(savedName.lastIndexOf(".") + 1);
+			String headName = savedName.substring(0, savedName.lastIndexOf("."));
+
+			File originalFileNm = new File(uploadPath + "\\" + savedName);
+			File thumbnailFileNm = new File(uploadPath + "\\" + headName + "_small." + pattern);
+
+			int width = 130;
+			int height = 200;
+			// 占쏙옙占쏙옙占� 占싱뱄옙占쏙옙 占쏙옙占쏙옙
+			BufferedImage originalImg = ImageIO.read(originalFileNm);
+			BufferedImage thumbnailImg = new BufferedImage(width, height, BufferedImage.TYPE_3BYTE_BGR);
+			// 占쏙옙占쏙옙占� 占쌓몌옙占쏙옙
+			Graphics2D g = thumbnailImg.createGraphics();
+			g.drawImage(originalImg, 0, 0, width, height, null);
+			// 占쏙옙占싹삼옙占쏙옙
+			ImageIO.write(thumbnailImg, pattern, thumbnailFileNm);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		
 		return "/home";
 	}
 	
