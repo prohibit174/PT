@@ -111,7 +111,7 @@
                     <div class="th col1"> DRIVDR </div>
                     <div class="th col2"> START DATE </div>
                     <div class="th col3"> SEAT </div>
-                    <div class="th col5"> PRICE </div>
+                    <div class="th col6"> PRICE </div>
                     <div class="th col4"> SIGN UP </div>
             </li>
             

@@ -13,14 +13,9 @@
 <title>Insert title here</title>
 <style>
 @CHARSET "EUC-KR";
-
-
-
-
-
 .wrapper {
   margin: 0 auto;
-  padding: 40px;
+  padding: 30px;
   max-width: 800px;
 }
 
@@ -83,21 +78,11 @@
   <div class="table">
     
     <div class="row header">
-      <div class="cell">
-        날짜
-      </div>
-      <div class="cell">
-        도시
-      </div>
-      <div class="cell">
-        남은좌석
-      </div>
-      <div class="cell">
-        가격
-      </div>
-      <div class="cell">
-        Detail
-      </div>
+      <div class="cell">DATE</div>
+      <div class="cell">CITY</div>
+      <div class="cell">EMPTY</div>
+      <div class="cell">PRICE</div>
+      <div class="cell">Detail</div>
     </div>
     <c:forEach items="${list}" var="carpoolVO">
     
@@ -112,7 +97,7 @@
         ${carpoolVO.c_person }
       </div>
       <div class="cell">
-        ${carpoolVO.c_price }
+        ${carpoolVO.c_price }$
       </div>
       <div class="cell">
         <strong><a href = '/mypage/read?c_num=${carpoolVO.c_num }'> Go </a></strong>
