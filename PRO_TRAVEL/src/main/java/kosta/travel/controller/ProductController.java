@@ -38,6 +38,9 @@ public class ProductController {
 	private String uploadPath;
 	@Inject
 	private ProductService service;
+	
+	
+
 
 	@RequestMapping(value = "/product_register", method = RequestMethod.GET)
 	public void product_registerGET() throws Exception {
@@ -45,7 +48,7 @@ public class ProductController {
 	}
 
 	@RequestMapping(value = "/product_register", method = RequestMethod.POST)
-	public String product_registerPOST(Model model, ProductVO product) throws Exception {
+	public String product_registerPOST(Model model, ProductVO product,RedirectAttributes rttr) throws Exception {
 
 		System.out.println("registerpost method call");
 
@@ -57,7 +60,8 @@ public class ProductController {
 
 		logger.info(product.toString());
 		service.insert(product);
-
+		
+		rttr.addFlashAttribute("msg", "SUCCESS");
 		try {
 
 			String pattern = savedName.substring(savedName.lastIndexOf(".") + 1);
@@ -82,6 +86,8 @@ public class ProductController {
 
 		return "redirect:/product/product_list";
 	}
+	
+
 
 	private String UploadFile(String originalFilename, byte[] fileData) throws Exception {
 
@@ -94,94 +100,118 @@ public class ProductController {
 		return savedName;
 	}
 
-	@RequestMapping(value = "/product_list", method = RequestMethod.GET)
-	public String product_list(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
 
-		/*model.addAttribute("list", service.listProduct());*/
-
-		model.addAttribute("list", service.listCriteria(cri));
-
+	
+	@RequestMapping(value="/product_list", method=RequestMethod.GET)
+	public String product_list(@ModelAttribute("cri") SearchCriteria cri, 
+			Model model) throws Exception{
+	
+		
+		/*model.addAttribute("list", service.listCriteria(cri));*/
+		model.addAttribute("list", service.listSearchCriteria(cri));
+		
+	
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
-		pageMaker.setTotalCount(service.listCountCriteria(cri));
-
+		
+		/*pageMaker.setTotalCount(service.listCountCriteria(cri));*/
+		pageMaker.setTotalCount(service.listSearchCount(cri));
+		
 		model.addAttribute("pageMaker", pageMaker);
 		
-		return "/product/product_list2";
+		return "product/product_list2";
 	}
 
-	
-	@RequestMapping(value = "/product_detail", method = RequestMethod.GET)
-	public String product_detail(@RequestParam("p_num") String p_num, @ModelAttribute("cri") Criteria cri, Model model) throws Exception {
-		logger.info("product_detail method call");
-		ProductVO product = service.detailProduct(p_num);
-		/* logger.info(product.toString()); */
-		model.addAttribute("product", product);
 
+	
+	@RequestMapping(value="/product_detail", method = RequestMethod.GET)
+	public String product_detail(@RequestParam("p_num") String p_num,
+			@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception{
+		ProductVO product =service.detailProduct(p_num);
+		
+		model.addAttribute("product", product);
+		
 		return "/product/product_detail2";
+	
 	}
 	
 	
 		
 
-	@RequestMapping(value = "/product_update", method = RequestMethod.GET)
-	public void product_update(@RequestParam("p_num") String p_num,@ModelAttribute("cri") Criteria cri ,Model model) throws Exception {
 
-		logger.info("product updateGET method call..");
-		ProductVO product = service.detailProduct(p_num);
+	
+	@RequestMapping(value="/product_update", method = RequestMethod.GET)
+	public void modifyPagingGET(String p_num, @ModelAttribute("cri")
+			SearchCriteria cri, Model model)throws Exception{
+		
+		ProductVO product=service.detailProduct(p_num);
 		model.addAttribute("product", product);
-
+	
+		
 	}
-
-	@RequestMapping(value = "/product_update", method = RequestMethod.POST)
-	public String product_update(ProductVO product, Criteria cri, RedirectAttributes rttr) throws Exception {
-		logger.info("mod post...........");
-
+	
+	@RequestMapping(value="/product_update", method = RequestMethod.POST)
+	public String modifyPagingPOST(ProductVO product, SearchCriteria cri,
+			RedirectAttributes rttr)throws Exception{
+		
+		logger.info(cri.toString());
 		service.updateProduct(product);
 		
 		rttr.addAttribute("page", cri.getPage());
 		rttr.addAttribute("perPageNum", cri.getPerPageNum());
+		rttr.addAttribute("searchType", cri.getSearchType());
+		rttr.addAttribute("keyword", cri.getKeyword());
+		
 		rttr.addFlashAttribute("msg", "SUCCESS");
-
+		
+		logger.info(rttr.toString());
+		
 		return "redirect:/product/product_list";
+		
 	}
-
-	@RequestMapping(value = "/product_delete", method = RequestMethod.GET)
-	public String product_delete(@RequestParam("p_num") String p_num, Criteria cri, RedirectAttributes rttr) throws Exception {
-
-	/*	logger.info("delete method");*/
+	
+	
+	
+	
+	@RequestMapping(value = "/product_delete", method=RequestMethod.GET)
+	public String product_delete(@RequestParam("p_num") String p_num,
+			SearchCriteria cri, RedirectAttributes rttr) throws Exception {
+		
 		service.deleteProduct(p_num);
 		
 		rttr.addAttribute("page", cri.getPage());
 		rttr.addAttribute("perPageNum", cri.getPerPageNum());
+		rttr.addAttribute("searchType", cri.getSearchType());
+		rttr.addAttribute("keyword", cri.getKeyword());
+		
 		rttr.addFlashAttribute("msg", "SUCCESS");
-
+		
 		return "redirect:/product/product_list";
-
 	}
 	
 	
 	
+	 @RequestMapping(value = "/productReq_register", method = RequestMethod.GET)
+	   public String productReq_register() throws Exception {
+	      logger.info("productReq_register1 method call");
+	      return "/product/productReq_register";
+	   }
+
+	   @RequestMapping(value = "/productReq_register", method = RequestMethod.POST)
+	   public String productReq_register(Product_RequestVO proReq, Model model) throws Exception {
+
+	      logger.info("productReq_register2 method call");
+	      logger.info(proReq.toString());
+
+	      service.insertProductReq(proReq);
+
+	      model.addAttribute("proReq", proReq);
+
+	      return "/product/productReq_detail";
+	   }
 
 
-	@RequestMapping(value = "/productReq_register", method = RequestMethod.GET)
-	public String productReq_register() throws Exception {
-		logger.info("productReq_register1 method call");
-		return "/product/productReq_register";
-	}
 
-	@RequestMapping(value = "/productReq_register", method = RequestMethod.POST)
-	public String productReq_register(Product_RequestVO proReq, Model model) throws Exception {
-
-		logger.info("productReq_register2 method call");
-		logger.info(proReq.toString());
-
-		service.insertProductReq(proReq);
-
-		model.addAttribute("proReq", proReq);
-
-		return "/product/productReq_detail";
-	}
 
 	@RequestMapping(value = "/productReq_detail", method = RequestMethod.POST)
 	public String productReq_detail1(Product_RequestVO proReq, Model model) throws Exception {
