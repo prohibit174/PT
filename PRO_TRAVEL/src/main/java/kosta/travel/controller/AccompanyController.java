@@ -86,8 +86,10 @@ public class AccompanyController{
 	
 
 	@RequestMapping(value = "/searchPeople", method=RequestMethod.POST)
-	public void search(Model model, HttpSession session){
+	public void search(RouteList list ,Model model){
 		System.out.println("@@ searchPeople Controller @@");
+		
+		
 		
 	}
 	       

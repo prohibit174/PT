@@ -70,4 +70,12 @@ public class AccompanyService {
 	
 	}
 
+	public void getTraveler(HttpSession session)throws Exception{
+		
+	
+	
+
+}
+	
+	
 }

@@ -1,10 +1,10 @@
-<%@page import="kosta.travel.service.AccompanyService"%>
+<%-- <%@page import="kosta.travel.service.AccompanyService"%>
 <%@page import="javax.servlet.jsp.tagext.TryCatchFinally"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="kosta.travel.domain.AccompanyVO"%>
 <%@page import="kosta.travel.persistence.AccompanyDao"%>
 <%@page import="kosta.travel.domain.RouteVO"%>
-<%@ page import="java.util.*" %>
+<%@ page import="java.util.*" %> --%>
 
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
@@ -67,9 +67,6 @@
     </style>
 
 </head>
-
-
-
 
 <body>
 
@@ -521,18 +518,108 @@ function searchPeople(){
 		action="/accompany/searchPeople"
 		class="calendar-form" method="post" role="form">
 
-			<div class="item-list" style="width: 1000px; padding-right: 30px;">
-					<div class="row" style="font-size: 20px;">
-						<span class="label">Location</span> 
+			<div class="item-list" style="width: 1400px; padding-right: 30px;">
+					<div class="row depature" style="font-size: 20px;">
+						<span class="label">departure</span>
+						 <select class="city">
+							<option class="locationName" style="margin-bottom: 10px">name</option>
+						<option value="Zurich">Zurich</option>
+<option value="Paris">Paris</option>
+<option value="Nice">Nice</option>
+<option value="Brussels">Brussels</option>
+<option value="Berlin">Berlin</option>
+<option value="Munich">Munich</option>
+<option value="Bern">Bern</option>
+<option value="France">France</option>
+<option value="Belgium">Belgium</option>
+<option value="Germany">Germany</option>
+<option value="Swiss">Swiss</option>
+
+
+						</select>
+						
+						<span class="label">begin</span> 
 						 <select class="label">
-							<option class="destination" style="margin-bottom: 10px">목적지를 지도에 마크하세요</option>
+							<option class="start" style="margin-bottom: 10px">date</option>
+<option value="17/06/01">17/06/01</option>
+<option value="17/06/02">17/06/02</option>
+<option value="17/06/03">17/06/03</option>
+<option value="17/06/04">17/06/04</option>
+<option value="17/06/05">17/06/05</option>
+<option value="17/06/06">17/06/06</option>
+<option value="17/06/07">17/06/07</option>
+<option value="17/06/08">17/06/08</option>
+<option value="17/06/09">17/06/09</option>
+<option value="17/06/10">17/06/10</option>
+<option value="17/06/11">17/06/11</option>
+<option value="17/06/12">17/06/12</option>
+<option value="17/06/13">17/06/13</option>
+<option value="17/06/14">17/06/14</option>
+<option value="17/06/15">17/06/15</option>
+<option value="17/06/16">17/06/16</option>
+<option value="17/06/17">17/06/17</option>
+<option value="17/06/18">17/06/18</option>
+<option value="17/06/19">17/06/19</option>
+<option value="17/06/20">17/06/20</option>
+<option value="17/06/21">17/06/21</option>
+<option value="17/06/22">17/06/22</option>
+<option value="17/06/23">17/06/23</option>
+<option value="17/06/24">17/06/24</option>
+<option value="17/06/25">17/06/25</option>
+<option value="17/06/26">17/06/26</option>
+<option value="17/06/27">17/06/27</option>
+<option value="17/06/28">17/06/28</option>
+<option value="17/06/29">17/06/29</option>
+<option value="17/06/30">17/06/30</option>
+<option value="17/06/31">17/06/31</option>
+
+							
+							
 						</select> 
+						
+						<span class="label">end</span> 
 						<select  class="label">
-							<option class="start">출발지를 지도에 마크하세요</option>
+							<option class="destination">date</option>
+							<option value="17/06/01"></option>
+<option value="17/06/01">17/06/01</option>
+<option value="17/06/02">17/06/02</option>
+<option value="17/06/03">17/06/03</option>
+<option value="17/06/04">17/06/04</option>
+<option value="17/06/05">17/06/05</option>
+<option value="17/06/06">17/06/06</option>
+<option value="17/06/07">17/06/07</option>
+<option value="17/06/08">17/06/08</option>
+<option value="17/06/09">17/06/09</option>
+<option value="17/06/10">17/06/10</option>
+<option value="17/06/11">17/06/11</option>
+<option value="17/06/12">17/06/12</option>
+<option value="17/06/13">17/06/13</option>
+<option value="17/06/14">17/06/14</option>
+<option value="17/06/15">17/06/15</option>
+<option value="17/06/16">17/06/16</option>
+<option value="17/06/17">17/06/17</option>
+<option value="17/06/18">17/06/18</option>
+<option value="17/06/19">17/06/19</option>
+<option value="17/06/20">17/06/20</option>
+<option value="17/06/21">17/06/21</option>
+<option value="17/06/22">17/06/22</option>
+<option value="17/06/23">17/06/23</option>
+<option value="17/06/24">17/06/24</option>
+<option value="17/06/25">17/06/25</option>
+<option value="17/06/26">17/06/26</option>
+<option value="17/06/27">17/06/27</option>
+<option value="17/06/28">17/06/28</option>
+<option value="17/06/29">17/06/29</option>
+<option value="17/06/30">17/06/30</option>
+<option value="17/06/31">17/06/31</option>
+
+							
+							
+							
 						</select>
 							<img class="appendcp" src="../resources/images/accompany/plus.png" width="30" height="30">
 					</div>
-					<div class="row" style="font-size: 20px;">
+					<!-- <div class="row" style="font-size: 20px;">
 						<span class="label">Date</span> 
 						<select class="day">
 							<option value="day">day</option>
@@ -589,7 +676,7 @@ function searchPeople(){
 							<option value="2018">2018</option>
 							<option value="2019">2019</option>
 						</select> 
-					</div>
+					</div> -->
 					
 
 				</div>
@@ -599,20 +686,36 @@ function searchPeople(){
 	</form>
 	
 	</div>
-	
 <script type="text/javascript">
 var ct = 0;
-ct += 1;
+
  $(document).on('click','.appendcp',function() {
-	  $(this).parent('div .item-list').append('<div class="row" style="font-size: 20px;"><span class="label">Location</span><select class="destination"><option class="destination">목적지를 지도에 마크하세요</option></select><select  class="start"><option class="start">출발지를 지도에 마크하세요</option></select><img class="appendcp" src="../resources/images/accompany/plus.png" width="30" height="30"><img class="appendcm" src="../resources/images/accompany/miners.png" width="30" height="30"></div>');
+	  /* $(this).parent('div').append('<div class="row" style="font-size: 20px;"><span class="label">Location</span><select class="label"><option class="destination">destination</option></select><select  class="label"><option class="start">departure</option></select><img class="appendcp" src="../resources/images/accompany/plus.png" width="30" height="30"><img class="appendcm" src="../resources/images/accompany/miners.png" width="30" height="30"></div>'); */
+	if(ct <= 0){
+	$(this).parent('div').append('<div class="row destination" style="font-size: 20px;"><span class="label">destination</span><select class="label"><option class="locationName" style="margin-bottom: 10px">name</option></select> <span class="label">begin</span> <select class="label"><option class="start" style="margin-bottom: 10px">date</option></select> <span class="label">end</span> <select  class="label"><option class="destination">date</option></select><img class="appendcp" src="../resources/images/accompany/plus.png" width="30" height="30"><img class="appendcm" src="../resources/images/accompany/miners.png" width="30" height="30"></div>');
+	}else{
+	$('div.destination').before('<div class="row stops" style="font-size: 20px;"><span class="label">stops</span><select class="label"><option class="locationName" style="margin-bottom: 10px">name</option></select> <span class="label">begin</span> <select class="label"><option class="start" style="margin-bottom: 10px">date</option></select> <span class="label">end</span> <select  class="label"><option class="destination">date</option></select><img class="appendcp" src="../resources/images/accompany/plus.png" width="30" height="30"><img class="appendcm" src="../resources/images/accompany/miners.png" width="30" height="30"></div>');
+	}
+	
 	console.log("plus");
+	ct += 1;
 });
  
  $(document).on('click','.appendcm',function() {
-		$(this).parent('div .row').remove();
+ 		console.log($(this).parent('div').attr('class'));
+ 		ct -= 1;
+	/* 	if(ct >= 2 && $(this).parent('div').attr('class') ==  'row destination'){
+		$(this).parents('div.item-list').sibling('div.stops').eq(ct).remove();
+		
+		}else{ */
+		$(this).parent('div').remove();
+		/* } */
+		
+		
 		console.log("minuse");
 });
 </script>
+
 
 <%@include file="../include/footer.jsp" %>
 </body>
