@@ -8,7 +8,8 @@
 <title>Insert title here</title>
 <link media="all" rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/login.css" />
 
-
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/resources/js/AgoFiles/UsersJS/LeaveCheck.js"></script>
 </head>
 
 <%-- <%@include file="/WEB-INF/views/include/mypage_sidebar.jsp" %> --%>
@@ -25,17 +26,17 @@
                 <div class="tab-content">
                     <div class="tab-slider">
                         <div class="tab-section">
-                            <form id="results-form" action="/" class="results-form" method="post">
+                            <form id="results-form" action="/mypage/reallyLeave" class="results-form" method="post">
                                 <div class="row">
                                 	<span class="txt">
 										탈퇴 후에는 개인의 데이터를 복구할 수 없습니다.<br><br>
 										탈퇴 후에는 서비스에 남아있는 게시물을 삭제할 수 없습니다.
                                 	</span>
                                 	<br><br><br>
-                                	<input type="checkbox" >
+                                	<input type="checkbox"  id="leaveCheck">
                                 	<span>안내사항을 모두 확인했으며, 이에 동의합니다.</span>
-                                	<input type="hidden" name="u_pwd" value="${u_pwd }">
-                                    <!-- <input type="text" id="insert_id" name="u_id" value="아이디를 입력하세요" onfocus="this.value='';"/>
+<!--                                 	<input type="hidden" id="u_pwd" value="u_pwd">
+ -->                                    <!-- <input type="text" id="insert_id" name="u_id" value="아이디를 입력하세요" onfocus="this.value='';"/>
                                     <br><br>
                                     <span class="txt" onclick="">* 필수 입력 사항</span> -->
                                 </div>
@@ -53,7 +54,7 @@
                                 	AUTO LOGIN
                                 	</span>&nbsp
                                 	<input type="checkbox" name="useCookie"/> -->
-                                    <input type="submit" value="탈퇴" />
+                                    <input type="submit" value="탈퇴" id="leave"/>
                                     <input type="reset" value="취소" />
                                 </div> 
                             </form>

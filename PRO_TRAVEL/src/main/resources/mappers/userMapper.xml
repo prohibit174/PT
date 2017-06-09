@@ -10,10 +10,10 @@
 	<insert id="insertUsers" parameterType="UsersVO">
 		insert into users(
 			u_id, u_pwd, u_name, u_birth,  u_sex, u_address, u_job,
-			 u_lang, u_religion,  u_license, u_img, u_style 
+			 u_lang, u_religion,  u_license, u_img, u_style<!-- , u_status  -->
 		)values(
 			#{u_id},#{u_pwd}, #{u_name},  #{u_birth}, #{u_sex}, #{u_address},#{u_job},
-			#{u_lang},#{u_religion}, #{u_license}, #{u_img}, #{u_style} 
+			#{u_lang},#{u_religion}, #{u_license}, #{u_img}, #{u_style}<!-- , 0  -->
 		)
 		
 	</insert>
