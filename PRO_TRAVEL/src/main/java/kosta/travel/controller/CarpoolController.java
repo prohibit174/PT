@@ -1,18 +1,22 @@
 package kosta.travel.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
-
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import kosta.travel.domain.CarpoolVO;
 import kosta.travel.domain.Carpool_RequestVO;
@@ -27,7 +31,7 @@ public class CarpoolController {
 	
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String registerGET(Model model) throws Exception {
+	public String registerGET(Model model, HttpSession session) throws Exception {
 		model.addAttribute("list", service.listAll());
 		
 		return "/carpool/main";
@@ -79,6 +83,38 @@ public class CarpoolController {
 		
 	}
 	
+	@RequestMapping(value="/more_register", method = RequestMethod.POST)
+	public void more(@RequestParam(value = "count", required = false) String count, HttpServletResponse response, HttpSession session, Model model) throws Exception{
+		int int_count = Integer.parseInt(count) + 2;
+		session.setAttribute("count", int_count);
+		response.getWriter().print(int_count);
+	}
+	
+	
+	@RequestMapping(value="/fold_register", method = RequestMethod.POST)
+	public void fold(@RequestParam(value = "count", required = false) String count, HttpServletResponse response, HttpSession session, Model model) throws Exception{
+		int int_count = Integer.parseInt(count) - 2;
+		session.setAttribute("count", int_count);
+		response.getWriter().print(int_count);
+	}
+/*	 @RequestMapping(value="/more_register", method = RequestMethod.POST)
+	   public ResponseEntity<String> more(@RequestBody String count, HttpSession session, Model model) throws Exception{
+	      count = count.replaceAll("[^0-9]","");
+	      int count_integer = Integer.parseInt(count) + 2;
+	      model.addAttribute("count",count_integer);
+	      session.setAttribute("count", count_integer);
+	      ResponseEntity<String> ent = null;
+	      return ent;
+	   }
+	 
+	 @RequestMapping(value="/fold_register", method = RequestMethod.POST)
+	   public ResponseEntity<String> fold(@RequestBody String count, HttpSession session) throws Exception{
+	      count = count.replaceAll("[^0-9]","");
+	      int count_integer = Integer.parseInt(count) - 2;
+	      session.setAttribute("count", count_integer);
+	      ResponseEntity<String> ent = null;
+	      return ent;
+	   }*/
 }
 
 

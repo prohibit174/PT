@@ -1866,11 +1866,11 @@ hr.alt + .related-posts {
     font-weight: normal;
     margin: 0 0 6px; }
 
-.btn-more, .btn-more-ext {
+.btn-more, .btn-more-ext, .btn-fold {
   display: block;
   text-align: center;
   margin: 18px 0 0; }
-  .btn-more a, .btn-more-ext a {
+  .btn-more a, .btn-more-ext a, .btn-fold a {
     display: inline-block;
     vertical-align: top;
     color: #959595;
@@ -1880,7 +1880,7 @@ hr.alt + .related-posts {
     text-decoration: none !important;
     font-weight: bold;
     line-height: 2em; }
-    .btn-more a:hover, .btn-more-ext a:hover {
+    .btn-more a:hover, .btn-more-ext a:hover, .btn-fold a:hover{
       color: #494949;
       border-color: #494949; }
   .photovideo .btn-more a, .photovideo .btn-more-ext a {
