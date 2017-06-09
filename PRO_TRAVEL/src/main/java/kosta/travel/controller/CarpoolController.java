@@ -26,6 +26,16 @@ public class CarpoolController {
 	@Inject
 	private CarpoolService service;
 	
+	@RequestMapping(value = "/test", method = RequestMethod.GET)
+	public String test(Model model, HttpSession session) throws Exception {
+		
+		String u_id = (String)session.getAttribute("login");
+		List<CarpoolVO> list = service.myMakeCarpool(u_id);
+		model.addAttribute("list", list);
+		
+		
+		return "/carpool/test";
+	}
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String registerGET(Model model) throws Exception {
@@ -55,8 +65,6 @@ public class CarpoolController {
 		List<Carpool_ListVO> carpoolAll = service.carpoolAll();
 		model.addAttribute("carpoolAll", carpoolAll);
 		
-		List<CarpoolVO> list = service.listAll();
-		model.addAttribute("list", list);
 
 		return "/carpool/list";
 	}
