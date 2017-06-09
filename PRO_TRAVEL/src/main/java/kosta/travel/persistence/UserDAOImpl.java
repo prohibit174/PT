@@ -2,6 +2,7 @@ package kosta.travel.persistence;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
@@ -80,6 +81,11 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public UsersVO checkUserWithSessionKey(String value) {
 		return session.selectOne(namespace + ".checkUserWithSessionKey", value);
+	}
+
+	@Override
+	public List<UsersVO> userAll() throws Exception {
+		return session.selectList(namespace+".userAll");
 	}
 
 	

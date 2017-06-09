@@ -1,20 +1,21 @@
 package kosta.travel.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+
 import javax.servlet.http.HttpSession;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 
 import kosta.travel.domain.CarpoolVO;
+import kosta.travel.domain.Carpool_ListVO;
 import kosta.travel.domain.Carpool_RequestVO;
 import kosta.travel.service.CarpoolService;
 
@@ -24,6 +25,7 @@ public class CarpoolController {
 	
 	@Inject
 	private CarpoolService service;
+	
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String registerGET(Model model) throws Exception {
@@ -49,9 +51,13 @@ public class CarpoolController {
 	}
 	
 	@RequestMapping(value = "/listAll", method = RequestMethod.GET)
-	public String listAll(Model model) throws Exception {
-		model.addAttribute("list", service.listAll());
+	public String listAll(Model model, HttpServletRequest request) throws Exception {
+		List<Carpool_ListVO> carpoolAll = service.carpoolAll();
+		model.addAttribute("carpoolAll", carpoolAll);
 		
+		List<CarpoolVO> list = service.listAll();
+		model.addAttribute("list", list);
+
 		return "/carpool/list";
 	}
 		
@@ -70,6 +76,7 @@ public class CarpoolController {
 		System.out.println(c_num);
 		
 		service.registRequest(carpoolRequest);
+		
 		
 		return "redirect:/mypage/carpoolCheck";
 		

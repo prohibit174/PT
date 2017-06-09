@@ -24,12 +24,11 @@
 		select max(c_num) from car_list
 	</select>
 	
-	<select id = "read" resultType="kosta.travel.domain.CarpoolVO">
-		select c_num,  u_id,  start_point,  dest_point,  way_point,  c_price,
-			c_year,  c_month,  c_date,  c_hour,  c_minute, c_person
-		from
-			car_list
-		where c_num=#{c_num}
+	<select id = "read" resultType="kosta.travel.domain.Carpool_ListVO">
+		select *
+		from car_list c, users u
+		where c.u_id=u.u_id
+		and c_num=#{c_num}
 	</select>
 	
 	<delete id="delete">
@@ -71,5 +70,11 @@
 		cr_ox ='o'
 		where cr_num = #{cr_num}
 	</update>
-
+		
+	<select id = "carpoolAll" resultType = "kosta.travel.domain.Carpool_ListVO">
+		select * 
+		from car_list c, users u
+		where c.u_id=u.u_id
+	
+	</select>
 </mapper>

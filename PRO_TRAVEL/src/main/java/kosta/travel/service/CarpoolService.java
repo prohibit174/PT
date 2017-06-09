@@ -3,13 +3,14 @@ package kosta.travel.service;
 import java.util.List;
 
 import kosta.travel.domain.CarpoolVO;
+import kosta.travel.domain.Carpool_ListVO;
 import kosta.travel.domain.Carpool_RequestVO;
 
 public interface CarpoolService {
 	
 	public void regist(CarpoolVO carpool)throws Exception;
 	
-	public CarpoolVO read(Integer c_num)throws Exception;
+	public Carpool_ListVO read(Integer c_num)throws Exception;
 	
 	public void modify(CarpoolVO carpool)throws Exception;
 	
@@ -18,6 +19,8 @@ public interface CarpoolService {
 	public List<CarpoolVO> listAll() throws Exception;
 	
 	public Integer maxSelect()throws Exception;
+	
+	public List<Carpool_ListVO> carpoolAll() throws Exception;
 	
 	//Mypage
 	public List<CarpoolVO> myMakeCarpool(String u_id)throws Exception;

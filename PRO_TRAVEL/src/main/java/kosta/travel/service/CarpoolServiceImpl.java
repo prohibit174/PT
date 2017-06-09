@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import kosta.travel.domain.CarpoolVO;
+import kosta.travel.domain.Carpool_ListVO;
 import kosta.travel.domain.Carpool_RequestVO;
 import kosta.travel.persistence.CarpoolDAO;
 
@@ -24,7 +25,7 @@ public class CarpoolServiceImpl implements CarpoolService {
 	}
 
 	@Override
-	public CarpoolVO read(Integer c_num) throws Exception {
+	public Carpool_ListVO read(Integer c_num) throws Exception {
 		return dao.read(c_num);
 	}
 
@@ -49,6 +50,12 @@ public class CarpoolServiceImpl implements CarpoolService {
 	public Integer maxSelect() throws Exception {
 		return dao.maxSelect();
 	}
+	
+	@Override
+	public List<Carpool_ListVO> carpoolAll() throws Exception {
+		return dao.carpoolAll();
+	}
+
 	
 	//Mypage
 	public List<CarpoolVO> myMakeCarpool(String u_id) throws Exception{
@@ -77,6 +84,7 @@ public class CarpoolServiceImpl implements CarpoolService {
 		dao.updateRequest(carpoolRequest);
 		
 	}
+
 
 
 

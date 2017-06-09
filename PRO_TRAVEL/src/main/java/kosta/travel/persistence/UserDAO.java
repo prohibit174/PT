@@ -1,6 +1,7 @@
 package kosta.travel.persistence;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 import kosta.travel.domain.UsersVO;
@@ -15,4 +16,5 @@ public interface UserDAO {
 	public Integer userUpdate(UsersVO users) throws Exception;
 	public void keepLogin(String u_id, String sessionId, Date next);
 	public UsersVO checkUserWithSessionKey(String value);
+	public List<UsersVO> userAll()throws Exception;
 }
