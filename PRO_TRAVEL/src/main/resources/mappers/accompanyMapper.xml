@@ -43,6 +43,10 @@
 		)
 	</insert>
 
+	<select id="getTraveler" parameterType="RouteVO" resultType="RouteVO">
+		select * from trip_plan
+	</select>
+
 
 </mapper>
   

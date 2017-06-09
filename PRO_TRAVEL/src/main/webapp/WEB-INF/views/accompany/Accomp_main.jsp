@@ -539,7 +539,7 @@ function searchPeople(){
 						</select>
 						
 						<span class="label">begin</span> 
-						 <select class="label">
+						 <select class="label" name="sdate">
 							<option class="start" style="margin-bottom: 10px">date</option>
 <option value="17/06/01">17/06/01</option>
 <option value="17/06/02">17/06/02</option>
@@ -578,7 +578,7 @@ function searchPeople(){
 						</select> 
 						
 						<span class="label">end</span> 
-						<select  class="label">
+						<select  class="label" name="edate">
 							<option class="destination">date</option>
 							<option value="17/06/01"></option>
 <option value="17/06/01">17/06/01</option>
@@ -690,7 +690,6 @@ function searchPeople(){
 var ct = 0;
 
  $(document).on('click','.appendcp',function() {
-	  /* $(this).parent('div').append('<div class="row" style="font-size: 20px;"><span class="label">Location</span><select class="label"><option class="destination">destination</option></select><select  class="label"><option class="start">departure</option></select><img class="appendcp" src="../resources/images/accompany/plus.png" width="30" height="30"><img class="appendcm" src="../resources/images/accompany/miners.png" width="30" height="30"></div>'); */
 	if(ct <= 0){
 	$(this).parent('div').append('<div class="row destination" style="font-size: 20px;"><span class="label">destination</span><select class="label"><option class="locationName" style="margin-bottom: 10px">name</option></select> <span class="label">begin</span> <select class="label"><option class="start" style="margin-bottom: 10px">date</option></select> <span class="label">end</span> <select  class="label"><option class="destination">date</option></select><img class="appendcp" src="../resources/images/accompany/plus.png" width="30" height="30"><img class="appendcm" src="../resources/images/accompany/miners.png" width="30" height="30"></div>');
 	}else{
@@ -704,12 +703,7 @@ var ct = 0;
  $(document).on('click','.appendcm',function() {
  		console.log($(this).parent('div').attr('class'));
  		ct -= 1;
-	/* 	if(ct >= 2 && $(this).parent('div').attr('class') ==  'row destination'){
-		$(this).parents('div.item-list').sibling('div.stops').eq(ct).remove();
-		
-		}else{ */
 		$(this).parent('div').remove();
-		/* } */
 		
 		
 		console.log("minuse");

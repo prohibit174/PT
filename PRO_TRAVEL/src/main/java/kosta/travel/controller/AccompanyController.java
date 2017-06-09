@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import kosta.travel.domain.RouteList;
+import kosta.travel.domain.SearchTraveler;
 import kosta.travel.service.AccompanyService;
 
 
@@ -86,11 +87,15 @@ public class AccompanyController{
 	
 
 	@RequestMapping(value = "/searchPeople", method=RequestMethod.POST)
-	public void search(RouteList list ,Model model){
-		System.out.println("@@ searchPeople Controller @@");
+	public String getTraveler(SearchTraveler trav,Model model){
 		
+		try {
+			 model.addAttribute("list", service.getTraveler(trav));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
-		
+		return "/accompany/searchTest";
 	}
 	       
 	       	   
