@@ -604,16 +604,16 @@ function searchPeople(){
 var ct = 0;
 ct += 1;
  $(document).on('click','.appendcp',function() {
-	  $(this).parent('div.item-list').append('<div class="row" style="font-size: 20px;"><span class="label">Location</span><select class="destination"><option class="destination">목적지를 지도에 마크하세요</option></select><select  class="start"><option class="start">출발지를 지도에 마크하세요</option></select><img class="appendcp" src="../resources/images/accompany/plus.png" width="30" height="30"><img class="appendcm" src="../resources/images/accompany/miners.png" width="30" height="30"></div>')
+	  $(this).parent('div .item-list').append('<div class="row" style="font-size: 20px;"><span class="label">Location</span><select class="destination"><option class="destination">목적지를 지도에 마크하세요</option></select><select  class="start"><option class="start">출발지를 지도에 마크하세요</option></select><img class="appendcp" src="../resources/images/accompany/plus.png" width="30" height="30"><img class="appendcm" src="../resources/images/accompany/miners.png" width="30" height="30"></div>');
 	console.log("plus");
 });
  
  $(document).on('click','.appendcm',function() {
-		$(this).parent('div.row').remove();
+		$(this).parent('div .row').remove();
 		console.log("minuse");
 });
 </script>
 
-<%@include file="../include/footer.jsp" %> 
+<%@include file="../include/footer.jsp" %>
 </body>
 </html>
