@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -64,7 +65,9 @@ public class MypageCarpoolController {
 	}
 	
 	@RequestMapping(value = "/accept", method = RequestMethod.GET)
-	public String accept(@RequestParam("cr_num") int cr_num) throws Exception {
+	public String accept(Carpool_RequestVO carpoolRequest, @RequestParam("cr_num") int cr_num) throws Exception {
+		System.out.println(cr_num);
+		service.updateRequest(carpoolRequest);
 		
 		return "redirect:/mypage/carpoolCheck";
 	}

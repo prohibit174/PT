@@ -11,9 +11,9 @@
 
 <script type="text/javascript">
 function applyLink(URL){
-	if(confirm("신청하시겠습니까?") == true){
+	if(confirm("Would you accept it?") == true){
 		location.href=URL;
-		alert('신청되었습니다');
+		alert('I accepted it.');
 
 	}
 	else{
@@ -139,7 +139,7 @@ function applyLink(URL){
                 <div class="area">
                     <ul class="medal-box">
                     <li>
-                            <strong><a href="javascript:applyLink('/carpool/reject?cr_num=${carpool_RequestVO.cr_num}')" class="btn-calendar">GO</a></strong>
+                            <strong><a href="javascript:applyLink('/mypage/reject?cr_num=${carpool_RequestVO.cr_num}')" class="btn-calendar">GO</a></strong>
                         </li>
 
    
