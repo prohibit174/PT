@@ -1,6 +1,8 @@
 package kosta.travel.service;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
 
@@ -12,6 +14,7 @@ import org.springframework.stereotype.Service;
 import kosta.travel.domain.AccompanyVO;
 import kosta.travel.domain.RouteList;
 import kosta.travel.domain.RouteVO;
+import kosta.travel.domain.SearchTraveler;
 import kosta.travel.persistence.AccompanyDao;
 
 @Service
@@ -70,4 +73,47 @@ public class AccompanyService {
 	
 	}
 
+	public List<RouteVO> getTraveler(SearchTraveler trav)throws Exception{
+		
+/*		Object obj = trav.getEdate();
+		System.out.println("search service : " + obj.getClass().getName());*/
+		
+		SimpleDateFormat fmt = new SimpleDateFormat("yy/MM/dd"); 
+		
+		Calendar sdate = Calendar.getInstance();
+		sdate.setTime(fmt.parse(trav.getSdate()));
+		sdate.set(Calendar.MILLISECOND, 0);
+
+		
+		Calendar edate = Calendar.getInstance();
+		edate.setTime(fmt.parse(trav.getEdate()));
+		edate.set(Calendar.MILLISECOND, 0);
+		
+		System.out.println("+ 이전 출발연 : "+sdate.get(Calendar.YEAR));
+		System.out.println("+ 이전 출발월 : "+sdate.get(Calendar.MONTH));
+		System.out.println("+ 이전 출발일 : "+sdate.get(Calendar.DATE));
+		
+		List<RouteVO> alltraveler = new ArrayList<RouteVO>();
+		
+		if(sdate == edate){
+			RouteVO route = new RouteVO("", trav.getCity(), "", trav.getSdate());
+			List<RouteVO> traveler = dao.getTraveler(route);
+			return traveler;
+		}else{
+			
+			while(sdate.getTimeInMillis() != edate.getTimeInMillis()){
+				
+				RouteVO route = new RouteVO("", trav.getCity(), "", trav.getSdate());
+				List<RouteVO> traveler = dao.getTraveler(route);
+				
+				alltraveler.addAll(traveler);
+				
+				sdate.add(Calendar.DATE, 1);
+			
+			}
+			return alltraveler;
+		}	
+}
+	
+	
 }

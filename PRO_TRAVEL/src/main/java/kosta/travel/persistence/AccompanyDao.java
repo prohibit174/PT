@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import kosta.travel.domain.AccompanyVO;
 import kosta.travel.domain.RouteVO;
+import kosta.travel.domain.SearchTraveler;
 
 @Repository
 public class AccompanyDao {
@@ -39,6 +40,11 @@ public class AccompanyDao {
 	public void insertRoute(RouteVO route){
 		session.insert(namespace+".insertRoute", route);
 	}
+	
+	public List<RouteVO> getTraveler(RouteVO route){
+		return session.selectList(namespace+".getTraveler", route);
+	}
+
 	
 }
 

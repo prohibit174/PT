@@ -128,7 +128,7 @@
 
 				<div class='box-body' style="background-color: white;">
 
-					<select name="searchType">
+					<select name="searchType" class="searchBox">
 						<option value="n"
 							<c:out value="${cri.searchType == null?'selected':''}"/>>
 							---</option>
@@ -332,11 +332,11 @@
 					$('#searchBtn').on(
 							"click",
 							function(event) {
-
+							/* 	alert($("select.searchBox option:selected").val()); */
 								self.location = "product_list"
 										+ '${pageMaker.makeQuery(1)}'
 										+ "&searchType="
-										+ $("select option:selected").val()
+										+ $("select.searchBox option:selected").val()
 										+ "&keyword=" + $('#keywordInput').val();
 
 							});
