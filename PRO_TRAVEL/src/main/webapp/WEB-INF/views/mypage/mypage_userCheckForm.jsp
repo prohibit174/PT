@@ -166,7 +166,7 @@
 											<td class="value">
 											<picture class="picture">
 										
-									<c:set var="file" value="${userVO.u_img }"></c:set>
+									<c:set var="file" value="${user.u_img }"></c:set>
 									<img src="/resources/upload/${file }" >
 									 
 									<span class="mask"></span>
