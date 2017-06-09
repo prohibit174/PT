@@ -15,7 +15,7 @@
 
     <li class="active">
         <a href="usercheckInfo" data-class="games2014-2" target="">
-           Check My Info
+           My Information
             <!-- <i class="icon-arrow-right">
                 <span class="hide">arrow</span>
             </i> -->
@@ -45,15 +45,15 @@
             </i> -->
         </a>
     </li>
-    <!-- <li class="">
-        <a href="#medals" data-class="games2014-2" target="">
-            Medals
+     <li class="">
+        <a href="withdrawal" data-class="games2014-2" target="">
+            Withdrawal
             <i class="icon-arrow-right">
                 <span class="hide">arrow</span>
             </i>
         </a>
     </li>
-    <li class="">
+    <!--<li class="">
         <a href="#mascots" data-class="games2014-2" target="">
             Mascots
             <i class="icon-arrow-right">

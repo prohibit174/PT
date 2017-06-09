@@ -75,7 +75,8 @@
 <link media="all" rel="stylesheet" type="text/css"
 	href="https://stillres.olympic.org/css/all.css" />
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
+
 
 
   
@@ -100,8 +101,30 @@
   	  if(check) document.location.href="productReq_register?p_num=${product.p_num}";
   	  
 		} 
-  </script>
+  </script> -->
 
+<script>
+$(document).ready(function(){
+	
+	var formObj = $("form[role='form']");
+	
+	console.log(formObj);
+	
+	$(".btn-warning").on("click", function(){
+		formObj.attr("action", "/product/product_update");
+		formObj.attr("method", "get");		
+		formObj.submit();
+	});
+	
+	$("#removeBtn").on("click", function(){
+		formObj.attr("method", "get");
+		formObj.attr("action", "/product/product_delete");
+		formObj.submit();
+	});
+	
+	
+});
+</script>
 	
 
 

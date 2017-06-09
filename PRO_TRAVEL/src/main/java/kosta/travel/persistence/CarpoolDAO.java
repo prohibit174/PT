@@ -28,4 +28,6 @@ public interface CarpoolDAO {
 	public void createRequest(Carpool_RequestVO vo);
 	
 	public Integer maxSelectRequest()throws Exception;
+	
+	public void updateRequest(Carpool_RequestVO vo)throws Exception;
 }

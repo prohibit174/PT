@@ -265,15 +265,15 @@
     	     		 if( accom_sex[index]=='man')
     	     			 gender="<img src='../resources/images/accompany/man.png' width='10' height='10'>"
     	     			 else
-    	     				gender="<img src='/PRO_TRAVEL/main/webapp/resources/images/Accompany/woman.png' width='10' height='10'>"
+    	     				gender="<img src='/resources/images/accompany/woman.png' width='10' height='10'>"
     	     				
     					var newContent=
         	    		     gender
          	    		     +accom_name[index]+'&nbsp'
          	    		  	 +'<br>'
-         	    		     +'<img src="/PRO_TRAVEL/main/webapp/resources/images/Accompany/cal.png" width="10" height="10">'
+         	    		     +'<img src="/resources/images/accompany/cal.png" width="10" height="10">'
              	    		 +accom_tp_date[index]+'<br>'
-             	    	     +'<img src="/PRO_TRAVEL/main/webapp/resources/images/Accompany/age.png" width="10" height="10">'
+             	    	     +'<img src="/resources/images/accompany/age.png" width="10" height="10">'
              	    		 +age+'살'+'<br>'
              	    		 + "<button onclick='showLeftAccom("+index+","+markerIndex+" )' style='font-size:8px'>&lt</button>"  
              	    		 +'<button style="font-size:8px">'+currentCount+'/'+totalCount+'</button>'
@@ -326,17 +326,17 @@ function showLeftAccom(leftIndex, markerIndex){
     	     		 
     	     		 var gender;
     	     		 if( accom_sex[index]=='man')
-    	     			 gender="<img src='../resources/images/accompany/man.png' width='10' height='10'>"
+    	     			 gender="<img src='/resources/images/accompany/man.png' width='10' height='10'>"
     	     			 else
-    	     				gender="<img src='/PRO_TRAVEL/main/webapp/resources/images/Accompany/woman.png' width='10' height='10'>"
+    	     				gender="<img src='/resources/images/accompany/woman.png' width='10' height='10'>"
     	     				
     					var newContent=
         	    		     gender
          	    		     +accom_name[index]+'&nbsp'
          	    		  	 +'<br>'
-         	    		     +'<img src="/PRO_TRAVEL/main/webapp/resources/images/Accompany/cal.png" width="10" height="10">'
+         	    		     +'<img src="/resources/images/accompany/cal.png" width="10" height="10">'
              	    		 +accom_tp_date[index]+'<br>'
-             	    	     +'<img src="/PRO_TRAVEL/main/webapp/resources/images/Accompany/age.png" width="10" height="10">'
+             	    	     +'<img src="/resources/images/accompany/age.png" width="10" height="10">'
              	    		 +age+'살'+'<br>'
              	    		 + "<button onclick='showLeftAccom("+index+","+markerIndex+" )' style='font-size:8px'>&lt</button>"  
              	    		 +'<button style="font-size:8px">'+currentCount+'/'+totalCount+'</button>'
@@ -415,18 +415,18 @@ function showLeftAccom(leftIndex, markerIndex){
         	     		 
         	     		 var gender;
         	     		 if( accom_sex[j]=='man')
-        	     			 gender="<img src='/PRO_TRAVEL/main/webapp/resources/images/Accompany/man.png' width='10' height='10'>"
+        	     			 gender="<img src='/resources/images/accompany/man.png' width='10' height='10'>"
         	     			 else
-        	     				gender="<img src='/PRO_TRAVEL/main/webapp/resources/images/Accompany/woman.png' width='10' height='10'>"
+        	     				gender="<img src='/resources/images/accompany/woman.png' width='10' height='10'>"
         	     			 
         	    		 infowindow[markerIndex] = new google.maps.InfoWindow({
      	    		    content: 
      	    		     gender
      	    		     +accom_name[j]+'&nbsp'
      	    		   +'<br>'
-     	    		    +'<img src="/PRO_TRAVEL/main/webapp/resources/images/Accompany/cal.png" width="10" height="10">'
+     	    		    +'<img src="/resources/images/accompany/cal.png" width="10" height="10">'
          	    		 +accom_tp_date[j]+'<br>'
-         	    	     +'<img src="/PRO_TRAVEL/main/webapp/resources/images/Accompany/age.png" width="10" height="10">'
+         	    	     +'<img src="/resources/images/accompany/age.png" width="10" height="10">'
          	    		 +age+'살'+'<br>'
          	    		 + "<button onclick='showLeftAccom("+j+","+markerIndex+" )' style='font-size:8px'>&lt</button>"  
          	    		 +'<button style="font-size:8px">'+'1'+'/'+totalCount+'</button>'
@@ -519,17 +519,18 @@ function searchPeople(){
 <div class="id-card-box" style="width: 100% ;border: black;">
 	<form
 		action="/accompany/searchPeople"
-		class="calendar-form" style="float: none;" method="post">
+		class="calendar-form" method="post" role="form">
 
-			<div class="item-list" style="width: 90%; padding-right: 30px;">
+			<div class="item-list" style="width: 1000px; padding-right: 30px;">
 					<div class="row" style="font-size: 20px;">
 						<span class="label">Location</span> 
-						 <select class="destination">
-							<option class="destination">목적지를 지도에 마크하세요</option>
+						 <select class="label">
+							<option class="destination" style="margin-bottom: 10px">목적지를 지도에 마크하세요</option>
 						</select> 
-						<select  class="start">
+						<select  class="label">
 							<option class="start">출발지를 지도에 마크하세요</option>
 						</select>
+							<img class="appendcp" src="../resources/images/accompany/plus.png" width="30" height="30">
 					</div>
 					<div class="row" style="font-size: 20px;">
 						<span class="label">Date</span> 
@@ -589,14 +590,29 @@ function searchPeople(){
 							<option value="2019">2019</option>
 						</select> 
 					</div>
-
+					
 
 				</div>
 		<div>
 		<input class="btn-more" type="submit" value="search" style="margin-right: 50%; margin-top: 10px; width: 120px; height: 50px;" />
 		</div>
 	</form>
+	
 	</div>
+	
+<script type="text/javascript">
+var ct = 0;
+ct += 1;
+ $(document).on('click','.appendcp',function() {
+	  $(this).parent('div .item-list').append('<div class="row" style="font-size: 20px;"><span class="label">Location</span><select class="destination"><option class="destination">목적지를 지도에 마크하세요</option></select><select  class="start"><option class="start">출발지를 지도에 마크하세요</option></select><img class="appendcp" src="../resources/images/accompany/plus.png" width="30" height="30"><img class="appendcm" src="../resources/images/accompany/miners.png" width="30" height="30"></div>');
+	console.log("plus");
+});
+ 
+ $(document).on('click','.appendcm',function() {
+		$(this).parent('div .row').remove();
+		console.log("minuse");
+});
+</script>
 
 <%@include file="../include/footer.jsp" %>
 </body>

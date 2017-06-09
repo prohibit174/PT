@@ -55,7 +55,7 @@ function changePW(){
                                     <span class="txt" onclick="">* 필수 입력 사항</span>
                                 </div>
                                 <div class="row">
-									<button>회원이 아니신 분은 <a href="#"> '여기' </a>를 클릭해서 가입하실 수 있습니다.</button>
+									<button>회원이 아니신 분은 <a href="/join/joinform"> '여기' </a>를 클릭해서 가입하실 수 있습니다.</button>
                                    
                                 </div>
                                 <div class="row">

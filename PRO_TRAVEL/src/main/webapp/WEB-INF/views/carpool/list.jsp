@@ -70,7 +70,7 @@ function applyLink(URL){
 <span class="mask"></span>
 </picture>
         <div class="area">
-            <strong class="name">${carpoolVO.u_id }</strong>
+            <strong class="name">${carpoolVO.u_id } </strong>
         </div>
     </a>
                 </div>

@@ -3,10 +3,12 @@ package kosta.travel.controller;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -34,13 +36,14 @@ public class MypageCarpoolController {
 	}
 	
 	@RequestMapping(value = "/read", method = RequestMethod.GET)
-	public String read(@RequestParam("c_num") int c_num, Model model) throws Exception {
+	public String read(@RequestParam("c_num") int c_num, Model model, HttpServletRequest request) throws Exception {
 		model.addAttribute(service.read(c_num));
 		
 		
 		List<Carpool_RequestVO> list = service.myMakeRequest(c_num);
 		model.addAttribute("list", list);
-		
+		String u_name = request.getParameter("u_name");
+		model.addAttribute("u_name", u_name);
 		return "/mypage/mypage_carpoolRead";
 	}
 	
@@ -64,7 +67,9 @@ public class MypageCarpoolController {
 	}
 	
 	@RequestMapping(value = "/accept", method = RequestMethod.GET)
-	public String accept(@RequestParam("cr_num") int cr_num) throws Exception {
+	public String accept(Carpool_RequestVO carpoolRequest, @RequestParam("cr_num") int cr_num) throws Exception {
+		System.out.println(cr_num);
+		service.updateRequest(carpoolRequest);
 		
 		return "redirect:/mypage/carpoolCheck";
 	}
