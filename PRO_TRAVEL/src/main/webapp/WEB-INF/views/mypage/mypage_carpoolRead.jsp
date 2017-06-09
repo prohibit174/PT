@@ -26,35 +26,36 @@ function applyLink(URL){
 	<h3>Detail</h3>
 	<table border="1">
 		<tr height="30">
-			<td width="150">Carpool Num</td>
-			<td width="150">User ID</td>
+			<td width="150">Driver</td>
 			<td width="150">Price</td>
-			<td width="150">Seat</td>
+			<td width="150">Empty Seat</td>
 		</tr>
 		 <tr height="30">
-			<td width="150">${carpoolVO.c_num }</td>
-			<td width="150">${carpoolVO.u_id }</td>
-			<td width="150">${carpoolVO.c_price }</td>
-			<td width="150">${carpoolVO.c_person }</td>
+			<td width="150">${carpool_ListVO.u_name }</td>
+			<td width="150">${carpool_ListVO.c_price }$</td>
+			<td width="150">${carpool_ListVO.c_person }</td>
 		</tr>			
 		<tr height="30">
 			<td width="150">출발지</td>
-			<td colspan="3">
-			<!--파일이름으로 download.jsp로 전달  -->
-				<a href="download.jsp?filename=${carpoolVO.start_point }">${board.b_fname }</a>
+			<td colspan="3">${carpool_ListVO.start_point }</td>
 			</td>			
 		</tr>
 		<tr height="30">
 			<td width="150">목적지</td>
-			<td colspan="3">${carpoolVO.way_point }</td>			
+			<td colspan="3">${carpool_ListVO.way_point }</td>			
 		</tr>
-		<tr height="30">			
-			<td colspan="4">${carpoolVO.c_year }년${carpoolVO.c_month }월${carpoolVO.c_date }일</td>			
+		<tr height="30">
+			<td width="150">도착지</td>
+			<td colspan="3">${carpool_ListVO.dest_point }</td>			
+		</tr>
+		<tr height="30">
+			<td width="150">출발시간</td>
+			<td colspan="3">${carpool_ListVO.c_year }년${carpool_ListVO.c_month }월${carpool_ListVO.c_date }일</td>			
 		</tr>
 		<tr height="30">			
 			<td colspan="4">
-				<input type="button" value="Modify" onclick="location.href='/mypage/modify?c_num=${carpoolVO.c_num } '">
-				<input type="button" value="Remove" onclick="location.href='/mypage/remove?c_num=${carpoolVO.c_num } '">
+				<input type="button" value="Modify" onclick="location.href='/mypage/modify?c_num=${carpool_ListVO.c_num } '">
+				<input type="button" value="Remove" onclick="location.href='/mypage/remove?c_num=${carpool_ListVO.c_num } '">
 			</td>			
 		</tr>
 	</table>
