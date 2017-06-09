@@ -137,6 +137,8 @@ $(document).ready(function(){
     <input type='hidden' name='p_num' value ="${product.p_num}">
     <input type='hidden' name='page' value ="${cri.page}">
     <input type='hidden' name='perPageNum' value ="${cri.perPageNum}">
+    <input type='hidden' name='searchType' value="${cri.searchType}">
+	<input type='hidden' name='keyword' value="${cri.keyword}">
     
  </form>   
 
