@@ -7,8 +7,8 @@
 <title>프로 동행러</title>
 </head>
 <body>
-<div id="sidebar">
-  <section class="tabs-section alt" id="tabsSection" >
+<span id="sidebar">
+  <span class="tabs-section alt" id="tabsSection" >
         <nav>
             <div class="tabset-box">
                 <ul class="tabset">
@@ -48,9 +48,9 @@
      <li class="">
         <a href="withdrawal" data-class="games2014-2" target="">
             Withdrawal
-            <i class="icon-arrow-right">
+            <!-- <i class="icon-arrow-right">
                 <span class="hide">arrow</span>
-            </i>
+            </i> -->
         </a>
     </li>
     <!--<li class="">
@@ -93,7 +93,7 @@
                 <div id="highlights-of-the-games">
 
 </div>
-    <section class="text-post" itemscope itemtype="http://schema.org/NewsArticle" >
-</div>
+    <span class="text-post" itemscope itemtype="http://schema.org/NewsArticle" >
+</span>
 </body>
 </html>
