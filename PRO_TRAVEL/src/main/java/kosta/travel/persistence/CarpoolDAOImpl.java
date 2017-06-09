@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import kosta.travel.domain.CarpoolVO;
+import kosta.travel.domain.Carpool_ListVO;
 import kosta.travel.domain.Carpool_RequestVO;
 
 @Repository
@@ -27,7 +28,7 @@ public class CarpoolDAOImpl implements CarpoolDAO {
 	}
 
 	@Override
-	public CarpoolVO read(Integer c_num) throws Exception {
+	public Carpool_ListVO read(Integer c_num) throws Exception {
 		return session.selectOne(namespace+".read", c_num);
 	}
 
@@ -51,6 +52,11 @@ public class CarpoolDAOImpl implements CarpoolDAO {
 	@Override
 	public Integer maxSelect() throws Exception {
 		return session.selectOne(namespace+".maxSelect");
+	}
+	
+	@Override
+	public List<Carpool_ListVO> carpoolAll() throws Exception {
+		return session.selectList(namespace+".carpoolAll");
 	}
 
 	
@@ -83,6 +89,8 @@ public class CarpoolDAOImpl implements CarpoolDAO {
 		session.update(namespace+".updateRequest", vo);
 		
 	}
+
+
 
 
 

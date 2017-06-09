@@ -18,4 +18,5 @@ public interface UserService {
 	public void keepLogin(String u_id, String sessionId, Date next) throws Exception;
 	public UsersVO checkLoginBefore(String value);
 	public List<UsersVO> userAll()throws Exception;
+	public void userWithdrawal(UsersVO users) throws Exception;
 }

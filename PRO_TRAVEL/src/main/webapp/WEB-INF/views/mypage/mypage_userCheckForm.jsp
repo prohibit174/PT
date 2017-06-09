@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -156,6 +159,18 @@
 											<td class="value">
 											${user.u_style }
 											</td>
+										</tr>
+										
+										<tr>
+											<td class="label"><label for="u_img">프로필 사진</label></td>
+											<td class="value">
+											<picture class="picture">
+										
+									<c:set var="file" value="${user.u_img }"></c:set>
+									<img src="/resources/upload/${file }" >
+									 
+									<span class="mask"></span>
+									</picture>
 										</tr>
 									</table>
 								</div>

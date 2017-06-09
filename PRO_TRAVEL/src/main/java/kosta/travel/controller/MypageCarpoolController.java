@@ -8,11 +8,10 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 
 import kosta.travel.domain.CarpoolVO;
 import kosta.travel.domain.Carpool_RequestVO;
@@ -42,8 +41,7 @@ public class MypageCarpoolController {
 		
 		List<Carpool_RequestVO> list = service.myMakeRequest(c_num);
 		model.addAttribute("list", list);
-		String u_name = request.getParameter("u_name");
-		model.addAttribute("u_name", u_name);
+
 		return "/mypage/mypage_carpoolRead";
 	}
 	
@@ -74,6 +72,5 @@ public class MypageCarpoolController {
 		return "redirect:/mypage/carpoolCheck";
 	}
 	
-
 
 }

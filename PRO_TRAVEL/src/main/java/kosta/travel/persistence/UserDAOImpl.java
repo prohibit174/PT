@@ -88,6 +88,11 @@ public class UserDAOImpl implements UserDAO {
 		return session.selectList(namespace+".userAll");
 	}
 
+	@Override
+	public Integer userWithdrawal(UsersVO users) throws Exception {
+		return session.update(namespace+".userWithdrawal", users);
+	}
+
 	
 	
 }

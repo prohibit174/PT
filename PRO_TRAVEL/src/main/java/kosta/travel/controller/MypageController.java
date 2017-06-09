@@ -79,8 +79,8 @@ public class MypageController {
 		return "/mypage/mypage_userWithdrawal";
 	}
 	
-	@RequestMapping(value = "/Withdrawal", method=RequestMethod.POST)
-	public String withdrawl(HttpSession session, HttpServletRequest request, @RequestParam("u_pwd") String u_pwd, Model model) throws Exception{
+	@RequestMapping(value = "/withdrawal", method=RequestMethod.POST)
+	public String withdrawal(HttpSession session, HttpServletRequest request, @RequestParam("u_pwd") String u_pwd) throws Exception{
 		String u_id = (String)session.getAttribute("login");
 		UsersVO users = userService.userDetail(u_id);
 		//get user information
@@ -93,5 +93,16 @@ public class MypageController {
 			return "/mypage/mypage_failCheckPW";
 		}
 		
+	}
+	
+	@RequestMapping(value="/reallyLeave", method=RequestMethod.POST)
+	public String doneWithdrawal(HttpSession session, HttpServletRequest request) throws Exception{
+		String u_id = (String)session.getAttribute("login");
+		UsersVO users = userService.userDetail(u_id);
+		
+		userService.userWithdrawal(users);
+		System.out.println(users.getU_pwd());
+		
+		return "redirect:/logout";
 	}
 }

@@ -11,9 +11,155 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
+<style>
+@CHARSET "EUC-KR";
+
+
+
+
+
+.wrapper {
+  margin: 0 auto;
+  padding: 40px;
+  max-width: 800px;
+}
+
+.table {
+  margin: 0 0 40px 0;
+  width: 100%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  display: table;
+}
+@media screen and (max-width: 580px) {
+  .table {
+    display: block;
+  }
+}
+
+.row {
+  display: table-row;
+  background: #f6f6f6;
+}
+.row:nth-of-type(odd) {
+  background: #e9e9e9;
+}
+.row.header {
+  font-weight: 900;
+  color: #ffffff;
+  background: #ea6153;
+}
+.row.green {
+  background: #27ae60;
+}
+.row.blue {
+  background: #2980b9;
+}
+@media screen and (max-width: 580px) {
+  .row {
+    padding: 8px 0;
+    display: block;
+  }
+}
+
+.cell {
+  padding: 6px 12px;
+  display: table-cell;
+}
+@media screen and (max-width: 580px) {
+  .cell {
+    padding: 2px 12px;
+    display: block;
+  }
+}
+
+</style>
 </head>
 <body>
-<section class="results ajax-area" data-tmpl="athleteResults_tmpl">
+
+
+
+<div class="wrapper">
+  <h2>MY CARPOOL</h2>
+  <div class="table">
+    
+    <div class="row header">
+      <div class="cell">
+        날짜
+      </div>
+      <div class="cell">
+        도시
+      </div>
+      <div class="cell">
+        남은좌석
+      </div>
+      <div class="cell">
+        가격
+      </div>
+      <div class="cell">
+        Detail
+      </div>
+    </div>
+    <c:forEach items="${list}" var="carpoolVO">
+    
+    <div class="row">
+      <div class="cell">
+        ${carpoolVO.c_year } ${carpoolVO.c_month } ${carpoolVO.c_date }
+      </div>
+      <div class="cell">
+        ${carpoolVO.start_point } -> ${carpoolVO.way_point } -> ${carpoolVO.dest_point }
+      </div>
+      <div class="cell">
+        ${carpoolVO.c_person }
+      </div>
+      <div class="cell">
+        ${carpoolVO.c_price }
+      </div>
+      <div class="cell">
+        <strong><a href = '/mypage/read?c_num=${carpoolVO.c_num }'> Go </a></strong>
+      </div>
+    </div>
+    </c:forEach>
+  </div>
+  
+  <h2>REQUEST CARPOOL</h2>
+    <div class="table">
+    
+    <div class="row header blue">
+      <div class="cell">
+        Username
+      </div>
+      <div class="cell">
+        Email
+      </div>
+      <div class="cell">
+        Password
+      </div>
+      <div class="cell">
+        Active
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="cell">
+        ninjalug
+      </div>
+      <div class="cell">
+        misterninja@hotmail.com
+      </div>
+      <div class="cell">
+        ************
+      </div>
+      <div class="cell">
+        Yes
+      </div>
+    </div>
+    
+  </div>
+  
+  </div>
+
+
+<%-- <section class="results ajax-area" data-tmpl="athleteResults_tmpl">
         <div class="heading">
             <h2>MY CARPOOL</h2>
             <ul class="add-links">
@@ -43,7 +189,7 @@
                 </div>
                 <div class="td col1">
 
-    <%-- <a href = '/mypage/read?c_num=${carpoolVO.c_num }'> --%>
+    <a href = '/mypage/read?c_num=${carpoolVO.c_num }'>
 <picture class="picture">
 
 
@@ -59,7 +205,7 @@
         </div>
     </a>
                 </div>
-                <div class="td col2">
+                <div class="td col5">
 
         <div class="area">
             <strong>Start : ${carpoolVO.start_point }</strong><br>
@@ -96,7 +242,7 @@
         </ul>
         
 
-    </section>
+    </section> --%>
     
     
 

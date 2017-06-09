@@ -74,8 +74,10 @@
 	href="https://stillres.olympic.org/css/modules.css" />
 <link media="all" rel="stylesheet" type="text/css"
 	href="https://stillres.olympic.org/css/all.css" />
+	
+	
 
-<!-- <script type="text/javascript">
+ <script type="text/javascript">
 
 
 
@@ -101,9 +103,9 @@
   	  if(check) document.location.href="productReq_register?p_num=${product.p_num}";
   	  
 		} 
-  </script> -->
+  </script> 
 
-<script>
+<!-- <script>
 $(document).ready(function(){
 	
 	var formObj = $("form[role='form']");
@@ -124,7 +126,7 @@ $(document).ready(function(){
 	
 	
 });
-</script>
+</script> -->
 	
 
 
@@ -137,6 +139,8 @@ $(document).ready(function(){
     <input type='hidden' name='p_num' value ="${product.p_num}">
     <input type='hidden' name='page' value ="${cri.page}">
     <input type='hidden' name='perPageNum' value ="${cri.perPageNum}">
+    <input type='hidden' name='searchType' value="${cri.searchType}">
+	<input type='hidden' name='keyword' value="${cri.keyword}">
     
  </form>   
 
@@ -198,7 +202,11 @@ $(document).ready(function(){
 				
 			<div class="row">
 						<c:choose>
-					       <c:when test="${id == product.u_id}">
+					        <c:when test="${id == product.u_id}">
+					       <!-- <button name="submit" id="validate_order" type="submit"
+								class="primaryAction">
+								<span>Register</span>  -->
+								
 						 <button type="submit" class="btn btn-warning" id="modifyBtn" onclick="btn_js_update_click()">수정</button>
 						 <button type="submit" class="btn btn-danger" id="removeBtn" onclick="btn_js_delete_click()">삭제</button> 		 
 							</c:when>
