@@ -1,6 +1,7 @@
 package kosta.travel.service;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -55,6 +56,11 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public UsersVO checkLoginBefore(String value) {
 		return dao.checkUserWithSessionKey(value);
+	}
+
+	@Override
+	public List<UsersVO> userAll() throws Exception {
+		return dao.userAll();
 	}
 	
 	

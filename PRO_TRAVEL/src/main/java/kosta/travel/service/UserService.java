@@ -1,6 +1,7 @@
 package kosta.travel.service;
 
 import java.util.Date;
+import java.util.List;
 
 import kosta.travel.domain.UsersVO;
 import kosta.travel.dto.LoginDTO;
@@ -16,4 +17,5 @@ public interface UserService {
 	public void userUpdate(UsersVO users)throws Exception;
 	public void keepLogin(String u_id, String sessionId, Date next) throws Exception;
 	public UsersVO checkLoginBefore(String value);
+	public List<UsersVO> userAll()throws Exception;
 }

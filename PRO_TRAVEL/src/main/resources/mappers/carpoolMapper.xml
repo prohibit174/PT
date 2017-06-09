@@ -70,6 +70,7 @@
 		update car_request set 
 		cr_ox ='o'
 		where cr_num = #{cr_num}
+		
 	</update>
 
 </mapper>
