@@ -202,7 +202,7 @@ $(document).ready(function(){
 				
 			<div class="row">
 						<c:choose>
-					        <c:when test="${id == product.u_id}">
+					        <c:when test="${(id == product.u_id) || (id == 'admin')}">
 					       <!-- <button name="submit" id="validate_order" type="submit"
 								class="primaryAction">
 								<span>Register</span>  -->
