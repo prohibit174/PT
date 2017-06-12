@@ -31,6 +31,7 @@ public class CarpoolTest {
 	private String cr_ox;
 	private String c_u_id;
 	private String cr_u_id;
+	private String c_u_name;
 	
 	public CarpoolTest(){}
 
@@ -38,7 +39,7 @@ public class CarpoolTest {
 			int c_year, int c_month, int c_date, String c_hour, int c_minute, int c_person, String u_pwd, String u_name,
 			String u_birth, String u_sex, String u_address, String u_job, String u_lang, String u_religion,
 			String u_license, String u_u_img, String u_style, MultipartFile img_file, int cr_num, String cr_ox,
-			String c_u_id, String cr_u_id) {
+			String c_u_id, String cr_u_id, String c_u_name) {
 		super();
 		this.c_num = c_num;
 		this.u_id = u_id;
@@ -68,6 +69,7 @@ public class CarpoolTest {
 		this.cr_ox = cr_ox;
 		this.c_u_id = c_u_id;
 		this.cr_u_id = cr_u_id;
+		this.c_u_name = c_u_name;
 	}
 
 	public int getC_num() {
@@ -293,6 +295,15 @@ public class CarpoolTest {
 	public void setCr_u_id(String cr_u_id) {
 		this.cr_u_id = cr_u_id;
 	}
+
+	public String getC_u_name() {
+		return c_u_name;
+	}
+
+	public void setC_u_name(String c_u_name) {
+		this.c_u_name = c_u_name;
+	}
+	
 	
 	
 	

@@ -77,9 +77,9 @@ public class ProductDAOImpl implements ProductDAO {
 	}
 
 	@Override
-	public int updateAccept(Product_RequestVO proReq) {
-		// TODO Auto-generated method stub
-		return 0;
+	public void updateAccept(Product_RequestVO proReq) {
+		session.update(namespace+".updateAccept", proReq);
+				
 	}
 
 	@Override

@@ -22,6 +22,6 @@ public interface ProductService {
 	public int listCountCriteria(Criteria cri)throws Exception;
 	public List<ProductVO> listSearchCriteria(SearchCriteria cri)throws Exception;
 	public int listSearchCount(SearchCriteria cri)throws Exception;
-	
+	public void updateAccept(Product_RequestVO proReq)throws Exception;
 	
 }

@@ -64,7 +64,8 @@
 	
 			<!-- 조인해서 신청한 리스트 뽑아오는 쿼리문(신청리스트에 운전자 이름, 운전자사진 보여주기위해) -->
  	<select id = "requestAll" resultType = "kosta.travel.domain.CarpoolTest">
-		select c.u_id as c_u_id ,cr.u_id as cr_u_id, u.u_img as u_u_img, cr.cr_num as cr_num
+		select c.u_id as c_u_id ,cr.u_id as cr_u_id, u.u_img as u_u_img, cr.cr_num as cr_num,
+		u.u_name as c_u_name, c_month, c_date, c_year, c_hour, c_minute, cr_ox, start_point
 		from car_list c,  car_request cr, users u
 		where c.c_num = cr.c_num
 		and c.u_id = u.u_id

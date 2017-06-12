@@ -22,7 +22,7 @@ public interface ProductDAO {
 	public List<Product_RequestVO> listProductRequest(String u_id)throws Exception;
 	public int countProduct(Product_SearchVO proSearch)throws Exception;
 	public List<ProductVO> listProduct(Product_SearchVO proSearch)throws Exception;
-	public int updateAccept(Product_RequestVO proReq)throws Exception;
+	public void updateAccept(Product_RequestVO proReq)throws Exception;
 	public List<Product_RequestVO> listNotAceept()throws Exception;
 	public List<ProductVO> listCriteria(Criteria cri)throws Exception;
 	public int countPaging(Criteria cri)throws Exception;
