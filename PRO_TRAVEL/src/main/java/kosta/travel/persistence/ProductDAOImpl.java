@@ -77,9 +77,9 @@ public class ProductDAOImpl implements ProductDAO {
 	}
 
 	@Override
-	public int updateAccept(Product_RequestVO proReq) {
-		// TODO Auto-generated method stub
-		return 0;
+	public void updateAccept(Product_RequestVO proReq) {
+		session.update(namespace+".updateAccept", proReq);
+				
 	}
 
 	@Override
@@ -109,6 +109,11 @@ public class ProductDAOImpl implements ProductDAO {
 	@Override
 	public int listSearchCount(SearchCriteria cri) throws Exception {
 		return session.selectOne(namespace+ ".listSearchCount", cri);
+	}
+
+	@Override
+	public List<Product_RequestVO> listProductAccept(String u_id) throws Exception {
+		return session.selectList(namespace+".listProductAccept", u_id );
 	}
 
 	

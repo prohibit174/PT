@@ -84,4 +84,15 @@ public class ProductServiceImpl implements ProductService {
 		return dao.listSearchCount(cri);
 	}
 
+	@Override
+	public List<Product_RequestVO> listProductAccept(String u_id) throws Exception {
+		return dao.listProductAccept(u_id);
+	}
+
+	@Override
+	public void updateAccept(Product_RequestVO proReq) throws Exception {
+		dao.updateAccept(proReq);
+		
+	}
+
 }

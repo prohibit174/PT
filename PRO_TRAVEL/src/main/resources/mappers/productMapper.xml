@@ -83,12 +83,28 @@
 	<select id="listProductRequest" resultType="Product_RequestVO"
 		parameterType="String">
 
-		select * 
-		from product_req 
-		where p_num IN (select p_num from product where u_id = #{u_id})
-	    AND pr_ox='x'
+		select *
+		from product_req
+		where p_num IN (select p_num
+		from product where u_id = #{u_id})
+		AND pr_ox='x'
 
 	</select>
+
+	<select id="listProductAccept" resultType="Product_RequestVO"
+		parameterType="String">
+		select *
+		from product_req
+		where p_num IN (select p_num from product where u_id = #{u_id})
+		AND
+		pr_ox='o'
+	</select>
+
+
+	<update id="updateAccept" parameterType="Product_RequestVO">
+		UPDATE product_req SET pr_ox='o'
+		WHERE pr_reqnum = #{pr_reqnum}
+	</update>
 
 
 
@@ -98,7 +114,7 @@
 			<if test="searchType == 't'.toString()">
 				and p_name like '%'|| #{keyword}||'%'
 			</if>
-		 	<if test="searchType == 'c'.toString()">
+			<if test="searchType == 'c'.toString()">
 				and p_detail like '%'|| #{keyword}||'%'
 			</if>
 			<if test="searchType == 'w'.toString()">
@@ -121,7 +137,7 @@
 				'%'|| #{keyword}||'%'
 				OR
 				u_id like '%'|| #{keyword}||'%')
-			</if> 
+			</if>
 		</if>
 	</sql>
 
@@ -152,7 +168,7 @@
 		<include refid="search"></include>
 
 	</select>
-	
+
 
 
 

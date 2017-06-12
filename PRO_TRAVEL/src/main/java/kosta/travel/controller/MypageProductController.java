@@ -27,6 +27,7 @@ public class MypageProductController {
 		
 		String u_id = (String)session.getAttribute("login");
 		model.addAttribute("list", service.listProductRequest(u_id));
+		model.addAttribute("list_o", service.listProductAccept(u_id));
 		
 		List<Product_RequestVO> list = service.listProductRequest(u_id);
 		for(int i=0;i<list.size();i++){
@@ -35,5 +36,27 @@ public class MypageProductController {
 		
 		return "/mypage/mypage_productRequest";
 	}
+	
+	@RequestMapping(value="/product_requestAccept", method=RequestMethod.GET)
+	public String product_requestAccept(Model model, Product_RequestVO proReq, HttpSession session) throws Exception{
+		System.out.println("product_requestAccept method call");
+		
+		String u_id = (String)session.getAttribute("login");
+		service.updateAccept(proReq);
+		
+		/*model.addAttribute("list_o", service.listProductAccept(u_id));*/
+
+		/*
+		List<Product_RequestVO> list = service.listProductRequest(u_id);
+		for(int i=0;i<list.size();i++){
+			System.out.println(list.get(i).getPr_reqnum());
+		}
+		*/
+		return "redirect:/mypage/product_request";
+	}
+	
+	
+	
+	
 
 }
