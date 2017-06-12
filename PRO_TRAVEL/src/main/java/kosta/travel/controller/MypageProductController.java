@@ -27,6 +27,7 @@ public class MypageProductController {
 		
 		String u_id = (String)session.getAttribute("login");
 		model.addAttribute("list", service.listProductRequest(u_id));
+		model.addAttribute("list_o", service.listProductAccept(u_id));
 		
 		List<Product_RequestVO> list = service.listProductRequest(u_id);
 		for(int i=0;i<list.size();i++){
