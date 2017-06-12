@@ -64,6 +64,7 @@ function btn_js_accept_click(URL){
 
 	<section class="results ajax-area" data-tmpl="athleteResults_tmpl"
 		style="margin-left:300px; padding-top: 20px;">
+		<div class="content1">
 	<div class="heading">
 		<h2>REQUESTED LIST</h2>
 		<ul class="add-links">
@@ -72,7 +73,7 @@ function btn_js_accept_click(URL){
 	</div>
 
 		<ul class="table2 ajax-content">
-			<li>
+			<li >
 				<div class="th col-first">REQNUM</div>
 				<div class="th col1">USER_ID</div>
 				<div class="th col2">PRODUCT_NAME</div>
@@ -104,6 +105,7 @@ function btn_js_accept_click(URL){
 			요청 목록이 없습니다.
 		</c:if>
 					</li>
+					</div>
 					
 			
 	
