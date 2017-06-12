@@ -18,7 +18,7 @@ import kosta.travel.service.UserService;
 
 @Controller
 @RequestMapping("/mypage/*")
-public class MypageController {
+public class MypageUserController {
 
 	@Inject
 	UserService userService;

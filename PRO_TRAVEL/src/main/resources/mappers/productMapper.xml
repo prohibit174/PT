@@ -83,9 +83,10 @@
 	<select id="listProductRequest" resultType="Product_RequestVO"
 		parameterType="String">
 
-		select * from product_req where p_num IN (select p_num
-		from product where
-		u_id = #{u_id})
+		select * 
+		from product_req 
+		where p_num IN (select p_num from product where u_id = #{u_id})
+	    AND pr_ox='x'
 
 	</select>
 
@@ -151,6 +152,8 @@
 		<include refid="search"></include>
 
 	</select>
+	
+
 
 
 

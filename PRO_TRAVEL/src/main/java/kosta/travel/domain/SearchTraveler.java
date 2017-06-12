@@ -4,6 +4,9 @@ public class SearchTraveler {
 	private String city;
 	private String sdate;
 	private String edate;
+	private String u_id;
+	
+	
 	public String getCity() {
 		return city;
 	}
@@ -22,11 +25,19 @@ public class SearchTraveler {
 	public void setEdate(String edate) {
 		this.edate = edate;
 	}
+	
+	public String getU_id() {
+		return u_id;
+	}
+	public void setU_id(String u_id) {
+		this.u_id = u_id;
+	}
 	@Override
 	public String toString() {
-		return "SearchTraveler [city=" + city + ", sdate=" + sdate + ", edate=" + edate + "]";
+		return "SearchTraveler [city=" + city + ", sdate=" + sdate + ", edate=" + edate + ", u_id=" + u_id + "]";
 	}
 
+	
 	
 	
 	

@@ -521,7 +521,7 @@ function searchPeople(){
 			<div class="item-list" style="width: 1400px; padding-right: 30px;">
 					<div class="row depature" style="font-size: 20px;">
 						<span class="label">departure</span>
-						 <select class="city">
+						 <select class="city" name="city">
 							<option class="locationName" style="margin-bottom: 10px">name</option>
 						<option value="Zurich">Zurich</option>
 <option value="Paris">Paris</option>
