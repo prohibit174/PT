@@ -12,7 +12,12 @@
 <body>
 
 <c:forEach var="list" items="${list}">
-<h3>${list.tp_num}</h3>
+<ul>
+<li><h3>${list.cor_region}</h3></li>
+<li><h3>${list.u_id}</h3></li>
+<li><h3>${list.tp_num}</h3></li>
+<li><h3>${list.tp_date}</h3></li>
+</ul>
 </c:forEach>
 
 </body>
