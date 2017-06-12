@@ -89,4 +89,10 @@ public class ProductServiceImpl implements ProductService {
 		return dao.listProductAccept(u_id);
 	}
 
+	@Override
+	public void updateAccept(Product_RequestVO proReq) throws Exception {
+		dao.updateAccept(proReq);
+		
+	}
+
 }
