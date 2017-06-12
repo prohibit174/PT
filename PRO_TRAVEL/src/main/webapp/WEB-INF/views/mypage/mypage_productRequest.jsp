@@ -91,15 +91,15 @@ function btn_js_accept_click(URL){
 					<div class="th col2">${Product_RequestVO.pr_place}</div>
 					<div class="th col3">${Product_RequestVO.pr_date}</div>
 					<div class="th col5">${Product_RequestVO.pr_ox}</div>
-				</c:forEach>
+				
 
 				<td align="center"><input type="button" value="수락"
 					class="nlogin_btn"
-					onclick="javascript:btn_js_accept_click('updateAcceptAction.mypage?pr_reqnum=${product_req.pr_reqnum }')"></td>
+					onclick="javascript:btn_js_accept_click('/mypage/product_requestAccept?pr_reqnum=${Product_RequestVO.pr_reqnum }')"></td>
 				<td align="center"><input type="button" value="거절"
 					onclick="location.href='carpoolDelete.mypage?c_num=${carpool.c_num } '"
 					class="nlogin_btn"></td>
-					
+					</c:forEach>
 					 <c:if test="${empty list}">
 			요청 목록이 없습니다.
 		</c:if>
