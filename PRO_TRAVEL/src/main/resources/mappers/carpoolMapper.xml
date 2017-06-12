@@ -35,7 +35,7 @@
 		delete from car_list where c_num = #{c_num}
 	</delete>
 	
-	<update id="update">
+	<update id="modify">
 		update car_list set c_year =#{c_year},
 		 c_month =#{c_month},
 		 c_date =#{c_date},
@@ -51,10 +51,28 @@
 	select * from car_list where u_id=#{u_id} order by c_num desc
 	</select> 
 	
+	<!-- 내가 만든 카풀리스트에 참가한 사람들보는 쿼리 -->
 	<select id="myMakeRequest" resultType="kosta.travel.domain.Carpool_RequestVO">
 		select * from car_request where c_num=#{c_num}
 		order by cr_num desc
 	</select>
+	
+	<!-- 내가 신청한 카풀들 목록 조회하는 쿼리 -->
+	<select id = "myRequest" resultType = "kosta.travel.domain.Carpool_RequestVO">
+		select * from car_request where u_id=#{u_id} order by cr_num desc
+	</select>
+	
+			<!-- 조인해서 신청한 리스트 뽑아오는 쿼리문(신청리스트에 운전자 이름, 운전자사진 보여주기위해) -->
+ 	<select id = "requestAll" resultType = "kosta.travel.domain.CarpoolTest">
+		select c.u_id as c_u_id ,cr.u_id as cr_u_id, u.u_img as u_u_img, cr.cr_num as cr_num
+		from car_list c,  car_request cr, users u
+		where c.c_num = cr.c_num
+		and c.u_id = u.u_id
+		
+		and 	cr.u_id =#{cr.u_id}
+		
+	
+	</select> 
 	
 	<!-- Request -->
 	<insert id="createRequest">
@@ -70,12 +88,20 @@
 		cr_ox ='o'
 		where cr_num = #{cr_num}
 	</update>
+	
+	<update id="updatePerson">
+		update car_list 
+		set cr_person = cr_person-1
+		where c_num = #{c_num}
+	</update>	
 		
+		<!-- 조인해서 리스트 뽑아오는 쿼리문(카풀리스트에 유저사진 보여주기위해) -->
 	<select id = "carpoolAll" resultType = "kosta.travel.domain.Carpool_ListVO">
 		select * 
 		from car_list c, users u
 		where c.u_id=u.u_id
+		and c_person>0
 		order by c_num desc
 	
 	</select>
-</mapper>
+</mapper>	

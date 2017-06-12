@@ -84,8 +84,8 @@
       <div class="cell">PRICE</div>
       <div class="cell">Detail</div>
     </div>
-    <c:forEach items="${list}" var="carpoolVO">
     
+    <c:forEach items="${list}" var="carpoolVO">
     <div class="row">
       <div class="cell">
         ${carpoolVO.c_year } ${carpoolVO.c_month } ${carpoolVO.c_date }
@@ -104,6 +104,7 @@
       </div>
     </div>
     </c:forEach>
+    
   </div>
   
   <h2>REQUEST CARPOOL</h2>
@@ -111,35 +112,89 @@
     
     <div class="row header blue">
       <div class="cell">
-        Username
+        요청번호
       </div>
       <div class="cell">
-        Email
+        수락여부
       </div>
       <div class="cell">
-        Password
+        카풀번호
       </div>
       <div class="cell">
-        Active
+        신청자ID
+      </div>
+      <div class="cell">
+        Detail
       </div>
     </div>
     
+    <c:forEach items="${requestList}" var="carpool">
     <div class="row">
       <div class="cell">
-        ninjalug
+        ${carpool.cr_num }
       </div>
       <div class="cell">
-        misterninja@hotmail.com
+        ${carpool.cr_ox}
       </div>
       <div class="cell">
-        ************
+        ${carpool.c_num }
       </div>
       <div class="cell">
-        Yes
+        ${carpool.u_id}
+      </div>
+      <div class="cell">
+        <strong><a href = '/mypage/requestRead?cr_num=${carpool.cr_num }'> Go </a></strong>
+      </div>
+    </div>
+    </c:forEach>
+    
+  </div>
+  
+<h2>REQUEST CARPOOL</h2>
+    <div class="table">
+    
+    <div class="row header blue">
+      <div class="cell">
+        운전자
+      </div>
+      <div class="cell">
+        신청자
+      </div>
+      <div class="cell">
+        카풀번호
+      </div>
+      <div class="cell">
+        신청자ID
+      </div>
+      <div class="cell">
+        Detail
       </div>
     </div>
     
-  </div>
+    <c:forEach items="${requestList1}" var="carpoolTest">
+    <div class="row">
+      <div class="cell">
+        ${carpoolTest.c_u_id }
+        <picture class="picture">
+        <img src="/resources/upload/${carpoolTest.u_u_img }" width="30" height="30" >
+        </picture>
+      </div>
+      <div class="cell">
+        ${carpoolTest.cr_u_id}
+      </div>
+      <div class="cell">
+        ${carpoolTest.u_u_img }
+      </div>
+      <div class="cell">
+        ${carpoolTest.cr_num}
+      </div>
+      <div class="cell">
+        <strong><a href = '/mypage/requestRead?cr_num=${carpoolTest.cr_num }'> Go </a></strong>
+      </div>
+      
+    </div>
+    </c:forEach>
+  </div> 
   
   </div>
 
