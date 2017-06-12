@@ -38,7 +38,7 @@
         </a>
     </li>
     <li class="">
-        <a href="#emblem" data-class="games2014-2" target="">
+        <a href="product_request" data-class="games2014-2" target="">
             My Goods
             <!-- <i class="icon-arrow-right">
                 <span class="hide">arrow</span>

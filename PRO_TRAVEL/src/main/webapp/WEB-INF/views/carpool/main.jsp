@@ -16,6 +16,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 <script type="text/javascript">
+function applyLink(URL){
+	if(confirm("신청하시겠습니까?") == true){
+		location.href=URL;
+		alert('신청되었습니다');
+
+	}
+	else{
+		alert('Cancle');
+	}
+}
+</script>
+
+<script type="text/javascript">
  $(function(){
 	var count = 2;
 	var send = "count=" + count;

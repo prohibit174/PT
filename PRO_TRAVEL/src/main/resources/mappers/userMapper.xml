@@ -4,16 +4,16 @@
 
 <mapper namespace="kosta.travel.mappers.userMapper">
 	<select id="login" resultType="UsersVO">
-		SELECT u_id, u_pwd FROM users WHERE u_id=#{u_id} AND u_pwd=#{u_pwd}
+		SELECT u_id, u_pwd FROM users WHERE u_id=#{u_id} AND u_pwd=#{u_pwd} AND u_status between 0 AND 2
 	</select>
 	
 	<insert id="insertUsers" parameterType="UsersVO">
 		insert into users(
 			u_id, u_pwd, u_name, u_birth,  u_sex, u_address, u_job,
-			 u_lang, u_religion,  u_license, u_img, u_style<!-- , u_status  -->
+			 u_lang, u_religion,  u_license, u_img, u_style, u_status 
 		)values(
 			#{u_id},#{u_pwd}, #{u_name},  #{u_birth}, #{u_sex}, #{u_address},#{u_job},
-			#{u_lang},#{u_religion}, #{u_license}, #{u_img}, #{u_style}<!-- , 0  -->
+			#{u_lang},#{u_religion}, #{u_license}, #{u_img}, #{u_style}, 0 
 		)
 		
 	</insert>

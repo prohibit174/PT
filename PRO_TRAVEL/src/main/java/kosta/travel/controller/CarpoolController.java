@@ -83,10 +83,6 @@ public class CarpoolController {
 		carpoolRequest.setC_num(c_num);
 		carpoolRequest.setCr_num(cr_num);
 		
-		System.out.println(id);
-		System.out.println(cr_num);
-		System.out.println(c_num);
-		
 		service.registRequest(carpoolRequest);
 		
 		
