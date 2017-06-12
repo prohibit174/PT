@@ -270,7 +270,7 @@ function checkTime(i) {
 	try {
 		Document doc = Jsoup.connect("http://www.alamo.co.kr/rent/carInfo.php?vendor=AL").get();
 		Elements contents = doc.select("div.body_contents");
-		String result = contents.text();
+		String result = contents.html();
 		request.setAttribute("result", result);
 	} catch (Exception e) {
 		e.printStackTrace();
