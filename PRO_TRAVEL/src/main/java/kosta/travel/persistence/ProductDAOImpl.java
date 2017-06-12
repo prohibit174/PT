@@ -111,5 +111,7 @@ public class ProductDAOImpl implements ProductDAO {
 		return session.selectOne(namespace+ ".listSearchCount", cri);
 	}
 
+	
+
 
 }
