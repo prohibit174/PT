@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -69,20 +69,26 @@
 			<div class="th col5">REQ_STATUS</div>
 
 		</li>
-	
-		 
-		 <li style="margin-top:20px">
-		  <c:forEach items="${list}" var="Product_RequestVO">
-			<!-- <div class="th col-first">Product_RequestVO.reqnum</div>
-			<div class="th col1">Product_RequestVO.u_id</div>
-			<div class="th col2">Product_RequestVO.p_name</div>
-			<div class="th col2">Product_RequestVO.p_place</div>
-			<div class="th col3">Product_RequestVO.p_date</div>
-			<div class="th col5">Product_RequestVO.pr_ok</div> -->
-			</c:forEach> 
-		</li>
-		</ul>
-			<%-- <li>
+
+
+		<li style="margin-top: 20px">
+		<c:forEach items="${list}"
+				var="Product_RequestVO">
+				<div class="th col-first">${Product_RequestVO.pr_reqnum}</div>
+				<div class="th col1">${Product_RequestVO.u_id}</div>
+				<div class="th col2">${Product_RequestVO.p_num}</div>
+				<div class="th col2">${Product_RequestVO.pr_place}</div>
+				<div class="th col3">${Product_RequestVO.pr_date}</div>
+				<div class="th col5">${Product_RequestVO.pr_ox}</div>
+			</c:forEach>
+		
+			<td align="center"><input type="button" value="수락" class="nlogin_btn" onclick="javascript:btn_js_accept_click('updateAcceptAction.mypage?pr_reqnum=${product_req.pr_reqnum }')"></td>
+         <td align="center"><input type="button" value="거절" onclick="location.href='carpoolDelete.mypage?c_num=${carpool.c_num } '" class="nlogin_btn"></td> 
+			
+			</li>
+			
+	</ul>
+	<%-- <li>
 				<div class="td col-first">
 
 					<div class="profile-row">
@@ -151,17 +157,9 @@
 						</ul>
 					</div>
 				</div>
-			</li> --%>
-	
-
-
-
-
-
-	
-	 <span class="btn-more"> <a
+			</li> --%> <span class="btn-more"> <a
 		href="/ajaxscript/loadmoretablelist/games/athletes/{535B8008-29D0-44BB-8B14-E2B29CC79DD5}/3/3">More</a>
-	</span> </section> 
+	</span> </section>
 
 
 
