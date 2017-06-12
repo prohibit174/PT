@@ -73,12 +73,12 @@
 		 
 		 <li style="margin-top:20px">
 		  <c:forEach items="${list}" var="Product_RequestVO">
-			<div class="th col-first">Product_RequestVO.reqnum</div>
+			<!-- <div class="th col-first">Product_RequestVO.reqnum</div>
 			<div class="th col1">Product_RequestVO.u_id</div>
 			<div class="th col2">Product_RequestVO.p_name</div>
 			<div class="th col2">Product_RequestVO.p_place</div>
 			<div class="th col3">Product_RequestVO.p_date</div>
-			<div class="th col5">Product_RequestVO.pr_ok</div>
+			<div class="th col5">Product_RequestVO.pr_ok</div> -->
 			</c:forEach> 
 		</li>
 		</ul>
