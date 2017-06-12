@@ -107,7 +107,7 @@
     
   </div>
   
-  <h2>REQUEST CARPOOL</h2>
+<%--   <h2>REQUEST CARPOOL</h2>
     <div class="table">
     
     <div class="row header blue">
@@ -148,23 +148,23 @@
     </div>
     </c:forEach>
     
-  </div>
+  </div> --%>
   
 <h2>REQUEST CARPOOL</h2>
     <div class="table">
     
     <div class="row header blue">
       <div class="cell">
-        운전자
+        Driver
       </div>
       <div class="cell">
-        신청자
+        Accept
       </div>
       <div class="cell">
-        카풀번호
+        Date
       </div>
       <div class="cell">
-        신청자ID
+       Start
       </div>
       <div class="cell">
         Detail
@@ -174,19 +174,18 @@
     <c:forEach items="${requestList1}" var="carpoolTest">
     <div class="row">
       <div class="cell">
-        ${carpoolTest.c_u_id }
-        <picture class="picture">
         <img src="/resources/upload/${carpoolTest.u_u_img }" width="30" height="30" >
-        </picture>
+         ${carpoolTest.c_u_name }
       </div>
       <div class="cell">
-        ${carpoolTest.cr_u_id}
+        ${carpoolTest.cr_ox}
       </div>
       <div class="cell">
-        ${carpoolTest.u_u_img }
+        ${carpoolTest.c_month },${carpoolTest.c_date }th, ${carpoolTest.c_year }
+        ${carpoolTest.c_hour }:${carpoolTest.c_minute }
       </div>
       <div class="cell">
-        ${carpoolTest.cr_num}
+        ${carpoolTest.start_point}
       </div>
       <div class="cell">
         <strong><a href = '/mypage/requestRead?cr_num=${carpoolTest.cr_num }'> Go </a></strong>
