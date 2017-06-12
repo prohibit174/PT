@@ -12,8 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
+import kosta.travel.domain.CarpoolTest;
 import kosta.travel.domain.CarpoolVO;
+import kosta.travel.domain.Carpool_ListVO;
 import kosta.travel.domain.Carpool_RequestVO;
 import kosta.travel.service.CarpoolService;
 
@@ -27,9 +28,18 @@ public class MypageCarpoolController {
 	@RequestMapping(value="/carpoolCheck", method=RequestMethod.GET)
 	public String carpoolCheck(Model model,  HttpSession session) throws Exception{
 		String u_id = (String)session.getAttribute("login");
+		
 		List<CarpoolVO> list = service.myMakeCarpool(u_id);
 		model.addAttribute("list", list);
 		
+		List<Carpool_RequestVO> requestList = service.myRequest(u_id);
+		model.addAttribute("requestList", requestList);
+		
+		List<CarpoolTest>requestList1 = service.requestAll(u_id);
+		model.addAttribute("requestList1", requestList1);
+		
+/*		List<Carpool_ListVO> requestList1 = service.requestAll(u_id);
+		model.addAttribute("requestList1", requestList1);*/
 		
 		return "/mypage/mypage_carpoolCheck";
 	}

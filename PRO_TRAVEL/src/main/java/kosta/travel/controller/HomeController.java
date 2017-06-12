@@ -30,7 +30,7 @@ public class HomeController {
 	@RequestMapping(value = "/login_form", method = RequestMethod.GET)
 	public String login() {
 
-		return "login_form";
+		return "/login_form";
 	}
 	
 

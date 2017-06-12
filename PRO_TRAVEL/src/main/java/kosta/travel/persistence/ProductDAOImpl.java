@@ -111,6 +111,11 @@ public class ProductDAOImpl implements ProductDAO {
 		return session.selectOne(namespace+ ".listSearchCount", cri);
 	}
 
+	@Override
+	public List<Product_RequestVO> listProductAccept(String u_id) throws Exception {
+		return session.selectList(namespace+".listProductAccept", u_id );
+	}
+
 	
 
 
