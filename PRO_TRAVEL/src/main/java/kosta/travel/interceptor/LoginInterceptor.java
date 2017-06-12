@@ -29,7 +29,10 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 			session.setAttribute("login", usersVO);
 			//response.sendRedirect("/");
 			System.out.println(request.getParameter("useCookie"));
+			
+			
 			if(request.getParameter("useCookie") != null){
+				System.out.println("cookie");
 				Cookie loginCookie = new Cookie("loginCookie", session.getId());
 				loginCookie.setPath("/");
 				loginCookie.setMaxAge(60 * 60 * 24 * 7);
@@ -37,6 +40,20 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 			}
 			Object dest = session.getAttribute("dest");
 			response.sendRedirect(dest != null ? (String)dest:"/");
+			
+			//Bonghyun Doing for admin login.
+			/*if((String)session.getAttribute("login")=="admin"){
+				  System.out.println("Admin login");
+				
+				 response.setContentType("text/html;charset=utf-8");
+		         out.println("<script>");
+		         out.println("location.href='/adminLogin';");
+		         out.println("</script>");
+		         
+		         out.close();
+			}*/
+			
+			
 		}else{
 	         response.setContentType("text/html;charset=utf-8");
 	         out.println("<script>");
