@@ -30,7 +30,8 @@
                                 <div class="row">
                                 	<span class="txt">
 										탈퇴 후에는 개인의 데이터를 복구할 수 없습니다.<br><br>
-										탈퇴 후에는 서비스에 남아있는 게시물을 삭제할 수 없습니다.
+										탈퇴 후에는 서비스에 남아있는 게시물을 삭제할 수 없습니다.<br><br>
+										탈퇴 후 재가입시 사용하셨던 유저아이디는 사용하실 수 없습니다.
                                 	</span>
                                 	<br><br><br>
                                 	<input type="checkbox"  id="leaveCheck">

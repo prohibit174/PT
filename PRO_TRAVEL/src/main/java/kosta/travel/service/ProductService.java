@@ -17,9 +17,11 @@ public interface ProductService {
 	public void insertProductReq(Product_RequestVO proReq)throws Exception;
 	public Product_RequestVO detailProductReq(String pr_reqnum)throws Exception;
 	public List<Product_RequestVO> listProductRequest(String u_id)throws Exception;
+	public List<Product_RequestVO> listProductAccept(String u_id)throws Exception;
 	public List<ProductVO> listCriteria(Criteria cri)throws Exception;
 	public int listCountCriteria(Criteria cri)throws Exception;
 	public List<ProductVO> listSearchCriteria(SearchCriteria cri)throws Exception;
 	public int listSearchCount(SearchCriteria cri)throws Exception;
+	
 	
 }

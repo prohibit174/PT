@@ -210,6 +210,14 @@ $(document).ready(function(){
 						 <button type="submit" class="btn btn-warning" id="modifyBtn" onclick="btn_js_update_click()">수정</button>
 						 <button type="submit" class="btn btn-danger" id="removeBtn" onclick="btn_js_delete_click()">삭제</button> 		 
 							</c:when>
+							
+							<c:when test="${id == 'admin'}">
+					       <!-- <button name="submit" id="validate_order" type="submit"
+								class="primaryAction">
+								<span>Register</span>  -->
+								
+						 <button type="submit" class="btn btn-danger" id="removeBtn" onclick="btn_js_delete_click()">삭제</button> 		 
+							</c:when>
 					    <c:otherwise>
 							 <button type="submit" class="btn btn-request" id="removeBtn" onclick="btn_js_request_click()">거래요청</button> 
 						 </c:otherwise>

@@ -28,6 +28,8 @@ public interface ProductDAO {
 	public int countPaging(Criteria cri)throws Exception;
 	public List<ProductVO> listSearch(SearchCriteria cri)throws Exception;
 	public int listSearchCount(SearchCriteria cri)throws Exception;
+	public List<Product_RequestVO> listProductAccept(String u_id)throws Exception;
+	
 
 
 
