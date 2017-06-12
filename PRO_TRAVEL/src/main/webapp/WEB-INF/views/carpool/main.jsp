@@ -171,7 +171,7 @@ function checkTime(i) {
 				<li>
 					<div class="text-box">
 						<strong class="title">카풀 등록하기</strong>
-						<a style="cursor: pointer; font-size: 30px;">Register your Carpool</a>
+						<a style="cursor: pointer; font-size: 30px;" href="${pageContext.request.contextPath}/carpool/register">Register your Carpool</a>
 					</div>
 				</li>
 			</ul>
