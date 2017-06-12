@@ -7,10 +7,10 @@
 <%@ include file="/WEB-INF/views/include/product_sidebar.jsp"%>
 <% String id = (String)session.getAttribute("login");
 		request.setAttribute("id", id);
-		
-		String admin ="admin";
-		request.setAttribute("admin", admin);
 %>
+
+<%= id%><!-- 찍어보고싶은데 왜 안뜸?????? -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -174,17 +174,19 @@
 				<ul class="mailbox-attachments clearfix uploadedList"></ul>	
 				
 			<div class="row">
+			
 						<c:choose>
-					       <c:when test="${id == product.u_id} ">
+					       <c:when test="${(id == product.u_id) || (id == 'admin')} ">
 						 <button type="submit" class="btn btn-warning" id="modifyBtn" onclick="btn_js_update_click()">수정</button>
 						 <button type="submit" class="btn btn-danger" id="removeBtn" onclick="btn_js_delete_click()">삭제</button> 		 
+							
 							</c:when>
 							
-						 <c:when test="${admin == 'admin'} ">
+						<%--  <c:when test="${admin == 'admin'} ">
 						 <button type="submit" class="btn btn-warning" id="modifyBtn" onclick="btn_js_update_click()">수정</button>
 						 <button type="submit" class="btn btn-danger" id="removeBtn" onclick="btn_js_delete_click()">삭제</button> 		 
 							</c:when>
-					
+					 --%>
 							
 					    <c:otherwise>
 							 <button type="submit" class="btn btn-request" id="removeBtn" onclick="btn_js_request_click()">거래요청</button> 

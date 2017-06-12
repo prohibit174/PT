@@ -3030,7 +3030,7 @@ hr.alt + .related-posts {
     vertical-align: top; }
   .table2 .col1 {
     padding-left: 0;
-    width: 10%; }
+    width: 30%; }
     .table2 .col1.td {
       padding-top: 16px;
       padding-bottom: 16px; }
@@ -3042,7 +3042,7 @@ hr.alt + .related-posts {
         .table2 .col1 > a:hover .name {
           text-decoration: underline; }
   .table2 .col2 {
-    width: 30%; }
+    width: 39%; }
   .table2 .td {
     padding-top: 28px;
     padding-bottom: 13px; }
@@ -3052,9 +3052,6 @@ hr.alt + .related-posts {
   .table2 .col4 {
     float: right;
     width: 190px; }
-  .table2 .col5 {
-    width: 40%; }
-    
   .table2 .name {
     width: 220px; }
   .table2 .picture {

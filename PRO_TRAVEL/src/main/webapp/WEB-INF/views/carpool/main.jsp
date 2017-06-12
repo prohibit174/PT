@@ -1,3 +1,6 @@
+<%@page import="org.jsoup.select.Elements"%>
+<%@page import="org.jsoup.Jsoup"%>
+<%@page import="org.jsoup.nodes.Document"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -5,6 +8,10 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<link rel="stylesheet" href="http://www.alamo.co.kr/common/css/alamo_style.css?v=20170405" type="text/css" />
+<link href="http://www.alamo.co.kr/common/css/reserv.css?v=20160621" rel="stylesheet" type="text/css">
+
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
@@ -175,7 +182,7 @@ function checkTime(i) {
                     <div class="th col1"> DRIVDR </div>
                     <div class="th col2"> START DATE </div>
                     <div class="th col3"> SEAT </div>
-                    <div class="th col5"> PRICE </div>
+                    <div class="th col6"> PRICE </div>
                     <div class="th col4"> SIGN UP </div>
             </li>
             
@@ -258,6 +265,20 @@ function checkTime(i) {
                 </span>
 
     </section>
+   	<div>
+<%
+	try {
+		Document doc = Jsoup.connect("http://www.alamo.co.kr/rent/carInfo.php?vendor=AL").get();
+		Elements contents = doc.select("div.body_contents");
+		String result = contents.html();
+		request.setAttribute("result", result);
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+%>
+
+<div class=web_parser>${result }</div>
+	</div>
 </div>
 
 	<%@ include file="/WEB-INF/views/include/footer.jsp"%>
