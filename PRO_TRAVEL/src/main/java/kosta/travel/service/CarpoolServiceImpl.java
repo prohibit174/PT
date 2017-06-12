@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import kosta.travel.domain.CarpoolTest;
 import kosta.travel.domain.CarpoolVO;
 import kosta.travel.domain.Carpool_ListVO;
 import kosta.travel.domain.Carpool_RequestVO;
@@ -31,7 +32,7 @@ public class CarpoolServiceImpl implements CarpoolService {
 
 	@Override
 	public void modify(CarpoolVO carpool) throws Exception {
-		dao.update(carpool);
+		dao.modify(carpool);
 		
 	}
 
@@ -63,10 +64,22 @@ public class CarpoolServiceImpl implements CarpoolService {
 	}
 	
 	@Override
-	public List<Carpool_RequestVO> myMakeRequest(int c_num) throws Exception {
+	public List<Carpool_RequestVO> myMakeRequest(Integer c_num) throws Exception {
 		return dao.myMakeRequest(c_num);
 	}
+	
+	@Override
+	public List<Carpool_RequestVO> myRequest(String u_id) throws Exception {
+		return dao.myRequest(u_id);
+	}
+	
+	@Override
+	public List<CarpoolTest> requestAll(String u_id) throws Exception {
+		return dao.requestAll(u_id);
+	}
 
+
+	
 	//Request
 	@Override
 	public void registRequest(Carpool_RequestVO carpoolRequest) throws Exception {
@@ -84,6 +97,18 @@ public class CarpoolServiceImpl implements CarpoolService {
 		dao.updateRequest(carpoolRequest);
 		
 	}
+
+	@Override
+	public void updatePerson(Integer c_num) throws Exception {
+		dao.updatePerson(c_num);
+		
+	}
+
+
+
+
+
+
 
 
 

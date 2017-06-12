@@ -16,6 +16,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 <script type="text/javascript">
+function applyLink(URL){
+	if(confirm("신청하시겠습니까?") == true){
+		location.href=URL;
+		alert('신청되었습니다');
+
+	}
+	else{
+		alert('Cancle');
+	}
+}
+</script>
+
+<script type="text/javascript">
  $(function(){
 	var count = 2;
 	var send = "count=" + count;
@@ -158,7 +171,7 @@ function checkTime(i) {
 				<li>
 					<div class="text-box">
 						<strong class="title">카풀 등록하기</strong>
-						<a style="cursor: pointer; font-size: 30px;">Register your Carpool</a>
+						<a style="cursor: pointer; font-size: 30px;" href="${pageContext.request.contextPath}/carpool/register">Register your Carpool</a>
 					</div>
 				</li>
 			</ul>

@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ include file="/WEB-INF/views/include/header.jsp" %>
-<%@ include file="/WEB-INF/views/include/carpool_sidebar.jsp" %>
+<%@ include file="/WEB-INF/views/include/mypage_sidebar.jsp" %>
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -84,8 +84,8 @@
       <div class="cell">PRICE</div>
       <div class="cell">Detail</div>
     </div>
-    <c:forEach items="${list}" var="carpoolVO">
     
+    <c:forEach items="${list}" var="carpoolVO">
     <div class="row">
       <div class="cell">
         ${carpoolVO.c_year } ${carpoolVO.c_month } ${carpoolVO.c_date }
@@ -104,42 +104,96 @@
       </div>
     </div>
     </c:forEach>
+    
   </div>
   
-  <h2>REQUEST CARPOOL</h2>
+<%--   <h2>REQUEST CARPOOL</h2>
     <div class="table">
     
     <div class="row header blue">
       <div class="cell">
-        Username
+        요청번호
       </div>
       <div class="cell">
-        Email
+        수락여부
       </div>
       <div class="cell">
-        Password
+        카풀번호
       </div>
       <div class="cell">
-        Active
+        신청자ID
+      </div>
+      <div class="cell">
+        Detail
       </div>
     </div>
     
+    <c:forEach items="${requestList}" var="carpool">
     <div class="row">
       <div class="cell">
-        ninjalug
+        ${carpool.cr_num }
       </div>
       <div class="cell">
-        misterninja@hotmail.com
+        ${carpool.cr_ox}
       </div>
       <div class="cell">
-        ************
+        ${carpool.c_num }
       </div>
       <div class="cell">
-        Yes
+        ${carpool.u_id}
+      </div>
+      <div class="cell">
+        <strong><a href = '/mypage/requestRead?cr_num=${carpool.cr_num }'> Go </a></strong>
+      </div>
+    </div>
+    </c:forEach>
+    
+  </div> --%>
+  
+<h2>REQUEST CARPOOL</h2>
+    <div class="table">
+    
+    <div class="row header blue">
+      <div class="cell">
+        Driver
+      </div>
+      <div class="cell">
+        Accept
+      </div>
+      <div class="cell">
+        Date
+      </div>
+      <div class="cell">
+       Start
+      </div>
+      <div class="cell">
+        Detail
       </div>
     </div>
     
-  </div>
+    <c:forEach items="${requestList1}" var="carpoolTest">
+    <div class="row">
+      <div class="cell">
+        <img src="/resources/upload/${carpoolTest.u_u_img }" width="30" height="30" >
+         ${carpoolTest.c_u_name }
+      </div>
+      <div class="cell">
+        ${carpoolTest.cr_ox}
+      </div>
+      <div class="cell">
+        ${carpoolTest.c_month },${carpoolTest.c_date }th, ${carpoolTest.c_year }
+        ${carpoolTest.c_hour }:${carpoolTest.c_minute }
+      </div>
+      <div class="cell">
+        ${carpoolTest.start_point}
+      </div>
+      <div class="cell">
+        <strong><a href = '/mypage/requestRead?cr_num=${carpoolTest.cr_num }'> Go </a></strong>
+      </div>
+      
+    </div>
+    </c:forEach>
+  </div> 
   
   </div>
 

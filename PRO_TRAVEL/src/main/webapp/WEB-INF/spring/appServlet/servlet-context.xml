@@ -48,7 +48,10 @@
 		</interceptor>
 
 		<interceptor>
-			<mapping path=""/>
+			<mapping path="/accompany/"/>
+			<mapping path="/accompany/enroll"/>
+			<mapping path="/carpool/listAll"/>
+			<mapping path="/carpool/register"/>
 			<beans:ref bean="authInterceptor"/>
 		</interceptor>
 	</interceptors>
