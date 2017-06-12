@@ -26,6 +26,12 @@ public class HomeController {
 
 		return "home";
 	}
+	
+	@RequestMapping(value = "/dialog", method = RequestMethod.GET)
+	public String dialog() {
+
+		return "dialog";
+	}
 
 	@RequestMapping(value = "/login_form", method = RequestMethod.GET)
 	public String login() {
