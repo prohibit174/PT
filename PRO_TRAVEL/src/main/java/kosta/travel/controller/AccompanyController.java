@@ -87,7 +87,7 @@ public class AccompanyController{
 	
 
 	@RequestMapping(value = "/searchPeople", method=RequestMethod.POST)
-	public String getTraveler(SearchTraveler trav,Model model, HttpSession session){
+	public String getTraveler(SearchTraveler trav, Model model, HttpSession session){
 			trav.setU_id((String)session.getAttribute("login"));
 		try {
 			 model.addAttribute("list", service.getTraveler(trav));
@@ -98,5 +98,15 @@ public class AccompanyController{
 		return "/accompany/searchTest";
 	}
 	       
-	       	   
+	@RequestMapping(value = "/cal", method=RequestMethod.GET)
+	public String callender(){
+		try {
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "/accompany/callender";
+	}       	   
+	
+	
 }

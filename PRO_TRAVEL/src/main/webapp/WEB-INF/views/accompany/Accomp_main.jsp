@@ -508,11 +508,7 @@ function showLeftAccom(leftIndex, markerIndex){
     </div>
             </div>
 
-<script type="text/javascript">
-function searchPeople(){
-	console.log(" 기능 ");
-}
-</script>
+
 <div class="id-card-box" style="width: 100% ;border: black;">
 	<form
 		action="/accompany/searchPeople"
@@ -533,15 +529,17 @@ function searchPeople(){
 <option value="France">France</option>
 <option value="Belgium">Belgium</option>
 <option value="Germany">Germany</option>
-<option value="Swiss">Swiss</option>
+<option value="Swiss" selected="selected">Swiss</option>
 
 
 						</select>
 						
 						<span class="label">begin</span> 
-						 <select class="label" name="sdate">
+						<input type="text" name="sdate" class="label" value="">
+						 <div id="datepicker"></div>
+						 <!-- <select class="label" name="sdate">
 							<option class="start" style="margin-bottom: 10px">date</option>
-<option value="17/06/01">17/06/01</option>
+<option value="17/06/01" selected="selected">17/06/01</option>
 <option value="17/06/02">17/06/02</option>
 <option value="17/06/03">17/06/03</option>
 <option value="17/06/04">17/06/04</option>
@@ -575,7 +573,7 @@ function searchPeople(){
 
 							
 							
-						</select> 
+						</select>  -->
 						
 						<span class="label">end</span> 
 						<select  class="label" name="edate">
@@ -595,7 +593,7 @@ function searchPeople(){
 <option value="17/06/12">17/06/12</option>
 <option value="17/06/13">17/06/13</option>
 <option value="17/06/14">17/06/14</option>
-<option value="17/06/15">17/06/15</option>
+<option value="17/06/15" selected="selected">17/06/15</option>
 <option value="17/06/16">17/06/16</option>
 <option value="17/06/17">17/06/17</option>
 <option value="17/06/18">17/06/18</option>

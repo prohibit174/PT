@@ -40,7 +40,25 @@ public class UserController {
 
 		         return;
 		      }
+			 
+			 
+			 if(dto.getU_id()=="admin"){
+				 System.out.println("controller-admin");
+				
+			 }
+			
+			 
 			 model.addAttribute("usersVO", vo.getU_id());
+			 
+			 //To check Admin account
+			
+			// model.addAttribute("admin", vo.getU_id());
+			 
+			
+			 //until here modified by Bong
+			 
+	
+			
 			 if(dto.isUseCookie()){
 				 int amount = 60 * 60 * 24 * 7;
 				 Date sessionLimit = new Date(System.currentTimeMillis() + (1000 * amount));
