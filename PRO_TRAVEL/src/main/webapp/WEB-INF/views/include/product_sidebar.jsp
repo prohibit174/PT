@@ -23,7 +23,7 @@
                         class="hide">arrow</span>
                   </i>
                </a></li>
-               <li class=""><a href="product_recommand" data-class="games2014-2"
+               <li class=""><a href="recommand_list" data-class="games2014-2"
                   target=""> Recommand Product <i class="icon-arrow-right"> <span
                         class="hide">arrow</span>
                   </i>
