@@ -94,9 +94,8 @@
 		<div class="add-text">
 			<div class="logo2">
 
-				<a href="/"> <img
-					src="https://stillmed.olympic.org/media/Images/OlympicOrg/Global/logo.png"
-					alt="" width="90" height="41" />
+				<a href="/">					
+				<img src="${pageContext.request.contextPath}/resources/images/protravel_banner.PNG" width="200px" height="70px"/> 
 				</a>
 			</div>
 			<p>&copy; Copyright 2017. All rights reserved</p>
