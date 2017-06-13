@@ -5,6 +5,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -84,8 +85,6 @@
 	type="text/javascript"></script>
 
 <style>
-
-
 </style>
 <!-- 	<script>
  		 var result = '${msg}';
@@ -111,7 +110,7 @@
 		
 	 </script>
  -->
- 
+
 
 <!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="https://stillres.olympic.org/css/ie.css" /><![endif]-->
 </head>
@@ -134,7 +133,7 @@
 						<option value="n"
 							<c:out value="${cri.searchType == null?'selected':''}"/>>
 							---</option>
-						<option value="t" 
+						<option value="t"
 							<c:out value="${cri.searchType eq 't'?'selected':''}"/>>
 							ProductName</option>
 						<option value="c"
@@ -152,9 +151,8 @@
 						<option value="tcw"
 							<c:out value="${cri.searchType eq 'tcw'?'selected':''}"/>>
 							ProductName OR Content OR UserId</option>
-					</select>
-					
-					 <input type="text" name='keyword' id="keywordInput" value='${cri.keyword }'>
+					</select> <input type="text" name='keyword' id="keywordInput"
+						value='${cri.keyword }'>
 					<button id='searchBtn'>Search</button>
 
 
@@ -166,11 +164,53 @@
 
 				<section class="sets-section" style="background-color: white;">
 
-					<div class="ajax-area" data-tmpl="load3_tmpl"
-						style="background-color: white">
+					<div class="ajax-area" data-tmpl="load3_tmpl" style="background-color: white">
 						<ul class="sets-list ajax-content">
 
-							<c:forEach var="product" items="${list}">
+							<c:forEach var="product" items="${recommand}">
+								
+									<li itemscope="" itemtype="http://schema.org/ImageObject"
+										class="same-height"><a
+										href="/product/product_detail${pageMaker.makeSearch(pageMaker.cri.page) }&p_num=${product.p_num }"
+										itemprop="url" style="color: DarkSlateGray";></a> <!-- makeQuery -->
+										<picture class="img"> <c:if
+											test="${product.p_img!=null}">
+											<c:set var="head"
+												value="${fn:substring(product.p_img, 0, fn:length(product.p_img)-4) }"></c:set>
+											<c:set var="pattern"
+												value="${fn:substring(product.p_img, fn:length(head)+1, fn:length(product.p_img)) }"></c:set>
+											<c:set var="small" value="_small"></c:set>
+											</c:if>
+
+											<c:choose>
+												<c:when
+													test="${pattern=='jpg' || pattern =='gif' || pattern =='png' }">
+													<!-- <img srcset="resources/upload/${head }_small.${pattern}" alt="img /"> -->
+													<img src="/resources/upload/${head}${small}.${pattern}"
+														alt="img /">
+												</c:when>
+												<c:otherwise>
+													<c:out value="No IMAGE"></c:out>
+												</c:otherwise>
+											</c:choose>
+							
+							<%-- 	</c:if> --%>
+								<%-- <img srcset="${product.p_img}"> --%>
+								</picture>
+								</a>
+								<h2 itemprop="name">
+
+									<a
+										href="/product/product_detail${pageMaker.makeSearch(pageMaker.cri.page) }&p_num=${product.p_num }"
+										"
+											itemprop="url" style="color: DarkSlateGray";>${product.p_name }</a>
+
+								</h2>
+								<span>판매자: ${product.u_id }</span>
+								</li>
+							</c:forEach>
+							<%-- 
+							<c:forEach var="product" items="${recommand}">
 								<li itemscope="" itemtype="http://schema.org/ImageObject"
 									class="same-height"><a
 									href="/product/product_detail${pageMaker.makeSearch(pageMaker.cri.page) }&p_num=${product.p_num }"
@@ -194,7 +234,7 @@
 													<c:out value="No IMAGE"></c:out>
 												</c:otherwise>
 											</c:choose>
-										</c:if> <%-- <img srcset="${product.p_img}"> --%> </picture>
+										</c:if> <img srcset="${product.p_img}"> </picture>
 								</a>
 									<h2 itemprop="name">
 
@@ -202,7 +242,7 @@
 											itemprop="url" style="color: DarkSlateGray";>${product.p_name }</a>
 
 									</h2> <span>판매자: ${product.u_id }</span></li>
-							</c:forEach>
+							</c:forEach> --%>
 						</ul>
 						<span class="btn-more"> <a
 							href="/ajaxscript/loadmoreoverviewmedia/{B4C7581B-72EC-4637-A3ED-52F225BFE686}/6/0/MiddleOverview">More</a>
@@ -300,7 +340,7 @@
 
 
 	</div>
-	
+
 
 	<!-- /.box-footer-->
 
@@ -318,38 +358,37 @@
 	</form>
 
 
-	
- <script>
-	var result = '${msg}';
 
-	if (result == 'SUCCESS') {
-		alert("처리가 완료되었습니다.");
-		location.replace(self.location);
-	}
-</script>
+	<script>
+		var result = '${msg}';
 
-<script>
+		if (result == 'SUCCESS') {
+			alert("처리가 완료되었습니다.");
+			location.replace(self.location);
+		}
+	</script>
+
+	<script>
 		$(document).ready(
 				function() {
 
 					$('#searchBtn').on(
 							"click",
 							function(event) {
-							/* 	alert($("select.searchBox option:selected").val()); */
+								/* 	alert($("select.searchBox option:selected").val()); */
 								self.location = "product_list"
 										+ '${pageMaker.makeQuery(1)}'
 										+ "&searchType="
-										+ $("select.searchBox option:selected").val()
-										+ "&keyword=" + $('#keywordInput').val();
+										+ $("select.searchBox option:selected")
+												.val() + "&keyword="
+										+ $('#keywordInput').val();
 
 							});
-					
-					
 
 				});
-		</script>
-		
-	
+	</script>
+
+
 
 
 

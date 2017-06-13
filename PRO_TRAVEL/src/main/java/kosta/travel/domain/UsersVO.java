@@ -16,6 +16,17 @@ public class UsersVO{
 	private String u_license;
 	private String u_img;
 	private String u_style;
+	private String u_status;
+	public String getU_status() {
+		return u_status;
+	}
+
+
+	public void setU_status(String u_status) {
+		this.u_status = u_status;
+	}
+
+
 	private MultipartFile img_file;
 	
 	public UsersVO(){}

@@ -117,8 +117,8 @@ public class ProductDAOImpl implements ProductDAO {
 	}
 
 	@Override
-	public List<ProductVO> RecommendProductList() throws Exception {
-		return session.selectList(namespace+".RecommendProductList");
+	public List<ProductVO> RecommendProductList(String u_id) throws Exception {
+		return session.selectList(namespace+".RecommendProductList", u_id);
 				
 	}
 
