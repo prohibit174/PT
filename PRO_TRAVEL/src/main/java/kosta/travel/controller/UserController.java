@@ -34,20 +34,19 @@ public class UserController {
 	@RequestMapping(value="/loginAction", method=RequestMethod.POST)
 	public String loginActionPOST(LoginDTO dto, HttpSession session, Model model) throws Exception{
 		UsersVO vo = service.login(dto);
-		
+		String admin = "admin";
 		
 			 if(vo==null){ // �α��� ����
 
 		         return null;
 		      }
 			 
-			 model.addAttribute("usersVO", vo.getU_id());
 			 
-			
-			 if("admin".equals(vo.getU_id())){
+			 if(admin.equals((String)vo.getU_id())){
 				 System.out.println("controller admin");
-				 session.setAttribute("adminchk", true);
-				 return "/mypage_admin/test_admin";
+				 model.addAttribute("admin", vo.getU_id());
+			 }else{
+				 model.addAttribute("usersVO", vo.getU_id());
 			 }
 			 
 			 if(dto.isUseCookie()){
@@ -59,9 +58,7 @@ public class UserController {
 			 return null;
 			 
 	}
-		
-		
-	
+
 	@RequestMapping(value="/logout", method=RequestMethod.GET)
 	public String logout(
 			HttpServletRequest request, HttpServletResponse response, HttpSession session
