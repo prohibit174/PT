@@ -22,6 +22,8 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 		ModelMap modelMap = modelAndView.getModelMap();
 		System.out.println(modelMap);
 		Object usersVO = modelMap.get("usersVO");
+		//
+		Object adminSession = modelMap.get("admin");
 		System.out.println(usersVO);
 		System.out.println(usersVO);
 
@@ -41,19 +43,6 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 			Object dest = session.getAttribute("dest");
 			response.sendRedirect(dest != null ? (String)dest:"/");
 			
-			//Bonghyun Doing for admin login.
-			if((String)session.getAttribute("admin")=="admin"){
-				  System.out.println("Admin login");
-				
-				 response.setContentType("text/html;charset=utf-8");
-		         out.println("<script>");
-		         out.println("location.href='/adminLogin';");
-		         out.println("</script>");
-		         
-		         out.close();
-			}
-			
-			
 		}else{
 	         response.setContentType("text/html;charset=utf-8");
 	         out.println("<script>");
@@ -63,6 +52,19 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 	         
 	         out.close();
 		}
+		
+		//Bonghyun Doing for admin login.
+		if(adminSession!=null){
+			  System.out.println("Admin login");
+			
+			 response.setContentType("text/html;charset=utf-8");
+	         out.println("<script>");
+	         out.println("location.href='/adminLogin';");
+	         out.println("</script>");
+	         
+	         out.close();
+		}
+		
 	}
 	
 	@Override

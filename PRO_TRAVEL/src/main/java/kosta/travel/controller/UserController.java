@@ -41,14 +41,18 @@ public class UserController {
 		         return;
 		      }
 			 
-			 //To check Admin account
-			 if(vo.getU_id()=="admin"){
-				 session.setAttribute("admin", dto);
-			 }
-			 //until here modified by Bong
-			 
 			 model.addAttribute("usersVO", vo.getU_id());
 			 
+			 //To check Admin account
+			 if(vo.getU_id()=="admin"){
+				 System.out.println("controller-admin");
+				 session.setAttribute("admin", vo);
+			 }
+			 
+			 model.addAttribute("admin", session);
+			 //until here modified by Bong
+			 
+	
 			
 			 if(dto.isUseCookie()){
 				 int amount = 60 * 60 * 24 * 7;
