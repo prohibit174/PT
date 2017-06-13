@@ -146,7 +146,7 @@ function changePW(){
                                     <span class="txt">* Optional</span>
                                 </div>
                                 <div class="row">
-                                    <input type="submit" value="Results" />
+                                    <input type="submit" value="Login" />
                                     <input type="reset" value="Clear" />
                                 </div>
                             </form>
