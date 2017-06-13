@@ -224,7 +224,7 @@ public class ProductController {
 	}
 	
 	
-	@RequestMapping(value="/product_list/recommand", method=RequestMethod.GET)
+	@RequestMapping(value="/recommand_list", method=RequestMethod.GET)
 	public String product_list_recommand(@ModelAttribute("cri") SearchCriteria cri, 
 			Model model) throws Exception{
 	
