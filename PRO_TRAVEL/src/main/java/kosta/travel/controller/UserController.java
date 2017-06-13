@@ -42,11 +42,11 @@ public class UserController {
 		      }
 			 
 			 
-			 if(vo.getU_id()=="admin"){
+			 if(dto.getU_id()=="admin"){
 				 System.out.println("controller-admin");
 				
 			 }
-			 System.out.println("controller-admin2");
+			
 			 
 			 model.addAttribute("usersVO", vo.getU_id());
 			 
