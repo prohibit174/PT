@@ -32,38 +32,31 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/loginAction", method=RequestMethod.POST)
-	public void loginActionPOST(LoginDTO dto, HttpSession session, Model model) throws Exception{
+	public String loginActionPOST(LoginDTO dto, HttpSession session, Model model) throws Exception{
 		UsersVO vo = service.login(dto);
 		
 		
 			 if(vo==null){ // �α��� ����
 
-		         return;
+		         return null;
 		      }
-			 
-			 
-			 if(dto.getU_id()=="admin"){
-				 System.out.println("controller-admin");
-				
-			 }
-			
 			 
 			 model.addAttribute("usersVO", vo.getU_id());
 			 
-			 //To check Admin account
 			
-			// model.addAttribute("admin", vo.getU_id());
+			 if("admin".equals(vo.getU_id())){
+				 System.out.println("controller admin");
+				 session.setAttribute("adminchk", true);
+				 return "/mypage_admin/test_admin";
+			 }
 			 
-			
-			 //until here modified by Bong
-			 
-	
-			
 			 if(dto.isUseCookie()){
 				 int amount = 60 * 60 * 24 * 7;
 				 Date sessionLimit = new Date(System.currentTimeMillis() + (1000 * amount));
 				 service.keepLogin(vo.getU_id(), session.getId(), sessionLimit);
 			 }
+			 
+			 return null;
 			 
 	}
 		

@@ -95,4 +95,9 @@ public class ProductServiceImpl implements ProductService {
 		
 	}
 
+	@Override
+	public List<ProductVO> RecommendProductList() throws Exception {
+		return dao.RecommendProductList();
+	}
+
 }

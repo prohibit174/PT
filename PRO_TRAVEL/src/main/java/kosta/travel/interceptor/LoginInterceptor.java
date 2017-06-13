@@ -42,16 +42,17 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 			response.sendRedirect(dest != null ? (String)dest:"/");
 			
 			//Bonghyun Doing for admin login.
-			/*if((String)session.getAttribute("login")=="admin"){
+			if(session.getAttribute("adminchk")!=null){
 				  System.out.println("Admin login");
 				
 				 response.setContentType("text/html;charset=utf-8");
 		         out.println("<script>");
-		         out.println("location.href='/adminLogin';");
+		         out.println("location.href='/mypage_admin/test_admin';");
+		         out.println("alert('admin page!');");
 		         out.println("</script>");
 		         
 		         out.close();
-			}*/
+			}
 			
 			
 		}else{
