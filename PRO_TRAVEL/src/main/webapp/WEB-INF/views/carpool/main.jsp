@@ -182,7 +182,7 @@ function checkTime(i) {
 	<div>
 <section class="results ajax-area" data-tmpl="athleteResults_tmpl">
         <div class="heading">
-        <br><br>
+        <br>
             <h2>Waiting Carpool</h2>
             <ul class="add-links">
 
