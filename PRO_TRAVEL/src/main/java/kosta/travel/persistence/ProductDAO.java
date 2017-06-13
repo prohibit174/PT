@@ -29,6 +29,7 @@ public interface ProductDAO {
 	public List<ProductVO> listSearch(SearchCriteria cri)throws Exception;
 	public int listSearchCount(SearchCriteria cri)throws Exception;
 	public List<Product_RequestVO> listProductAccept(String u_id)throws Exception;
+	public List<ProductVO> RecommendProductList(String u_id)throws Exception;
 	
 
 

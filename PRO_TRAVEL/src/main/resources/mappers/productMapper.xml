@@ -171,6 +171,19 @@
 
 
 
+<!-- 물품 추천 리스트 -->
+	<select id="RecommendProductList" parameterType="String" resultType="ProductVO">
+        <![CDATA[
+	       SELECT *
+		   FROM product
+		   WHERE u_id IN (SELECT b.u_id
+              			  FROM trip_plan a, trip_plan b
+            			  WHERE a.u_id = #{u_id}
+              			  AND a.cor_region=b.cor_region
+             			  AND a.tp_date=b.tp_date
+              			  AND a.u_id <> b.u_id)
+       ]]>
+	</select>
 
 
 
