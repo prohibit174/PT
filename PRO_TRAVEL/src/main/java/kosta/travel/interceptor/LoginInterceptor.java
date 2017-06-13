@@ -42,7 +42,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 			response.sendRedirect(dest != null ? (String)dest:"/");
 			
 			//Bonghyun Doing for admin login.
-			/*if((String)session.getAttribute("login")=="admin"){
+			if((String)session.getAttribute("admin")=="admin"){
 				  System.out.println("Admin login");
 				
 				 response.setContentType("text/html;charset=utf-8");
@@ -51,7 +51,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 		         out.println("</script>");
 		         
 		         out.close();
-			}*/
+			}
 			
 			
 		}else{
