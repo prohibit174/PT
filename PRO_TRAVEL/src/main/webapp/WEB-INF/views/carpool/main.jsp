@@ -13,7 +13,7 @@
 
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
 function applyLink(URL){
@@ -193,8 +193,9 @@ function checkTime(i) {
 		<div class="switcher"></div>
 	</div>
 	</section>
-	<div>
-	<div class="list_view">
+	
+	
+	
 <section class="results ajax-area" data-tmpl="athleteResults_tmpl">
         <div class="heading">
             <h2>WATING CARPOOL</h2>
@@ -214,7 +215,7 @@ function checkTime(i) {
                     <div class="th col4"> SIGN UP </div>
             </li>
             
-            <c:forEach items="${carpoolAll}" var="carpool_ListVO">
+            <c:forEach items="${list}" var="carpool_ListVO" end="${count }">
                 <li>
 
                 <div class="td col1">
@@ -293,7 +294,6 @@ function checkTime(i) {
                  <a style="cursor: pointer;">Fold</a>  
                  <a style="cursor: pointer;">Go List Page</a>  
                 </span>
-</div>
     </section>
    	<div>
 <%
