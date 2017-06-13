@@ -13,7 +13,7 @@
 
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
 function applyLink(URL){
@@ -193,12 +193,12 @@ function checkTime(i) {
 		<div class="switcher"></div>
 	</div>
 	</section>
-	<div>
-	<div class="list_view">
+	
+	
+	
 <section class="results ajax-area" data-tmpl="athleteResults_tmpl">
         <div class="heading">
-        <br><br>
-            <h2>Waiting Carpool</h2>
+            <h2>WATING CARPOOL</h2>
             <ul class="add-links">
 
             </ul>
@@ -206,63 +206,65 @@ function checkTime(i) {
 
         <ul class="table2 ajax-content">
             <li>
-                    <div class="th col-first"> NUMBER </div>
-                    <div class="th col1"> DRIVDR </div>
-                    <div class="th col2"> START DATE </div>
+                    
+                    <div class="th col1"> DRIVER </div>
+                    <div class="th col2"> DATE</div>
+                    <div class="th col2"> CITY </div> 
                     <div class="th col3"> SEAT </div>
-                    <div class="th col6"> PRICE </div>
+                    <div class="th col3"> PRICE </div>
                     <div class="th col4"> SIGN UP </div>
             </li>
             
-
-            <c:forEach items="${list}" var="carpoolVO" end="${count }">
+            <c:forEach items="${list}" var="carpool_ListVO" end="${count }">
                 <li>
-                <div class="td col-first">
 
-        <div class="profile-row">
-            <div class="flag-image">
-            </div>
-            <span>${carpoolVO.c_num }</span>
-        </div>
-                </div>
                 <div class="td col1">
 
-
-
-    <!-- <a href="/victor-an"> -->
-    <a href = '/carpool/read?c_num=${carpoolVO.c_num }'>
+    <a href = '/carpool/read?c_num=${carpool_ListVO.c_num }'>
 <picture class="picture">
 
-<source srcset="https://stillmed.olympic.org/media/Images/OlympicOrg/Athletes/A/Ahn_Hyun_Soo_An_Victor/Ahn_Hyun_Soo_An_Victor_mugshot.jpg?interpolation=lanczos-none&resize=45:45, https://stillmed.olympic.org/media/Images/OlympicOrg/Athletes/A/Ahn_Hyun_Soo_An_Victor/Ahn_Hyun_Soo_An_Victor_mugshot.jpg?interpolation=lanczos-none&resize=90:90 2x" media="(min-width: 1024px)">
-<source srcset="https://stillmed.olympic.org/media/Images/OlympicOrg/Athletes/A/Ahn_Hyun_Soo_An_Victor/Ahn_Hyun_Soo_An_Victor_mugshot.jpg?interpolation=lanczos-none&resize=45:45, https://stillmed.olympic.org/media/Images/OlympicOrg/Athletes/A/Ahn_Hyun_Soo_An_Victor/Ahn_Hyun_Soo_An_Victor_mugshot.jpg?interpolation=lanczos-none&resize=90:90 2x" media="(min-width: 768px)">
-
-<img srcset="https://stillmed.olympic.org/media/Images/OlympicOrg/Athletes/A/Ahn_Hyun_Soo_An_Victor/Ahn_Hyun_Soo_An_Victor_mugshot.jpg?interpolation=lanczos-none&resize=45:45, https://stillmed.olympic.org/media/Images/OlympicOrg/Athletes/A/Ahn_Hyun_Soo_An_Victor/Ahn_Hyun_Soo_An_Victor_mugshot.jpg?interpolation=lanczos-none&resize=90:90 2x" alt="AHN Hyun-Soo (AN Victor)">
+<img src="/resources/upload/${carpool_ListVO.u_img }" width="50" height="50" >
 <span class="mask"></span>
 </picture>
         <div class="area">
-            <strong class="name">${carpoolVO.u_id }</strong>
+            <strong class="name">${carpool_ListVO.u_name } </strong>
         </div>
     </a>
                 </div>
+
+                
+                
                 <div class="td col2">
 
         <div class="area">
-            <strong> ${carpoolVO.c_month }, ${carpoolVO.c_date }th, ${carpoolVO.c_year}
-            ${carpoolVO.c_hour }:${carpoolVO.c_minute } </strong>
+            <strong> ${carpool_ListVO.c_month }, ${carpool_ListVO.c_date }th, ${carpool_ListVO.c_year}
+            ${carpool_ListVO.c_hour }:${carpool_ListVO.c_minute }   </strong>
         </div>
                 </div>
+                
+                 <div class="td col2">
+
+        <div class="area">
+            <strong>     ${carpool_ListVO.start_point } ->  ${carpool_ListVO.way_point } -> ${carpool_ListVO.dest_point}</strong>
+        </div>
+                </div>
+               
+
+
+                
+                
                 
                         <div class="td col3">
 
         <div class="area">
-            <strong> ${carpoolVO.c_person} </strong>
+            <strong> ${carpool_ListVO.c_person} </strong>
         </div>
                 </div>        
                 
-                         <div class="td col5">
+                         <div class="td col3">
 
         <div class="area">
-            <strong> ${carpoolVO.c_price}$ </strong>
+            <strong> ${carpool_ListVO.c_price}$ </strong>
         </div>
                 </div>   
                 
@@ -273,7 +275,7 @@ function checkTime(i) {
                     <ul class="medal-box">
 
                         <li>
-                            <a href="javascript:applyLink('/carpool/request?c_num=${carpoolVO.c_num}')" class="btn-calendar">GO</a>
+                            <a href="javascript:applyLink('/carpool/request?c_num=${carpool_ListVO.c_num}')" class="btn-calendar">GO</a>
                         </li>
 
                     </ul>
@@ -292,7 +294,6 @@ function checkTime(i) {
                  <a style="cursor: pointer;">Fold</a>  
                  <a style="cursor: pointer;">Go List Page</a>  
                 </span>
-</div>
     </section>
    	<div>
 <%

@@ -2059,7 +2059,7 @@ hr.alt + .related-posts {
     width: 20%;
     padding-left: 5px; }
   .table .col2, .table2 .col2 {
-    width: 19%; }
+    width: 20%; }
   .table .col3, .table2 .col3 {
     width: 13%; }
   .table .last, .table2 .last {
@@ -3029,11 +3029,13 @@ hr.alt + .related-posts {
     display: inline-block;
     vertical-align: top; }
   .table2 .col1 {
-    padding-left: 0;
-    width: 10%; }
+    padding-left: 10;
+    width: 5%;
+     }
     .table2 .col1.td {
       padding-top: 16px;
-      padding-bottom: 16px; }
+      padding-bottom: 16px;
+       }
     .table2 .col1 > a {
       display: inline-block;
       vertical-align: top; }
