@@ -23,8 +23,7 @@
    <script>
 
     var markerPosition;   
-     var marker_zoom4=[];
-     var marker_zoom5=[];
+     var marker_zoom6=[];
      var movingPath=null;
      var latLngList=[];
      <!-- 경유지 찍을 때 지도 마커 모양 변경..-->
@@ -55,138 +54,54 @@
     
     function initMap() {
      // when zoom is 4, present location of france, belgium, germany, swiss.
-      var franceLocation = {lat: 48.856667, lng: 2.350833};
-      var belgiumLocation = {lat: 50.85, lng: 4.35};
-      var germanyLocation = {lat: 52.500556, lng: 13.398889};
-      var swissLocation = {lat: 46.95, lng: 7.45};
-      
-      // when zoom is 5, present marker of location of below cities.
-      var parisLocation = {lat: 48.856667, lng: 2.350833};
-      var niceLocation = {lat: 43.703333, lng: 7.266389};
-      var brusselsLocation = {lat: 50.85, lng: 4.35};
-      var berlinLocation = {lat: 52.518611, lng: 13.408056};
-      var munichLocation = {lat: 48.133333, lng: 11.566667};
-      var bernLocation = {lat: 46.95, lng: 7.45};
-      var zurichLocation = {lat: 47.366667, lng: 8.55};
-      var hamburgLocation = {lat: 53.551085, lng: 9.993682};
-      var frankfurtLocation = {lat: 50.110922, lng: 8.682127};
+     //zoom6 France cites
+     var caen = {lat: 49.136500, lng: -0.303955};
+     var le_havre = {lat: 49.494594, lng: 0.135498};
+     var rouen = {lat: 49.394590, lng: 1.146240};
+     var rennes = {lat: 48.134628, lng: -1.622314};
+	 var nantes = {lat: 47.172600, lng: -1.578369};
+     var paris = {lat: 48.833689, lng: 2.376709}; 
+      //zoom6 Italy cites
+
      
-       marker_zoom4[0] = new google.maps.Marker({//Ã«Â§Â Ã¬Â»Â¤Ã«Â¥Â¼ uluruÃ¬Â Â  Ã¬Â°Â Ã¬Â Â 
+       marker_zoom6[0] = new google.maps.Marker({//Ã«Â§Â Ã¬Â»Â¤Ã«Â¥Â¼ uluruÃ¬Â Â  Ã¬Â°Â Ã¬Â Â 
           position: franceLocation,
           map: map,
-          title:'france'
+          title:'caen'
         });
-     marker_zoom4[1] = new google.maps.Marker({//Ã«Â§Â Ã¬Â»Â¤Ã«Â¥Â¼ uluruÃ¬Â Â  Ã¬Â°Â Ã¬Â Â 
+     marker_zoom6[1] = new google.maps.Marker({//Ã«Â§Â Ã¬Â»Â¤Ã«Â¥Â¼ uluruÃ¬Â Â  Ã¬Â°Â Ã¬Â Â 
           position: belgiumLocation,
           map: map,
-          title:'belguim'
+          title:'le_havre'
         });
-     marker_zoom4[2] = new google.maps.Marker({//Ã«Â§Â Ã¬Â»Â¤Ã«Â¥Â¼ uluruÃ¬Â Â  Ã¬Â°Â Ã¬Â Â 
+     marker_zoom6[2] = new google.maps.Marker({//Ã«Â§Â Ã¬Â»Â¤Ã«Â¥Â¼ uluruÃ¬Â Â  Ã¬Â°Â Ã¬Â Â 
           position: germanyLocation,
           map: map,
-          title:'germany'
+          title:'rouen'
         });
-     marker_zoom4[3] = new google.maps.Marker({//Ã«Â§Â Ã¬Â»Â¤Ã«Â¥Â¼ uluruÃ¬Â Â  Ã¬Â°Â Ã¬Â Â 
+     marker_zoom6[3] = new google.maps.Marker({//Ã«Â§Â Ã¬Â»Â¤Ã«Â¥Â¼ uluruÃ¬Â Â  Ã¬Â°Â Ã¬Â Â 
           position: swissLocation,
           map: map,
-          title:'swiss'
+          title:'rennes'
        });
      
-      marker_zoom5[0] = new google.maps.Marker({//Ã«Â§Â Ã¬Â»Â¤Ã«Â¥Â¼ uluruÃ¬Â Â  Ã¬Â°Â Ã¬Â Â 
+      marker_zoom6[4] = new google.maps.Marker({//Ã«Â§Â Ã¬Â»Â¤Ã«Â¥Â¼ uluruÃ¬Â Â  Ã¬Â°Â Ã¬Â Â 
           position: parisLocation,
+          map: map,
+          title:'nantes'
+        });
+     marker_zoom6[5] = new google.maps.Marker({//Ã«Â§Â Ã¬Â»Â¤Ã«Â¥Â¼ uluruÃ¬Â Â  Ã¬Â°Â Ã¬Â Â 
+          position: niceLocation,
           map: map,
           title:'paris'
         });
-     marker_zoom5[1] = new google.maps.Marker({//Ã«Â§Â Ã¬Â»Â¤Ã«Â¥Â¼ uluruÃ¬Â Â  Ã¬Â°Â Ã¬Â Â 
-          position: niceLocation,
-          map: map,
-          title:'nice'
-        });
-     marker_zoom5[2] = new google.maps.Marker({//Ã«Â§Â Ã¬Â»Â¤Ã«Â¥Â¼ uluruÃ¬Â Â  Ã¬Â°Â Ã¬Â Â 
-          position: brusselsLocation,
-          map: map,
-          title:'brussels'
-        });
-     marker_zoom5[3] = new google.maps.Marker({//Ã«Â§Â Ã¬Â»Â¤Ã«Â¥Â¼ uluruÃ¬Â Â  Ã¬Â°Â Ã¬Â Â 
-          position: berlinLocation,
-          map: map,
-          title:'berlin'
-        });
-     marker_zoom5[4] = new google.maps.Marker({//Ã«Â§Â Ã¬Â»Â¤Ã«Â¥Â¼ uluruÃ¬Â Â  Ã¬Â°Â Ã¬Â Â 
-          position: munichLocation,
-          map: map,
-          title:'munich',
-        });
-     marker_zoom5[5] = new google.maps.Marker({//Ã«Â§Â Ã¬Â»Â¤Ã«Â¥Â¼ uluruÃ¬Â Â  Ã¬Â°Â Ã¬Â Â 
-          position: bernLocation,
-          map: map,
-          title:'bern'
-        });
-     marker_zoom5[6] = new google.maps.Marker({//Ã«Â§Â Ã¬Â»Â¤Ã«Â¥Â¼ uluruÃ¬Â Â  Ã¬Â°Â Ã¬Â Â 
-          position: zurichLocation,
-          map: map,
-          title:'zurich'
-        });
-     marker_zoom5[7] = new google.maps.Marker({
-         position: hamburgLocation,
-         map: map,
-         title:'hamburg'
-       });
-     marker_zoom5[8] = new google.maps.Marker({
-         position: frankfurtLocation,
-         map: map,
-         title:'frankfurt'
-       });
+
     /* 지도 좌표 정보 ajax */
-     for(i=0;i<marker_zoom4.length;i++)
-    {
-        var count = 0;
-       marker_zoom4[i].addListener('click', function() {
-          count ++;
-          latLngList.push(this.getPosition());
-          createLine(latLngList, map);
-          console.log(this.getTitle());
-          if(count%2 != 0){
-              $.ajax({
-                  url : '${pageContext.request.contextPath}/ajax_register',
-                 type : 'post',
-                 data : {
-                    start : this.getTitle()
-                 },
-                 success: function sendHandler(data) {
-                    $('select.start option.start').text("");
-                   $('select.start option.start').text(data);
-                   $('select.start option.start').val(data);
-                   $('select.start option.start').text(data).attr("selected", "selected");
-                    
-                    }
-              });
-              alert("출발지가 추가 되었습니다.");
-              return false;
-               }else{
-          
-           $.ajax({
-             url :   '${pageContext.request.contextPath}/ajax_register',
-            type : 'post',
-            data : {
-               start : this.getTitle()
-            },
-            success: function sendHandler(data) {
-                $('select.destination option.destination').text("");
-                $('select.destination option.destination').text(data);
-                $('select.destination option.destination').val(data);
-                $('select.destination option.destination').text(data).attr("selected", "selected");
-               }
-         });
-         alert("목적지가 추가 되었습니다.")
-         return false;
-          }
-        });   
-    }
- for(i=0;i<marker_zoom5.length;i++)
+
+ for(i=0;i<marker_zoom6.length;i++)
  {
     var count = 0;
-    marker_zoom5[i].addListener('click', function() {
+    marker_zoom6[i].addListener('click', function() {
        count++;
        latLngList.push(this.getPosition());
          console.log(this.getTitle());
@@ -230,7 +145,7 @@
        }else if(count == 3){
           if(confirm("경유지로 추가 하시겠습니까?") == true){
              this.setMap(null);
-               marker_zoom5[i] = new google.maps.Marker({
+               marker_zoom6[i] = new google.maps.Marker({
                     position: this.getPosition(),
                     map: map,
                     title: this.getTitle(),
@@ -259,30 +174,26 @@
  }
 
       var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 4,
-        center: parisLocation
+        zoom: 6,
+        center: paris
       });
 
       map.addListener('zoom_changed', function() {
-          if(map.getZoom()<5){
+          if(map.getZoom()<6){
 
-             if(marker_zoom5[0]!=null){
-                for(i=0; i<marker_zoom5.length; i++){
-                    marker_zoom5[i].setMap(null);
+             if(marker_zoom6[0]!=null){
+                for(i=0; i<marker_zoom6.length; i++){
+                    marker_zoom6[i].setMap(null);
                  } 
              }
-             for(i=0; i<marker_zoom4.length; i++){
-             marker_zoom4[i].setMap(map);
-             }
+
            }
-          else if(map.getZoom()>=5){
+          else if(map.getZoom()>=6){
              
-          for(i=0; i<marker_zoom4.length; i++){
-                marker_zoom4[i].setMap(null);
+          for(i=0; i<marker_zoom6.length; i++){
+                marker_zoom6[i].setMap(null);
              }   
-            for(i=0; i<marker_zoom5.length; i++){
-                marker_zoom5[i].setMap(map);
-             }
+
           }
         });
     }/* ------------------------initMap() 종료 --------------------------------------------------------*/

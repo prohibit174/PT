@@ -1,7 +1,5 @@
 $(function() {
-	$("#login-button").on("click", function() {
 		if ($("span.session").text() != "null") {
-			console.log($("span.session").text());
 			$("li.welcome").show();
 			$("li#mypage").show();
 			$("#login-button").text("LOGOUT");
@@ -10,6 +8,4 @@ $(function() {
 			$('li.welcome').hide();
 			$("li#mypage").hide();
 		}
-
-	});
 });
