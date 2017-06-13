@@ -222,6 +222,29 @@ public class ProductController {
 
 		return "/product/productReq_detail";
 	}
+	
+	
+	@RequestMapping(value="/product_list/recommand", method=RequestMethod.GET)
+	public String product_list_recommand(@ModelAttribute("cri") SearchCriteria cri, 
+			Model model) throws Exception{
+	
+		
+		/*model.addAttribute("list", service.listCriteria(cri));*/
+		model.addAttribute("list", service.listSearchCriteria(cri));
+		
+	
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		
+		/*pageMaker.setTotalCount(service.listCountCriteria(cri));*/
+		pageMaker.setTotalCount(service.listSearchCount(cri));
+		
+		model.addAttribute("pageMaker", pageMaker);
+		
+		return "product/product_list_recommand";
+	}
+
+
 
 	// @RequestMapping(value = "/productReq_detail", method = RequestMethod.GET)
 	// public String productReq_detail2(Product_RequestVO proReq, Model model)
