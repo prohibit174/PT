@@ -26,6 +26,19 @@ function applyLink(URL){
 		alert('Cancle');
 	}
 }
+// 클릭하면 해당 div 로 이동...
+$(function(){
+	var offset = $(".web_parser").offset();
+	$("#rental").on("click", function(){
+		 $('html, body').animate({scrollTop : offset.top}, 400);
+	});
+	
+	var offset2 = $(".list_view").offset();
+	$("#waiting_carpool").on("click", function(){
+		alert(offset2);
+		$('html, body').animate({scrollTop : offset2.top}, 400);
+	})
+});
 </script>
 
 <script type="text/javascript">
@@ -96,6 +109,7 @@ function checkTime(i) {
 </script>
 </head>
 <body onload = "startTime()">
+
 	<section class="profiles alt2">
 	<div class="btn-hold">
 		<a href="/london-2012"> <span class="btn-prev"> <span
@@ -159,13 +173,13 @@ function checkTime(i) {
 				<li>
 					<div class="text-box">
 						<strong class="title">대기중인 카풀 목록</strong>
-						<a style="cursor: pointer; font-size: 30px;">Wating Carpool</a>
+						<a style="cursor: pointer; font-size: 30px;" id=waiting_carpool>Wating Carpool</a>
 					</div>
 				</li>
 				<li>
 					<div class="text-box">
 						<strong class="title">대여 가능한 렌트 목록</strong>
-						<a style="cursor: pointer; font-size: 30px;">Rental Car List</a>
+						<a style="cursor: pointer; font-size: 30px;" id="rental">Rental Car List</a>
 					</div>
 				</li>
 				<li>
@@ -180,6 +194,7 @@ function checkTime(i) {
 	</div>
 	</section>
 	<div>
+	<div class="list_view">
 <section class="results ajax-area" data-tmpl="athleteResults_tmpl">
         <div class="heading">
         <br>
@@ -199,6 +214,7 @@ function checkTime(i) {
                     <div class="th col4"> SIGN UP </div>
             </li>
             
+
             <c:forEach items="${list}" var="carpoolVO" end="${count }">
                 <li>
                 <div class="td col-first">
@@ -276,7 +292,7 @@ function checkTime(i) {
                  <a style="cursor: pointer;">Fold</a>  
                  <a style="cursor: pointer;">Go List Page</a>  
                 </span>
-
+</div>
     </section>
    	<div>
 <%

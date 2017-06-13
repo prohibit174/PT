@@ -61,41 +61,58 @@
      var rennes = {lat: 48.134628, lng: -1.622314};
 	 var nantes = {lat: 47.172600, lng: -1.578369};
      var paris = {lat: 48.833689, lng: 2.376709}; 
+     var le_mans = {lat: 47.987777, lng: 0.223388};
+     var tours = {lat: 47.396180, lng: 0.706786};
+     var nancy = {lat: 48.659827, lng: 6.199950};
       //zoom6 Italy cites
 
      
        marker_zoom6[0] = new google.maps.Marker({//Ã«Â§Â Ã¬Â»Â¤Ã«Â¥Â¼ uluruÃ¬Â Â  Ã¬Â°Â Ã¬Â Â 
-          position: franceLocation,
+          position: caen,
           map: map,
           title:'caen'
         });
      marker_zoom6[1] = new google.maps.Marker({//Ã«Â§Â Ã¬Â»Â¤Ã«Â¥Â¼ uluruÃ¬Â Â  Ã¬Â°Â Ã¬Â Â 
-          position: belgiumLocation,
+          position: le_havre,
           map: map,
           title:'le_havre'
         });
      marker_zoom6[2] = new google.maps.Marker({//Ã«Â§Â Ã¬Â»Â¤Ã«Â¥Â¼ uluruÃ¬Â Â  Ã¬Â°Â Ã¬Â Â 
-          position: germanyLocation,
+          position: rouen,
           map: map,
           title:'rouen'
         });
      marker_zoom6[3] = new google.maps.Marker({//Ã«Â§Â Ã¬Â»Â¤Ã«Â¥Â¼ uluruÃ¬Â Â  Ã¬Â°Â Ã¬Â Â 
-          position: swissLocation,
+          position: rennes,
           map: map,
           title:'rennes'
        });
      
       marker_zoom6[4] = new google.maps.Marker({//Ã«Â§Â Ã¬Â»Â¤Ã«Â¥Â¼ uluruÃ¬Â Â  Ã¬Â°Â Ã¬Â Â 
-          position: parisLocation,
+          position: nantes,
           map: map,
           title:'nantes'
         });
      marker_zoom6[5] = new google.maps.Marker({//Ã«Â§Â Ã¬Â»Â¤Ã«Â¥Â¼ uluruÃ¬Â Â  Ã¬Â°Â Ã¬Â Â 
-          position: niceLocation,
+          position: paris,
           map: map,
           title:'paris'
         });
-
+     marker_zoom6[6] = new google.maps.Marker({//Ã«Â§Â Ã¬Â»Â¤Ã«Â¥Â¼ uluruÃ¬Â Â  Ã¬Â°Â Ã¬Â Â 
+         position: le_mans,
+         map: map,
+         title:'le_mans'
+       });
+     marker_zoom6[7] = new google.maps.Marker({//Ã«Â§Â Ã¬Â»Â¤Ã«Â¥Â¼ uluruÃ¬Â Â  Ã¬Â°Â Ã¬Â Â 
+         position: tours,
+         map: map,
+         title:'tours'
+       });
+     marker_zoom6[7] = new google.maps.Marker({//Ã«Â§Â Ã¬Â»Â¤Ã«Â¥Â¼ uluruÃ¬Â Â  Ã¬Â°Â Ã¬Â Â 
+         position: nancy,
+         map: map,
+         title:'nancy'
+       });
     /* 지도 좌표 정보 ajax */
 
  for(i=0;i<marker_zoom6.length;i++)
@@ -174,27 +191,21 @@
  }
 
       var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 6,
-        center: paris
+        zoom: 5,
+        center: nantes
       });
 
       map.addListener('zoom_changed', function() {
-          if(map.getZoom()<6){
-
-             if(marker_zoom6[0]!=null){
-                for(i=0; i<marker_zoom6.length; i++){
-                    marker_zoom6[i].setMap(null);
-                 } 
+          if(map.getZoom()>= 6){  
+             for(i=0; i<marker_zoom6.length; i++){
+             marker_zoom6[i].setMap(map);
              }
-
+           }else if(map.getZoom() < 6){
+               for(i=0; i<marker_zoom6.length; i++){
+                   marker_zoom6[i].setMap(null);
+                   }
            }
-          else if(map.getZoom()>=6){
-             
-          for(i=0; i<marker_zoom6.length; i++){
-                marker_zoom6[i].setMap(null);
-             }   
-
-          }
+		
         });
     }/* ------------------------initMap() 종료 --------------------------------------------------------*/
 
