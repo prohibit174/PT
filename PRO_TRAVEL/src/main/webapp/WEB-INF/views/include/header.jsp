@@ -138,15 +138,8 @@
 			<a href="#" class="nav-opener icon-menu"><span class="hide">Menu</span></a>
 			<div class="logo">
 
-				<a href="/"> <picture> <!--[if IE 9]><video style="display: none;"><![endif]-->
-					<source
-						srcset="https://stillres.olympic.org/images/logo/logo-90.png, https://stillres.olympic.org/images/logo/logo-90@2x.png 2x"
-						media="(min-width: 1024px)"> <source
-						srcset="https://stillres.olympic.org/images/logo/logo-72.png, https://stillres.olympic.org/images/logo/logo-72@2x.png 2x"
-						media="(min-width: 768px)"> <!--[if IE 9]></video><![endif]-->
-					<img
-						srcset="https://stillres.olympic.org/images/logo/logo-63.png, https://stillres.olympic.org/images/logo/logo-63@2x.png 2x"
-						alt="International Olympic Committee"></picture>
+				<a href="/">
+					<img src="${pageContext.request.contextPath}/resources/images/protravel_banner.PNG" width="200px" height="70px"/> 
 				</a>
 			</div>
 		</div>
