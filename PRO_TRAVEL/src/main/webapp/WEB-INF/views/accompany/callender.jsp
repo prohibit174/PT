@@ -1,18 +1,20 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
 <HTML>
 <HEAD>
 <TITLE> Calendar </TITLE>
-
-<script
-   src='${pageContext.request.contextPath}/resources/js/accompanyJs/2015062517161192340.js'></script>
+<script type="text/javascript" src="http://www.nowarch.com/resources/js/jquery-1.10.2.min.js"></script>
+<script src='${pageContext.request.contextPath}/resources/js/accompanyJs/jquery-ui.min.js'></script>
+<link rel='stylesheet' href='/resources/css/accompany/jquery-ui.theme.min.css' />
 </HEAD>
 <body>
 
-<form>
-<script>DateInput('orderdate', true, 'DD-MON-YYYY')</script>
-<input type="button" onClick="alert(this.form.orderdate.value)" value="Show date value passed">
-</form>
 
+<h2 class="demoHeaders">Datepicker</h2>
+<div id="datepicker"></div>
+
+<script type="text/javascript">
+$( "#datepicker" ).datepicker({
+	inline: true
+});
+</script>
 </BODY>
 </HTML>

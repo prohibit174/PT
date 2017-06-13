@@ -26,7 +26,9 @@
 <script type="text/javascript" src="http://www.nowarch.com/resources/js/jquery-1.10.2.min.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js'></script>
 <script src='${pageContext.request.contextPath}/resources/js/accompanyJs/fullcalendar.js'></script>
+<script src='${pageContext.request.contextPath}/resources/js/accompanyJs/jquery-ui.min.js'></script>
 <link rel='stylesheet' href='/resources/css/accompany/fullcalendar.css' />
+<link rel='stylesheet' href='/resources/css/accompany/jquery-ui.theme.min.css' />
 
 
 <%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/css/carpool_css/city-main-styles.css">
