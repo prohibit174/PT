@@ -372,7 +372,7 @@
 	</script>
 
 	<script>
-	/* 	$(document).ready(
+	 	$(document).ready(
 				function() {
 
 					$('#searchBtn').on(
@@ -388,7 +388,7 @@
 
 							});
 
-				}); */
+				}); 
 	</script>
 
 
