@@ -1,15 +1,36 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/views/include/header.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/message/message1.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/message/message2.css">
 
 </head>
-<body>
+<div id="daumIndex">
+    <a href="#transferToRegacy" onclick="$('#transferToRegacy').focus();return false;" rel="bookmark">Daum메일 이전 버전 사용하기 바로가기</a>
+    <a href="#daumBody" onclick="$('#daumBody').attr('tabindex',-1).focus();return false;" rel="bookmark">메일 본문 바로가기</a>
+    <a href="#daumGnb" onclick="$('#daumGnb').attr('tabindex',-1).focus();return false;" rel="bookmark">메일함 목록 바로가기</a>
+    <a href="#daumSearch" onclick="$('#daumSearch').attr('tabindex',-1).focus();return false;" rel="bookmark">메일 검색 바로가기</a>
+    <a href="#daumRelServices" onclick="$('#daumRelServices').attr('tabindex',-1).focus();return false;" rel="bookmark">관련서비스 바로가기</a>
+    <a href="/static/accessibility.html" target="_blank" title="새창">Daum 메일 웹접근성 안내 바로가기</a>
+</div>
+
+<div id="daumWrap"><!-- 추후 스킨관련 class 적용 -->
+    <div id="daumHead" role="navigation">
+        <h1 class="tit_email">
+            <a href="#" id="daumLogo" class="link_daum"><span class="img_mail ico_daum">Pro</span></a>
+            <a href="#" id="daumServiceLogo" class="link_service"><span class="img_mail ico_service">쪽지</span></a>
+        </h1>
+        <h2 id="daumGnb" class="screen_out">메일함 목록</h2>
+        <div class="write_mail">
+            <button type="button" class="btn_comm btn_write"><span class="img_mail">쪽지쓰기</span></button>
+            <button type="button" class="btn_comm btn_my"><span class="img_mail">내게쓰기</span></button>
+            <span class="bg_bar"></span>
+        </div>
 
         <div id="folder" class="snb_mail">
             <div class="scroll">
@@ -21,7 +42,7 @@
                     <div class="accordion_group">
                         <div class="on"><!-- 클래스 on추가 시 메뉴 열림 활성화 -->
                             <div class="box_menu">
-                                <a href="#none" class="link_menu" data-cookie="FU"><span class="img_mail ico_arrow"></span>내 메일함</a>
+                                <a href="#none" class="link_menu" data-cookie="FU"><span class="img_mail ico_arrow"></span>내 쪽지함</a>
                                     <span class="img_mail setting_mail">
                                         <button type="button" class="img_mail btn_add">메일함 추가</button>
                                         <button type="button" class="img_mail btn_setup">메일함 설정</button>
@@ -132,6 +153,14 @@
             </div>
             <div id="composer"></div>
         </div>
+        <!--// mArticle -->
+        <hr class="hide">
+
+    </div>
+    <!-- // daumContent -->
+</div>
+
+
+<script async src="//go.daum.net/jsa_minidaum_pc.daum" charset="utf-8" type="text/javascript"></script>
 </body>
 </html>
-<%@ include file="/WEB-INF/views/include/footer.jsp" %>
