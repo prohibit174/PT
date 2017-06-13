@@ -23,7 +23,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 		System.out.println(modelMap);
 		Object usersVO = modelMap.get("usersVO");
 		//
-		Object adminSession = modelMap.get("admin");
+		Object admin = modelMap.get("admin");
 		System.out.println(usersVO);
 		System.out.println(usersVO);
 
@@ -43,18 +43,8 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 			Object dest = session.getAttribute("dest");
 			response.sendRedirect(dest != null ? (String)dest:"/");
 			
-		}else{
-	         response.setContentType("text/html;charset=utf-8");
-	         out.println("<script>");
-	         out.println("alert('Please Check your ID or Password');");
-	         out.println("location.href='/login_form';");
-	         out.println("</script>");
-	         
-	         out.close();
-		}
-		
-		//Bonghyun Doing for admin login.
-		if(adminSession!=null){
+		}//Bonghyun Doing for admin login.
+		else if((String)session.getAttribute("login")=="admin"){
 			  System.out.println("Admin login");
 			
 			 response.setContentType("text/html;charset=utf-8");
@@ -64,6 +54,17 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 	         
 	         out.close();
 		}
+		
+		else{
+	         response.setContentType("text/html;charset=utf-8");
+	         out.println("<script>");
+	         out.println("alert('Please Check your ID or Password');");
+	         out.println("location.href='/login_form';");
+	         out.println("</script>");
+	         
+	         out.close();
+		}
+		
 		
 	}
 	

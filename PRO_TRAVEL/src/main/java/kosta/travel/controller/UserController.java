@@ -41,15 +41,20 @@ public class UserController {
 		         return;
 		      }
 			 
+			 
+			 if(vo.getU_id()=="admin"){
+				 System.out.println("controller-admin");
+				
+			 }
+			 System.out.println("controller-admin2");
+			 
 			 model.addAttribute("usersVO", vo.getU_id());
 			 
 			 //To check Admin account
-			 if(vo.getU_id()=="admin"){
-				 System.out.println("controller-admin");
-				 session.setAttribute("admin", vo);
-			 }
+			
+			// model.addAttribute("admin", vo.getU_id());
 			 
-			 model.addAttribute("admin", session);
+			
 			 //until here modified by Bong
 			 
 	
