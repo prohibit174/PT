@@ -3,7 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-
+<% String id = (String)session.getAttribute("login");
+		request.setAttribute("id", id);
+%>
 
 
 <!DOCTYPE html>
@@ -85,6 +87,8 @@
 	type="text/javascript"></script>
 
 <style>
+
+
 </style>
 <!-- 	<script>
  		 var result = '${msg}';
@@ -127,7 +131,7 @@
 		<div class="main" style="margin-right: 150px;">
 			<div class="main-holder photovideo" style="margin-left: 100px;">
 
-				<div class='box-body' style="background-color: white;">
+			<%-- 	<div class='box-body' style="background-color: white;">
 
 					<select name="searchType" class="searchBox">
 						<option value="n"
@@ -157,18 +161,17 @@
 
 
 				</div>
+ --%>
 
 
 
 
-
-				<section class="sets-section" style="background-color: white;">
-
+				 <section class="sets-section" style="background-color: white;  padding-top:20px;"> 
+						 <p style="color:black">${id}님과 같은 경로,날짜</p> 
 					<div class="ajax-area" data-tmpl="load3_tmpl" style="background-color: white">
 						<ul class="sets-list ajax-content">
-
 							<c:forEach var="product" items="${recommand}">
-								
+							
 									<li itemscope="" itemtype="http://schema.org/ImageObject"
 										class="same-height"><a
 										href="/product/product_detail${pageMaker.makeSearch(pageMaker.cri.page) }&p_num=${product.p_num }"
@@ -311,32 +314,32 @@
 
 	<div class="box-footer">
 
-		<div class="text-center">
+		<%-- <div class="text-center">
 			<ul class="pagination">
 
 				<c:if test="${pageMaker.prev}">
 					<li><a
-						href="product_list${pageMaker.makeSearch(pageMaker.startPage - 1) }">&laquo;</a></li>
+						href="recommand_list${pageMaker.makeSearch(pageMaker.startPage - 1) }">&laquo;</a></li>
 				</c:if>
 
 				<c:forEach begin="${pageMaker.startPage }"
 					end="${pageMaker.endPage }" var="idx">
 					<li
 						<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
-						<a href="product_list${pageMaker.makeSearch(idx)}">${idx}</a>
+						<a href="recommand_list${pageMaker.makeSearch(idx)}">${idx}</a>
 					</li>
 				</c:forEach>
 
 				<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
 					<li><a
-						href="product_list${pageMaker.makeSearch(pageMaker.endPage +1) }">&raquo;</a></li>
+						href="recommand_list${pageMaker.makeSearch(pageMaker.endPage +1) }">&raquo;</a></li>
 				</c:if>
 
 
 
 
 			</ul>
-		</div>
+		</div> --%>
 
 
 	</div>
@@ -369,23 +372,23 @@
 	</script>
 
 	<script>
-		$(document).ready(
+	/* 	$(document).ready(
 				function() {
 
 					$('#searchBtn').on(
 							"click",
 							function(event) {
 								/* 	alert($("select.searchBox option:selected").val()); */
-								self.location = "product_list"
+								self.location = "recommand_list"
 										+ '${pageMaker.makeQuery(1)}'
 										+ "&searchType="
 										+ $("select.searchBox option:selected")
 												.val() + "&keyword="
-										+ $('#keywordInput').val();
+										+ $('#keywordInput').val(); 
 
 							});
 
-				});
+				}); */
 	</script>
 
 
