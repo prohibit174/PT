@@ -84,6 +84,8 @@
 	type="text/javascript"></script>
 
 <style>
+
+
 </style>
 <!-- 	<script>
  		 var result = '${msg}';
@@ -298,6 +300,7 @@
 
 
 	</div>
+	
 
 	<!-- /.box-footer-->
 

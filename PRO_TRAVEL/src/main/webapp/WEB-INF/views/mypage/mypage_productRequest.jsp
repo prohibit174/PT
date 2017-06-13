@@ -47,11 +47,24 @@
 </style>
 </head>
 
+<script type="text/javascript">
+
+function btn_js_accept_click(URL){
+ 
+     if(confirm("수락하시겠습니까?") == true){
+        location.href=URL;
+     }
+    
+   }
+
+</script>
+
 <body>
 
 
 	<section class="results ajax-area" data-tmpl="athleteResults_tmpl"
 		style="margin-left:300px; padding-top: 20px;">
+		<div class="content1">
 	<div class="heading">
 		<h2>REQUESTED LIST</h2>
 		<ul class="add-links">
@@ -60,7 +73,7 @@
 	</div>
 
 		<ul class="table2 ajax-content">
-			<li>
+			<li >
 				<div class="th col-first">REQNUM</div>
 				<div class="th col1">USER_ID</div>
 				<div class="th col2">PRODUCT_NAME</div>
@@ -79,16 +92,22 @@
 					<div class="th col2">${Product_RequestVO.pr_place}</div>
 					<div class="th col3">${Product_RequestVO.pr_date}</div>
 					<div class="th col5">${Product_RequestVO.pr_ox}</div>
-				</c:forEach>
+				
 
 				<td align="center"><input type="button" value="수락"
 					class="nlogin_btn"
-					onclick="javascript:btn_js_accept_click('updateAcceptAction.mypage?pr_reqnum=${product_req.pr_reqnum }')"></td>
+					onclick="javascript:btn_js_accept_click('/mypage/product_requestAccept?pr_reqnum=${Product_RequestVO.pr_reqnum }')"></td>
 				<td align="center"><input type="button" value="거절"
 					onclick="location.href='carpoolDelete.mypage?c_num=${carpool.c_num } '"
-					class="nlogin_btn"></td></li>
-
-		</ul>
+					class="nlogin_btn"></td>
+					</c:forEach>
+					 <c:if test="${empty list}">
+			요청 목록이 없습니다.
+		</c:if>
+					</li>
+					</div>
+					
+			
 	
 
 	<div class="heading">
@@ -110,15 +129,19 @@
 		</li>
 
 
-		<li style="margin-top: 20px"><c:forEach items="${list}"
-				var="Product_RequestVO">
-				<div class="th col-first">${Product_RequestVO.pr_reqnum}</div>
-				<div class="th col1">${Product_RequestVO.u_id}</div>
-				<div class="th col2">${Product_RequestVO.p_num}</div>
-				<div class="th col2">${Product_RequestVO.pr_place}</div>
-				<div class="th col3">${Product_RequestVO.pr_date}</div>
-				<div class="th col5">${Product_RequestVO.pr_ox}</div>
+		<li style="margin-top: 20px"><c:forEach items="${list_o}"
+				var="Product_O">
+				<div class="th col-first">${Product_O.pr_reqnum}</div>
+				<div class="th col1">${Product_O.u_id}</div>
+				<div class="th col2">${Product_O.p_num}</div>
+				<div class="th col2">${Product_O.pr_place}</div>
+				<div class="th col3">${Product_O.pr_date}</div>
+				<div class="th col5">${Product_O.pr_ox}</div>
 			</c:forEach>
+			
+			 <c:if test="${empty list_o}">
+			수락 목록이 없습니다.
+		</c:if>
 	</ul>
 
 	<span class="btn-more"> <a
