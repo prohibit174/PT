@@ -43,7 +43,11 @@ public class CarpoolController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String registerGET(Model model, HttpSession session) throws Exception {
-		model.addAttribute("list", service.listAll());
+		List<Carpool_ListVO> carpoolAll = service.carpoolAll();
+		model.addAttribute("carpoolAll", carpoolAll);
+		
+
+		
 		
 		return "/carpool/main";
 	}
