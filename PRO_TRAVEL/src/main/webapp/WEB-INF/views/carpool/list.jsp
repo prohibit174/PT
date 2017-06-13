@@ -37,39 +37,24 @@ function applyLink(URL){
 
         <ul class="table2 ajax-content">
             <li>
-                    <div class="th col-first"> NUMBER </div>
-                    <div class="th col1"> DRIVDR </div>
-                    <div class="th col2"> START DATE </div> 
+                    
+                    <div class="th col1"> DRIVER </div>
+                    <div class="th col2"> DATE</div>
                     <div class="th col2"> CITY </div> 
                     <div class="th col3"> SEAT </div>
-                    <div class="th col5"> PRICE </div>
+                    <div class="th col3"> PRICE </div>
                     <div class="th col4"> SIGN UP </div>
             </li>
             
             <c:forEach items="${carpoolAll}" var="carpool_ListVO">
                 <li>
-                <div class="td col-first">
 
-        <div class="profile-row">
-            <div class="flag-image">
-            </div>
-            <span>${carpool_ListVO.c_num }</span>
-        </div>
-                </div>
                 <div class="td col1">
 
-
-
-    
     <a href = '/carpool/read?c_num=${carpool_ListVO.c_num }'>
 <picture class="picture">
 
-
-
 <img src="/resources/upload/${carpool_ListVO.u_img }" width="50" height="50" >
-
-
-
 <span class="mask"></span>
 </picture>
         <div class="area">
@@ -77,21 +62,25 @@ function applyLink(URL){
         </div>
     </a>
                 </div>
+
+                
+                
                 <div class="td col2">
 
         <div class="area">
             <strong> ${carpool_ListVO.c_month }, ${carpool_ListVO.c_date }th, ${carpool_ListVO.c_year}
-            ${carpool_ListVO.c_hour }:${carpool_ListVO.c_minute } </strong>
+            ${carpool_ListVO.c_hour }:${carpool_ListVO.c_minute }   </strong>
+        </div>
+                </div>
+                
+                 <div class="td col2">
+
+        <div class="area">
+            <strong>     ${carpool_ListVO.start_point } ->  ${carpool_ListVO.way_point } -> ${carpool_ListVO.dest_point}</strong>
         </div>
                 </div>
                
-                               <div class="td col2">
 
-        <div class="area">
-            <strong> ${carpool_ListVO.start_point } ->  ${carpool_ListVO.way_point } -> ${carpool_ListVO.dest_point}
-             </strong>
-        </div>
-                </div>
 
                 
                 
@@ -103,7 +92,7 @@ function applyLink(URL){
         </div>
                 </div>        
                 
-                         <div class="td col5">
+                         <div class="td col3">
 
         <div class="area">
             <strong> ${carpool_ListVO.c_price}$ </strong>
@@ -135,6 +124,9 @@ function applyLink(URL){
                     <a href="/ajaxscript/loadmoretablelist/games/athletes/{535B8008-29D0-44BB-8B14-E2B29CC79DD5}/3/3">More</a>
                 </span>
     </section>
+    
+   
+    
 
 <%@ include file="/WEB-INF/views/include/footer.jsp" %>
 </body>
