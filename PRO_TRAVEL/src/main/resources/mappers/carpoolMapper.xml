@@ -46,24 +46,32 @@
 		where c_num = #{c_num}
 	</update>
 	
+	
+	
+	
+	
 	<!--  마이페이지 --> 
 	<select id="myMakeCarpool" resultType="kosta.travel.domain.CarpoolVO" >
 	select * from car_list where u_id=#{u_id} order by c_num desc
 	</select> 
+
 	
-	<!-- 내가 만든 카풀리스트에 참가한 사람들보는 쿼리 -->
-	<select id="myMakeRequest" resultType="kosta.travel.domain.Carpool_RequestVO">
-		select * from car_request where c_num=#{c_num}
+	<!-- 내가 만든 카풀에 참가한 사람들 리스트 -->
+	<select id="myMakeRequest" resultType="kosta.travel.domain.CarpoolRequestUser">
+		select cr_num, c_num, u.u_name as cr_u_name, u.u_img as u_u_img, cr_ox 
+		from car_request cr, users u
+		where cr.u_id = u.u_id
+		and c_num=#{c_num}
 		order by cr_num desc
-	</select>
+	</select> 
 	
 	<!-- 내가 신청한 카풀들 목록 조회하는 쿼리 -->
 	<select id = "myRequest" resultType = "kosta.travel.domain.Carpool_RequestVO">
 		select * from car_request where u_id=#{u_id} order by cr_num desc
 	</select>
 	
-			<!-- 조인해서 신청한 리스트 뽑아오는 쿼리문(신청리스트에 운전자 이름, 운전자사진 보여주기위해) -->
- 	<select id = "requestAll" resultType = "kosta.travel.domain.CarpoolTest">
+	<!-- 조인해서 신청한 리스트 뽑아오는 쿼리문(신청리스트에 운전자 이름, 운전자사진 보여주기위해) -->
+ 	<select id = "requestAll" resultType = "kosta.travel.domain.CarpoolRequestUser">
 		select c.u_id as c_u_id ,cr.u_id as cr_u_id, u.u_img as u_u_img,  cr_num,
 		u.u_name as c_u_name, c_month, c_date, c_year, c_hour, c_minute, cr_ox, start_point
 		from car_list c,  car_request cr, users u
@@ -74,7 +82,7 @@
 	</select> 
 	
 	<!-- 내가 신청한 카풀의 상세페이지 조회하는부분 -->
-	 <select id = "readRequest" resultType = "kosta.travel.domain.CarpoolTest">
+	 <select id = "readRequest" resultType = "kosta.travel.domain.CarpoolRequestUser">
 		select c.u_id as c_u_id ,cr.u_id as cr_u_id, u.u_img as u_u_img,  cr_num,
 		u.u_name as c_u_name, 
 		c_month, c_date, c_year, c_hour, c_minute, cr_ox, start_point, way_point, dest_point,
@@ -86,6 +94,13 @@
 		and 	cr_num =#{cr_num}
 	</select> 
 	
+	
+	
+	
+	
+	
+	
+	
 	<!-- Request -->
 	<insert id="createRequest">
 	insert into car_request(cr_num, cr_ox, c_num, u_id) VALUES(#{cr_num}, 'x', #{c_num}, #{u_id})
@@ -95,15 +110,19 @@
 		select max(cr_num) from car_request
 	</select>
 	
-	<update id="updateRequest">
-		update car_request set 
-		cr_ox ='o'
+	<update id="accept">
+		update car_request set cr_ox ='o'
 		where cr_num = #{cr_num}
 	</update>
 	
-	<update id="updatePerson">
+	<update id="reject">
+		update car_request set cr_ox ='o'
+		where cr_num = #{cr_num}
+	</update>
+	
+	<update id="dropPerson">
 		update car_list 
-		set cr_person = cr_person-1
+		set c_person = c_person-1
 		where c_num = #{c_num}
 	</update>	
 		
