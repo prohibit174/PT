@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import kosta.travel.domain.CarpoolTest;
+import kosta.travel.domain.CarpoolRequestUser;
 import kosta.travel.domain.CarpoolVO;
 import kosta.travel.domain.Carpool_ListVO;
 import kosta.travel.domain.Carpool_RequestVO;
@@ -32,7 +32,7 @@ public class MypageCarpoolController {
 		List<CarpoolVO> list = service.myMakeCarpool(u_id);
 		model.addAttribute("list", list);
 		
-		List<CarpoolTest>requestList = service.requestAll(u_id);
+		List<CarpoolRequestUser>requestList = service.requestAll(u_id);
 		model.addAttribute("requestList", requestList);
 		
 		
@@ -41,17 +41,17 @@ public class MypageCarpoolController {
 	
 	@RequestMapping(value = "/read", method = RequestMethod.GET)
 	public String read(@RequestParam("c_num") int c_num, Model model, HttpServletRequest request) throws Exception {
+		//attribute하나로 넘기면 키값은 클래스이름(첫글자소문자)으로 들어감
 		model.addAttribute(service.read(c_num));
 		
-		
-		List<Carpool_RequestVO> list = service.myMakeRequest(c_num);
+		List<CarpoolRequestUser>list = service.myMakeRequest(c_num);
 		model.addAttribute("list", list);
-
+		
 		return "/mypage/mypage_carpoolRead";
 	}
 	
 	@RequestMapping(value = "/requestRead", method = RequestMethod.GET)
-	public String requestRead(@RequestParam("cr_num") int cr_num, Model model, CarpoolTest carpool, HttpServletRequest request) throws Exception {
+	public String requestRead(@RequestParam("cr_num") int cr_num, Model model, CarpoolRequestUser carpool, HttpServletRequest request) throws Exception {
 		carpool = service.readRequest(cr_num);
 		model.addAttribute("carpool", carpool);
 		
@@ -78,9 +78,18 @@ public class MypageCarpoolController {
 	}
 	
 	@RequestMapping(value = "/accept", method = RequestMethod.GET)
-	public String accept(Carpool_RequestVO carpoolRequest, @RequestParam("cr_num") int cr_num) throws Exception {
+	public String accept(Carpool_RequestVO carpoolRequest, @RequestParam("cr_num") int cr_num,@RequestParam("c_num") int c_num ) throws Exception {
 		System.out.println(cr_num);
-		service.updateRequest(carpoolRequest);
+		System.out.println(c_num);
+	
+		service.accept(carpoolRequest, c_num);
+		
+		return "redirect:/mypage/carpoolCheck";
+	}
+	
+	@RequestMapping(value = "/reject", method = RequestMethod.GET)
+	public String reject(Carpool_RequestVO carpoolRequest, @RequestParam("cr_num") int cr_num) throws Exception {
+		
 		
 		return "redirect:/mypage/carpoolCheck";
 	}
