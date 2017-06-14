@@ -225,12 +225,16 @@ public class ProductController {
 	
 	
 	@RequestMapping(value="/recommand_list", method=RequestMethod.GET)
-	public String product_list_recommand(@ModelAttribute("cri") SearchCriteria cri, 
-			Model model) throws Exception{
+	public String product_list_recommand(@RequestParam("u_id") String u_id,
+			@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception{
 	
 		
 		/*model.addAttribute("list", service.listCriteria(cri));*/
 		model.addAttribute("list", service.listSearchCriteria(cri));
+		
+		List<ProductVO> recommand=service.RecommendProductList(u_id);
+		logger.info("u_id");
+		model.addAttribute("recommand",recommand);
 		
 	
 		PageMaker pageMaker = new PageMaker();

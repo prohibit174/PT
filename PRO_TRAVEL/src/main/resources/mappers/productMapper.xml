@@ -172,16 +172,16 @@
 
 
 <!-- 물품 추천 리스트 -->
-	<select id="RecommendProductList" resultType="ProductVO">
+	<select id="RecommendProductList" parameterType="String" resultType="ProductVO">
         <![CDATA[
 	       SELECT *
 		   FROM product
-		   WHERE u_id IN (SELECT distinct b.u_id
+		   WHERE u_id IN (SELECT b.u_id
               			  FROM trip_plan a, trip_plan b
-            			  WHERE a.u_id =  'user2'
+            			  WHERE a.u_id = #{u_id}
               			  AND a.cor_region=b.cor_region
              			  AND a.tp_date=b.tp_date
-              			  AND a.u_id <> b.u_id);
+              			  AND a.u_id <> b.u_id)
        ]]>
 	</select>
 
