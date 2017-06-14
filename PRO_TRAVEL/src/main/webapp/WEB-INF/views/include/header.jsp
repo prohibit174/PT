@@ -1070,5 +1070,6 @@
 	</div>
 	</header>
 	</div>
+	<hr class="alt clearboth">
 </body>
 </html>
