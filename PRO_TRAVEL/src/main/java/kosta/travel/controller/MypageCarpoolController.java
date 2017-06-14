@@ -32,14 +32,9 @@ public class MypageCarpoolController {
 		List<CarpoolVO> list = service.myMakeCarpool(u_id);
 		model.addAttribute("list", list);
 		
-		List<Carpool_RequestVO> requestList = service.myRequest(u_id);
+		List<CarpoolTest>requestList = service.requestAll(u_id);
 		model.addAttribute("requestList", requestList);
 		
-		List<CarpoolTest>requestList1 = service.requestAll(u_id);
-		model.addAttribute("requestList1", requestList1);
-		
-/*		List<Carpool_ListVO> requestList1 = service.requestAll(u_id);
-		model.addAttribute("requestList1", requestList1);*/
 		
 		return "/mypage/mypage_carpoolCheck";
 	}
@@ -53,6 +48,14 @@ public class MypageCarpoolController {
 		model.addAttribute("list", list);
 
 		return "/mypage/mypage_carpoolRead";
+	}
+	
+	@RequestMapping(value = "/requestRead", method = RequestMethod.GET)
+	public String requestRead(@RequestParam("cr_num") int cr_num, Model model, CarpoolTest carpool, HttpServletRequest request) throws Exception {
+		carpool = service.readRequest(cr_num);
+		model.addAttribute("carpool", carpool);
+		
+		return "/mypage/mypage_carpoolRequestRead";
 	}
 	
 	@RequestMapping(value = "/remove", method = RequestMethod.GET)

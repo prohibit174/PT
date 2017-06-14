@@ -77,6 +77,12 @@ public class CarpoolServiceImpl implements CarpoolService {
 	public List<CarpoolTest> requestAll(String u_id) throws Exception {
 		return dao.requestAll(u_id);
 	}
+	
+	@Override
+	public CarpoolTest readRequest(Integer cr_num) throws Exception {
+		return dao.readRequest(cr_num);
+		
+	}
 
 
 	
@@ -103,6 +109,8 @@ public class CarpoolServiceImpl implements CarpoolService {
 		dao.updatePerson(c_num);
 		
 	}
+
+
 
 
 
