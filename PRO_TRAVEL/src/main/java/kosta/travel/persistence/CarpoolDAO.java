@@ -34,6 +34,8 @@ public interface CarpoolDAO {
 	
 	public List<CarpoolTest>requestAll(String u_id)throws Exception;
 	
+	public CarpoolTest readRequest(Integer cr_num)throws Exception;
+	
 	
 	//Request
 	public void createRequest(Carpool_RequestVO vo);

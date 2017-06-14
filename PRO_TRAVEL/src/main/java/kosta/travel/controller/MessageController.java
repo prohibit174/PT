@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class MessageController {
 	@RequestMapping(value = "/main", method = RequestMethod.GET)
 	public String main() {
-		return "/message/main";
+		return "/message/m_main";
 	}
 }
