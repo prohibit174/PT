@@ -3,8 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<% String id = (String)session.getAttribute("login");
-		request.setAttribute("id", id);
+<%
+	String id = (String) session.getAttribute("login");
+	request.setAttribute("id", id);
 %>
 
 
@@ -87,8 +88,6 @@
 	type="text/javascript"></script>
 
 <style>
-
-
 </style>
 <!-- 	<script>
  		 var result = '${msg}';
@@ -131,7 +130,7 @@
 		<div class="main" style="margin-right: 150px;">
 			<div class="main-holder photovideo" style="margin-left: 100px;">
 
-			<%-- 	<div class='box-body' style="background-color: white;">
+				<%-- 	<div class='box-body' style="background-color: white;">
 
 					<select name="searchType" class="searchBox">
 						<option value="n"
@@ -166,12 +165,16 @@
 
 
 
-				 <section class="sets-section" style="background-color: white;  padding-top:20px;"> 
-						 <p style="color:darkgrey; font-weight:bold; font-family:"나눔고딕">${id}님과 같은 경로,날짜의 회원들이 올린 물품입니다.</p> 
-					<div class="ajax-area" data-tmpl="load3_tmpl" style="background-color: white">
-						<ul class="sets-list ajax-content">
-							<c:forEach var="product" items="${recommand}">
-							
+				<section class="sets-section"
+					style="background-color: white; padding-top: 20px;">
+					<p style="color: darkgrey; font-weight: bold; font-family:"나눔고딕">${id}님과
+						같은 경로,날짜의 회원들이 올린 물품입니다.</p>
+					<fieldset>
+						<div class="ajax-area" data-tmpl="load3_tmpl"
+							style="background-color: white">
+							<ul class="sets-list ajax-content">
+								<c:forEach var="product" items="${recommand}">
+
 									<li itemscope="" itemtype="http://schema.org/ImageObject"
 										class="same-height"><a
 										href="/product/product_detail${pageMaker.makeSearch(pageMaker.cri.page) }&p_num=${product.p_num }"
@@ -183,36 +186,28 @@
 											<c:set var="pattern"
 												value="${fn:substring(product.p_img, fn:length(head)+1, fn:length(product.p_img)) }"></c:set>
 											<c:set var="small" value="_small"></c:set>
-											</c:if>
+										</c:if> <c:choose>
+											<c:when
+												test="${pattern=='jpg' || pattern =='gif' || pattern =='png' }">
+												<!-- <img srcset="resources/upload/${head }_small.${pattern}" alt="img /"> -->
+												<img src="/resources/upload/${head}${small}.${pattern}"
+													alt="img /">
+											</c:when>
+											<c:otherwise>
+												<c:out value="No IMAGE"></c:out>
+											</c:otherwise>
+										</c:choose> <%-- 	</c:if> --%> <%-- <img srcset="${product.p_img}"> --%>
+										</picture> </a>
+										<h2 itemprop="name">
 
-											<c:choose>
-												<c:when
-													test="${pattern=='jpg' || pattern =='gif' || pattern =='png' }">
-													<!-- <img srcset="resources/upload/${head }_small.${pattern}" alt="img /"> -->
-													<img src="/resources/upload/${head}${small}.${pattern}"
-														alt="img /">
-												</c:when>
-												<c:otherwise>
-													<c:out value="No IMAGE"></c:out>
-												</c:otherwise>
-											</c:choose>
-							
-							<%-- 	</c:if> --%>
-								<%-- <img srcset="${product.p_img}"> --%>
-								</picture>
-								</a>
-								<h2 itemprop="name">
-
-									<a
-										href="/product/product_detail${pageMaker.makeSearch(pageMaker.cri.page) }&p_num=${product.p_num }"
-										"
+											<a
+												href="/product/product_detail${pageMaker.makeSearch(pageMaker.cri.page) }&p_num=${product.p_num }"
+												"
 											itemprop="url" style="color: DarkSlateGray";>${product.p_name }</a>
 
-								</h2>
-								<span>판매자: ${product.u_id }</span>
-								</li>
-							</c:forEach>
-							<%-- 
+										</h2> <span>판매자: ${product.u_id }</span></li>
+								</c:forEach>
+								<%-- 
 							<c:forEach var="product" items="${recommand}">
 								<li itemscope="" itemtype="http://schema.org/ImageObject"
 									class="same-height"><a
@@ -246,33 +241,34 @@
 
 									</h2> <span>판매자: ${product.u_id }</span></li>
 							</c:forEach> --%>
-						</ul>
-						<span class="btn-more"> <a
-							href="/ajaxscript/loadmoreoverviewmedia/{B4C7581B-72EC-4637-A3ED-52F225BFE686}/6/0/MiddleOverview">More</a>
-						</span>
-						<noscript>
-							<div class="paging">
-								<ul>
-									<li><a><span class="icon-arrow-left"><span
-												class="hide">&lt;</span></span></a></li>
-									<li class="active"><a
-										href="https://www.olympic.org/photos">1</a></li>
-									<li class=""><a href="https://www.olympic.org/photos/2">2</a></li>
-									<li class=""><a href="https://www.olympic.org/photos/3">3</a></li>
-									<li class=""><a href="https://www.olympic.org/photos/4">4</a></li>
-									<li><a>&hellip;</a></li>
-									<li class=""><a href="https://www.olympic.org/photos/6">6</a></li>
-									<li class=""><a href="https://www.olympic.org/photos/7">7</a></li>
-									<li class=""><a href="https://www.olympic.org/photos/8">8</a></li>
-									<li class=""><a href="https://www.olympic.org/photos/9">9</a></li>
-									<li><a class="next"
-										href="https://www.olympic.org/photos/2" rel="next"><span
-											class="icon-arrow-right"><span class="hide">&gt;</span></span></a></li>
-								</ul>
-							</div>
-						</noscript>
+							</ul>
+							 <span class="btn-more"> <a
+								href="/ajaxscript/loadmoreoverviewmedia/{B4C7581B-72EC-4637-A3ED-52F225BFE686}/6/0/MiddleOverview">More</a>
+							</span> 
+							<noscript>
+								<div class="paging">
+									<ul>
+										<li><a><span class="icon-arrow-left"><span
+													class="hide">&lt;</span></span></a></li>
+										<li class="active"><a
+											href="https://www.olympic.org/photos">1</a></li>
+										<li class=""><a href="https://www.olympic.org/photos/2">2</a></li>
+										<li class=""><a href="https://www.olympic.org/photos/3">3</a></li>
+										<li class=""><a href="https://www.olympic.org/photos/4">4</a></li>
+										<li><a>&hellip;</a></li>
+										<li class=""><a href="https://www.olympic.org/photos/6">6</a></li>
+										<li class=""><a href="https://www.olympic.org/photos/7">7</a></li>
+										<li class=""><a href="https://www.olympic.org/photos/8">8</a></li>
+										<li class=""><a href="https://www.olympic.org/photos/9">9</a></li>
+										<li><a class="next"
+											href="https://www.olympic.org/photos/2" rel="next"><span
+												class="icon-arrow-right"><span class="hide">&gt;</span></span></a></li>
+									</ul>
+								</div>
+							</noscript>
 
-					</div>
+						</div>
+						</fieldset>
 				</section>
 			</div>
 		</div>
@@ -308,6 +304,7 @@
 					</ul>
 				</div>
 			</div>
+
 		</div>
 	</section>
 
@@ -372,7 +369,7 @@
 	</script>
 
 	<script>
-	 	$(document).ready(
+		$(document).ready(
 				function() {
 
 					$('#searchBtn').on(
@@ -384,11 +381,11 @@
 										+ "&searchType="
 										+ $("select.searchBox option:selected")
 												.val() + "&keyword="
-										+ $('#keywordInput').val(); 
+										+ $('#keywordInput').val();
 
 							});
 
-				}); 
+				});
 	</script>
 
 
