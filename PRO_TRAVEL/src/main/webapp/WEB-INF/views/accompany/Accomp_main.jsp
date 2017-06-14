@@ -1,12 +1,3 @@
-<%-- <%@page import="kosta.travel.service.AccompanyService"%>
-<%@page import="javax.servlet.jsp.tagext.TryCatchFinally"%>
-<%@page import="java.util.HashMap"%>
-<%@page import="kosta.travel.domain.AccompanyVO"%>
-<%@page import="kosta.travel.persistence.AccompanyDao"%>
-<%@page import="kosta.travel.domain.RouteVO"%>
-<%@ page import="java.util.*" %> --%>
-
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
@@ -18,32 +9,17 @@
 <%@include file="../include/accompany_sidebar.jsp" %>
 
 
-<% request.setCharacterEncoding("utf-8"); %>
+<%-- <% request.setCharacterEncoding("utf-8"); %> --%>
 
 <!DOCTYPE html>
 
 <html>
-<script type="text/javascript" src="http://www.nowarch.com/resources/js/jquery-1.10.2.min.js"></script>
+<!-- <script type="text/javascript" src="http://www.nowarch.com/resources/js/jquery-1.10.2.min.js"></script> -->
 <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js'></script>
 <script src='${pageContext.request.contextPath}/resources/js/accompanyJs/fullcalendar.js'></script>
-<link rel='stylesheet' href='/resources/css/accompany/fullcalendar.css' />
-
-
-<%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/css/carpool_css/city-main-styles.css">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/carpool_css/carpoolJoin.css" />--%>
-<%--  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/carpool_css/carpoolJoin2.css" />
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/carpool_css/carpoolJoin3.css" />
- <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/carpool_css/carpoolJoin4.css" />--%>
-
-<%-- <script data-main="/js/page/city" src="/js/lib/bower_components/requirejs/require.js"></script>
- <script type="text/javascript" src="${pageContext.request.contextPath}/JS/carpool_javascript/jquery.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/JS/carpool_javascript/carpool_JoinEvent.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/JS/carpool_javascript/carpool_JoinEvent2.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/JS/carpool_javascript/tests.js"></script> --%>
-<%--  <script src='${pageContext.request.contextPath}/GoogleAPI/lib/jquery.min.js'></script> --%>
-
-
-<%-- <script src="${pageContext.request.contextPath}/JS/loginPopup/loginPopup.js"></script> --%>
+<script src='${pageContext.request.contextPath}/resources/js/accompanyJs/jquery-ui.min.js'></script>
+<!-- <link rel='stylesheet' href='/resources/css/accompany/fullcalendar.css' /> -->
+<link rel='stylesheet' href='/resources/css/accompany/jquery-ui.min.css' />
 
 <head>
 
@@ -60,10 +36,10 @@
 		#carpool_map{
 		margin-left: 300px;
 		}
-		#footer{
+	/* 	#footer{
 		height: 30%;
 		}
-
+ */
     </style>
 
 </head>
@@ -76,13 +52,6 @@
         <div class="present">
             <div class="tabs-list">
                 
-          <!--       <ul class="tabs-list">
-            <li><a href="main.accompany" class="first-tag active"><span>Accompany</span></a></li>
-            <li><a href="enroll" class="accomp_createRoute"><span>여행 일정 등록</span></a></li>     
-            <li><a href="list.carpool" data-id="2d8eef384cefda06" class=""><span>동행 검색</span></a></li>
-            
-		</ul> -->
-
                 <div id="google-ad-sense" style="margin-top:20px;float:left;" data-type="260x260">
                   <script type="text/javascript">
                     google_ad_client = "ca-pub-9419115827273897";
@@ -100,7 +69,7 @@
             </div><!-- e//tabs-list -->
 <form action="" method="post">	
   	  <div id="carpool_map"></div>
-    	<h3 id="carpool_title">추천 동행인</h3>
+    	<h3 id="carpool_title">Recommended Traveling Companion</h3>
     	<br>
     	<div id="map"></div>
   </form>
@@ -491,10 +460,9 @@ function showLeftAccom(leftIndex, markerIndex){
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnrWQ2SHvedNrvdozheYo32pHwCbuvPgs&callback=initMap">
     </script>
    
-    
-      <input id="aaa" type="button" onclick="showAccom()" value="동행 추천 보이기">
-      <input id="aaa" type="button" onclick="hideAccom()" value="동행 추천 숨기기"
-      	 style="position: absolute,
+	<div style="margin-left: 50.5%;">
+      <input id="aaa" type="button" onclick="showAccom()" value="recommend show">
+      <input id="aaa" type="button" onclick="hideAccom()" value="recommend hide" style="position: absolute,
         top: 10px,
         left: 25%,
         z-index: 5,
@@ -504,23 +472,23 @@ function showLeftAccom(leftIndex, markerIndex){
         text-align: center,
         font-family: 'Roboto','sans-serif',
         line-height: 30px,
-        padding-left: 10px" >
+        padding-left: 10px">
+  	</div>
     </div>
             </div>
 
 
 <div class="id-card-box" style="width: 100% ;border: black;">
-	<form
-		action="/accompany/searchPeople"
-		class="calendar-form" method="post" role="form">
+	<!-- <form action="/accompany/searchPeople" class="calendar-form" method="post" role="form"> -->
+	<form action="/accompany/searchPeople" method="post" role="form">
 
 			<div class="item-list" style="width: 1400px; padding-right: 30px;">
-					<div class="row depature" style="font-size: 20px;">
-						<span class="label">departure</span>
-						 <select class="city" name="city">
-							<option class="locationName" style="margin-bottom: 10px">name</option>
+					<div style="font-size: 20px;">
+							<span class="label" style="margin-right: 80px;"  >departure</span>
+						 <select class="label" style="margin-top: -5px; width: 150px" name="city">
+						<option class="locationName" style="margin-bottom: 10px">name</option>
 						<option value="Zurich">Zurich</option>
-<option value="Paris">Paris</option>
+<option value="France">France</option>
 <option value="Nice">Nice</option>
 <option value="Brussels">Brussels</option>
 <option value="Berlin">Berlin</option>
@@ -530,156 +498,17 @@ function showLeftAccom(leftIndex, markerIndex){
 <option value="Belgium">Belgium</option>
 <option value="Germany">Germany</option>
 <option value="Swiss" selected="selected">Swiss</option>
-
-
 						</select>
 						
-						<span class="label">begin</span> 
-						<input type="text" name="sdate" class="label" value="">
-						 <div id="datepicker"></div>
-						 <!-- <select class="label" name="sdate">
-							<option class="start" style="margin-bottom: 10px">date</option>
-<option value="17/06/01" selected="selected">17/06/01</option>
-<option value="17/06/02">17/06/02</option>
-<option value="17/06/03">17/06/03</option>
-<option value="17/06/04">17/06/04</option>
-<option value="17/06/05">17/06/05</option>
-<option value="17/06/06">17/06/06</option>
-<option value="17/06/07">17/06/07</option>
-<option value="17/06/08">17/06/08</option>
-<option value="17/06/09">17/06/09</option>
-<option value="17/06/10">17/06/10</option>
-<option value="17/06/11">17/06/11</option>
-<option value="17/06/12">17/06/12</option>
-<option value="17/06/13">17/06/13</option>
-<option value="17/06/14">17/06/14</option>
-<option value="17/06/15">17/06/15</option>
-<option value="17/06/16">17/06/16</option>
-<option value="17/06/17">17/06/17</option>
-<option value="17/06/18">17/06/18</option>
-<option value="17/06/19">17/06/19</option>
-<option value="17/06/20">17/06/20</option>
-<option value="17/06/21">17/06/21</option>
-<option value="17/06/22">17/06/22</option>
-<option value="17/06/23">17/06/23</option>
-<option value="17/06/24">17/06/24</option>
-<option value="17/06/25">17/06/25</option>
-<option value="17/06/26">17/06/26</option>
-<option value="17/06/27">17/06/27</option>
-<option value="17/06/28">17/06/28</option>
-<option value="17/06/29">17/06/29</option>
-<option value="17/06/30">17/06/30</option>
-<option value="17/06/31">17/06/31</option>
-
-							
-							
-						</select>  -->
-						
-						<span class="label">end</span> 
-						<select  class="label" name="edate">
-							<option class="destination">date</option>
-							<option value="17/06/01"></option>
-<option value="17/06/01">17/06/01</option>
-<option value="17/06/02">17/06/02</option>
-<option value="17/06/03">17/06/03</option>
-<option value="17/06/04">17/06/04</option>
-<option value="17/06/05">17/06/05</option>
-<option value="17/06/06">17/06/06</option>
-<option value="17/06/07">17/06/07</option>
-<option value="17/06/08">17/06/08</option>
-<option value="17/06/09">17/06/09</option>
-<option value="17/06/10">17/06/10</option>
-<option value="17/06/11">17/06/11</option>
-<option value="17/06/12">17/06/12</option>
-<option value="17/06/13">17/06/13</option>
-<option value="17/06/14">17/06/14</option>
-<option value="17/06/15" selected="selected">17/06/15</option>
-<option value="17/06/16">17/06/16</option>
-<option value="17/06/17">17/06/17</option>
-<option value="17/06/18">17/06/18</option>
-<option value="17/06/19">17/06/19</option>
-<option value="17/06/20">17/06/20</option>
-<option value="17/06/21">17/06/21</option>
-<option value="17/06/22">17/06/22</option>
-<option value="17/06/23">17/06/23</option>
-<option value="17/06/24">17/06/24</option>
-<option value="17/06/25">17/06/25</option>
-<option value="17/06/26">17/06/26</option>
-<option value="17/06/27">17/06/27</option>
-<option value="17/06/28">17/06/28</option>
-<option value="17/06/29">17/06/29</option>
-<option value="17/06/30">17/06/30</option>
-<option value="17/06/31">17/06/31</option>
-
-							
-							
-							
-						</select>
-							<img class="appendcp" src="../resources/images/accompany/plus.png" width="30" height="30">
-					</div>
-					<!-- <div class="row" style="font-size: 20px;">
-						<span class="label">Date</span> 
-						<select class="day">
-							<option value="day">day</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-							<option value="9">9</option>
-							<option value="10">10</option>
-							<option value="11">11</option>
-							<option value="12">12</option>
-							<option value="13">13</option>
-							<option value="14">14</option>
-							<option value="15">15</option>
-							<option value="16">16</option>
-							<option value="17">17</option>
-							<option value="18">18</option>
-							<option value="19">19</option>
-							<option value="20">20</option>
-							<option value="21">21</option>
-							<option value="22">22</option>
-							<option value="23">23</option>
-							<option value="24">24</option>
-							<option value="25">25</option>
-							<option value="26">26</option>
-							<option value="27">27</option>
-							<option value="28">28</option>
-							<option value="29">29</option>
-							<option value="30">30</option>
-							<option value="31">31</option>
-						</select>
-						<select class="month">
-							<option value="month">month</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-							<option value="9">9</option>
-							<option value="10">10</option>
-							<option value="11">11</option>
-							<option value="12">12</option>
-						</select>
-						<select class="year">
-							<option value="year">year</option>
-							<option value="2017">2017</option>
-							<option value="2018">2018</option>
-							<option value="2019">2019</option>
-						</select> 
-					</div> -->
-					
-
+						<span class="label" style="margin: 0 40px;">begin</span>
+						<input class="datepick label" type="text" name="sdate" value="start" style="margin-top: -5px; padding: 0px; width: 150px;">
+						<span class="label" style="margin: 0 40px;">end</span>
+						<input class="datepick label" type="text" name="edate" value="end" style="margin-top: -5px; padding: 0px; width: 150px;">
+							<img class="appendcp" src="../resources/images/accompany/plus.png" width="30" height="30" style="margin-top: -5px;">
 				</div>
-		<div>
-		<input class="btn-more" type="submit" value="search" style="margin-right: 50%; margin-top: 10px; width: 120px; height: 50px;" />
+		<div style="padding-left: 45%;">
+		<input type="submit" value="search" style="margin-right: 20%; margin-top: 10px; width: 120px; height: 50px; font-size: medium;" />
+		</div>
 		</div>
 	</form>
 	
@@ -689,9 +518,11 @@ var ct = 0;
 
  $(document).on('click','.appendcp',function() {
 	if(ct <= 0){
-	$(this).parent('div').append('<div class="row destination" style="font-size: 20px;"><span class="label">destination</span><select class="label"><option class="locationName" style="margin-bottom: 10px">name</option></select> <span class="label">begin</span> <select class="label"><option class="start" style="margin-bottom: 10px">date</option></select> <span class="label">end</span> <select  class="label"><option class="destination">date</option></select><img class="appendcp" src="../resources/images/accompany/plus.png" width="30" height="30"><img class="appendcm" src="../resources/images/accompany/miners.png" width="30" height="30"></div>');
+	/* $(this).parent('div').append('<div class="row destination" style="font-size: 20px;"><span class="label" style="margin-right: 80px";>destination</span><select class="label" style="margin-right: 80px";><option class="locationName" style="margin-bottom: 10px">name</option>																																																																																																																			</select><span class="label" style="margin: 0 40px;">begin</span> <select class="label" style="margin-right: 80px";><option class="start" style="margin-bottom: 10px">date</option></select> <span class="label" style="margin: 0 40px;">end</span> <select  class="label" style="margin-right: 80px";><option class="destination">date</option></select><img class="appendcp" src="../resources/images/accompany/plus.png" width="30" height="30" style="margin-top: -5px;"><img class="appendcm" src="../resources/images/accompany/miners.png" width="30" height="30" style="margin-top: -5px;"></div>'); */
+		$(this).parent('div').append('<div class="row destination" style="font-size: 20px;"><span class="label" style="margin-right: 80px;">destination</span><select class="label" style="margin-top: -5px; width: 150px" name="city"><option class="locationName" style="margin-bottom: 10px">name</option><option value="Zurich">Zurich</option><option value="France">France</option><option value="Nice">Nice</option><option value="Brussels">Brussels</option><option value="Berlin">Berlin</option><option value="Munich">Munich</option><option value="Bern">Bern</option><option value="France">France</option><option value="Belgium">Belgium</option><option value="Germany">Germany</option><option value="Swiss" selected="selected">Swiss</option></select><span class="label" style="margin: 0 40px;">begin</span> <input class="datepick label" type="text" name="sdate" value="start" style="margin-top: -5px; padding: 0px; width: 150px;"><span class="label" style="margin: 0 40px;">end</span> <input class="datepick label" type="text" name="edate" value="end" style="margin-top: -5px; padding: 0px; width: 150px;"><img class="appendcp" src="../resources/images/accompany/plus.png" width="30" height="30" style="margin-top: -5px;"><img class="appendcm" src="../resources/images/accompany/miners.png" width="30" height="30" style="margin-top: -5px;"></div>');
 	}else{
-	$('div.destination').before('<div class="row stops" style="font-size: 20px;"><span class="label">stops</span><select class="label"><option class="locationName" style="margin-bottom: 10px">name</option></select> <span class="label">begin</span> <select class="label"><option class="start" style="margin-bottom: 10px">date</option></select> <span class="label">end</span> <select  class="label"><option class="destination">date</option></select><img class="appendcp" src="../resources/images/accompany/plus.png" width="30" height="30"><img class="appendcm" src="../resources/images/accompany/miners.png" width="30" height="30"></div>');
+	/* $('div.destination').before('<div class="row stops" style="font-size: 20px;"><span class="label" style="margin-right: 80px";>stops</span><select class="label" style="margin-right: 80px";><option class="locationName" style="margin-bottom: 10px">name</option></select> 																																																																																																																	<span class="label" style="margin: 0 40px;">begin</span> <select class="label" style="margin-right: 80px";><option class="start" style="margin-bottom: 10px">date</option></select> <span class="label" style="margin: 0 40px;">end</span> <select  class="label" style="margin-right: 80px";><option class="destination">date</option></select><img class="appendcp" src="../resources/images/accompany/plus.png" width="30" height="30" style="margin-top: -5px;"><img class="appendcm" src="../resources/images/accompany/miners.png" width="30" height="30" style="margin-top: -5px;"></div>'); */
+	$('div.destination').before('<div class="row stops" style="font-size: 20px; padding-bottom: 0px;"><span class="label" style="margin-right: 80px;">stops</span><select class="label" style="margin-top: -5px; width: 150px" name="city"><option class="locationName" style="margin-bottom: 10px">name</option><option value="Zurich">Zurich</option><option value="France">France</option><option value="Nice">Nice</option><option value="Brussels">Brussels</option><option value="Berlin">Berlin</option><option value="Munich">Munich</option><option value="Bern">Bern</option><option value="France">France</option><option value="Belgium">Belgium</option><option value="Germany">Germany</option><option value="Swiss" selected="selected">Swiss</option></select><span class="label" style="margin: 0 40px;">begin</span> <input class="datepick label" type="text" name="sdate" value="start" style="margin-top: -5px; padding: 0px; width: 150px;"><span class="label" style="margin: 0 40px;">end</span> <input class="datepick label" type="text" name="edate" value="end" style="margin-top: -5px; padding: 0px; width: 150px;"><img class="appendcp" src="../resources/images/accompany/plus.png" width="30" height="30" style="margin-top: -5px;"><img class="appendcm" src="../resources/images/accompany/miners.png" width="30" height="30" style="margin-top: -5px;"></div>');
 	}
 	
 	console.log("plus");
@@ -699,16 +530,23 @@ var ct = 0;
 });
  
  $(document).on('click','.appendcm',function() {
- 		console.log($(this).parent('div').attr('class'));
+ 		console.log($(this).parent('div.row').attr('class'));
  		ct -= 1;
-		$(this).parent('div').remove();
+		$(this).parent('div.row').remove();
 		
 		
 		console.log("minuse");
 });
+
+$('body').on('focus','.datepick', function(){
+    $(this).datepicker({
+    	changeYear : true,
+    	changeMonth : true,
+    	dateFormat : "yy/mm/dd",
+    });
+    });
 </script>
 
-
-<%@include file="../include/footer.jsp" %>
 </body>
+<%@include file="../include/footer.jsp" %>
 </html>

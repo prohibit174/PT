@@ -136,10 +136,10 @@
 	<div class="holder">
 		<div class="section">
 			<a href="#" class="nav-opener icon-menu"><span class="hide">Menu</span></a>
-			<div class="logo">
+			<div class="logo" style="padding-left: 30px;">
 
 				<a href="/">
-					<img src="${pageContext.request.contextPath}/resources/images/protravel_banner.PNG" width="200px" height="70px"/> 
+					<img src="${pageContext.request.contextPath}/resources/images/protravel_banner.PNG" width="250px" height="80px"/> 
 				</a>
 			</div>
 		</div>
@@ -1042,7 +1042,7 @@
 				<div class="add-top-section">
 					<div class="hold lang-switcher-container">
 						
-						<ul class="social-links">
+						<ul class="social-links" style="font-size: 20px;">
 							<li class="welcome" style="display:none;"><span class="session" style="font-weight: bold;" ><%=session.getAttribute("login") %></span>님 환영합니다.</li>
 							<li class="button_base b01_simple_rollover"><a style="cursor:pointer" id="login-button">LOGIN</a></li>
 							<li class="button_base b01_simple_rollover"><a href="/join/joinform">SIGN UP</a></li>
@@ -1062,7 +1062,7 @@
 				</div>
 			</div>
 		</div>
-		<a href="#" class="opener icon-search"><span class="hide">search</span></a>
+		<a href="#" class="opener icon-search" style="padding-right: 180px;"><span class="hide">search</span></a>
 		<div class="slide">
 			<div class="slide-holder"></div>
 		</div>
@@ -1070,5 +1070,6 @@
 	</div>
 	</header>
 	</div>
+	<hr class="alt clearboth">
 </body>
 </html>
