@@ -1,6 +1,8 @@
 package kosta.travel.persistence;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -119,8 +121,9 @@ public class ProductDAOImpl implements ProductDAO {
 	@Override
 	public List<ProductVO> RecommendProductList(String u_id) throws Exception {
 		return session.selectList(namespace+".RecommendProductList", u_id);
-				
 	}
+
+	
 
 	
 

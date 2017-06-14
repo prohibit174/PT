@@ -4,6 +4,60 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<style type="text/css">
+.mail{
+	font-size:8px;
+	color: #b3b3b3;
+	cursor: pointer;
+	display:block;
+	position:relative;
+	border-top:1em solid transparent;
+	border-left:1.5em solid #b3b3b3;
+	border-right:1.5em solid #b3b3b3;
+	border-bottom:1em solid #b3b3b3;
+height:0;
+width:0;
+}
+.mail:before{
+    content: '';
+    top: -1.23em;
+    left: -1.5em;
+
+    position: absolute;
+    border-top: 1em solid #b3b3b3;
+    border-left: 1.5em solid transparent;
+    border-right: 1.5em solid transparent;
+    border-bottom: 1em solid transparent;
+    font-size: 0.8em;
+}
+.mail:HOVER {
+	border-top:1em solid transparent;
+	border-left:1.5em solid black;
+	border-right:1.5em solid black;
+	border-bottom:1em solid black;
+
+}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Insert title here</title>
+<style type="text/css">
+.aside-tag {
+	  font-size: 12px;
+	  line-height: 34px;
+	  text-overflow: ellipsis;
+	  white-space: nowrap;
+	  overflow: hidden;
+	  cursor: pointer;
+	  display: block;
+	  font-size: 14px;
+	  line-height: 49px;
+	  font-weight: bold;
+	  color: black;
+	  margin: 0 35px 0 13px;
+	  /* color: #acacac; */
+	  text-transform: uppercase; }
+</style>
 <head>
 <title>프로 동행러</title>
 <meta charset="UTF-8" />
@@ -1046,6 +1100,7 @@
 							<li class="welcome" style="display:none;"><span class="session" style="font-weight: bold;" ><%=session.getAttribute("login") %></span>님 환영합니다.</li>
 							<li class="button_base b01_simple_rollover"><a style="cursor:pointer" id="login-button">LOGIN</a></li>
 							<li class="button_base b01_simple_rollover"><a href="/join/joinform">SIGN UP</a></li>
+							<li><a class="mail" href="/message/main"></a></li>
 							<li class="button_base b01_simple_rollover" id="mypage" style="display: none;"><a href="/mypage/usercheckInfo">MY PAGE</a></li>
 							<li><a href="https://twitter.com/olympics" class="ss-icon">twitter</a></li>
 							<li><a href="https://www.youtube.com/user/olympic"
@@ -1070,5 +1125,6 @@
 	</div>
 	</header>
 	</div>
+	<hr class="alt clearboth">
 </body>
 </html>
