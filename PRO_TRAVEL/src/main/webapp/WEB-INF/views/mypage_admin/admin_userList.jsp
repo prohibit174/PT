@@ -11,6 +11,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+
+	function yellowCard_click() {
+		
+	}
+
+
+</script>
 </head>
 <body>
 <section class="id-card-box" itemtype="http://schema.org/Organization"
@@ -24,33 +32,37 @@
 
 	<ul class="table2 ajax-content">
 		<li>
-			<div class="th col1">USER ID</div>
-			<div class="th col1">NICK NAME</div> <!-- <div class="th col1"> BIRTH DAY </div> 
+			
+			<div class="th col1">ID</div>
+			<div class="th col1"></div>
+			<div class="th col2">NICK NAME</div> <!-- <div class="th col1"> BIRTH DAY </div> 
                     <div class="th col1"> ADDRESS </div>  -->
-			<div class="th col1">SEX</div>
-			<div class="th col1">LICENSE</div> <!--  <div class="th col1"> JOB </div>
+		<!-- 	<div class="th col1">SEX</div>
+			<div class="th col2">LICENSE</div> --> <!--  <div class="th col1"> JOB </div>
                     <div class="th col1"> LANGUAGE </div>
                     <div class="th col1"> RELIGION </div>
                     <div class="th col1"> STYLE </div> -->
 			<div class="th col2">STATUS</div>
+			<div class="th col2">MANAGE</div>
+			<div class="th col1"></div>
 		</li>
 
 		<c:forEach items="${userList}" var="user_ListVO">
 			<li>
-				<div class="td col-first">
+				<%-- <div class="td col-first">
 
 					<div class="profile-row">
 						<div class="flag-image"></div>
 						<span>${user_ListVO.u_id }</span>
 					</div>
-				</div>
-				<div class="td col1">
+				</div> --%>
+			<!-- 	<div class="td col1">
+ -->
 
 
-
-
+<%-- 
 					<a href='/carpool/read?c_num=${carpool_ListVO.c_num }'> 
-					<%-- <picture class="picture">
+					<picture class="picture">
 이미지 넣어라
 
 
@@ -59,29 +71,36 @@
 
 
 <span class="mask"></span>
-</picture> --%>
+</picture>  
 						<div class="area">
 							<strong class="name">${user_ListVO.u_name } </strong>
 						</div>
 					</a>
-				</div>
+				</div>--%>
 				
 				<div class="td col1">
-					<div class="sex">${user_ListVO.u_sex }</div>
+					<div class="id">${user_ListVO.u_id }</div>
+				</div>
+				
+				<div class="td col1"></div>
+				
+				<div class="td col2">
+					<div class="name">${user_ListVO.u_name }</div>
 				</div>
 
 				<div class="td col2">
-					<div class="license">${user_ListVO.u_license }</div>
+					<div class="license">${user_ListVO.u_status }</div>
 				</div>
 
 
 				<div class="td col2">
 
 					<div class="status">
-						<strong> ${user_ListVO.u_status } </strong>
+						<input type="button" value = "경고" id="yellowCard" onclick="yellowCard_click()">
 					</div>
 				</div>
 
+				
 				<%--<div class="td col2">
 
 					  <div class="area">
@@ -101,7 +120,7 @@
 
                     </ul>
                 </div> --%>
-				</div>
+			<!-- 	</div> -->
 			</li>
 		</c:forEach>
 
