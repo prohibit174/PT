@@ -13,16 +13,20 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 
-	function yellowCard_click() {
+	function yellowCard_click(u_id) {
 		var check = confirm("경고를 추가하시겠습니까?");
 		
-		if(check) document.location.href="/yellowCard?u_id=${user_ListVO.u_id}";
+		if(check) document.location.href="/yellowCard"+u_id;
 	}
 
 
 </script>
 </head>
 <body>
+<%-- <form action="yellowCard">
+<input type="hidden" name="u_id" value="${user_ListVO.u_id }">
+
+</form> --%>
 <section class="id-card-box" itemtype="http://schema.org/Organization"
 		itemscope="" style="margin: 0px 200px 100px 0px"; >
 			<div class="heading">
@@ -81,7 +85,10 @@
 				</div>--%>
 				
 				<div class="td col1">
-					<div class="id">${user_ListVO.u_id }</div>
+					<div class="id"><a href = "/userDetail?u_id=${user_ListVO.u_id }">
+					${user_ListVO.u_id }
+					</a>
+					</div>
 				</div>
 				
 				<div class="td col1"></div>
@@ -98,7 +105,8 @@
 				<div class="td col2">
 
 					<div class="status">
-						<input type="button" value = "경고" id="yellowCard" onclick="yellowCard_click()">
+						
+						<input type="button" value = "경고" id="yellowCard" onclick="yellowCard_click('${user_ListVO.u_id }')">
 					</div>
 				</div>
 

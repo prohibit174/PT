@@ -94,8 +94,8 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public Integer yellowCard(String u_id) throws Exception {
-		return session.update(namespace+".yellowCard", u_id);
+	public Integer yellowCard(UsersVO users) throws Exception {
+		return session.update(namespace+".yellowCard", users);
 	}
 
 	

@@ -3,11 +3,13 @@ package kosta.travel.controller;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import kosta.travel.domain.UsersVO;
@@ -32,10 +34,19 @@ public class AdminController {
 		return "/mypage_admin/admin_userList";
 	}
 	
-	@RequestMapping("/yellowCard")
-	public String yellowcard(@RequestParam("u_id") String u_id) throws Exception{
-		service.yellowCard(u_id);
+	@RequestMapping(value="/yellowCard{u_id}", method=RequestMethod.GET)
+	public String yellowcard(@PathVariable String u_id) throws Exception{
+		UsersVO users = service.userDetail(u_id);
+		service.yellowCard(users);
 		System.out.println("u_id"+u_id);
 		return "redirect:/userList";
+	}
+	
+	@RequestMapping(value="/userDetail", method=RequestMethod.GET)
+	public String userDetail(@RequestParam("u_id") String u_id, Model model) throws Exception{
+		UsersVO users = service.userDetail(u_id);
+		System.out.println(u_id);
+		model.addAttribute("users", users);
+		return "/mypage/mypage_userCheckForm";
 	}
 }

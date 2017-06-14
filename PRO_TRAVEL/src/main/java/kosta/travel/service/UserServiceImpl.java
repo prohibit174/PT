@@ -70,8 +70,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public void yellowCard(String u_id) throws Exception {
-		dao.yellowCard(u_id);
+	public void yellowCard(UsersVO users) throws Exception {
+		dao.yellowCard(users);
 		
 	}
 	

@@ -18,5 +18,5 @@ public interface UserDAO {
 	public UsersVO checkUserWithSessionKey(String value);
 	public List<UsersVO> userAll()throws Exception;
 	public Integer userWithdrawal(UsersVO users) throws Exception;
-	public Integer yellowCard(String u_id) throws Exception;
+	public Integer yellowCard(UsersVO users) throws Exception;
 }
