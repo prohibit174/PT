@@ -167,7 +167,7 @@
 
 
 				 <section class="sets-section" style="background-color: white;  padding-top:20px;"> 
-						 <p style="color:black">${id}님과 같은 경로,날짜</p> 
+						 <p style="color:darkgrey; font-weight:bold; font-family:"나눔고딕">${id}님과 같은 경로,날짜의 회원들이 올린 물품입니다.</p> 
 					<div class="ajax-area" data-tmpl="load3_tmpl" style="background-color: white">
 						<ul class="sets-list ajax-content">
 							<c:forEach var="product" items="${recommand}">
