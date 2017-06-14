@@ -171,7 +171,7 @@
       </div>
     </div>
     
-    <c:forEach items="${requestList1}" var="carpoolTest">
+    <c:forEach items="${requestList}" var="carpoolTest">
     <div class="row">
       <div class="cell">
         <img src="/resources/upload/${carpoolTest.u_u_img }" width="30" height="30" >
