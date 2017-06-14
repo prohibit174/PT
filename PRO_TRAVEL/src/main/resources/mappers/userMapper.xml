@@ -72,4 +72,9 @@
 	<select id="userAll" resultType="kosta.travel.domain.UsersVO">
 		select * from users 
 	</select>
+	
+	<update id = "yellowCard">
+		UPDATE users SET u_status = #{u_status}+1 WHERE u_id = #{u_id} 
+	
+	</update>
 </mapper>

@@ -14,7 +14,9 @@
 <script type="text/javascript">
 
 	function yellowCard_click() {
+		var check = confirm("경고를 추가하시겠습니까?");
 		
+		if(check) document.location.href="/yellowCard?u_id=${user_ListVO.u_id}";
 	}
 
 

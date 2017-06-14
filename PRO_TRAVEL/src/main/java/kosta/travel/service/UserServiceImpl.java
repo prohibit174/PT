@@ -68,6 +68,12 @@ public class UserServiceImpl implements UserService {
 		dao.userWithdrawal(users);
 		
 	}
+
+	@Override
+	public void yellowCard(String u_id) throws Exception {
+		dao.yellowCard(u_id);
+		
+	}
 	
 	
 
