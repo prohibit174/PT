@@ -26,7 +26,7 @@
 </style>
 </head>
 <body>
-<hr class="alt clearboth">
+
 
 <div class="main-container" style="padding-left: 30px; margin-left: 30px;">
     <aside class="sidebar" style="padding-right: 30px;">
