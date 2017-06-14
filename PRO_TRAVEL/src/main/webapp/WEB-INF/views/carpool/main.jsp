@@ -296,7 +296,7 @@ function checkTime(i) {
                 </span>
     </section>
    	<div>
-<%
+<%-- <%
 	try {
 		Document doc = Jsoup.connect("http://www.alamo.co.kr/rent/carInfo.php?vendor=AL").get();
 		Elements contents = doc.select("div.body_contents");
@@ -305,9 +305,9 @@ function checkTime(i) {
 	} catch (Exception e) {
 		e.printStackTrace();
 	}
-%>
+%> --%>
 
-<div class=web_parser>${result }</div>
+<%-- <div class=web_parser>${result }</div> --%>
 	</div>
 </div>
 
