@@ -30,53 +30,7 @@ function applyLink(URL){
   max-width: 800px;
 }
 
-.table {
-  margin: 0 0 40px 0;
-  width: 100%;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-  display: table;
-}
-@media screen and (max-width: 580px) {
-  .table {
-    display: block;
-  }
-}
 
-.row {
-  display: table-row;
-  background: #f6f6f6;
-}
-.row:nth-of-type(odd) {
-  background: #e9e9e9;
-}
-.row.header {
-  font-weight: 900;
-  color: #ffffff;
-  background: #ea6153;
-}
-.row.green {
-  background: #27ae60;
-}
-.row.blue {
-  background: #2980b9;
-}
-@media screen and (max-width: 580px) {
-  .row {
-    padding: 8px 0;
-    display: block;
-  }
-}
-
-.cell {
-  padding: 6px 12px;
-  display: table-cell;
-}
-@media screen and (max-width: 580px) {
-  .cell {
-    padding: 2px 12px;
-    display: block;
-  }
-}
 
 </style>
 </head>
@@ -103,18 +57,18 @@ function applyLink(URL){
 		</tr>
 		<tr height="30">
 			<td width="150">목적지</td>
-			<td colspan="3">${carpool_ListVO.way_point }</td>			
+			<td colspan="2">${carpool_ListVO.way_point }</td>			
 		</tr>
 		<tr height="30">
 			<td width="150">도착지</td>
-			<td colspan="3">${carpool_ListVO.dest_point }</td>			
+			<td colspan="2">${carpool_ListVO.dest_point }</td>			
 		</tr>
 		<tr height="30">
 			<td width="150">출발시간</td>
-			<td colspan="3">${carpool_ListVO.c_year }년${carpool_ListVO.c_month }월${carpool_ListVO.c_date }일</td>			
+			<td colspan="2">${carpool_ListVO.c_year }년${carpool_ListVO.c_month }월${carpool_ListVO.c_date }일</td>			
 		</tr>
 		<tr height="30">			
-			<td colspan="4">
+			<td colspan="3">
 				<input type="button" value="Modify" onclick="location.href='/mypage/modify?c_num=${carpool_ListVO.c_num } '">
 				<input type="button" value="Remove" onclick="location.href='/mypage/remove?c_num=${carpool_ListVO.c_num } '">
 			</td>			
