@@ -164,7 +164,7 @@
 
 
 
-				<section class="sets-section" style="background-color: white;">
+				<section class="sets-section" style="background-color: white; padding-top:20px;">
 
 					<div class="ajax-area" data-tmpl="load3_tmpl"
 						style="background-color: white">

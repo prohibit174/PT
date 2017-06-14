@@ -2,7 +2,7 @@ package kosta.travel.domain;
 
 import org.springframework.web.multipart.MultipartFile;
 
-public class CarpoolTest {
+public class CarpoolRequestUser {
 	private int c_num;
 	private String u_id;
 	private String start_point;
@@ -15,6 +15,8 @@ public class CarpoolTest {
 	private String c_hour;
 	private int c_minute;
 	private int c_person;
+	
+	//user
 	private String u_pwd;
 	private String u_name;
 	private String u_birth;
@@ -27,19 +29,24 @@ public class CarpoolTest {
 	private String u_u_img;
 	private String u_style;
 	private MultipartFile img_file;
+	
+	//request
 	private int cr_num;
 	private String cr_ox;
+	
+	//중복되는것
 	private String c_u_id;
 	private String cr_u_id;
 	private String c_u_name;
+	private String cr_u_name;
 	
-	public CarpoolTest(){}
+	public CarpoolRequestUser(){}
 
-	public CarpoolTest(int c_num, String u_id, String start_point, String dest_point, String way_point, int c_price,
-			int c_year, int c_month, int c_date, String c_hour, int c_minute, int c_person, String u_pwd, String u_name,
-			String u_birth, String u_sex, String u_address, String u_job, String u_lang, String u_religion,
-			String u_license, String u_u_img, String u_style, MultipartFile img_file, int cr_num, String cr_ox,
-			String c_u_id, String cr_u_id, String c_u_name) {
+	public CarpoolRequestUser(int c_num, String u_id, String start_point, String dest_point, String way_point,
+			int c_price, int c_year, int c_month, int c_date, String c_hour, int c_minute, int c_person, String u_pwd,
+			String u_name, String u_birth, String u_sex, String u_address, String u_job, String u_lang,
+			String u_religion, String u_license, String u_u_img, String u_style, MultipartFile img_file, int cr_num,
+			String cr_ox, String c_u_id, String cr_u_id, String c_u_name, String cr_u_name) {
 		super();
 		this.c_num = c_num;
 		this.u_id = u_id;
@@ -70,6 +77,7 @@ public class CarpoolTest {
 		this.c_u_id = c_u_id;
 		this.cr_u_id = cr_u_id;
 		this.c_u_name = c_u_name;
+		this.cr_u_name = cr_u_name;
 	}
 
 	public int getC_num() {
@@ -303,6 +311,16 @@ public class CarpoolTest {
 	public void setC_u_name(String c_u_name) {
 		this.c_u_name = c_u_name;
 	}
+
+	public String getCr_u_name() {
+		return cr_u_name;
+	}
+
+	public void setCr_u_name(String cr_u_name) {
+		this.cr_u_name = cr_u_name;
+	}
+
+	
 	
 	
 	
