@@ -34,6 +34,8 @@ public interface CarpoolService {
 	
 	public List<CarpoolTest> requestAll(String u_id)throws Exception;
 	
+	public CarpoolTest readRequest(Integer cr_num)throws Exception;
+	
 	
 	
 	//Request

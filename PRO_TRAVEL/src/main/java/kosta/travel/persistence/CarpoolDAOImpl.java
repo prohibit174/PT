@@ -82,6 +82,10 @@ public class CarpoolDAOImpl implements CarpoolDAO {
 		return session.selectList(namespace+".requestAll", u_id);
 	}
 	
+	@Override
+	public CarpoolTest readRequest(Integer cr_num) throws Exception {
+		return session.selectOne(namespace+".readRequest", cr_num);
+	}
 
 	
 	//Request
@@ -107,6 +111,8 @@ public class CarpoolDAOImpl implements CarpoolDAO {
 		session.update(namespace+".updatePerson", c_num);
 		
 	}
+
+
 
 
 
