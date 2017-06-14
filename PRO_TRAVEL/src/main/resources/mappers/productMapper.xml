@@ -183,6 +183,13 @@
              			  AND a.tp_date=b.tp_date
               			  AND a.u_id <> b.u_id)
        ]]>
+       <include refid="search"></include>
+  
+      <![CDATA[    
+        order by p_num desc
+      ]]>
+	</select>
+       
        
 
 	</select>
