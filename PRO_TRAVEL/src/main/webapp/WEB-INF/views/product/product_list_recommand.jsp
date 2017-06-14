@@ -379,8 +379,8 @@
 								self.location = "recommand_list"
 										+ '${pageMaker.makeQuery(1)}'
 										+ "&searchType="
-										+ $("select.searchBox option:selected")
-												.val() + "&keyword="
+										+ $("select.searchBox option:selected").val() 
+										+ "&keyword="
 										+ $('#keywordInput').val();
 
 							});
