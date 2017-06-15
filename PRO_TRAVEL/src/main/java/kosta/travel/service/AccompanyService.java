@@ -75,7 +75,7 @@ public class AccompanyService {
 
 	}
 
-	public List<RouteVO> getTraveler(SearchTraveler trav) throws Exception {
+	public List<AccompanyVO> getTraveler(SearchTraveler trav) throws Exception {
 
 		/*
 		 * Object obj = trav.getEdate(); System.out.println("search service : "
@@ -100,13 +100,13 @@ public class AccompanyService {
 		 * System.out.println("+ 이전 출발일 : "+sdate.get(Calendar.DATE));
 		 */
 
-		List<RouteVO> alltraveler = new ArrayList<RouteVO>();
+		List<AccompanyVO> alltraveler = new ArrayList<AccompanyVO>();
 
 		String dates = trav.getSdate();
 
 		if (sdate.getTimeInMillis() == edate.getTimeInMillis()) {
 			RouteVO route = new RouteVO("", trav.getCity(), trav.getU_id(), trav.getSdate());
-			List<RouteVO> traveler = dao.getTraveler(route);
+			List<AccompanyVO> traveler = dao.getTraveler(route);
 			return traveler;
 
 		} else {
@@ -118,11 +118,11 @@ public class AccompanyService {
 
 				if (switchh == 1) {
 					loopTest = false;
-					System.out.println("반복 중단 입력");
+					/*System.out.println("반복 중단 입력");*/
 				}
 				RouteVO route = new RouteVO("", trav.getCity(), trav.getU_id(), dates);
 
-				List<RouteVO> traveler = dao.getTraveler(route);
+				List<AccompanyVO> traveler = dao.getTraveler(route);
 
 				if (!traveler.isEmpty()) {
 					alltraveler.addAll(traveler);
@@ -132,7 +132,7 @@ public class AccompanyService {
 
 				if (sdate.getTimeInMillis() == edate.getTimeInMillis()) {
 					switchh = 1;
-					System.out.println("반복 중단 준비");
+					System.out.println("AccompanyService.java 반복 중단 준비");
 				}
 			}
 			return alltraveler;

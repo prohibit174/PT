@@ -526,7 +526,10 @@ function showLeftAccom(leftIndex, markerIndex){
 						<input class="datepick label ajaxEnd" type="text" name="edate" value="end" style="margin-top: -5px; padding: 0px; width: 150px;">
 							<img class="appendcp" src="../resources/images/accompany/plus.png" width="30" height="30" style="margin-top: -5px;">
 				</div>
+		<div class="accompanyList row">
+		</div>
 		<div style="padding-left: 45%; float: none;" class="calendar-form">
+		
 		<input class="btn-more ajaxbtn" type="submit" value="search" style="margin-right: 20%; margin-top: 10px; width: 120px; height: 50px; font-size: medium; float: none;" />
 		</div>
 		</div>
@@ -534,8 +537,7 @@ function showLeftAccom(leftIndex, markerIndex){
 	
 	
 	</div>
-	<div class="accompanyList">
-	</div>
+
 <script type="text/javascript">
 var ct = 0;
 
@@ -571,6 +573,8 @@ $('body').on('focus','.datepick', function(){
     
 $('.ajaxbtn').click(function(){    
     event.preventDefault();
+    
+    
 $.ajax({
 	type : 'get',
     // URL은 필수 요소이므로 반드시 구현해야 하는 Property입니다.
@@ -581,13 +585,40 @@ $.ajax({
     	 "edate" : $(".ajaxEnd").val()
     },
     success : function (data) {
+    	var eachCounter = 0;
+    	var htmlText = '<section class="results ajax-area" data-tmpl="athleteResults_tmpl">';
+    	htmlText += '<div class="heading">';
+    	htmlText += '<h2>WATING CARPOOL</h2>';
+    	htmlText += '</div>';
+    	htmlText += '<ul class="table2 ajax-content">';
+    	htmlText += '<li>';
+    		htmlText += '<div class="th col1"> Number </div>';
+				htmlText += '<div class="th col4"> Join </div>';
+					htmlText += '<div class="th col4"> Date </div>';
+						htmlText += '<div class="th col4"> Place </div>';
+							htmlText += '<div class="th col4"> Birth </div>';
+								htmlText += '<div class="th col4"> Name </div>'; 
+									htmlText += '<div class="th col4"> Profile </div>';
+    									htmlText += '</li>';
+    								
+
     	$(data).each(function(){
-    		alert(data.tp_num);
-    		
-    		$('div.accompanyList').append("<h3>here</h3>");
-    		
+    		/* console.log($(this)); */
+		htmlText += '<li>';
+    		htmlText += '<div class="th col1">'+(eachCounter+1)+'</div>';
+				htmlText += '<div class="th col4"><a href=""> Join </a></div>';
+					htmlText += '<div class="th col4">'+data[eachCounter].tp_date+'</div>';
+						htmlText += '<div class="th col4">'+data[eachCounter].cor_region+'</div>';
+							htmlText += '<div class="th col4">'+data[eachCounter].u_birth+'</div>';
+								htmlText += '<div class="th col4">'+data[eachCounter].u_name+'</div>'; 
+									htmlText += '<div class="th col4"><a href=""> Profile </a></div>';
+    									htmlText += '</li>';
+    		eachCounter++;
     	})
+    		htmlText += '</ul>';
+    			htmlText += '</section>';	
     	
+    	$('div.accompanyList').append(htmlText);
     	
     	
     }

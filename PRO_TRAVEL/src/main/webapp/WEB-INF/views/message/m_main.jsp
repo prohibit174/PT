@@ -4,8 +4,38 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/message/magnific-popup.css"> 
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/message/jquery.magnific-popup.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/message/jquery.magnific-popup.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('.write_message').magnificPopup({
+		type: 'inline',
+		preloader: false,
+		focus: '#name',
+
+		// When elemened is focused, some mobile browsers in some cases zoom in
+		// It looks not nice, so we disable it:
+		callbacks: {
+			beforeOpen: function() {
+				if($(window).width() < 700) {
+					this.st.focus = false;
+				} else {
+					this.st.focus = '#name';
+				}
+			}
+		}
+	});
+});
+
+$(function(){
+	$("div.close").on("click", function(){
+		$.magnificPopup.close();
+	});
+});
+</script>
 <style type="text/css">
-.selects-box button{
+button{
     width: 93px;
     height: 40px;
     background: #333;
@@ -18,7 +48,20 @@
     text-transform: uppercase;
     cursor: pointer;
     } 
-.selects-box button:HOVER {
+input[type="submit"]{
+    width: 73px;
+    height: 30px;
+    background: #333;
+    font: 1.336em/1.07em "Trade-Gothic-W-Cond-Bold", Arial, Helvetica, sans-serif;
+    outline: none;
+    border: 0;
+    margin: 0 0 0 130px;
+    padding: 0;
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+    }     
+button:HOVER, input[type="submit"]:HOVER {
 	background: #ddd;
 }
 .checked {
@@ -54,37 +97,73 @@ margin-left: -0.7em;
    transform: rotate(50deg);
    }
 
+.close{
+  position:relative;
+  width:0.3em;
+  height:1.5em;
+  background: #2C2C2C;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+font-size: 22px;
+cursor: pointer;
+}
+.close:after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width:0.3em;
+  height:1.5em;
+  background: #2C2C2C;
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
 </style>
+
 </head>
 <body>
-
-
+<form id="test-form" class="mfp-hide white-popup-block" style="padding-left: 430px;">
+	<fieldset style="border:0; background: white; width: 50%;">
+	<div class="close" style="float: right; margin-right: 20px; margin-top: 10px;" onclick=""></div>
+	<br><br>
+	<h1 style="padding-left: 30px; font-size: 30px">&nbsp&nbspWrite your message !</h1>
+		<ol>
+			<li>
+			<label style="font-weight: bold;">Sender : </label>
+				<input id="name" name="name" disabled="disabled" type="text" placeholder="Name" required="">
+			</li>
+			<br>
+			<li>
+			<label style="font-weight: bold;">Recipient : </label>
+				<input id="email" name="email" type="email" placeholder="recipient ID." required="">
+			</li>
+			<br>
+			<li>
+			<label style="font-weight: bold;">Category : </label>
+				<select class="">
+					<option>Accompany</option>
+					<option>Carpool</option>
+					<option>Exchange</option>
+				</select>
+			</li>
+			<br>
+			<li>
+			<label style="font-weight: bold;">Content : </label>
+				<textarea id="textarea" style="width:350px; height:150px;"></textarea>
+			</li>
+			<br>
+			<input type="submit" value="send"/>
+		</ol>
+	</fieldset>
+</form>
 <div class="main-container" style="padding-left: 30px; margin-left: 30px;">
-    <aside class="sidebar" style="padding-right: 30px; ">
-        
-    <div class="selects-box">
-        <h2>Menu</h2>
-        <button class="write_message">Write</button>
-        <button class="write_to_me">To me</button>
-        <br>
-	<a class="aside-tag" id="receive">¤ 받은 쪽지함</a>
-		 <select class="alt-select standardCase" id="aside-tag" title="IOC Members" onchange="if (this[this.selectedIndex].value != '#') {document.location = this[this.selectedIndex].value}">
-	            <option value="#">(Default)</option>
-	            <option value="#">Carpool</option>
-	        	<option value="#">Exchange of Goods</option>
-	        	<option value="#">Accompany</option>
-	    </select>
-	<a class="aside-tag" id="send" style="font-weight: bold;">¤ 보낸 쪽지함</a>
-		 <select class="alt-select standardCase" id="aside-tag" title="IOC Members" onchange="if (this[this.selectedIndex].value != '#') {document.location = this[this.selectedIndex].value}">
-            <option value="#">(Default)</option>
-            <option value="#">Carpool</option>
-        	<option value="#">Exchange of Goods</option>
-        	<option value="#">Accompany</option>
-    	</select>
-    	<br><br>
-	<a class="aside-tag" style="cursor: pointer;">¤ 전체 쪽지함</a>
-    </div>
-</aside>
+    
     <div class="content">
         <div class="c1">
             
@@ -188,6 +267,32 @@ margin-left: -0.7em;
         </div>
     </div>
 
+<aside class="sidebar" style="padding-right: 30px; ">
+    <div class="selects-box">
+        <h2>Menu</h2>
+        <div>
+        <button class="write_message" href="#test-form">Write</button>
+        <button class="write_to_me">To me</button>
+        </div>
+        <br>
+	<a class="aside-tag" id="receive">¤ 받은 쪽지함</a>
+		 <select class="alt-select standardCase" id="aside-tag" title="IOC Members" onchange="if (this[this.selectedIndex].value != '#') {document.location = this[this.selectedIndex].value}">
+	            <option value="#">(Default)</option>
+	            <option value="#">Carpool</option>
+	        	<option value="#">Exchange of Goods</option>
+	        	<option value="#">Accompany</option>
+	    </select>
+	<a class="aside-tag" id="send" style="font-weight: bold;">¤ 보낸 쪽지함</a>
+		 <select class="alt-select standardCase" id="aside-tag" title="IOC Members" onchange="if (this[this.selectedIndex].value != '#') {document.location = this[this.selectedIndex].value}">
+            <option value="#">(Default)</option>
+            <option value="#">Carpool</option>
+        	<option value="#">Exchange of Goods</option>
+        	<option value="#">Accompany</option>
+    	</select>
+    	<br><br>
+	<a class="aside-tag" style="cursor: pointer;">¤ 전체 쪽지함</a>
+    </div>
+</aside>
 </div>
 </body>
 </html>
