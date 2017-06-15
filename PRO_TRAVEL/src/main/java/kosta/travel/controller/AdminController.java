@@ -46,7 +46,7 @@ public class AdminController {
 	public String userDetail(@RequestParam("u_id") String u_id, Model model) throws Exception{
 		UsersVO users = service.userDetail(u_id);
 		System.out.println(u_id);
-		model.addAttribute("users", users);
+		model.addAttribute("user", users);
 		return "/mypage/mypage_userCheckForm";
 	}
 }
