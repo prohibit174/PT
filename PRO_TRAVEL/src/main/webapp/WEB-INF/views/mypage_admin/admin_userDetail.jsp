@@ -161,15 +161,14 @@
 											</td>
 										</tr>
 										
-										<%-- <tr>
+										 <tr>
 											<td class="label"><label for="u_img">프로필 사진</label></td>
 											<td class="value">${user.u_img }
 										
 								<c:set var="file" value="${user.u_img }"></c:set>	
 								<img src="/resources/upload/${user.u_img  }" >
 									 
-									<span class="mask"></span>
-										</tr> --%>
+										</tr> 
 									</table>
 								</div>
 

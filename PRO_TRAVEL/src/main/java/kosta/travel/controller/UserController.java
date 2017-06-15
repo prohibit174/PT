@@ -48,6 +48,7 @@ public class UserController {
           }else{
              model.addAttribute("usersVO", vo.getU_id());
           }
+
           
           if(dto.isUseCookie()){
              int amount = 60 * 60 * 24 * 7;

@@ -128,7 +128,7 @@
 										<tr>
 											<td class="label"><label for="u_address">거주지역</label></td>
 											<td class="value"><input type="text" name="u_address"
-												id="u_address" value="" /> &nbsp; <span class="mandatory">*</span>
+												id="u_address" value="${user.u_address }" /> &nbsp; <span class="mandatory">*</span>
 												<ul class="errorField">
 												</ul></td>
 										</tr>
@@ -218,11 +218,6 @@
 								<span>수정완료</span>
 							</button>
 							
-							<button name = "submit" type = "submit">
-							<span>탈퇴하기</span>
-							</button>
-							<!-- <input type = "button"  value = "탈퇴하기" id="validate_order" class="primaryAction">
-							<span>탈퇴하기</span> -->
 							
 						</div>
 				</form>

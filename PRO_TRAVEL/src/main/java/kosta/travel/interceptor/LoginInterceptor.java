@@ -11,6 +11,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
+import kosta.travel.domain.UsersVO;
+
 public class LoginInterceptor extends HandlerInterceptorAdapter {
    
    @Override
@@ -31,7 +33,6 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
          //response.sendRedirect("/");
          System.out.println(request.getParameter("useCookie"));
          
-         
          if(request.getParameter("useCookie") != null){
             System.out.println("cookie");
             Cookie loginCookie = new Cookie("loginCookie", session.getId());
@@ -44,16 +45,24 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
          
          
       }else if(admin != null){
+    	 
          session.setAttribute("admin", admin);
          //Bonghyun Doing for admin login.
               System.out.println("Admin login");
-             response.setContentType("text/html;charset=utf-8");
+       //boram
+               Object dest = session.getAttribute("dest");
+               response.sendRedirect(dest != null ? (String)dest:"/adminLogin");
+              
+              //boram
+              
+              
+/*             response.setContentType("text/html;charset=utf-8");
                out.println("<script>");
                out.println("location.href='/adminLogin';");
                out.println("alert('admin page!');");
                out.println("</script>");
                
-               out.close();
+               out.close();*/
          
       }else{
             response.setContentType("text/html;charset=utf-8");
