@@ -97,12 +97,26 @@
 		from product_req
 		where p_num IN (select p_num from product where u_id = #{u_id})
 		AND
-		pr_ox='o'
+		pr_ox='accepted'
+	</select>
+	
+	<select id="listProductRejected" resultType="Product_RequestVO"
+		parameterType="String">
+		select *
+		from product_req
+		where p_num IN (select p_num from product where u_id = #{u_id})
+		AND
+		pr_ox='rejected'
 	</select>
 
 
 	<update id="updateAccept" parameterType="Product_RequestVO">
-		UPDATE product_req SET pr_ox='o'
+		UPDATE product_req SET pr_ox='accepted'
+		WHERE pr_reqnum = #{pr_reqnum}
+	</update>
+	
+	<update id="updateReject" parameterType="Product_RequestVO">
+		UPDATE product_req SET pr_ox='rejected'
 		WHERE pr_reqnum = #{pr_reqnum}
 	</update>
 
@@ -186,8 +200,14 @@
        
 	</select>
        
-       
-
+ <!--       
+	<select id="MyRequestList" resultType="Product_RequestVO"
+		parameterType="String">
+		select *
+		from product_req
+		where u_id = #{u_id}
+		
+	</select> -->
 
 
 
