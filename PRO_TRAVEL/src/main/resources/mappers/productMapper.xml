@@ -116,10 +116,8 @@
 		parameterType="String">
 		select *
 		from product_req
-		where p_num IN (select p_num
-		from product where u_id = #{u_id})
-		AND
-		pr_ox='canceled'
+		
+		where pr_ox='canceled'
 	</select>
 
 
@@ -228,6 +226,9 @@
 		select *
 		from product_req
 		where u_id = #{u_id}
+		and pr_ox='accepted'
+		or pr_ox='rejected'
+		or pr_ox='indicision'
 
 	</select>
 
