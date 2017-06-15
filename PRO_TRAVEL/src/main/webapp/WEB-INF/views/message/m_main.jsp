@@ -5,7 +5,7 @@
 <html>
 <head>
 <style type="text/css">
-.m_button input[type="button"]{
+.selects-box button{
     width: 93px;
     height: 40px;
     background: #333;
@@ -18,7 +18,7 @@
     text-transform: uppercase;
     cursor: pointer;
     } 
-.m_button input[type="button"]:HOVER {
+.selects-box button:HOVER {
 	background: #ddd;
 }
 .checked {
@@ -64,22 +64,20 @@ margin-left: -0.7em;
         
     <div class="selects-box">
         <h2>Menu</h2>
-        <div class="m_button">
-        <input type="button" class="write_message" value="Write"/>
-        <input type="button" class="write_to_me" value="To me"/>
-        </div>
+        <button class="write_message">Write</button>
+        <button class="write_to_me">To me</button>
         <br>
 	<a class="aside-tag" id="receive">¤ 받은 쪽지함</a>
 		 <select class="alt-select standardCase" id="aside-tag" title="IOC Members" onchange="if (this[this.selectedIndex].value != '#') {document.location = this[this.selectedIndex].value}">
-	            <option value="/ioc-members-list">(Default)</option>
-	            <option value="/ioc-members-list">Carpool</option>
+	            <option value="#">(Default)</option>
+	            <option value="#">Carpool</option>
 	        	<option value="#">Exchange of Goods</option>
 	        	<option value="#">Accompany</option>
 	    </select>
 	<a class="aside-tag" id="send" style="font-weight: bold;">¤ 보낸 쪽지함</a>
 		 <select class="alt-select standardCase" id="aside-tag" title="IOC Members" onchange="if (this[this.selectedIndex].value != '#') {document.location = this[this.selectedIndex].value}">
-            <option value="/ioc-members-list">(Default)</option>
-            <option value="/ioc-members-list">Carpool</option>
+            <option value="#">(Default)</option>
+            <option value="#">Carpool</option>
         	<option value="#">Exchange of Goods</option>
         	<option value="#">Accompany</option>
     	</select>
