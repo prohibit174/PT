@@ -93,6 +93,11 @@ public class UserDAOImpl implements UserDAO {
 		return session.update(namespace+".userWithdrawal", users);
 	}
 
+	@Override
+	public Integer yellowCard(UsersVO users) throws Exception {
+		return session.update(namespace+".yellowCard", users);
+	}
+
 	
 	
 }

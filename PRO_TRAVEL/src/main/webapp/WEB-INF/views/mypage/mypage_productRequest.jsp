@@ -21,7 +21,8 @@
 
 <style>
 .table .th, .table2 .th {
-	font-size: 15px;
+	font-size: 13px;
+	width: 12%;
 }
 
 .table2 .col-first {
@@ -32,6 +33,7 @@
 
 .table2 .col2 {
 	width: 18%;
+
 	margin: 0px 10px 0px 0px;
 }
 
@@ -146,7 +148,7 @@ function btn_js_accept_click(URL){
 
 	<span class="btn-more"> <a
 		href="/ajaxscript/loadmoretablelist/games/athletes/{535B8008-29D0-44BB-8B14-E2B29CC79DD5}/3/3">More</a>
-	</span> </section>
+	</span>  </section>
 
 
 

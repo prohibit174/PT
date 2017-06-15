@@ -7,7 +7,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import kosta.travel.domain.CarpoolTest;
+import kosta.travel.domain.CarpoolRequestUser;
 import kosta.travel.domain.CarpoolVO;
 import kosta.travel.domain.Carpool_ListVO;
 import kosta.travel.domain.Carpool_RequestVO;
@@ -68,7 +68,7 @@ public class CarpoolDAOImpl implements CarpoolDAO {
 	}
 	
 	@Override
-	public List<Carpool_RequestVO> myMakeRequest(Integer c_num) throws Exception {
+	public List<CarpoolRequestUser> myMakeRequest(Integer c_num) throws Exception {
 		return session.selectList(namespace+".myMakeRequest", c_num);
 	}
 	
@@ -78,12 +78,12 @@ public class CarpoolDAOImpl implements CarpoolDAO {
 	
 
 	@Override
-	public List<CarpoolTest> requestAll(String u_id) throws Exception {
+	public List<CarpoolRequestUser> requestAll(String u_id) throws Exception {
 		return session.selectList(namespace+".requestAll", u_id);
 	}
 	
 	@Override
-	public CarpoolTest readRequest(Integer cr_num) throws Exception {
+	public CarpoolRequestUser readRequest(Integer cr_num) throws Exception {
 		return session.selectOne(namespace+".readRequest", cr_num);
 	}
 
@@ -101,16 +101,18 @@ public class CarpoolDAOImpl implements CarpoolDAO {
 	}
 
 	@Override
-	public void updateRequest(Carpool_RequestVO vo) throws Exception {
-		session.update(namespace+".updateRequest", vo);
+	public void accept(Carpool_RequestVO vo) throws Exception {
+		session.update(namespace+".accept", vo);
 		
 	}
 	
 	@Override
-	public void updatePerson(Integer c_num) throws Exception {
-		session.update(namespace+".updatePerson", c_num);
+	public void dropPerson(Integer c_num) throws Exception {
+		session.update(namespace+".dropPerson", c_num);
 		
 	}
+
+
 
 
 

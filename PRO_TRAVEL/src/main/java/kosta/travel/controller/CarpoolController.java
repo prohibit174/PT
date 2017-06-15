@@ -47,8 +47,6 @@ public class CarpoolController {
 		model.addAttribute("list", list);
 		
 
-		
-		
 		return "/carpool/main";
 	}
 
