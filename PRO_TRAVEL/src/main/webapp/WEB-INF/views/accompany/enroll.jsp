@@ -1,3 +1,7 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
@@ -121,7 +125,7 @@ input[type="button"] {
 <!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="https://stillres.olympic.org/css/ie.css" /><![endif]-->
 </head>
 <body>
-
+   
 
 
    <div id="highlights-of-the-games"></div>
@@ -171,8 +175,7 @@ input[type="button"] {
 <br>
 
               <script>
-       var marker_zoom4=[];
-       var marker_zoom5=[];
+       var marker =[];
        latLngList = [];
        susDay = null;
        susEnd = null;
@@ -183,7 +186,32 @@ input[type="button"] {
        var cal =[];
        var movingPath = [];
        var c = 0;
-      
+       
+       /* added variables when the number of marker added   */
+       var cor_name=[];//region name from DB
+      var cor_lati=[];//cor_lati from DB
+      var cor_longi=[];//cor_longi from DB
+      var cor_zoom_level=[];//zoom_level from DB
+      var cor_index=0;//count of cordinates from DB
+         </script>
+         <!-- this is codes for getting cordinates of cities from DB  -->
+   <c:forEach var="cordinates" items="${getCordinates}">
+
+               <c:set var="cor_name" value="${cordinates.cor_region}"></c:set>
+               <c:set var="cor_longi" value="${cordinates.cor_longi}"></c:set>
+               <c:set var="cor_lati" value="${cordinates.cor_lati}"></c:set>
+               <c:set var="cor_zoom_level" value="${cordinates.cor_zoom_level}"></c:set>
+
+               <script type="text/javascript">
+                  cor_name[cor_index] = "${cor_name}";
+                  cor_longi[cor_index] = "${cor_longi}";
+                  cor_lati[cor_index] = "${cor_lati}";
+                  cor_zoom_level[cor_index] = "${cor_zoom_level}";
+                  cor_index++;
+               </script>
+
+            </c:forEach>
+         <script>
        function collectEventForLine(map){
           
           if(cal != null){
@@ -197,14 +225,9 @@ input[type="button"] {
              if(cal.length > 0){
             latLngList.splice(0, latLngList.length);
              for(var i=0; i < cal.length; i++){
-                for(var a=0; a < marker_zoom4.length; a++){
-                   if(marker_zoom4[a].title == cal[i].title){
-                      latLngList.push(marker_zoom4[a].getPosition());
-                   }
-                 }
-                for(var a=0; a < marker_zoom5.length; a++){
-                   if(marker_zoom5[a].title == cal[i].title){
-                      latLngList.push(marker_zoom5[a].getPosition());
+                for(var a=0; a < marker.length; a++){
+                   if(marker[a].title == cal[i].title){
+                      latLngList.push(marker[a].getPosition());
                    }
                  }
              }
@@ -249,12 +272,6 @@ input[type="button"] {
                       valDate = new moment(valDate).add(1, 'days');
                     }  //event store in arry
               }//event store in var End
-         /*   for(var b=0; b < allEvent.length; b++){
-              alert(allEvent[b].title + allEvent[b].eventdate);
-           } */
-       /*     jsonEncode = JSON.stringify(allEvent);
-           obj.value = jsonEncode; */
-              
        } //collectEvent method End
        
        function storeEvent (id ,title, eventdate) {
@@ -312,132 +329,74 @@ input[type="button"] {
       
       
       function initMap() {
-       // when zoom is 4, present location of france, belgium, germany, swiss.
-        var franceLocation = {lat: 48.856667, lng: 2.350833};
-        var belgiumLocation = {lat: 50.85, lng: 4.35};
-        var germanyLocation = {lat: 52.500556, lng: 13.398889};
-        var swissLocation = {lat: 46.95, lng: 7.45};
-        
-        // when zoom is 5, present marker of location of below cities.
-        var parisLocation = {lat: 48.856667, lng: 2.350833};
-        var niceLocation = {lat: 43.703333, lng: 7.266389};
-        var brusselsLocation = {lat: 50.85, lng: 4.35};
-        var berlinLocation = {lat: 52.518611, lng: 13.408056};
-        var munichLocation = {lat: 48.133333, lng: 11.566667};
-        var bernLocation = {lat: 46.95, lng: 7.45};
-        var zurichLocation = {lat: 47.366667, lng: 8.55};
-        
-         marker_zoom4[0] = new google.maps.Marker({//ï¿½ ï¿½ ï¿½ Â«ï¿½ ï¿½ ï¿½ Â§ï¿½ ï¿½  ï¿½ ï¿½ ï¿½ Â¬ï¿½ ï¿½ ï¿½ Â»ï¿½ ï¿½ ï¿½ Â¤ï¿½ ï¿½ ï¿½ Â«ï¿½ ï¿½ ï¿½ Â¥ï¿½ ï¿½ ï¿½ Â¼ uluruï¿½ ï¿½ ï¿½ Â¬ï¿½ ï¿½  ï¿½ ï¿½   ï¿½ ï¿½ ï¿½ Â¬ï¿½ ï¿½ ï¿½ Â°ï¿½ ï¿½  ï¿½ ï¿½ ï¿½ Â¬ï¿½ ï¿½  ï¿½ ï¿½  
-            position: franceLocation,
-            map: map,
-            title:'France'
-          });
-       marker_zoom4[1] = new google.maps.Marker({//ï¿½ ï¿½ ï¿½ Â«ï¿½ ï¿½ ï¿½ Â§ï¿½ ï¿½  ï¿½ ï¿½ ï¿½ Â¬ï¿½ ï¿½ ï¿½ Â»ï¿½ ï¿½ ï¿½ Â¤ï¿½ ï¿½ ï¿½ Â«ï¿½ ï¿½ ï¿½ Â¥ï¿½ ï¿½ ï¿½ Â¼ uluruï¿½ ï¿½ ï¿½ Â¬ï¿½ ï¿½  ï¿½ ï¿½   ï¿½ ï¿½ ï¿½ Â¬ï¿½ ï¿½ ï¿½ Â°ï¿½ ï¿½  ï¿½ ï¿½ ï¿½ Â¬ï¿½ ï¿½  ï¿½ ï¿½  
-            position: belgiumLocation,
-            map: map,
-            title:'Belgium'
-          });
-       marker_zoom4[2] = new google.maps.Marker({//ï¿½ ï¿½ ï¿½ Â«ï¿½ ï¿½ ï¿½ Â§ï¿½ ï¿½  ï¿½ ï¿½ ï¿½ Â¬ï¿½ ï¿½ ï¿½ Â»ï¿½ ï¿½ ï¿½ Â¤ï¿½ ï¿½ ï¿½ Â«ï¿½ ï¿½ ï¿½ Â¥ï¿½ ï¿½ ï¿½ Â¼ uluruï¿½ ï¿½ ï¿½ Â¬ï¿½ ï¿½  ï¿½ ï¿½   ï¿½ ï¿½ ï¿½ Â¬ï¿½ ï¿½ ï¿½ Â°ï¿½ ï¿½  ï¿½ ï¿½ ï¿½ Â¬ï¿½ ï¿½  ï¿½ ï¿½  
-            position: germanyLocation,
-            map: map,
-            title:'Germany'
-          });
-       marker_zoom4[3] = new google.maps.Marker({//ï¿½ ï¿½ ï¿½ Â«ï¿½ ï¿½ ï¿½ Â§ï¿½ ï¿½  ï¿½ ï¿½ ï¿½ Â¬ï¿½ ï¿½ ï¿½ Â»ï¿½ ï¿½ ï¿½ Â¤ï¿½ ï¿½ ï¿½ Â«ï¿½ ï¿½ ï¿½ Â¥ï¿½ ï¿½ ï¿½ Â¼ uluruï¿½ ï¿½ ï¿½ Â¬ï¿½ ï¿½  ï¿½ ï¿½   ï¿½ ï¿½ ï¿½ Â¬ï¿½ ï¿½ ï¿½ Â°ï¿½ ï¿½  ï¿½ ï¿½ ï¿½ Â¬ï¿½ ï¿½  ï¿½ ï¿½  
-            position: swissLocation,
-            map: map,
-            title:'Swiss'
-         });
-       
-        marker_zoom5[0] = new google.maps.Marker({//ï¿½ ï¿½ ï¿½ Â«ï¿½ ï¿½ ï¿½ Â§ï¿½ ï¿½  ï¿½ ï¿½ ï¿½ Â¬ï¿½ ï¿½ ï¿½ Â»ï¿½ ï¿½ ï¿½ Â¤ï¿½ ï¿½ ï¿½ Â«ï¿½ ï¿½ ï¿½ Â¥ï¿½ ï¿½ ï¿½ Â¼ uluruï¿½ ï¿½ ï¿½ Â¬ï¿½ ï¿½  ï¿½ ï¿½   ï¿½ ï¿½ ï¿½ Â¬ï¿½ ï¿½ ï¿½ Â°ï¿½ ï¿½  ï¿½ ï¿½ ï¿½ Â¬ï¿½ ï¿½  ï¿½ ï¿½  
-            position: parisLocation,
-            map: map,
-            title:'Paris'
-          });
-       marker_zoom5[1] = new google.maps.Marker({//ï¿½ ï¿½ ï¿½ Â«ï¿½ ï¿½ ï¿½ Â§ï¿½ ï¿½  ï¿½ ï¿½ ï¿½ Â¬ï¿½ ï¿½ ï¿½ Â»ï¿½ ï¿½ ï¿½ Â¤ï¿½ ï¿½ ï¿½ Â«ï¿½ ï¿½ ï¿½ Â¥ï¿½ ï¿½ ï¿½ Â¼ uluruï¿½ ï¿½ ï¿½ Â¬ï¿½ ï¿½  ï¿½ ï¿½   ï¿½ ï¿½ ï¿½ Â¬ï¿½ ï¿½ ï¿½ Â°ï¿½ ï¿½  ï¿½ ï¿½ ï¿½ Â¬ï¿½ ï¿½  ï¿½ ï¿½  
-            position: niceLocation,
-            map: map,
-            title:'Nice'
-          });
-       marker_zoom5[2] = new google.maps.Marker({//ï¿½ ï¿½ ï¿½ Â«ï¿½ ï¿½ ï¿½ Â§ï¿½ ï¿½  ï¿½ ï¿½ ï¿½ Â¬ï¿½ ï¿½ ï¿½ Â»ï¿½ ï¿½ ï¿½ Â¤ï¿½ ï¿½ ï¿½ Â«ï¿½ ï¿½ ï¿½ Â¥ï¿½ ï¿½ ï¿½ Â¼ uluruï¿½ ï¿½ ï¿½ Â¬ï¿½ ï¿½  ï¿½ ï¿½   ï¿½ ï¿½ ï¿½ Â¬ï¿½ ï¿½ ï¿½ Â°ï¿½ ï¿½  ï¿½ ï¿½ ï¿½ Â¬ï¿½ ï¿½  ï¿½ ï¿½  
-            position: brusselsLocation,
-            map: map,
-            title:'Brussels'
-          });
-       marker_zoom5[3] = new google.maps.Marker({//ï¿½ ï¿½ ï¿½ Â«ï¿½ ï¿½ ï¿½ Â§ï¿½ ï¿½  ï¿½ ï¿½ ï¿½ Â¬ï¿½ ï¿½ ï¿½ Â»ï¿½ ï¿½ ï¿½ Â¤ï¿½ ï¿½ ï¿½ Â«ï¿½ ï¿½ ï¿½ Â¥ï¿½ ï¿½ ï¿½ Â¼ uluruï¿½ ï¿½ ï¿½ Â¬ï¿½ ï¿½  ï¿½ ï¿½   ï¿½ ï¿½ ï¿½ Â¬ï¿½ ï¿½ ï¿½ Â°ï¿½ ï¿½  ï¿½ ï¿½ ï¿½ Â¬ï¿½ ï¿½  ï¿½ ï¿½  
-            position: berlinLocation,
-            map: map,
-            title:'Berlin'
-          });
-       marker_zoom5[4] = new google.maps.Marker({//ï¿½ ï¿½ ï¿½ Â«ï¿½ ï¿½ ï¿½ Â§ï¿½ ï¿½  ï¿½ ï¿½ ï¿½ Â¬ï¿½ ï¿½ ï¿½ Â»ï¿½ ï¿½ ï¿½ Â¤ï¿½ ï¿½ ï¿½ Â«ï¿½ ï¿½ ï¿½ Â¥ï¿½ ï¿½ ï¿½ Â¼ uluruï¿½ ï¿½ ï¿½ Â¬ï¿½ ï¿½  ï¿½ ï¿½   ï¿½ ï¿½ ï¿½ Â¬ï¿½ ï¿½ ï¿½ Â°ï¿½ ï¿½  ï¿½ ï¿½ ï¿½ Â¬ï¿½ ï¿½  ï¿½ ï¿½  
-            position: munichLocation,
-            map: map,
-            title:'Munich'
-          });
-       marker_zoom5[5] = new google.maps.Marker({//ï¿½ ï¿½ ï¿½ Â«ï¿½ ï¿½ ï¿½ Â§ï¿½ ï¿½  ï¿½ ï¿½ ï¿½ Â¬ï¿½ ï¿½ ï¿½ Â»ï¿½ ï¿½ ï¿½ Â¤ï¿½ ï¿½ ï¿½ Â«ï¿½ ï¿½ ï¿½ Â¥ï¿½ ï¿½ ï¿½ Â¼ uluruï¿½ ï¿½ ï¿½ Â¬ï¿½ ï¿½  ï¿½ ï¿½   ï¿½ ï¿½ ï¿½ Â¬ï¿½ ï¿½ ï¿½ Â°ï¿½ ï¿½  ï¿½ ï¿½ ï¿½ Â¬ï¿½ ï¿½  ï¿½ ï¿½  
-            position: bernLocation,
-            map: map,
-            title:'Bern'
-          });
-       marker_zoom5[6] = new google.maps.Marker({//ï¿½ ï¿½ ï¿½ Â«ï¿½ ï¿½ ï¿½ Â§ï¿½ ï¿½  ï¿½ ï¿½ ï¿½ Â¬ï¿½ ï¿½ ï¿½ Â»ï¿½ ï¿½ ï¿½ Â¤ï¿½ ï¿½ ï¿½ Â«ï¿½ ï¿½ ï¿½ Â¥ï¿½ ï¿½ ï¿½ Â¼ uluruï¿½ ï¿½ ï¿½ Â¬ï¿½ ï¿½  ï¿½ ï¿½   ï¿½ ï¿½ ï¿½ Â¬ï¿½ ï¿½ ï¿½ Â°ï¿½ ï¿½  ï¿½ ï¿½ ï¿½ Â¬ï¿½ ï¿½  ï¿½ ï¿½  
-            position: zurichLocation,
-            map: map,
-            title:'Zurich'
-          });
-      
- 
-         map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: parisLocation
-        });
+         var center = {
+               lat : 48.856667,
+               lng : 15.350833
+            };
+            map = new google.maps.Map(document
+                  .getElementById('map'), {
+               zoom : 4,
+               center : center
+            });
+            for(var i=0; i<cor_index;i++){//making marker
+               var latlng = {
+                     lat : Number(cor_lati[i]),
+                     lng : Number(cor_longi[i])
+                  };
 
-             window.setTimeout(function(){
-                marker_zoom4[0].setAnimation(google.maps.Animation.DROP);
-                 marker_zoom4[0].setMap(map);
-            },200);
-             window.setTimeout(function(){
-                 marker_zoom4[1].setAnimation(google.maps.Animation.DROP);
-                  marker_zoom4[1].setMap(map);
-             },400);
-             window.setTimeout(function(){
-                 marker_zoom4[2].setAnimation(google.maps.Animation.DROP);
-                  marker_zoom4[2].setMap(map);
-             },600);
-             window.setTimeout(function(){
-                 marker_zoom4[3].setAnimation(google.maps.Animation.DROP);
-                  marker_zoom4[3].setMap(map);
-             },800);
-             
-             
-            
-
-        map.addListener('zoom_changed', function() {
-            if(map.getZoom()<5){
-
-               if(marker_zoom5[0]!=null){
-                  for(i=0; i<7; i++){
-                      marker_zoom5[i].setMap(null);
-                   } 
-               }
-               for(i=0; i<4; i++){
-               marker_zoom4[i].setMap(map);
-               }
-             }
-            else if(map.getZoom()>=5){
+               marker[i] = new google.maps.Marker({
+               position : latlng,
+               map : map,
+               title : cor_name[i],
+               zoom : cor_zoom_level[i],
+               icon:"http://www.stubbyplanner.com/img_v8/selectcityICON_red.png",
+            });
                
-            for(i=0; i<4; i++){
-                  marker_zoom4[i].setMap(null);
-               }   
-              for(i=0; i<7; i++){
-                  marker_zoom5[i].setMap(map);
-               }
+                if(cor_zoom_level[i]!=4) 
+                  marker[i].setMap(null);
+               
             }
-          });
+            
+              map.addListener('zoom_changed', function() {
+                 console.log(map.getZoom());
+                 if(map.getZoom()==4){// if zoom = 4, then present marker(level 4)
+                    for(var i=0; i<cor_index;i++){//making marker
+                        if(marker[i].zoom==4){
+                           marker[i].setMap(map);
+                        }
+                        else{
+                           marker[i].setMap(null);
+                        }
+                  }
+                 }
+                 else if(map.getZoom()==5)
+                 {// if zoom = 4, then present marker(level 4)
+                    for(var i=0; i<cor_index;i++){//making marker
+                        if(marker[i].zoom==5){
+                           marker[i].setMap(map);
+                        }
+                        else{
+                           marker[i].setMap(null);
+                        }
+                  }
+                 }
+                 else if(map.getZoom()==7)
+                 {// if zoom = 4, then present marker(level 4)
+                    for(var i=0; i<cor_index;i++){//making marker
+                        if(marker[i].zoom==6){
+                           marker[i].setMap(map);
+                        }
+                        else{
+                           marker[i].setMap(null);
+                        }
+                  }
+                 }
+                    
+                 });
         
-        
-        /* marker_zoom4 ï¿½ ï¿½ Â´Ã«Â¦ï¿½  Ã¬ï¿½ Â´Ã«Â²Â¤ï¿½ ï¿½ Â¸*/
-        for(i=0;i<marker_zoom4.length;i++)
+        for(i=0;i<marker.length;i++)
        {
-          marker_zoom4[i].addListener('click', function() {
+          marker[i].addListener('click', function() {
  
              if(susDay == null || susEnd == null){
                   if(susDay == null ){
@@ -480,52 +439,6 @@ input[type="button"] {
                });   //click event end
 
        }
-        /* marker_zoom5 ï¿½ ï¿½ Â´Ã«Â¦ï¿½  Ã¬ï¿½ Â´Ã«Â²Â¤ï¿½ ï¿½ Â¸*/
-            for(i=0;i<marker_zoom5.length;i++)
-       {
-          marker_zoom5[i].addListener('click', function() {
-             
-             if(susDay == null || susEnd == null){
-                  if(susDay == null ){
-                alert("select start date")
-                }
-                  else{
-                alert("select end date")
-                }
-             }else{
-           
-                var temp = susEnd;
-                 susEnd=LongDateToShortDate(ShortDateToLongDate(susEnd));
-               
-             var title=this.getTitle();
-             var date=currentDate;
-             
-           //start, end day style default
-             $('.fc-day[data-date="'+susDay+'"]').css('background-color', 'white').text("");
-             $('.fc-day[data-date="'+temp+'"]').css('background-color', 'white').text("");
-             
-               var eventColor=nextEventColor();
-             
-              $('#calendar').fullCalendar( 'addEventSource', {
-                 events: [
-                       {
-                           title: title,
-                           start: susDay,
-                           end : susEnd
-                       }
-                   ],
-                   allDay:true,
-                   color: eventColor,   
-                   textColor: 'black'
-               } );
-                 susDay = null;
-               susEnd = null;
-                collectEventForLine(map); /* line create, if want mark click*/
-               }      //else end
-           
-               });   //click event end
-       }
-        
         
       }  // initmap end
       
@@ -533,7 +446,10 @@ input[type="button"] {
       //createLine Start 
       function createLine(latLngList, map){
          var bounds = new google.maps.LatLngBounds();
-        
+         var lineSymbol = {
+                path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW
+              };
+         
          for(var i=0; i<latLngList.length;i++){
             if(i+1 == latLngList.length){
               break; 
@@ -545,6 +461,10 @@ input[type="button"] {
          function calcRoute(source, destination){
        movingPath[c] = new google.maps.Polyline({
           path: [source, destination],
+          icons: [{
+               icon: lineSymbol,
+               offset: '100%'
+             }],
           geodesic: true,
           strokeColor: '#000000',
           strokeOpacity: 1.0,
@@ -661,6 +581,8 @@ input[type="button"] {
                             </form>
                         </div>
    <br>
+   
+   
 
    <%@include file="../include/footer.jsp"%>
 

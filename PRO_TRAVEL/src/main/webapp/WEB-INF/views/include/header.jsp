@@ -126,14 +126,14 @@ width:0;
 
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/all.css">
 
-
-
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/button.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> 
+
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/login.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/login_success.js"></script>
-
+<script src="magnific-popup/jquery.magnific-popup.js"></script>
 <script type="text/javascript">window.jQuery || document.write('<script src="https://stillres.olympic.org/js/jquery-1.11.1.min.js"><\/script>')</script>
 <script type="text/javascript"
 	src="https://stillres.olympic.org/js/jquery.main.js"></script>

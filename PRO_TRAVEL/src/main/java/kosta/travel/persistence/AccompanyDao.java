@@ -1,13 +1,15 @@
 package kosta.travel.persistence;
 
 import java.util.List;
+
 import javax.inject.Inject;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
 import kosta.travel.domain.AccompanyVO;
+import kosta.travel.domain.CordinatesVO;
 import kosta.travel.domain.RouteVO;
-import kosta.travel.domain.SearchTraveler;
 
 @Repository
 public class AccompanyDao {
@@ -41,10 +43,14 @@ public class AccompanyDao {
 		session.insert(namespace+".insertRoute", route);
 	}
 	
-	public List<RouteVO> getTraveler(RouteVO route){
+	public List<AccompanyVO> getTraveler(RouteVO route){
 		return session.selectList(namespace+".getTraveler", route);
 	}
 
+	   public List<CordinatesVO> getCordinates(){
+		      return session.selectList(namespace+".getCordinates");
+		   }
+	
 	
 }
 
