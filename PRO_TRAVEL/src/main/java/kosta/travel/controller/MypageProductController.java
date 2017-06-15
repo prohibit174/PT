@@ -81,7 +81,7 @@ public class MypageProductController {
 	}
 	
 	
-/*	@RequestMapping(value="/product_MyRequestList", method=RequestMethod.GET)
+	@RequestMapping(value="/product_myRequestList", method=RequestMethod.GET)
 	public String product_MyRequestList(Model model, Product_RequestVO proReq, HttpSession session) throws Exception{
 		
 		
@@ -89,10 +89,24 @@ public class MypageProductController {
 		
 		
 		model.addAttribute("Myreq",service.MyRequestList(u_id));
+		model.addAttribute("list_c",service.listProductCanceled(u_id));
 		
-		return "redirect:/mypage/product_request";
+		return "/mypage/mypage_myRequestList";
 	}
-	*/
+	
+	
+
+	
+	@RequestMapping(value="/product_requestCancel", method=RequestMethod.GET)
+	public String product_requestCancel(Model model, Product_RequestVO proReq, HttpSession session) throws Exception{
+		System.out.println("product_requestReject method call");
+		
+		String u_id = (String)session.getAttribute("login");
+		service.updateCancel(proReq);
+		
+		
+		return "redirect:/mypage/product_myRequestList";
+	}
 	
 	
 	

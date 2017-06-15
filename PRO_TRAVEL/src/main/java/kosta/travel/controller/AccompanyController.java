@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import kosta.travel.domain.AccompanyVO;
 import kosta.travel.domain.RouteList;
 import kosta.travel.domain.RouteVO;
 import kosta.travel.domain.SearchTraveler;
@@ -54,7 +55,7 @@ public class AccompanyController{
 		}
 		
 		
-		return "/accompany/Accomp_main_JW";
+		return "/accompany/Accomp_main";
 	}
 	
 	   @RequestMapping(value = "/enroll", method=RequestMethod.GET)
@@ -64,7 +65,7 @@ public class AccompanyController{
 	      } catch (Exception e) {
 	         e.printStackTrace();
 	      }
-	      return "/accompany/enroll_JW";
+	      return "/accompany/enroll";
 	   }
 	   
 	
@@ -102,7 +103,7 @@ public class AccompanyController{
 	}
 	       
 	@RequestMapping(value ="/cal", method=RequestMethod.GET)
-	public @ResponseBody List<RouteVO> callender(SearchTraveler trav, Model model, HttpSession session, HttpServletResponse res){
+	public @ResponseBody List<AccompanyVO> callender(SearchTraveler trav, Model model, HttpSession session, HttpServletResponse res){
 		trav.setU_id((String)session.getAttribute("login"));
 		try {
 			return service.getTraveler(trav);

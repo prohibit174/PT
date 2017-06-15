@@ -139,6 +139,17 @@ public class ProductDAOImpl implements ProductDAO {
 		return session.selectList(namespace+".listProductRejected", u_id);
 	}
 
+	@Override
+	public void updateCancel(Product_RequestVO proReq) throws Exception {
+		session.update(namespace+".updateCancel", proReq);
+		
+	}
+
+	@Override
+	public List<Product_RequestVO> listProductCanceled(String u_id) throws Exception {
+		return session.selectList(namespace+".listProductCanceled", u_id);
+	}
+
 	
 
 	
