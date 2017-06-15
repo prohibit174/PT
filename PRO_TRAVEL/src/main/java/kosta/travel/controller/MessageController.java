@@ -11,4 +11,9 @@ public class MessageController {
 	public String main() {
 		return "/message/m_main";
 	}
+	
+	@RequestMapping(value = "/write_message", method = RequestMethod.GET)
+	public String write() {
+		return "/message/write_message";
+	}
 }
