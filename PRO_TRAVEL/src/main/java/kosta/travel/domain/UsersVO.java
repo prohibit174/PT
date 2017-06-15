@@ -17,6 +17,7 @@ public class UsersVO{
 	private String u_img;
 	private String u_style;
 	private String u_status;
+	private MultipartFile img_file;
 	public String getU_status() {
 		return u_status;
 	}
@@ -26,8 +27,6 @@ public class UsersVO{
 		this.u_status = u_status;
 	}
 
-
-	private MultipartFile img_file;
 	
 	public UsersVO(){}
 

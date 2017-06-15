@@ -6,7 +6,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/AgoFiles/users_css/all.css">
@@ -14,7 +14,7 @@
 	href="${pageContext.request.contextPath}/resources/css/AgoFiles/users_css/common.css">
 </head>
 <%@include file="/WEB-INF/views/include/header.jsp" %>
-<%@include file="/WEB-INF/views/include/mypage_sidebar.jsp" %>
+<%@include file="/WEB-INF/views/include/admin_sidebar.jsp" %>
 <body>
 
 
@@ -48,7 +48,7 @@
 
 
 				<form id="form_checkout" class="uniForm checkout"
-					enctype="application/x-www-form-urlencoded" action="checkPW">
+					enctype="application/x-www-form-urlencoded" action="/userList">
 					<!-- <div class="box-full" id="creationaccount"> -->
 						<div class="top"></div>
 						<div class="form">
@@ -161,18 +161,15 @@
 											</td>
 										</tr>
 										
-										 <tr>
+										<%-- <tr>
 											<td class="label"><label for="u_img">프로필 사진</label></td>
-											<td class="value">
-										<%-- 	<picture class="picture">
+											<td class="value">${user.u_img }
 										
-									<c:set var="file" value="${user.u_img }"/>
-									<img src="/resources/upload/${file }" >
+								<c:set var="file" value="${user.u_img }"></c:set>	
+								<img src="/resources/upload/${user.u_img  }" >
 									 
 									<span class="mask"></span>
-									</picture> --%>
-									</td>
-										</tr> 
+										</tr> --%>
 									</table>
 								</div>
 
@@ -203,11 +200,12 @@
 }
 </style>
 
+
 							
 
 							<button name="submit" id="validate_order" type="submit"
 								class="primaryAction">
-								<span>수정하기</span>
+								<span>확인</span>
 							</button>
 							<div class="clear"></div>
 						</div>

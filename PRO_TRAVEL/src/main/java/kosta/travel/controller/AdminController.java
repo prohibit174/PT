@@ -47,6 +47,8 @@ public class AdminController {
 		UsersVO users = service.userDetail(u_id);
 		System.out.println(u_id);
 		model.addAttribute("user", users);
-		return "/mypage/mypage_userCheckForm";
+		return "/mypage_admin/admin_userDetail";
 	}
+	
+	
 }
