@@ -571,7 +571,8 @@ $('body').on('focus','.datepick', function(){
    		 });
     });
     
-$('.ajaxbtn').click(function(){    
+$('.ajaxbtn').click(function(){
+	$('section.ajax-area').remove();
     event.preventDefault();
     
     
@@ -588,7 +589,7 @@ $.ajax({
     	var eachCounter = 0;
     	var htmlText = '<section class="results ajax-area" data-tmpl="athleteResults_tmpl">';
     	htmlText += '<div class="heading">';
-    	htmlText += '<h2>WATING CARPOOL</h2>';
+    	htmlText += '<h2>Other Traveler</h2>';
     	htmlText += '</div>';
     	htmlText += '<ul class="table2 ajax-content">';
     	htmlText += '<li>';
