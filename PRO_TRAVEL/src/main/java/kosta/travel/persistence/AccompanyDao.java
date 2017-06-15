@@ -43,7 +43,7 @@ public class AccompanyDao {
 		session.insert(namespace+".insertRoute", route);
 	}
 	
-	public List<RouteVO> getTraveler(RouteVO route){
+	public List<AccompanyVO> getTraveler(RouteVO route){
 		return session.selectList(namespace+".getTraveler", route);
 	}
 
