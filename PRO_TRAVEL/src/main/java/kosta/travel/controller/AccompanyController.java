@@ -3,8 +3,11 @@ package kosta.travel.controller;
 
 
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -13,10 +16,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import kosta.travel.domain.RouteList;
+import kosta.travel.domain.RouteVO;
 import kosta.travel.domain.SearchTraveler;
 import kosta.travel.service.AccompanyService;
 
@@ -98,14 +103,15 @@ public class AccompanyController{
 		return "/accompany/searchTest";
 	}
 	       
-	@RequestMapping(value = "/cal", method=RequestMethod.GET)
-	public String callender(){
+	@RequestMapping(value ="/cal", method=RequestMethod.GET)
+	public @ResponseBody List<RouteVO> callender(SearchTraveler trav, Model model, HttpSession session, HttpServletResponse res){
+		trav.setU_id((String)session.getAttribute("login"));
 		try {
-			
+			return service.getTraveler(trav);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return "/accompany/callender";
+			return null;
 	}       	   
 	
 	

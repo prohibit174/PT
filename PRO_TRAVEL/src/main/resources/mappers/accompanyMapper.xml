@@ -38,7 +38,7 @@
 		tp_num,cor_region,u_id,tp_date
 		)
 		values(
-		#{tp_num},#{cor_region},#{u_id},#{tp_date}
+		(select max(tp_num) from trip_plan)+1,#{cor_region},#{u_id},#{tp_date}
 		<!-- '3','3','3','2017-04-15' -->
 		)
 	</insert>
