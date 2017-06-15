@@ -33,7 +33,6 @@
 
 .table2 .col2 {
 	width: 18%;
-
 	margin: 0px 10px 0px 0px;
 }
 
@@ -50,23 +49,21 @@
 </head>
 
 <script type="text/javascript">
+	function btn_js_accept_click(URL) {
 
-function btn_js_accept_click(URL){
- 
-     if(confirm("수락하시겠습니까?") == true){
-        location.href=URL;
-     }
-    
-   }
+		if (confirm("수락하시겠습니까?") == true) {
+			location.href = URL;
+		}
 
+	}
 
-function btn_js_rejection_click(URL){
-	 
-    if(confirm("거절하시겠습니까?") == true){
-       location.href=URL;
-    }
-   
-  }
+	function btn_js_rejection_click(URL) {
+
+		if (confirm("거절하시겠습니까?") == true) {
+			location.href = URL;
+		}
+
+	}
 </script>
 
 <body>
@@ -74,17 +71,17 @@ function btn_js_rejection_click(URL){
 
 	<section class="results ajax-area" data-tmpl="athleteResults_tmpl"
 		style="margin-left:300px; padding-top: 20px;">
-		
-		<div class="content1">
-	<div class="heading">
-		<h2>REQUESTED LIST</h2>
-		<ul class="add-links">
 
-		</ul>
-	</div>
+	<div class="content1">
+		<div class="heading">
+			<h2>My Requested List</h2>
+			<ul class="add-links">
+
+			</ul>
+		</div>
 
 		<ul class="table2 ajax-content">
-			<li >
+			<li>
 				<div class="th col-first">REQNUM</div>
 				<div class="th col1">USER_ID</div>
 				<div class="th col2">PRODUCT_NAME</div>
@@ -95,34 +92,35 @@ function btn_js_rejection_click(URL){
 			</li>
 
 
-			<li style="margin-top: 20px"><c:forEach items="${list}"
-					var="Product_RequestVO">
-					<div class="th col-first">${Product_RequestVO.pr_reqnum}</div>
-					<div class="th col1">${Product_RequestVO.u_id}</div>
-					<div class="th col2">${Product_RequestVO.p_num}</div>
-					<div class="th col2">${Product_RequestVO.pr_place}</div>
-					<div class="th col3">${Product_RequestVO.pr_date}</div>
-					<div class="th col5">${Product_RequestVO.pr_ox}</div>
-				
+			<li style="margin-top: 20px"><c:forEach items="${Myreq}"
+					var="Myreq">
+					<div class="th col-first">${Myreq.pr_reqnum}</div>
+					<div class="th col1">${Myreq.u_id}</div>
+					<div class="th col2">${Myreq.p_num}</div>
+					<div class="th col2">${Myreq.pr_place}</div>
+					<div class="th col3">${Myreq.pr_date}</div>
+					<div class="th col5">${Myreq.pr_ox}</div>
 
-				<td align="center"><input type="button" value="수락"
-					class="nlogin_btn" style="margin-bottom:6px"
-					onclick="javascript:btn_js_accept_click('/mypage/product_requestAccept?pr_reqnum=${Product_RequestVO.pr_reqnum }')"></td>
-			 <td align="center"><input type="button" style="margin-bottom:6px" value="거절"
-					onclick="javascript:btn_js_rejection_click('/mypage/product_requestReject?pr_reqnum=${Product_RequestVO.pr_reqnum }')"
-					class="nlogin_btn"></td> 
-					</c:forEach>
-					 <c:if test="${empty list}">
+
+
+
+
+					<c:if test="${empty Myreq}">
 			요청 목록이 없습니다.
 		</c:if>
-					</li>
-					</div>
-					
-			
-	
+
+					<c:if test="${Myreq.pr_ox == 'indicision'}">
+						<div class="th col5" style="width: 6%; padding-bottom:1px;"><input type="button" value="취소"></div>
+					</c:if>
+				
+				</c:forEach></li>
+	</div>
+
+
+
 
 	<div class="heading">
-		<h2>ACCEPTED LIST</h2>
+		<h2>Cancel List</h2>
 		<ul class="add-links">
 
 		</ul>
@@ -148,15 +146,13 @@ function btn_js_rejection_click(URL){
 				<div class="th col2">${Product_O.pr_place}</div>
 				<div class="th col3">${Product_O.pr_date}</div>
 				<div class="th col5">${Product_O.pr_ox}</div>
-			</c:forEach>
-			
-			 <c:if test="${empty list_o}">
+			</c:forEach> <c:if test="${empty list_o}">
 			수락 목록이 없습니다.
 		</c:if>
 	</ul>
-	
-	
-	<div class="heading">
+
+
+	<%-- <div class="heading">
 		<h2>REJECTED LIST</h2>
 		<ul class="add-links">
 
@@ -188,10 +184,7 @@ function btn_js_rejection_click(URL){
 			 <c:if test="${empty list_x}">
 			거절 목록이 없습니다.
 		</c:if>
-	</ul>
-	
-	
-	<%-- <div class="heading">
+	</ul> --%> <%-- <div class="heading">
 		<h2>MY REQUESTED LIST</h2>
 		<ul class="add-links">
 
@@ -228,11 +221,9 @@ function btn_js_rejection_click(URL){
 			수락 목록이 없습니다.
 		</c:if>
 	</ul>
- --%>
-	<!--  <span class="btn-more"> 
-	  <a href="product_myRequestList">My Requested List</a> 
-
-	</span> -->   </section>
+ --%> <!-- <span class="btn-more"> <a
+		href="/mypage/product_myRequestList">내가 요청한 물품</a>
+	</span>  --> </section>
 
 
 

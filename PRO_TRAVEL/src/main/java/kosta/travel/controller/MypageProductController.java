@@ -81,7 +81,7 @@ public class MypageProductController {
 	}
 	
 	
-/*	@RequestMapping(value="/product_MyRequestList", method=RequestMethod.GET)
+	@RequestMapping(value="/product_myRequestList", method=RequestMethod.GET)
 	public String product_MyRequestList(Model model, Product_RequestVO proReq, HttpSession session) throws Exception{
 		
 		
@@ -90,9 +90,9 @@ public class MypageProductController {
 		
 		model.addAttribute("Myreq",service.MyRequestList(u_id));
 		
-		return "redirect:/mypage/product_request";
+		return "/mypage/mypage_myRequestList";
 	}
-	*/
+	
 	
 	
 	

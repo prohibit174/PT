@@ -22,7 +22,7 @@
         </a>
     </li>
     <li class="">
-        <a href="accompany" data-class="games2014-2" target="">
+        <a href="mypage_accom_request_received" data-class="games2014-2" target="">
             My Accompany
            <!--  <i class="icon-arrow-right">
                 <span class="hide">arrow</span>
