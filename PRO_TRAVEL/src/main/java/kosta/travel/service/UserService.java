@@ -19,4 +19,5 @@ public interface UserService {
 	public UsersVO checkLoginBefore(String value);
 	public List<UsersVO> userAll()throws Exception;
 	public void userWithdrawal(UsersVO users) throws Exception;
+	public void yellowCard(UsersVO users) throws Exception;
 }
