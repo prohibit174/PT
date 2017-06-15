@@ -1,6 +1,7 @@
 package kosta.travel.persistence;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 import org.apache.ibatis.session.RowBounds;
 
@@ -30,6 +31,9 @@ public interface ProductDAO {
 	public int listSearchCount(SearchCriteria cri)throws Exception;
 	public List<Product_RequestVO> listProductAccept(String u_id)throws Exception;
 	public List<ProductVO> RecommendProductList(String u_id)throws Exception;
+	public List<Product_RequestVO> MyRequestList(String u_id)throws Exception;
+	public void updateReject(Product_RequestVO proReq)throws Exception;
+	public List<Product_RequestVO> listProductRejected(String u_id)throws Exception;
 	
 
 

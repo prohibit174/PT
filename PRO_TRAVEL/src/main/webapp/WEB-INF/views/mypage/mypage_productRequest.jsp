@@ -43,7 +43,7 @@
 }
 
 .table2 .col5 {
-	width: 15%;
+	width: 12%;
 	margin: 0px 10px 0px 0px;
 }
 </style>
@@ -59,6 +59,14 @@ function btn_js_accept_click(URL){
     
    }
 
+
+function btn_js_rejection_click(URL){
+	 
+    if(confirm("거절하시겠습니까?") == true){
+       location.href=URL;
+    }
+   
+  }
 </script>
 
 <body>
@@ -66,6 +74,7 @@ function btn_js_accept_click(URL){
 
 	<section class="results ajax-area" data-tmpl="athleteResults_tmpl"
 		style="margin-left:300px; padding-top: 20px;">
+		
 		<div class="content1">
 	<div class="heading">
 		<h2>REQUESTED LIST</h2>
@@ -97,11 +106,11 @@ function btn_js_accept_click(URL){
 				
 
 				<td align="center"><input type="button" value="수락"
-					class="nlogin_btn"
+					class="nlogin_btn" style="margin-bottom:6px"
 					onclick="javascript:btn_js_accept_click('/mypage/product_requestAccept?pr_reqnum=${Product_RequestVO.pr_reqnum }')"></td>
-				<td align="center"><input type="button" value="거절"
-					onclick="location.href='carpoolDelete.mypage?c_num=${carpool.c_num } '"
-					class="nlogin_btn"></td>
+			 <td align="center"><input type="button" style="margin-bottom:6px" value="거절"
+					onclick="javascript:btn_js_rejection_click('/mypage/product_requestReject?pr_reqnum=${Product_RequestVO.pr_reqnum }')"
+					class="nlogin_btn"></td> 
 					</c:forEach>
 					 <c:if test="${empty list}">
 			요청 목록이 없습니다.
@@ -145,10 +154,84 @@ function btn_js_accept_click(URL){
 			수락 목록이 없습니다.
 		</c:if>
 	</ul>
+	
+	
+	<div class="heading">
+		<h2>REJECTED LIST</h2>
+		<ul class="add-links">
 
-	<span class="btn-more"> <a
+		</ul>
+	</div>
+
+	<ul class="table2 ajax-content">
+		<li>
+			<div class="th col-first">REQNUM</div>
+			<div class="th col1">USER_ID</div>
+			<div class="th col2">PRODUCT_NAME</div>
+			<div class="th col2">PLACE</div>
+			<div class="th col3">DATE</div>
+			<div class="th col5">REQ_STATUS</div>
+
+		</li>
+
+
+		<li style="margin-top: 20px"><c:forEach items="${list_x}"
+				var="list_x">
+				<div class="th col-first">${list_x.pr_reqnum}</div>
+				<div class="th col1">${list_x.u_id}</div>
+				<div class="th col2">${list_x.p_num}</div>
+				<div class="th col2">${list_x.pr_place}</div>
+				<div class="th col3">${list_x.pr_date}</div>
+				<div class="th col5">${list_x.pr_ox}</div>
+			</c:forEach>
+			
+			 <c:if test="${empty list_x}">
+			거절 목록이 없습니다.
+		</c:if>
+	</ul>
+	
+	
+	<%-- <div class="heading">
+		<h2>MY REQUESTED LIST</h2>
+		<ul class="add-links">
+
+		</ul>
+	</div>
+
+	<ul class="table2 ajax-content">
+		<li>
+			<div class="th col-first" style="width: 18%;">REQNUM</div>
+			<div class="th col1" style="width: 18%;">PRODUCT_NAME</div>
+			<div class="th col2" style="width: 18%;">PLACE</div>
+			<div class="th col2" style="width: 18%;">DATE</div>
+			<div class="th col3" style="width: 18%;">REQ_STATUS</div>
+			<!-- <div class="th col5">REQ_STATUS</div>
+ -->
+		</li>
+
+
+		<li style="margin-top: 20px"><c:forEach items="${Myreq}"
+				var="Myreq">
+				<div class="th col-first" style="width: 18%;">${Myreq.pr_reqnum}</div>
+				<div class="th col1" style="width: 18%;">${Myreq.p_num}</div>
+				<div class="th col2" style="width: 18%;">${Myreq.pr_place}</div>
+				<div class="th col2" style="width: 18%;">${Myreq.pr_date}</div>
+				<div class="th col3" style="width: 18%;">${Myreq.pr_ox}</div>
+				<div class="th col5">${Product_O.pr_ox}</div>
+				
+				<td align="center"><input type="button" value="취소"
+					class="nlogin_btn" style="margin-bottom:6px"
+					onclick="javascript:btn_js_accept_click('/mypage/product_requestAccept?pr_reqnum=${Product_RequestVO.pr_reqnum }')"></td>
+			</c:forEach>
+			
+			 <c:if test="${empty Myreq}">
+			수락 목록이 없습니다.
+		</c:if>
+	</ul>
+ --%>
+	 <span class="btn-more"> <a
 		href="/ajaxscript/loadmoretablelist/games/athletes/{535B8008-29D0-44BB-8B14-E2B29CC79DD5}/3/3">More</a>
-	</span>  </section>
+	</span>   </section>
 
 
 
