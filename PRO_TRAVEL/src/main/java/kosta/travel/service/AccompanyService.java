@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Service;
 
 import kosta.travel.domain.AccompanyVO;
+import kosta.travel.domain.CordinatesVO;
 import kosta.travel.domain.RouteList;
 import kosta.travel.domain.RouteVO;
 import kosta.travel.domain.SearchTraveler;
@@ -63,8 +64,8 @@ public class AccompanyService {
 		for (int i = 0; i < list.length; i++) {
 
 			Random r = new Random();
-			int random = r.nextInt(100000000);
-			route.setTp_num(random + "");
+/*			int random = r.nextInt(100000000);
+			route.setTp_num(random + "");*/
 			route.setU_id(list[i].getId());
 			route.setCor_region(list[i].getTitle());
 			route.setTp_date(list[i].getEventdate());
@@ -137,5 +138,12 @@ public class AccompanyService {
 			return alltraveler;
 		}
 	}
+	
+	   public List<CordinatesVO> getCordinates() {
+
+		      List<CordinatesVO> cordinatesList = dao.getCordinates();
+
+		      return cordinatesList;
+		   }
 
 }

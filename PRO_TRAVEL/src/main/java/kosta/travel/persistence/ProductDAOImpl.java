@@ -123,6 +123,22 @@ public class ProductDAOImpl implements ProductDAO {
 		return session.selectList(namespace+".RecommendProductList", u_id);
 	}
 
+	@Override
+	public List<Product_RequestVO> MyRequestList(String u_id) throws Exception {
+		return session.selectList(namespace+".MyRequestList", u_id);
+	}
+
+	@Override
+	public void updateReject(Product_RequestVO proReq) throws Exception {
+		session.update(namespace+".updateReject", proReq);
+		
+	}
+
+	@Override
+	public List<Product_RequestVO> listProductRejected(String u_id) throws Exception {
+		return session.selectList(namespace+".listProductRejected", u_id);
+	}
+
 	
 
 	

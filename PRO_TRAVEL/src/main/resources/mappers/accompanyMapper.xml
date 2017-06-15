@@ -38,7 +38,7 @@
 		tp_num,cor_region,u_id,tp_date
 		)
 		values(
-		#{tp_num},#{cor_region},#{u_id},#{tp_date}
+		(select max(tp_num) from trip_plan)+1,#{cor_region},#{u_id},#{tp_date}
 		<!-- '3','3','3','2017-04-15' -->
 		)
 	</insert>
@@ -46,6 +46,11 @@
 	<select id="getTraveler" parameterType="RouteVO" resultType="RouteVO">
 		select * from trip_plan where u_id != #{u_id} and cor_region = #{cor_region} and tp_date = #{tp_date}  order by  tp_date ASC
 	</select>
+
+	<select id="getCordinates" resultType="cordinatesVO">
+      select * from cordinates
+   	</select>
+
 
 
 </mapper>
