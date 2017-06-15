@@ -116,4 +116,15 @@ public class ProductServiceImpl implements ProductService {
 		return dao.listProductRejected(u_id);
 	}
 
+	@Override
+	public void updateCancel(Product_RequestVO proReq) throws Exception {
+		dao.updateCancel(proReq);
+		
+	}
+
+	@Override
+	public List<Product_RequestVO> listProductCanceled(String u_id) throws Exception {
+		return dao.listProductCanceled(u_id);
+	}
+
 }

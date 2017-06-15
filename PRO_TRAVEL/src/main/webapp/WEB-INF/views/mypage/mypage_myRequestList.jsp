@@ -49,21 +49,15 @@
 </head>
 
 <script type="text/javascript">
-	function btn_js_accept_click(URL) {
+	function btn_js_cancel_click(URL) {
 
-		if (confirm("수락하시겠습니까?") == true) {
+		if (confirm("취소하시겠습니까?") == true) {
 			location.href = URL;
 		}
 
 	}
 
-	function btn_js_rejection_click(URL) {
-
-		if (confirm("거절하시겠습니까?") == true) {
-			location.href = URL;
-		}
-
-	}
+	
 </script>
 
 <body>
@@ -110,7 +104,11 @@
 		</c:if>
 
 					<c:if test="${Myreq.pr_ox == 'indicision'}">
-						<div class="th col5" style="width: 6%; padding-bottom:1px;"><input type="button" value="취소"></div>
+						<div class="th col5"  style="width:6%;">
+						<input type="button" value="취소"
+					class="nlogin_btn" 
+					onclick="javascript:btn_js_cancel_click('/mypage/product_requestCancel?pr_reqnum=${Myreq.pr_reqnum }')">
+						</div>
 					</c:if>
 				
 				</c:forEach></li>
@@ -138,16 +136,16 @@
 		</li>
 
 
-		<li style="margin-top: 20px"><c:forEach items="${list_o}"
-				var="Product_O">
-				<div class="th col-first">${Product_O.pr_reqnum}</div>
-				<div class="th col1">${Product_O.u_id}</div>
-				<div class="th col2">${Product_O.p_num}</div>
-				<div class="th col2">${Product_O.pr_place}</div>
-				<div class="th col3">${Product_O.pr_date}</div>
-				<div class="th col5">${Product_O.pr_ox}</div>
-			</c:forEach> <c:if test="${empty list_o}">
-			수락 목록이 없습니다.
+		<li style="margin-top: 20px"><c:forEach items="${list_c}"
+				var="list_c">
+				<div class="th col-first">${list_c.pr_reqnum}</div>
+				<div class="th col1">${list_c.u_id}</div>
+				<div class="th col2">${list_c.p_num}</div>
+				<div class="th col2">${list_c.pr_place}</div>
+				<div class="th col3">${list_c.pr_date}</div>
+				<div class="th col5">${list_c.pr_ox}</div>
+			</c:forEach> <c:if test="${empty list_c}">
+			취소 목록이 없습니다.
 		</c:if>
 	</ul>
 
