@@ -54,7 +54,7 @@ public class AccompanyController{
 		}
 		
 		
-		return "/accompany/Accomp_main";
+		return "/accompany/Accomp_main_JW";
 	}
 	
 	   @RequestMapping(value = "/enroll", method=RequestMethod.GET)
@@ -64,7 +64,7 @@ public class AccompanyController{
 	      } catch (Exception e) {
 	         e.printStackTrace();
 	      }
-	      return "/accompany/enroll";
+	      return "/accompany/enroll_JW";
 	   }
 	   
 	
