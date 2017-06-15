@@ -12,7 +12,7 @@ import kosta.travel.domain.Product_SearchVO;
 import kosta.travel.domain.SearchCriteria;
 
 public interface ProductDAO {
-	
+
 	public int insertProduct(ProductVO product)throws Exception;
 	public List<ProductVO> listProduct()throws Exception;
 	public ProductVO detailProduct(String p_num)throws Exception;
