@@ -42,7 +42,6 @@ public class AccompanyController{
 		// when user not login
 		if(session.getAttribute("login") == null){
 			return "/accompany/Accomp_main";
-			
 		}
 		
 		// when user login
@@ -58,15 +57,16 @@ public class AccompanyController{
 		return "/accompany/Accomp_main";
 	}
 	
-	@RequestMapping(value = "/enroll", method=RequestMethod.GET)
-	public String enrollpage(HttpSession session){
-		try {
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return "/accompany/enroll";
-	}
+	   @RequestMapping(value = "/enroll", method=RequestMethod.GET)
+	   public String enrollpage2(Model model, HttpSession session){
+	      try {
+	         model.addAttribute("getCordinates" ,service.getCordinates());
+	      } catch (Exception e) {
+	         e.printStackTrace();
+	      }
+	      return "/accompany/enroll";
+	   }
+	   
 	
 	
 	@RequestMapping(value = "/enroll", method=RequestMethod.POST)
@@ -76,12 +76,10 @@ public class AccompanyController{
 			return "redirect:/accompany/";
 		}
 		try {
-			/*String json = req.getParameter("json").substring(1, req.getParameter("json").length()-1);*/
 			ObjectMapper maper = new ObjectMapper();			
 				
 			RouteList[] list = maper.readValue(req.getParameter("json"), RouteList[].class);
 			logger.info("insertRoute controller : "+ list[0].getEventdate());
-			/*service.insertRoute(route, (String)session.getAttribute("member_id"));*/
 			service.insertRoute(list);
 		}
 		catch (Exception e) {
