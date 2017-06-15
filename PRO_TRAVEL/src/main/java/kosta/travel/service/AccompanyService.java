@@ -63,8 +63,8 @@ public class AccompanyService {
 		for (int i = 0; i < list.length; i++) {
 
 			Random r = new Random();
-			int random = r.nextInt(100000000);
-			route.setTp_num(random + "");
+/*			int random = r.nextInt(100000000);
+			route.setTp_num(random + "");*/
 			route.setU_id(list[i].getId());
 			route.setCor_region(list[i].getTitle());
 			route.setTp_date(list[i].getEventdate());

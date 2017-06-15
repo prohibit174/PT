@@ -6,8 +6,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="../include/header.jsp" %>
-<%@include file="../include/accompany_sidebar.jsp" %>
-
 
 <%-- <% request.setCharacterEncoding("utf-8"); %> --%>
 
@@ -29,13 +27,6 @@
         width: 50%;
 
        }
-       #calendar {
-        height:600px;
-        width: 50%;
-       }
-		#carpool_map{
-		margin-left: 300px;
-		}
 	/* 	#footer{
 		height: 30%;
 		}
@@ -45,14 +36,14 @@
 </head>
 
 <body>
-
+<%@include file="../include/accompany_sidebar.jsp" %>
 
 <div id="contents"  class="city">
     <div class="conts-container">
         <div class="present">
-            <div class="tabs-list">
+           <div class="tabs-list"> 
                 
-                <div id="google-ad-sense" style="margin-top:20px;float:left;" data-type="260x260">
+                <div id="google-ad-sense" style="margin-top:90px; float:left; margin-left: -225px;" data-type="260x260">
                   <script type="text/javascript">
                     google_ad_client = "ca-pub-9419115827273897";
                     google_ad_slot = "3548612763";
@@ -66,13 +57,12 @@
                   </script>
                 </div>
             
-            </div><!-- e//tabs-list -->
-<form action="" method="post">	
-  	  <div id="carpool_map"></div>
-    	<h3 id="carpool_title">Recommended Traveling Companion</h3>
+            </div> <!-- //tabs-list  -->
+  	<!--   <div id="carpool_map"></div> -->
+  	
+    	<h3 id="carpool_title" style="margin-top: -80px;">Recommended Traveling Companion</h3>
     	<br>
-    	<div id="map"></div>
-  </form>
+    	<div id="map" style="margin-top: 0px;"></div>
     
     <script type="text/javascript">
     var index=0;
@@ -479,8 +469,7 @@ function showLeftAccom(leftIndex, markerIndex){
 
 
 <div class="id-card-box" style="width: 100% ;border: black;">
-	<!-- <form action="/accompany/searchPeople" class="calendar-form" method="post" role="form"> -->
-	<form action="/accompany/searchPeople" method="post" role="form">
+	<!-- <form action="/accompany/searchPeople" method="post" role="form">
 
 			<div class="item-list" style="width: 1400px; padding-right: 30px;">
 					<div style="font-size: 20px;">
@@ -506,12 +495,46 @@ function showLeftAccom(leftIndex, markerIndex){
 						<input class="datepick label" type="text" name="edate" value="end" style="margin-top: -5px; padding: 0px; width: 150px;">
 							<img class="appendcp" src="../resources/images/accompany/plus.png" width="30" height="30" style="margin-top: -5px;">
 				</div>
-		<div style="padding-left: 45%;">
-		<input type="submit" value="search" style="margin-right: 20%; margin-top: 10px; width: 120px; height: 50px; font-size: medium;" />
+		<div style="padding-left: 45%; float: none;" class="calendar-form">
+		<input class="btn-more ajaxbtn" type="submit" value="search" style="margin-right: 20%; margin-top: 10px; width: 120px; height: 50px; font-size: medium; float: none;" />
 		</div>
 		</div>
 	</form>
+	 -->
+
+			<div class="item-list" style="width: 1400px; padding-right: 30px;">
+					<div style="font-size: 20px;">
+							<span class="label" style="margin-right: 80px;"  >departure</span>
+						 <select class="label ajaxCity" style="margin-top: -5px; width: 150px" name="city">
+						<option class="locationName" style="margin-bottom: 10px">name</option>
+						<option value="Zurich">Zurich</option>
+<option value="France">France</option>
+<option value="Nice">Nice</option>
+<option value="Brussels">Brussels</option>
+<option value="Berlin">Berlin</option>
+<option value="Munich">Munich</option>
+<option value="Bern">Bern</option>
+<option value="France">France</option>
+<option value="Belgium">Belgium</option>
+<option value="Germany">Germany</option>
+<option value="Swiss" selected="selected">Swiss</option>
+						</select>
+						
+						<span class="label" style="margin: 0 40px;">begin</span>
+						<input class="datepick label ajaxStart" type="text" name="sdate" value="start" style="margin-top: -5px; padding: 0px; width: 150px;">
+						<span class="label" style="margin: 0 40px;">end</span>
+						<input class="datepick label ajaxEnd" type="text" name="edate" value="end" style="margin-top: -5px; padding: 0px; width: 150px;">
+							<img class="appendcp" src="../resources/images/accompany/plus.png" width="30" height="30" style="margin-top: -5px;">
+				</div>
+		<div style="padding-left: 45%; float: none;" class="calendar-form">
+		<input class="btn-more ajaxbtn" type="submit" value="search" style="margin-right: 20%; margin-top: 10px; width: 120px; height: 50px; font-size: medium; float: none;" />
+		</div>
+		</div>
 	
+	
+	
+	</div>
+	<div class="accompanyList">
 	</div>
 <script type="text/javascript">
 var ct = 0;
@@ -543,8 +566,37 @@ $('body').on('focus','.datepick', function(){
     	changeYear : true,
     	changeMonth : true,
     	dateFormat : "yy/mm/dd",
+   		 });
     });
-    });
+    
+$('.ajaxbtn').click(function(){    
+    event.preventDefault();
+$.ajax({
+	type : 'get',
+    // URL은 필수 요소이므로 반드시 구현해야 하는 Property입니다.
+    url : 'cal',
+    data : {
+    	 "city" : $(".ajaxCity").val(),
+    	 "sdate" : $(".ajaxStart").val(),
+    	 "edate" : $(".ajaxEnd").val()
+    },
+    success : function (data) {
+    	$(data).each(function(){
+    		alert(data.tp_num);
+    		
+    		$('div.accompanyList').append("<h3>here</h3>");
+    		
+    	})
+    	
+    	
+    	
+    }
+    // 다양한 속성들 중에서 필요한 Option을 선택해서 구현합니다.('[]'는 반복해서 사용할 수 있다는 의미입니다.)
+    
+});
+});
+    
+    
 </script>
 
 </body>

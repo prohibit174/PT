@@ -161,7 +161,7 @@ input[type="button"] {
                   <div class="fc-left">
                      <h2>
                         Set my trip Plan2
-                        <H2>
+                        </h2>
                   </div>
                </div>
                <br><br>
