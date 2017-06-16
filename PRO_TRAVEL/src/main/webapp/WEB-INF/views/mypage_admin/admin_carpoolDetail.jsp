@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/header.jsp" %>
-<%@ include file="/WEB-INF/views/include/carpool_sidebar.jsp" %>
+<%@ include file="/WEB-INF/views/include/admin_sidebar.jsp" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -10,7 +10,7 @@
 <title>Insert title here</title>
 
 <script type="text/javascript">
-function acceptLink(URL){
+/* function acceptLink(URL){
 	if(confirm("Would you accept it?") == true){
 		location.href=URL;
 		alert('I accepted it.');
@@ -38,7 +38,7 @@ function modifyLink(URL){
 	else{
 		alert('Modify Cancle');
 	}
-}
+} */
 
 function removeLink(URL){
 	if(confirm("Do you want to remove?") == true){
@@ -89,8 +89,8 @@ function removeLink(URL){
 
 		<tr height="30">			
 			<td colspan="3">                    
-				<input type="button" value="Modify" onclick="javascript:modifyLink('/mypage/modify?c_num=${carpool_ListVO.c_num }')" >
-				<input type="button" value="Remove" onclick="javascript:removeLink('/mypage/remove?c_num=${carpool_ListVO.c_num } ')">
+<%-- 				<input type="button" value="Modify" onclick="javascript:modifyLink('/mypage/modify?c_num=${carpool_ListVO.c_num }')" >
+ --%>				<input type="button" value="Remove" onclick="javascript:removeLink('/adminRemove?c_num=${carpool_ListVO.c_num } ')">
 			</td>			
 		</tr>
 		
@@ -101,7 +101,7 @@ function removeLink(URL){
 		</tr>
 		
 		
-		<c:forEach items="${list}" var="CarpoolRequestUser">
+		<%-- <c:forEach items="${list}" var="CarpoolRequestUser">
 		<tr height="30">
 			<td width="150">
 			<img src="/resources/upload/${CarpoolRequestUser.u_u_img }" width="25" height="25" >
@@ -113,7 +113,7 @@ function removeLink(URL){
 			<input type="button" value="Reject" onclick="javascript:rejectLink('/mypage/reject?cr_num=${CarpoolRequestUser.cr_num}&c_num=${CarpoolRequestUser.c_num}')">
 			</td>
 		</tr>
-		</c:forEach>
+		</c:forEach> --%>
 		
 		
 	</table>

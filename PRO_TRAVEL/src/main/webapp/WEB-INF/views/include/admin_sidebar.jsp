@@ -22,7 +22,7 @@
         </a>
     </li>
     <li class="">
-        <a href="#more-about" data-class="games2014-2" target="">
+        <a href="/carpoolList" data-class="games2014-2" target="">
             Carpool Manage
             <i class="icon-arrow-right">
                 <span class="hide">arrow</span>
@@ -30,7 +30,7 @@
         </a>
     </li>
     <li class="">
-        <a href="/product/product_list" data-class="games2014-2" target="">
+        <a href="/productList" data-class="games2014-2" target="">
             Goods Manage
             <i class="icon-arrow-right">
                 <span class="hide">arrow</span>
