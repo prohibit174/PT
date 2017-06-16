@@ -10,10 +10,7 @@
 String id = (String)session.getAttribute("login");
 	if(id != null){
 		request.setAttribute("id", id);
-		
 	}
-System.out.println("id: "+id);
-
 %>
 
 <html>
@@ -33,10 +30,12 @@ System.out.println("id: "+id);
 
 <c:set var="u_id" value="${id }"></c:set>
 
+<c:if test="${id!=null}">
+										
+<iframe width="500" height="500" src="http://127.0.0.1:5000?username=${id }" frameborder="1">
+</iframe>										
 
-<iframe width="500" height="500" src="http://127.0.0.1:5000?username=${u_id }" frameborder="1">
-
-</iframe>
+</c:if>
 </body>
 </html>
 <%@ include file="/WEB-INF/views/include/footer.jsp" %>
