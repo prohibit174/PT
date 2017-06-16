@@ -25,6 +25,8 @@ public interface CarpoolDAO {
 	
 	public void dropPerson(Integer c_num)throws Exception;
 	
+	public void addPerson(Integer c_num)throws Exception;
+	
 	//마이페이지
 	public List<CarpoolVO> myMakeCarpool(String u_id)throws Exception;
 	
@@ -43,5 +45,7 @@ public interface CarpoolDAO {
 	public Integer maxSelectRequest()throws Exception;
 	
 	public void accept(Carpool_RequestVO vo)throws Exception;
+	
+	public void reject(Carpool_RequestVO vo)throws Exception;
 
 }

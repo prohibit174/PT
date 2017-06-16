@@ -16,7 +16,6 @@ import kosta.travel.service.MessageService;
 
 @Controller
 @RequestMapping("/message/*")
-
 public class MessageController {
 	@Inject
 	private MessageService service;
@@ -35,9 +34,15 @@ public class MessageController {
 	
 	@RequestMapping(value="/insert", method=RequestMethod.POST)
 	public String insert(MessageVO vo, Model model) throws Exception{
+		System.out.println("insert method call");
+		
+		if(service.max_num()==null){
+			vo.setM_num(1);
+		}
 		vo.setM_num(service.max_num() + 1);
-		System.out.println(vo.getM_content());
+		
 		service.message_insert(vo);
+		
 		return "/message/test";
 	}
 

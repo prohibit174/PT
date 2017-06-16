@@ -59,6 +59,18 @@ public class CarpoolDAOImpl implements CarpoolDAO {
 	public List<Carpool_ListVO> carpoolAll() throws Exception {
 		return session.selectList(namespace+".carpoolAll");
 	}
+	
+	@Override
+	public void dropPerson(Integer c_num) throws Exception {
+		session.update(namespace+".dropPerson", c_num);
+		
+	}
+	
+	@Override
+	public void addPerson(Integer c_num) throws Exception {
+		session.update(namespace+".addPerson", c_num);
+		
+	}
 
 	
 	//Mypage
@@ -107,8 +119,8 @@ public class CarpoolDAOImpl implements CarpoolDAO {
 	}
 	
 	@Override
-	public void dropPerson(Integer c_num) throws Exception {
-		session.update(namespace+".dropPerson", c_num);
+	public void reject(Carpool_RequestVO vo) throws Exception {
+		session.update(namespace+".reject", vo);
 		
 	}
 

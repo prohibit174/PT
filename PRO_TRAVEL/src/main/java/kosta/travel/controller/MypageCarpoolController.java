@@ -51,9 +51,15 @@ public class MypageCarpoolController {
 	}
 	
 	@RequestMapping(value = "/requestRead", method = RequestMethod.GET)
-	public String requestRead(@RequestParam("cr_num") int cr_num, Model model, CarpoolRequestUser carpool, HttpServletRequest request) throws Exception {
+	public String requestRead(@RequestParam("cr_num") int cr_num,@RequestParam("c_num") int c_num, Model model, CarpoolRequestUser carpool, HttpServletRequest request) throws Exception {
 		carpool = service.readRequest(cr_num);
 		model.addAttribute("carpool", carpool);
+		
+		
+		System.out.println(c_num);
+		System.out.println(cr_num);
+		List<CarpoolRequestUser>list = service.myMakeRequest(c_num);
+		model.addAttribute("list", list);
 		
 		return "/mypage/mypage_carpoolRequestRead";
 	}
@@ -79,8 +85,6 @@ public class MypageCarpoolController {
 	
 	@RequestMapping(value = "/accept", method = RequestMethod.GET)
 	public String accept(Carpool_RequestVO carpoolRequest, @RequestParam("cr_num") int cr_num,@RequestParam("c_num") int c_num ) throws Exception {
-		System.out.println(cr_num);
-		System.out.println(c_num);
 	
 		service.accept(carpoolRequest, c_num);
 		
@@ -88,8 +92,8 @@ public class MypageCarpoolController {
 	}
 	
 	@RequestMapping(value = "/reject", method = RequestMethod.GET)
-	public String reject(Carpool_RequestVO carpoolRequest, @RequestParam("cr_num") int cr_num) throws Exception {
-		
+	public String reject(Carpool_RequestVO carpoolRequest, @RequestParam("cr_num") int cr_num,@RequestParam("c_num") int c_num) throws Exception {
+		service.reject(carpoolRequest, c_num);
 		
 		return "redirect:/mypage/carpoolCheck";
 	}

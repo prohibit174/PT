@@ -110,7 +110,7 @@ function removeLink(URL){
 			<td width="150">${CarpoolRequestUser.cr_ox}</td>			
 			<td width="150">
 			<input type="button" value="Accept" onclick="javascript:acceptLink('/mypage/accept?cr_num=${CarpoolRequestUser.cr_num}&c_num=${CarpoolRequestUser.c_num}')">
-			<input type="button" value="Reject" onclick="javascript:rejectLink('/mypage/reject?cr_num=${CarpoolRequestUser.cr_num}')">
+			<input type="button" value="Reject" onclick="javascript:rejectLink('/mypage/reject?cr_num=${CarpoolRequestUser.cr_num}&c_num=${CarpoolRequestUser.c_num}')">
 			</td>
 		</tr>
 		</c:forEach>
