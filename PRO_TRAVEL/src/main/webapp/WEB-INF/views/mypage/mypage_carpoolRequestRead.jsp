@@ -10,7 +10,7 @@
 @CHARSET "EUC-KR";
 .wrapper {
   margin: 0 auto;
-  padding: 30px;
+  padding-left: 30px;
   max-width: 800px;
 }
 
@@ -95,7 +95,7 @@
 		<tr height="30">
 			<td width="150"><strong>APPLICANT</strong></td>
 			<td width="150"><strong>STATUS</strong></td>			
-			<td width="150"><strong>ACCEPT</strong></td>			
+			<td width="150"><strong>MESSAGE</strong></td>			
 		</tr>
 		
 		

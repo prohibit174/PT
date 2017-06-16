@@ -15,7 +15,7 @@
 @CHARSET "EUC-KR";
 .wrapper {
   margin: 0 auto;
-  padding: 30px;
+  padding-left: 30px;
   max-width: 800px;
 }
 
@@ -129,24 +129,24 @@
       </div>
     </div>
     
-    <c:forEach items="${requestList}" var="carpoolTest">
+    <c:forEach items="${requestList}" var="carpool">
     <div class="row">
       <div class="cell">
-        <img src="/resources/upload/${carpoolTest.u_u_img }" width="30" height="30" >
-         ${carpoolTest.c_u_name }
+        <img src="/resources/upload/${carpool.u_u_img }" width="30" height="30" >
+         ${carpool.c_u_name }
       </div>
       <div class="cell">
-        ${carpoolTest.cr_ox}
+        ${carpool.cr_ox}
       </div>
       <div class="cell">
-        ${carpoolTest.c_month },${carpoolTest.c_date }th, ${carpoolTest.c_year }
-        ${carpoolTest.c_hour }:${carpoolTest.c_minute }
+        ${carpool.c_month },${carpool.c_date }th, ${carpool.c_year }
+        ${carpool.c_hour }:${carpool.c_minute }
       </div>
       <div class="cell">
-        ${carpoolTest.start_point}
+        ${carpool.start_point}
       </div>
       <div class="cell">
-        <strong><a href = '/mypage/requestRead?cr_num=${carpoolTest.cr_num }'> Go </a></strong>
+        <strong><a href = '/mypage/requestRead?cr_num=${carpool.cr_num }&c_num=${carpool.c_num}'> Go </a></strong>
       </div>
       
     </div>
