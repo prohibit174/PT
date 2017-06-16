@@ -18,7 +18,7 @@
     text-transform: uppercase;
     cursor: pointer;
     } 
-.selects-box button:HOVER {
+.sidebar .selects-box button:HOVER {
 	background: #ddd;
 }
 .checked {
@@ -58,12 +58,14 @@ margin-left: -0.7em;
 </head>
 <body>
 
-
 <div class="main-container" style="padding-left: 30px; margin-left: 30px;">
-    <aside class="sidebar" style="padding-right: 30px; ">
-        
+<input type="submit" value="Go" />
+    <div class="sidebar" style="padding-right: 30px; ">
+        <input type="submit" value="Go" />
     <div class="selects-box">
         <h2>Menu</h2>
+        <input type="submit" value="Go" />
+        
         <button class="write_message">Write</button>
         <button class="write_to_me">To me</button>
         <br>
@@ -84,7 +86,7 @@ margin-left: -0.7em;
     	<br><br>
 	<a class="aside-tag" style="cursor: pointer;">¤ 전체 쪽지함</a>
     </div>
-</aside>
+</div>
     <div class="content">
         <div class="c1">
             

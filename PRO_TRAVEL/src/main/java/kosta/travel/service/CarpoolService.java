@@ -23,8 +23,6 @@ public interface CarpoolService {
 	
 	public List<Carpool_ListVO> carpoolAll() throws Exception;
 	
-	public void dropPerson(Integer c_num)throws Exception;
-	
 	//Mypage
 	public List<CarpoolVO> myMakeCarpool(String u_id)throws Exception;
 	
@@ -44,4 +42,6 @@ public interface CarpoolService {
 	public Integer maxSelectRequest()throws Exception;
 	
 	public void accept(Carpool_RequestVO carpoolRequest, Integer c_num)throws Exception;
+	
+	public void reject(Carpool_RequestVO carpoolRequest, Integer c_num)throws Exception;
 }

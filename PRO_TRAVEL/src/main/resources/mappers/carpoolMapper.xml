@@ -73,7 +73,7 @@
 	<!-- 조인해서 신청한 리스트 뽑아오는 쿼리문(신청리스트에 운전자 이름, 운전자사진 보여주기위해) -->
  	<select id = "requestAll" resultType = "kosta.travel.domain.CarpoolRequestUser">
 		select c.u_id as c_u_id ,cr.u_id as cr_u_id, u.u_img as u_u_img,  cr_num,
-		u.u_name as c_u_name, c_month, c_date, c_year, c_hour, c_minute, cr_ox, start_point
+		u.u_name as c_u_name, c_month, c_date, c_year, c_hour, c_minute, cr_ox, start_point , cr.c_num
 		from car_list c,  car_request cr, users u
 		where c.c_num = cr.c_num
 		and c.u_id = u.u_id
@@ -103,27 +103,38 @@
 	
 	<!-- Request -->
 	<insert id="createRequest">
-	insert into car_request(cr_num, cr_ox, c_num, u_id) VALUES(#{cr_num}, 'x', #{c_num}, #{u_id})
+	insert into car_request(cr_num, cr_ox, c_num, u_id) VALUES(#{cr_num}, 'wait', #{c_num}, #{u_id})
 	</insert>
 	
 	<select id="maxSelectRequest" resultType="integer">
 		select max(cr_num) from car_request
 	</select>
 	
+	<!-- 수락시 cr_ox o로 변경 -->
 	<update id="accept">
 		update car_request set cr_ox ='o'
 		where cr_num = #{cr_num}
 	</update>
 	
+	<!-- 거절시 cr_ox x로 변경 -->
 	<update id="reject">
-		update car_request set cr_ox ='o'
+		update car_request set cr_ox ='x'
 		where cr_num = #{cr_num}
 	</update>
 	
+	<!-- 잔여좌석1감소 -->
 	<update id="dropPerson">
 		update car_list 
 		set c_person = c_person-1
 		where c_num = #{c_num}
+	</update>	
+	
+	<!-- 잔여좌석1증가 -->
+	<update id="addPerson">
+		update car_list
+		set  	c_person = c_person+1
+		where c_num = #{c_num}
+
 	</update>	
 		
 		<!-- 조인해서 리스트 뽑아오는 쿼리문(카풀리스트에 유저사진 보여주기위해) -->

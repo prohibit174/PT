@@ -5,6 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import kosta.travel.domain.CarpoolRequestUser;
 import kosta.travel.domain.CarpoolVO;
@@ -83,11 +84,7 @@ public class CarpoolServiceImpl implements CarpoolService {
 		return dao.readRequest(cr_num);
 		
 	}
-	
-	
 
-
-	
 	//Request
 	@Override
 	public void registRequest(Carpool_RequestVO carpoolRequest) throws Exception {
@@ -100,17 +97,20 @@ public class CarpoolServiceImpl implements CarpoolService {
 		return  dao.maxSelectRequest();
 	}
 
+	@Transactional
 	@Override
 	public void accept(Carpool_RequestVO carpoolRequest, Integer c_num) throws Exception {
-		dao.accept(carpoolRequest);
-		dao.dropPerson(c_num);
+		dao.accept(carpoolRequest); //cr_ox를 o로 변경하고
+		dao.dropPerson(c_num); //잔여좌석 1개 줄인다.
 		
 	}
 
+	@Transactional
 	@Override
-	public void dropPerson(Integer c_num) throws Exception {
-		dao.dropPerson(c_num);
-		
+	public void reject(Carpool_RequestVO carpoolRequest, Integer c_num) throws Exception {
+		dao.reject(carpoolRequest);
+		dao.addPerson(c_num);
+			
 	}
 
 
