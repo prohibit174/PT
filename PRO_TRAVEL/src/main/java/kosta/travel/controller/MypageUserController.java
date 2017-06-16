@@ -39,6 +39,7 @@ public class MypageUserController {
 		System.out.println(u_id);
 		UsersVO users = userService.userDetail(u_id);
 		model.addAttribute("user", users);
+		System.out.println(users.getU_img());
 		return "/mypage/mypage_userCheckForm";
 	}
 	

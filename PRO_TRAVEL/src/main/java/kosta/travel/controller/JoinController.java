@@ -3,6 +3,8 @@ package kosta.travel.controller;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.UUID;
 
 import javax.annotation.Resource;
@@ -78,8 +80,11 @@ public class JoinController {
 	
 	  private String UploadFile(String originalFilename, byte[] fileData)throws Exception {
 	      
-	      UUID uid = UUID.randomUUID();
-	      String savedName = uid.toString() + "_" + originalFilename;
+		  long time = System.currentTimeMillis();
+		  SimpleDateFormat dayTime = new SimpleDateFormat("yyyymmddhhmmss");
+	      String savedName = dayTime.format(new Date(time))+"_" + originalFilename;
+		 /* UUID uid = UUID.randomUUID();
+	      String savedName = uid.toString() + "_" + originalFilename;*/
 	      File target = new File(uploadPath, savedName);
 	      
 	      FileCopyUtils.copy(fileData, target);

@@ -7,8 +7,8 @@
 <title>프로 동행러</title>
 </head>
 <body>
-<div id="sidebar">
-  <section class="tabs-section alt" id="tabsSection" >
+<span id="sidebar">
+  <span class="tabs-section alt" id="tabsSection" >
         <nav>
             <div class="tabset-box">
                 <ul class="tabset">
@@ -30,7 +30,7 @@
         </a>
     </li>
     <li class="">
-        <a href="#all-facts" data-class="games2014-2" target="">
+        <a href="/product/product_list" data-class="games2014-2" target="">
             Goods Manage
             <i class="icon-arrow-right">
                 <span class="hide">arrow</span>
@@ -93,7 +93,7 @@
                 <div id="highlights-of-the-games">
 
 </div>
-    <section class="text-post" itemscope itemtype="http://schema.org/NewsArticle" >
-</div>
+    <span class="text-post" itemscope itemtype="http://schema.org/NewsArticle" >
+</span>
 </body>
 </html>
