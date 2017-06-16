@@ -45,6 +45,14 @@
             </i> -->
         </a>
     </li>
+       <li class="">
+        <a href="/withdrawal" data-class="games2014-2" target="">
+            Withdrawal
+            <i class="icon-arrow-right">
+                <span class="hide">arrow</span>
+            </i>
+        </a>
+    </li>
 
                 </ul>
             </div>
