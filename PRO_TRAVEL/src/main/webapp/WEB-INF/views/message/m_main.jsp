@@ -146,12 +146,12 @@ cursor: pointer;
 			<label style="font-weight: bold;">Sender : </label>
 				<input id="name" name="u_id_sender" readonly="readonly" value="<%=session.getAttribute("login") %>" type="text" placeholder="Name" required="">
 			</li>
-			<br>
+
 			<li>
 			<label style="font-weight: bold;">Recipient : </label>
 				<input id="email" name="u_id_recipient" type="text" placeholder="recipient ID." required="">
 			</li>
-			<br>
+
 			<li>
 			<label style="font-weight: bold;">Category : </label>
 				<select class="" name="m_category">
@@ -160,15 +160,15 @@ cursor: pointer;
 					<option value="exchange">Exchange</option>
 				</select>
 			</li>
-			<br>
+
 			<li>
 			<label style="font-weight: bold;">Content : </label>
 				<textarea id="textarea" style="width:350px; height:150px;" name="m_content"></textarea>
 			</li>
-			<br>
-			<input type="submit" value="send"/>
+
 		</ol>
 	</fieldset>
+		<input type="submit" value="send"/>
 </form>
 >>>>>>> branch '김두두' of https://github.com/prohibit174/PT
 <div class="main-container" style="padding-left: 30px; margin-left: 30px;">
