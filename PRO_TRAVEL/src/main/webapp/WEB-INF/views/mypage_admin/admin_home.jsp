@@ -16,9 +16,7 @@
 <br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br>
 
-<iframe width="300" height="300" src="http://127.0.0.1:5000/" frameborder="1">
 
-</iframe>
 </body>
 </html>
 <%@ include file="/WEB-INF/views/include/footer.jsp" %>

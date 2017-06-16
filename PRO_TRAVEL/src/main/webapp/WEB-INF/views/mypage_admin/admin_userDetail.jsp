@@ -1,21 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/AgoFiles/users_css/all.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/AgoFiles/users_css/common.css">
 </head>
-
 <%@include file="/WEB-INF/views/include/header.jsp" %>
-<%@include file="/WEB-INF/views/include/mypage_sidebar.jsp" %>
-
+<%@include file="/WEB-INF/views/include/admin_sidebar.jsp" %>
 <body>
-<div id="wrapper" data-speed="3">
+
+
+
+
+	<div id="wrapper" data-speed="3">
 
 		<main id="main">
 
@@ -43,8 +48,7 @@
 
 
 				<form id="form_checkout" class="uniForm checkout"
-					enctype="application/x-www-form-urlencoded" action="usercheckInfo"
-					method="post">
+					enctype="application/x-www-form-urlencoded" action="/userList">
 					<!-- <div class="box-full" id="creationaccount"> -->
 						<div class="top"></div>
 						<div class="form">
@@ -58,37 +62,17 @@
 									<table cellpadding="0" cellspacing="0" class="tab">
 										<tr>
 											<td class="label"><label for="u_id">아이디</label></td>
-											<td class="value">
-											${user.u_id }
-												<ul class="errorField">
-												</ul></td>
+											<td class="value">${user.u_id } &nbsp; <span
+												class="mandatory">*</span> <br>
+										</td>
 										</tr>
-								<!-- 	</table>
-								</div>
-								<div class="right">
-									<table cellpadding="0" cellspacing="0" class="tab"> -->
-										<tr>
-											<td class="label"><label for="pwd">비밀번호</label></td>
-											<td class="value"><input type="password"
-												name="u_pwd"
-												id="u_pwd" value="${user.u_pwd }" />
-												&nbsp; <span class="mandatory">*</span>
-												<ul class="PWerrorField">
-												</ul></td>
-										</tr>
-										<tr>
-											<td class="label"><label for="pwd">비밀번호 확인</label></td>
-											<td class="value"><input type="password"
-												name="pwcheck"
-												id="pwcheck" value="${user.u_pwd }" />
-												&nbsp; <span class="mandatory">*</span>
-												<ul class="PWCerrorField">
-												</ul></td>
-										</tr>
+								
+										
 
 										<tr>
 											<td class="label"><label for="name">닉네임</label></td>
-											<td class="value">${user.u_name } &nbsp; <span class="mandatory">*</span>
+											<td class="value">
+											${user.u_name } &nbsp; <span class="mandatory">*</span>
 												<ul class="errorField">
 												</ul></td>
 										</tr>
@@ -96,7 +80,8 @@
 										<tr> 
 											<td>성별</td> 
 											<td> 
-											${user.u_sex }&nbsp; <span class="mandatory">*</span> 
+											${user.u_sex }
+											&nbsp; <span class="mandatory">*</span> 
 											</td> 
 											</tr>
 
@@ -104,12 +89,7 @@
 
 										<tr>
 											<td class="label"><label for="u_license">운전면허 유무</label></td>
-											<td><input type="radio" name="u_license" id="u_license"
-												value="운전면허 소지" checked="checked"><label>유</label> 
-												 <input type="radio"
-												name="u_license" id="u_license" value="운전면허 미소지"> 
-												<label>무</label>
-
+											<td>${user.u_license }
 												&nbsp; <span class="mandatory">*</span>
 												<ul class="errorField">
 												</ul></td>
@@ -127,8 +107,7 @@
 
 										<tr>
 											<td class="label"><label for="u_address">거주지역</label></td>
-											<td class="value"><input type="text" name="u_address"
-												id="u_address" value="${user.u_address }" /> &nbsp; <span class="mandatory">*</span>
+											<td class="value">${user.u_address } &nbsp; <span class="mandatory">*</span>
 												<ul class="errorField">
 												</ul></td>
 										</tr>
@@ -148,40 +127,48 @@
 
 										<tr>
 											<td class="label"><label for="u_job">직업</label></td>
-											<td class="value"><input type="text"
-												name="u_job"
-												id="u_job" value="" /></td>
+											<td class="value">${user.u_job }&nbsp;</td>
 										</tr>
-							
+									<!-- </table>
+								</div>
+								<div class="right">
+									<table cellpadding="0" cellspacing="0" class="tab"> -->
 										<tr>
 											<td class="label"><label for="u_lang">사용언어</label></td>
-											<td class="value"><input type="text" name="u_lang"
-												id="u_lang" value="" /> &nbsp; 
+											<td class="value">${user.u_lang } &nbsp; 
 												<ul class="errorField">
 												</ul></td>
 										</tr>
 										<tr>
 											<td class="label"><label for="u_religion">종교</label></td>
-											<td class="value"><input type="text" name="u_religion"
-												id="u_religion" value="" /> &nbsp;
+											<td class="value">${user.u_religion }&nbsp;
 												<ul class="errorField">
 												</ul></td>
 										</tr>
 
+
+										<!-- <tr>
+											<td class="label"><label for="u_img">프로필 이미지</label></td>
+											<td class="value"><input type="file" name="u_img"
+												id="u_img" value="" /> &nbsp; 
+												<ul class="errorField">
+												</ul></td>
+										</tr> -->
 										<tr>
 											<td class="label"><label for="u_style">여행 스타일</label></td>
 											<td class="value">
-											<select name="u_style">
-											<option value="힐링">힐링</option>
-											<option value="관광">관광</option>
-											<option value="맛집">맛집</option>
-											<option value="액티비티">액티비티</option>
-											<option value="휴양">휴양</option>
-											
-											</select>
-							
+											${user.u_style }
 											</td>
 										</tr>
+										
+										 <tr>
+											<td class="label"><label for="u_img">프로필 사진</label></td>
+											<td class="value">${user.u_img }
+										
+								<c:set var="file" value="${user.u_img }"></c:set>	
+								<img src="/resources/upload/${user.u_img  }" >
+									 
+										</tr> 
 									</table>
 								</div>
 
@@ -205,20 +192,21 @@
 						<br />
 
 						<div class="buttonHolder">
-<!-- 							<style type="text/css">
+							<style type="text/css">
 /*ie7onli - skin bouton */
 *+html .primaryAction {
 	width: 155px;
 }
-</style> -->
+</style>
 
+
+							
 
 							<button name="submit" id="validate_order" type="submit"
 								class="primaryAction">
-								<span>수정완료</span>
+								<span>확인</span>
 							</button>
-							
-							
+							<div class="clear"></div>
 						</div>
 				</form>
 			</div>
@@ -237,7 +225,12 @@
                 </div> -->
                 </main>
 	</div>
-	
+
+
+
+
+
+	<div id="profiler"></div>
 <%@include file="../include/footer.jsp" %>
 </body>
 </html>

@@ -7,12 +7,17 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import kosta.travel.domain.PageMaker;
+import kosta.travel.domain.ProductVO;
+import kosta.travel.domain.SearchCriteria;
 import kosta.travel.domain.UsersVO;
+import kosta.travel.service.ProductService;
 import kosta.travel.service.UserService;
 
 
@@ -21,6 +26,7 @@ public class AdminController {
 
 	@Inject
 	UserService service;
+	ProductService productService;
 	
 	@RequestMapping("/adminLogin")
 	public String admin_home(){
@@ -46,7 +52,27 @@ public class AdminController {
 	public String userDetail(@RequestParam("u_id") String u_id, Model model) throws Exception{
 		UsersVO users = service.userDetail(u_id);
 		System.out.println(u_id);
-		model.addAttribute("users", users);
-		return "/mypage/mypage_userCheckForm";
+		model.addAttribute("user", users);
+		return "/mypage_admin/admin_userDetail";
 	}
+	
+	@RequestMapping("/product_list")
+	public String productDetail(@ModelAttribute("cri") SearchCriteria cri, 
+			Model model, ProductVO product) throws Exception{
+
+		/*model.addAttribute("list", service.listCriteria(cri));*/
+		System.out.println(product.toString());
+		model.addAttribute("list", productService.listSearchCriteria(cri));
+		
+	
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		
+		/*pageMaker.setTotalCount(service.listCountCriteria(cri));*/
+		pageMaker.setTotalCount(productService.listSearchCount(cri));
+		
+		model.addAttribute("pageMaker", pageMaker);
+		return "/mypage_admin/admin_productList";
+	}
+	
 }

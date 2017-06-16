@@ -1,6 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%	request.setCharacterEncoding("utf-8"); %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<c:if test="${product.p_img!=null}">
+											<c:set var="head"
+												value=""></c:set>
+											<c:set var="small" value="_small"></c:set>
+
+</c:if>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -126,14 +134,14 @@ width:0;
 
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/all.css">
 
-
-
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/button.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> 
+
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/login.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/login_success.js"></script>
-
+<script src="magnific-popup/jquery.magnific-popup.js"></script>
 <script type="text/javascript">window.jQuery || document.write('<script src="https://stillres.olympic.org/js/jquery-1.11.1.min.js"><\/script>')</script>
 <script type="text/javascript"
 	src="https://stillres.olympic.org/js/jquery.main.js"></script>
@@ -1097,7 +1105,9 @@ width:0;
 					<div class="hold lang-switcher-container">
 						
 						<ul class="social-links">
+						
 							<li class="welcome" style="display:none;"><span class="session" style="font-weight: bold;" ><%=session.getAttribute("login") %></span>님 환영합니다.</li>
+							<%-- <li class="welcome" style="display:none;"><span class="session" style="font-weight: bold;" ><%=session.getAttribute("admin") %></span>님 환영합니다.</li> --%>
 							<li class="button_base b01_simple_rollover"><a style="cursor:pointer" id="login-button">LOGIN</a></li>
 							<li class="button_base b01_simple_rollover"><a href="/join/joinform">SIGN UP</a></li>
 							<li><a class="mail" href="/message/main"></a></li>

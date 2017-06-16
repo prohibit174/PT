@@ -100,4 +100,31 @@ public class ProductServiceImpl implements ProductService {
 		return dao.RecommendProductList(u_id);
 	}
 
+	@Override
+	public List<Product_RequestVO> MyRequestList(String u_id) throws Exception {
+		return dao.MyRequestList(u_id);
+	}
+
+	@Override
+	public void updateReject(Product_RequestVO proReq) throws Exception {
+		dao.updateReject(proReq);
+		
+	}
+
+	@Override
+	public List<Product_RequestVO> listProductRejected(String u_id) throws Exception {
+		return dao.listProductRejected(u_id);
+	}
+
+	@Override
+	public void updateCancel(Product_RequestVO proReq) throws Exception {
+		dao.updateCancel(proReq);
+		
+	}
+
+	@Override
+	public List<Product_RequestVO> listProductCanceled(String u_id) throws Exception {
+		return dao.listProductCanceled(u_id);
+	}
+
 }

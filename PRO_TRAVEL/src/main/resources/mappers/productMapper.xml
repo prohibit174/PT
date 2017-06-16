@@ -11,7 +11,7 @@
 		)
 		values(
 		#{p_num}, #{p_name}, #{u_id},#{p_detail},#{p_price},sysdate,#{p_img},
-		'x'
+		'indicision'
 		)
 	</insert>
 
@@ -49,7 +49,7 @@
 		)
 		values(
 		#{pr_reqnum}, #{u_id}, #{p_num},
-		'x',#{pr_place},#{pr_date}
+		'indicision',#{pr_place},#{pr_date}
 		)
 
 	</insert>
@@ -87,7 +87,7 @@
 		from product_req
 		where p_num IN (select p_num
 		from product where u_id = #{u_id})
-		AND pr_ox='x'
+		AND pr_ox='indicision'
 
 	</select>
 
@@ -95,14 +95,48 @@
 		parameterType="String">
 		select *
 		from product_req
-		where p_num IN (select p_num from product where u_id = #{u_id})
+		where p_num IN (select p_num
+		from product where u_id = #{u_id})
 		AND
-		pr_ox='o'
+		pr_ox='accepted'
+	</select>
+
+	<select id="listProductRejected" resultType="Product_RequestVO"
+		parameterType="String">
+		select *
+		from product_req
+		where p_num IN (select p_num
+		from product where u_id = #{u_id})
+		AND
+		pr_ox='rejected'
+	</select>
+
+
+	<select id="listProductCanceled" resultType="Product_RequestVO"
+		parameterType="String">
+		select *
+		from product_req
+		
+		where pr_ox='canceled'
 	</select>
 
 
 	<update id="updateAccept" parameterType="Product_RequestVO">
-		UPDATE product_req SET pr_ox='o'
+		UPDATE product_req SET
+		pr_ox='accepted'
+		WHERE pr_reqnum = #{pr_reqnum}
+	</update>
+
+	<update id="updateReject" parameterType="Product_RequestVO">
+		UPDATE product_req SET
+		pr_ox='rejected'
+		WHERE pr_reqnum = #{pr_reqnum}
+	</update>
+
+
+	<update id="updateCancel" parameterType="Product_RequestVO">
+		UPDATE product_req SET
+		pr_ox='canceled'
 		WHERE pr_reqnum = #{pr_reqnum}
 	</update>
 
@@ -171,7 +205,7 @@
 
 
 
-<!-- 물품 추천 리스트 -->
+	<!-- 물품 추천 리스트 -->
 	<select id="RecommendProductList" resultType="ProductVO">
         <![CDATA[
 	       SELECT *
@@ -183,11 +217,20 @@
              			  AND a.tp_date=b.tp_date
               			  AND a.u_id <> b.u_id)
        ]]>
-       
-	</select>
-       
-       
 
+	</select>
+
+
+	<select id="MyRequestList" resultType="Product_RequestVO"
+		parameterType="String">
+		select *
+		from product_req
+		where u_id = #{u_id}
+		and pr_ox='accepted'
+		or pr_ox='rejected'
+		or pr_ox='indicision'
+
+	</select>
 
 
 

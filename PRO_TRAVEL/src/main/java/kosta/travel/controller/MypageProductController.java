@@ -28,6 +28,10 @@ public class MypageProductController {
 		String u_id = (String)session.getAttribute("login");
 		model.addAttribute("list", service.listProductRequest(u_id));
 		model.addAttribute("list_o", service.listProductAccept(u_id));
+		model.addAttribute("list_x", service.listProductRejected(u_id));
+		
+		
+		
 		
 		List<Product_RequestVO> list = service.listProductRequest(u_id);
 		for(int i=0;i<list.size();i++){
@@ -36,6 +40,7 @@ public class MypageProductController {
 		
 		return "/mypage/mypage_productRequest";
 	}
+	
 	
 	@RequestMapping(value="/product_requestAccept", method=RequestMethod.GET)
 	public String product_requestAccept(Model model, Product_RequestVO proReq, HttpSession session) throws Exception{
@@ -54,6 +59,55 @@ public class MypageProductController {
 		*/
 		return "redirect:/mypage/product_request";
 	}
+	
+	
+	
+	@RequestMapping(value="/product_requestReject", method=RequestMethod.GET)
+	public String product_requestReject(Model model, Product_RequestVO proReq, HttpSession session) throws Exception{
+		System.out.println("product_requestReject method call");
+		
+		String u_id = (String)session.getAttribute("login");
+		service.updateReject(proReq);
+		
+		/*model.addAttribute("list_o", service.listProductAccept(u_id));*/
+
+		/*
+		List<Product_RequestVO> list = service.listProductRequest(u_id);
+		for(int i=0;i<list.size();i++){
+			System.out.println(list.get(i).getPr_reqnum());
+		}
+		*/
+		return "redirect:/mypage/product_request";
+	}
+	
+	
+	@RequestMapping(value="/product_myRequestList", method=RequestMethod.GET)
+	public String product_MyRequestList(Model model, Product_RequestVO proReq, HttpSession session) throws Exception{
+		
+		
+		String u_id = (String)session.getAttribute("login");
+		
+		
+		model.addAttribute("Myreq",service.MyRequestList(u_id));
+		model.addAttribute("list_c",service.listProductCanceled(u_id));
+		
+		return "/mypage/mypage_myRequestList";
+	}
+	
+	
+
+	
+	@RequestMapping(value="/product_requestCancel", method=RequestMethod.GET)
+	public String product_requestCancel(Model model, Product_RequestVO proReq, HttpSession session) throws Exception{
+		System.out.println("product_requestReject method call");
+		
+		String u_id = (String)session.getAttribute("login");
+		service.updateCancel(proReq);
+		
+		
+		return "redirect:/mypage/product_myRequestList";
+	}
+	
 	
 	
 	

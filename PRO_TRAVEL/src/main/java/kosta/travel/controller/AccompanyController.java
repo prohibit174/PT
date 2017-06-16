@@ -3,8 +3,11 @@ package kosta.travel.controller;
 
 
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -13,10 +16,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import kosta.travel.domain.AccompanyVO;
 import kosta.travel.domain.RouteList;
+import kosta.travel.domain.RouteVO;
 import kosta.travel.domain.SearchTraveler;
 import kosta.travel.service.AccompanyService;
 
@@ -37,7 +43,6 @@ public class AccompanyController{
 		// when user not login
 		if(session.getAttribute("login") == null){
 			return "/accompany/Accomp_main";
-			
 		}
 		
 		// when user login
@@ -53,15 +58,16 @@ public class AccompanyController{
 		return "/accompany/Accomp_main";
 	}
 	
-	@RequestMapping(value = "/enroll", method=RequestMethod.GET)
-	public String enrollpage(HttpSession session){
-		try {
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return "/accompany/enroll";
-	}
+	   @RequestMapping(value = "/enroll", method=RequestMethod.GET)
+	   public String enrollpage2(Model model, HttpSession session){
+	      try {
+	         model.addAttribute("getCordinates" ,service.getCordinates());
+	      } catch (Exception e) {
+	         e.printStackTrace();
+	      }
+	      return "/accompany/enroll";
+	   }
+	   
 	
 	
 	@RequestMapping(value = "/enroll", method=RequestMethod.POST)
@@ -71,12 +77,10 @@ public class AccompanyController{
 			return "redirect:/accompany/";
 		}
 		try {
-			/*String json = req.getParameter("json").substring(1, req.getParameter("json").length()-1);*/
 			ObjectMapper maper = new ObjectMapper();			
 				
 			RouteList[] list = maper.readValue(req.getParameter("json"), RouteList[].class);
 			logger.info("insertRoute controller : "+ list[0].getEventdate());
-			/*service.insertRoute(route, (String)session.getAttribute("member_id"));*/
 			service.insertRoute(list);
 		}
 		catch (Exception e) {
@@ -98,14 +102,15 @@ public class AccompanyController{
 		return "/accompany/searchTest";
 	}
 	       
-	@RequestMapping(value = "/cal", method=RequestMethod.GET)
-	public String callender(){
+	@RequestMapping(value ="/cal", method=RequestMethod.GET)
+	public @ResponseBody List<AccompanyVO> callender(SearchTraveler trav, Model model, HttpSession session, HttpServletResponse res){
+		trav.setU_id((String)session.getAttribute("login"));
 		try {
-			
+			return service.getTraveler(trav);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return "/accompany/callender";
+			return null;
 	}       	   
 	
 	

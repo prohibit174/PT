@@ -6,7 +6,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/AgoFiles/users_css/all.css">
@@ -161,17 +161,16 @@
 											</td>
 										</tr>
 										
-										<tr>
+										 <tr>
 											<td class="label"><label for="u_img">프로필 사진</label></td>
 											<td class="value">
-											<picture class="picture">
 										
-									<c:set var="file" value="${user.u_img }"></c:set>
-									<img src="/resources/upload/${file }" >
-									 
-									<span class="mask"></span>
-									</picture>
-										</tr>
+									 <c:set var="file" value="${user.u_img }"/>
+									 <img src="/resources/upload/${file }" > 
+									  
+<!-- 									<span class="mask"></span> 엿같은 mask... 주겨버립시다
+ -->									</td>
+										</tr> 
 									</table>
 								</div>
 
@@ -201,7 +200,6 @@
 	width: 155px;
 }
 </style>
-
 
 							
 
