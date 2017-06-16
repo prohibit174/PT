@@ -12,7 +12,6 @@ String id = (String)session.getAttribute("login");
 		request.setAttribute("id", id);
 		
 	}
-	
 System.out.println("id: "+id);
 
 %>
@@ -35,7 +34,7 @@ System.out.println("id: "+id);
 <c:set var="u_id" value="${id }"></c:set>
 
 
-<iframe width="300" height="300" src="http://127.0.0.1:5000?id=${u_id }" frameborder="1">
+<iframe width="500" height="500" src="http://127.0.0.1:5000?username=${u_id }" frameborder="1">
 
 </iframe>
 </body>
