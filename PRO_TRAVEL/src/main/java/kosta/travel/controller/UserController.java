@@ -78,11 +78,11 @@ public class UserController {
             System.out.println((String) session.getAttribute("login"));
             service.keepLogin((String) session.getAttribute("login"), session.getId(), new Date());
          }
-      }/*else{
+      }else{
     	  session.removeAttribute("admin");
     	  session.invalidate();
     	  
-      }*/
+      }
       return "logout";
    }
    
