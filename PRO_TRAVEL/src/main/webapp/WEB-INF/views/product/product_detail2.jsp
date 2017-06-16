@@ -7,6 +7,9 @@
 <%@ include file="/WEB-INF/views/include/product_sidebar.jsp"%>
 <% String id = (String)session.getAttribute("login");
 		request.setAttribute("id", id);
+		
+	String admin = (String)session.getAttribute("admin");
+		request.setAttribute("admin", admin);
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -211,7 +214,7 @@ $(document).ready(function(){
 						 <button type="submit" class="btn btn-danger" id="removeBtn" onclick="btn_js_delete_click()">삭제</button> 		 
 							</c:when>
 							
-							<c:when test="${id == 'admin'}">
+							<c:when test="${admin == 'admin'}">
 					       <!-- <button name="submit" id="validate_order" type="submit"
 								class="primaryAction">
 								<span>Register</span>  -->
