@@ -146,7 +146,7 @@
         ${carpoolTest.start_point}
       </div>
       <div class="cell">
-        <strong><a href = '/mypage/requestRead?cr_num=${carpoolTest.cr_num }&c_num=${carpoolTest.c_num}'> Go </a></strong>
+        <strong><a href = '/mypage/requestRead?cr_num=${carpoolTest.cr_num }'> Go </a></strong>
       </div>
       
     </div>

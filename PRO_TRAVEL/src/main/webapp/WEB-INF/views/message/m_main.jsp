@@ -11,29 +11,29 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/message/jquery.magnific-popup.min.js"></script>
 <script type="text/javascript">
 $(function(){
-	$('.write_message').magnificPopup({
-		type: 'inline',
-		preloader: false,
-		focus: '#name',
+   $('.write_message').magnificPopup({
+      type: 'inline',
+      preloader: false,
+      focus: '#name',
 
-		// When elemened is focused, some mobile browsers in some cases zoom in
-		// It looks not nice, so we disable it:
-		callbacks: {
-			beforeOpen: function() {
-				if($(window).width() < 700) {
-					this.st.focus = false;
-				} else {
-					this.st.focus = '#name';
-				}
-			}
-		}
-	});
+      // When elemened is focused, some mobile browsers in some cases zoom in
+      // It looks not nice, so we disable it:
+      callbacks: {
+         beforeOpen: function() {
+            if($(window).width() < 700) {
+               this.st.focus = false;
+            } else {
+               this.st.focus = '#name';
+            }
+         }
+      }
+   });
 });
 
 $(function(){
-	$("div.close").on("click", function(){
-		$.magnificPopup.close();
-	});
+   $("div.close").on("click", function(){
+      $.magnificPopup.close();
+   });
 });
 </script>
 <style type="text/css">
@@ -50,9 +50,6 @@ button{
     text-transform: uppercase;
     cursor: pointer;
     } 
-<<<<<<< HEAD
-.sidebar .selects-box button:HOVER {
-=======
 input[type="submit"]{
     width: 73px;
     height: 30px;
@@ -67,7 +64,7 @@ input[type="submit"]{
     cursor: pointer;
     }     
 button:HOVER, input[type="submit"]:HOVER {
-	background: #ddd;
+   background: #ddd;
 }
 .checked {
 font-size: 8px;
@@ -133,77 +130,42 @@ cursor: pointer;
 
 </head>
 <body>
-<<<<<<< HEAD
-
-=======
 <form id="test-form" class="mfp-hide white-popup-block" style="padding-left: 430px;" method="post" action="/message/insert">
-	<fieldset style="border:0; background: white; width: 50%;">
-	<div class="close" style="float: right; margin-right: 20px; margin-top: 10px;" onclick=""></div>
-	<br><br>
-	<h1 style="padding-left: 30px; font-size: 30px">&nbsp&nbspWrite your message !</h1>
-		<ol>
-			<li>
-			<label style="font-weight: bold;">Sender : </label>
-				<input id="name" name="u_id_sender" readonly="readonly" value="<%=session.getAttribute("login") %>" type="text" placeholder="Name" required="">
-			</li>
+   <fieldset style="border:0; background: white; width: 50%;">
+   <div class="close" style="float: right; margin-right: 20px; margin-top: 10px;" onclick=""></div>
+   <br><br>
+   <h1 style="padding-left: 30px; font-size: 30px">&nbsp&nbspWrite your message !</h1>
+      <ol>
+         <li>
+         <label style="font-weight: bold;">Sender : </label>
+            <input id="name" name="u_id_sender" readonly="readonly" value="<%=session.getAttribute("login") %>" type="text" placeholder="Name" required="">
+         </li>
 
-			<li>
-			<label style="font-weight: bold;">Recipient : </label>
-				<input id="email" name="u_id_recipient" type="text" placeholder="recipient ID." required="">
-			</li>
+         <li>
+         <label style="font-weight: bold;">Recipient : </label>
+            <input id="email" name="u_id_recipient" type="text" placeholder="recipient ID." required="">
+         </li>
 
-			<li>
-			<label style="font-weight: bold;">Category : </label>
-				<select class="" name="m_category">
-					<option value="accompany">Accompany</option>
-					<option value="carpool">Carpool</option>
-					<option value="exchange">Exchange</option>
-				</select>
-			</li>
+         <li>
+         <label style="font-weight: bold;">Category : </label>
+            <select class="" name="m_category">
+               <option value="accompany">Accompany</option>
+               <option value="carpool">Carpool</option>
+               <option value="exchange">Exchange</option>
+            </select>
+         </li>
 
-			<li>
-			<label style="font-weight: bold;">Content : </label>
-				<textarea id="textarea" style="width:350px; height:150px;" name="m_content"></textarea>
-			</li>
+         <li>
+         <label style="font-weight: bold;">Content : </label>
+            <textarea id="textarea" style="width:350px; height:150px;" name="m_content"></textarea>
+         </li>
 
-		</ol>
-	</fieldset>
-		<input type="submit" value="send"/>
+      </ol>
+   </fieldset>
+      <input type="submit" value="send"/>
 </form>
->>>>>>> branch '김두두' of https://github.com/prohibit174/PT
 <div class="main-container" style="padding-left: 30px; margin-left: 30px;">
-<<<<<<< HEAD
-<input type="submit" value="Go" />
-    <div class="sidebar" style="padding-right: 30px; ">
-        <input type="submit" value="Go" />
-    <div class="selects-box">
-        <h2>Menu</h2>
-        <input type="submit" value="Go" />
-        
-        <button class="write_message">Write</button>
-        <button class="write_to_me">To me</button>
-        <br>
-	<a class="aside-tag" id="receive">¤ 받은 쪽지함</a>
-		 <select class="alt-select standardCase" id="aside-tag" title="IOC Members" onchange="if (this[this.selectedIndex].value != '#') {document.location = this[this.selectedIndex].value}">
-	            <option value="#">(Default)</option>
-	            <option value="#">Carpool</option>
-	        	<option value="#">Exchange of Goods</option>
-	        	<option value="#">Accompany</option>
-	    </select>
-	<a class="aside-tag" id="send" style="font-weight: bold;">¤ 보낸 쪽지함</a>
-		 <select class="alt-select standardCase" id="aside-tag" title="IOC Members" onchange="if (this[this.selectedIndex].value != '#') {document.location = this[this.selectedIndex].value}">
-            <option value="#">(Default)</option>
-            <option value="#">Carpool</option>
-        	<option value="#">Exchange of Goods</option>
-        	<option value="#">Accompany</option>
-    	</select>
-    	<br><br>
-	<a class="aside-tag" style="cursor: pointer;">¤ 전체 쪽지함</a>
-    </div>
-</div>
-=======
     
->>>>>>> branch '김두두' of https://github.com/prohibit174/PT
     <div class="content">
         <div class="c1">
             
@@ -240,21 +202,21 @@ cursor: pointer;
         </header>
         <ul class="events-list">
         <c:forEach items="${list}" var="listMessage">
-		    <li>
-		    <div>
-		        <a href="/ajaxscript/geticscalendar/{E1E90A75-7711-4192-94E2-B5E31358DAC7}" class="btn-calendar">답장 하기</a>
-		        <label style="float: right; padding-top: 5px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp쪽지 상태 &nbsp&nbsp <h3 class="checked" style="padding-top: 10px;"></h3></label>
-		        <label style="float: right; padding-top: 5px;">쪽지 분류 :  <input value="${listMessage.m_category }"></label>
-		        <span class="country"></span>
-			</div>
-		        <h3>
-		            <a href="/olympic-day">
-		                보낸 사람 : ${listMessage.u_id_sender }
-		            </a>
-		        </h3>
-		        <br>
-		        <span class="time"><span content="6/23/2017 12:00:00 AM">${listMessage.m_content }</span></span>
-		    </li>
+          <li>
+          <div>
+              <a href="/ajaxscript/geticscalendar/{E1E90A75-7711-4192-94E2-B5E31358DAC7}" class="btn-calendar">답장 하기</a>
+              <label style="float: right; padding-top: 5px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp쪽지 상태 &nbsp&nbsp <h3 class="checked" style="padding-top: 10px;"></h3></label>
+              <label style="float: right; padding-top: 5px;">쪽지 분류 :  <input value="${listMessage.m_category }"></label>
+              <span class="country"></span>
+         </div>
+              <h3>
+                  <a href="/olympic-day">
+                      보낸 사람 : ${listMessage.u_id_sender }
+                  </a>
+              </h3>
+              <br>
+              <span class="time"><span content="6/23/2017 12:00:00 AM">${listMessage.m_content }</span></span>
+          </li>
     </c:forEach>
         </ul>
         <div class="paging"><ul>
@@ -273,22 +235,22 @@ cursor: pointer;
         <button class="write_to_me">To me</button>
         </div>
         <br>
-	<a class="aside-tag" id="receive">¤ 받은 쪽지함</a>
-		 <select class="alt-select standardCase" id="aside-tag" title="IOC Members" onchange="if (this[this.selectedIndex].value != '#') {document.location = this[this.selectedIndex].value}">
-	            <option value="#">(Default)</option>
-	            <option value="#">Carpool</option>
-	        	<option value="#">Exchange of Goods</option>
-	        	<option value="#">Accompany</option>
-	    </select>
-	<a class="aside-tag" id="send" style="font-weight: bold;">¤ 보낸 쪽지함</a>
-		 <select class="alt-select standardCase" id="aside-tag" title="IOC Members" onchange="if (this[this.selectedIndex].value != '#') {document.location = this[this.selectedIndex].value}">
+   <a class="aside-tag" id="receive">¤ 받은 쪽지함</a>
+       <select class="alt-select standardCase" id="aside-tag" title="IOC Members" onchange="if (this[this.selectedIndex].value != '#') {document.location = this[this.selectedIndex].value}">
+               <option value="#">(Default)</option>
+               <option value="#">Carpool</option>
+              <option value="#">Exchange of Goods</option>
+              <option value="#">Accompany</option>
+       </select>
+   <a class="aside-tag" id="send" style="font-weight: bold;">¤ 보낸 쪽지함</a>
+       <select class="alt-select standardCase" id="aside-tag" title="IOC Members" onchange="if (this[this.selectedIndex].value != '#') {document.location = this[this.selectedIndex].value}">
             <option value="#">(Default)</option>
             <option value="#">Carpool</option>
-        	<option value="#">Exchange of Goods</option>
-        	<option value="#">Accompany</option>
-    	</select>
-    	<br><br>
-	<a class="aside-tag" style="cursor: pointer;">¤ 전체 쪽지함</a>
+           <option value="#">Exchange of Goods</option>
+           <option value="#">Accompany</option>
+       </select>
+       <br><br>
+   <a class="aside-tag" style="cursor: pointer;">¤ 전체 쪽지함</a>
     </div>
 </aside>
 </div>
