@@ -885,7 +885,7 @@ width:0;
 								</div>
 							</div>
 						</div></li>
-					<li>&nbsp&nbsp&nbsp<a href="/photos">BLOG</a>
+					<li>&nbsp&nbsp&nbsp<a href="/blog/blogMain">BLOG</a>
 						<div class="drop">
 							<div class="drop-holder">
 								<div class="drop-col">
