@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -14,11 +16,23 @@
 <%@include file="/WEB-INF/views/include/blog_sidebar.jsp" %>
 <body>
 <div>
-<section class="sets-section first">
-                <header class="heading">
-                    <h1>Blog</h1><!-- 하얀글씨. 수정하면 좋을듯 -->
-                </header>
+ <section class="id-card-box" itemtype="http://schema.org/Organization"
+		itemscope="" style="margin: 0px 200px 100px 0px"; >
+		
+		<div class="heading">
+            <h2>BLOG</h2>
+            <ul class="add-links">
+
+            </ul>
+        </div>
+                <!-- <header class="heading">
+                    <h1>Blog</h1>하얀글씨. 수정하면 좋을듯
+                </header> -->
+                
+        
         <div class="ajax-area" data-tmpl="load3_tmpl">
+        
+          <c:forEach items="${blog}" var="carpool_ListVO">
                 <ul class="sets-list ajax-content">
 
     <li itemscope="" itemtype="http://schema.org/ImageObject" class="same-height same-height-left" style="height: 367px;">
@@ -57,6 +71,7 @@
             <noscript>&lt;div class="paging"&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a&gt;&lt;span class="icon-arrow-left"&gt;&lt;span class="hide"&gt;&amp;lt;&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;&lt;li class="active"&gt;&lt;a href="https://www.olympic.org/photos"&gt;1&lt;/a&gt;&lt;/li&gt;&lt;li class=""&gt;&lt;a href="https://www.olympic.org/photos/2"&gt;2&lt;/a&gt;&lt;/li&gt;&lt;li class=""&gt;&lt;a href="https://www.olympic.org/photos/3"&gt;3&lt;/a&gt;&lt;/li&gt;&lt;li class=""&gt;&lt;a href="https://www.olympic.org/photos/4"&gt;4&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a class="next" href="https://www.olympic.org/photos/2" rel="next"&gt;&lt;span class="icon-arrow-right"&gt;&lt;span class="hide"&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;</noscript>
 
+</c:forEach>  
         </div>
     </section>
     </div>
