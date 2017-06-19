@@ -196,7 +196,7 @@ cursor: pointer;
 
          <li>
          <label style="font-weight: bold;">Recipient : </label>
-            <input id="email" name="u_id_recipient" type="text" value="${listMessage.u_id_recipient} %>" placeholder="recipient ID." required="">
+            <input id="email" name="u_id_recipient" type="text" value="${listMessage.u_id_recipient}" placeholder="recipient ID." required="">
          </li> 
 
          <li>
