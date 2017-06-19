@@ -71,9 +71,35 @@ function btn_js_rejection_click(URL){
 
 <body>
 
+<!-- <section class="results ajax-area" data-tmpl="athleteResults_tmpl"
+		style="margin-left:300px; padding-top: 20px;">
 
+	<div class="main">
+		<div class="main-holder">
+			<div class="section-links">
+				<ul>
+					<li><a href="/mypage/mypage_accom_request_sent">
+							Alphabetical Order </a></li>
+					<li>Protocol Order</li>
+				</ul>
+			</div>
+			
+		</div>
+	</div>
+
+	</section>
+
+ -->
 	<section class="results ajax-area" data-tmpl="athleteResults_tmpl"
 		style="margin-left:300px; padding-top: 20px;">
+		
+		<div class="section-links" style="margin-top:0px; padding-top:0px;
+		font-size:16px; float: right; margin-right:70px;">
+				<ul>
+					<li> Requested List </li>
+					<li><a href="/mypage/product_myRequestList">Request List</a></li>
+				</ul>
+			</div>
 		
 		<div class="content1">
 	<div class="heading">
@@ -82,6 +108,9 @@ function btn_js_rejection_click(URL){
 
 		</ul>
 	</div>
+	
+	
+
 
 		<ul class="table2 ajax-content">
 			<li >
