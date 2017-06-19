@@ -10,11 +10,13 @@
 	href="${pageContext.request.contextPath}/resources/css/AgoFiles/users_css/common.css">
 <title>Insert title here</title>
 </head>
+<%@include file="/WEB-INF/views/include/header.jsp" %>
+<%@include file="/WEB-INF/views/include/blog_sidebar.jsp" %>
 <body>
 <div>
 <section class="sets-section first">
                 <header class="heading">
-                    <h1>Photos</h1>
+                    <h1>Blog</h1><!-- 하얀글씨. 수정하면 좋을듯 -->
                 </header>
         <div class="ajax-area" data-tmpl="load3_tmpl">
                 <ul class="sets-list ajax-content">
