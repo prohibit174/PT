@@ -5,7 +5,7 @@ public class BlogVO {
 	private String b_title;
 	private String u_name;
 	private String b_instruction;
-	private String u_img;
+	private String b_img;
 	
 	public BlogVO(){}
 
@@ -41,14 +41,15 @@ public class BlogVO {
 		this.b_instruction = b_instruction;
 	}
 
-	public String getU_img() {
-		return u_img;
+	public String getB_img() {
+		return b_img;
 	}
 
-	public void setU_img(String u_img) {
-		this.u_img = u_img;
+	public void setB_img(String b_img) {
+		this.b_img = b_img;
 	}
 
+	
 	
 	
 	
