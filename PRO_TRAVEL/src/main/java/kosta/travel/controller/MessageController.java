@@ -21,15 +21,14 @@ import kosta.travel.service.MessageService;
 @Controller
 @RequestMapping("/message/*")
 public class MessageController {
+	
 	@Inject
 	private MessageService service;
 	
-	@RequestMapping(value = "/main", method = RequestMethod.GET)
-	public String main(Model model,HttpSession session) throws Exception {
-		
-		String u_id_recipient= session.getAttribute("login").toString();
-		
-		System.out.println("method in_id: "+u_id_recipient);
+	@RequestMapping(value = "/main")
+	public String main(Model model, @RequestParam("u_id_recipient") String u_id_recipient) throws Exception {
+		System.out.println("controller main method in");
+
 		System.out.println("id: "+u_id_recipient);
 		List<MessageVO> list = service.list(u_id_recipient);
 		System.out.println("print_list");
