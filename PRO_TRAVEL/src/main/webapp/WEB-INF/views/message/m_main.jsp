@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>    
 <%@ include file="/WEB-INF/views/include/header.jsp" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -28,6 +29,24 @@ $(function(){
          }
       }
    });
+   
+   $('.detail_message').magnificPopup({
+	      type: 'inline',
+	      preloader: false,
+	      focus: '#name',
+
+	      // When elemened is focused, some mobile browsers in some cases zoom in
+	      // It looks not nice, so we disable it:
+	      callbacks: {
+	         beforeOpen: function() {
+	            if($(window).width() < 700) {
+	               this.st.focus = false;
+	            } else {
+	               this.st.focus = '#name';
+	            }
+	         }
+	      }
+	   });
 });
 
 $(function(){
@@ -164,6 +183,36 @@ cursor: pointer;
    </fieldset>
       <input type="submit" value="send"/>
 </form>
+<form id="test-form2" class="mfp-hide white-popup-block" style="padding-left: 430px;" method="POST" action="/message/detail_message">
+   <fieldset style="border:0; background: white; width: 50%;">
+   <div class="close" style="float: right; margin-right: 20px; margin-top: 10px;" onclick=""></div>
+   <br><br>
+   <h1 style="padding-left: 30px; font-size: 30px">&nbsp&nbspConfirm your message !</h1>
+      <ol>
+         <li>
+         <label style="font-weight: bold;">Sender : </label>
+            <label id="name" name="u_id_sender" readonly="readonly" value="${listMessage.u_id_sender}" type="text" placeholder="Name" required=""></label>
+         </li>
+
+         <li>
+         <label style="font-weight: bold;">Recipient : </label>
+            <input id="email" name="u_id_recipient" type="text" value="${listMessage.u_id_recipient}" placeholder="recipient ID." required="">
+         </li> 
+
+         <li>
+         <label style="font-weight: bold;">Category : </label>
+         	<label name="m_category">${listMessage.m_category}</label>
+         </li>
+
+         <li>
+         <label style="font-weight: bold;">Content : </label>
+            <textarea id="textarea" style="width:350px; height:150px;" name="m_content">${listMessage.m_content}</textarea>
+         </li>
+
+      </ol>
+   </fieldset>
+      <input type="submit" value="confirm"/>
+</form>
 <div class="main-container" style="padding-left: 30px; margin-left: 30px;">
     
     <div class="content">
@@ -210,7 +259,7 @@ cursor: pointer;
               <span class="country"></span>
          </div>
               <h3>
-                  <a href="/olympic-day">
+                  <a href="#test-form2" class="detail_message" >
                       보낸 사람 : ${listMessage.u_id_sender }
                   </a>
               </h3>

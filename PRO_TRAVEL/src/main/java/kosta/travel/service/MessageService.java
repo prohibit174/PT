@@ -10,5 +10,9 @@ public interface MessageService {
 
 	public Integer max_num()throws Exception;
 
-	public List<MessageVO> list() throws Exception;
+	public List<MessageVO> list(String u_id) throws Exception;
+	
+	public MessageVO detail_message(String m_num)throws Exception;
+	
+	
 }

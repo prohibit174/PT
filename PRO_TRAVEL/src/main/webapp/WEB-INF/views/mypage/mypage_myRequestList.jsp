@@ -65,6 +65,15 @@
 
 	<section class="results ajax-area" data-tmpl="athleteResults_tmpl"
 		style="margin-left:300px; padding-top: 20px;">
+		
+		<div class="section-links" style="margin-top:0px; padding-top:0px;
+		font-size:16px; float: right; margin-right:70px;">
+				<ul>
+					<li><a href="/mypage/product_request"> Requested List</a> </li>
+					<li>Request List</li>
+				</ul>
+			</div>
+		
 
 	<div class="content1">
 		<div class="heading">

@@ -885,7 +885,7 @@ width:0;
 								</div>
 							</div>
 						</div></li>
-					<li>&nbsp&nbsp&nbsp<a href="/photos">BLOG</a>
+					<li>&nbsp&nbsp&nbsp<a href="/blog/blogMain">BLOG</a>
 						<div class="drop">
 							<div class="drop-holder">
 								<div class="drop-col">
@@ -1125,7 +1125,7 @@ width:0;
 							<%-- <li class="welcome" style="display:none;"><span class="session" style="font-weight: bold;" ><%=session.getAttribute("admin") %></span>님 환영합니다.</li> --%>
 							<li class="button_base b01_simple_rollover"><a style="cursor:pointer" id="login-button">LOGIN</a></li>
 							<li class="button_base b01_simple_rollover"><a href="/join/joinform">SIGN UP</a></li>
-							<li><a class="mail" href="/message/main"></a></li>
+							<li><a class="mail" href="/message/main?u_id_recipient=<%=session.getAttribute("login") %>"></a></li>
 							<li class="button_base b01_simple_rollover" id="mypage" style="display: none;"><a href="/mypage/usercheckInfo">MY PAGE</a></li>
 							<li><a href="https://twitter.com/olympics" class="ss-icon">twitter</a></li>
 							<li><a href="https://www.youtube.com/user/olympic"

@@ -26,8 +26,16 @@ public class MessageServiceImpl implements MessageService {
 	}
 
 	@Override
-	public List<MessageVO> list() throws Exception {
-		return dao.list();
+	public List<MessageVO> list(String u_id) throws Exception {
+		System.out.println("service list method in");
+		return dao.list(u_id);
 	}
+
+	@Override
+	public MessageVO detail_message(String m_num) throws Exception {
+		return dao.detail_message(m_num);
+	}
+
+	
 
 }
