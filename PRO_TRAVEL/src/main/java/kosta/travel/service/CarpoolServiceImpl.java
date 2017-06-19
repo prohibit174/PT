@@ -113,6 +113,11 @@ public class CarpoolServiceImpl implements CarpoolService {
 			
 	}
 
+	@Override
+	public List<Carpool_ListVO> recommendList() throws Exception {
+		return dao.recommendList();
+	}
+
 
 
 
