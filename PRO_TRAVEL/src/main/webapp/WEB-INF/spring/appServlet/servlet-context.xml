@@ -35,7 +35,8 @@
 	</beans:bean>
 	
 	<beans:bean id="uploadPath" class="java.lang.String">
-		<beans:constructor-arg value="C:\\Users\\kosta\\PT\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\PRO_TRAVEL\\resources\\upload"></beans:constructor-arg>
+		<!-- <beans:constructor-arg value="C:\\Users\\kosta\\PT\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\PRO_TRAVEL\\resources\\upload"></beans:constructor-arg> -->
+		<beans:constructor-arg value="C:\\kosta152\\work\\java\\PT\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\PRO_TRAVEL\\resources\\upload"></beans:constructor-arg>
 	</beans:bean> 
 	
 	<!-- 로그인 세션(인터셉트) -->
