@@ -9,8 +9,6 @@ public class BlogVO {
 	private String b_instruction;
 	private String b_img;
 	private String b_introdution;
-	private String u_img;
-	//혜진아 u_img : 유저 프로필사진인데 쓰는건가요?!
 	private MultipartFile file2;
 	 
 	 
@@ -63,10 +61,6 @@ public class BlogVO {
 
 	public void setB_img(String b_img) {
 		this.b_img = b_img;
-	}
-
-	public void setU_img(String u_img) {
-		this.u_img = u_img;
 	}
 
 
