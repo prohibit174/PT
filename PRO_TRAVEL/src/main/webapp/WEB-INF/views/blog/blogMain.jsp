@@ -14,11 +14,15 @@
 	href="${pageContext.request.contextPath}/resources/css/AgoFiles/users_css/common.css">
 <title>Insert title here</title>
 
+
+	<c:set value="${blogVO}" var = "blogVO"/>
+
 <script type="text/javascript">
-function postion(){
+window.onload = function(){
+
 	var blog = blogVO;
 	/* var list = document.getElementsByTagName("li"); */
-	var list = document.getElementById(${status.index});
+	var list = document.getElementById("${status.index}");
 	
 	var order = (list+1)%3;
 	
@@ -27,11 +31,12 @@ function postion(){
 			addClass(list[i], "same-height-left");
 		}else if(order==3){
 			addClass(list[i], "same-height-right")
-	
 		}else{
 			
 		}
 	}
+	
+	
 }
 
 </script>
