@@ -15,31 +15,34 @@
 <title>Insert title here</title>
 
 
-	<c:set value="${blogVO}" var = "blogVO"/>
+	<%-- <c:set value="${blogVO}" var = "blogVO"/> --%>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 window.onload = function(){
 
-	var blog = blogVO;
-	/* var list = document.getElementsByTagName("li"); */
-	var list = document.getElementById("${status.index}");
+	var blog = '${blogVO}';
+	var list = document.getElementsByTagName("li"); 
+	/* var list = document.getElementById('${status.index}"); */
+	var status = ${status.index};
 	
-	var order = (list+1)%3;
+	var id = list.setAttribute("id", status);
+	var needID = list.getAttribute('id');
+	var order = (needID+1)%3;
 	
-	for(var i = 0; i<list.length; i++){
+	for(var i = 0; i<needID.length; i++){
 		if(order==1){
-			addClass(list[i], "same-height-left");
+			addClass(needID[i], "same-height-left");
 		}else if(order==3){
-			addClass(list[i], "same-height-right")
+			addClass(needID[i], "same-height-right");
 		}else{
-			
+			addClass(needID[i], "");
 		}
 	}
 	
 	
 }
 
-</script>
+</script> -->
 </head>
 <%@include file="/WEB-INF/views/include/header.jsp" %>
 <%@include file="/WEB-INF/views/include/blog_sidebar.jsp" %>
@@ -61,11 +64,47 @@ window.onload = function(){
         
         <div class="ajax-area" data-tmpl="load3_tmpl">
         
-          <c:forEach items="${blogVO}" var="blogVO" varStatus="status">
-          	
                 <ul class="sets-list ajax-content">
 
-    <li id="${status.index}" itemscope="" itemtype="http://schema.org/ImageObject" class="same-height<!--  same-height-left -->" style="height: 367px;">
+
+   <c:forEach items="${blogVO}" var="blogVO" varStatus="status">
+   	<c:choose>
+   		<c:when test="${status.count%3==1}">
+   			<li itemscope="" itemtype="http://schema.org/ImageObject" class="same-height same-height-left " style="height: 367px;">
+   			   <a href="/blog/read?=${blogVO.b_id }">
+                <picture class="img">
+				<img src="/resources/upload/${blogVO.b_img }" alt=""></picture>
+            </a>
+            <h1><a href="/blog/read?=${blogVO.b_id }">${blogVO.b_title }</a></h1>
+        <!-- <span class="sss-picture"></span> --> <span>${blogVO.u_name }</span>
+    </li>
+   		</c:when>
+   	
+   		<c:when test="${status.count%3==2 }">
+   			<li class="same-height" style="height: 367px;">
+   			  	   <a href="/blog/read?=${blogVO.b_id }">
+                <picture class="img">
+				<img src="/resources/upload/${blogVO.b_img }" alt=""></picture>
+            </a>
+            <h1><a href="/blog/read?=${blogVO.b_id }">${blogVO.b_title }</a></h1>
+        <!-- <span class="sss-picture"></span> --> <span>${blogVO.u_name }</span>
+    </li>
+   		</c:when>
+   		
+   		<c:otherwise>
+   			<li itemscope="" itemtype="http://schema.org/ImageObject" class="same-height same-height-right" style="height: 367px;">
+   			   	   <a href="/blog/read?=${blogVO.b_id }">
+                <picture class="img">
+				<img src="/resources/upload/${blogVO.b_img }" alt=""></picture>
+            </a>
+            <h1><a href="/blog/read?=${blogVO.b_id }">${blogVO.b_title }</a></h1>
+        <!-- <span class="sss-picture"></span> --> <span>${blogVO.u_name }</span>
+    </li>
+   		</c:otherwise>
+   	</c:choose>
+ </c:forEach>   
+  </ul>
+    <%--  <li id="${status.index}"  itemscope="" itemtype="http://schema.org/ImageObject" class="same-height same-height-left " style="height: 367px;">
             <a href="/photos/olympic-day">
                 <picture class="img">
 <img srcset="https://stillmed.olympic.org/media/Photos/2014/06/23/National%20Olympic%20Committee%20-%20Portugal_243153.jpg?interpolation=lanczos-none&amp;fit=around|340:191&amp;crop=340:191;*,*, https://stillmed.olympic.org/media/Photos/2014/06/23/National%20Olympic%20Committee%20-%20Portugal_243153.jpg?interpolation=lanczos-none&amp;fit=around|680:382&amp;crop=680:382;*,* 2x" alt=""></picture>
@@ -73,8 +112,8 @@ window.onload = function(){
             </a>
             <h2 itemprop="name"><a href="/photos/olympic-day" itemprop="url">Olympic Day</a></h2>
         <span class="sss-picture"></span> <span>${blogVO.u_name }</span>
-    </li>
-
+    </li> --%>
+ 
     <!-- <li itemscope="" itemtype="http://schema.org/ImageObject" class="same-height" style="height: 367px;">
             <a href="/photos/rio-2016">
                 <picture class="img">
@@ -94,14 +133,14 @@ window.onload = function(){
             <h2 itemprop="name"><a href="/photos/mascots-1972-to-2016" itemprop="url">Mascots 1972 to 2016</a></h2>
         <span class="sss-picture"></span> <span>53 Photos</span>
     </li> -->
-                </ul>
+              
                         <!--     <span class="btn-more">
                     <a href="/ajaxscript/loadmoreoverviewmedia/{B4C7581B-72EC-4637-A3ED-52F225BFE686}/3/0/TopOverview">More</a>
                 </span>
             <noscript>&lt;div class="paging"&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a&gt;&lt;span class="icon-arrow-left"&gt;&lt;span class="hide"&gt;&amp;lt;&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;&lt;li class="active"&gt;&lt;a href="https://www.olympic.org/photos"&gt;1&lt;/a&gt;&lt;/li&gt;&lt;li class=""&gt;&lt;a href="https://www.olympic.org/photos/2"&gt;2&lt;/a&gt;&lt;/li&gt;&lt;li class=""&gt;&lt;a href="https://www.olympic.org/photos/3"&gt;3&lt;/a&gt;&lt;/li&gt;&lt;li class=""&gt;&lt;a href="https://www.olympic.org/photos/4"&gt;4&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a class="next" href="https://www.olympic.org/photos/2" rel="next"&gt;&lt;span class="icon-arrow-right"&gt;&lt;span class="hide"&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;</noscript>
  -->
-</c:forEach>  
+
         </div>
     </section>
     </div>

@@ -83,7 +83,7 @@
 				</div>
 				<div class="nav-holder"
 					style="text-align: center; margin: 0px; padding: 0px;">
-					<h1>Blog title</h1>
+					<h1>${blog.b_title}</h1>
 
 					<div class="nav-slider">
 						<div class="header-container">
@@ -425,7 +425,7 @@
 					<li class="">Profile</li>
 
 					<li class="">
-					<img src="/resources/upload/${BlogVO.b_img }">
+					<img src="/resources/upload/${blog.b_img }">
 						</li>
 
 					<li class=""><a href="/museum/visit/birthday">TOM Birthday</a>

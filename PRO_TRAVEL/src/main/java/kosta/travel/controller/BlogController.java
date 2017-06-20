@@ -17,6 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kosta.travel.domain.BlogVO;
@@ -48,7 +49,7 @@ public class BlogController {
 
 		blog.setB_img(savedName);
 
-		logger.info(blog.toString());
+		/*logger.info(blog.toString());*/
 		service.insertBlog(blog);
 		
 		
@@ -75,9 +76,10 @@ public class BlogController {
 			e.printStackTrace();
 		}
 
-		return "/blog/myBlog";
+		return "redirect:/blog/myBlog";
 	}
 
+	
 	 private String UploadFile(String originalFilename, byte[] fileData) throws Exception {
 
 		UUID uid = UUID.randomUUID();
@@ -93,5 +95,20 @@ public class BlogController {
 	public void blogMain(Model model) throws Exception {
 		List<BlogVO> blogList = service.blogList();
 		model.addAttribute("blogVO", blogList);
+	}
+	
+	
+	
+	@RequestMapping(value = "/myBlog", method = RequestMethod.GET)
+	public void myBlog(@RequestParam("u_name") String u_name, Model model) throws Exception {
+		
+		
+		BlogVO blog=service.detailBlog(u_name);
+		
+		logger.info(blog.toString());
+		model.addAttribute("blog", blog);
+		
+		
+		
 	}
 }
