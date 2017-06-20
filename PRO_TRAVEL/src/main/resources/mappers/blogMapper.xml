@@ -5,8 +5,15 @@
 
 <mapper namespace="kosta.travel.mappers.blogMapper">
 
-<select id="blogList" resultType="kosta.travel.domain.BlogVO">
-select * from blog
-</select>
+	<select id="blogList" resultType="kosta.travel.domain.BlogVO">
+	select * from blog
+	</select>
+
+	<insert id="insertBlog">
+			insert into blog(
+			b_id, b_title, u_name, b_introduction, b_img)
+			values(
+			#{b_id}, #{b_title}, #{u_name},#{b_introduction},#{b_img})	
+	</insert>
 
 </mapper>
