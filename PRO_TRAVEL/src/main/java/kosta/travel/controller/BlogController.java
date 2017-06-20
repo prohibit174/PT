@@ -29,82 +29,80 @@ import kosta.travel.service.BlogService;
 @RequestMapping("/blog/*")
 public class BlogController {
 
-	private static final Logger logger = LoggerFactory.getLogger(BlogController.class);
+   private static final Logger logger = LoggerFactory.getLogger(BlogController.class);
 
-	@Inject
-	BlogService service;
+   @Inject
+   BlogService service;
 
-	@Resource(name = "uploadPath")
-	private String uploadPath;
+   @Resource(name = "uploadPath")
+   private String uploadPath;
 
-	@RequestMapping(value = "/makeBlog", method = RequestMethod.GET)
-	public void makeBlog_get() throws Exception {
+   @RequestMapping(value = "/makeBlog", method = RequestMethod.GET)
+   public void makeBlog_get() throws Exception {
 
-	}
+   }
 
-	@RequestMapping(value = "/makeBlog", method = RequestMethod.POST)
-	public String makeBlog_post(Model model, BlogVO blog, RedirectAttributes rttr) throws Exception {
-		System.out.println("controller in");
-		logger.info("originalName: " + blog.getFile2().getOriginalFilename());
+   @RequestMapping(value = "/makeBlog", method = RequestMethod.POST)
+   public String makeBlog_post(Model model, BlogVO blog, RedirectAttributes rttr) throws Exception {
+      System.out.println("controller in");
+      logger.info("originalName: " + blog.getFile2().getOriginalFilename());
 
-		String savedName = UploadFile(blog.getFile2().getOriginalFilename(), blog.getFile2().getBytes());
+      String savedName = UploadFile(blog.getFile2().getOriginalFilename(), blog.getFile2().getBytes());
 
-		blog.setB_img(savedName);
+      blog.setB_img(savedName);
 
-		/* logger.info(blog.toString()); */
-		service.insertBlog(blog);
+      /* logger.info(blog.toString()); */
+      service.insertBlog(blog);
 
-		rttr.addFlashAttribute("msg", "SUCCESS");
-		try {
+      rttr.addFlashAttribute("msg", "SUCCESS");
+      try {
 
-			String pattern = savedName.substring(savedName.lastIndexOf(".") + 1);
-			String headName = savedName.substring(0, savedName.lastIndexOf("."));
+         String pattern = savedName.substring(savedName.lastIndexOf(".") + 1);
+         String headName = savedName.substring(0, savedName.lastIndexOf("."));
 
-			File originalFileNm = new File(uploadPath + "\\" + savedName);
-			File thumbnailFileNm = new File(uploadPath + "\\" + headName + "_small." + pattern);
+         File originalFileNm = new File(uploadPath + "\\" + savedName);
+         File thumbnailFileNm = new File(uploadPath + "\\" + headName + "_small." + pattern);
 
-			int width = 130;
-			int height = 200;
+         int width = 130;
+         int height = 200;
 
-			BufferedImage originalImg = ImageIO.read(originalFileNm);
-			BufferedImage thumbnailImg = new BufferedImage(width, height, BufferedImage.TYPE_3BYTE_BGR);
+         BufferedImage originalImg = ImageIO.read(originalFileNm);
+         BufferedImage thumbnailImg = new BufferedImage(width, height, BufferedImage.TYPE_3BYTE_BGR);
 
-			Graphics2D g = thumbnailImg.createGraphics();
-			g.drawImage(originalImg, 0, 0, width, height, null);
+         Graphics2D g = thumbnailImg.createGraphics();
+         g.drawImage(originalImg, 0, 0, width, height, null);
 
-			ImageIO.write(thumbnailImg, pattern, thumbnailFileNm);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+         ImageIO.write(thumbnailImg, pattern, thumbnailFileNm);
+      } catch (Exception e) {
+         e.printStackTrace();
+      }
 
-		return "redirect:/blog/blogMain";
-	}
+      return "redirect:/blog/blogMain";
+   }
 
-	private String UploadFile(String originalFilename, byte[] fileData) throws Exception {
+   private String UploadFile(String originalFilename, byte[] fileData) throws Exception {
 
-		UUID uid = UUID.randomUUID();
-		String savedName = uid.toString() + "_" + originalFilename;
-		File target = new File(uploadPath, savedName);
+      UUID uid = UUID.randomUUID();
+      String savedName = uid.toString() + "_" + originalFilename;
+      File target = new File(uploadPath, savedName);
 
-		FileCopyUtils.copy(fileData, target);
+      FileCopyUtils.copy(fileData, target);
 
-		return savedName;
-	}
+      return savedName;
+   }
 
-	@RequestMapping("/blogMain")
-	public void blogMain(Model model) throws Exception {
-		List<BlogVO> blogList = service.blogList();
-		model.addAttribute("blogVO", blogList);
-	}
+   @RequestMapping("/blogMain")
+   public void blogMain(Model model) throws Exception {
+      List<BlogVO> blogList = service.blogList();
+      model.addAttribute("blogVO", blogList);
+   }
 
-	@RequestMapping(value = "/myBlog", method = RequestMethod.GET)
-	public void myBlog(@RequestParam("u_id") String u_id, Model model) throws Exception {
+   @RequestMapping(value = "/myBlog", method = RequestMethod.GET)
+   public void myBlog(@RequestParam("u_id") String u_id, Model model) throws Exception {
 
-		BlogVO blog = service.detailBlog(u_id);
+      BlogVO blog = service.detailBlog(u_id);
 
-		logger.info(blog.toString());
-		model.addAttribute("blog", blog);
-	}
+      logger.info(blog.toString());
+      model.addAttribute("blog", blog);
+   }
 }
-
-
