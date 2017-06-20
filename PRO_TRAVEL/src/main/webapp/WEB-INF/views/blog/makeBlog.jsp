@@ -110,8 +110,7 @@
 
                               <tr>
                                  <td class="label"><label for="u_lang">Profile Image</label></td>
-                                 <td class="value"><input type="file" name="file2"
-												id="b_img" value="" /> &nbsp; <span class="mandatory"></span></td>
+                                 <td class="value"><input type="file" name="file2" id="b_img" value="" /> &nbsp; <span class="mandatory"></span></td>
                               </tr>
 
 

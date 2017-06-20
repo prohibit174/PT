@@ -18,6 +18,9 @@ public class BlogDAOImpl2 implements BlogDAO2 {
 
 	@Override
 	public int insertBlog(BlogVO blog) throws Exception {
+		System.out.println("dao call");
+		int s = session.insert(namespace+".insertBlog", blog);
+		System.out.println(s);
 		return session.insert(namespace+".insertBlog", blog);
 	}
 }

@@ -51,7 +51,7 @@ public class Blogcontroller2 {
 
 		logger.info(blog.toString());
 		service.insertBlog(blog);
-		
+		logger.info("111");
 		
 		rttr.addFlashAttribute("msg", "SUCCESS");
 		try {
@@ -89,6 +89,13 @@ public class Blogcontroller2 {
 
 		return savedName;
 	}
+	 
+	 
+	 
+	 @RequestMapping(value = "/myBlog", method = RequestMethod.GET)
+		public void myBlog_get() throws Exception {
+			
+		}
 
 	
 	

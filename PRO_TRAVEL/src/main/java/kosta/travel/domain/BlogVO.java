@@ -6,9 +6,8 @@ public class BlogVO {
 	private int b_id;
 	private String b_title;
 	private String u_name;
-	private String b_instruction;
+	private String b_introduction;
 	private String b_img;
-	private String b_introdution;
 	private MultipartFile file2;
 	 
 	 
@@ -45,19 +44,20 @@ public class BlogVO {
 	}
 
 
-	public String getB_instruction() {
-		return b_introdution;
+	public String getB_introduction() {
+		return b_introduction;
 	}
 
 
-	public void setB_instruction(String b_instruction) {
-		this.b_introdution = b_introdution;
+	public void setB_introduction(String b_introduction) {
+		this.b_introduction = b_introduction;
 	}
 
 
 	public String getB_img() {
 		return b_img;
 	}
+
 
 	public void setB_img(String b_img) {
 		this.b_img = b_img;
@@ -73,8 +73,17 @@ public class BlogVO {
 		this.file2 = file2;
 	}
 
+
+	@Override
+	public String toString() {
+		return "BlogVO [b_id=" + b_id + ", b_title=" + b_title + ", u_name=" + u_name + ", b_introduction="
+				+ b_introduction + ", b_img=" + b_img + ", file2=" + file2 + "]";
+	}
+
+
 	
 	
+
 	
 	
 	
