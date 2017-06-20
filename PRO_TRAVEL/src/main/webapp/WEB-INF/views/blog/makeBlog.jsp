@@ -32,17 +32,6 @@
 
 <script type="text/javascript">
 
-$(document).ready(
-		function() {
-
-	var formObj = $("form[role='form']");
-	console.log(formObj);
-	
-	$(".primaryAction").on("click", function(){
-		self.location=self.location="/blog/myBlog?u_name=${BlogVO.u_name}"
-	}) 
-});
-	
 	
 </script>
 
@@ -86,18 +75,20 @@ $(document).ready(
 
 								<div class="right">
 									<table cellpadding="0" cellspacing="0" class="tab">
-										<!-- <tr>
-                                 <td class="label"><label for="u_lang">Blog number</label></td>
-                                 <td class="value"><input type="text" name="b_id"
-                                    id="b_id" value="" /> &nbsp; <span class="mandatory"></span>
-                                    <ul class="errorField">
-                                    </ul></td>
-                              </tr>  -->
-
+									
 										<tr>
 											<td class="label"><label for="u_lang">User Id</label></td>
+											<td class="value"><input type="text" name="u_id"
+												id="u_id" value="${id}" /> &nbsp; <span class="mandatory"></span>
+												<ul class="errorField">
+												</ul></td>
+										</tr>
+										
+										
+										<tr>
+											<td class="label"><label for="u_lang">Nick name</label></td>
 											<td class="value"><input type="text" name="u_name"
-												id="u_name" value="${id}" /> &nbsp; <span class="mandatory"></span>
+												id="u_name" value="" /> &nbsp; <span class="mandatory"></span>
 												<ul class="errorField">
 												</ul></td>
 										</tr>
@@ -111,14 +102,7 @@ $(document).ready(
 										</tr>
 
 
-										<!--                               <tr>
-                                 <td class="label"><label for="u_lang">Product
-                                       Request Status</label></td>
-                                 <td class="value"><input type="text" name="pr_ox"
-                                    id="pr_ox" value="x" /> &nbsp; <span class="mandatory"></span>
-                                    <ul class="errorField">
-                                    </ul></td>
-                              </tr> -->
+										
 										<tr>
 											<td class="label"><label for="u_lang">Blog
 													Introduction</label></td>
@@ -163,8 +147,8 @@ $(document).ready(
 	width: 155px;
 }
 </style>
-
-							<button id="validate_order" type="submit" class="primaryAction">
+					
+							<button id="validate_order" type="submit" class="primaryAction" onclick="btn_js_register_click()">
 								<span>Blog Register</span>
 							</button>
 

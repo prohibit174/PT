@@ -29,8 +29,8 @@ public class BlogDAOImpl implements BlogDAO {
 	}
 
 	@Override
-	public BlogVO detailBlog(String u_name) throws Exception {
-		return session.selectOne(namespace+".detailBlog", u_name);
+	public BlogVO detailBlog(String u_id) throws Exception {
+		return session.selectOne(namespace+".detailBlog", u_id);
 	}
 	
 	

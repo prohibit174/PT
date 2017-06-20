@@ -27,8 +27,8 @@ public class BlogServiceImpl implements BlogService {
 	}
 
 	@Override
-	public BlogVO detailBlog(String u_name) throws Exception {
-		return dao.detailBlog(u_name);
+	public BlogVO detailBlog(String u_id) throws Exception {
+		return dao.detailBlog(u_id);
 	}
 
 }

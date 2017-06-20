@@ -1,6 +1,5 @@
 package kosta.travel.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -12,7 +11,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -22,7 +20,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import kosta.travel.domain.AccompanyVO;
 import kosta.travel.domain.GroupVO;
 import kosta.travel.domain.RouteList;
-import kosta.travel.domain.RouteVO;
 import kosta.travel.domain.SearchTraveler;
 import kosta.travel.service.AccompanyService;
 
@@ -117,28 +114,56 @@ public class AccompanyController {
 	public void registerGroupPost(Model model, HttpSession session, GroupVO group) {
 
 		for (int i = 0; i < group.getGroupVolist().size(); i++) {
-			System.out.println("controller before searvice == "+group.getGroupVolist().get(i).getTp_date());
+			System.out.println("controller before searvice == " + group.getGroupVolist().get(i).getTp_date());
 			if (group.getGroupVolist().get(i).getMax_people_num() == 0) {
 				System.out.println("null 찾음");
 				continue;
-				
-			
+
 			} else {
-				
+
 				group.getGroupVolist().get(i).setU_id((String) session.getAttribute("login"));
 
 				String groupnum = service.initGroup();
 				if (groupnum == null) {
 
-					System.out.println("db insert start from 0");
+					System.out.println("controller db insert start from 0");
 					group.getGroupVolist().get(i).setAccomp_group_num(1);
 					service.registGroup(group.getGroupVolist().get(i));
 				} else {
-					System.out.println("controller before searvice == "+group.getGroupVolist().get(i).getTp_date());
+					System.out.println("controller before searvice == " + group.getGroupVolist().get(i).getTp_date());
 					service.registGroup(group.getGroupVolist().get(i));
 				}
 			}
 		}
 	}
 
+	@RequestMapping(value = "/searchGroup", method = RequestMethod.GET)
+	public String searchPage() {
+		return "/accompany/searchGroup";
+	}
+	
+	@RequestMapping(value = "/searchGroup", method = RequestMethod.POST)
+	public @ResponseBody List<GroupVO> searchGroupList(SearchTraveler search, Model model, HttpSession session,
+			HttpServletResponse res) {
+		search.setU_id((String) session.getAttribute("login"));
+		try {
+			return service.searchGroupList(search);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	
+	@RequestMapping(value = "/requestGroup", method = RequestMethod.POST)
+	public String requestGroup(GroupVO groupvo, HttpSession session) {
+		/*System.out.println("controller u_id == "+groupvo.getU_id());
+		System.out.println("controller accomp_group_num == "+groupvo.getAccomp_group_num()); */
+		
+		groupvo.setU_id((String)session.getAttribute("login"));
+		service.requestGroup(groupvo);
+		return "request complete";
+	}
+	
+	
 }
