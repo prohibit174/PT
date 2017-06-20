@@ -9,7 +9,16 @@
 <head>
 <!-- <link rel="stylesheet" href="https://www.notm.or.kr/resources/css/import.css">
  --><link rel="stylesheet" href="https://www.notm.or.kr/resources/css/contents.css">
+<script type="text/javascript">
+function popup(){
+	location.href="asdf";
+	setTimeout(function() {
+		location.href='document.getElementById("#test-form")';
+		document.getElementById("name").onclick(
+	}, ms)
+}
 
+</script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/message/magnific-popup.css"> 
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/message/jquery.magnific-popup.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/message/jquery.magnific-popup.min.js"></script>
