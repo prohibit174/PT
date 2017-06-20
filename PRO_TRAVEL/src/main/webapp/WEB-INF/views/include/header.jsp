@@ -973,125 +973,7 @@ width:0;
 							</div>
 						</div></li>
 
-					<li>&nbsp&nbsp&nbsp<a href="/the-ioc">About</a>
-						<div class="drop alt2">
-							<div class="drop-holder">
-								<div class="drop-col">
-									<strong class="title"><a href="/the-ioc/what-we-do">What
-											we do</a></strong>
-									<div class="links-row">
-										<ul style="width: auto;">
-											<li><a href="/the-ioc/celebrate-olympic-games"
-												style="color: #959595;">Celebrate<br /> Olympic Games
-											</a></li>
-											<li><a href="/host-city-election">From Candidate<br />
-													to Host City
-											</a></li>
-											<li><a href="/sustainability">Sustainability</a></li>
-											<li><a href="/olympic-legacy">Legacy</a></li>
-										</ul>
-										<ul style="width: auto;">
-											<li><a href="/the-ioc/promote-olympism"
-												style="color: #959595;">Promote<br /> Olympism in
-													Society
-											</a></li>
-											<li><a href="/sport-and-active-society">Sport and
-													Active Society</a></li>
-											<li><a href="/women-in-sport">Women in sport</a></li>
-											<li><a href="/olympic-values-and-education-program">Education</a></li>
-											<li><a href="/development-through-sport">Social
-													Development</a></li>
-											<li><a href="/sport-for-hope">Sport for Hope</a></li>
-											<li><a href="/peace-through-sport">Peace through
-													sport</a></li>
-											<li><a href="/cooperation-with-the-un">Cooperation
-													United Nations</a></li>
-											<li><a href="/olympic-studies-centre">Olympic
-													Studies Centre</a></li>
-											<li><a href="/olympic-day">Olympic Day</a></li>
-										</ul>
-										<ul style="width: auto;">
-											<li><a href="/the-ioc/leading-the-olympic-movement"
-												style="color: #959595;">Leading<br /> the Olympic
-													Movement
-											</a></li>
-											<li><a href="/olympic-agenda-2020">Olympic Agenda
-													2020</a></li>
-											<li><a href="/good-governance">Good Governance</a></li>
-											<li><a href="/ethics">Ethics</a></li>
-											<li><a href="/sporting-regulations">Sporting
-													regulations</a></li>
-											<li><a
-												href="/ioc-governance-national-olympic-committees">National
-													Olympic<br /> Committees
-											</a></li>
-											<li><a
-												href="/ioc-governance-international-sports-federations">International<br />
-													Federations
-											</a></li>
-											<li><a href="/ioc-governance-organising-committees">Organising
-													Committees<br /> for the Olympic Games
-											</a></li>
-											<li><a href="/ioc-governance-affiliate-organisations">Recognised<br />
-													organisations
-											</a></li>
-										</ul>
-										<ul style="width: auto;">
-											<li><a
-												href="/the-ioc/support-and-protect-clean-athletes"
-												style="color: #959595;">Support and protect<br /> clean
-													athletes
-											</a></li>
-											<li><a href="/olympic-solidarity">Olympic Solidarity</a></li>
-											<li><a href="/athlete-career-programme">Career
-													Programme</a></li>
-											<li><a href="/athletes-space">Athletes' Space</a></li>
-											<li><a href="/fight-against-doping">Fight against
-													doping</a></li>
-											<li><a href="/playfair">Prevention of <br />
-													competition manipulation
-											</a></li>
-											<li><a href="/hbi">Healthy Body Image</a></li>
-											<li><a href="/sha">Harrassement<br /> and Abuse in
-													Sport
-											</a></li>
-										</ul>
-									</div>
-								</div>
-								<div class="drop-col">
-									<strong class="title"><a href="/about-ioc-institution">Who
-											we are</a></strong>
-									<div class="links-row">
-										<ul style="width: auto;">
-											<li><a href="/about-ioc-institution">The
-													organisation</a></li>
-											<li><a href="/about-ioc-institution#President">President</a></li>
-											<li><a href="/ioc-members-list">Members</a></li>
-											<li><a href="/athletes-commission">Commissions</a></li>
-											<li><a href="/129th-ioc-session">Sessions</a></li>
-											<li><a href="/olympic-congress">Congresses</a></li>
-										</ul>
-									</div>
-								</div>
-								<div class="drop-col">
-									<strong class="title"><a
-										href="/ioc-financing-revenue-sources-distribution">How we
-											do it</a></strong>
-									<div class="links-row">
-										<ul style="width: auto;">
-											<li><a
-												href="/ioc-financing-revenue-sources-distribution">Funding</a></li>
-											<li><a href="/sponsors">Partners</a></li>
-											<li><a href="/broadcasters">Broadcasters</a></li>
-											<li><a href="/ticketing">Ticketing</a></li>
-											<li><a href="/licensing">Licensing</a></li>
-											<li><a href="/suppliers">Suppliers</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div></li>
-
+					<li><a href="${pageContext.request.contextPath}/declaration">Declaration</a></li>
 				</ul>
 
 				<div class="add-top-section">
@@ -1138,6 +1020,7 @@ width:0;
 								class="ss-icon">facebook</a></li>
 							<li><a href="https://plus.google.com/+Olympics"
 								class="ss-icon">googleplus</a></li>
+							
 						</ul>
 					</div>
 				</div>
