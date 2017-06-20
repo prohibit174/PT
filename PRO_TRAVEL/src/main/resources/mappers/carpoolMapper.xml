@@ -159,15 +159,16 @@
 		from car_list c, users u
 		where c.u_id = u.u_id
 		and c_person>0
-		and substr(c_year, 3, 2)=(select substr(tp_date, 1, 2)
-                            from trip_plan
-                             where rownum = 1)
-		and c_month=(select substr(tp_date, 4, 2)
-            						from trip_plan
-            						where rownum=1)
-		and c_date=(select substr(tp_date, 7, 2)
-            					from trip_plan
-            					where rownum=1)
+		and substr(c_year, 3, 2) in (select substr(tp_date, 1, 2)
+                            from trip_plan)
+		and c_month in (select substr(tp_date, 4, 2)
+            						from trip_plan)
+		and c_date in (select substr(tp_date, 7, 2)
+            					from trip_plan)
+         and (start_point in (select cor_region
+         									from trip_plan)
+         		 or way_point in (select cor_region
+         									from trip_plan))
 		order by c_num desc
 	</select>
 </mapper>	
