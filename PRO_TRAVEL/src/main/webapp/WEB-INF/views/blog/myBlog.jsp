@@ -40,6 +40,8 @@
 	href="https://stillres.olympic.org/Museum/css/print.css">
 <link media="screen" rel="stylesheet"
 	href="https://stillres.olympic.org/Museum/css/fancybox.css">
+
+
 <!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="https://stillres.olympic.org/Museum/css/ie.css" /><![endif]-->
 
 <!--[if IE]><script type="text/javascript" src="https://stillres.olympic.org/Museum/js/ie.js"></script><![endif]-->
@@ -55,7 +57,7 @@
 			height="0" width="0" style="display: none; visibility: hidden"></iframe>
 	</noscript>
 	<script>
-		(
+		/* (
 				function(w, d, s, l, i) {
 					w[l] = w[l] || [];
 					w[l].push({
@@ -68,13 +70,14 @@
 					j.async = true;
 					j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
 					f.parentNode.insertBefore(j, f);
-				})(window, document, 'script', 'dataLayer', 'GTM-NTJZ3D');
+				})(window, document, 'script', 'dataLayer', 'GTM-NTJZ3D'); */
 	</script>
 	<!-- End Google Tag Manager -->
 
 	<div id="wrapper">
 
 		<header id="header" role="banner">
+
 			<div class="container">
 				<div class="logo">
 					<a tabindex="2" href="/museum"> <picture> <img
@@ -101,11 +104,10 @@
 						<!-- 	<span class="separator">|</span> -->
 					</div>
 				</div>
+
 			</div>
+			</header>
 	</div>
-	</header>
-
-
 
 	<main id="main">
 
@@ -121,6 +123,10 @@
 		</ul>
 	</nav>
 
+
+
+
+
 	<div class="twocolumns">
 		<div id="content">
 			<div class="section">
@@ -129,12 +135,13 @@
 					<div class="mask">
 						<div class="slideset">
 							<div class="slide active">
-								<a href="#"> <picture> <img
+								<!-- <a href="#"> <picture> <img
 										srcset="https://stillmed.olympic.org/media/Images/Museum/Visit/Practical_Information/Rates_And_Opening_Times/Header_Slideshow/Rates_And_Opening_Times_slideshow_01.jpg?interpolation=lanczos-none&resize=862:473, https://stillmed.olympic.org/media/Images/Museum/Visit/Practical_Information/Rates_And_Opening_Times/Header_Slideshow/Rates_And_Opening_Times_slideshow_01.jpg?interpolation=lanczos-none&resize=1724:946 2x"
 										alt="Rates and opening times"> <span class="mask"></span>
 									</picture>
 
-								</a> <a
+								</a> -->
+								<a
 									href="/ajaxscript/showmuseumphotolightboxcaroussel/{26BF6E7B-A2D4-4970-B625-7AB021A0FF55}/0/"
 									class="btn-zoom lightbox-link fancy-link">zoom</a>
 							</div>
@@ -143,17 +150,16 @@
 					<a href="#" class="btn-prev">prev</a> <a href="#" class="btn-next">next</a>
 				</div>
 				<div class="socials-box">
-					<ul>
+					<!-- <ul>
 						<li><span class='st_facebook_large'></span></li>
 						<li><span class='st_googleplus_large'></span></li>
 						<li><span class='st_twitter_large'></span></li>
-					</ul>
+					</ul> -->
 				</div>
 
 				<div class="text-block">
-					<h1>Rates and opening times</h1>
-					<span style="font-family: Arial; font-size: 13px;">
-						<p>
+					<h1>Try Your First Blog Posting</h1>
+					<span style="font-family: Arial; font-size: 13px;"> <!-- <p>
 							<strong>&nbsp;<img alt="" height="44" width="45"
 								src="https://stillmed.olympic.org/media/Images/Museum/General/Opening_Hours_icon.jpg" />OPENING
 								TIMES <br /> <br />
@@ -163,8 +169,7 @@
 							: from 15 October to 9 April <em>(Tuesday to Sunday)</em> closed
 							on Mondays (<em>except Easter Monday or for special events),</em>
 							25 December and 1 January
-						</p>
-						<p>
+						</p> --> <!-- <p>
 							<strong><img height="44" alt="Admissions prices icon"
 								width="45" style="height: 44px; width: 45px;"
 								src="https://stillmed.olympic.org/media/Images/Museum/General/Admissions_Prices_icon.jpg" />MUSEUM
@@ -176,9 +181,9 @@
 								src="https://stillmed.olympic.org/media/Images/Museum/General/Family_icon.jpg" />&nbsp;Individual
 								and family rates:<br /> Permanent &amp; temporary exhibitions<br />
 							</strong>
-						</p>
+						</p> -->
 						<table border="0" width="100%">
-							<tbody>
+							<!-- <tbody>
 								<tr valign="top">
 									<td><span style="font-family: Arial; font-size: 13px;">Full
 											price Adults <em>(aged 17+)</em> <br /> Full price Children
@@ -192,29 +197,29 @@
 											40
 									</span></td>
 								</tr>
-							</tbody>
-						</table> <strong><br /> Temporary exhibition</strong><br />
+							</tbody> -->
+						</table> <!-- <strong><br /> Temporary exhibition</strong><br /> -->
 						<table border="0" width="100%">
 							<tbody>
-								<tr valign="top">
+								<!-- <tr valign="top">
 									<td><span style="font-family: Arial; font-size: 13px;">Flat
 											rate Adults, senior citizens, children <em>(under 6
 												free)</em>
 									</span></td>
 									<td><span style="font-family: Arial; font-size: 13px;">CHF
 											5 </span></td>
-								</tr>
+								</tr> -->
 							</tbody>
-						</table> <br /> <strong><img height="44" alt="Group icon"
+						</table> <br /> <!-- <strong><img height="44" alt="Group icon"
 							width="45"
 							src="https://stillmed.olympic.org/media/Images/Museum/General/Group_icon.jpg" />&nbsp;Group
 							admissions</strong> <em>(10 or more people) </em><strong>:</strong><br />
 						<strong>Permanent &amp; temporary exhibitions<br />
-					</strong><br />
+					</strong><br /> -->
 						<table border="0" width="100%">
 							<tbody>
 								<tr valign="top">
-									<td><span style="font-family: Arial; font-size: 13px;">Reduced
+									<!-- <td><span style="font-family: Arial; font-size: 13px;">Reduced
 											price Adults <em>(aged 17+)</em> <br /> Reduced price Senior
 											citizens <br /> Reduced price Students, disabled persons <br />
 											Reduced price Children : aged 6-16 <em>(sports clubs,
@@ -226,28 +231,28 @@
 											etc. <br /> <strong>N.B.</strong> Reduced and flat rate
 											prices cannot be combined with other reductions
 									</span></td>
-									<td><span style="font-family: Arial; font-size: 13px;">CHF
+ -->
+									<!-- <td><span style="font-family: Arial; font-size: 13px;">CHF
 											15 <br /> CHF 14 <br /> CHF 10 (&loz;) <br /> CHF 7 (*) <br />
 											CHF 7 (*) <br /> FREE (*) <br /> <br /> FREE <br /> FREE
 											<br />
-									</span></td>
+									</span></td> -->
 								</tr>
 							</tbody>
-						</table> <br /> <strong style="font-family: Arial; font-size: small;"><img
+						</table> <br /> <strong style="font-family: Arial; font-size: small;">
+							<!-- <img
 							height="44" alt="Group icon" width="45"
 							src="https://stillmed.olympic.org/media/Images/Museum/General/Group_icon.jpg" /></strong>
-					</span><strong style="font-family: Arial; font-size: small;">
-						<p class="p1" style="display: inline !important;">
+					</span><strong style="font-family: Arial; font-size: small;"> --> <!-- 	<p class="p1" style="display: inline !important;">
 							<strong>Groups Packages&nbsp; / Gruppenpauschalen</strong>
-						</p>
+						</p> -->
 					</strong>
-					<div>
-						<span style="font-family: Arial; font-size: 13px;"><strong><br />
-						</strong></span>
-					</div>
-					<div>
-						<span style="font-family: Arial; font-size: 13px;">
-							<p class="p1">
+						<div>
+							<!-- <span style="font-family: Arial; font-size: 13px;"><strong><br />
+						</strong></span> -->
+						</div>
+						<div>
+							<span style="font-family: Arial; font-size: 13px;"> <!-- <p class="p1">
 								You are an association, a sports club or you simply want to
 								visit The Olympic Museum as a group or family, our packages and
 								group rates are for you! <br /> <a target="_blank"
@@ -265,10 +270,10 @@
 								width="45"
 								src="https://stillmed.olympic.org/media/Images/Museum/General/Audio_Guide_icon.jpg" /><a
 								href="/museum/visit/practical-information/audioguides">Audio
-									guide</a></strong>&nbsp;<br />
-							<table border="0" width="100%">
-								<tbody>
-									<tr valign="top">
+									guide</a></strong>&nbsp;<br /> -->
+								<table border="0" width="100%">
+									<tbody>
+										<!-- <tr valign="top">
 										<td><span style="font-family: Arial; font-size: 13px;">Available
 												in 8 languages (ara-chi-deu-eng-fra-ita-jap-spa) <em><br />
 											</em>
@@ -276,9 +281,9 @@
 										<td><span style="font-family: Arial; font-size: 13px;">CHF
 												5 <br />
 										</span></td>
-									</tr>
-								</tbody>
-							</table> <strong><br /> <img height="51"
+									</tr> -->
+									</tbody>
+								</table> <strong><br /> <!-- <img height="51"
 								alt="Facilities for partially-sighted people icon" width="50"
 								src="https://stillmed.olympic.org/media/Images/Museum/General/Facilities_For_Partially-sighted_People_small_icon.jpg" />Audio
 								description for the visually impaired</strong>
@@ -292,26 +297,24 @@
 								<strong>Guided tours</strong><br /> <img alt=""
 									src="https://stillmed.olympic.org/media/Images/Museum/General/PICTS_GOTO_small_BLUE.png" /><a
 									href="/museum/visit/school-visits">See Schools</a>
-							</p>
-						</span>
-					</div>
-
+							</p> --></span>
+						</div>
 				</div>
 
 			</div>
 			<div class="three-blocks visible-sm">
 				<article class="block">
-					<h2>
+					<!-- 	<h2>
 						<a href="/museum/visit/calendar">See the cultural agenda</a>
 					</h2>
 					<div data-calendar data-url="/museum/visit/calendar" data-lang="en"></div>
-
+ -->
 				</article>
 				<div class="block">
 
 					<div itemtype="http://schema.org/PostalAddress" itemscope=""
 						itemprop="address" class="contact-box">
-						<p>
+						<!-- <p>
 							<strong>CONTACT:</strong>
 						</p>
 						<p>We answer your calls Monday to Friday from 8:30 am to 12:30
@@ -322,20 +325,20 @@
 						</p>
 						<p>
 							<a href="mailto:info.museum@olympic.org">info.museum@olympic.org</a>
-						</p>
+						</p> -->
 					</div>
 				</div>
 			</div>
 
 
 			<div class="comming-up-block">
-				<h2>Also coming up</h2>
+				<!-- 	<h2>Also coming up</h2> -->
 				<ul class="items-gallery">
 
-					<li class="flip-box"><a
+					<!-- <li class="flip-box"><a
 						href="/museum/visit/schools/teaching-resources" target=""> <picture>
 
-							<!--[if IE 9]><video style="display: none;"><![endif]-->
+							[if IE 9]><video style="display: none;"><![endif]
 
 							<source
 								srcset="https://stillmed.olympic.org/media/Images/Museum/Visit/Schools/Teaching_Resources/Tile/Teaching_Resources_tile_EN.jpg?interpolation=lanczos-none&resize=300:300, https://stillmed.olympic.org/media/Images/Museum/Visit/Schools/Teaching_Resources/Tile/Teaching_Resources_tile_EN.jpg?interpolation=lanczos-none&resize=600:600 2x"
@@ -343,7 +346,7 @@
 							<source
 								srcset="https://stillmed.olympic.org/media/Images/Museum/Visit/Schools/Teaching_Resources/Tile/Teaching_Resources_tile_EN.jpg?interpolation=lanczos-none&resize=300:300, https://stillmed.olympic.org/media/Images/Museum/Visit/Schools/Teaching_Resources/Tile/Teaching_Resources_tile_EN.jpg?interpolation=lanczos-none&resize=600:600 2x"
 								media="(min-width: 768px)">
-							<!--[if IE 9]></video><![endif]--> <img
+							[if IE 9]></video><![endif] <img
 								srcset="https://stillmed.olympic.org/media/Images/Museum/Visit/Schools/Teaching_Resources/Tile/Teaching_Resources_tile_EN.jpg?interpolation=lanczos-none&resize=300:300, https://stillmed.olympic.org/media/Images/Museum/Visit/Schools/Teaching_Resources/Tile/Teaching_Resources_tile_EN.jpg?interpolation=lanczos-none&resize=600:600 2x"
 								alt="Teaching Resources"> <span class="mask"></span> </picture> <span
 							class="text-backface">
@@ -352,10 +355,10 @@
 								<p>Educational material for teachers who want to work on
 									Olympic topics…</p>
 						</span>
-					</a></li>
+					</a></li> -->
 
-					<li class="flip-box"><a href="/museum/visit/tom-cafe"
-						target=""> <picture> <!--[if IE 9]><video style="display: none;"><![endif]-->
+					<!-- <li class="flip-box"><a href="/museum/visit/tom-cafe"
+						target=""> <picture> [if IE 9]><video style="display: none;"><![endif]
 
 							<source
 								srcset="https://stillmed.olympic.org/media/Images/Museum/Visit/Tom_Cafe/take_a_break_at_the_cafe/Tile/Tom_Cafe_tile.jpg?interpolation=lanczos-none&resize=300:300, https://stillmed.olympic.org/media/Images/Museum/Visit/Tom_Cafe/take_a_break_at_the_cafe/Tile/Tom_Cafe_tile.jpg?interpolation=lanczos-none&resize=600:600 2x"
@@ -363,7 +366,7 @@
 							<source
 								srcset="https://stillmed.olympic.org/media/Images/Museum/Visit/Tom_Cafe/take_a_break_at_the_cafe/Tile/Tom_Cafe_tile.jpg?interpolation=lanczos-none&resize=300:300, https://stillmed.olympic.org/media/Images/Museum/Visit/Tom_Cafe/take_a_break_at_the_cafe/Tile/Tom_Cafe_tile.jpg?interpolation=lanczos-none&resize=600:600 2x"
 								media="(min-width: 768px)">
-							<!--[if IE 9]></video><![endif]--> <img
+							[if IE 9]></video><![endif] <img
 								srcset="https://stillmed.olympic.org/media/Images/Museum/Visit/Tom_Cafe/take_a_break_at_the_cafe/Tile/Tom_Cafe_tile.jpg?interpolation=lanczos-none&resize=300:300, https://stillmed.olympic.org/media/Images/Museum/Visit/Tom_Cafe/take_a_break_at_the_cafe/Tile/Tom_Cafe_tile.jpg?interpolation=lanczos-none&resize=600:600 2x"
 								alt="Take a break at the café"> <span class="mask"></span>
 							</picture> <span class="text-backface">
@@ -373,9 +376,10 @@
 									during regular museum hours.</p>
 						</span>
 					</a></li>
-
-					<li class="small-itmem flip-box"><a
-						href="/museum/visit/calendar" target=""> <picture> <!--[if IE 9]><video style="display: none;"><![endif]-->
+ -->
+					<li class="small-itmem flip-box">
+						<!-- <a
+						href="/museum/visit/calendar" target=""> <picture> [if IE 9]><video style="display: none;"><![endif]
 
 							<source
 								srcset="https://stillmed.olympic.org/media/Images/Museum/Visit/Calendar/Tile/Calendar-tile.jpg?interpolation=lanczos-none&resize=300:300, https://stillmed.olympic.org/media/Images/Museum/Visit/Calendar/Tile/Calendar-tile.jpg?interpolation=lanczos-none&resize=600:600 2x"
@@ -383,7 +387,7 @@
 							<source
 								srcset="https://stillmed.olympic.org/media/Images/Museum/Visit/Calendar/Tile/Calendar-tile.jpg?interpolation=lanczos-none&resize=140:140, https://stillmed.olympic.org/media/Images/Museum/Visit/Calendar/Tile/Calendar-tile.jpg?interpolation=lanczos-none&resize=280:280 2x"
 								media="(min-width: 768px)">
-							<!--[if IE 9]></video><![endif]--> <img
+							[if IE 9]></video><![endif] <img
 								srcset="https://stillmed.olympic.org/media/Images/Museum/Visit/Calendar/Tile/Calendar-tile.jpg?interpolation=lanczos-none&resize=300:300, https://stillmed.olympic.org/media/Images/Museum/Visit/Calendar/Tile/Calendar-tile.jpg?interpolation=lanczos-none&resize=600:600 2x"
 								alt="Calendar"> <span class="mask"></span> </picture> <span
 							class="text-backface">
@@ -392,12 +396,13 @@
 									<span style="color: #ff0000;">Calendar</span>
 								</h3>
 						</span>
-					</a></li>
+					</a> -->
+					</li>
 
-					<li class="small-itmem flip-box"><a
+					<!-- <li class="small-itmem flip-box"><a
 						href="/museum/visit/practical-information/faq" target=""> <picture>
 
-							<!--[if IE 9]><video style="display: none;"><![endif]-->
+							[if IE 9]><video style="display: none;"><![endif]
 
 							<source
 								srcset="https://stillmed.olympic.org/media/Images/Museum/Visit/Practical_Information/FAQ/Tile/FAQ_tile.jpg?interpolation=lanczos-none&resize=300:300, https://stillmed.olympic.org/media/Images/Museum/Visit/Practical_Information/FAQ/Tile/FAQ_tile.jpg?interpolation=lanczos-none&resize=600:600 2x"
@@ -405,14 +410,14 @@
 							<source
 								srcset="https://stillmed.olympic.org/media/Images/Museum/Visit/Practical_Information/FAQ/Tile/FAQ_tile.jpg?interpolation=lanczos-none&resize=140:140, https://stillmed.olympic.org/media/Images/Museum/Visit/Practical_Information/FAQ/Tile/FAQ_tile.jpg?interpolation=lanczos-none&resize=280:280 2x"
 								media="(min-width: 768px)">
-							<!--[if IE 9]></video><![endif]--> <img
+							[if IE 9]></video><![endif] <img
 								srcset="https://stillmed.olympic.org/media/Images/Museum/Visit/Practical_Information/FAQ/Tile/FAQ_tile.jpg?interpolation=lanczos-none&resize=300:300, https://stillmed.olympic.org/media/Images/Museum/Visit/Practical_Information/FAQ/Tile/FAQ_tile.jpg?interpolation=lanczos-none&resize=600:600 2x"
 								alt="FAQ"> <span class="mask"></span> </picture> <span
 							class="text-backface">
 
 								<h1 style="text-transform: uppercase;">FAQ</h1>
 						</span>
-					</a></li>
+					</a></li> -->
 				</ul>
 			</div>
 
@@ -424,66 +429,20 @@
 
 					<li class="">Profile</li>
 
-					<li class="">
-					<img src="/resources/upload/${blog.b_img }">
-						</li>
+					<li class=""><img src="/resources/upload/${blog.b_img}">
+					</li>
 
-					<li class=""><a href="/museum/visit/birthday">TOM Birthday</a>
-						<ul>
-						</ul></li>
+					<li class="">${blog.u_name}<br>${blog.b_introduction}</li>
 
-					<li class=""><a
-						href="/museum/visit/seminars-and-corporate-events">Seminars
-							&amp; Corporate Events</a>
-						<ul>
-						</ul></li>
 
-					<li class=""><a href="/museum/visit/tom-cafe">TOM
-							Caf&#233;</a>
-						<ul>
-						</ul></li>
 
-					<li class=""><a href="/museum/visit/tom-shop">TOM Shop</a>
-						<ul>
-						</ul></li>
-
-					<li class=""><a href="/museum/visit/groups-visits">Groups
-							visits</a>
-						<ul>
-						</ul></li>
-
-					<li class=""><a href="/museum/visit/practical-information">Practical
-							Information</a>
-						<ul>
-							<li class="active"><a
-								href="/museum/visit/practical-information/hours-and-admission">Rates
-									and opening times</a></li>
-							<li><a
-								href="/museum/visit/practical-information/special-offers">Special
-									Offers</a></li>
-							<li><a
-								href="/museum/visit/practical-information/getting-here">Getting
-									here</a></li>
-							<li><a
-								href="/museum/visit/practical-information/schools-informations">Schools</a></li>
-							<li><a
-								href="/museum/visit/practical-information/audioguides">Audioguides</a></li>
-							<li><a
-								href="/museum/visit/practical-information/guides-tour-for-adults">Guided
-									tour for adults</a></li>
-							<li><a
-								href="/museum/visit/practical-information/facilities-and-services-for-people-with-a-disability">Facilities
-									and services for people with a disability</a></li>
-							<li><a href="/museum/visit/practical-information/contacts">Contacts</a></li>
-							<li><a href="/museum/visit/practical-information/faq">FAQ</a></li>
-						</ul></li>
 
 
 				</ul>
 			</nav>
 
 			<div class="three-blocks">
-			
+
 				<div class="block">
 
 					<ul class="socials">

@@ -28,22 +28,22 @@ import kosta.travel.service.BlogService;
 @Controller
 @RequestMapping("/blog/*")
 public class BlogController {
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(BlogController.class);
-	
+
 	@Inject
 	BlogService service;
-	
+
 	@Resource(name = "uploadPath")
 	private String uploadPath;
-	
+
 	@RequestMapping(value = "/makeBlog", method = RequestMethod.GET)
 	public void makeBlog_get() throws Exception {
-		
+
 	}
-	
+
 	@RequestMapping(value = "/makeBlog", method = RequestMethod.POST)
-	public String makeBlog_post(Model model, BlogVO blog,RedirectAttributes rttr) throws Exception {
+	public String makeBlog_post(Model model, BlogVO blog, RedirectAttributes rttr) throws Exception {
 		System.out.println("controller in");
 		logger.info("originalName: " + blog.getFile2().getOriginalFilename());
 
@@ -51,10 +51,9 @@ public class BlogController {
 
 		blog.setB_img(savedName);
 
-		/*logger.info(blog.toString());*/
+		/* logger.info(blog.toString()); */
 		service.insertBlog(blog);
-		
-		
+
 		rttr.addFlashAttribute("msg", "SUCCESS");
 		try {
 
@@ -66,13 +65,13 @@ public class BlogController {
 
 			int width = 130;
 			int height = 200;
-			
+
 			BufferedImage originalImg = ImageIO.read(originalFileNm);
 			BufferedImage thumbnailImg = new BufferedImage(width, height, BufferedImage.TYPE_3BYTE_BGR);
-			
+
 			Graphics2D g = thumbnailImg.createGraphics();
 			g.drawImage(originalImg, 0, 0, width, height, null);
-			
+
 			ImageIO.write(thumbnailImg, pattern, thumbnailFileNm);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -81,8 +80,7 @@ public class BlogController {
 		return "redirect:/blog/blogMain";
 	}
 
-	
-	 private String UploadFile(String originalFilename, byte[] fileData) throws Exception {
+	private String UploadFile(String originalFilename, byte[] fileData) throws Exception {
 
 		UUID uid = UUID.randomUUID();
 		String savedName = uid.toString() + "_" + originalFilename;
@@ -99,15 +97,14 @@ public class BlogController {
 		model.addAttribute("blogVO", blogList);
 	}
 
-	
-	
 	@RequestMapping(value = "/myBlog", method = RequestMethod.GET)
 	public void myBlog(@RequestParam("u_id") String u_id, Model model) throws Exception {
-		
 
-		BlogVO blog=service.detailBlog(u_id);
-		
+		BlogVO blog = service.detailBlog(u_id);
+
 		logger.info(blog.toString());
 		model.addAttribute("blog", blog);
+	}
 }
-}
+
+
