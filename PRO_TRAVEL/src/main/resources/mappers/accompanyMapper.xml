@@ -57,12 +57,25 @@
 	</select>
 	
 	<insert id="registGroupZero" parameterType="GroupVO">
-		insert into ACCOMP_GROUP values(1 ,#{u_id} ,#{max_people_num} ,#{COR_REGION} ,#{TP_DATE})
+		insert into ACCOMP_GROUP values(1 ,#{u_id} ,#{max_people_num} ,#{cor_region} ,#{tp_date})
 	</insert>	
 
 	<insert id="registGroup" parameterType="GroupVO">
-		insert into ACCOMP_GROUP values((select max(accomp_group_num) from ACCOMP_GROUP)+1 ,#{u_id} ,#{max_people_num} ,#{COR_REGION} ,#{TP_DATE})
+		insert into ACCOMP_GROUP values((select max(accomp_group_num) from ACCOMP_GROUP)+1 ,#{u_id} ,#{max_people_num} ,#{cor_region} ,#{tp_date})
 	</insert>	
+	
+	<select id="getGroupInfo1" resultType="GroupVO" parameterType="String">
+		select ag.tp_date, ag.cor_region, ag.max_people_num, ag.accomp_group_num
+		from Accomp_group ag
+		where #{u_id}=ag.u_id
+	</select>
+
+	<select id="getCurrent" resultType="integer" parameterType="GroupVO">
+		select count(agl.u_id)
+		from Accomp_group ag, Accomp_group_list agl
+		where ag.u_id=#{u_id} and agl.accomp_group_num = #{accomp_group_num} and agl.accomp_group_num = ag.accomp_group_num
+		group by agl.accomp_group_num
+	</select> 
 
 
 </mapper>

@@ -495,9 +495,9 @@ function showLeftAccom(leftIndex, markerIndex){
 		<li class="liSize">
 			<input type="hidden" name="groupVolist[${status.index}].tp_num" value="${data.tp_num}">
 				<div class="th col4"><img class="appendcm" src="../resources/images/accompany/miners.png" width="30" height="30" style="margin-top: -5px;"></div>
-    				<div class="th col4"><input type="hidden" name="groupVolist[${status.index}].TP_DATE" value="${data.tp_date}">${data.tp_date}</div>
+    				<div class="th col4"><input type="hidden" name="groupVolist[${status.index}].tp_date" value="${data.tp_date}">${data.tp_date}</div>
 					<div class="th col4"><input type="text" name="groupVolist[${status.index}].max_people_num"></div>
-						<div class="th col4"><input type="hidden" name="groupVolist[${status.index}].COR_REGION" value="${data.cor_region}">${data.cor_region}</div>
+						<div class="th col4"><input type="hidden" name="groupVolist[${status.index}].cor_region" value="${data.cor_region}">${data.cor_region}</div>
     	</li>
     	</c:forEach>
     		</ul>
