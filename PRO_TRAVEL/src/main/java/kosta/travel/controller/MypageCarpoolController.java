@@ -55,9 +55,6 @@ public class MypageCarpoolController {
 		carpool = service.readRequest(cr_num);
 		model.addAttribute("carpool", carpool);
 		
-		
-		System.out.println(c_num);
-		System.out.println(cr_num);
 		List<CarpoolRequestUser>list = service.myMakeRequest(c_num);
 		model.addAttribute("list", list);
 		
@@ -94,6 +91,16 @@ public class MypageCarpoolController {
 	@RequestMapping(value = "/reject", method = RequestMethod.GET)
 	public String reject(Carpool_RequestVO carpoolRequest, @RequestParam("cr_num") int cr_num,@RequestParam("c_num") int c_num) throws Exception {
 		service.reject(carpoolRequest, c_num);
+		
+		return "redirect:/mypage/carpoolCheck";
+	}
+	
+	@RequestMapping(value = "/withdraw", method = RequestMethod.GET)
+	public String withdraw(@RequestParam("cr_num") int cr_num, @RequestParam("c_num") int c_num) throws Exception {
+		System.out.println(cr_num);
+		System.out.println("뭐지" +c_num);
+		
+		service.deleteRequest(cr_num, c_num);
 		
 		return "redirect:/mypage/carpoolCheck";
 	}

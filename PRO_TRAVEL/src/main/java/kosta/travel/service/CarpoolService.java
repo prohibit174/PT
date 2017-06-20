@@ -45,6 +45,7 @@ public interface CarpoolService {
 	
 	public void reject(Carpool_RequestVO carpoolRequest, Integer c_num)throws Exception;
 	
+	public void deleteRequest(Integer cr_num, Integer c_num)throws Exception;
 	
 	//추천
 	public List<Carpool_ListVO> recommendList()throws Exception;

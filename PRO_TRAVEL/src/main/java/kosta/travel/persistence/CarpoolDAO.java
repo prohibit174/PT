@@ -48,6 +48,8 @@ public interface CarpoolDAO {
 	
 	public void reject(Carpool_RequestVO vo)throws Exception;
 	
+	public void deleteRequest(Integer cr_num)throws Exception;
+	
 	//추천리스트
 	public List<Carpool_ListVO> recommendList()throws Exception;
 
