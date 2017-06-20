@@ -105,4 +105,15 @@ public class BlogController {
       logger.info(blog.toString());
       model.addAttribute("blog", blog);
    }
+   
+   @RequestMapping(value = "/showBlog", method = RequestMethod.GET)
+   public void showBlog(@RequestParam("u_id") String u_id, Model model) throws Exception {
+
+      BlogVO blog = service.detailBlog(u_id);
+
+      logger.info(blog.toString());
+      model.addAttribute("blog", blog);
+   }
+   
+   
 }

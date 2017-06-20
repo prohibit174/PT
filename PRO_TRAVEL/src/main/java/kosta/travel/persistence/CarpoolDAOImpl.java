@@ -123,12 +123,19 @@ public class CarpoolDAOImpl implements CarpoolDAO {
 		session.update(namespace+".reject", vo);
 		
 	}
+	
+	@Override
+	public void deleteRequest(Integer cr_num) throws Exception {
+		session.delete(namespace+".deleteRequest", cr_num);
+	}
 
 	//동행경로와 맞는 카풀추천리스트
 	@Override
 	public List<Carpool_ListVO> recommendList() throws Exception {
 		return session.selectList(namespace+".recommendList");
 	}
+
+
 
 
 

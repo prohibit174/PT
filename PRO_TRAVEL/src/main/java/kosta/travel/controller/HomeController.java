@@ -62,5 +62,8 @@ public class HomeController {
 		response.getWriter().print(start);
 	}	
 	
-
+	@RequestMapping(value="/declaration", method=RequestMethod.GET)
+	public String declare(){
+		return "declaration/declare_main";
+	}
 }

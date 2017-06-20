@@ -74,7 +74,20 @@ public class AccompanyDao {
 			// TODO Auto-generated method stub
 			return session.selectOne(namespace + ".getCurrent", groupVO);
 		}
+		
+		public List<GroupVO> searchGroupList(RouteVO route) {
+				return session.selectList(namespace + ".searchGroupList", route);
+	}
 	
+		public void requestGroup(GroupVO groupvo){
+			if(session.selectOne(namespace + ".getCurrentGroupRequestNum") == null){	
+				session.insert(namespace + ".requestGroupZero", groupvo);
+			}else{
+			session.insert(namespace + ".requestGroup", groupvo);
+			}
+}
+		
+		
 }
 
 

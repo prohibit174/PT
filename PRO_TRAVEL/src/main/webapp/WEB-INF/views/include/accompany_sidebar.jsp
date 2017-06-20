@@ -23,17 +23,20 @@
 							class="hide">arrow</span>
 					</i>
 				</a></li>
+					
 					<li class=""><a href="/accompany/registerGroup"
 					data-class="games2014-2" target=""> regist Group <i
 						class="icon-arrow-right"> <span class="hide">arrow</span>
 					</i>
 				</a></li>
 				
-				<!-- <li class=""><a href="#emblem" data-class="games2014-2"
-					target=""> MY CARPOOL <i class="icon-arrow-right"> <span
-							class="hide">arrow</span>
+					
+					<li class=""><a href="/accompany/searchGroup"
+					data-class="games2014-2" target=""> search Group <i
+						class="icon-arrow-right"> <span class="hide">arrow</span>
 					</i>
-				</a></li> -->
+				</a></li>
+				
 			</ul>
 		</div>
 	</span>

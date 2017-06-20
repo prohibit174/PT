@@ -63,6 +63,19 @@
 }
 
 </style>
+
+<script type="text/javascript">
+function withdrawLink(URL){
+	if(confirm("Do you really want to  leave?") == true){
+		location.href=URL;
+		alert('I accepted it.');
+
+	}
+	else{
+		alert('Cancle');
+	}
+}
+</script>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
@@ -88,6 +101,9 @@
 		<tr height="30">
 			<td width="150"><strong>COURSE</strong></td>
 			<td colspan="2">${carpool.start_point }->${carpool.way_point }->${carpool.dest_point }</td>
+		</tr>
+		<tr height="30">
+			<td  width="150" colspan="3"><input type="button" value="Withdraw" onclick="javascript:withdrawLink('/mypage/withdraw?cr_num=${carpool.cr_num }&c_num=${carpool.c_num }')" ></td>
 		</tr>
 
 
