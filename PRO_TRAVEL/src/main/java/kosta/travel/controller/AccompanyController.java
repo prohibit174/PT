@@ -117,6 +117,7 @@ public class AccompanyController {
 	public void registerGroupPost(Model model, HttpSession session, GroupVO group) {
 
 		for (int i = 0; i < group.getGroupVolist().size(); i++) {
+			System.out.println("controller before searvice == "+group.getGroupVolist().get(i).getTp_date());
 			if (group.getGroupVolist().get(i).getMax_people_num() == 0) {
 				System.out.println("null 찾음");
 				continue;
@@ -133,6 +134,7 @@ public class AccompanyController {
 					group.getGroupVolist().get(i).setAccomp_group_num(1);
 					service.registGroup(group.getGroupVolist().get(i));
 				} else {
+					System.out.println("controller before searvice == "+group.getGroupVolist().get(i).getTp_date());
 					service.registGroup(group.getGroupVolist().get(i));
 				}
 			}
