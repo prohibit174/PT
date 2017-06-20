@@ -7,4 +7,5 @@ import kosta.travel.domain.BlogVO;
 public interface BlogService {
 
 	public List<BlogVO> blogList() throws Exception;
+	public void insertBlog(BlogVO blog)throws Exception;
 }
