@@ -79,4 +79,5 @@ public class MessageVO {
 		this.m_content = m_content;
 	}
 
+	
 }

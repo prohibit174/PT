@@ -1,5 +1,8 @@
 package kosta.travel.persistence;
 
-public class BlogDAO2 {
+import kosta.travel.domain.BlogVO;
 
+public interface BlogDAO2 {
+	public int insertBlog(BlogVO blog)throws Exception;
+	
 }

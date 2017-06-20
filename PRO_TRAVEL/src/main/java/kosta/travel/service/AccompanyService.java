@@ -1,5 +1,6 @@
 package kosta.travel.service;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import kosta.travel.domain.AccompanyVO;
 import kosta.travel.domain.CordinatesVO;
+import kosta.travel.domain.GroupVO;
 import kosta.travel.domain.RouteList;
 import kosta.travel.domain.RouteVO;
 import kosta.travel.domain.SearchTraveler;
@@ -146,4 +148,46 @@ public class AccompanyService {
 		      return cordinatesList;
 		   }
 
+	   public void registGroup(GroupVO group){
+		   
+		   String date = group.getTp_date().substring(2, 10);
+		   System.out.println("service ========= date" + date);
+		   group.setTp_date(date);
+		   
+		   if(group.getAccomp_group_num() == 1){
+			   dao.registGroupZero(group);
+		   }else{
+		   dao.registGroup(group);
+		   }
+	   }
+	   
+	   public List<GroupVO> getGroupInfo1(String u_id) {
+			//get (DATE	CITY	current	  ___  Detail) from Accomp_group table
+			List<GroupVO> getGroupInfo1 = dao.getGroupInfo1(u_id);
+			System.out.println("group no : "+getGroupInfo1.get(0).getAccomp_group_num());
+			System.out.println("group no : "+getGroupInfo1.get(1).getAccomp_group_num());
+			/*		for(int i=0;i<getGroupInfo1.size();i++)
+			{
+				getGroupInfo1.get(i).setTp_date(getGroupInfo1.get(i).getTp_date().substring(0, 10));
+			}*/
+			
+			return getGroupInfo1;
+		}
+
+		public int getCurrent(GroupVO groupVO) {
+			
+			try {
+				int value=dao.getCurrent(groupVO);
+				return value;
+			} catch (Exception e) {
+				return 0;
+			}
+			
+		}
+	   
+
+	   public String initGroup(){
+		   return dao.initGroup();
+	   }
+	   
 }

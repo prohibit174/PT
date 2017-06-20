@@ -1,3 +1,11 @@
+/*  
+color is changed by Bonghyun
+
+Orginal=> .sets-list h3 a {
+    text-decoration: none;
+     color: #fff; }
+    */
+
 html {
     box-sizing: border-box; }
 
@@ -4709,7 +4717,7 @@ body > .jcf-select-drop.jcf-drop-flipped {
 .sets-list h2 a,
 .sets-list h3 a {
     text-decoration: none;
-    color: #fff; }
+    /* color: #fff; */ }
 .sets-list h2 a:hover,
 .sets-list h3 a:hover {
     color: #0081c8; }

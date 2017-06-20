@@ -1,5 +1,10 @@
 package kosta.travel.service;
 
-public class BlogService2 {
+import org.springframework.stereotype.Service;
+
+import kosta.travel.domain.BlogVO;
+
+public interface BlogService2 {
+	public void insertBlog(BlogVO blog)throws Exception;
 
 }
