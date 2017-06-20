@@ -11,9 +11,9 @@
 
 	<insert id="insertBlog">
 			insert into blog(
-			b_id, b_title, u_name, b_introduction, b_img)
+			b_id, b_title, u_name, b_introduction, b_img, u_id)
 			values(
-			blog_seq.nextval, #{b_title}, #{u_name},#{b_introduction},#{b_img})	
+			blog_seq.nextval, #{b_title}, #{u_name},#{b_introduction},#{b_img}, #{u_id})	
 	</insert>
 	
 	<select id="detailBlog" resultType="BlogVO">
