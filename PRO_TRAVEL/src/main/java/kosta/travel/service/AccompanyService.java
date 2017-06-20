@@ -1,5 +1,6 @@
 package kosta.travel.service;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import kosta.travel.domain.AccompanyVO;
 import kosta.travel.domain.CordinatesVO;
+import kosta.travel.domain.GroupVO;
 import kosta.travel.domain.RouteList;
 import kosta.travel.domain.RouteVO;
 import kosta.travel.domain.SearchTraveler;
@@ -146,4 +148,21 @@ public class AccompanyService {
 		      return cordinatesList;
 		   }
 
+	   public void registGroup(GroupVO group){
+		   
+		   String date = group.getTP_DATE().substring(2, 10);
+		   System.out.println("service ========= date" + date);
+		   group.setTP_DATE(date);
+		   
+		   if(group.getAccomp_group_num() == 1){
+			   dao.registGroupZero(group);
+		   }else{
+		   dao.registGroup(group);
+		   }
+	   }
+
+	   public String initGroup(){
+		   return dao.initGroup();
+	   }
+	   
 }

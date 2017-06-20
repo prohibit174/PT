@@ -9,7 +9,7 @@
 		parameterType="String">
 		select tp_num, c.cor_region, cor_longi, cor_lati, u_id, tp_date
 		from cordinates c, trip_plan t where c.cor_region = t.cor_region and
-		t.u_id=#{u_id}
+		t.u_id=#{u_id} order by tp_date
 	</select>
 	
 	<select id="getUserInfo" resultType="AccompanyVO" parameterType="String">
@@ -51,6 +51,18 @@
       select * from cordinates
    	</select>
 
+	
+	<select id="initGroup" resultType="String">
+		select max(accomp_group_num) from ACCOMP_GROUP
+	</select>
+	
+	<insert id="registGroupZero" parameterType="GroupVO">
+		insert into ACCOMP_GROUP values(1 ,#{u_id} ,#{max_people_num} ,#{COR_REGION} ,#{TP_DATE})
+	</insert>	
+
+	<insert id="registGroup" parameterType="GroupVO">
+		insert into ACCOMP_GROUP values((select max(accomp_group_num) from ACCOMP_GROUP)+1 ,#{u_id} ,#{max_people_num} ,#{COR_REGION} ,#{TP_DATE})
+	</insert>	
 
 
 </mapper>
