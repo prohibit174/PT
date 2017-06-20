@@ -8,4 +8,5 @@ public interface BlogService {
 
 	public List<BlogVO> blogList() throws Exception;
 	public void insertBlog(BlogVO blog)throws Exception;
+	public BlogVO detailBlog(String u_name)throws Exception;
 }
