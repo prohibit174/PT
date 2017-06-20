@@ -77,6 +77,26 @@
 		group by agl.accomp_group_num
 	</select> 
 
+	<select id="searchGroupList" resultType="GroupVO" parameterType="RouteVO">
+		select * from accomp_group ag
+		where max_people_num > (select count(*) from accomp_group_list agl where ag.accomp_group_num = agl.accomp_group_num)
+		and ag.TP_DATE = #{tp_date} and ag.COR_REGION = #{cor_region} and ag.u_id != #{u_id}
+	</select> 
+
+	<insert id="requestGroup" parameterType="GroupVO">
+		insert into accompanyrequest values((select max(ACR_NUM) from accompanyrequest)+1, 'X', #{accomp_group_num}, #{u_id})
+	</insert>
+
+	<insert id="requestGroupZero" parameterType="GroupVO">
+		insert into accompanyrequest values(1, 'X', #{accomp_group_num}, #{u_id})
+	</insert>
+
+	<select id="getCurrentGroupRequestNum" resultType="Integer">
+		select max(ACR_NUM) from accompanyrequest
+	</select>
+
+
+
 
 </mapper>
   

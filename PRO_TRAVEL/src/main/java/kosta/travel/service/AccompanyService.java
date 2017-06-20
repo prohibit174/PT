@@ -190,4 +190,73 @@ public class AccompanyService {
 		   return dao.initGroup();
 	   }
 	   
+	   public List<GroupVO> searchGroupList(SearchTraveler search) throws Exception {
+
+			SimpleDateFormat fmt = new SimpleDateFormat("yy/MM/dd");
+
+			Calendar sdate = Calendar.getInstance();
+			sdate.setTime(fmt.parse(search.getSdate()));
+			sdate.set(Calendar.MILLISECOND, 0);
+			sdate.set(Calendar.MONTH, sdate.get(Calendar.MONTH));
+
+			Calendar edate = Calendar.getInstance();
+			edate.setTime(fmt.parse(search.getEdate()));
+			edate.set(Calendar.MILLISECOND, 0);
+			edate.set(Calendar.MONTH, edate.get(Calendar.MONTH));
+
+			List<GroupVO> allgroups = new ArrayList<GroupVO>();
+
+			String dates = search.getSdate();
+
+			if (sdate.getTimeInMillis() == edate.getTimeInMillis()) {
+				RouteVO route = new RouteVO("", search.getCity(), search.getU_id(), search.getSdate());
+				List<GroupVO> groups = dao.searchGroupList(route);
+				String substr = groups.get(0).getTp_date().substring(2, 10);
+				groups.get(0).setTp_date(substr);
+				return groups;
+
+			} else {
+				int switchh = 0;
+				boolean loopTest = true;
+				int count = 0;
+				
+				while (loopTest) {
+					/* System.out.println(dates); */
+
+					if (switchh == 1) {
+						loopTest = false;
+						/*System.out.println("반복 중단 입력");*/
+					}
+					
+					RouteVO route = new RouteVO("", search.getCity(), search.getU_id(), dates);
+
+					List<GroupVO> groups = dao.searchGroupList(route);
+					
+					
+					System.out.println("dao.searchGroupList(route) == " + dao.searchGroupList(route));
+					
+					if (!groups.isEmpty()) {
+						String substr = groups.get(count).getTp_date().substring(2, 10);
+						groups.get(count).setTp_date(substr);
+						count++;
+						allgroups.addAll(groups);
+					}
+					sdate.add(Calendar.DATE, 1);
+					dates = fmt.format(sdate.getTime());
+					
+					if (sdate.getTimeInMillis() == edate.getTimeInMillis()) {
+						switchh = 1;
+						System.out.println("AccompanyService.java 반복 중단 준비");
+					}
+				}
+				return allgroups;
+			}
+		}
+	   
+	   
+	   public void requestGroup(GroupVO groupvo){
+		   dao.requestGroup(groupvo);
+	   }
+	   
+	   
 }
