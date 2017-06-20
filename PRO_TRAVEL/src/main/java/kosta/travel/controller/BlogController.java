@@ -9,6 +9,8 @@ import java.util.UUID;
 import javax.annotation.Resource;
 import javax.imageio.ImageIO;
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -100,10 +102,12 @@ public class BlogController {
 	
 	
 	@RequestMapping(value = "/myBlog", method = RequestMethod.GET)
-	public void myBlog(@RequestParam("u_name") String u_name, Model model) throws Exception {
+	public void myBlog(Model model, HttpSession session) throws Exception {
 		
+		String u_id = (String)session.getAttribute("login");
 		
-		BlogVO blog=service.detailBlog(u_name);
+		BlogVO blog=service.detailBlog(u_id);
+		
 		
 		logger.info(blog.toString());
 		model.addAttribute("blog", blog);

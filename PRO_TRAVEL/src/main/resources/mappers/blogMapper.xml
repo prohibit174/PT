@@ -19,7 +19,7 @@
 	<select id="detailBlog" resultType="BlogVO">
 		select *
 		from blog
-		where u_name=#{u_name}
+		where u_id=#{u_id}
 	
 	</select>
 

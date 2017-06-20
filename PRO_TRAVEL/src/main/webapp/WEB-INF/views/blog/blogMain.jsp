@@ -38,33 +38,33 @@
    	<c:choose>
    		<c:when test="${status.count%3==1}">
    			<li itemscope="" itemtype="http://schema.org/ImageObject" class="same-height same-height-left " style="height: 367px;">
-   			   <a href="/blog/read?=${blogVO.b_id }">
+   			   <a href="/blog/myBlog?u_id=${blogVO.b_id }">
                 <picture class="img">
 				<img src="/resources/upload/${blogVO.b_img }" alt=""></picture>
             </a>
-            <h1><a href="/blog/read?=${blogVO.b_id }">${blogVO.b_title }</a></h1>
+            <h1><a href="/blog/myBlog?u_id=${blogVO.b_id }">${blogVO.b_title }</a></h1>
         <!-- <span class="sss-picture"></span> --> <span>${blogVO.u_name }</span>
     </li>
    		</c:when>
    	
    		<c:when test="${status.count%3==2 }">
    			<li class="same-height" style="height: 367px;">
-   			  	   <a href="/blog/read?=${blogVO.b_id }">
+   			  	   <a href="/blog/myBlog?u_id=${blogVO.b_id }">
                 <picture class="img">
 				<img src="/resources/upload/${blogVO.b_img }" alt=""></picture>
             </a>
-            <h1><a href="/blog/read?=${blogVO.b_id }">${blogVO.b_title }</a></h1>
+            <h1><a href="/blog/myBlog?u_id=${blogVO.b_id }">${blogVO.b_title }</a></h1>
         <!-- <span class="sss-picture"></span> --> <span>${blogVO.u_name }</span>
     </li>
    		</c:when>
    		
    		<c:otherwise>
    			<li itemscope="" itemtype="http://schema.org/ImageObject" class="same-height same-height-right" style="height: 367px;">
-   			   	   <a href="/blog/read?=${blogVO.b_id }">
+   			   	   <a href="/blog/myBlog?u_id=${blogVO.b_id }">
                 <picture class="img">
 				<img src="/resources/upload/${blogVO.b_img }" alt=""></picture>
             </a>
-            <h1><a href="/blog/read?=${blogVO.b_id }">${blogVO.b_title }</a></h1>
+            <h1><a href="/blog/myBlog?u_id=${blogVO.b_id }">${blogVO.b_title }</a></h1>
         <!-- <span class="sss-picture"></span> --> <span>${blogVO.u_name }</span>
     </li>
    		</c:otherwise>

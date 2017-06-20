@@ -8,5 +8,5 @@ public interface BlogDAO {
 
 	public List<BlogVO> blogList() throws Exception;
 	public int insertBlog(BlogVO blog)throws Exception;
-	public BlogVO detailBlog(String u_name)throws Exception;
+	public BlogVO detailBlog(String u_id)throws Exception;
 }
