@@ -29,13 +29,20 @@ public class MessageDAOImpl implements MessageDAO {
 	}
 
 	@Override
-	public List<MessageVO> list(String u_id) throws Exception {
-		return session.selectList(namespace + ".list");
+	public List<MessageVO> list(String u_id_recipient) throws Exception {
+	
+		List<MessageVO> list = session.selectList(namespace+".list", u_id_recipient);
+		return list;
 	}
 
 	@Override
-	public MessageVO detail_message(String m_num) throws Exception {
-		return session.selectOne(namespace + ".detail");
+	public MessageVO detail_message(int m_num) throws Exception {
+		return session.selectOne(namespace + ".detail_message", m_num);
+	}
+
+	@Override
+	public Integer noRead_message(String u_id_recipient) throws Exception {
+		return session.selectOne(namespace + ".noRead_message",u_id_recipient);
 	}
 
 }

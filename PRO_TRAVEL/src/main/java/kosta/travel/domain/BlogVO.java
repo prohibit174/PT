@@ -6,8 +6,9 @@ public class BlogVO {
 	private int b_id;
 	private String b_title;
 	private String u_name;
+	private String b_instruction;
+	private String b_img;
 	private String b_introdution;
-	private String u_img;
 	private MultipartFile file2;
 	 
 	 
@@ -54,13 +55,12 @@ public class BlogVO {
 	}
 
 
-	public String getU_img() {
-		return u_img;
+	public String getB_img() {
+		return b_img;
 	}
 
-
-	public void setU_img(String u_img) {
-		this.u_img = u_img;
+	public void setB_img(String b_img) {
+		this.b_img = b_img;
 	}
 
 
@@ -73,6 +73,7 @@ public class BlogVO {
 		this.file2 = file2;
 	}
 
+	
 	
 	
 	
