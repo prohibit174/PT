@@ -11,7 +11,6 @@
 <link rel="stylesheet" href="http://www.alamo.co.kr/common/css/alamo_style.css?v=20170405" type="text/css" />
 <link href="http://www.alamo.co.kr/common/css/reserv.css?v=20160621" rel="stylesheet" type="text/css">
 
-
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>

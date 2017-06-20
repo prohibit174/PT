@@ -27,6 +27,11 @@ public class BlogDAOImpl implements BlogDAO {
 	public int insertBlog(BlogVO blog) throws Exception {
 		return session.insert(namespace+".insertBlog", blog);
 	}
+
+	@Override
+	public BlogVO detailBlog(String u_id) throws Exception {
+		return session.selectOne(namespace+".detailBlog", u_id);
+	}
 	
 	
 }

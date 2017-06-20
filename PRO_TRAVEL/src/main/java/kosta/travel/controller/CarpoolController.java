@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,7 +22,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import kosta.travel.domain.CarpoolVO;
 import kosta.travel.domain.Carpool_ListVO;
 import kosta.travel.domain.Carpool_RequestVO;
+import kosta.travel.domain.UsersVO;
 import kosta.travel.service.CarpoolService;
+import kosta.travel.service.UserService;
 
 @Controller
 @RequestMapping("/carpool/*")
@@ -30,12 +33,17 @@ public class CarpoolController {
 	@Inject
 	private CarpoolService service;
 	
+	@Inject
+	private UserService userService;
+	
 	@RequestMapping(value = "/test", method = RequestMethod.GET)
 	public String test(Model model, HttpSession session) throws Exception {
 		
-		String u_id = (String)session.getAttribute("login");
-		List<CarpoolVO> list = service.myMakeCarpool(u_id);
-		model.addAttribute("list", list);
+		List<Carpool_ListVO> carpoolAll = service.carpoolAll();
+		model.addAttribute("carpoolAll", carpoolAll);
+		
+		List<Carpool_ListVO> recommend = service.recommendList();
+		model.addAttribute("recommend", recommend);
 		
 		
 		return "/carpool/test";
@@ -109,6 +117,18 @@ public class CarpoolController {
 		session.setAttribute("count", int_count);
 		response.getWriter().print(int_count);
 	}
+	
+	@RequestMapping(value = "/user", method = RequestMethod.GET)
+	public String user(Model model, @RequestParam("u_id")  String u_id) throws Exception {
+		System.out.println("3"+u_id);
+		UsersVO user = userService.userDetail(u_id);
+		model.addAttribute("user", user);
+		model.addAttribute("name", user.getU_name());
+		model.addAttribute("birth", user.getU_birth());
+		
+		return "redirect:/carpool/test";
+	}
+	
 /*	 @RequestMapping(value="/more_register", method = RequestMethod.POST)
 	   public ResponseEntity<String> more(@RequestBody String count, HttpSession session, Model model) throws Exception{
 	      count = count.replaceAll("[^0-9]","");

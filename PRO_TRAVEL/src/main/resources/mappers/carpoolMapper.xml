@@ -92,7 +92,7 @@
 	<!-- 내가 신청한 카풀의 상세페이지 조회하는부분 -->
 	 <select id = "readRequest" resultType = "kosta.travel.domain.CarpoolRequestUser">
 		select c.u_id as c_u_id ,cr.u_id as cr_u_id, u.u_img as u_u_img,  cr_num,
-		u.u_name as c_u_name, 
+		u.u_name as c_u_name, cr.c_num as c_num,
 		c_month, c_date, c_year, c_hour, c_minute, cr_ox, start_point, way_point, dest_point,
 		c_price, c_person
 		from car_list c,  car_request cr, users u
@@ -171,4 +171,12 @@
          									from trip_plan))
 		order by c_num desc
 	</select>
+	
+	<!-- 내가 참여한 카풀파티 탈퇴할때 사용 -->
+	<delete id="deleteRequest">
+		delete from car_request
+		where cr_num = #{cr_num}
+	</delete>
+	
+	
 </mapper>	

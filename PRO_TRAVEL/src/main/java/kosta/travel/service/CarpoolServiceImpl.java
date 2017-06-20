@@ -112,11 +112,21 @@ public class CarpoolServiceImpl implements CarpoolService {
 		dao.addPerson(c_num);
 			
 	}
+	
+	@Transactional
+	@Override
+	public void deleteRequest(Integer cr_num, Integer c_num) throws Exception {
+		dao.deleteRequest(cr_num);
+		dao.addPerson(c_num);
+		
+	}
 
 	@Override
 	public List<Carpool_ListVO> recommendList() throws Exception {
 		return dao.recommendList();
 	}
+
+
 
 
 
