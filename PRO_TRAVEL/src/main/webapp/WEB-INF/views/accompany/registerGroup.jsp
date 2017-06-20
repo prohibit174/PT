@@ -12,11 +12,9 @@
 <!DOCTYPE html>
 
 <html>
-<!-- <script type="text/javascript" src="http://www.nowarch.com/resources/js/jquery-1.10.2.min.js"></script> -->
 <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js'></script>
 <script src='${pageContext.request.contextPath}/resources/js/accompanyJs/fullcalendar.js'></script>
 <script src='${pageContext.request.contextPath}/resources/js/accompanyJs/jquery-ui.min.js'></script>
-<!-- <link rel='stylesheet' href='/resources/css/accompany/fullcalendar.css' /> -->
 <link rel='stylesheet' href='/resources/css/accompany/jquery-ui.min.css' />
 
 <head>
@@ -31,6 +29,9 @@
 		height: 30%;
 		}
  */
+ 	.liSize{
+ 		width: 82%;
+ 	}
     </style>
 
 </head>
@@ -469,69 +470,46 @@ function showLeftAccom(leftIndex, markerIndex){
 
 
 <div class="id-card-box" style="width: 100% ;border: black;">
-	<!-- <form action="/accompany/searchPeople" method="post" role="form">
-
+	
 			<div class="item-list" style="width: 1400px; padding-right: 30px;">
 					<div style="font-size: 20px;">
-							<span class="label" style="margin-right: 80px;"  >departure</span>
-						 <select class="label" style="margin-top: -5px; width: 150px" name="city">
-						<option class="locationName" style="margin-bottom: 10px">name</option>
-						<option value="Zurich">Zurich</option>
-<option value="France">France</option>
-<option value="Nice">Nice</option>
-<option value="Brussels">Brussels</option>
-<option value="Berlin">Berlin</option>
-<option value="Munich">Munich</option>
-<option value="Bern">Bern</option>
-<option value="France">France</option>
-<option value="Belgium">Belgium</option>
-<option value="Germany">Germany</option>
-<option value="Swiss" selected="selected">Swiss</option>
-						</select>
 						
-						<span class="label" style="margin: 0 40px;">begin</span>
-						<input class="datepick label" type="text" name="sdate" value="start" style="margin-top: -5px; padding: 0px; width: 150px;">
-						<span class="label" style="margin: 0 40px;">end</span>
-						<input class="datepick label" type="text" name="edate" value="end" style="margin-top: -5px; padding: 0px; width: 150px;">
-							<img class="appendcp" src="../resources/images/accompany/plus.png" width="30" height="30" style="margin-top: -5px;">
 				</div>
-		<div style="padding-left: 45%; float: none;" class="calendar-form">
-		<input class="btn-more ajaxbtn" type="submit" value="search" style="margin-right: 20%; margin-top: 10px; width: 120px; height: 50px; font-size: medium; float: none;" />
-		</div>
-		</div>
-	</form>
-	 -->
-
-			<div class="item-list" style="width: 1400px; padding-right: 30px;">
-					<div style="font-size: 20px;">
-							<span class="label" style="margin-right: 80px;"  >departure</span>
-						 <select class="label ajaxCity" style="margin-top: -5px; width: 150px" name="city">
-						<option class="locationName" style="margin-bottom: 10px">name</option>
-						<option value="Zurich">Zurich</option>
-<option value="France">France</option>
-<option value="Nice">Nice</option>
-<option value="Brussels">Brussels</option>
-<option value="Berlin">Berlin</option>
-<option value="Munich">Munich</option>
-<option value="Bern">Bern</option>
-<option value="France">France</option>
-<option value="Belgium">Belgium</option>
-<option value="Germany">Germany</option>
-<option value="Swiss" selected="selected">Swiss</option>
-						</select>
-						
-						<span class="label" style="margin: 0 40px;">begin</span>
-						<input class="datepick label ajaxStart" type="text" name="sdate" value="start" style="margin-top: -5px; padding: 0px; width: 150px;">
-						<span class="label" style="margin: 0 40px;">end</span>
-						<input class="datepick label ajaxEnd" type="text" name="edate" value="end" style="margin-top: -5px; padding: 0px; width: 150px;">
-							<img class="appendcp" src="../resources/images/accompany/plus.png" width="30" height="30" style="margin-top: -5px;">
-				</div>
+		<form action="/accompany/registerGroup" method="post" role="form">
 		<div class="accompanyList row">
+		 <section class="results ajax-area" data-tmpl="athleteResults_tmpl">
+    	<div class="heading">
+    	<h2>Your Route</h2>
+    	</div>
+    	<ul class="table2 ajax-content">
+    	<li class="liSize">
+    		
+				<div class="th col4">Except</div>
+					<div class="th col4"> Date </div>
+						<div class="th col4"> MaxPeople </div>
+    						<div class="th col4"> Place </div>
+    	</li>
+    								
+		
+    	<c:forEach var="data" items="${list}" varStatus="status">
+		<li class="liSize">
+			<input type="hidden" name="groupVolist[${status.index}].tp_num" value="${data.tp_num}">
+				<div class="th col4"><img class="appendcm" src="../resources/images/accompany/miners.png" width="30" height="30" style="margin-top: -5px;"></div>
+    				<div class="th col4"><input type="hidden" name="groupVolist[${status.index}].TP_DATE" value="${data.tp_date}">${data.tp_date}</div>
+					<div class="th col4"><input type="text" name="groupVolist[${status.index}].max_people_num"></div>
+						<div class="th col4"><input type="hidden" name="groupVolist[${status.index}].COR_REGION" value="${data.cor_region}">${data.cor_region}</div>
+    	</li>
+    	</c:forEach>
+    		</ul>
+    		</section>	
+		
+		
 		</div>
 		<div style="padding-left: 45%; float: none;" class="calendar-form">
 		
-		<input class="btn-more ajaxbtn" type="submit" value="search" style="margin-right: 20%; margin-top: 10px; width: 120px; height: 50px; font-size: medium; float: none;" />
+		<input class="btn-more regist" type="submit" value="regist" style="margin-right: 20%; margin-top: 10px; width: 120px; height: 50px; font-size: medium; float: none;" />
 		</div>
+		</form>
 		</div>
 	
 	
@@ -539,92 +517,11 @@ function showLeftAccom(leftIndex, markerIndex){
 	</div>
 
 <script type="text/javascript">
-var ct = 0;
-
- $(document).on('click','.appendcp',function() {
-	if(ct <= 0){
-	/* $(this).parent('div').append('<div class="row destination" style="font-size: 20px;"><span class="label" style="margin-right: 80px";>destination</span><select class="label" style="margin-right: 80px";><option class="locationName" style="margin-bottom: 10px">name</option>																																																																																																																			</select><span class="label" style="margin: 0 40px;">begin</span> <select class="label" style="margin-right: 80px";><option class="start" style="margin-bottom: 10px">date</option></select> <span class="label" style="margin: 0 40px;">end</span> <select  class="label" style="margin-right: 80px";><option class="destination">date</option></select><img class="appendcp" src="../resources/images/accompany/plus.png" width="30" height="30" style="margin-top: -5px;"><img class="appendcm" src="../resources/images/accompany/miners.png" width="30" height="30" style="margin-top: -5px;"></div>'); */
-		$(this).parent('div').append('<div class="row destination" style="font-size: 20px;"><span class="label" style="margin-right: 80px;">destination</span><select class="label" style="margin-top: -5px; width: 150px" name="city"><option class="locationName" style="margin-bottom: 10px">name</option><option value="Zurich">Zurich</option><option value="France">France</option><option value="Nice">Nice</option><option value="Brussels">Brussels</option><option value="Berlin">Berlin</option><option value="Munich">Munich</option><option value="Bern">Bern</option><option value="France">France</option><option value="Belgium">Belgium</option><option value="Germany">Germany</option><option value="Swiss" selected="selected">Swiss</option></select><span class="label" style="margin: 0 40px;">begin</span> <input class="datepick label" type="text" name="sdate" value="start" style="margin-top: -5px; padding: 0px; width: 150px;"><span class="label" style="margin: 0 40px;">end</span> <input class="datepick label" type="text" name="edate" value="end" style="margin-top: -5px; padding: 0px; width: 150px;"><img class="appendcp" src="../resources/images/accompany/plus.png" width="30" height="30" style="margin-top: -5px;"><img class="appendcm" src="../resources/images/accompany/miners.png" width="30" height="30" style="margin-top: -5px;"></div>');
-	}else{
-	/* $('div.destination').before('<div class="row stops" style="font-size: 20px;"><span class="label" style="margin-right: 80px";>stops</span><select class="label" style="margin-right: 80px";><option class="locationName" style="margin-bottom: 10px">name</option></select> 																																																																																																																	<span class="label" style="margin: 0 40px;">begin</span> <select class="label" style="margin-right: 80px";><option class="start" style="margin-bottom: 10px">date</option></select> <span class="label" style="margin: 0 40px;">end</span> <select  class="label" style="margin-right: 80px";><option class="destination">date</option></select><img class="appendcp" src="../resources/images/accompany/plus.png" width="30" height="30" style="margin-top: -5px;"><img class="appendcm" src="../resources/images/accompany/miners.png" width="30" height="30" style="margin-top: -5px;"></div>'); */
-	$('div.destination').before('<div class="row stops" style="font-size: 20px; padding-bottom: 0px;"><span class="label" style="margin-right: 80px;">stops</span><select class="label" style="margin-top: -5px; width: 150px" name="city"><option class="locationName" style="margin-bottom: 10px">name</option><option value="Zurich">Zurich</option><option value="France">France</option><option value="Nice">Nice</option><option value="Brussels">Brussels</option><option value="Berlin">Berlin</option><option value="Munich">Munich</option><option value="Bern">Bern</option><option value="France">France</option><option value="Belgium">Belgium</option><option value="Germany">Germany</option><option value="Swiss" selected="selected">Swiss</option></select><span class="label" style="margin: 0 40px;">begin</span> <input class="datepick label" type="text" name="sdate" value="start" style="margin-top: -5px; padding: 0px; width: 150px;"><span class="label" style="margin: 0 40px;">end</span> <input class="datepick label" type="text" name="edate" value="end" style="margin-top: -5px; padding: 0px; width: 150px;"><img class="appendcp" src="../resources/images/accompany/plus.png" width="30" height="30" style="margin-top: -5px;"><img class="appendcm" src="../resources/images/accompany/miners.png" width="30" height="30" style="margin-top: -5px;"></div>');
-	}
-	
-	console.log("plus");
-	ct += 1;
-});
  
  $(document).on('click','.appendcm',function() {
- 		console.log($(this).parent('div.row').attr('class'));
- 		ct -= 1;
-		$(this).parent('div.row').remove();
-		
-		
-		console.log("minuse");
+ 		console.log($(this).parent().parent('li').attr('class'));
+		$(this).parent().parent('li').remove();
 });
-
-$('body').on('focus','.datepick', function(){
-    $(this).datepicker({
-    	changeYear : true,
-    	changeMonth : true,
-    	dateFormat : "yy/mm/dd",
-   		 });
-    });
-    
-$('.ajaxbtn').click(function(){
-	$('section.ajax-area').remove();
-    event.preventDefault();
-    
-    
-$.ajax({
-	type : 'get',
-    url : 'cal',
-    data : {
-    	 "city" : $(".ajaxCity").val(),
-    	 "sdate" : $(".ajaxStart").val(),
-    	 "edate" : $(".ajaxEnd").val()
-    },
-    success : function (data) {
-    	var eachCounter = 0;
-    	var htmlText = '<section class="results ajax-area" data-tmpl="athleteResults_tmpl">';
-    	htmlText += '<div class="heading">';
-    	htmlText += '<h2>Other Traveler</h2>';
-    	htmlText += '</div>';
-    	htmlText += '<ul class="table2 ajax-content">';
-    	htmlText += '<li>';
-    		htmlText += '<div class="th col1"> Number </div>';
-				htmlText += '<div class="th col4"> Join </div>';
-					htmlText += '<div class="th col4"> Date </div>';
-						htmlText += '<div class="th col4"> Place </div>';
-							htmlText += '<div class="th col4"> Birth </div>';
-								htmlText += '<div class="th col4"> Name </div>'; 
-									htmlText += '<div class="th col4"> Profile </div>';
-    									htmlText += '</li>';
-    								
-
-    	$(data).each(function(){
-		htmlText += '<li>';
-    		htmlText += '<div class="th col1">'+(eachCounter+1)+'</div>';
-				htmlText += '<div class="th col4"><a href=""> Join </a></div>';
-					htmlText += '<div class="th col4">'+data[eachCounter].tp_date+'</div>';
-						htmlText += '<div class="th col4">'+data[eachCounter].cor_region+'</div>';
-							htmlText += '<div class="th col4">'+data[eachCounter].u_birth+'</div>';
-								htmlText += '<div class="th col4">'+data[eachCounter].u_name+'</div>'; 
-									htmlText += '<div class="th col4"><a href=""> Profile </a></div>';
-    									htmlText += '</li>';
-    		eachCounter++;
-    	})
-    		htmlText += '</ul>';
-    			htmlText += '</section>';	
-    	
-    	$('div.accompanyList').append(htmlText);
-    	
-    	
-    }
-    
-});
-});
-    
     
 </script>
 
