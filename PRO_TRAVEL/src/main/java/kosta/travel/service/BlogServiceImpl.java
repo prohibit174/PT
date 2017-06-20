@@ -20,4 +20,15 @@ public class BlogServiceImpl implements BlogService {
 		return dao.blogList();
 	}
 
+	@Override
+	public void insertBlog(BlogVO blog) throws Exception {
+		dao.insertBlog(blog);
+		
+	}
+
+	@Override
+	public BlogVO detailBlog(String u_id) throws Exception {
+		return dao.detailBlog(u_id);
+	}
+
 }

@@ -66,7 +66,7 @@ public class AdminController {
 		return "/mypage_admin/admin_userDetail";
 	}
 	
-	//product list안됨.
+	//product list�븞�맖.
 	@RequestMapping("/productList")
 	public String productList(@ModelAttribute("cri") SearchCriteria cri, 
 			Model model, ProductVO product) throws Exception{
@@ -122,7 +122,7 @@ public class AdminController {
 	
 	@RequestMapping(value = "/carpoolDetail", method = RequestMethod.GET)
 	public String read(@RequestParam("c_num") int c_num, Model model, HttpServletRequest request) throws Exception {
-		//attribute하나로 넘기면 키값은 클래스이름(첫글자소문자)으로 들어감
+		//attribute�븯�굹濡� �꽆湲곕㈃ �궎媛믪� �겢�옒�뒪�씠由�(泥リ��옄�냼臾몄옄)�쑝濡� �뱾�뼱媛�
 		model.addAttribute(carpoolService.read(c_num));
 		
 		List<CarpoolRequestUser>list = carpoolService.myMakeRequest(c_num);
