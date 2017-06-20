@@ -71,6 +71,9 @@ public class CarpoolController {
 		List<Carpool_ListVO> carpoolAll = service.carpoolAll();
 		model.addAttribute("carpoolAll", carpoolAll);
 		
+		List<Carpool_ListVO> recommend = service.recommendList();
+		model.addAttribute("recommend", recommend);
+		
 
 		return "/carpool/list";
 	}
