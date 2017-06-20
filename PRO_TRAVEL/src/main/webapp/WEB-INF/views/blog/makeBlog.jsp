@@ -71,13 +71,13 @@
 
                         <div class="right">
                            <table cellpadding="0" cellspacing="0" class="tab">
-                             <!--  <tr>
+                               <tr>
                                  <td class="label"><label for="u_lang">Blog number</label></td>
-                                 <td class="value"><input type="text" name="RE_NUM"
-                                    id="RE_NUM" value="" /> &nbsp; <span class="mandatory"></span>
+                                 <td class="value"><input type="text" name="b_id"
+                                    id="b_id" value="" /> &nbsp; <span class="mandatory"></span>
                                     <ul class="errorField">
                                     </ul></td>
-                              </tr> -->
+                              </tr> 
 
                               <tr>
                                  <td class="label"><label for="u_lang">Blog Title</label></td>

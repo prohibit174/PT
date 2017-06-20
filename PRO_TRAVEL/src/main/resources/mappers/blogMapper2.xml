@@ -7,10 +7,10 @@
 
 <insert id="insertBlog" parameterType="BlogVO">
 		insert into blog(
-		b_id, b_title, u_name, b_introduction, u_img
+		b_id, b_title, u_name, b_introduction, b_img
 		)
 		values(
-		1, #{b_title}, #{u_name},#{b_introduction},#{u_img}
+		{b_id}, #{b_title}, #{u_name},#{b_introduction},#{b_img}
 		)
 		
 	</insert>

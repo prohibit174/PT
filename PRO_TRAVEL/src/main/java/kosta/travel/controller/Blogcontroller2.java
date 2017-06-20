@@ -53,7 +53,7 @@ public class Blogcontroller2 {
 		service.insertBlog(blog);
 		
 		
-/*		rttr.addFlashAttribute("msg", "SUCCESS");
+		rttr.addFlashAttribute("msg", "SUCCESS");
 		try {
 
 			String pattern = savedName.substring(savedName.lastIndexOf(".") + 1);
@@ -74,7 +74,7 @@ public class Blogcontroller2 {
 			ImageIO.write(thumbnailImg, pattern, thumbnailFileNm);
 		} catch (Exception e) {
 			e.printStackTrace();
-		}*/
+		}
 
 		return "/blog/myBlog";
 	}
