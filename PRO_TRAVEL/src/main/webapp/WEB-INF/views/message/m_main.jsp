@@ -183,7 +183,7 @@ cursor: pointer;
    </fieldset>
       <input type="submit" value="send"/>
 </form>
-<form id="test-form2" class="mfp-hide white-popup-block" style="padding-left: 430px;" method="POST" action="/message/detail_message">
+<form id="#test-form2" class="mfp-hide white-popup-block" style="padding-left: 430px;">
    <fieldset style="border:0; background: white; width: 50%;">
    <div class="close" style="float: right; margin-right: 20px; margin-top: 10px;" onclick=""></div>
    <br><br>
@@ -196,7 +196,7 @@ cursor: pointer;
 
          <li>
          <label style="font-weight: bold;">Recipient : </label>
-            <input id="email" name="u_id_recipient" type="text" value="${listMessage.u_id_recipient} %>" placeholder="recipient ID." required="">
+            <input id="email" name="u_id_recipient" type="text" value="${listMessage.u_id_recipient}" placeholder="recipient ID." required="">
          </li> 
 
          <li>
@@ -259,7 +259,7 @@ cursor: pointer;
               <span class="country"></span>
          </div>
               <h3>
-                  <a href="#test-form2" class="detail_message" >
+                  <a href="/message/detail_message?m_num=${listMessage.m_num }" class="" >
                       보낸 사람 : ${listMessage.u_id_sender }
                   </a>
               </h3>

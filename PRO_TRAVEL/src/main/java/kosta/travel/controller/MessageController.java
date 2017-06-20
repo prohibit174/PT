@@ -21,16 +21,14 @@ import kosta.travel.service.MessageService;
 @Controller
 @RequestMapping("/message/*")
 public class MessageController {
+	
 	@Inject
 	private MessageService service;
 	
 	@RequestMapping(value = "/main", method = RequestMethod.GET)
-	public String main(Model model,HttpSession session) throws Exception {
-		
-		String u_id_recipient= session.getAttribute("login").toString();
-		
-		System.out.println("method in_id: "+u_id_recipient);
-		System.out.println("id: "+u_id_recipient);
+	public String main(Model model,@RequestParam("u_id_recipient")String u_id_recipient) throws Exception {
+		System.out.println("controller main method in");
+		System.out.println(u_id_recipient);
 		List<MessageVO> list = service.list(u_id_recipient);
 		System.out.println("print_list");
 		for(int i=0;i<list.size();i++){
@@ -41,15 +39,18 @@ public class MessageController {
 	}
 	
 	@RequestMapping(value = "/write_message", method = RequestMethod.GET)
-	public String write() {
+	public String write() throws Exception {
 		return "/message/write_message";
 	}
 	
 	@RequestMapping(value = "/detail_message", method = RequestMethod.GET)
-	public String detailGET() {
+	public String detailGET(Model model,int m_num) throws Exception{
 		System.out.println("detail_message get method call");
+		MessageVO vo = service.detail_message(m_num);
+		System.out.println(vo.getM_num());
 		
-		return "/message/m_main";
+		model.addAttribute("vo", vo);
+		return "/message/detail_message";
 	}
 	
 	@RequestMapping(value = "/detail_message", method = RequestMethod.POST)
@@ -58,7 +59,7 @@ public class MessageController {
 		
 		return "/message/m_main";
 	}
-	
+
 	@RequestMapping(value="/insert", method=RequestMethod.POST)
 	public String insert(MessageVO vo, Model model) throws Exception{
 		System.out.println("insert method call");

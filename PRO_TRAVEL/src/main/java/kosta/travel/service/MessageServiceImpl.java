@@ -27,14 +27,18 @@ public class MessageServiceImpl implements MessageService {
 
 	@Override
 	public List<MessageVO> list(String u_id_recipient) throws Exception {
+		System.out.println("service list method in");
 		return dao.list(u_id_recipient);
 	}
 
 	@Override
-	public MessageVO detail_message(String m_num) throws Exception {
+	public MessageVO detail_message(int m_num) throws Exception {
 		return dao.detail_message(m_num);
 	}
 
-	
+	@Override
+	public Integer noRead_message(String u_id_recipient) throws Exception {
+		return dao.noRead_message(u_id_recipient);
+	}
 
 }
