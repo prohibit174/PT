@@ -14,7 +14,7 @@
                 <ul class="tabset">
 
     <li class="active">
-        <a href="usercheckInfo" data-class="games2014-2" target="">
+        <a href="/blog/blogMain" data-class="games2014-2" target="">
            All blog
             <!-- <i class="icon-arrow-right">
                 <span class="hide">arrow</span>

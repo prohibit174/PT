@@ -14,35 +14,6 @@
 	href="${pageContext.request.contextPath}/resources/css/AgoFiles/users_css/common.css">
 <title>Insert title here</title>
 
-
-	<%-- <c:set value="${blogVO}" var = "blogVO"/> --%>
-
-<!-- <script type="text/javascript">
-window.onload = function(){
-
-	var blog = '${blogVO}';
-	var list = document.getElementsByTagName("li"); 
-	/* var list = document.getElementById('${status.index}"); */
-	var status = ${status.index};
-	
-	var id = list.setAttribute("id", status);
-	var needID = list.getAttribute('id');
-	var order = (needID+1)%3;
-	
-	for(var i = 0; i<needID.length; i++){
-		if(order==1){
-			addClass(needID[i], "same-height-left");
-		}else if(order==3){
-			addClass(needID[i], "same-height-right");
-		}else{
-			addClass(needID[i], "");
-		}
-	}
-	
-	
-}
-
-</script> -->
 </head>
 <%@include file="/WEB-INF/views/include/header.jsp" %>
 <%@include file="/WEB-INF/views/include/blog_sidebar.jsp" %>
@@ -57,10 +28,6 @@ window.onload = function(){
 
             </ul>
         </div>
-                <!-- <header class="heading">
-                    <h1>Blog</h1>하얀글씨. 수정하면 좋을듯
-                </header> -->
-                
         
         <div class="ajax-area" data-tmpl="load3_tmpl">
         
