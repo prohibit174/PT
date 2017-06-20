@@ -9,19 +9,21 @@
 			 c_year,  c_month,  c_date,  c_hour,  c_minute, c_person
 		)
 		values(
-			#{c_num}, #{u_id}, #{start_point}, #{dest_point}, #{way_point}, #{c_price}, #{c_year}, #{c_month}, #{c_date}, #{c_hour}, #{c_minute}
-	
-			, #{c_person}
+			#{c_num}, #{u_id}, #{start_point}, #{dest_point}, #{way_point}, #{c_price}, 
+			#{c_year}, #{c_month}, #{c_date}, #{c_hour}, #{c_minute}, #{c_person}
 		)
 	</insert>
 	
 	<select id="listAll" resultType="kosta.travel.domain.CarpoolVO">
-		select * from car_list where c_num>0
+		select * 
+		from car_list 
+		where c_num>0
 		order by c_num desc
 	</select>
 	
 	<select id="maxSelect" resultType="integer">
-		select max(c_num) from car_list
+		select max(c_num) 
+		from car_list
 	</select>
 	
 	<select id = "read" resultType="kosta.travel.domain.Carpool_ListVO">
@@ -32,11 +34,13 @@
 	</select>
 	
 	<delete id="delete">
-		delete from car_list where c_num = #{c_num}
+		delete from car_list 
+		where c_num = #{c_num}
 	</delete>
 	
 	<update id="modify">
-		update car_list set c_year =#{c_year},
+		update car_list 
+		set c_year =#{c_year},
 		 c_month =#{c_month},
 		 c_date =#{c_date},
 		 c_hour =#{c_hour},
@@ -48,11 +52,12 @@
 	
 	
 	
-	
-	
 	<!--  마이페이지 --> 
 	<select id="myMakeCarpool" resultType="kosta.travel.domain.CarpoolVO" >
-	select * from car_list where u_id=#{u_id} order by c_num desc
+	select * 
+	from car_list 
+	where u_id=#{u_id} 
+	order by c_num desc
 	</select> 
 
 	
@@ -67,17 +72,20 @@
 	
 	<!-- 내가 신청한 카풀들 목록 조회하는 쿼리 -->
 	<select id = "myRequest" resultType = "kosta.travel.domain.Carpool_RequestVO">
-		select * from car_request where u_id=#{u_id} order by cr_num desc
+		select * 
+		from car_request 
+		where u_id=#{u_id} 
+		order by cr_num desc
 	</select>
 	
 	<!-- 조인해서 신청한 리스트 뽑아오는 쿼리문(신청리스트에 운전자 이름, 운전자사진 보여주기위해) -->
  	<select id = "requestAll" resultType = "kosta.travel.domain.CarpoolRequestUser">
 		select c.u_id as c_u_id ,cr.u_id as cr_u_id, u.u_img as u_u_img,  cr_num,
-		u.u_name as c_u_name, c_month, c_date, c_year, c_hour, c_minute, cr_ox, start_point , cr.c_num
+		u.u_name as c_u_name, c_month, c_date, c_year, c_hour, c_minute, cr_ox, 
+		start_point , cr.c_num
 		from car_list c,  car_request cr, users u
 		where c.c_num = cr.c_num
 		and c.u_id = u.u_id
-		
 		and 	cr.u_id =#{cr.u_id}
 	</select> 
 	
@@ -90,35 +98,33 @@
 		from car_list c,  car_request cr, users u
 		where c.c_num = cr.c_num
 		and c.u_id = u.u_id
-		
 		and 	cr_num =#{cr_num}
 	</select> 
 	
 	
 	
-	
-	
-	
-	
-	
 	<!-- Request -->
 	<insert id="createRequest">
-	insert into car_request(cr_num, cr_ox, c_num, u_id) VALUES(#{cr_num}, 'wait', #{c_num}, #{u_id})
+	insert into car_request(cr_num, cr_ox, c_num, u_id) 
+	VALUES(#{cr_num}, 'wait', #{c_num}, #{u_id})
 	</insert>
 	
 	<select id="maxSelectRequest" resultType="integer">
-		select max(cr_num) from car_request
+		select max(cr_num) 
+		from car_request
 	</select>
 	
 	<!-- 수락시 cr_ox o로 변경 -->
 	<update id="accept">
-		update car_request set cr_ox ='o'
+		update car_request 
+		set cr_ox ='o'
 		where cr_num = #{cr_num}
 	</update>
 	
 	<!-- 거절시 cr_ox x로 변경 -->
 	<update id="reject">
-		update car_request set cr_ox ='x'
+		update car_request 
+		set cr_ox ='x'
 		where cr_num = #{cr_num}
 	</update>
 	
@@ -145,5 +151,24 @@
 		and c_person>0
 		order by c_num desc
 	
+	</select>
+	
+	<!-- 나의 경로와 맞는 추천 카풀리스트뽑기 -->
+	<select id="recommendList" resultType="kosta.travel.domain.Carpool_ListVO">
+		select * 
+		from car_list c, users u
+		where c.u_id = u.u_id
+		and c_person>0
+		and substr(c_year, 3, 2) in (select substr(tp_date, 1, 2)
+                            from trip_plan)
+		and c_month in (select substr(tp_date, 4, 2)
+            						from trip_plan)
+		and c_date in (select substr(tp_date, 7, 2)
+            					from trip_plan)
+         and (start_point in (select cor_region
+         									from trip_plan)
+         		 or way_point in (select cor_region
+         									from trip_plan))
+		order by c_num desc
 	</select>
 </mapper>	

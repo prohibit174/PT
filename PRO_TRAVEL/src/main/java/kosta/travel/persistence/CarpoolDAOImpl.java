@@ -124,6 +124,12 @@ public class CarpoolDAOImpl implements CarpoolDAO {
 		
 	}
 
+	//동행경로와 맞는 카풀추천리스트
+	@Override
+	public List<Carpool_ListVO> recommendList() throws Exception {
+		return session.selectList(namespace+".recommendList");
+	}
+
 
 
 
