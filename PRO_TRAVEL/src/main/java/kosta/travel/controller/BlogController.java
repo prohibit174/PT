@@ -9,12 +9,14 @@ import java.util.UUID;
 import javax.annotation.Resource;
 import javax.imageio.ImageIO;
 import javax.inject.Inject;
+import javax.websocket.server.PathParam;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -76,7 +78,7 @@ public class BlogController {
 			e.printStackTrace();
 		}
 
-		return "redirect:/blog/myBlog";
+		return "redirect:/blog/blogMain";
 	}
 
 	
@@ -96,19 +98,16 @@ public class BlogController {
 		List<BlogVO> blogList = service.blogList();
 		model.addAttribute("blogVO", blogList);
 	}
-	
+
 	
 	
 	@RequestMapping(value = "/myBlog", method = RequestMethod.GET)
-	public void myBlog(@RequestParam("u_name") String u_name, Model model) throws Exception {
+	public void myBlog(@RequestParam("u_id") String u_id, Model model) throws Exception {
 		
-		
-		BlogVO blog=service.detailBlog(u_name);
+
+		BlogVO blog=service.detailBlog(u_id);
 		
 		logger.info(blog.toString());
 		model.addAttribute("blog", blog);
-		
-		
-		
-	}
+}
 }
