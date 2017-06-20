@@ -15,24 +15,27 @@
 <title>Insert title here</title>
 
 
-	<c:set value="${blogVO}" var = "blogVO"/>
+	<%-- <c:set value="${blogVO}" var = "blogVO"/> --%>
 
 <script type="text/javascript">
 window.onload = function(){
 
-	var blog = blogVO;
-	/* var list = document.getElementsByTagName("li"); */
-	var list = document.getElementById("${status.index}");
+	var blog = '${blogVO}';
+	var list = document.getElementsByTagName("li"); 
+	/* var list = document.getElementById('${status.index}"); */
+	var status = '${status.index}';
 	
-	var order = (list+1)%3;
+	var id = list.setAttribute("id", status);
+	var needID = list.getAttribute('id');
+	var order = (needID+1)%3;
 	
-	for(var i = 0; i<list.length; i++){
+	for(var i = 0; i<needID.length; i++){
 		if(order==1){
-			addClass(list[i], "same-height-left");
+			addClass(needID[i], "same-height-left");
 		}else if(order==3){
-			addClass(list[i], "same-height-right")
+			addClass(needID[i], "same-height-right");
 		}else{
-			
+			addClass(needID[i], "");
 		}
 	}
 	
@@ -65,7 +68,7 @@ window.onload = function(){
           	
                 <ul class="sets-list ajax-content">
 
-    <li id="${status.index}" itemscope="" itemtype="http://schema.org/ImageObject" class="same-height<!--  same-height-left -->" style="height: 367px;">
+    <li<%--  id="${status.index}" --%> itemscope="" itemtype="http://schema.org/ImageObject" class="same-height same-height-left " style="height: 367px;">
             <a href="/photos/olympic-day">
                 <picture class="img">
 <img srcset="https://stillmed.olympic.org/media/Photos/2014/06/23/National%20Olympic%20Committee%20-%20Portugal_243153.jpg?interpolation=lanczos-none&amp;fit=around|340:191&amp;crop=340:191;*,*, https://stillmed.olympic.org/media/Photos/2014/06/23/National%20Olympic%20Committee%20-%20Portugal_243153.jpg?interpolation=lanczos-none&amp;fit=around|680:382&amp;crop=680:382;*,* 2x" alt=""></picture>
