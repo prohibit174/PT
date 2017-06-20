@@ -35,7 +35,6 @@ public class Blogcontroller2 {
 	private BlogService2 service;
 	
 	
-	
 	@RequestMapping(value = "/makeBlog", method = RequestMethod.GET)
 	public void makeBlog_get() throws Exception {
 		
@@ -43,7 +42,7 @@ public class Blogcontroller2 {
 	
 	@RequestMapping(value = "/makeBlog", method = RequestMethod.POST)
 	public String makeBlog_post(Model model, BlogVO blog,RedirectAttributes rttr) throws Exception {
-		
+		System.out.println("controller in");
 		logger.info("originalName: " + blog.getFile2().getOriginalFilename());
 
 		String savedName = UploadFile(blog.getFile2().getOriginalFilename(), blog.getFile2().getBytes());
@@ -54,7 +53,7 @@ public class Blogcontroller2 {
 		service.insertBlog(blog);
 		
 		
-		rttr.addFlashAttribute("msg", "SUCCESS");
+/*		rttr.addFlashAttribute("msg", "SUCCESS");
 		try {
 
 			String pattern = savedName.substring(savedName.lastIndexOf(".") + 1);
@@ -75,7 +74,7 @@ public class Blogcontroller2 {
 			ImageIO.write(thumbnailImg, pattern, thumbnailFileNm);
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
+		}*/
 
 		return "/blog/myBlog";
 	}

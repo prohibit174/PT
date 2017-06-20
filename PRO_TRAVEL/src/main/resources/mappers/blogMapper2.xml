@@ -10,7 +10,8 @@
 		b_id, b_title, u_name, b_introduction, u_img
 		)
 		values(
-		#{b_id}, #{b_title}, #{u_name},#{b_introduction},#{u_img})
+		1, #{b_title}, #{u_name},#{b_introduction},#{u_img}
+		)
 		
 	</insert>
 </mapper>
