@@ -47,7 +47,7 @@ public class Blogcontroller2 {
 
 		String savedName = UploadFile(blog.getFile2().getOriginalFilename(), blog.getFile2().getBytes());
 
-		blog.setU_img(savedName);
+		blog.setB_img(savedName);
 
 		logger.info(blog.toString());
 		service.insertBlog(blog);
