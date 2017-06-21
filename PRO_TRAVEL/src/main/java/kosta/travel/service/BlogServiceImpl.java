@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import kosta.travel.domain.BlogPostVO;
 import kosta.travel.domain.BlogVO;
 import kosta.travel.persistence.BlogDAO;
 
@@ -29,6 +30,12 @@ public class BlogServiceImpl implements BlogService {
 	@Override
 	public BlogVO detailBlog(String u_id) throws Exception {
 		return dao.detailBlog(u_id);
+	}
+
+	@Override
+	public void postingBlog(BlogPostVO blogpost) throws Exception {
+		dao.postingBlog(blogpost);
+		
 	}
 
 }

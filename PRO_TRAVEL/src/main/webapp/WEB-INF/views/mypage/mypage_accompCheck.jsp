@@ -81,7 +81,7 @@
 
 
 	<div class="wrapper">
-		<h2>MY ACCOMPANY</h2>
+		<h2>HOST GROUP</h2>
 		<div class="table">
 
 			<div class="row header">
@@ -100,7 +100,7 @@
 					<div class="cell">${groupVO.max_people_num}</div>
 					<div class="cell">
 						<strong><a
-							href='/mypage/read?c_num=${groupVO.accomp_group_num}'> Go </a></strong>
+							href='/mypage/accom_read?group_id=${groupVO.accomp_group_num}'> Go </a></strong>
 					</div>
 				</div>
 			</c:forEach>
@@ -108,35 +108,30 @@
 		</div>
 
 
-		<h2>REQUEST accompany</h2>
+		<h2>GUEST GROUP</h2>
 		<div class="table">
 
 			<div class="row header blue">
-				<div class="cell">Date</div>
-				<div class="cell">City</div>
+				<div class="cell">DATE</div>
+				<div class="cell">CITY</div>
 				<div class="cell">Current</div>
 				<div class="cell">Max</div>
 				<div class="cell">Detail</div>
-			</div>
+			</div>	
 
-			<c:forEach items="${requestList}" var="carpool">
+			<c:forEach items="${groupVO2}" var="groupVO2" >
 				<div class="row">
-					<div class="cell">
-						<img src="/resources/upload/${carpool.u_u_img }" width="30"
-							height="30"> ${carpool.c_u_name }
-					</div>
-					<div class="cell">${carpool.cr_ox}</div>
-					<div class="cell">${carpool.c_month },${carpool.c_date }th,
-						${carpool.c_year } ${carpool.c_hour }:${carpool.c_minute }</div>
-					<div class="cell">${carpool.start_point}</div>
+					<div class="cell">${groupVO2.tp_date}</div>
+					<div class="cell">${groupVO2.cor_region}</div>
+					<div class="cell">${groupVO2.current_num}</div>
+					<div class="cell">${groupVO2.max_people_num}</div>
 					<div class="cell">
 						<strong><a
-							href='/mypage/requestRead?cr_num=${carpool.cr_num }&c_num=${carpool.c_num}'>
-								Go </a></strong>
+							href='/mypage/accom_read?group_id=${groupVO2.accomp_group_num}'> Go </a></strong>
 					</div>
-
 				</div>
 			</c:forEach>
+
 		</div>
 
 	</div>
