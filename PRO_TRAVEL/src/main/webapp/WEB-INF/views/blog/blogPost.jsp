@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
     
     
 <%
@@ -20,21 +21,21 @@
 </style>
   <%@ include file="/WEB-INF/views/include/header.jsp" %>
   
-  
-  <script type="text/javascript">
-  $(document).ready(function(){
-	  
-		var formObj = $("form[role='form']");
-		console.log(formObj);
-	
-	$(".btn-register").on("click", function(){
-		self.location=self.location="/blog/myBlog?u_id=${blogpost.u_id};
-	});
-});
-  
-  </script>
+ 
 </head>
 <body>
+ 
+ 
+  <script type="text/javascript">
+  
+	function btn_js_register_click(){
+	  /* confirm(문자열, 초기값) */
+	  var check = confirm("등록하시겠습니까?");
+	  /* if(check == true) else false */
+	  if(check) document.location.href="";
+	}
+	
+  </script> 
 	<section class="results-box" style="margin:0px; background-color:#FAF1C2;">
 	<div class="holder" style="height: 650px;">
 		<h1>Writing on your blog</h1>
@@ -70,7 +71,8 @@
 								
 						
 							<div class="row">
-								<input type="submit" class="btn btn-register" onclick="btn_js_register_click()" value="Post" />
+								<input type="submit" class="btn btn-register" onclick="btn_js_register_click()" 
+								value="Post" />
 							</div>
 							
 								
