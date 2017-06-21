@@ -103,7 +103,7 @@ cursor: pointer;
 <title>Insert title here</title>
 </head>
 <body>
-<button id="declare_list" onclick="">Declaration List</button>
+<button id="declare_list" onclick="location.href='/adminDeclare'">Declaration List</button>
 <br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br>
