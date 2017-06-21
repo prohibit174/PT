@@ -38,4 +38,9 @@ public class BlogServiceImpl implements BlogService {
 		
 	}
 
+	@Override
+	public List<BlogPostVO> postBlogList() throws Exception {
+		return dao.postBlogList();
+	}
+
 }

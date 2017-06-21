@@ -38,6 +38,11 @@ public class BlogDAOImpl implements BlogDAO {
 	public int postingBlog(BlogPostVO blogpost) throws Exception {
 		return session.insert(namespace+".postingBlog", blogpost);
 	}
+
+	@Override
+	public List<BlogPostVO> postBlogList() throws Exception {
+		return session.selectList(namespace+".postBlogList");
+	}
 	
 	
 }
