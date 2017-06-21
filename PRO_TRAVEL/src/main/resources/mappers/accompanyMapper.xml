@@ -5,95 +5,166 @@
 
 <mapper namespace="pro_travel.mapper.accompanyMapper">
 
-	<select id="getUserRoute" resultType="AccompanyVO"
-		parameterType="String">
-		select tp_num, c.cor_region, cor_longi, cor_lati, u_id, tp_date
-		from cordinates c, trip_plan t where c.cor_region = t.cor_region and
-		t.u_id=#{u_id} order by tp_date
-	</select>
-	
-	<select id="getUserInfo" resultType="AccompanyVO" parameterType="String">
-		select tp_num, c.cor_region, cor_longi, cor_lati, u.u_id, tp_date,
-		u_birth,u_sex,u_lang,u_religion,u_job
-		from cordinates c, trip_plan t, users u where c.cor_region = t.cor_region
-		and t.u_id= u.u_id and t.u_id=#{u_id}
-	</select>
-	<select id="getAccompanies" resultType="AccompanyVO"
-		parameterType="AccompanyVO">
-		select * from users u, trip_plan t, cordinates c
-		where u.u_id!=#{u_id} and u.u_id = t.u_id and c.COR_REGION=t.COR_REGION
-		and
-		TO_CHAR(t.tp_date,'YYYY/MM/DD')=SUBSTR(#{tp_date},0,4)||'/'||SUBSTR(#{tp_date},6,2)||'/'||SUBSTR(#{tp_date},9,2)
-		and c.cor_lati=(select cor_lati from cordinates c where
-		cor_region=#{cor_region})
-		and c.cor_longi=(select cor_longi from cordinates c where
-		cor_region=#{cor_region})
-		<!-- order by case when u.ts_id='0' then 1 when ABS(to_number(SUBSTR(u.u_birth,0,4))-to_number(SUBSTR(#{u_birth},0,4))) 
-			&lt; 5 then 2 when u.u_sex=#{u_sex} then 3 when u.u_lang=#{u_lang} then 4 
-			when u.u_religion=#{u_religion} then 5 when u.u_job=#{u_job} then 1 end -->
-	</select>
+   <select id="getUserRoute" resultType="AccompanyVO"
+      parameterType="String">
+      select tp_num, c.cor_region, cor_longi, cor_lati, u_id,
+      tp_date
+      from cordinates c, trip_plan t where c.cor_region =
+      t.cor_region and
+      t.u_id=#{u_id} order by tp_date
+   </select>
 
-	<insert id="insertRoute" parameterType="RouteVO">
-		insert into Trip_Plan(
-		tp_num,cor_region,u_id,tp_date
-		)
-		values(
-		(select max(tp_num) from trip_plan)+1,#{cor_region},#{u_id},#{tp_date}
-		<!-- '3','3','3','2017-04-15' -->
-		)
-	</insert>
+   <select id="getUserInfo" resultType="AccompanyVO" parameterType="String">
+      select tp_num, c.cor_region, cor_longi, cor_lati, u.u_id, tp_date,
+      u_birth,u_sex,u_lang,u_religion,u_job
+      from cordinates c, trip_plan t,
+      users u where c.cor_region = t.cor_region
+      and t.u_id= u.u_id and
+      t.u_id=#{u_id}
+   </select>
+   <select id="getAccompanies" resultType="AccompanyVO"
+      parameterType="AccompanyVO">
+      select * from users u, trip_plan t, cordinates c
+      where u.u_id!=#{u_id}
+      and u.u_id = t.u_id and c.COR_REGION=t.COR_REGION
+      and
+      TO_CHAR(t.tp_date,'YYYY/MM/DD')=SUBSTR(#{tp_date},0,4)||'/'||SUBSTR(#{tp_date},6,2)||'/'||SUBSTR(#{tp_date},9,2)
+      and c.cor_lati=(select cor_lati from cordinates c where
+      cor_region=#{cor_region})
+      and c.cor_longi=(select cor_longi from
+      cordinates c where
+      cor_region=#{cor_region})
+      <!-- order by case when u.ts_id='0' then 1 when ABS(to_number(SUBSTR(u.u_birth,0,4))-to_number(SUBSTR(#{u_birth},0,4))) 
+         &lt; 5 then 2 when u.u_sex=#{u_sex} then 3 when u.u_lang=#{u_lang} then 4 
+         when u.u_religion=#{u_religion} then 5 when u.u_job=#{u_job} then 1 end -->
+   </select>
 
-	<select id="getTraveler" parameterType="RouteVO" resultType="AccompanyVO">
-		select tp.*, u.* from trip_plan tp, users u where tp.u_id = u.u_id and tp.u_id != #{u_id} and tp.cor_region = #{cor_region} and tp.tp_date = #{tp_date}  order by  tp_date ASC
-	</select>
+   <insert id="insertRoute" parameterType="RouteVO">
+      insert into Trip_Plan(
+      tp_num,cor_region,u_id,tp_date
+      )
+      values(
+      (select
+      max(tp_num) from trip_plan)+1,#{cor_region},#{u_id},#{tp_date}
+      <!-- '3','3','3','2017-04-15' -->
+      )
+   </insert>
 
-	<select id="getCordinates" resultType="cordinatesVO">
+   <select id="getTraveler" parameterType="RouteVO" resultType="AccompanyVO">
+      select tp.*, u.* from trip_plan tp, users u where tp.u_id = u.u_id and
+      tp.u_id != #{u_id} and tp.cor_region = #{cor_region} and tp.tp_date =
+      #{tp_date} order by tp_date ASC
+   </select>
+
+   <select id="getCordinates" resultType="cordinatesVO">
       select * from cordinates
-   	</select>
+   </select>
 
-	
-	<select id="initGroup" resultType="String">
-		select max(accomp_group_num) from ACCOMP_GROUP
-	</select>
-	
-	<insert id="registGroupZero" parameterType="GroupVO">
-		insert into ACCOMP_GROUP values(1 ,#{u_id} ,#{max_people_num} ,#{cor_region} ,#{tp_date})
-	</insert>	
 
-	<insert id="registGroup" parameterType="GroupVO">
-		insert into ACCOMP_GROUP values((select max(accomp_group_num) from ACCOMP_GROUP)+1 ,#{u_id} ,#{max_people_num} ,#{cor_region} ,#{tp_date})
-	</insert>	
-	
-	<select id="getGroupInfo1" resultType="GroupVO" parameterType="String">
-		select ag.tp_date, ag.cor_region, ag.max_people_num, ag.accomp_group_num
-		from Accomp_group ag
-		where #{u_id}=ag.u_id
-	</select>
+   <select id="initGroup" resultType="String">
+      select max(accomp_group_num)
+      from ACCOMP_GROUP
+   </select>
 
-	<select id="getCurrent" resultType="integer" parameterType="GroupVO">
-		select count(agl.u_id)
-		from Accomp_group ag, Accomp_group_list agl
-		where ag.u_id=#{u_id} and agl.accomp_group_num = #{accomp_group_num} and agl.accomp_group_num = ag.accomp_group_num
-		group by agl.accomp_group_num
-	</select> 
+   <insert id="registGroupZero" parameterType="GroupVO">
+      insert into
+      ACCOMP_GROUP values(1 ,#{u_id} ,#{max_people_num} ,#{cor_region}
+      ,#{tp_date})
+   </insert>
 
-	<select id="searchGroupList" resultType="GroupVO" parameterType="RouteVO">
-		select * from accomp_group ag
-		where max_people_num > (select count(*) from accomp_group_list agl where ag.accomp_group_num = agl.accomp_group_num)
-		and ag.TP_DATE = #{tp_date} and ag.COR_REGION = #{cor_region} and ag.u_id != #{u_id}
-	</select> 
+   <insert id="registGroup" parameterType="GroupVO">
+      insert into ACCOMP_GROUP
+      values((select max(accomp_group_num) from ACCOMP_GROUP)+1 ,#{u_id}
+      ,#{max_people_num} ,#{cor_region} ,#{tp_date})
+   </insert>
 
-	<insert id="requestGroup" parameterType="GroupVO">
-		insert into accompanyrequest values((select max(ACR_NUM) from accompanyrequest)+1, 'X', #{accomp_group_num}, #{u_id})
-	</insert>
+   <select id="getGroupInfo1" resultType="GroupVO" parameterType="String">
+      select ag.tp_date, ag.cor_region, ag.max_people_num,
+      ag.accomp_group_num
+      from Accomp_group ag
+      where #{u_id}=ag.u_id
+   </select>
 
-	<insert id="requestGroupZero" parameterType="GroupVO">
-		insert into accompanyrequest values(1, 'X', #{accomp_group_num}, #{u_id})
-	</insert>
+   <select id="getCurrent" resultType="integer" parameterType="GroupVO">
+      select count(ar.acr_ox)
+      from Accomp_group ag, Accomp_group_list agl,
+      AccompanyRequest ar
+      where ag.u_id=#{u_id} and agl.accomp_group_num = #{accomp_group_num}
+      and agl.accomp_group_num = ag.accomp_group_num
+      and ag.accomp_group_num = ar.accomp_group_num
+        and ar.u_id=agl.u_id
+      and ar.acr_ox = 'o'
+      group by
+      agl.accomp_group_num
+   </select>
 
-	<select id="getCurrentGroupRequestNum" resultType="Integer">
-		select max(ACR_NUM) from accompanyrequest
-	</select>
+   <select id="getGroupInfo2" resultType="GroupVO" parameterType="String">
+      select ag.tp_date, ag.cor_region, ag.max_people_num,
+      ag.accomp_group_num
+      from Accomp_group ag, AccompanyRequest ar
+      where
+      #{u_id}=ar.u_id and ag.accomp_group_num = ar.accomp_group_num
+   </select>
+
+   <select id="getCurrent2" resultType="integer" parameterType="GroupVO">
+      select count(ar.acr_ox)
+      from Accomp_group ag, Accomp_group_list agl,
+      AccompanyRequest ar
+      where ag.u_id=#{u_id} and agl.accomp_group_num =#{group_id}
+      and agl.accomp_group_num = ag.accomp_group_num
+      and ag.accomp_group_num = ar.accomp_group_num
+        and ar.u_id=agl.u_id
+      and ar.acr_ox = 'o'
+      group by
+      agl.accomp_group_num
+   </select>
+
+   <select id="getGroupDetailInfo" resultType="GroupVO"
+      parameterType="Integer">
+      select * from Accomp_group where
+      accomp_group_num=#{group_id}
+   </select>
+
+
+   <select id="getGuestGroupList" resultType="GroupVO"
+      parameterType="Integer">
+      select ar.u_id, AGL.ACCOMP_GROUP_NUM,ar.acr_ox,ar.acr_num from
+      Accomp_group ag,
+      Accomp_group_list agl, AccompanyRequest ar
+      where
+      agl.accomp_group_num=#{accomp_group_num}
+      and AGL.U_ID=AR.U_ID and
+      agl.accomp_list_num=ag.accomp_group_num and
+      ag.accomp_group_num=ar.accomp_group_num
+   </select>
+
+   <update id="Accom_accept">
+      update accompanyrequest set acr_ox ='o'
+      where acr_num = #{acr_num}
+   </update>
+
+   <update id="Accom_reject">
+      update accompanyrequest set acr_ox ='x'
+      where acr_num = #{acr_num}
+   </update>
+   
+   <select id="searchGroupList" resultType="GroupVO" parameterType="RouteVO">
+      select * from accomp_group ag
+      where max_people_num > (select count(*) from accomp_group_list agl where ag.accomp_group_num = agl.accomp_group_num)
+      and ag.TP_DATE = #{tp_date} and ag.COR_REGION = #{cor_region} and ag.u_id != #{u_id}
+   </select> 
+
+   <insert id="requestGroup" parameterType="GroupVO">
+      insert into accompanyrequest values((select max(ACR_NUM) from accompanyrequest)+1, 'X', #{accomp_group_num}, #{u_id})
+   </insert>
+
+   <insert id="requestGroupZero" parameterType="GroupVO">
+      insert into accompanyrequest values(1, 'X', #{accomp_group_num}, #{u_id})
+   </insert>
+
+   <select id="getCurrentGroupRequestNum" resultType="Integer">
+      select max(ACR_NUM) from accompanyrequest
+   </select>
 
 
 
