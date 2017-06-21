@@ -11,6 +11,14 @@
  --><link rel="stylesheet" href="https://www.notm.or.kr/resources/css/contents.css">
 <script type="text/javascript">
 
+function normalDeclare(num){
+	 var popupX = (window.screen.width / 2) - (200 / 2);
+	   var popupY= (window.screen.height /2) - (300 / 2);
+	    window.open('about:blank','popup_window','width=350, height=250, left='+popupX+', top='+popupY);
+	    var normalForm = 'normalDeclare'+num;
+	    var normal =document.getElementById(normalForm);
+	    normal.submit();
+	}
 
 </script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/message/magnific-popup.css"> 
@@ -18,7 +26,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/message/jquery.magnific-popup.min.js"></script>
 <script type="text/javascript">
 $(function(){
-   $('.write_message').magnificPopup({
+   $('#accompany_button').magnificPopup({
       type: 'inline',
       preloader: false,
       focus: '#name',
@@ -36,7 +44,7 @@ $(function(){
       }
    });
    
-   $('.detail_message').magnificPopup({
+   $('#carpool_button').magnificPopup({
 	      type: 'inline',
 	      preloader: false,
 	      focus: '#name',
@@ -54,6 +62,62 @@ $(function(){
 	      }
 	   });
 });
+
+$(function(){
+	   $('#normal_button').magnificPopup({
+	      type: 'inline',
+	      preloader: false,
+	      focus: '#name',
+
+	      // When elemened is focused, some mobile browsers in some cases zoom in
+	      // It looks not nice, so we disable it:
+	      callbacks: {
+	         beforeOpen: function() {
+	            if($(window).width() < 700) {
+	               this.st.focus = false;
+	            } else {
+	               this.st.focus = '#name';
+	            }
+	         }
+	      }
+	   });
+	   
+	   $('.accompanyDeclare').magnificPopup({
+		      type: 'inline',
+		      preloader: false,
+		      focus: '#name',
+
+		      // When elemened is focused, some mobile browsers in some cases zoom in
+		      // It looks not nice, so we disable it:
+		      callbacks: {
+		         beforeOpen: function() {
+		            if($(window).width() < 700) {
+		               this.st.focus = false;
+		            } else {
+		               this.st.focus = '#name';
+		            }
+		         }
+		      }
+		   });
+	});
+	
+$('.carpoolDecalre').magnificPopup({
+    type: 'inline',
+    preloader: false,
+    focus: '#name',
+
+    // When elemened is focused, some mobile browsers in some cases zoom in
+    // It looks not nice, so we disable it:
+    callbacks: {
+       beforeOpen: function() {
+          if($(window).width() < 700) {
+             this.st.focus = false;
+          } else {
+             this.st.focus = '#name';
+          }
+       }
+    }
+ });
 
 $(function(){
    $("div.close").on("click", function(){
@@ -155,6 +219,130 @@ cursor: pointer;
 
 </head>
 <body>
+<form id="normal-form" class="mfp-hide white-popup-block" style="padding-left: 500px;" method="post" action="/message/insert">
+   <fieldset style="border:0; background: white; width: 50%;">
+   <div class="close" style="float: right; margin-right: 20px; margin-top: 10px;" onclick=""></div>
+   <br><br>
+   
+   <h1 style="padding-left: 30px; font-size: 30px">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp   ▶ 일반 신고 접수 ◀</h1>
+      <ol>
+         <li>
+         <label style="font-weight: bold;">신고자 : </label>
+            <input id="name" name="u_id_sender" readonly="readonly" value="<%=session.getAttribute("login") %>" type="text" placeholder="Name" required="">
+         </li>
+		<br>
+         <li>
+         <label style="font-weight: bold;">신고할 유저 : </label>
+            <input id="email" name="u_id_recipient" type="text" placeholder="recipient ID." required="">
+         </li>
+		<br>
+         <li>
+         <label style="font-weight: bold;">카테고리를 선택하세요 : </label>
+            <select class="" name="m_category">
+               <option value="abuse">욕설</option>
+               <option value="exchange_scam">교환 사기</option>
+               <option value="calumny">비방글</option>
+            </select>
+         </li>
+		<br>
+         <li>
+         <label style="font-weight: bold;">상세한 내용을 입력해주세요 : </label>
+         <br><br>
+            <textarea id="textarea" style="width:380px; height:150px;" name="m_content"></textarea>
+         </li>
+	<br>
+         <li>
+         <label style="font-weight: bold;">신고 자료가 있다면 첨부파일을 추가 해주시기 바랍니다.</label><br><br>
+         <input type="file" value="파일 첨부"/> 
+         </li>
+      </ol>
+            <input type="submit" value="send" style="width: 130px; height: 40px; margin-left: 200px;"/>
+            <br><br>
+   </fieldset>
+
+</form>
+
+<form id="accompany-form" class="mfp-hide white-popup-block" style="padding-left: 500px;" method="post" action="/message/insert">
+   <fieldset style="border:0; background: white; width: 50%;">
+   <div class="close" style="float: right; margin-right: 20px; margin-top: 10px;" onclick=""></div>
+   <br><br>
+   <h1 style="padding-left: 30px; font-size: 30px">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp   ▶ 동행 신고 접수 ◀</h1>
+      <ol>
+         <li>
+         <label style="font-weight: bold;">신고자 : </label>
+            <input id="name" name="u_id_sender" readonly="readonly" value="<%=session.getAttribute("login") %>" type="text" placeholder="Name" required="">
+         </li>
+		<br>
+         <li>
+         <label style="font-weight: bold;">신고할 유저 : </label>
+            <input id="email" name="u_id_recipient" type="text" placeholder="recipient ID." required="">
+         </li>
+		<br>
+         <li>
+         <label style="font-weight: bold;">카테고리를 선택하세요 : </label>
+            <select class="" name="m_category">
+               <option value="">부적절한 동행글</option>
+               <option value="">동행글 도배</option>
+            </select>
+         </li>
+		<br>
+         <li>
+         <label style="font-weight: bold;">상세한 내용을 입력해주세요 : </label>
+         <br><br>
+            <textarea id="textarea" style="width:380px; height:150px;" name="m_content"></textarea>
+         </li>
+	<br>
+         <li>
+         <label style="font-weight: bold;">신고 자료가 있다면 첨부파일을 추가 해주시기 바랍니다.</label><br><br>
+         <input type="file" value="파일 첨부"/> 
+         </li>
+      </ol>
+            <input type="submit" value="send" style="width: 130px; height: 40px; margin-left: 200px;"/>
+            <br><br>
+   </fieldset>
+
+</form>
+
+<form id="carpool-form" class="mfp-hide white-popup-block" style="padding-left: 500px;" method="post" action="/message/insert">
+   <fieldset style="border:0; background: white; width: 50%;">
+   <div class="close" style="float: right; margin-right: 20px; margin-top: 10px;" onclick=""></div>
+   <br><br>
+   <h1 style="padding-left: 30px; font-size: 30px">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp   ▶ 카풀 신고 접수 ◀</h1>
+      <ol>
+         <li>
+         <label style="font-weight: bold;">신고자 : </label>
+            <input id="name" name="u_id_sender" readonly="readonly" value="<%=session.getAttribute("login") %>" type="text" placeholder="Name" required="">
+         </li>
+		<br>
+         <li>
+         <label style="font-weight: bold;">신고할 유저 : </label>
+            <input id="email" name="u_id_recipient" type="text" placeholder="recipient ID." required="">
+         </li>
+		<br>
+         <li>
+         <label style="font-weight: bold;">카테고리를 선택하세요 : </label>
+            <select class="" name="m_category">
+               <option value="">부적절한 카풀</option>
+               <option value="">카풀글 도배</option>
+            </select>
+         </li>
+		<br>
+         <li>
+         <label style="font-weight: bold;">상세한 내용을 입력해주세요 : </label>
+         <br><br>
+            <textarea id="textarea" style="width:380px; height:150px;" name="m_content"></textarea>
+         </li>
+	<br>
+         <li>
+         <label style="font-weight: bold;">신고 자료가 있다면 첨부파일을 추가 해주시기 바랍니다.</label><br><br>
+         <input type="file" value="파일 첨부"/> 
+         </li>
+      </ol>
+            <input type="submit" value="send" style="width: 130px; height: 40px; margin-left: 200px;"/>
+            <br><br>
+   </fieldset>
+
+</form>
  <div id="sub-contents">
     <div class="l-box">
       <div id="de-select">
@@ -164,7 +352,7 @@ cursor: pointer;
           <div class="select-box-s">
             <h4>일반 신고</h4>
             <p>프로동행러 이용자의 부적절한 행위를 증빙할 수 있는 자료를 첨부하시어 신고 접수하시면 도움이 됩니다.</p>
-            <button style="margin-left: 50px;">신고하기</button>
+            <button id="normal_button" style="margin-left: 50px;" href="#normal-form">신고하기</button>
           </div>
         </div><div class="select-box-l box-2" style="width: 700px; height: 500px;">
           <h3>여행신고 접수</h3>
@@ -182,7 +370,7 @@ cursor: pointer;
                 <td>빠른 동행을 목적으로 한 무단 게시글 도배</td>
               </tr>
             </table>
-            <button style="margin-left: 80px; margin-top: 20px;">신고하기</button>
+            <button id="accompany_button" style="margin-left: 80px; margin-top: 20px;" href="#accompany-form">신고하기</button>
           </div><div class="select-box-s l-margin">
             <h4>Carpool</h4>
             <table class="table-2">
@@ -195,7 +383,7 @@ cursor: pointer;
                 <td>빠른 카풀을 목적으로 한 무단 게시글 도배</td>
               </tr>
             </table>
-            <button style="margin-left: 80px; margin-top: 40px;">신고하기</button>
+            <button id="carpool_button" style="margin-left: 80px; margin-top: 40px;" href="#carpool-form">신고하기</button>
           </div>
         </div>
       </div>
