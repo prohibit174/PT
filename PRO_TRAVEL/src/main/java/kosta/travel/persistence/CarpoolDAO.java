@@ -11,6 +11,8 @@ public interface CarpoolDAO {
 	
 	public void create(CarpoolVO vo)throws Exception;
 	
+	public Integer count()throws Exception;
+	
 	public Carpool_ListVO read(Integer c_num)throws Exception;
 	
 	public void modify(CarpoolVO vo)throws Exception;
