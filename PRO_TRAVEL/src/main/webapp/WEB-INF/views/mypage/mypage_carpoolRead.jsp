@@ -9,6 +9,28 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
+<style type="text/css">
+
+  table.t1 {
+    border-collapse: collapse;
+    font-family: Arial, Helvetica, sans-serif;
+    border-color: #0072bc; 
+  }
+  .t1 th, .t1 td {
+    padding: 4px 8px;
+  }
+  .blue {
+    background: #0072bc;
+    text-transform: lowercase;
+    text-align: left;
+    font-size: 15px;
+    color: #fff;
+  }
+
+
+
+</style>
+
 <script type="text/javascript">
 function acceptLink(URL){
 	if(confirm("Would you accept it?") == true){
@@ -66,24 +88,24 @@ function removeLink(URL){
 </head>
 <body>
 <div class="wrapper">
-	<table border="1">
+	<table border="2" class="t1">
 		<tr height="30">
 			<td rowspan="2">
 			<img src="/resources/upload/${carpool_ListVO.u_img }" width="50" height="50" >
 			${carpool_ListVO.u_name }</td>
-			<td width="150"><strong>EMPTY</strong></td>
-			<td width="150"><strong>PRICE</strong></td>
+			<td width="150" class="blue"><strong>EMPTY</strong></td>
+			<td width="150" class="blue"><strong>PRICE</strong></td>
 		</tr>
 		 <tr height="30">
 			<td width="150">${carpool_ListVO.c_person }</td>
 			<td width="150">${carpool_ListVO.c_price }$</td>
 		</tr>			
 		<tr height="30">
-			<td width="150"><strong>START</strong></td>
+			<td width="150" class="blue"><strong>START</strong></td>
 			<td colspan="2">${carpool_ListVO.c_year }년${carpool_ListVO.c_month }월${carpool_ListVO.c_date }일</td>			
 		</tr>
 		<tr height="30">
-			<td width="150"><strong>COURSE</strong></td>
+			<td width="150" class="blue"><strong>COURSE</strong></td>
 			<td colspan="2">${carpool_ListVO.start_point }->${carpool_ListVO.way_point }->${carpool_ListVO.dest_point }</td>
 		</tr>
 
@@ -95,9 +117,9 @@ function removeLink(URL){
 		</tr>
 		
 		<tr height="30">
-			<td width="150"><strong>APPLICANT</strong></td>
-			<td width="150"><strong>STATUS</strong></td>			
-			<td width="150"><strong>ACCEPT</strong></td>			
+			<td width="150" class="blue"><strong>APPLICANT</strong></td>
+			<td width="150" class="blue"><strong>STATUS</strong></td>			
+			<td width="150" class="blue"><strong>ACCEPT</strong></td>			
 		</tr>
 		
 		
