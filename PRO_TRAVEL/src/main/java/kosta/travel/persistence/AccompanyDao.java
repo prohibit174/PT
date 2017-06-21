@@ -114,6 +114,17 @@ public class AccompanyDao {
 			session.insert(namespace + ".requestGroup", groupvo);
 			}
 }
+
+		public void remove_accom_group(int accomp_group_num) {
+			System.out.println("accompgorup num :"+accomp_group_num );
+			session.delete(namespace+".remove_accomp_group", accomp_group_num);			
+			session.delete(namespace+".remove_accomp_group_list", accomp_group_num);
+			session.delete(namespace+".remove_accompanyRequest", accomp_group_num);
+		}
+
+		public void mypage_accomp_edit_post(GroupVO newGroupVO) {
+				session.update(namespace+".mypage_accomp_edit_post", newGroupVO);
+		}
 		
 		
 }

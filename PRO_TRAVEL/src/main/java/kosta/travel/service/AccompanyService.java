@@ -164,8 +164,6 @@ public class AccompanyService {
 	   public List<GroupVO> getGroupInfo1(String u_id) {
 			//get (DATE	CITY	current	  ___  Detail) from Accomp_group table
 			List<GroupVO> getGroupInfo1 = dao.getGroupInfo1(u_id);
-			System.out.println("group no : "+getGroupInfo1.get(0).getAccomp_group_num());
-			System.out.println("group no : "+getGroupInfo1.get(1).getAccomp_group_num());
 			/*		for(int i=0;i<getGroupInfo1.size();i++)
 			{
 				getGroupInfo1.get(i).setTp_date(getGroupInfo1.get(i).getTp_date().substring(0, 10));
@@ -297,6 +295,14 @@ public class AccompanyService {
 	   public void requestGroup(GroupVO groupvo){
 		   dao.requestGroup(groupvo);
 	   }
+
+	public void remove_accom_group(int accomp_group_num) {
+		 dao.remove_accom_group(accomp_group_num);		
+	}
+
+	public void mypage_accomp_edit_post(GroupVO newGroupVO) {
+		 dao.mypage_accomp_edit_post(newGroupVO);
+	}
 	   
 	   
 }
