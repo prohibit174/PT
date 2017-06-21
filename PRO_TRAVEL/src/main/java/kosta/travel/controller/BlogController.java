@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import kosta.travel.domain.BlogPostVO;
 import kosta.travel.domain.BlogVO;
 import kosta.travel.service.BlogService;
 
@@ -114,6 +115,53 @@ public class BlogController {
       logger.info(blog.toString());
       model.addAttribute("blog", blog);
    }
+   
+   
+   @RequestMapping(value = "/blogpost", method = RequestMethod.GET)
+   public void blogpost_get() throws Exception {
+
+   }
+
+   
+   @RequestMapping(value = "/blogpost", method = RequestMethod.POST)
+   public String blogpost_post(Model model, BlogPostVO blogpost, RedirectAttributes rttr) throws Exception {
+      System.out.println("controller in");
+      logger.info("originalName: " + blogpost.getFile3().getOriginalFilename());
+
+      String savedName = UploadFile(blogpost.getFile3().getOriginalFilename(), blogpost.getFile3().getBytes());
+
+      blogpost.setBp_img(savedName);
+
+      /* logger.info(blog.toString()); */
+      service.postingBlog(blogpost);
+
+      rttr.addFlashAttribute("msg", "SUCCESS");
+      try {
+
+         String pattern = savedName.substring(savedName.lastIndexOf(".") + 1);
+         String headName = savedName.substring(0, savedName.lastIndexOf("."));
+
+         File originalFileNm = new File(uploadPath + "\\" + savedName);
+         File thumbnailFileNm = new File(uploadPath + "\\" + headName + "_small." + pattern);
+
+         int width = 130;
+         int height = 200;
+
+         BufferedImage originalImg = ImageIO.read(originalFileNm);
+         BufferedImage thumbnailImg = new BufferedImage(width, height, BufferedImage.TYPE_3BYTE_BGR);
+
+         Graphics2D g = thumbnailImg.createGraphics();
+         g.drawImage(originalImg, 0, 0, width, height, null);
+
+         ImageIO.write(thumbnailImg, pattern, thumbnailFileNm);
+      } catch (Exception e) {
+         e.printStackTrace();
+      }
+
+      return "redirect:/blog/blogMain";
+   }
+
+ 
    
    
 }
