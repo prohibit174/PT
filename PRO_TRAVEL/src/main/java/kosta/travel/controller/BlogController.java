@@ -131,13 +131,15 @@ public class BlogController {
    }
    
    
-   @RequestMapping(value = "/blogpost", method = RequestMethod.GET)
+   
+   @RequestMapping(value = "/blogPost", method = RequestMethod.GET)
    public void blogpost_get() throws Exception {
-
+	   
+	   
    }
 
-   
-   @RequestMapping(value = "/blogpost", method = RequestMethod.POST)
+  
+   @RequestMapping(value = "/blogPost", method = RequestMethod.POST)
    public String blogpost_post(Model model, BlogPostVO blogpost, RedirectAttributes rttr) throws Exception {
       System.out.println("controller in");
       logger.info("originalName: " + blogpost.getFile3().getOriginalFilename());
