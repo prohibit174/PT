@@ -3,7 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>    
 <%@ include file="/WEB-INF/views/include/header.jsp" %>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,12 +10,22 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/message/jquery.magnific-popup.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/message/jquery.magnific-popup.min.js"></script>
 <script type="text/javascript">
+function detailForm(num){
+	 var popupX = (window.screen.width / 2) - (200 / 2);
+	   var popupY= (window.screen.height /2) - (300 / 2);
+	    window.open('about:blank','popup_window','width=350, height=250, left='+popupX+', top='+popupY);
+	    var wantForm = 'detailForm'+num;
+	    var frm =document.getElementById(wantForm);
+	    frm.submit();
+	}
+	
 $(function(){
+	
    $('.write_message').magnificPopup({
       type: 'inline',
       preloader: false,
       focus: '#name',
-
+	
       // When elemened is focused, some mobile browsers in some cases zoom in
       // It looks not nice, so we disable it:
       callbacks: {
@@ -30,11 +39,11 @@ $(function(){
       }
    });
    
-   $('.detail_message').magnificPopup({
+   $('#write_message').magnificPopup({
 	      type: 'inline',
 	      preloader: false,
 	      focus: '#name',
-
+		
 	      // When elemened is focused, some mobile browsers in some cases zoom in
 	      // It looks not nice, so we disable it:
 	      callbacks: {
@@ -47,6 +56,43 @@ $(function(){
 	         }
 	      }
 	   });
+   
+/*    $('.detail_message').magnificPopup({
+	   type: 'inline',
+	      preloader: false,
+	      focus: '#name',
+	      callbacks: {
+	         beforeOpen: function() {
+	            if($(window).width() < 700) {
+	               this.st.focus = false;
+	            } else {
+	               this.st.focus = '#name';
+	            }
+	         }
+	      }
+	   }); */
+	   
+	  /*  $('.detail_message').on('click', function(){
+		   alert(send);
+	   }); */
+	   var send = $('#m_num').val();
+    $('.detail_message').magnificPopup({
+	   type: 'inline',
+	   preloader: false,
+	   focus: '#name',
+	   callbacks : {
+	        open : function(){
+	           $.ajax({
+	              type: "post",
+	              data: send,
+	              success: function(data) {
+	                location.href = "test.jsp";
+	                console.log(data)
+	              }  
+	           });
+	        }
+	      }
+	   }); 
 });
 
 $(function(){
@@ -183,7 +229,7 @@ cursor: pointer;
    </fieldset>
       <input type="submit" value="send"/>
 </form>
-<form id="#test-form2" class="mfp-hide white-popup-block" style="padding-left: 430px;">
+<form id="test-form2" class="mfp-hide white-popup-block" style="padding-left: 430px;" method="get" action="/message/detail_message">
    <fieldset style="border:0; background: white; width: 50%;">
    <div class="close" style="float: right; margin-right: 20px; margin-top: 10px;" onclick=""></div>
    <br><br>
@@ -191,22 +237,22 @@ cursor: pointer;
       <ol>
          <li>
          <label style="font-weight: bold;">Sender : </label>
-            <label id="name" name="u_id_sender" readonly="readonly" value="${listMessage.u_id_sender}" type="text" placeholder="Name" required=""></label>
+            <input id="name" name="u_id_sender2" readonly="readonly" value="" type="text" placeholder="Name" required="">
          </li>
 
          <li>
          <label style="font-weight: bold;">Recipient : </label>
-            <input id="email" name="u_id_recipient" type="text" value="${listMessage.u_id_recipient}" placeholder="recipient ID." required="">
-         </li> 
+            <input id="email" name="u_id_recipient" type="text" value="<%=session.getAttribute("login") %>" placeholder="" required="">
+         </li>
 
          <li>
          <label style="font-weight: bold;">Category : </label>
-         	<label name="m_category">${listMessage.m_category}</label>
+           <label>${vo.m_category}</label>
          </li>
 
          <li>
          <label style="font-weight: bold;">Content : </label>
-            <textarea id="textarea" style="width:350px; height:150px;" name="m_content">${listMessage.m_content}</textarea>
+            <textarea id="textarea" style="width:350px; height:150px;" name="m_content" value="${vo.m_content }"></textarea>
          </li>
 
       </ol>
@@ -252,20 +298,27 @@ cursor: pointer;
         <ul class="events-list">
         <c:forEach items="${list}" var="listMessage">
           <li>
+        
+         <form id="detailForm${listMessage.m_num}" name="detailForm${listMessage.m_num }" method="post" action="/message/detail_message?m_num=${listMessage.m_num}" target="popup_window">
           <div>
-              <a href="/ajaxscript/geticscalendar/{E1E90A75-7711-4192-94E2-B5E31358DAC7}" class="btn-calendar">답장 하기</a>
+              <a href="#test-form" class="btn-calendar" id="write_message">답장 하기</a>
               <label style="float: right; padding-top: 5px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp쪽지 상태 &nbsp&nbsp <h3 class="checked" style="padding-top: 10px;"></h3></label>
               <label style="float: right; padding-top: 5px;">쪽지 분류 :  <input value="${listMessage.m_category }"></label>
               <span class="country"></span>
          </div>
               <h3>
-                  <a href="/message/detail_message?m_num=${listMessage.m_num }" class="" >
+              <a class="detail_message" href="#test-form2">
+              <label id="m_num" value="">${listMessage.m_num } </label></a>
+
                       보낸 사람 : ${listMessage.u_id_sender }
-                  </a>
+				
               </h3>
               <br>
               <span class="time"><span content="6/23/2017 12:00:00 AM">${listMessage.m_content }</span></span>
+        <input type="button" value="수정" onclick="detailForm(${listMessage.m_num});">
+         </form>
           </li>
+
     </c:forEach>
         </ul>
         <div class="paging"><ul>

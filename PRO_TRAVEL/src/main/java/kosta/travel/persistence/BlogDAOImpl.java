@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import kosta.travel.domain.BlogPostVO;
 import kosta.travel.domain.BlogVO;
 
 @Repository
@@ -31,6 +32,11 @@ public class BlogDAOImpl implements BlogDAO {
 	@Override
 	public BlogVO detailBlog(String u_id) throws Exception {
 		return session.selectOne(namespace+".detailBlog", u_id);
+	}
+
+	@Override
+	public int postingBlog(BlogPostVO blogpost) throws Exception {
+		return session.insert(namespace+".postingBlog", blogpost);
 	}
 	
 	

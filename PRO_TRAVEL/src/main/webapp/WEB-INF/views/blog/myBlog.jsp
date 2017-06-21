@@ -156,9 +156,10 @@
 						<li><span class='st_twitter_large'></span></li>
 					</ul> -->
 				</div>
-
 				<div class="text-block">
 					<h1>Try Your First Blog Posting</h1>
+					 <h2 style="font-size:20px"><a href="/myblog/post">post</a></h2>
+					
 					<span style="font-family: Arial; font-size: 13px;"> <!-- <p>
 							<strong>&nbsp;<img alt="" height="44" width="45"
 								src="https://stillmed.olympic.org/media/Images/Museum/General/Opening_Hours_icon.jpg" />OPENING

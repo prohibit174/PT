@@ -66,13 +66,41 @@ public class AccompanyDao {
 	   
 	   public List<GroupVO> getGroupInfo1(String u_id) {
 			// TODO Auto-generated method stub
-			System.out.println("u_id : "+u_id); 
 			return session.selectList(namespace + ".getGroupInfo1", u_id);
 		}
 
 		public int getCurrent(GroupVO groupVO) {
 			// TODO Auto-generated method stub
 			return session.selectOne(namespace + ".getCurrent", groupVO);
+		}
+
+		public List<GroupVO> getGroupInfo2(String u_id) {
+			System.out.println("u_id : "+u_id); 
+			return session.selectList(namespace + ".getGroupInfo2", u_id);
+		}
+
+		public int getCurrent2(GroupVO groupVO2) {
+			return session.selectOne(namespace + ".getCurrent2", groupVO2);
+		}
+
+
+		public GroupVO getGroupDetailInfo(int group_id) {
+			return session.selectOne(namespace + ".getGroupDetailInfo", group_id);
+
+		}
+
+		public List<GroupVO> getGuestGroupList(int group_id) {
+			return session.selectList(namespace + ".getGuestGroupList", group_id);
+		}
+
+		public void Accom_accept(int acr_num) {
+			session.insert(namespace+".Accom_accept", acr_num);			
+		}
+
+		public void Accom_reject(int acr_num) {
+			// TODO Auto-generated method stub
+			session.insert(namespace+".Accom_reject", acr_num);			
+
 		}
 		
 		public List<GroupVO> searchGroupList(RouteVO route) {

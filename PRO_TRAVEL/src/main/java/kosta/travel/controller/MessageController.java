@@ -44,20 +44,23 @@ public class MessageController {
 	}
 	
 	@RequestMapping(value = "/detail_message", method = RequestMethod.GET)
-	public String detailGET(Model model,int m_num) throws Exception{
+	public String detailGET(Model model,@RequestParam("m_num")int m_num) throws Exception{
 		System.out.println("detail_message get method call");
 		MessageVO vo = service.detail_message(m_num);
 		System.out.println(vo.getM_num());
 		
 		model.addAttribute("vo", vo);
-		return "/message/detail_message";
+		return "/message/m_main";
 	}
 	
 	@RequestMapping(value = "/detail_message", method = RequestMethod.POST)
-	public String detailPOST() {
+	public String detailPOST(Model model,@RequestParam("m_num")int m_num)throws Exception {
 		System.out.println("detail_message post method call");
+		MessageVO vo = service.detail_message(m_num);
+		System.out.println(vo.toString());
 		
-		return "/message/m_main";
+		model.addAttribute("vo", vo);
+		return "/message/detail_message";
 	}
 
 	@RequestMapping(value="/insert", method=RequestMethod.POST)

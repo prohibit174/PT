@@ -22,5 +22,17 @@
 		where u_id=#{u_id}
 	
 	</select>
+	
+	
+	<insert id="postingBlog">
+			insert into blogpost(
+			bp_postnum, u_id, bp_contents, bp_date, bp_img)
+			values(
+			postnum_seq.nextval, #{u_id},#{bp_contents},sysdate,#{bp_img}
+			)
+			
+			)
+	
+	</insert>
 
 </mapper>
