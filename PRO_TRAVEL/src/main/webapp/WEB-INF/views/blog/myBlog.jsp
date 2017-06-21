@@ -1,4 +1,4 @@
-<%-- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
@@ -193,7 +193,7 @@
 												</c:otherwise>
 											</c:choose>
 										</c:if> 
-									 <img srcset="${blogpost.bp_img}"></picture>
+									 <%-- <img srcset="${blogpost.bp_img}"></picture> --%>
 								
 									 <p> ${blogpost.bp_contents }</p>
 									 </picture>
@@ -618,7 +618,7 @@
 		</div>
 	</div>
 	<script type="text/html" id="popup_slide">
-            <div class="ajax-popup-holder">
+            <%-- <div class="ajax-popup-holder">
                 <% for (var i = 0, arr = arguments[0]; i < arr.length; i++) { %>
                 <picture class="img imgage1">
                     <!--[if IE 9]><video style="display: none;"><![endif]-->
@@ -646,9 +646,9 @@
                 <a href="<%=arr[i].nextLink%>" class="next-picture"><i class="icon-arrow-right"></i><span class="hidden">next video</span></a>
                 <% } %>
                 <% } %>
-            </div>
+            </div> --%>
         </script>
 
 
 </body>
-</html> --%>
+</html>

@@ -29,6 +29,11 @@ public class CarpoolDAOImpl implements CarpoolDAO {
 	}
 
 	@Override
+	public Integer count() throws Exception {
+		return session.selectOne(namespace+".count");	
+	}
+	
+	@Override
 	public Carpool_ListVO read(Integer c_num) throws Exception {
 		return session.selectOne(namespace+".read", c_num);
 	}
@@ -134,6 +139,8 @@ public class CarpoolDAOImpl implements CarpoolDAO {
 	public List<Carpool_ListVO> recommendList() throws Exception {
 		return session.selectList(namespace+".recommendList");
 	}
+
+
 
 
 
