@@ -9,6 +9,7 @@ import java.util.UUID;
 import javax.annotation.Resource;
 import javax.imageio.ImageIO;
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 import javax.websocket.server.PathParam;
 
 import org.slf4j.Logger;
@@ -99,12 +100,25 @@ public class BlogController {
    }
 
    @RequestMapping(value = "/myBlog", method = RequestMethod.GET)
-   public void myBlog(@RequestParam("u_id") String u_id, Model model) throws Exception {
+   public String myBlog(@RequestParam("u_id") String u_id, Model model, HttpSession session) throws Exception {
 
+	   System.out.println(u_id);
+	  System.out.println((String)session.getAttribute("login")); 
+	
+	   String userId = (String)session.getAttribute("login");
+	   
+	   if(userId.equals(u_id)){
+		   u_id=userId;
+		   System.out.println("myblog controller"+u_id);
+		   return u_id;
+	   }
+	   
       BlogVO blog = service.detailBlog(u_id);
 
       logger.info(blog.toString());
       model.addAttribute("blog", blog);
+      
+	return "/myBlog";
    }
    
    @RequestMapping(value = "/showBlog", method = RequestMethod.GET)
@@ -117,13 +131,15 @@ public class BlogController {
    }
    
    
-   @RequestMapping(value = "/blogpost", method = RequestMethod.GET)
+   
+   @RequestMapping(value = "/blogPost", method = RequestMethod.GET)
    public void blogpost_get() throws Exception {
-
+	   
+	   
    }
 
-   
-   @RequestMapping(value = "/blogpost", method = RequestMethod.POST)
+  
+   @RequestMapping(value = "/blogPost", method = RequestMethod.POST)
    public String blogpost_post(Model model, BlogPostVO blogpost, RedirectAttributes rttr) throws Exception {
       System.out.println("controller in");
       logger.info("originalName: " + blogpost.getFile3().getOriginalFilename());

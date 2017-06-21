@@ -45,4 +45,10 @@ public class MessageDAOImpl implements MessageDAO {
 		return session.selectOne(namespace + ".noRead_message",u_id_recipient);
 	}
 
+	@Override
+	public void message_update(int m_num) throws Exception {
+		session.update(namespace+".update_message", m_num);
+		
+	}
+
 }
