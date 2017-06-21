@@ -76,7 +76,7 @@
 
 	<div id="wrapper">
 
-		<header id="header" role="banner">
+		<header id="header" role="banner" style="background-color:#FAF1C2;">
 
 			<div class="container">
 				<div class="logo">
@@ -85,7 +85,7 @@
 					</a> <span class="hidden">Blog</span>
 				</div>
 				<div class="nav-holder"
-					style="text-align: center; margin: 0px; padding: 0px;">
+					style="text-align: center; margin: 0px; padding: 0px; ">
 					<h1>${blog.b_title}</h1>
 
 					<div class="nav-slider">
@@ -158,7 +158,7 @@
 				</div>
 				<div class="text-block">
 					<h1>Try Your First Blog Posting</h1>
-					 <h2 style="font-size:20px"><a href="/myblog/post">post</a></h2>
+					 <h2 style="font-size:20px"><a href="/blog/blogPost">post</a></h2>
 					
 					<span style="font-family: Arial; font-size: 13px;"> <!-- <p>
 							<strong>&nbsp;<img alt="" height="44" width="45"

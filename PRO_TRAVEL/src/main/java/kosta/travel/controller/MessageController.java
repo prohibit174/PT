@@ -1,11 +1,10 @@
 package kosta.travel.controller;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.forwardedUrl;
+
 
 import java.util.List;
 
 import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -49,9 +48,13 @@ public class MessageController {
 		MessageVO vo = service.detail_message(m_num);
 		System.out.println(vo.getM_num());
 		
+		
+		
 		model.addAttribute("vo", vo);
 		return "/message/m_main";
 	}
+	
+	
 	
 	@RequestMapping(value = "/detail_message", method = RequestMethod.POST)
 	public String detailPOST(Model model,@RequestParam("m_num")int m_num)throws Exception {
@@ -59,8 +62,42 @@ public class MessageController {
 		MessageVO vo = service.detail_message(m_num);
 		System.out.println(vo.toString());
 		
+		service.message_update(m_num);
+		
 		model.addAttribute("vo", vo);
 		return "/message/detail_message";
+	}
+	
+	@RequestMapping(value = "/detail_message2", method = RequestMethod.POST)
+	public String detailPOST2(Model model,@RequestParam("m_num")int m_num)throws Exception {
+		System.out.println("detail_message post method call");
+		MessageVO vo = service.detail_message(m_num);
+		System.out.println(vo.toString());
+		
+		//service.message_update(m_num);
+		
+		model.addAttribute("vo", vo);
+		return "/message/detail_message";
+	}
+	
+	@RequestMapping(value = "/received_message", method = RequestMethod.GET)
+	public String received_message(Model model,String u_id)throws Exception {
+		System.out.println("received_message get method call");
+		
+		List<MessageVO> list = service.list_received(u_id);
+		
+		model.addAttribute("list", list);
+		return "/message/m_main";
+	}
+	
+	@RequestMapping(value = "/send_message", method = RequestMethod.GET)
+	public String send_message(Model model,String u_id)throws Exception {
+		System.out.println("send_message get method call");
+		
+		List<MessageVO> list1 = service.list_send(u_id);
+		
+		model.addAttribute("list1", list1);
+		return "/message/m_main";
 	}
 
 	@RequestMapping(value="/insert", method=RequestMethod.POST)

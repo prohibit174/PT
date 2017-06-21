@@ -73,9 +73,4 @@ public class HomeController {
 		System.out.println(start);
 		response.getWriter().print(start);
 	}	
-	
-	@RequestMapping(value="/declaration", method=RequestMethod.GET)
-	public String declare(){
-		return "declaration/declare_main";
-	}
 }

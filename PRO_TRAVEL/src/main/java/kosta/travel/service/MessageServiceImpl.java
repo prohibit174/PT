@@ -3,6 +3,7 @@ package kosta.travel.service;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Service;
 
@@ -39,6 +40,22 @@ public class MessageServiceImpl implements MessageService {
 	@Override
 	public Integer noRead_message(String u_id_recipient) throws Exception {
 		return dao.noRead_message(u_id_recipient);
+	}
+
+	@Override
+	public void message_update(int m_num) throws Exception {
+		dao.message_update(m_num);
+		
+	}
+
+	@Override
+	public List<MessageVO> list_received(String u_id) throws Exception {
+		return dao.list_received(u_id);
+	}
+
+	@Override
+	public List<MessageVO> list_send(String u_id) throws Exception {
+		return dao.list_send(u_id);
 	}
 
 }

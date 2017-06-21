@@ -124,6 +124,15 @@ $(function(){
       $.magnificPopup.close();
    });
 });
+
+$(function(){
+	$("#receipt").on("click", function(){
+		if($("#d_reported").val() != "" & $(".d_small").val() != "" & $("#d_content").val() != "")	{
+			alert("성공적으로 접수 되었습니다.");
+			alert("관리자가 확인 후 결과를 쪽지로 발송해드리겠습니다.");
+		}
+	});
+});
 </script>
 <style type="text/css">
 button{
@@ -219,7 +228,7 @@ cursor: pointer;
 
 </head>
 <body>
-<form id="normal-form" class="mfp-hide white-popup-block" style="padding-left: 500px;" method="post" action="/message/insert">
+<form id="normal-form" class="mfp-hide white-popup-block" style="padding-left: 500px;" method="post" action="/declare/normal">
    <fieldset style="border:0; background: white; width: 50%;">
    <div class="close" style="float: right; margin-right: 20px; margin-top: 10px;" onclick=""></div>
    <br><br>
@@ -228,17 +237,18 @@ cursor: pointer;
       <ol>
          <li>
          <label style="font-weight: bold;">신고자 : </label>
-            <input id="name" name="u_id_sender" readonly="readonly" value="<%=session.getAttribute("login") %>" type="text" placeholder="Name" required="">
+            <input id="u_id" name="u_id" readonly="readonly" value="<%=session.getAttribute("login") %>" type="text" placeholder="Name" required="">
          </li>
 		<br>
          <li>
          <label style="font-weight: bold;">신고할 유저 : </label>
-            <input id="email" name="u_id_recipient" type="text" placeholder="recipient ID." required="">
+            <input id="d_reported" name="d_reported" type="text" placeholder="recipient ID." required="">
          </li>
 		<br>
          <li>
          <label style="font-weight: bold;">카테고리를 선택하세요 : </label>
-            <select class="" name="m_category">
+            <select class="d_small" name="d_small" required="">
+               <option value=""></option>
                <option value="abuse">욕설</option>
                <option value="exchange_scam">교환 사기</option>
                <option value="calumny">비방글</option>
@@ -248,21 +258,21 @@ cursor: pointer;
          <li>
          <label style="font-weight: bold;">상세한 내용을 입력해주세요 : </label>
          <br><br>
-            <textarea id="textarea" style="width:380px; height:150px;" name="m_content"></textarea>
+            <textarea id="d_content" style="width:380px; height:150px;" name="d_content" required=""></textarea>
          </li>
 	<br>
          <li>
          <label style="font-weight: bold;">신고 자료가 있다면 첨부파일을 추가 해주시기 바랍니다.</label><br><br>
-         <input type="file" value="파일 첨부"/> 
+         <input type="file" value="파일 첨부" name="d_file" /> 
          </li>
       </ol>
-            <input type="submit" value="send" style="width: 130px; height: 40px; margin-left: 200px;"/>
+            <input type="submit" value="접수" id="receipt" style="width: 130px; height: 40px; margin-left: 180px;"/>
             <br><br>
    </fieldset>
 
 </form>
 
-<form id="accompany-form" class="mfp-hide white-popup-block" style="padding-left: 500px;" method="post" action="/message/insert">
+<form id="accompany-form" class="mfp-hide white-popup-block" style="padding-left: 500px;" method="post" action="/declare/accompany">
    <fieldset style="border:0; background: white; width: 50%;">
    <div class="close" style="float: right; margin-right: 20px; margin-top: 10px;" onclick=""></div>
    <br><br>
@@ -270,40 +280,41 @@ cursor: pointer;
       <ol>
          <li>
          <label style="font-weight: bold;">신고자 : </label>
-            <input id="name" name="u_id_sender" readonly="readonly" value="<%=session.getAttribute("login") %>" type="text" placeholder="Name" required="">
+            <input id="u_id" name="u_id" readonly="readonly" value="<%=session.getAttribute("login") %>" type="text" placeholder="Name" required="">
          </li>
 		<br>
          <li>
          <label style="font-weight: bold;">신고할 유저 : </label>
-            <input id="email" name="u_id_recipient" type="text" placeholder="recipient ID." required="">
+            <input id="d_reported" name="d_reported" type="text" placeholder="recipient ID." required="">
          </li>
 		<br>
          <li>
          <label style="font-weight: bold;">카테고리를 선택하세요 : </label>
-            <select class="" name="m_category">
-               <option value="">부적절한 동행글</option>
-               <option value="">동행글 도배</option>
+            <select class="d_small" name="d_small">
+               <option value=""></option>
+               <option value="inappropriateness">부적절한 동행글</option>
+               <option value="papering">동행글 도배</option>
             </select>
          </li>
 		<br>
          <li>
          <label style="font-weight: bold;">상세한 내용을 입력해주세요 : </label>
          <br><br>
-            <textarea id="textarea" style="width:380px; height:150px;" name="m_content"></textarea>
+            <textarea id="d_content" style="width:380px; height:150px;" name="d_content"></textarea>
          </li>
 	<br>
          <li>
          <label style="font-weight: bold;">신고 자료가 있다면 첨부파일을 추가 해주시기 바랍니다.</label><br><br>
-         <input type="file" value="파일 첨부"/> 
+         <input type="file" value="파일 첨부" name="d_file"/> 
          </li>
       </ol>
-            <input type="submit" value="send" style="width: 130px; height: 40px; margin-left: 200px;"/>
+            <input type="submit" value="send" style="width: 130px; height: 40px; margin-left: 200px;" id="receipt"/>
             <br><br>
    </fieldset>
 
 </form>
 
-<form id="carpool-form" class="mfp-hide white-popup-block" style="padding-left: 500px;" method="post" action="/message/insert">
+<form id="carpool-form" class="mfp-hide white-popup-block" style="padding-left: 500px;" method="post" action="/declare/carpool">
    <fieldset style="border:0; background: white; width: 50%;">
    <div class="close" style="float: right; margin-right: 20px; margin-top: 10px;" onclick=""></div>
    <br><br>
@@ -311,34 +322,35 @@ cursor: pointer;
       <ol>
          <li>
          <label style="font-weight: bold;">신고자 : </label>
-            <input id="name" name="u_id_sender" readonly="readonly" value="<%=session.getAttribute("login") %>" type="text" placeholder="Name" required="">
+            <input id="u_id" name="u_id" readonly="readonly" value="<%=session.getAttribute("login") %>" type="text" placeholder="Name" required="">
          </li>
 		<br>
          <li>
          <label style="font-weight: bold;">신고할 유저 : </label>
-            <input id="email" name="u_id_recipient" type="text" placeholder="recipient ID." required="">
+            <input id="d_reported" name="d_reported" type="text" placeholder="recipient ID." required="">
          </li>
 		<br>
          <li>
          <label style="font-weight: bold;">카테고리를 선택하세요 : </label>
-            <select class="" name="m_category">
-               <option value="">부적절한 카풀</option>
-               <option value="">카풀글 도배</option>
+            <select class="d_small" name="d_small"  required="">
+               <option value=""></option>
+               <option value="inappropriateness">부적절한 카풀</option>
+               <option value="papering">카풀글 도배</option>
             </select>
          </li>
 		<br>
          <li>
          <label style="font-weight: bold;">상세한 내용을 입력해주세요 : </label>
          <br><br>
-            <textarea id="textarea" style="width:380px; height:150px;" name="m_content"></textarea>
+            <textarea id="d_content" style="width:380px; height:150px;" name="d_content"  required=""></textarea>
          </li>
 	<br>
          <li>
          <label style="font-weight: bold;">신고 자료가 있다면 첨부파일을 추가 해주시기 바랍니다.</label><br><br>
-         <input type="file" value="파일 첨부"/> 
+         <input type="file" value="파일 첨부" name="d_file"/> 
          </li>
       </ol>
-            <input type="submit" value="send" style="width: 130px; height: 40px; margin-left: 200px;"/>
+            <input type="submit" value="send" style="width: 130px; height: 40px; margin-left: 200px;" id="receipt"/>
             <br><br>
    </fieldset>
 
