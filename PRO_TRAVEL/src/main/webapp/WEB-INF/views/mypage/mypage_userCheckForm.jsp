@@ -164,10 +164,11 @@
 										 <tr>
 											<td class="label"><label for="u_img">프로필 사진</label></td>
 											<td class="value">
-										
+									
+									<picture class="picture">	
 									 <c:set var="file" value="${user.u_img }"/>
 									 <img src="/resources/upload/${file }" > 
-									  
+									  </picture>
 <!-- 									<span class="mask"></span> 엿같은 mask... 주겨버립시다
  -->									</td>
 										</tr> 

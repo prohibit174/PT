@@ -12,35 +12,41 @@ import kosta.travel.persistence.BlogDAO;
 
 @Service
 public class BlogServiceImpl implements BlogService {
+   
+   @Inject
+   public BlogDAO dao;
+
+   @Override
+   public List<BlogVO> blogList() throws Exception {
+      return dao.blogList();
+   }
+
+   @Override
+   public void insertBlog(BlogVO blog) throws Exception {
+      dao.insertBlog(blog);
+      
+   }
+
+   @Override
+   public BlogVO detailBlog(String u_id) throws Exception {
+      return dao.detailBlog(u_id);
+   }
+
+   @Override
+   public void postingBlog(BlogPostVO blogpost) throws Exception {
+      dao.postingBlog(blogpost);
+      
+   }
+
+   @Override
+   public List<BlogPostVO> postBlogList(String u_id) throws Exception {
+      return dao.postBlogList(u_id);
+   }
+
+@Override
+public void updateBlog(BlogPostVO blogPost) throws Exception {
+	dao.updateBlog(blogPost);
 	
-	@Inject
-	public BlogDAO dao;
-
-	@Override
-	public List<BlogVO> blogList() throws Exception {
-		return dao.blogList();
-	}
-
-	@Override
-	public void insertBlog(BlogVO blog) throws Exception {
-		dao.insertBlog(blog);
-		
-	}
-
-	@Override
-	public BlogVO detailBlog(String u_id) throws Exception {
-		return dao.detailBlog(u_id);
-	}
-
-	@Override
-	public void postingBlog(BlogPostVO blogpost) throws Exception {
-		dao.postingBlog(blogpost);
-		
-	}
-
-	@Override
-	public List<BlogPostVO> postBlogList() throws Exception {
-		return dao.postBlogList();
-	}
+}
 
 }

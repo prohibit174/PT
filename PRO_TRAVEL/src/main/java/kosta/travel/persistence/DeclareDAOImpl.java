@@ -1,5 +1,7 @@
 package kosta.travel.persistence;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -23,6 +25,11 @@ public class DeclareDAOImpl implements DeclareDAO {
 	@Override
 	public Integer d_maxNum() throws Exception {
 		return session.selectOne(namespace + ".d_maxNum");
+	}
+
+	@Override
+	public List<DeclareVO> declare_list() throws Exception {
+		return session.selectList(namespace + ".declare_list");
 	}
 
 }
