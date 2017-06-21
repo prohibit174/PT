@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -18,10 +22,7 @@
 	<div class="holder" style="height: 650px;">
 		<h1>Writing on your blog</h1>
 		<div class="tab-gallery">
-			<!-- <ul class="tabset">
-				<li class="active"><a href="#">By Games</a></li>
-				<li><a href="#">By Sports</a></li>
-			</ul> -->
+			
 
 			<div class="tab-content">
 				<div class="tab-slider">
@@ -31,37 +32,28 @@
 						<form id="results-form" action="/blog/updateBlog" class="results-form"
 							method="post" enctype="multipart/form-data">
 							
-							<td class="value"><input type="hidden" name="u_id" id="u_id"
-								value="${id}" /> &nbsp; <span class="mandatory"></span>
+							<td class="value"><input type="text" name="bp_postnum" id="bp_postnum"
+								value="${bp_postnum}" /> &nbsp; <span class="mandatory"></span>
 								<ul class="errorField"></ul>
 							</td>  
 							
 							<div class="row">
 								<textarea rows="20" cols="68" name="bp_contents"
-								id="bp_contents"></textarea>
+								id="bp_contents" value="${blogPost.bp_postnum }"></textarea>
 							</div>
 							 
 							<td class="value"><input type="file" name="file3" id="bp_img"
-								value="" /> &nbsp; <span class="mandatory"></span>
+								value="${blogPost.bp_img }" /> &nbsp; <span class="mandatory"></span>
 								<ul class="errorField"></ul>
 							</td> 
 						
 								
 						
 							<div class="row">
-								<input type="submit" value="Post" />
+								<input type="submit" value="Modify" />
 							</div>
 							
-								
-							<!-- <td class="value"><input type="hidden" name="bp_date" id="bp_date"
-								value="" /> &nbsp; <span class="mandatory"></span>
-								<ul class="errorField"></ul>
-							</td> 
 							
-							<td class="value"><input type="hidden" name="u_id" id="u_id"
-								value="" /> &nbsp; <span class="mandatory"></span>
-								<ul class="errorField"></ul>
-							</td>  -->
 
 						</form>
 					</div>
