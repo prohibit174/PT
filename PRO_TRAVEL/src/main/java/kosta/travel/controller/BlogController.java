@@ -100,25 +100,15 @@ public class BlogController {
    }
 
    @RequestMapping(value = "/myBlog", method = RequestMethod.GET)
-   public String myBlog(@RequestParam("u_id") String u_id, Model model, HttpSession session) throws Exception {
+   public String myBlog(@RequestParam("u_id") String u_id, Model model) throws Exception {
 
-	   System.out.println(u_id);
-	  System.out.println((String)session.getAttribute("login")); 
-	
-	   String userId = (String)session.getAttribute("login");
-	   
-	   if(userId.equals(u_id)){
-		   u_id=userId;
-		   System.out.println("myblog controller"+u_id);
-		   return u_id;
-	   }
 	   
       BlogVO blog = service.detailBlog(u_id);
 
      /* logger.info(blog.toString());*/
       model.addAttribute("blog", blog);
       
-	return "/myBlog";
+	return "/blog/myBlog";
    }
    
    
