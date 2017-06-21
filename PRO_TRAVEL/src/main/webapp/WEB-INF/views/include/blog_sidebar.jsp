@@ -23,7 +23,7 @@
         </a>
     </li>
     <li class="">
-        <a href="/blog/myBlog" data-class="games2014-2" target="">
+        <a href="/blog/myRealBlog" data-class="games2014-2" target="">
             My Blog
            <!--  <i class="icon-arrow-right">
                 <span class="hide">arrow</span>

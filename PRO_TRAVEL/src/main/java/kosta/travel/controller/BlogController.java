@@ -168,7 +168,12 @@ public class BlogController {
       return "redirect:/blog/myBlog";
    }
 
- 
+ @RequestMapping("/myRealBlog")
+ public String userOwnBlog(HttpSession session, Model model){
+	 String u_id = (String)session.getAttribute("login");
+	 model.addAttribute("u_id", u_id);
+	 return "redirect:/blog/myBlog";
+ }
    
    
 }
