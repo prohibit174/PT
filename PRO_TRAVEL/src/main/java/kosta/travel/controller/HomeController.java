@@ -1,5 +1,7 @@
 package kosta.travel.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -13,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import kosta.travel.domain.Carpool_ListVO;
+import kosta.travel.service.CarpoolService;
 import kosta.travel.service.MessageService;
 
 /**
@@ -26,12 +30,14 @@ public class HomeController {
 	@Inject
 	private MessageService service;
 	
+	@Inject
+	private CarpoolService carpoolService;
+	
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model, HttpSession session)throws Exception {
-		
 		if(session.getAttribute("login")!=null){
 		System.out.println("noRead_message GET method call");
 		System.out.println("id: "+session.getAttribute("login").toString());
@@ -39,6 +45,12 @@ public class HomeController {
 		System.out.println("noReadMessage: "+noReadMessage);
 		model.addAttribute("noReadMessage",noReadMessage);
 		}
+		
+		//카풀부분
+		model.addAttribute("carpoolcount", carpoolService.count());
+		
+		List<Carpool_ListVO> carpoolAll = carpoolService.carpoolAll();
+		model.addAttribute("carpoolAll", carpoolAll);
 		
 		return "home";
 	}
@@ -61,9 +73,4 @@ public class HomeController {
 		System.out.println(start);
 		response.getWriter().print(start);
 	}	
-	
-	@RequestMapping(value="/declaration", method=RequestMethod.GET)
-	public String declare(){
-		return "declaration/declare_main";
-	}
 }

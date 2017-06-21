@@ -9,6 +9,7 @@ import java.util.UUID;
 import javax.annotation.Resource;
 import javax.imageio.ImageIO;
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 import javax.websocket.server.PathParam;
 
 import org.slf4j.Logger;
@@ -22,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import kosta.travel.domain.BlogPostVO;
 import kosta.travel.domain.BlogVO;
 import kosta.travel.service.BlogService;
 
@@ -44,8 +46,8 @@ public class BlogController {
 
    @RequestMapping(value = "/makeBlog", method = RequestMethod.POST)
    public String makeBlog_post(Model model, BlogVO blog, RedirectAttributes rttr) throws Exception {
-      System.out.println("controller in");
-      logger.info("originalName: " + blog.getFile2().getOriginalFilename());
+/*      System.out.println("controller in");
+      logger.info("originalName: " + blog.getFile2().getOriginalFilename());*/
 
       String savedName = UploadFile(blog.getFile2().getOriginalFilename(), blog.getFile2().getBytes());
 
@@ -98,22 +100,79 @@ public class BlogController {
    }
 
    @RequestMapping(value = "/myBlog", method = RequestMethod.GET)
-   public void myBlog(@RequestParam("u_id") String u_id, Model model) throws Exception {
+   public String myBlog(@RequestParam("u_id") String u_id, Model model) throws Exception {
 
+      
       BlogVO blog = service.detailBlog(u_id);
-
-      logger.info(blog.toString());
+      List<BlogPostVO> blogpost=service.postBlogList(u_id);
+      
+      logger.info(blogpost.toString());
+     /* logger.info(blog.toString());*/
       model.addAttribute("blog", blog);
+      model.addAttribute("blogpost", blogpost);
+    /*  logger.info(blogpost.toString());*/
+      
+   return "/blog/myBlog";
    }
    
-   @RequestMapping(value = "/showBlog", method = RequestMethod.GET)
-   public void showBlog(@RequestParam("u_id") String u_id, Model model) throws Exception {
-
-      BlogVO blog = service.detailBlog(u_id);
-
-      logger.info(blog.toString());
-      model.addAttribute("blog", blog);
-   }
    
+   
+   @RequestMapping(value = "/blogPost", method = RequestMethod.GET)
+   public void blogpost_get() throws Exception {
+      
+      
+   }
+
+  
+   @RequestMapping(value = "/blogPost", method = RequestMethod.POST)
+   public String blogpost_post(Model model, BlogPostVO blogpost, RedirectAttributes rttr) throws Exception {
+      System.out.println("controller in");
+      logger.info("originalName: " + blogpost.getFile3().getOriginalFilename());
+
+      String savedName = UploadFile(blogpost.getFile3().getOriginalFilename(), blogpost.getFile3().getBytes());
+
+      blogpost.setBp_img(savedName);
+
+       logger.info(blogpost.toString());
+      service.postingBlog(blogpost);
+
+      rttr.addFlashAttribute("msg", "SUCCESS");
+      try {
+
+         String pattern = savedName.substring(savedName.lastIndexOf(".") + 1);
+         String headName = savedName.substring(0, savedName.lastIndexOf("."));
+
+         File originalFileNm = new File(uploadPath + "\\" + savedName);
+         File thumbnailFileNm = new File(uploadPath + "\\" + headName + "_small." + pattern);
+
+         int width = 130;
+         int height = 200;
+
+         BufferedImage originalImg = ImageIO.read(originalFileNm);
+         BufferedImage thumbnailImg = new BufferedImage(width, height, BufferedImage.TYPE_3BYTE_BGR);
+
+         Graphics2D g = thumbnailImg.createGraphics();
+         g.drawImage(originalImg, 0, 0, width, height, null);
+
+         ImageIO.write(thumbnailImg, pattern, thumbnailFileNm);
+      } catch (Exception e) {
+         e.printStackTrace();
+      }
+
+      return "redirect:/blog/myBlog";
+   }
+
+    @RequestMapping("/myRealBlog")
+    public String userOwnBlog(HttpSession session, Model model){
+       String u_id = (String)session.getAttribute("login");
+       model.addAttribute("u_id", u_id);
+       return "redirect:/blog/myBlog";
+    }
+      
+    
+    @RequestMapping(value = "/updateBlog", method=RequestMethod.GET)
+    public String updateBlog(){
+       return null;
+    }
    
 }

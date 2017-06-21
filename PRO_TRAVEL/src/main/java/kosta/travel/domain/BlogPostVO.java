@@ -2,20 +2,34 @@ package kosta.travel.domain;
 
 import java.util.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class BlogPostVO {
-	private String bp_postnum;
+	private int bp_postnum;
 	private String u_id;
 	private String bp_contents;
 	private Date bp_date;
 	private String bp_img;
+	private MultipartFile file3;
 	
 	public BlogPostVO(){}
 
-	public String getBp_postnum() {
+	public BlogPostVO(int bp_postnum, String u_id, String bp_contents, Date bp_date, String bp_img,
+			MultipartFile file3) {
+		super();
+		this.bp_postnum = bp_postnum;
+		this.u_id = u_id;
+		this.bp_contents = bp_contents;
+		this.bp_date = bp_date;
+		this.bp_img = bp_img;
+		this.file3 = file3;
+	}
+
+	public int getBp_postnum() {
 		return bp_postnum;
 	}
 
-	public void setBp_postnum(String bp_postnum) {
+	public void setBp_postnum(int bp_postnum) {
 		this.bp_postnum = bp_postnum;
 	}
 
@@ -50,7 +64,21 @@ public class BlogPostVO {
 	public void setBp_img(String bp_img) {
 		this.bp_img = bp_img;
 	}
-	
+
+	public MultipartFile getFile3() {
+		return file3;
+	}
+
+	public void setFile3(MultipartFile file3) {
+		this.file3 = file3;
+	}
+
+	@Override
+	public String toString() {
+		return "BlogPostVO [bp_postnum=" + bp_postnum + ", u_id=" + u_id + ", bp_contents=" + bp_contents + ", bp_date="
+				+ bp_date + ", bp_img=" + bp_img + ", file3=" + file3 + "]";
+	}
+
 	
 	
 

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/td/mybatis-3-mapper.dtd">
+
+<mapper namespace="kosta.travel.mappers.declareMapper">
+
+	<insert id="declare_insert">
+		INSERT INTO declare(
+			d_num, u_id, d_reported, d_big, d_small, d_content, d_file
+		) VALUES (
+			#{d_num}, #{u_id}, #{d_reported}, #{d_big}, #{d_small}, #{d_content}, #{d_file}
+		)
+	</insert>
+
+	<select id="d_maxNum" resultType="integer">
+		SELECT max(d_num) FROM declare
+	</select>
+	
+	<select id="declare_list" resultType="kosta.travel.domain.DeclareVO">
+		SELECT * FROM declare 
+		ORDER by d_num desc
+	</select>
+	</mapper>

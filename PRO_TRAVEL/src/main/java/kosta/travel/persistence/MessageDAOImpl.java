@@ -3,6 +3,7 @@ package kosta.travel.persistence;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
@@ -43,6 +44,22 @@ public class MessageDAOImpl implements MessageDAO {
 	@Override
 	public Integer noRead_message(String u_id_recipient) throws Exception {
 		return session.selectOne(namespace + ".noRead_message",u_id_recipient);
+	}
+
+	@Override
+	public void message_update(int m_num) throws Exception {
+		session.update(namespace+".update_message", m_num);
+		
+	}
+
+	@Override
+	public List<MessageVO> list_received(String u_id) throws Exception {
+		return session.selectList(namespace+".received_message", u_id);
+	}
+
+	@Override
+	public List<MessageVO> list_send(String u_id) throws Exception {
+		return session.selectList(namespace+".send_message", u_id);
 	}
 
 }

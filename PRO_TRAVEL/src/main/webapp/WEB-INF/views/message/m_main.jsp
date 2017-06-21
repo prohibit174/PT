@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>    
 <%@ include file="/WEB-INF/views/include/header.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -11,8 +12,8 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/message/jquery.magnific-popup.min.js"></script>
 <script type="text/javascript">
 function detailForm(num){
-	 var popupX = (window.screen.width / 2) - (200 / 2);
-	   var popupY= (window.screen.height /2) - (300 / 2);
+	 var popupX = (window.screen.width / 2) - (100 / 2);
+	   var popupY= (window.screen.height /2) - (150 / 2);
 	    window.open('about:blank','popup_window','width=350, height=250, left='+popupX+', top='+popupY);
 	    var wantForm = 'detailForm'+num;
 	    var frm =document.getElementById(wantForm);
@@ -296,30 +297,65 @@ cursor: pointer;
             <h2>My Message</h2>
         </header>
         <ul class="events-list">
-        <c:forEach items="${list}" var="listMessage">
+       
+        <c:choose>
+        
+           <c:when test="${list1 == null}">
+            <li>  
+        <div>
+              <label style="float: right; padding-top: 5px;">쪽지 분류</label>
+              <span class="country"></span>
+         </div>
+              <h3>
+                      보낸 사람
+              </h3></li>
+            <c:forEach items="${list}" var="listMessage">
           <li>
         
          <form id="detailForm${listMessage.m_num}" name="detailForm${listMessage.m_num }" method="post" action="/message/detail_message?m_num=${listMessage.m_num}" target="popup_window">
           <div>
               <a href="#test-form" class="btn-calendar" id="write_message">답장 하기</a>
-              <label style="float: right; padding-top: 5px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp쪽지 상태 &nbsp&nbsp <h3 class="checked" style="padding-top: 10px;"></h3></label>
-              <label style="float: right; padding-top: 5px;">쪽지 분류 :  <input value="${listMessage.m_category }"></label>
+            <input type="button" style="float: right; padding-top: 5px;" value="확인하기"  onclick="detailForm(${listMessage.m_num});">
+              <label style="float: right; padding-top: 5px;">${listMessage.m_category }&nbsp&nbsp&nbsp</label>
               <span class="country"></span>
          </div>
               <h3>
-              <a class="detail_message" href="#test-form2">
-              <label id="m_num" value="">${listMessage.m_num } </label></a>
-
-                      보낸 사람 : ${listMessage.u_id_sender }
-				
+              ${listMessage.u_id_sender }
               </h3>
               <br>
-              <span class="time"><span content="6/23/2017 12:00:00 AM">${listMessage.m_content }</span></span>
-        <input type="button" value="수정" onclick="detailForm(${listMessage.m_num});">
+        
          </form>
           </li>
 
     </c:forEach>
+           </c:when>
+            <c:otherwise>
+               <c:forEach items="${list1}" var="listMessage">
+          <li>
+        
+         <form id="detailForm${listMessage.m_num}" name="detailForm${listMessage.m_num }" method="post" action="/message/detail_message2?m_num=${listMessage.m_num}" target="popup_window">
+          <div>
+              <!-- <a href="#test-form" class="btn-calendar" id="write_message">답장 하기</a> -->
+              <label style="float: right; padding-top: 5px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp쪽지 상태 &nbsp&nbsp  <label padding-top: 5px;"> ${listMessage.m_status}</label></label>
+              <label style="float: right; padding-top: 5px;">쪽지 분류 :  ${listMessage.m_category }</label>
+              
+             
+              <span class="country"></span>
+         </div>
+              <h3>
+                      받은 사람 : ${listMessage.u_id_recipient }
+              </h3>
+              <br>
+        <input type="button" value="확인하기" onclick="detailForm(${listMessage.m_num});">
+         </form>
+          </li>
+
+    </c:forEach>
+            </c:otherwise>
+           
+           
+        </c:choose>
+       
         </ul>
         <div class="paging"><ul>
 <li><a class="prev" href="/ioc-event-calendar" rel="prev"><span class="icon-arrow-left"><span class="hide">&lt;</span></span></a></li><li class="active"><a href="/ioc-event-calendar">1</a></li><li class=""><a href="/ioc-event-calendar?p=2">2</a></li><li class=""><a href="/ioc-event-calendar?p=3">3</a></li><li><a class="next" href="/ioc-event-calendar?p=2" rel="next"><span class="icon-arrow-right"><span class="hide">&gt;</span></span></a></li></ul></div>
@@ -337,14 +373,14 @@ cursor: pointer;
         <button class="write_to_me">To me</button>
         </div>
         <br>
-   <a class="aside-tag" id="receive">¤ 받은 쪽지함</a>
+   <a class="aside-tag" href="/message/received_message?u_id=<%=session.getAttribute("login") %>" id="receive">¤ 받은 쪽지함</a>
        <select class="alt-select standardCase" id="aside-tag" title="IOC Members" onchange="if (this[this.selectedIndex].value != '#') {document.location = this[this.selectedIndex].value}">
                <option value="#">(Default)</option>
                <option value="#">Carpool</option>
               <option value="#">Exchange of Goods</option>
               <option value="#">Accompany</option>
        </select>
-   <a class="aside-tag" id="send" style="font-weight: bold;">¤ 보낸 쪽지함</a>
+   <a class="aside-tag" href="/message/send_message?u_id=<%=session.getAttribute("login") %>" id="send" style="font-weight: bold;">¤ 보낸 쪽지함</a>
        <select class="alt-select standardCase" id="aside-tag" title="IOC Members" onchange="if (this[this.selectedIndex].value != '#') {document.location = this[this.selectedIndex].value}">
             <option value="#">(Default)</option>
             <option value="#">Carpool</option>
