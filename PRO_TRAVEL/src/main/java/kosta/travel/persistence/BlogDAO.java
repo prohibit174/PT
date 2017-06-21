@@ -12,4 +12,5 @@ public interface BlogDAO {
 	public BlogVO detailBlog(String u_id)throws Exception;
 	public int postingBlog(BlogPostVO blogpost)throws Exception;
 	public List<BlogPostVO> postBlogList() throws Exception;
+	public Integer updateBlog(BlogPostVO blogPost) throws Exception;
 }

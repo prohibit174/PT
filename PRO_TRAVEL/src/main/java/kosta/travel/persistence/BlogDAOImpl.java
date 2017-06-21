@@ -43,6 +43,11 @@ public class BlogDAOImpl implements BlogDAO {
 	public List<BlogPostVO> postBlogList() throws Exception {
 		return session.selectList(namespace+".postBlogList");
 	}
+
+	@Override
+	public Integer updateBlog(BlogPostVO blogPost) throws Exception {
+		return session.update(namespace+".updateBlog", blogPost);
+	}
 	
 	
 }
