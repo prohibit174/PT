@@ -100,13 +100,17 @@ public class BlogController {
    }
 
    @RequestMapping(value = "/myBlog", method = RequestMethod.GET)
-   public String myBlog(@RequestParam("u_id") String u_id, Model model) throws Exception {
+   public String myBlog(@RequestParam(value="u_id", required=true) String u_id, Model model) throws Exception {
 
       
       BlogVO blog = service.detailBlog(u_id);
-
+      List<BlogPostVO> blogpost=service.postBlogList(u_id);
+      
+      logger.info(blogpost.toString());
      /* logger.info(blog.toString());*/
       model.addAttribute("blog", blog);
+      model.addAttribute("blogpost", blogpost);
+    /*  logger.info(blogpost.toString());*/
       
    return "/blog/myBlog";
    }
@@ -167,8 +171,19 @@ public class BlogController {
       
     
     @RequestMapping(value = "/updateBlog", method=RequestMethod.GET)
-    public String updateBlog(){
-       return null;
+    public String updateBlog(int bp_postnum, Model model) throws Exception{
+    	BlogPostVO blogPost = service.postDetail(bp_postnum);
+    	model.addAttribute("blogPost", blogPost);
+    	
+       return "/blog/updateBlog";
+    }
+    
+    @RequestMapping(value="/updateBlog", method=RequestMethod.POST)
+    public String updatePost(int bp_postnum) throws Exception{
+    	BlogPostVO blogpost = service.postDetail(bp_postnum);
+    	service.updateBlog(blogpost);
+    	
+    	return "redirect:/blog/myBlog";
     }
    
 }

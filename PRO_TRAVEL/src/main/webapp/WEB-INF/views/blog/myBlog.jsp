@@ -51,7 +51,7 @@
 </head>
 <body>
 	<script>
-		var dataLayer = [ {} ]
+		var dataLayer = [ {} ];
 	</script>
 
 	<!-- Google Tag Manager -->
@@ -165,12 +165,14 @@
 						<a href="/blog/blogPost">post</a>
 					</h2>
 				
-
+					
 					<span style="font-family: Arial; font-size: 13px;"> 
 						<table border="0" width="100%">
 							<div>
-							<c:forEach var="blogpost" items="${blogpost}">
+							<c:forEach var="blogpost" items="${blogpost}">	
 							<fieldset>
+							<br>
+							 <p>${blogpost.bp_date }</p>
 								
 									 <!-- makeQuery -->
 										<picture class="img"> <c:if
@@ -196,6 +198,8 @@
 									 <%-- <img srcset="${blogpost.bp_img}"></picture> --%>
 								
 									 <p> ${blogpost.bp_contents }</p>
+									 <br><hr>
+									
 									 </picture>
 									</fieldset>
 							</c:forEach>

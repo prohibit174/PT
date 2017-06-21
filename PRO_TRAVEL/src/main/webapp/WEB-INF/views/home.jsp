@@ -98,13 +98,13 @@ String id = (String)session.getAttribute("login");
         </div>
         <div class="holder">
                 <article class="profile-box">
-                <input type="text" id="id" value="${id }">
+               
 
 <c:set var="u_id" value="${id }"></c:set>
 
 <c:if test="${id!=null}">
 										
-<iframe width="500" height="500" src="http://127.0.0.1:5000?username=${id }" frameborder="1">
+<iframe  width="500" height="500" src="http://127.0.0.1:5000?username=${id }" frameborder="1">
 </iframe>										
 
 </c:if>
