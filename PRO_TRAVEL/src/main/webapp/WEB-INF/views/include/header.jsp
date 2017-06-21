@@ -380,7 +380,7 @@ width:0;
 							<li><a class="mail" href="/message/main?u_id_recipient=<%=session.getAttribute("login") %>"></a></li>
 							<li><a style="background-color: red; border-radius: 20px; padding: 2px 5px 3px 5px; position: relative; left: -30px; top: -10px">
 							<c:choose>
-								<c:when test="${noReadMessage==null }">
+								<c:when test="${noReadMessage==null}">
 									0
 								</c:when>
 							<c:otherwise>
