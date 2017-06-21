@@ -6,7 +6,6 @@ import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import kosta.travel.domain.BlogPostVO;
 import kosta.travel.domain.BlogVO;
@@ -44,5 +43,10 @@ public class BlogDAOImpl implements BlogDAO {
       return session.selectList(namespace+".postBlogList", u_id);
    }
    
+   @Override
+	public Integer updateBlog(BlogPostVO blogPost) throws Exception {
+		return session.update(namespace+".updateBlog", blogPost);
+	}
+	
    
 }
