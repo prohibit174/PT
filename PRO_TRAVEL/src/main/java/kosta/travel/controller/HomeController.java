@@ -42,8 +42,9 @@ public class HomeController {
 		System.out.println("noRead_message GET method call");
 		System.out.println("id: "+session.getAttribute("login").toString());
 		Integer noReadMessage = service.noRead_message(session.getAttribute("login").toString());
+		session.setAttribute("noReadMessage", noReadMessage);
 		System.out.println("noReadMessage: "+noReadMessage);
-		model.addAttribute("noReadMessage",noReadMessage);
+		//model.addAttribute("noReadMessage",noReadMessage);
 		}
 		
 		//카풀부분
