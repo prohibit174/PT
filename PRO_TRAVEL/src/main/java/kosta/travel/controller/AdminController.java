@@ -17,11 +17,13 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kosta.travel.domain.CarpoolRequestUser;
 import kosta.travel.domain.Carpool_ListVO;
+import kosta.travel.domain.DeclareVO;
 import kosta.travel.domain.PageMaker;
 import kosta.travel.domain.ProductVO;
 import kosta.travel.domain.SearchCriteria;
 import kosta.travel.domain.UsersVO;
 import kosta.travel.service.CarpoolService;
+import kosta.travel.service.DeclareService;
 import kosta.travel.service.ProductService;
 import kosta.travel.service.UserService;
 
@@ -37,6 +39,9 @@ public class AdminController {
 	
 	@Inject
 	CarpoolService carpoolService;
+	
+	@Inject
+	DeclareService declareService;
 	
 	@RequestMapping("/adminLogin")
 	public String admin_home(){
@@ -136,5 +141,13 @@ public class AdminController {
 		carpoolService.remove(c_num);
 		
 		return "redirect:/carpoolList";
+	}
+	
+	@RequestMapping(value="/adminDeclare", method=RequestMethod.GET)
+	public String adminDeclare(Model model, HttpServletRequest request) throws Exception{
+		List<DeclareVO> declare_list = declareService.declare_list();
+		System.out.println(declare_list);
+		model.addAttribute("declareList", declare_list);
+		return "mypage_admin/admin_declaration";
 	}
 }

@@ -16,4 +16,8 @@
 		SELECT max(d_num) FROM declare
 	</select>
 	
+	<select id="declare_list" resultType="kosta.travel.domain.DeclareVO">
+		SELECT * FROM declare 
+		ORDER by d_num desc
+	</select>
 	</mapper>

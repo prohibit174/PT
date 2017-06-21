@@ -1,10 +1,13 @@
 package kosta.travel.domain;
 
+import java.util.List;
+
 public class SearchTraveler {
 	private String city;
 	private String sdate;
 	private String edate;
 	private String u_id;
+	private List<SearchTraveler> trav;
 	
 	
 	public String getCity() {
@@ -32,11 +35,19 @@ public class SearchTraveler {
 	public void setU_id(String u_id) {
 		this.u_id = u_id;
 	}
+	
+	public List<SearchTraveler> getTrav() {
+		return trav;
+	}
+	public void setTrav(List<SearchTraveler> trav) {
+		this.trav = trav;
+	}
 	@Override
 	public String toString() {
-		return "SearchTraveler [city=" + city + ", sdate=" + sdate + ", edate=" + edate + ", u_id=" + u_id + "]";
+		return "SearchTraveler [city=" + city + ", sdate=" + sdate + ", edate=" + edate + ", u_id=" + u_id + ", trav="
+				+ trav + "]";
 	}
-
+	
 	
 	
 	

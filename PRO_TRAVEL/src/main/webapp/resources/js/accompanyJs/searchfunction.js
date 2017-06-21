@@ -37,7 +37,6 @@ $('body').on('focus','.datepick', function(){
 
 $(document).on('click','.groupJoin',function() {
 	event.preventDefault();
-	console.log("function gogo")
 	var conf = confirm("Join this Group?");
 	if(conf == true){
 		$.ajax({

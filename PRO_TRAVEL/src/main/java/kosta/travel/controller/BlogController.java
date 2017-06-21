@@ -102,31 +102,25 @@ public class BlogController {
    @RequestMapping(value = "/myBlog", method = RequestMethod.GET)
    public String myBlog(@RequestParam("u_id") String u_id, Model model) throws Exception {
 
-	   
-      BlogVO blog = service.detailBlog(u_id);
-
-     /* logger.info(blog.toString());*/
-      model.addAttribute("blog", blog);
       
-	return "/blog/myBlog";
-   }
-   
-   
-   @RequestMapping(value = "/showBlog", method = RequestMethod.GET)
-   public void showBlog(@RequestParam("u_id") String u_id, Model model) throws Exception {
-
       BlogVO blog = service.detailBlog(u_id);
-
+      List<BlogPostVO> blogpost=service.postBlogList(u_id);
+      
+      logger.info(blogpost.toString());
      /* logger.info(blog.toString());*/
       model.addAttribute("blog", blog);
+      model.addAttribute("blogpost", blogpost);
+    /*  logger.info(blogpost.toString());*/
+      
+   return "/blog/myBlog";
    }
    
    
    
    @RequestMapping(value = "/blogPost", method = RequestMethod.GET)
    public void blogpost_get() throws Exception {
-	   
-	   
+      
+      
    }
 
   
@@ -168,12 +162,17 @@ public class BlogController {
       return "redirect:/blog/myBlog";
    }
 
- @RequestMapping("/myRealBlog")
- public String userOwnBlog(HttpSession session, Model model){
-	 String u_id = (String)session.getAttribute("login");
-	 model.addAttribute("u_id", u_id);
-	 return "redirect:/blog/myBlog";
- }
-   
+    @RequestMapping("/myRealBlog")
+    public String userOwnBlog(HttpSession session, Model model){
+       String u_id = (String)session.getAttribute("login");
+       model.addAttribute("u_id", u_id);
+       return "redirect:/blog/myBlog";
+    }
+      
+    
+    @RequestMapping(value = "/updateBlog", method=RequestMethod.GET)
+    public String updateBlog(){
+       return null;
+    }
    
 }

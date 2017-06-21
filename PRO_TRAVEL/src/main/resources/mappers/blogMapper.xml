@@ -32,10 +32,15 @@
 			)
 	</insert>
 	
-	<select id="postBlogList" resultType="kosta.travel.domain.BlogVO">
+	<select id="postBlogList" resultType="BlogPostVO">
 	select * 
 	from blogpost
 	where u_id=#{u_id}
 	</select>
 
+	<update id="updateBlog">
+		UPDATE blogpost SET b_contents = #{b_contents}
+	</update>
+	
+	
 </mapper>
