@@ -40,8 +40,8 @@ public class BlogDAOImpl implements BlogDAO {
 	}
 
 	@Override
-	public List<BlogPostVO> postBlogList() throws Exception {
-		return session.selectList(namespace+".postBlogList");
+	public List<BlogPostVO> postBlogList(String u_id) throws Exception {
+		return session.selectList(namespace+".postBlogList", u_id);
 	}
 	
 	

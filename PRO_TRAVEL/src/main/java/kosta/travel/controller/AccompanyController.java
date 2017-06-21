@@ -1,5 +1,6 @@
 package kosta.travel.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -34,12 +35,12 @@ public class AccompanyController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String main(Model model, HttpSession session) {
-
+/*
 		// when user not login
 		if (session.getAttribute("login") == null) {
 			return "/accompany/Accomp_main";
 		}
-
+*/
 		// when user login
 		try {
 			model.addAttribute("list", service.getUserRoute(session));
@@ -49,6 +50,7 @@ public class AccompanyController {
 			e.printStackTrace();
 		}
 
+		/*return "/accompany/Accomp_main";*/
 		return "/accompany/Accomp_main";
 	}
 
@@ -80,15 +82,35 @@ public class AccompanyController {
 		return "redirect:/accompany/";
 	}
 
-	@RequestMapping(value = "/cal", method = RequestMethod.GET)
-	public @ResponseBody List<AccompanyVO> callender(SearchTraveler trav, Model model, HttpSession session,
+	@RequestMapping(value = "/cal", method = RequestMethod.POST)
+	public @ResponseBody List<AccompanyVO> callender(SearchTraveler trav, Model model, HttpSession session) {
+		List<AccompanyVO> list = new ArrayList<AccompanyVO>();
+		try {
+		for(int i=0; i < trav.getTrav().size();i++){
+		trav.getTrav().get(i).setU_id((String) session.getAttribute("login"));
+		
+		list.addAll(service.getTraveler(trav.getTrav().get(i)));
+		}
+		} catch (Exception e) {
+			e.printStackTrace();
+		
+		}
+		return list;
+	}
+
+	@RequestMapping(value = "/cal2", method = RequestMethod.POST)
+	public @ResponseBody List<AccompanyVO> searchTraveler(SearchTraveler trav, Model model, HttpSession session,
 			HttpServletResponse res) {
-		trav.setU_id((String) session.getAttribute("login"));
+		System.out.println("trav toString get0 = "+trav.getTrav().get(0).toString());
+		System.out.println("trav toString get1= "+trav.getTrav().get(1).toString());
+	/*System.out.println("city 0 = "+trav.getTrav().get(0).getCity());*/
+		/*System.out.println("city 1 = "+trav.getTrav().get(1).getCity());*/
+		/*trav.setU_id((String) session.getAttribute("login"));
 		try {
 			return service.getTraveler(trav);
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
+		}*/
 		return null;
 	}
 
