@@ -1,3 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -76,7 +79,7 @@
 
 	<div id="wrapper">
 
-		<header id="header" role="banner">
+		<header id="header" role="banner" style="background-color: #FAF1C2;">
 
 			<div class="container">
 				<div class="logo">
@@ -106,7 +109,7 @@
 				</div>
 
 			</div>
-			</header>
+		</header>
 	</div>
 
 	<main id="main">
@@ -158,32 +161,45 @@
 				</div>
 				<div class="text-block">
 					<h1>Try Your First Blog Posting</h1>
-					 <h2 style="font-size:20px"><a href="/blog/blogPost">post</a></h2>
-					
-					<span style="font-family: Arial; font-size: 13px;"> <!-- <p>
-							<strong>&nbsp;<img alt="" height="44" width="45"
-								src="https://stillmed.olympic.org/media/Images/Museum/General/Opening_Hours_icon.jpg" />OPENING
-								TIMES <br /> <br />
-							</strong>- <strong>09 a.m. to 6 p.m</strong>.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
-							from 10 April to 14 October <em>(daily)<br />
-							</em>- <strong>10 a.m. to 6 p.m.</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							: from 15 October to 9 April <em>(Tuesday to Sunday)</em> closed
-							on Mondays (<em>except Easter Monday or for special events),</em>
-							25 December and 1 January
-						</p> --> <!-- <p>
-							<strong><img height="44" alt="Admissions prices icon"
-								width="45" style="height: 44px; width: 45px;"
-								src="https://stillmed.olympic.org/media/Images/Museum/General/Admissions_Prices_icon.jpg" />MUSEUM
-								RATES </strong><br /> <br /> Tickets can be purchased directly at the
-							Olympic Museum, no reservations are required. There are three
-							automatic ticket machines, two on the ground floor and one on the
-							2nd floor.<br /> <br /> <strong><img height="44"
-								alt="Family icon" width="45"
-								src="https://stillmed.olympic.org/media/Images/Museum/General/Family_icon.jpg" />&nbsp;Individual
-								and family rates:<br /> Permanent &amp; temporary exhibitions<br />
-							</strong>
-						</p> -->
+					<h2 style="font-size: 20px">
+						<a href="/blog/blogPost">post</a>
+					</h2>
+				
+
+					<span style="font-family: Arial; font-size: 13px;"> 
 						<table border="0" width="100%">
+							<div>
+							<c:forEach var="blogpost" items="${blogpost}">
+							<fieldset>
+								
+									 <!-- makeQuery -->
+										<picture class="img"> <c:if
+											test="${blogpost.bp_img!=null}">
+											<c:set var="head"
+												value="${fn:substring(blogpost.bp_img, 0, fn:length(blogpost.bp_img)-4) }"></c:set>
+											<c:set var="pattern"
+												value="${fn:substring(blogpost.bp_img, fn:length(head)+1, fn:length(blogpost.bp_img)) }"></c:set>
+											<c:set var="small" value="_small"></c:set>
+
+											<c:choose>
+												<c:when
+													test="${pattern=='jpg' || pattern =='gif' || pattern =='png' }">
+													<!-- <img srcset="resources/upload/${head }_small.${pattern}" alt="img /"> -->
+													<img src="/resources/upload/${head}${small}.${pattern}"
+														alt="img /">
+												</c:when>
+												<c:otherwise>
+													<c:out value="No IMAGE"></c:out>
+												</c:otherwise>
+											</c:choose>
+										</c:if> 
+									 <%-- <img srcset="${blogpost.bp_img}"></picture> --%>
+								
+									 <p> ${blogpost.bp_contents }</p>
+									 </picture>
+									</fieldset>
+							</c:forEach>
+							</div>
 							<!-- <tbody>
 								<tr valign="top">
 									<td><span style="font-family: Arial; font-size: 13px;">Full

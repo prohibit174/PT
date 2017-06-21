@@ -5,7 +5,7 @@ import java.util.Date;
 import org.springframework.web.multipart.MultipartFile;
 
 public class BlogPostVO {
-	private String bp_postnum;
+	private int bp_postnum;
 	private String u_id;
 	private String bp_contents;
 	private Date bp_date;
@@ -14,7 +14,7 @@ public class BlogPostVO {
 	
 	public BlogPostVO(){}
 
-	public BlogPostVO(String bp_postnum, String u_id, String bp_contents, Date bp_date, String bp_img,
+	public BlogPostVO(int bp_postnum, String u_id, String bp_contents, Date bp_date, String bp_img,
 			MultipartFile file3) {
 		super();
 		this.bp_postnum = bp_postnum;
@@ -25,11 +25,11 @@ public class BlogPostVO {
 		this.file3 = file3;
 	}
 
-	public String getBp_postnum() {
+	public int getBp_postnum() {
 		return bp_postnum;
 	}
 
-	public void setBp_postnum(String bp_postnum) {
+	public void setBp_postnum(int bp_postnum) {
 		this.bp_postnum = bp_postnum;
 	}
 

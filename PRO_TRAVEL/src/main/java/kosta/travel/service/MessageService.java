@@ -2,6 +2,8 @@ package kosta.travel.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import kosta.travel.domain.MessageVO;
 
 public interface MessageService {
@@ -17,6 +19,10 @@ public interface MessageService {
 	public Integer noRead_message(String u_id_recipient)throws Exception;
 	
 	public void message_update(int m_num)throws Exception;
+	
+	public List<MessageVO> list_received(String u_id)throws Exception;
+	
+	public List<MessageVO> list_send(String u_id)throws Exception;
 	
 	
 }
