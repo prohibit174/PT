@@ -45,8 +45,8 @@ public class BlogController {
 
    @RequestMapping(value = "/makeBlog", method = RequestMethod.POST)
    public String makeBlog_post(Model model, BlogVO blog, RedirectAttributes rttr) throws Exception {
-      System.out.println("controller in");
-      logger.info("originalName: " + blog.getFile2().getOriginalFilename());
+/*      System.out.println("controller in");
+      logger.info("originalName: " + blog.getFile2().getOriginalFilename());*/
 
       String savedName = UploadFile(blog.getFile2().getOriginalFilename(), blog.getFile2().getBytes());
 
@@ -103,16 +103,17 @@ public class BlogController {
 
       BlogVO blog = service.detailBlog(u_id);
 
-      logger.info(blog.toString());
+     /* logger.info(blog.toString());*/
       model.addAttribute("blog", blog);
    }
+   
    
    @RequestMapping(value = "/showBlog", method = RequestMethod.GET)
    public void showBlog(@RequestParam("u_id") String u_id, Model model) throws Exception {
 
       BlogVO blog = service.detailBlog(u_id);
 
-      logger.info(blog.toString());
+     /* logger.info(blog.toString());*/
       model.addAttribute("blog", blog);
    }
    
@@ -134,7 +135,7 @@ public class BlogController {
 
       blogpost.setBp_img(savedName);
 
-      /* logger.info(blog.toString()); */
+       logger.info(blogpost.toString());
       service.postingBlog(blogpost);
 
       rttr.addFlashAttribute("msg", "SUCCESS");
@@ -160,7 +161,7 @@ public class BlogController {
          e.printStackTrace();
       }
 
-      return "redirect:/blog/blogMain";
+      return "redirect:/blog/myBlog";
    }
 
  
