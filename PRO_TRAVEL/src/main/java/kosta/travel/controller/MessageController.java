@@ -49,15 +49,21 @@ public class MessageController {
 		MessageVO vo = service.detail_message(m_num);
 		System.out.println(vo.getM_num());
 		
+		
+		
 		model.addAttribute("vo", vo);
 		return "/message/m_main";
 	}
+	
+	
 	
 	@RequestMapping(value = "/detail_message", method = RequestMethod.POST)
 	public String detailPOST(Model model,@RequestParam("m_num")int m_num)throws Exception {
 		System.out.println("detail_message post method call");
 		MessageVO vo = service.detail_message(m_num);
 		System.out.println(vo.toString());
+		
+		service.message_update(m_num);
 		
 		model.addAttribute("vo", vo);
 		return "/message/detail_message";

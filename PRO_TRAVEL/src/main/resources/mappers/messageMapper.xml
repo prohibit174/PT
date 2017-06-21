@@ -30,5 +30,9 @@
 		SELECT count(*) FROM message where u_id_recipient=#{u_id_recipient} AND m_status='no'
 	</select>
 	
+	<update id="update_message">
+		update message set
+		m_status = 'yes' where m_num = #{m_num}
+	</update>
 	
 </mapper>

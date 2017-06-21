@@ -41,4 +41,10 @@ public class MessageServiceImpl implements MessageService {
 		return dao.noRead_message(u_id_recipient);
 	}
 
+	@Override
+	public void message_update(int m_num) throws Exception {
+		dao.message_update(m_num);
+		
+	}
+
 }
