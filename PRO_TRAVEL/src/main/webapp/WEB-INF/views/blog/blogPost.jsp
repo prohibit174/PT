@@ -19,6 +19,20 @@
 
 </style>
   <%@ include file="/WEB-INF/views/include/header.jsp" %>
+  
+  
+  <script type="text/javascript">
+  $(document).ready(function(){
+	  
+		var formObj = $("form[role='form']");
+		console.log(formObj);
+	
+	$(".btn-register").on("click", function(){
+		self.location=self.location="/blog/myBlog?u_id=${blogpost.u_id};
+	});
+});
+  
+  </script>
 </head>
 <body>
 	<section class="results-box" style="margin:0px; background-color:#FAF1C2;">
@@ -56,7 +70,7 @@
 								
 						
 							<div class="row">
-								<input type="submit" value="Post" />
+								<input type="submit" class="btn btn-register" onclick="btn_js_register_click()" value="Post" />
 							</div>
 							
 								
