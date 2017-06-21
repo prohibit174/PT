@@ -171,8 +171,16 @@ public class BlogController {
       
     
     @RequestMapping(value = "/updateBlog", method=RequestMethod.GET)
-    public String updateBlog(){
-       return null;
+    public String updateBlog(int bp_postnum, Model model){
+    	model.addAttribute("bp_postnum", bp_postnum);
+    	System.out.println(bp_postnum);
+       return "/blog/updateBlog";
+    }
+    
+    @RequestMapping(value="/updateBlog", method=RequestMethod.POST)
+    public String updatePost(){
+    	
+    	return null;
     }
    
 }
