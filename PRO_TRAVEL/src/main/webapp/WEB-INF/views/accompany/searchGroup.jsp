@@ -19,12 +19,13 @@
 </head>
 <body>
 
+<form action="" method="post" class="ajaxform">
 <div class="id-card-box" style="width: 100% ;border: black;">
 	
 			<div class="item-list" style="width: 1400px; padding-right: 30px;">
 					<div style="font-size: 20px;">
 							<span class="label" style="margin-right: 80px;"  >departure</span>
-						 <select class="label ajaxCity" style="margin-top: -5px; width: 150px" name="city">
+						 <select class="label ajaxCity" style="margin-top: -5px; width: 150px" name="trav[0].city">
 						<option class="locationName" style="margin-bottom: 10px">name</option>
 						<option value="Zurich">Zurich</option>
 <option value="France">France</option>
@@ -39,10 +40,10 @@
 <option value="Swiss">Swiss</option>
 						</select>
 						
-						<span class="label" style="margin: 0 40px;">begin</span>
-						<input class="datepick label ajaxStart" type="text" name="sdate" value="start" style="margin-top: -5px; padding: 0px; width: 150px;">
+							<span class="label" style="margin: 0 40px;">begin</span>
+						<input class="datepick label ajaxStart" type="text" name="trav[0].sdate" value="start" style="margin-top: -5px; padding: 0px; width: 150px;">
 						<span class="label" style="margin: 0 40px;">end</span>
-						<input class="datepick label ajaxEnd" type="text" name="edate" value="end" style="margin-top: -5px; padding: 0px; width: 150px;">
+						<input class="datepick label ajaxEnd" type="text" name="trav[0].edate" value="end" style="margin-top: -5px; padding: 0px; width: 150px;">
 							<img class="appendcp" src="../resources/images/accompany/plus.png" width="30" height="30" style="margin-top: -5px;">
 				</div>
 		<div class="accompanyList row">
@@ -56,7 +57,7 @@
 	
 	
 	</div>
-
+</form>
 
 
 </body>
