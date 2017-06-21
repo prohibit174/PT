@@ -38,6 +38,11 @@
 						<form id="results-form" action="/blog/blogPost" class="results-form"
 							method="post" enctype="multipart/form-data">
 							
+							<td class="value"><input type="hidden" name="u_id" id="u_id"
+								value="${id}" /> &nbsp; <span class="mandatory"></span>
+								<ul class="errorField"></ul>
+							</td>  
+							
 							<div class="row">
 								<textarea rows="20" cols="68" name="bp_contents"
 								id="bp_contents"></textarea>

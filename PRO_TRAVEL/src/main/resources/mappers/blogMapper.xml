@@ -30,7 +30,6 @@
 			values(
 			blogpost_seq.nextval, #{u_id},#{bp_contents}, sysdate ,#{bp_img}
 			)
-	
 	</insert>
 
 </mapper>
