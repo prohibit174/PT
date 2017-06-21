@@ -32,7 +32,14 @@
 	
 	<update id="update_message">
 		update message set
-		m_status = 'yes' where m_num = #{m_num}
+		m_status = sysdate where m_num = #{m_num}
 	</update>
 	
+	<select id="received_message" resultType="kosta.travel.domain.MessageVO">
+		SELECT * FROM message where u_id_recipient=#{u_id_recipient}
+	</select>
+	
+	<select id="send_message" resultType="kosta.travel.domain.MessageVO">
+		SELECT * FROM message where u_id_sender=#{u_id_sender}
+	</select>
 </mapper>
