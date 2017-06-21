@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    
+<%
+	String id = (String) session.getAttribute("login");
+	request.setAttribute("id", id);
+%>
+    
   
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -14,7 +21,7 @@
   <%@ include file="/WEB-INF/views/include/header.jsp" %>
 </head>
 <body>
-	<section class="results-box" style="margin:0px;">
+	<section class="results-box" style="margin:0px; background-color:#FAF1C2;">
 	<div class="holder" style="height: 650px;">
 		<h1>Writing on your blog</h1>
 		<div class="tab-gallery">
@@ -28,22 +35,40 @@
 					<div class="tab-section">
 
 
-						<form id="results-form" action="/loginAction" class="results-form"
-							method="post">
-							<div class="row">
-								<textarea rows="25" cols="68"></textarea>
-							</div>
+						<form id="results-form" action="/blog/blogPost" class="results-form"
+							method="post" enctype="multipart/form-data">
 							
-							<td class="value"><input type="file" name="file3" id="p_img"
+							<td class="value"><input type="hidden" name="u_id" id="u_id"
+								value="${id}" /> &nbsp; <span class="mandatory"></span>
+								<ul class="errorField"></ul>
+							</td>  
+							
+							<div class="row">
+								<textarea rows="20" cols="68" name="bp_contents"
+								id="bp_contents"></textarea>
+							</div>
+							 
+							<td class="value"><input type="file" name="file3" id="bp_img"
 								value="" /> &nbsp; <span class="mandatory"></span>
 								<ul class="errorField"></ul>
-							</td>
+							</td> 
+						
 								
 						
 							<div class="row">
-								<input type="submit" value="Results" /> <input type="reset"
-									value="Clear" />
+								<input type="submit" value="Post" />
 							</div>
+							
+								
+							<!-- <td class="value"><input type="hidden" name="bp_date" id="bp_date"
+								value="" /> &nbsp; <span class="mandatory"></span>
+								<ul class="errorField"></ul>
+							</td> 
+							
+							<td class="value"><input type="hidden" name="u_id" id="u_id"
+								value="" /> &nbsp; <span class="mandatory"></span>
+								<ul class="errorField"></ul>
+							</td>  -->
 
 						</form>
 					</div>

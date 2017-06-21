@@ -11,4 +11,5 @@ public interface BlogService {
 	public void insertBlog(BlogVO blog)throws Exception;
 	public BlogVO detailBlog(String u_id)throws Exception;
 	public void postingBlog(BlogPostVO blogpost)throws Exception;
+	public List<BlogPostVO> postBlogList()throws Exception;
 }

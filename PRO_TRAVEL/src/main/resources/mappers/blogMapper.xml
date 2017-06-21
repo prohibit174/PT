@@ -28,11 +28,14 @@
 			insert into blogpost(
 			bp_postnum, u_id, bp_contents, bp_date, bp_img)
 			values(
-			postnum_seq.nextval, #{u_id},#{bp_contents},sysdate,#{bp_img}
+			blogpost_seq.nextval, #{u_id},#{bp_contents}, sysdate ,#{bp_img}
 			)
-			
-			)
-	
 	</insert>
+	
+	<select id="postBlogList" resultType="kosta.travel.domain.BlogVO">
+	select * 
+	from blogpost
+	where u_id=#{u_id}
+	</select>
 
 </mapper>

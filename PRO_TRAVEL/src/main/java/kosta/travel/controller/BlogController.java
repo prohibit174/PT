@@ -9,6 +9,7 @@ import java.util.UUID;
 import javax.annotation.Resource;
 import javax.imageio.ImageIO;
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 import javax.websocket.server.PathParam;
 
 import org.slf4j.Logger;
@@ -45,8 +46,8 @@ public class BlogController {
 
    @RequestMapping(value = "/makeBlog", method = RequestMethod.POST)
    public String makeBlog_post(Model model, BlogVO blog, RedirectAttributes rttr) throws Exception {
-      System.out.println("controller in");
-      logger.info("originalName: " + blog.getFile2().getOriginalFilename());
+/*      System.out.println("controller in");
+      logger.info("originalName: " + blog.getFile2().getOriginalFilename());*/
 
       String savedName = UploadFile(blog.getFile2().getOriginalFilename(), blog.getFile2().getBytes());
 
@@ -99,20 +100,24 @@ public class BlogController {
    }
 
    @RequestMapping(value = "/myBlog", method = RequestMethod.GET)
-   public void myBlog(@RequestParam("u_id") String u_id, Model model) throws Exception {
+   public String myBlog(@RequestParam("u_id") String u_id, Model model) throws Exception {
 
+	   
       BlogVO blog = service.detailBlog(u_id);
 
-      logger.info(blog.toString());
+     /* logger.info(blog.toString());*/
       model.addAttribute("blog", blog);
+      
+	return "/blog/myBlog";
    }
+   
    
    @RequestMapping(value = "/showBlog", method = RequestMethod.GET)
    public void showBlog(@RequestParam("u_id") String u_id, Model model) throws Exception {
 
       BlogVO blog = service.detailBlog(u_id);
 
-      logger.info(blog.toString());
+     /* logger.info(blog.toString());*/
       model.addAttribute("blog", blog);
    }
    
@@ -134,7 +139,7 @@ public class BlogController {
 
       blogpost.setBp_img(savedName);
 
-      /* logger.info(blog.toString()); */
+       logger.info(blogpost.toString());
       service.postingBlog(blogpost);
 
       rttr.addFlashAttribute("msg", "SUCCESS");
@@ -160,10 +165,15 @@ public class BlogController {
          e.printStackTrace();
       }
 
-      return "redirect:/blog/blogMain";
+      return "redirect:/blog/myBlog";
    }
 
- 
+ @RequestMapping("/myRealBlog")
+ public String userOwnBlog(HttpSession session, Model model){
+	 String u_id = (String)session.getAttribute("login");
+	 model.addAttribute("u_id", u_id);
+	 return "redirect:/blog/myBlog";
+ }
    
    
 }
