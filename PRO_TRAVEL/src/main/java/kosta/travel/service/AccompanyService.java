@@ -189,6 +189,46 @@ public class AccompanyService {
 	   public String initGroup(){
 		   return dao.initGroup();
 	   }
+
+	public List<GroupVO> getGroupInfo2(String u_id) {
+
+		List<GroupVO> getGroupInfo2 = dao.getGroupInfo2(u_id);
+
+		return getGroupInfo2;
+	}
+
+	public int getCurrent2(GroupVO groupVO) {
+		try {
+			int value=dao.getCurrent2(groupVO);
+			return value;
+		} catch (Exception e) {
+			System.out.println("에러 진입");
+			e.printStackTrace();
+			return 0;
+		}
+	}
+
+
+
+	public GroupVO getGroupDetailInfo(int group_id) {
+		return dao.getGroupDetailInfo(group_id);
+
+	}
+
+	public List<GroupVO> getGuestGroupList(int group_id) {
+		return dao.getGuestGroupList(group_id);
+
+	}
+
+	public void Accom_accept(int acr_num) {
+		dao.Accom_accept(acr_num);
+		
+	}
+
+	public void Accom_reject(int acr_num) {
+		dao.Accom_reject(acr_num);
+		
+	}
 	   
 	   public List<GroupVO> searchGroupList(SearchTraveler search) throws Exception {
 
