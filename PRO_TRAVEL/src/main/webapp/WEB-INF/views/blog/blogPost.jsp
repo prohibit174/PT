@@ -24,7 +24,7 @@
  
 </head>
 <body>
-
+ 
  
   <script type="text/javascript">
   
@@ -32,10 +32,10 @@
 	  /* confirm(문자열, 초기값) */
 	  var check = confirm("등록하시겠습니까?");
 	  /* if(check == true) else false */
-	  if(check) document.location.href="myblog?u_id=${blogpost.u_id}";
+	  if(check) document.location.href="";
 	}
 	
-  </script>
+  </script> 
 	<section class="results-box" style="margin:0px; background-color:#FAF1C2;">
 	<div class="holder" style="height: 650px;">
 		<h1>Writing on your blog</h1>
@@ -71,7 +71,8 @@
 								
 						
 							<div class="row">
-								<input type="submit" class="btn btn-register" onclick="btn_js_register_click()" value="Post" />
+								<input type="submit" class="btn btn-register" onclick="btn_js_register_click()" 
+								value="Post" />
 							</div>
 							
 								

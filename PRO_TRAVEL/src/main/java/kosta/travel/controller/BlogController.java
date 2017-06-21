@@ -100,7 +100,7 @@ public class BlogController {
    }
 
    @RequestMapping(value = "/myBlog", method = RequestMethod.GET)
-   public String myBlog(@RequestParam("u_id") String u_id, Model model) throws Exception {
+   public String myBlog(@RequestParam(value="u_id", required=true) String u_id, Model model) throws Exception {
 
       
       BlogVO blog = service.detailBlog(u_id);
