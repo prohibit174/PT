@@ -171,8 +171,19 @@ public class BlogController {
       
     
     @RequestMapping(value = "/updateBlog", method=RequestMethod.GET)
-    public String updateBlog(){
-       return null;
+    public String updateBlog(int bp_postnum, Model model) throws Exception{
+    	BlogPostVO blogPost = service.postDetail(bp_postnum);
+    	model.addAttribute("blogPost", blogPost);
+    	
+       return "/blog/updateBlog";
+    }
+    
+    @RequestMapping(value="/updateBlog", method=RequestMethod.POST)
+    public String updatePost(int bp_postnum) throws Exception{
+    	BlogPostVO blogpost = service.postDetail(bp_postnum);
+    	service.updateBlog(blogpost);
+    	
+    	return "redirect:/blog/myBlog";
     }
    
 }
