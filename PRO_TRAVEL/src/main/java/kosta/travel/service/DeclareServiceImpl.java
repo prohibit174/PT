@@ -1,5 +1,7 @@
 package kosta.travel.service;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
@@ -21,6 +23,11 @@ public class DeclareServiceImpl implements DeclareService {
 	@Override
 	public Integer d_maxNum() throws Exception {
 		return dao.d_maxNum();
+	}
+
+	@Override
+	public List<DeclareVO> declare_list() throws Exception {
+		return dao.declare_list();
 	}
 
 

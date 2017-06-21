@@ -38,4 +38,9 @@
 	where u_id=#{u_id}
 	</select>
 
+	<update id="updateBlog">
+		UPDATE blogpost SET b_contents = #{b_contents}
+	</update>
+	
+	
 </mapper>
