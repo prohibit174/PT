@@ -2,15 +2,10 @@ $(function(){
 var ct = 0;
 var frm = $('.ajaxform');
 
-console.log("gogo");
-
 $(document).on('submit', '.ajaxform', function(e){
-	/*$('.ajaxbtn').on('click', function(e){*/
-    
-    	
-/*   frm.submit(function (e) {*/
+	e.preventDefault();
     	console.log("search.js log = "+frm.serialize());
-    	e.preventDefault();
+    	
         	
         $.ajax({
             type: frm.attr('method'),
@@ -67,6 +62,7 @@ $(document).on('submit', '.ajaxform', function(e){
 
 /*when + button click, add search option  */
  $(document).on('click','.appendcp',function() {
+	 alert('sdfsdf');
 	if(ct <= 0){
 		ct ++;
 		$(this).parent('div')
@@ -117,6 +113,8 @@ $(document).on('submit', '.ajaxform', function(e){
 	}
 	
 	console.log("plus");
+	console.log("plus2");
+	alert('sdfsdf');
 	ct += 1;
 });
  
