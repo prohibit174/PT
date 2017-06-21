@@ -104,9 +104,13 @@ public class BlogController {
 
       
       BlogVO blog = service.detailBlog(u_id);
-
+      List<BlogPostVO> blogpost=service.postBlogList(u_id);
+      
+      logger.info(blogpost.toString());
      /* logger.info(blog.toString());*/
       model.addAttribute("blog", blog);
+      model.addAttribute("blogpost", blogpost);
+    /*  logger.info(blogpost.toString());*/
       
    return "/blog/myBlog";
    }
