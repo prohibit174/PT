@@ -16,5 +16,7 @@ public interface MessageService {
 	
 	public Integer noRead_message(String u_id_recipient)throws Exception;
 	
+	public void message_update(int m_num)throws Exception;
+	
 	
 }

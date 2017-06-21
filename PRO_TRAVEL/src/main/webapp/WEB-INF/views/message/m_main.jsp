@@ -11,8 +11,8 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/message/jquery.magnific-popup.min.js"></script>
 <script type="text/javascript">
 function detailForm(num){
-	 var popupX = (window.screen.width / 2) - (200 / 2);
-	   var popupY= (window.screen.height /2) - (300 / 2);
+	 var popupX = (window.screen.width / 2) - (100 / 2);
+	   var popupY= (window.screen.height /2) - (150 / 2);
 	    window.open('about:blank','popup_window','width=350, height=250, left='+popupX+', top='+popupY);
 	    var wantForm = 'detailForm'+num;
 	    var frm =document.getElementById(wantForm);
@@ -315,7 +315,7 @@ cursor: pointer;
               </h3>
               <br>
               <span class="time"><span content="6/23/2017 12:00:00 AM">${listMessage.m_content }</span></span>
-        <input type="button" value="수정" onclick="detailForm(${listMessage.m_num});">
+        <input type="button" value="확인하기" onclick="detailForm(${listMessage.m_num});">
          </form>
           </li>
 

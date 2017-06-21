@@ -10,4 +10,5 @@ public interface MessageDAO {
 	public List<MessageVO> list(String u_id_recipient) throws Exception;
 	public MessageVO detail_message(int m_num) throws Exception;
 	public Integer noRead_message(String u_id_recipient) throws Exception;
+	public void message_update(int m_num) throws Exception;
 }
