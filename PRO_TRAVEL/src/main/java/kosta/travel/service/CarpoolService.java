@@ -11,6 +11,8 @@ public interface CarpoolService {
 	
 	public void regist(CarpoolVO carpool)throws Exception;
 	
+	public Integer count()throws Exception;
+	
 	public Carpool_ListVO read(Integer c_num)throws Exception;
 	
 	public void modify(CarpoolVO carpool)throws Exception;

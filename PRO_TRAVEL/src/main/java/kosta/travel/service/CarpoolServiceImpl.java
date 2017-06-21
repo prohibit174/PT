@@ -25,6 +25,12 @@ public class CarpoolServiceImpl implements CarpoolService {
 		dao.create(carpool);
 		
 	}
+	
+	@Override
+	public Integer count() throws Exception {
+		return dao.count();
+	}
+
 
 	@Override
 	public Carpool_ListVO read(Integer c_num) throws Exception {
@@ -125,6 +131,7 @@ public class CarpoolServiceImpl implements CarpoolService {
 	public List<Carpool_ListVO> recommendList() throws Exception {
 		return dao.recommendList();
 	}
+
 
 
 

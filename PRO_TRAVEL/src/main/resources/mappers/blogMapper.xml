@@ -32,7 +32,7 @@
 			)
 	</insert>
 	
-	<select id="postBlogList" resultType="kosta.travel.domain.BlogVO">
+	<select id="postBlogList" resultType="BlogPostVO">
 	select * 
 	from blogpost
 	where u_id=#{u_id}
