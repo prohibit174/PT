@@ -6,16 +6,6 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/message/magnific-popup.css"> 
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/message/jquery.magnific-popup.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/message/jquery.magnific-popup.min.js"></script>
-<script type="text/javascript">
-function resendForm(u_id_sender){
-	 var popupX = (window.screen.width / 4) - (100);
-	   var popupY= (window.screen.height /4) - (150);
-	    window.open('about:blank','popup_window','width=450, height=470, left='+popupX+', top='+popupY);
-	    var wantForm = 'resendForm'+u_id_sender;
-	    var frm =document.getElementById(wantForm);
-	    frm.submit();
-	}	
-</script>
 <style type="text/css">
 button{
     width: 93px;
@@ -133,37 +123,39 @@ cursor: pointer;
 <title>Insert title here</title>
 </head>
 <body>
-
-<form class="white-popup-block" id="resendForm${vo.u_id_sender}" method="post" action="/message/resend_message?u_id_sender=${vo.u_id_sender}" target="popup_window">
+<form class="white-popup-block" action="/message/insert" method="post">
    <fieldset style="border:0; background: white; width: 50%;">
   <!--  <div class="close" style="float: right; margin-right: 20px; margin-top: 10px;" onclick=""></div> -->
    <br><br>
-   <h1 style="padding-left: 30px; font-size: 30px">&nbsp&nbspConfirm your message !</h1>
+   <h1 style="padding-left: 30px; font-size: 30px">&nbsp&nbspWrite your message !</h1>
       <ul>
          <li>
          <label style="font-weight: bold;">Sender : </label>
-            <input id="name" name="u_id_sender" readonly="readonly" value="${vo.u_id_sender }" type="text" required="">
+            <input id="name" name="u_id_sender" readonly="readonly" value="<%=session.getAttribute("login") %>" type="text" required="">
          </li>
 
          <li>
          <label style="font-weight: bold;">Recipient : </label>
-            <input id="email" name="u_id_recipient" type="text" value="${vo.u_id_recipient }" required="">
+            <input id="email" name="u_id_recipient" type="text" value="${u_id}" required="">
          </li>
 
          <li>
          <label style="font-weight: bold;">Category : </label>
-           <input id="email" name="u_id_recipient" type="text" value="${vo.m_category }" required="">
+          <select class="" name="m_category">
+               <option value="accompany">Accompany</option>
+               <option value="carpool">Carpool</option>
+               <option value="exchange">Exchange</option>
+            </select>
          </li>
 
          <li>
          <label style="font-weight: bold;">Content : </label>
-            <textarea id="textarea" style="width:350px; height:150px;" name="m_content" value="">${vo.m_content }</textarea>
+            <textarea id="textarea" style="width:350px; height:150px;" name="m_content"></textarea>
          </li>
 
       </ul>
    </fieldset>
-      <button style="margin-left: 40%;" onClick="window.close()">confirm</button>
-      <button style="margin-left: 40%;" onClick="resendForm(${vo.u_id_sender});">send</button>
+      <button style="margin-left: 40%;" onClick="window.close()">send</button>
 </form>
 </body>
 </html>

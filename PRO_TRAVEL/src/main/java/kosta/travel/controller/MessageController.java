@@ -68,6 +68,15 @@ public class MessageController {
 		return "/message/detail_message";
 	}
 	
+	@RequestMapping(value = "/resend_message", method = RequestMethod.POST)
+	public String resend_message(Model model,@RequestParam("u_id_sender")String u_id_sender)throws Exception {
+		System.out.println("resend_message post method call");
+		
+		model.addAttribute("u_id", u_id_sender);
+		
+		return "/message/resend_message";
+	}
+	
 	@RequestMapping(value = "/detail_message2", method = RequestMethod.POST)
 	public String detailPOST2(Model model,@RequestParam("m_num")int m_num)throws Exception {
 		System.out.println("detail_message post method call");
