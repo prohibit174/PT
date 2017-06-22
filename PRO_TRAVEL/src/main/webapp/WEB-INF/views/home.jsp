@@ -57,47 +57,97 @@ String id = (String)session.getAttribute("login");
     <noscript><div>Javascript must be enabled for the correct page display</div></noscript>
     <a href="#main" class="accessibility">skip to content</a>
     
-    <div id="wrapper">
-<div>
     
+    <div id="wrapper">
+<section class="banner-gallery" >
+	        <div class="gallery-holder">
+	            <span class="mask-l"></span>
+	            <span class="mask-r"></span>
+	            <a class="btn-prev" href="#" style="padding-top: 10px;top: 250px;"><span class="icon-arrow-left"><span class="hide">prev</span></span></a>
+	            <a class="btn-next" href="#" style="padding-top: 10px;top: 250px;"><span class="icon-arrow-right"><span class="hide">next</span></span></a>
+	            <ul style="position: relative; height: 80%; margin-left: -1060px;">
+	        <li>
+  
+        <div class="box-holder">
+	            <div class="box ">
+	                <a href="/resources/upload/Italy.JPG">
+	                    <picture class="image">
+	<!--[if IE 9]><video style="display: none;"><![endif]-->
+	
+	<source srcset="/resources/upload/Italy.png" media="(min-width: 768px)">
+	<!--[if IE 9]></video><![endif]-->
+<!-- 	<img srcset="/resources/upload/italy.jpg" width="50" height="50" >
+ -->	<img srcset="/resources/upload/Italy.png" alt="FISCHER Birgit"></picture>
+			<div style="position:relative;top:-370px;text-align:center;z-index:9;padding-left:0px;padding-right:0px;">
+			<img src="/resources/upload/Italy_logo.gif" style="width:500px;display:inline-block;" >
+		</div>
+	                    <div class="title-row" style=" height: 35px; top: 460px; padding-top: 10px;">
+	                        <div class="profile-row">
+	                            <div class="flag-image"><div class="flag18 ita"><div class="mask"></div></div></div>
+	                            <span>Italy</span>
+	                        </div>
+	                        <strong class="name">Vatican Museums</strong>
+	                    </div>
+	                </a>
+	            </div>
+	        </div>
+		</li>	
+	        <li>
+	        <div class="box-holder">
+	            <div class="box ">
+	                <a href="/resources/upload/spain.JPG">
+	                    <picture class="image">
+	<!--[if IE 9]><video style="display: none;"><![endif]-->
+	
+	<source srcset="/resources/upload/spain.JPG" media="(min-width: 768px)">
+	<!--[if IE 9]></video><![endif]-->
+<!-- 	<img srcset="/resources/upload/italy.jpg" width="50" height="50" >
+ -->	<img srcset="/resources/upload/spain.JPG" alt="FISCHER Birgit"></picture>
+			<div style="position:relative;top:-370px;text-align:center;z-index:9;padding-left:0px;padding-right:0px;">
+			<img src="/resources/upload/spain_logo.gif" style="width:500px;display:inline-block;" >
+		</div>
+	                    <div class="title-row" style=" height: 35px; top: 460px; padding-top: 10px;">
+	                        <div class="profile-row">
+	                            <div class="flag-image"><div class="flag18 esp"><div class="mask"></div></div></div>
+	                            <span>Spain</span>
+	                        </div>
+	                        <strong class="name">Spain Gaudi</strong>
+	                    </div>
+	                </a>
+	            </div>
+	        </div>
+</li>
+	        <li>
+	<div class="box-holder">
+            <div class="box ">
+                <a href="/usain-bolt">
+                    <picture class="image">
+<!--[if IE 9]><video style="display: none;"><![endif]-->
 
-    <section class="profiles alt2" >
-        <div class="btn-hold">
-                <a href="/london-2012">
-                    <span class="btn-prev">
-                        <span class="icon-arrow-left">
-                            <span class="hide"></span>
-                        </span>
-                    </span>
-                    <span class="txt">London 2012</span>
+<source srcset="/resources/upload/europe.JPG" media="(min-width: 768px)">
+<!--[if IE 9]></video><![endif]-->
+
+<img srcset="/resources/upload/europe.JPG" alt="BOLT Usain"></picture>
+		<div style="position:relative;top:-370px;text-align:center;z-index:9;padding-left:0px;padding-right:0px;">
+			<img src="/resources/upload/europe_logo.gif" style="width:500px;display:inline-block;" >
+		</div>
+	                    <div class="title-row" style=" height: 35px; top: 460px; padding-top: 10px;">
+	                        <div class="profile-row">
+	                            <div class="flag-image"><div class="flag18 cze"><div class="mask"></div></div></div>
+	                            <span>Czech republic</span>
+	                        </div>
+	                        <strong class="name">Skydiving in Czech republic</strong>
+	                    </div>
                 </a>
+            </div>
         </div>
-        <div class="btn-hold right">
-                <a href="/rio-2016">
-                    <span class="btn-next">
-                        <span class="icon-arrow-right">
-                            <span class="hide"></span>
-                        </span>
-                    </span>
-                    <span class="txt">Rio 2016</span>
-                </a>
-        </div>
-        <div class="bg-image">
-<picture class="image">
+	        </li>
+	
+	            </ul>
+	        </div>
+	    </section>
 
-
-<source srcset="${pageContext.request.contextPath}/resources/images/pipi.jpg" media="(min-width: 1921px)">
-<source srcset="${pageContext.request.contextPath}/resources/images/pipi.jpg" media="(min-width: 1024px)">
-<source srcset="${pageContext.request.contextPath}/resources/images/pipi.jpg" media="(min-width: 768px)">
-
-<div>
-<img srcset="${pageContext.request.contextPath}/resources/images/pipi.jpg" alt="Sochi 2014" ></picture>
-</div>
-
-
-        </div>
-        <div class="holder">
-                <article class="profile-box">
+  <article class="profile-box">
                
 
 <c:set var="u_id" value="${id }"></c:set>
@@ -109,12 +159,9 @@ String id = (String)session.getAttribute("login");
 
 </c:if>
                 </article>
-        </div>
-        
-    </section>
-<br>
     <section  class="id-card gallery-js-ready games2014-2" >
         <div class="holder">
+                  
             <div class="frame">
                 <ul>
                         <li >
