@@ -32,12 +32,12 @@
 	  /* confirm(문자열, 초기값) */
 	  var check = confirm("등록하시겠습니까?");
 	  /* if(check == true) else false */
-	  if(check) document.location.href="myblog?u_id="+u_id;
+	  if(check) document.location.href="myblog?u_id=${blogpost.u_id}";
 	}
 	
   </script> 
 	<section class="results-box" style="margin:0px; background-color:#FAF1C2;">
-	<div class="holder" style="height: 650px;">
+	<div class="holder" style="height: 700px;">
 		<h1>Writing on your blog</h1>
 		<div class="tab-gallery">
 			<!-- <ul class="tabset">
@@ -53,10 +53,6 @@
 						<form id="results-form" action="/blog/blogPost" class="results-form"
 							method="post" enctype="multipart/form-data">
 							
-							<td class="value"><input type="hidden" name="u_id" id="u_id"
-								value="${id}" /> &nbsp; <span class="mandatory"></span>
-								<ul class="errorField"></ul>
-							</td>  
 							
 							<td class="value"><input type="hidden" name="bp_postnum" id="bp_postnum"
 								value="" /> &nbsp; <span class="mandatory"></span>
@@ -72,11 +68,15 @@
 								value="" /> &nbsp; <span class="mandatory"></span>
 								<ul class="errorField"></ul>
 							</td> 
-						
+							
+							<td class="value"><input type="hidden" name="u_id" id="u_id"
+								value="${id}" /> &nbsp; <span class="mandatory"></span>
+								<ul class="errorField"></ul>
+							</td>  
 								
-						
+					
 							<div class="row">
-								<input type="submit" class="btn btn-register" onclick="btn_js_register_click('${blogpostVO.u_id}')" 
+								<input type="submit" class="btn btn-register" onclick="btn_js_register_click('${id}')" 
 								value="Post" />
 							</div>
 							

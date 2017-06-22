@@ -99,10 +99,13 @@ public class BlogController {
       model.addAttribute("blogVO", blogList);
    }
 
+ 
    @RequestMapping(value = "/myBlog", method = RequestMethod.GET)
-   public String myBlog(@RequestParam(value="u_id", required=true) String u_id, Model model) throws Exception {
+   public String myBlog(HttpSession session, Model model) throws Exception {
 
-      
+      String u_id = (String)session.getAttribute("login");
+      model.addAttribute("u_id", u_id);
+
       BlogVO blog = service.detailBlog(u_id);
       List<BlogPostVO> blogpost=service.postBlogList(u_id);
       
@@ -125,7 +128,7 @@ public class BlogController {
 
   
    @RequestMapping(value = "/blogPost", method = RequestMethod.POST)
-   public String blogpost_post(Model model, BlogPostVO blogpost, RedirectAttributes rttr) throws Exception {
+   public String blogpost_post(HttpSession session, Model model, BlogPostVO blogpost, RedirectAttributes rttr) throws Exception {
       System.out.println("controller in");
       logger.info("originalName: " + blogpost.getFile3().getOriginalFilename());
 
@@ -133,8 +136,11 @@ public class BlogController {
 
       blogpost.setBp_img(savedName);
 
-       logger.info(blogpost.toString());
+      logger.info(blogpost.toString());
       service.postingBlog(blogpost);
+      
+      String u_id = (String)session.getAttribute("login");
+      model.addAttribute("u_id", u_id);
 
       rttr.addFlashAttribute("msg", "SUCCESS");
       try {
@@ -161,7 +167,6 @@ public class BlogController {
 
       return "redirect:/blog/myBlog";
    }
-
     @RequestMapping("/myRealBlog")
     public String userOwnBlog(HttpSession session, Model model){
        String u_id = (String)session.getAttribute("login");
@@ -171,19 +176,24 @@ public class BlogController {
       
     
     @RequestMapping(value = "/updateBlog", method=RequestMethod.GET)
-    public String updateBlog(int bp_postnum, Model model) throws Exception{
-    	BlogPostVO blogPost = service.postDetail(bp_postnum);
-    	model.addAttribute("blogPost", blogPost);
-    	
+    public String updateBlog(String bp_postnum, Model model) throws Exception{
+       BlogPostVO blogPost = service.postDetail(bp_postnum);
+       model.addAttribute("blogPost", blogPost);
+       
        return "/blog/updateBlog";
     }
     
     @RequestMapping(value="/updateBlog", method=RequestMethod.POST)
-    public String updatePost(int bp_postnum) throws Exception{
-    	BlogPostVO blogpost = service.postDetail(bp_postnum);
-    	service.updateBlog(blogpost);
-    	
-    	return "redirect:/blog/myBlog";
+    public String updatePost(@RequestParam("bp_postnum") String bp_postnum, HttpSession session, Model model) throws Exception{
+       System.out.println("blog update controller in"+bp_postnum);
+       BlogPostVO blogpost = service.postDetail(bp_postnum);
+       service.updateBlog(blogpost);
+       
+       String u_id = (String)session.getAttribute("login");
+       model.addAttribute("u_id", u_id);
+       System.out.println("blogupdate controller out");
+       
+       return "redirect:/blog/myBlog";
     }
    
 }
