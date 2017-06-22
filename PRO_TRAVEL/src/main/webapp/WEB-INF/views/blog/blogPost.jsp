@@ -28,11 +28,11 @@
  
   <script type="text/javascript">
   
-	function btn_js_register_click(){
+	function btn_js_register_click(u_id){
 	  /* confirm(문자열, 초기값) */
 	  var check = confirm("등록하시겠습니까?");
 	  /* if(check == true) else false */
-	  if(check) document.location.href="";
+	  if(check) document.location.href="myblog?u_id="+u_id;
 	}
 	
   </script> 
@@ -58,6 +58,11 @@
 								<ul class="errorField"></ul>
 							</td>  
 							
+							<td class="value"><input type="hidden" name="bp_postnum" id="bp_postnum"
+								value="" /> &nbsp; <span class="mandatory"></span>
+								<ul class="errorField"></ul>
+							</td> 
+							
 							<div class="row">
 								<textarea rows="20" cols="68" name="bp_contents"
 								id="bp_contents"></textarea>
@@ -71,7 +76,7 @@
 								
 						
 							<div class="row">
-								<input type="submit" class="btn btn-register" onclick="btn_js_register_click()" 
+								<input type="submit" class="btn btn-register" onclick="btn_js_register_click('${blogpostVO.u_id}')" 
 								value="Post" />
 							</div>
 							
