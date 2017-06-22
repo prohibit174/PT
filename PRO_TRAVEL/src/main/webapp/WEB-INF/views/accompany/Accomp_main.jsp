@@ -343,6 +343,7 @@ function showLeftAccom(leftIndex, markerIndex){
                  position: latlng,
                  map: map,
                  title: region[markerIndex],
+                 icon:"http://www.stubbyplanner.com/img_v8/selectcityICON_red.png",
                  hasInfoWindow : false// one marker, one InfoWindow. So If a marker has window, it is prohibited to make Infowindow
         		/*  date : travelDate[i] */
                });
@@ -381,7 +382,7 @@ function showLeftAccom(leftIndex, markerIndex){
      	    		    +'<img src="/resources/images/accompany/cal.png" width="10" height="10">'
          	    		 +accom_tp_date[j]+'<br>'
          	    	     +'<img src="/resources/images/accompany/age.png" width="10" height="10">'
-         	    		 +age+'살'+'<br>'
+         	    		 +age+'years old'+'<br>'
          	    		 + "<button onclick='showLeftAccom("+j+","+markerIndex+" )' style='font-size:8px'>&lt</button>"  
          	    		 +'<button style="font-size:8px">'+'1'+'/'+totalCount+'</button>'
          	    		 + "<button onclick='showRightAccom("+j+","+markerIndex+" )' style='font-size:8px'>&gt</button>"  
