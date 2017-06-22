@@ -651,4 +651,3 @@ String id = (String)session.getAttribute("login");
                     <a href="/fr/sotchi-2014" class="lang-switcher link">Fr</a>
     </div>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<sc
