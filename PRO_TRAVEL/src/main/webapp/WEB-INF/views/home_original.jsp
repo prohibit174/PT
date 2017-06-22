@@ -64,7 +64,7 @@ String id = (String)session.getAttribute("login");
     <section class="profiles alt2" >
         <div class="btn-hold">
                 <a href="/london-2012">
-                    <span class="btn-prev">
+                    <span class="btn-prev" style="padding-top: 10px">
                         <span class="icon-arrow-left">
                             <span class="hide"></span>
                         </span>
@@ -74,7 +74,7 @@ String id = (String)session.getAttribute("login");
         </div>
         <div class="btn-hold right">
                 <a href="/rio-2016">
-                    <span class="btn-next">
+                    <span class="btn-next" style="padding-top: 10px;">
                         <span class="icon-arrow-right">
                             <span class="hide"></span>
                         </span>
@@ -86,32 +86,21 @@ String id = (String)session.getAttribute("login");
 <picture class="image">
 
 
-<source srcset="${pageContext.request.contextPath}/resources/images/pipi.jpg" media="(min-width: 1921px)">
-<source srcset="${pageContext.request.contextPath}/resources/images/pipi.jpg" media="(min-width: 1024px)">
-<source srcset="${pageContext.request.contextPath}/resources/images/pipi.jpg" media="(min-width: 768px)">
+<source srcset="http://tripgene.com/stubby/photo/2/1/7742ad8f86596f0b3a5487ae92536c8f.jpg" media="(min-width: 1921px)">
+<source srcset="http://tripgene.com/stubby/photo/2/1/7742ad8f86596f0b3a5487ae92536c8f.jpg" media="(min-width: 1024px)">
+<source srcset="http://tripgene.com/stubby/photo/2/1/7742ad8f86596f0b3a5487ae92536c8f.jpg" media="(min-width: 768px)">
 
 <div>
-<img srcset="${pageContext.request.contextPath}/resources/images/pipi.jpg" alt="Sochi 2014" ></picture>
+<img srcset="http://tripgene.com/stubby/photo/2/1/7742ad8f86596f0b3a5487ae92536c8f.jpg" alt="Sochi 2014" ></picture>
 </div>
 
 
         </div>
-        <div class="holder">
-                <article class="profile-box">
-               
 
-<c:set var="u_id" value="${id }"></c:set>
-
-<c:if test="${id!=null}">
-										
-<iframe  width="500" height="500" src="http://127.0.0.1:5000?username=${id }" frameborder="1">
-</iframe>										
-
-</c:if>
-                </article>
-        </div>
-        
     </section>
+        <div style="position:relative;top:-200px;text-align:center;z-index:9;padding-left:0px;padding-right:0px;">
+			<img src="http://www.stubbyplanner.com/img_v12/exp_label_11104.gif" style="width:500px;display:inline-block;" >
+		</div>
 <br>
     <section  class="id-card gallery-js-ready games2014-2" >
         <div class="holder">
