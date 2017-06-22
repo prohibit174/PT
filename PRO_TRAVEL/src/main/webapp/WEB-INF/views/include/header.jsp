@@ -152,7 +152,6 @@ width:0;
 	src="https://stillres.olympic.org/js/ss-social.js"></script>
 <script type="text/javascript"
 	src="https://stillres.olympic.org/js/ss-standard.js"></script>
-	
 <!--[if IE]><script type="text/javascript" src="https://stillres.olympic.org/js/ie.js"></script><![endif]-->
 <noscript>
 	<div>Javascript must be enabled for the correct page display</div>
@@ -180,6 +179,15 @@ width:0;
                     }
                 }
             });
+            
+            function chattingForm(){
+           	 var popupX = (window.screen.width / 4) - (100);
+           	   var popupY= (window.screen.height /4) - (150);
+           	    window.open('about:blank','popup_window','width=450, height=470, left='+popupX+', top='+popupY);
+           	    var wantForm = 'chattingForm';
+           	    var frm =document.getElementById(wantForm);
+           	    frm.submit();
+           	}
         </script>
 
 
@@ -393,7 +401,11 @@ width:0;
 							</c:when>
 							</c:choose>
 							<li class="button_base b01_simple_rollover" id="mypage" style="display: none; "><a href="/mypage/usercheckInfo">MY PAGE</a></li>
-							<li><a href="https://twitter.com/olympics" class="ss-icon">twitter</a></li>
+							<li>
+							 <form id="chattingForm" method="post" action="/chatting" target="popup_window">
+							<input type="submit" class="ss-icon" onclick="chattingForm();">twitter
+							</form>
+							</li>
 							<li><a href="https://www.youtube.com/user/olympic"
 								class="ss-icon">youtube</a></li>
 							<li><a href="#popup2" class="lightbox-link alt"> <span

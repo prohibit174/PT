@@ -61,6 +61,14 @@ public class HomeController {
 
 		return "dialog";
 	}
+	
+	@RequestMapping(value = "/chatting", method = RequestMethod.POST)
+	public String chatting(Model model, HttpSession session) {
+		System.out.println("chatting controller");
+		String id = session.getAttribute("login").toString();
+		model.addAttribute("id",id);
+		return "/chatting";
+	}
 
 	@RequestMapping(value = "/login_form", method = RequestMethod.GET)
 	public String login() {
