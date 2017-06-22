@@ -44,7 +44,7 @@
 	</update>
 	
 	<!-- Get a one post -->
-	<select id = "postDetail">
+	<select id = "postDetail" resultType="BlogPostVO">
 	SELECT * FROM blogpost
 	WHERE bp_postnum = #{bp_postnum}
 	</select>
