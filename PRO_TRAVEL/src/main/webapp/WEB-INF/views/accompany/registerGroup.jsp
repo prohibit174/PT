@@ -39,12 +39,12 @@
 <body>
 <%@include file="../include/accompany_sidebar.jsp" %>
 
-<div id="contents"  class="city">
+<div id="contents" class="city" style="margin-top: -200px;">
     <div class="conts-container">
         <div class="present">
            <div class="tabs-list"> 
                 
-                <div id="google-ad-sense" style="margin-top:90px; float:left; margin-left: -225px;" data-type="260x260">
+                <div id="google-ad-sense" style="margin-top:228px; float:left; margin-left: -212px;" data-type="260x260">
                   <script type="text/javascript">
                     google_ad_client = "ca-pub-9419115827273897";
                     google_ad_slot = "3548612763";
@@ -61,7 +61,7 @@
             </div> <!-- //tabs-list  -->
   	<!--   <div id="carpool_map"></div> -->
   	
-    	<h3 id="carpool_title" style="margin-top: -80px;">Recommended Traveling Companion</h3>
+    	<h3 id="carpool_title" style="margin-top: -80px;">Your Trip Route</h3>
     	<br>
     	<div id="map" style="margin-top: 0px;"></div>
     
@@ -451,38 +451,24 @@ function showLeftAccom(leftIndex, markerIndex){
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnrWQ2SHvedNrvdozheYo32pHwCbuvPgs&callback=initMap">
     </script>
    
-	<div style="margin-left: 50.5%;">
-      <input id="aaa" type="button" onclick="showAccom()" value="recommend show">
-      <input id="aaa" type="button" onclick="hideAccom()" value="recommend hide" style="position: absolute,
-        top: 10px,
-        left: 25%,
-        z-index: 5,
-        background-color: #fff,
-        padding: 5px,
-        border: 1px solid #999,
-        text-align: center,
-        font-family: 'Roboto','sans-serif',
-        line-height: 30px,
-        padding-left: 10px">
-  	</div>
     </div>
             </div>
 
 
-<div class="id-card-box" style="width: 100% ;border: black;">
+<div class="id-card-box" style="width: 100%;border: black;padding-top: 0px;">
 	
 			<div class="item-list" style="width: 1400px; padding-right: 30px;">
 					<div style="font-size: 20px;">
 						
 				</div>
 		<form action="/accompany/registerGroup" method="post" role="form">
-		<div class="accompanyList row">
-		 <section class="results ajax-area" data-tmpl="athleteResults_tmpl">
-    	<div class="heading">
+		<div class="accompanyList row" style="border: none;">
+		 <section class="ajax-area" data-tmpl="athleteResults_tmpl">
+    	<div class="heading" style="margin: 20px;padding-left: 540px;">
     	<h2>Your Route</h2>
     	</div>
-    	<ul class="table2 ajax-content">
-    	<li class="liSize">
+    	<ul class="table2 ajax-content" style="margin-bottom: 0px;">
+    	<li class="liSize" style="width: 77%">
     		
 				<div class="th col4">Except</div>
 					<div class="th col4"> Date </div>
@@ -492,7 +478,7 @@ function showLeftAccom(leftIndex, markerIndex){
     								
 		
     	<c:forEach var="data" items="${list}" varStatus="status">
-		<li class="liSize">
+		<li class="liSize" style="padding-top: 10px;width: 77%;height: 43px;">
 			<input type="hidden" name="groupVolist[${status.index}].tp_num" value="${data.tp_num}">
 				<div class="th col4"><img class="appendcm" src="../resources/images/accompany/miners.png" width="30" height="30" style="margin-top: -5px;"></div>
     				<div class="th col4"><input type="hidden" name="groupVolist[${status.index}].tp_date" value="${data.tp_date}">${data.tp_date}</div>

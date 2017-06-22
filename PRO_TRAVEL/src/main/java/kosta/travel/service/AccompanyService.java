@@ -151,8 +151,8 @@ public class AccompanyService {
 	   public void registGroup(GroupVO group){
 		   
 		   String date = group.getTp_date().substring(2, 10);
-		   System.out.println("service ========= date" + date);
-		   group.setTp_date(date);
+/*		   System.out.println("service ========= date" + date);
+*/		   group.setTp_date(date);
 		   
 		   if(group.getAccomp_group_num() == 1){
 			   dao.registGroupZero(group);
@@ -200,8 +200,8 @@ public class AccompanyService {
 			int value=dao.getCurrent2(groupVO);
 			return value;
 		} catch (Exception e) {
-			System.out.println("에러 진입");
-			e.printStackTrace();
+/*			System.out.println("에러 진입");
+			e.printStackTrace();*/
 			return 0;
 		}
 	}
@@ -271,8 +271,8 @@ public class AccompanyService {
 					List<GroupVO> groups = dao.searchGroupList(route);
 					
 					
-					System.out.println("dao.searchGroupList(route) == " + dao.searchGroupList(route));
-					
+/*					System.out.println("dao.searchGroupList(route) == " + dao.searchGroupList(route));
+*/					
 					if (!groups.isEmpty()) {
 						String substr = groups.get(count).getTp_date().substring(2, 10);
 						groups.get(count).setTp_date(substr);
@@ -284,8 +284,8 @@ public class AccompanyService {
 					
 					if (sdate.getTimeInMillis() == edate.getTimeInMillis()) {
 						switchh = 1;
-						System.out.println("AccompanyService.java 반복 중단 준비");
-					}
+/*						System.out.println("AccompanyService.java 반복 중단 준비");
+*/					}
 				}
 				return allgroups;
 			}

@@ -19,13 +19,13 @@
 					</i>
 				</a></li>
 				<li class=""><a href="/accompany/enroll" data-class="games2014-2"
-					target=""> ACCOMPANY REGISTER <i class="icon-arrow-right"> <span
+					target=""> register TripPlan  <i class="icon-arrow-right"> <span
 							class="hide">arrow</span>
 					</i>
 				</a></li>
 					
 					<li class=""><a href="/accompany/registerGroup"
-					data-class="games2014-2" target=""> regist Group <i
+					data-class="games2014-2" target=""> register Group <i
 						class="icon-arrow-right"> <span class="hide">arrow</span>
 					</i>
 				</a></li>

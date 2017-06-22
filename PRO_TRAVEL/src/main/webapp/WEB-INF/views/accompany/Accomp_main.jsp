@@ -12,11 +12,9 @@
 <!DOCTYPE html>
 
 <html>
-<!-- <script type="text/javascript" src="http://www.nowarch.com/resources/js/jquery-1.10.2.min.js"></script> -->
 <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js'></script>
 <script src='${pageContext.request.contextPath}/resources/js/accompanyJs/fullcalendar.js'></script>
 <script src='${pageContext.request.contextPath}/resources/js/accompanyJs/jquery-ui.min.js'></script>
-<!-- <link rel='stylesheet' href='/resources/css/accompany/fullcalendar.css' /> -->
 <link rel='stylesheet' href='/resources/css/accompany/jquery-ui.min.css' />
 
 <head>
@@ -38,12 +36,12 @@
 <body>
 <%@include file="../include/accompany_sidebar.jsp" %>
 
-<div id="contents"  class="city">
+<div id="contents" class="city" style="margin-top: -200px;">
     <div class="conts-container">
         <div class="present">
            <div class="tabs-list"> 
                 
-                <div id="google-ad-sense" style="margin-top:90px; float:left; margin-left: -225px;" data-type="260x260">
+                <div id="google-ad-sense" style="margin-top:228px; float:left; margin-left: -212px;" data-type="260x260">
                   <script type="text/javascript">
                     google_ad_client = "ca-pub-9419115827273897";
                     google_ad_slot = "3548612763";
@@ -60,7 +58,7 @@
             </div> <!-- //tabs-list  -->
   	<!--   <div id="carpool_map"></div> -->
   	
-    	<h3 id="carpool_title" style="margin-top: -80px;">test page</h3>
+    	<h3 id="carpool_title" style="margin-top: -80px;">My Trip Plan With Recomanding Other traveler</h3>
     	<br>
     	<div id="map" style="margin-top: 0px;"></div>
     
@@ -466,6 +464,10 @@ function showLeftAccom(leftIndex, markerIndex){
   	</div>
     </div>
             </div>
+            
+<div style="margin-top: 50px; margin-left: 17px">
+<h1 style="font-size: large;">Search Other Traveler</h1>
+</div>
 
 <form action="/accompany/cal" method="post" role="form" class="ajaxform">
 <div class="id-card-box" style="width: 100% ;border: black;">
