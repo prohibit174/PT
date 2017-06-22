@@ -5,6 +5,28 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<style type="text/css">
+
+  table.t1 {
+    border-collapse: collapse;
+    font-family: Arial, Helvetica, sans-serif;
+    border-color: #0072bc; 
+  }
+  .t1 th, .t1 td {
+    padding: 4px 8px;
+  }
+  .blue {
+    background: #0072bc;
+    text-transform: lowercase;
+    text-align: left;
+    font-size: 15px;
+    color: #fff;
+  }
+
+
+
+</style>
+
 
 <style>
 @CHARSET "EUC-KR";
@@ -82,24 +104,24 @@ function withdrawLink(URL){
 </head>
 <body>
 <div class="wrapper">
-	<table border="1">
+	<table border="2" class="t1">
 		<tr height="30">
 			<td rowspan="2">
 			<img src="/resources/upload/${carpool.u_u_img }" width="50" height="50" >
 			${carpool.c_u_name }</td>
-			<td width="150"><strong>EMPTY</strong></td>
-			<td width="150"><strong>PRICE</strong></td>
+			<td width="150" class="blue"><strong>EMPTY</strong></td>
+			<td width="150" class="blue"><strong>PRICE</strong></td>
 		</tr>
 		 <tr height="30">
 			<td width="150">${carpool.c_person }</td>
 			<td width="150">${carpool.c_price }$</td>
 		</tr>			
 		<tr height="30">
-			<td width="150"><strong>START</strong></td>
+			<td width="150" class="blue"><strong>START</strong></td>
 			<td colspan="2">${carpool.c_year }년${carpool.c_month }월${carpool.c_date }일</td>			
 		</tr>
 		<tr height="30">
-			<td width="150"><strong>COURSE</strong></td>
+			<td width="150" class="blue"><strong>COURSE</strong></td>
 			<td colspan="2">${carpool.start_point }->${carpool.way_point }->${carpool.dest_point }</td>
 		</tr>
 		<tr height="30">
@@ -109,9 +131,9 @@ function withdrawLink(URL){
 
 		
 		<tr height="30">
-			<td width="150"><strong>APPLICANT</strong></td>
-			<td width="150"><strong>STATUS</strong></td>			
-			<td width="150"><strong>MESSAGE</strong></td>			
+			<td width="150" class="blue"><strong>APPLICANT</strong></td>
+			<td width="150" class="blue"><strong>STATUS</strong></td>			
+			<td width="150" class="blue"><strong>MESSAGE</strong></td>			
 		</tr>
 		
 		

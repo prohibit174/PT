@@ -2,6 +2,11 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
+<%
+	String id = (String) session.getAttribute("login");
+	request.setAttribute("id", id);
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,10 +53,37 @@
 <!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="https://stillres.olympic.org/Museum/css/ie.css" /><![endif]-->
 
 <!--[if IE]><script type="text/javascript" src="https://stillres.olympic.org/Museum/js/ie.js"></script><![endif]-->
+
+
+
+<!-- <script type="text/javascript">
+
+
+
+  
+	function btn_js_update_click(){
+  	  document.location.href="updateBlog?bp_postnum=${blogpost.bp_postnum}";
+  	}
+ 
+	 function btn_js_delete_click(){
+    	  /* confirm(문자열, 초기값) */
+    	  var check = confirm("삭제하시겠습니까?");
+    	  /* if(check == true) else false */
+    	  if(check) document.location.href="product_delete?p_num=${product.p_num}";
+    	}
+
+	function btn_js_request_click(){
+  	  /* confirm(문자열, 초기값) */
+  	  var check = confirm("요청하시겠습니까?");
+  	  /* if(check == true) else false */
+  	  if(check) document.location.href="productReq_register?p_num=${product.p_num}";
+  	  
+		}  
+  </script>  -->
 </head>
 <body>
 	<script>
-		var dataLayer = [ {} ]
+		var dataLayer = [ {} ];
 	</script>
 
 	<!-- Google Tag Manager -->
@@ -165,12 +197,14 @@
 						<a href="/blog/blogPost">post</a>
 					</h2>
 				
-
+					
 					<span style="font-family: Arial; font-size: 13px;"> 
 						<table border="0" width="100%">
 							<div>
-							<c:forEach var="blogpost" items="${blogpost}">
+							<c:forEach var="blogpost" items="${blogpost}">	
 							<fieldset>
+							<br>
+							 <p>${blogpost.bp_date }</p>
 								
 									 <!-- makeQuery -->
 										<picture class="img"> <c:if
@@ -196,6 +230,23 @@
 									 <%-- <img srcset="${blogpost.bp_img}"></picture> --%>
 								
 									 <p> ${blogpost.bp_contents }</p>
+									 <br>
+									 
+									 	<c:choose>
+					        <c:when test="${id == blog.u_id}">
+					       <!-- <button name="submit" id="validate_order" type="submit"
+								class="primaryAction">
+								<span>Register</span>  -->
+								
+						 <button type="submit" class="btn btn-warning" id="modifyBtn" onclick="btn_js_update_click()">Modify</button>
+						 <button type="submit" class="btn btn-danger" id="removeBtn" onclick="btn_js_delete_click()">Remove</button> 		 
+							</c:when>
+				 	  </c:choose>	 
+									 
+									 
+									 
+									 <hr>
+									
 									 </picture>
 									</fieldset>
 							</c:forEach>

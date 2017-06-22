@@ -98,22 +98,6 @@ public class AccompanyController {
 		return list;
 	}
 
-	@RequestMapping(value = "/cal2", method = RequestMethod.POST)
-	public @ResponseBody List<AccompanyVO> searchTraveler(SearchTraveler trav, Model model, HttpSession session,
-			HttpServletResponse res) {
-		System.out.println("trav toString get0 = "+trav.getTrav().get(0).toString());
-		System.out.println("trav toString get1= "+trav.getTrav().get(1).toString());
-	/*System.out.println("city 0 = "+trav.getTrav().get(0).getCity());*/
-		/*System.out.println("city 1 = "+trav.getTrav().get(1).getCity());*/
-		/*trav.setU_id((String) session.getAttribute("login"));
-		try {
-			return service.getTraveler(trav);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}*/
-		return null;
-	}
-
 	@RequestMapping(value = "/registerGroup", method = RequestMethod.GET)
 	public String registerGroupGet(Model model, HttpSession session) {
 
@@ -165,15 +149,23 @@ public class AccompanyController {
 	}
 	
 	@RequestMapping(value = "/searchGroup", method = RequestMethod.POST)
-	public @ResponseBody List<GroupVO> searchGroupList(SearchTraveler search, Model model, HttpSession session,
+	public @ResponseBody List<GroupVO> searchGroupList(SearchTraveler trav, Model model, HttpSession session,
 			HttpServletResponse res) {
-		search.setU_id((String) session.getAttribute("login"));
+		List<GroupVO> list = new ArrayList<GroupVO>();
+		System.out.println("controller search == "+trav.toString());
+		
+		System.out.println("controller to string == "+trav.getTrav().get(0).toString());
+		
 		try {
-			return service.searchGroupList(search);
+		for(int i =0; i<trav.getTrav().size();i++){
+		trav.getTrav().get(i).setU_id((String) session.getAttribute("login"));
+		list.addAll(service.searchGroupList(trav.getTrav().get(i)));
+		}
+		
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return null;
+		return list;
 	}
 	
 	

@@ -7,93 +7,45 @@
 <title>프로 동행러</title>
 </head>
 <body>
-<span id="sidebar">
-  <span class="tabs-section alt" id="tabsSection" >
-        <nav>
-            <div class="tabset-box">
-                <ul class="tabset">
+	<span id="sidebar">
+		<span class="tabs-section alt" id="tabsSection"> <nav>
+		<div class="tabset-box">
+			<ul class="tabset">
 
-    <li class="active">
-        <a href="#highlights-of-the-games" data-class="games2014-2" target="">
-            Accompany Manage
-            <i class="icon-arrow-right">
-                <span class="hide">arrow</span>
-            </i>
-        </a>
-    </li>
-    <li class="">
-        <a href="/carpoolList" data-class="games2014-2" target="">
-            Carpool Manage
-            <i class="icon-arrow-right">
-                <span class="hide">arrow</span>
-            </i>
-        </a>
-    </li>
-    <li class="">
-        <a href="/productList" data-class="games2014-2" target="">
-            Goods Manage
-            <i class="icon-arrow-right">
-                <span class="hide">arrow</span>
-            </i>
-        </a>
-    </li>
-    <li class="">
-        <a href="/userList" data-class="games2014-2" target="">
-            User Manage
-            <i class="icon-arrow-right">
-                <span class="hide">arrow</span>
-            </i>
-        </a>
-    </li>
-   <!--  <li class="">
-        <a href="#medals" data-class="games2014-2" target="">
-            Medals
-            <i class="icon-arrow-right">
-                <span class="hide">arrow</span>
-            </i>
-        </a>
-    </li>
-    <li class="">
-        <a href="#mascots" data-class="games2014-2" target="">
-            Mascots
-            <i class="icon-arrow-right">
-                <span class="hide">arrow</span>
-            </i>
-        </a>
-    </li>
-    <li class="">
-        <a href="#torch" data-class="games2014-2" target="">
-            Torch
-            <i class="icon-arrow-right">
-                <span class="hide">arrow</span>
-            </i>
-        </a>
-    </li>
-    <li class="">
-        <a href="#poster" data-class="games2014-2" target="">
-            Poster
-            <i class="icon-arrow-right">
-                <span class="hide">arrow</span>
-            </i>
-        </a>
-    </li>
-    <li class="">
-        <a href="#official-reports" data-class="games2014-2" target="">
-            Official Reports
-            <i class="icon-arrow-right">
-                <span class="hide">arrow</span>
-            </i>
-        </a>
-    </li> -->
-                </ul>
-            </div>
-            
-        </nav>
-
-                <div id="highlights-of-the-games">
-
-</div>
-    <span class="text-post" itemscope itemtype="http://schema.org/NewsArticle" >
+				<li class="active"><a href="/carpool/"
+					data-class="games2014-2" target=""> CARPOOL MAIN <i
+						class="icon-arrow-right"> <span class="hide">arrow</span>
+					</i>
+				</a></li>
+				<li class=""><a href="/carpool/register" data-class="games2014-2"
+					target=""> Accompany Manage <i class="icon-arrow-right"> <span
+							class="hide">arrow</span>
+					</i>
+				</a></li>
+				<li class=""><a href="/carpoolList" data-class="games2014-2"
+					target=""> Carpool Manage <i class="icon-arrow-right"> <span
+							class="hide">arrow</span>
+					</i>
+				</a></li>
+				<li class=""><a href="/productList" data-class="games2014-2"
+					target=""> Goods Manage <i class="icon-arrow-right"> <span
+							class="hide">arrow</span>
+					</i>
+				</a></li>
+				<li class=""><a href="/userList" data-class="games2014-2"
+					target=""> User Manage <i class="icon-arrow-right"> <span
+							class="hide">arrow</span>
+					</i>
+				</a></li>
+				<li class=""><a href="/adminDeclare" data-class="games2014-2"
+					target=""> Declare Manage <i class="icon-arrow-right"> <span
+							class="hide">arrow</span>
+					</i>
+				</a></li>										
+			</ul>
+		</div>
+	</span>
 </span>
+
 </body>
 </html>
