@@ -7,9 +7,9 @@
 <%@ include file="/WEB-INF/views/include/header.jsp" %>
 <%
 String id = (String)session.getAttribute("login");
-   if(id != null){
-      request.setAttribute("id", id);
-   }
+	if(id != null){
+		request.setAttribute("id", id);
+	}
 %>
 
 <html>
@@ -30,9 +30,9 @@ String id = (String)session.getAttribute("login");
 <c:set var="u_id" value="${id }"></c:set>
 
 <c:if test="${id!=null}">
-                              
+										
 <iframe width="500" height="500" src="http://127.0.0.1:5000?username=${id }" frameborder="1">
-</iframe>                              
+</iframe>										
 
 </c:if> --%>
 
@@ -103,9 +103,9 @@ String id = (String)session.getAttribute("login");
 <c:set var="u_id" value="${id }"></c:set>
 
 <c:if test="${id!=null}">
-                              
+										
 <iframe  width="500" height="500" src="http://127.0.0.1:5000?username=${id }" frameborder="1">
-</iframe>                              
+</iframe>										
 
 </c:if>
                 </article>
@@ -126,13 +126,13 @@ String id = (String)session.getAttribute("login");
                         <li >
                             <div class="text-box">
                                 <strong class="title">ACCOMPANY</strong>
-                        <a href="/accompany/searchGroup">개수찍으삼</a>                           
-                      </div>
+								<a href="/accompany/searchGroup">개수찍으삼</a>                           
+							 </div>
                         </li>
                         <li >
                             <div class="text-box">
                                 <strong class="title">CARPOOL</strong>
-                               <a href="/carpool/listAll">${carpoolcount }</a>                     
+                         		<a href="/carpool/listAll">${carpoolcount }</a>                     
                                </div>
                         </li>
                         <li >
@@ -651,4 +651,33 @@ String id = (String)session.getAttribute("login");
                     <a href="/fr/sotchi-2014" class="lang-switcher link">Fr</a>
     </div>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<sc
+<script type="text/javascript">window.jQuery || document.write('<script src="https://stillres.olympic.org/js/jquery-1.11.1.min.js"><\/script>')</script>
+<script type="text/javascript" src="https://stillres.olympic.org/js/jquery.main.js"></script>
+<script type="text/javascript" src="https://stillres.olympic.org/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="https://stillres.olympic.org/js/jquery.collageCaption.js"></script>
+<script type="text/javascript" src="https://stillres.olympic.org/js/jquery.collagePlus.js"></script>
+<script type="text/javascript" src="https://stillres.olympic.org/js/jquery.removeWhitespace.js"></script>
+<script type="text/javascript" src="https://stillres.olympic.org/js/jquery.betd.js"></script>
+<script type="text/javascript" src="https://stillres.olympic.org/js/ss-social.js"></script>
+<script type="text/javascript" src="https://stillres.olympic.org/js/ss-standard.js"></script>
+<!--[if IE]><script type="text/javascript" src="https://stillres.olympic.org/js/ie.js"></script><![endif]-->
+<noscript><div>Javascript must be enabled for the correct page display</div></noscript>
+    
+            <script type="text/javascript">
+            setContextBreadcrumbs({
+                "className": "sochi2014",
+                "breadcrumbs": [
+                    { "title": "<span class='icon-arrow-left'></span> Sochi 2014", "url": "/sochi-2014" }
+                ]
+            });
+        </script>
+
+
+
+
+
+  
+		
+</body>
+</html>
+<%@ include file="/WEB-INF/views/include/footer.jsp" %>
