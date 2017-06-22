@@ -56,13 +56,14 @@
 
 
 
-<!-- <script type="text/javascript">
+ <script type="text/javascript">
 
 
 
   
-	function btn_js_update_click(){
-  	  document.location.href="updateBlog?bp_postnum=${blogpost.bp_postnum}";
+	function blogUpdate(bp_postnum){
+		alert("update JS");
+  	  document.location.href="updateBlog?bp_postnum="+bp_postnum;
   	}
  
 	 function btn_js_delete_click(){
@@ -79,7 +80,7 @@
   	  if(check) document.location.href="productReq_register?p_num=${product.p_num}";
   	  
 		}  
-  </script>  -->
+  </script>
 </head>
 <body>
 	<script>
@@ -238,7 +239,7 @@
 								class="primaryAction">
 								<span>Register</span>  -->
 								
-						 <button type="submit" class="btn btn-warning" id="modifyBtn" onclick="btn_js_update_click()">Modify</button>
+						 <button type="submit" class="btn btn-warning" id="modifyBtn" onclick="blogUpdate('${blogpost.bp_postnum}')">Modify</button>
 						 <button type="submit" class="btn btn-danger" id="removeBtn" onclick="btn_js_delete_click()">Remove</button> 		 
 							</c:when>
 				 	  </c:choose>	 
