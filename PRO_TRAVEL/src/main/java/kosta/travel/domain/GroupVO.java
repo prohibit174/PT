@@ -4,6 +4,8 @@ import java.util.List;
 
 public class GroupVO {
    
+	
+
 	private int max_people_num;
     private String cor_region;
     private String tp_date;
@@ -16,7 +18,14 @@ public class GroupVO {
     private int accomp_group_num;
     private String u_id;
 	
-	
+    @Override
+	public String toString() {
+		return "GroupVO [max_people_num=" + max_people_num + ", cor_region=" + cor_region + ", tp_date=" + tp_date
+				+ ", groupVolist=" + groupVolist + ", current_num=" + current_num + ", sdate=" + sdate + ", edate="
+				+ edate + ", acr_ox=" + acr_ox + ", acr_num=" + acr_num + ", accomp_group_num=" + accomp_group_num
+				+ ", u_id=" + u_id + "]";
+	}
+    
    public GroupVO(){}
 
 	public int getMax_people_num() {
