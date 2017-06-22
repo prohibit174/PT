@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
-<%@ include file="/WEB-INF/views/include/carpool_sidebar.jsp"%>
+<%@ include file="/WEB-INF/views/include/mypage_sidebar.jsp"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -87,9 +87,9 @@
 
 			<tr height="30">
 				<td colspan="3"><input type="button" value="Modify"
-					onclick="javascript:modifyLink('/mypage/modify?c_num=${groupVO.accomp_group_num}')">
+					onclick="javascript:modifyLink('/mypage/mypage_accomp_edit?accomp_group_num=${groupVO.accomp_group_num}')">
 					<input type="button" value="Remove"
-					onclick="javascript:removeLink('/mypage/remove?c_num=${groupVO.accomp_group_num} ')">
+					onclick="javascript:removeLink('/mypage/remove_accom_group?accomp_group_num=${groupVO.accomp_group_num} ')">
 				</td>	
 			</tr>
 
