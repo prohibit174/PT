@@ -151,7 +151,7 @@ cursor: pointer;
 
       </ul>
    </fieldset>
-      <button onClick="window.close()">confirm</button>
+      <button style="margin-left: 40%;" onClick="window.close()">confirm</button>
 </form>
 </body>
 </html>
