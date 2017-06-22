@@ -15,6 +15,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
+
+function detailForm(u_id){
+	 var popupX = (window.screen.width / 2) - (800 / 2);
+	   var popupY= (window.screen.height /2) - (500 / 2);
+	    window.open('about:blank','popup_window','width=350, height=250, left='+popupX+', top='+popupY);
+	    var wantForm = 'detailForm'+u_id;
+ 	    var frm =document.getElementById(wantForm);
+	    frm.submit(); 
+	}
 function applyLink(URL){
 	if(confirm("신청하시겠습니까?") == true){
 		location.href=URL;
@@ -218,8 +227,11 @@ function checkTime(i) {
                 <li>
 
                 <div class="td col1">
+<%-- onclick="detailForm(${listMessage.m_num});" --%>
 
-    <a href = '/carpool/read?c_num=${carpool_ListVO.c_num }'>
+ <form id="detailForm${carpool_ListVO.u_id }" name="detailForm${carpool_ListVO.u_id }" method="post" action="/carpool/user?u_id=${carpool_ListVO.u_id }" target="popup_window">
+    <a onclick = "detailForm(${carpool_ListVO.u_id });">
+    
 <picture class="picture">
 
 <img src="/resources/upload/${carpool_ListVO.u_img }" width="50" height="50" >
@@ -228,7 +240,7 @@ function checkTime(i) {
         <div class="area">
             <strong class="name">${carpool_ListVO.u_name } </strong>
         </div>
-    </a>
+  </a> </form>
                 </div>
 
                 

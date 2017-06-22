@@ -182,6 +182,5 @@
 		delete from car_request
 		where cr_num = #{cr_num}
 	</delete>
-	
-	
+		
 </mapper>	

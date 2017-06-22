@@ -19,9 +19,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import kosta.travel.domain.CarpoolRequestUser;
 import kosta.travel.domain.CarpoolVO;
 import kosta.travel.domain.Carpool_ListVO;
 import kosta.travel.domain.Carpool_RequestVO;
+import kosta.travel.domain.Criteria;
+import kosta.travel.domain.PageMaker;
 import kosta.travel.domain.UsersVO;
 import kosta.travel.service.CarpoolService;
 import kosta.travel.service.UserService;
@@ -66,7 +69,11 @@ public class CarpoolController {
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String registerPOST(CarpoolVO carpool, HttpSession session) throws Exception {
 		carpool.setU_id((String)session.getAttribute("login"));
-		carpool.setC_num(service.maxSelect()+1);
+		if(service.maxSelect()==null){
+			carpool.setC_num(1);
+		} else{
+			carpool.setC_num(service.maxSelect()+1);
+		}		
 		
 		service.regist(carpool);
 		
@@ -85,6 +92,7 @@ public class CarpoolController {
 
 		return "/carpool/list";
 	}
+
 		
 	@RequestMapping(value = "/request", method = RequestMethod.GET)
 	public String request(Carpool_RequestVO carpoolRequest, @RequestParam("c_num") int c_num,  HttpSession session) throws Exception {
@@ -118,16 +126,16 @@ public class CarpoolController {
 		response.getWriter().print(int_count);
 	}
 	
-	@RequestMapping(value = "/user", method = RequestMethod.GET)
+	@RequestMapping(value = "/user", method = RequestMethod.POST)
 	public String user(Model model, @RequestParam("u_id")  String u_id) throws Exception {
-		System.out.println("3"+u_id);
+		System.out.println(u_id);
 		UsersVO user = userService.userDetail(u_id);
 		model.addAttribute("user", user);
-		model.addAttribute("name", user.getU_name());
-		model.addAttribute("birth", user.getU_birth());
-		
-		return "redirect:/carpool/test";
+	
+		return "/carpool/userPopup";
 	}
+	
+
 	
 /*	 @RequestMapping(value="/more_register", method = RequestMethod.POST)
 	   public ResponseEntity<String> more(@RequestBody String count, HttpSession session, Model model) throws Exception{
