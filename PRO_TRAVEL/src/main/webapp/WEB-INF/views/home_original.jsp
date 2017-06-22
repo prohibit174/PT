@@ -7,9 +7,9 @@
 <%@ include file="/WEB-INF/views/include/header.jsp" %>
 <%
 String id = (String)session.getAttribute("login");
-	if(id != null){
-		request.setAttribute("id", id);
-	}
+   if(id != null){
+      request.setAttribute("id", id);
+   }
 %>
 
 <html>
@@ -30,9 +30,9 @@ String id = (String)session.getAttribute("login");
 <c:set var="u_id" value="${id }"></c:set>
 
 <c:if test="${id!=null}">
-										
+                              
 <iframe width="500" height="500" src="http://127.0.0.1:5000?username=${id }" frameborder="1">
-</iframe>										
+</iframe>                              
 
 </c:if> --%>
 
@@ -64,7 +64,7 @@ String id = (String)session.getAttribute("login");
     <section class="profiles alt2" >
         <div class="btn-hold">
                 <a href="/london-2012">
-                    <span class="btn-prev" style="padding-top: 10px">
+                    <span class="btn-prev">
                         <span class="icon-arrow-left">
                             <span class="hide"></span>
                         </span>
@@ -74,7 +74,7 @@ String id = (String)session.getAttribute("login");
         </div>
         <div class="btn-hold right">
                 <a href="/rio-2016">
-                    <span class="btn-next" style="padding-top: 10px;">
+                    <span class="btn-next">
                         <span class="icon-arrow-right">
                             <span class="hide"></span>
                         </span>
@@ -86,21 +86,32 @@ String id = (String)session.getAttribute("login");
 <picture class="image">
 
 
-<source srcset="http://tripgene.com/stubby/photo/2/1/7742ad8f86596f0b3a5487ae92536c8f.jpg" media="(min-width: 1921px)">
-<source srcset="http://tripgene.com/stubby/photo/2/1/7742ad8f86596f0b3a5487ae92536c8f.jpg" media="(min-width: 1024px)">
-<source srcset="http://tripgene.com/stubby/photo/2/1/7742ad8f86596f0b3a5487ae92536c8f.jpg" media="(min-width: 768px)">
+<source srcset="${pageContext.request.contextPath}/resources/images/pipi.jpg" media="(min-width: 1921px)">
+<source srcset="${pageContext.request.contextPath}/resources/images/pipi.jpg" media="(min-width: 1024px)">
+<source srcset="${pageContext.request.contextPath}/resources/images/pipi.jpg" media="(min-width: 768px)">
 
 <div>
-<img srcset="http://tripgene.com/stubby/photo/2/1/7742ad8f86596f0b3a5487ae92536c8f.jpg" alt="Sochi 2014" ></picture>
+<img srcset="${pageContext.request.contextPath}/resources/images/pipi.jpg" alt="Sochi 2014" ></picture>
 </div>
 
 
         </div>
+        <div class="holder">
+                <article class="profile-box">
+               
 
+<c:set var="u_id" value="${id }"></c:set>
+
+<c:if test="${id!=null}">
+                              
+<iframe  width="500" height="500" src="http://127.0.0.1:5000?username=${id }" frameborder="1">
+</iframe>                              
+
+</c:if>
+                </article>
+        </div>
+        
     </section>
-        <div style="position:relative;top:-200px;text-align:center;z-index:9;padding-left:0px;padding-right:0px;">
-			<img src="http://www.stubbyplanner.com/img_v12/exp_label_11104.gif" style="width:500px;display:inline-block;" >
-		</div>
 <br>
     <section  class="id-card gallery-js-ready games2014-2" >
         <div class="holder">
@@ -115,13 +126,13 @@ String id = (String)session.getAttribute("login");
                         <li >
                             <div class="text-box">
                                 <strong class="title">ACCOMPANY</strong>
-								<a href="/accompany/searchGroup">개수찍으삼</a>                           
-							 </div>
+                        <a href="/accompany/searchGroup">개수찍으삼</a>                           
+                      </div>
                         </li>
                         <li >
                             <div class="text-box">
                                 <strong class="title">CARPOOL</strong>
-                         		<a href="/carpool/listAll">${carpoolcount }</a>                     
+                               <a href="/carpool/listAll">${carpoolcount }</a>                     
                                </div>
                         </li>
                         <li >
@@ -640,33 +651,3 @@ String id = (String)session.getAttribute("login");
                     <a href="/fr/sotchi-2014" class="lang-switcher link">Fr</a>
     </div>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script type="text/javascript">window.jQuery || document.write('<script src="https://stillres.olympic.org/js/jquery-1.11.1.min.js"><\/script>')</script>
-<script type="text/javascript" src="https://stillres.olympic.org/js/jquery.main.js"></script>
-<script type="text/javascript" src="https://stillres.olympic.org/js/jquery.cookie.js"></script>
-<script type="text/javascript" src="https://stillres.olympic.org/js/jquery.collageCaption.js"></script>
-<script type="text/javascript" src="https://stillres.olympic.org/js/jquery.collagePlus.js"></script>
-<script type="text/javascript" src="https://stillres.olympic.org/js/jquery.removeWhitespace.js"></script>
-<script type="text/javascript" src="https://stillres.olympic.org/js/jquery.betd.js"></script>
-<script type="text/javascript" src="https://stillres.olympic.org/js/ss-social.js"></script>
-<script type="text/javascript" src="https://stillres.olympic.org/js/ss-standard.js"></script>
-<!--[if IE]><script type="text/javascript" src="https://stillres.olympic.org/js/ie.js"></script><![endif]-->
-<noscript><div>Javascript must be enabled for the correct page display</div></noscript>
-    
-            <script type="text/javascript">
-            setContextBreadcrumbs({
-                "className": "sochi2014",
-                "breadcrumbs": [
-                    { "title": "<span class='icon-arrow-left'></span> Sochi 2014", "url": "/sochi-2014" }
-                ]
-            });
-        </script>
-
-
-
-
-
-  
-		
-</body>
-</html>
-<%@ include file="/WEB-INF/views/include/footer.jsp" %>
