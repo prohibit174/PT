@@ -142,6 +142,6 @@ public class MypageAccompanyController {
 		
 		service.mypage_accomp_edit_post(newGroupVO);
 			
-		return "/mypage/mypage_accomp_edit";
+		return "/mypage/mypage_accompCheck";
 	}
 }
