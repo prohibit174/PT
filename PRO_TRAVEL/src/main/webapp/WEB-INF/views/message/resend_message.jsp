@@ -136,7 +136,7 @@ cursor: pointer;
 
          <li>
          <label style="font-weight: bold;">Recipient : </label>
-            <input id="email" name="u_id_recipient" type="text" value="${u_id}" required="">
+            <input id="email" name="u_id_recipient" type="text" value="${sender}" required="">
          </li>
 
          <li>
