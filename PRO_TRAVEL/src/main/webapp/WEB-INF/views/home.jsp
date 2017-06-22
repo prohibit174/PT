@@ -59,16 +59,18 @@ String id = (String)session.getAttribute("login");
     
     
     <div id="wrapper">
-<section class="banner-gallery" >
-	        <div class="gallery-holder">
+<section class="banner-gallery" style="height: 500px;">
+	        <div class="gallery-holder" style="bottom: 146px;">
 	            <span class="mask-l"></span>
 	            <span class="mask-r"></span>
-	            <a class="btn-prev" href="#" style="padding-top: 10px;top: 250px;"><span class="icon-arrow-left"><span class="hide">prev</span></span></a>
-	            <a class="btn-next" href="#" style="padding-top: 10px;top: 250px;"><span class="icon-arrow-right"><span class="hide">next</span></span></a>
+	            <a class="btn-prev" href="#" style="padding-top: 10px;top: 390px; z-index:10;"><span class="icon-arrow-left"><span class="hide">prev</span></span></a>
+	            <a class="btn-next" href="#" style="padding-top: 10px;top: 390px; z-index:10;"><span class="icon-arrow-right"><span class="hide">next</span></span></a>
 	            <ul style="position: relative; height: 80%; margin-left: -1060px;">
 	        <li>
   
         <div class="box-holder">
+        <a class="cta-link" href="/accompany/enroll" target="_blank" style="padding-top: 29px; top: 460px; z-index:10; padding-right: 0px; padding-left: 70px;">
+	              &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspRegister Your Trip-Plan <em class="icon-arrow-right"><span class="hide">arrow right</span></em></a>
 	            <div class="box ">
 	                <a href="/resources/upload/Italy.JPG">
 	                    <picture class="image">
@@ -94,7 +96,9 @@ String id = (String)session.getAttribute("login");
 		</li>	
 	        <li>
 	        <div class="box-holder">
-	            <div class="box ">
+            <a class="cta-link" href="/accompany/enroll" target="_blank" style="padding-top: 29px; top: 460px; z-index:10; padding-right: 0px; padding-left: 70px;">
+	              &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspRegister Your Trip-Plan <em class="icon-arrow-right"><span class="hide">arrow right</span></em></a>
+	        <div class="box ">
 	                <a href="/resources/upload/spain.JPG">
 	                    <picture class="image">
 	<!--[if IE 9]><video style="display: none;"><![endif]-->
@@ -119,7 +123,9 @@ String id = (String)session.getAttribute("login");
 </li>
 	        <li>
 	<div class="box-holder">
-            <div class="box ">
+	    <a class="cta-link" href="/accompany/enroll" target="_blank" style="padding-top: 29px; top: 460px; z-index:10; padding-right: 0px; padding-left: 70px;">
+	              &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspRegister Your Trip-Plan <em class="icon-arrow-right"><span class="hide">arrow right</span></em></a>
+	         <div class="box ">
                 <a href="/usain-bolt">
                     <picture class="image">
 <!--[if IE 9]><video style="display: none;"><![endif]-->
