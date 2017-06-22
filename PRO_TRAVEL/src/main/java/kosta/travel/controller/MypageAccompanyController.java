@@ -44,8 +44,8 @@ public class MypageAccompanyController {
 			int current_num = service.getCurrent(groupVO.get(i));
 			// get current
 			groupVO.get(i).setCurrent_num(current_num);
-			System.out.println("groupVO : " + groupVO.get(i).getAccomp_group_num());
-		}
+/*			System.out.println("groupVO : " + groupVO.get(i).getAccomp_group_num());
+*/		}
 		model.addAttribute("groupVO", groupVO);
 
 		/* Guest Group = groupVO2 */
@@ -59,8 +59,8 @@ public class MypageAccompanyController {
 			int current_num = service.getCurrent2(groupVO2.get(i));
 			// get current
 			groupVO2.get(i).setCurrent_num(current_num);
-			System.out.println("groupVO2! : " + groupVO2.get(i).getAccomp_group_num());
-		}
+/*			System.out.println("groupVO2! : " + groupVO2.get(i).getAccomp_group_num());
+*/		}
 		model.addAttribute("groupVO2", groupVO2);
 
 		return "/mypage/mypage_accompCheck";
@@ -123,23 +123,23 @@ public class MypageAccompanyController {
 			HttpSession session) throws Exception {
 		//tp_date : original data
 		//acr_ox : to fix data
-		System.out.println("getMax_people_num : "+groupvo.getMax_people_num());
+		/*System.out.println("getMax_people_num : "+groupvo.getMax_people_num());
 		System.out.println("getTp_date ==="+groupvo.getTp_date());
 		System.out.println("getCor_region ==="+groupvo.getAcr_ox());
 		System.out.println("groupVO.accomp_group_num ==="+groupvo.getAccomp_group_num());
-
+*/
 		String[] str = groupvo.getAcr_ox().split("/");
-		System.out.println("str[0] : "+str[0]);
+		/*System.out.println("str[0] : "+str[0]);
 		System.out.println("str[1] : "+str[1]);
-		
+		*/
 		GroupVO newGroupVO= new GroupVO();
 		newGroupVO.setTp_date(str[0].substring(0, 10));
 		newGroupVO.setCor_region(str[1]);
 		newGroupVO.setMax_people_num(groupvo.getMax_people_num());
 		newGroupVO.setAccomp_group_num(groupvo.getAccomp_group_num());
 		
-		System.out.println(newGroupVO.toString());
-		
+/*		System.out.println(newGroupVO.toString());
+*/		
 		service.mypage_accomp_edit_post(newGroupVO);
 			
 		return "/mypage/mypage_accompCheck";
