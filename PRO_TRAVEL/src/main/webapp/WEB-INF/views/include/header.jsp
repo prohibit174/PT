@@ -378,6 +378,8 @@ width:0;
 							<li class="button_base b01_simple_rollover"><a style="cursor:pointer" id="login-button">LOGIN</a></li>
 							<li class="button_base b01_simple_rollover"><a href="/join/joinform">SIGN UP</a></li>
 							<li><a class="mail" href="/message/main?u_id_recipient=<%=session.getAttribute("login") %>"></a></li>
+							<c:choose>
+							<c:when test="${login!=null}">
 							<li><a style="background-color: red; border-radius: 20px; padding: 2px 5px 3px 5px; position: relative; left: -30px; top: -10px">
 							<c:choose>
 								<c:when test="${noReadMessage==null}">
@@ -386,8 +388,10 @@ width:0;
 							<c:otherwise>
                       			<%=session.getAttribute("noReadMessage") %>
                    				</c:otherwise>
-							</c:choose>
+							</c:choose>	
 							</a></li>
+							</c:when>
+							</c:choose>
 							<li class="button_base b01_simple_rollover" id="mypage" style="display: none; "><a href="/mypage/usercheckInfo">MY PAGE</a></li>
 							<li><a href="https://twitter.com/olympics" class="ss-icon">twitter</a></li>
 							<li><a href="https://www.youtube.com/user/olympic"

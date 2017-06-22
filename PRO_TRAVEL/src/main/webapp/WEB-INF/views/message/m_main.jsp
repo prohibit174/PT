@@ -12,13 +12,14 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/message/jquery.magnific-popup.min.js"></script>
 <script type="text/javascript">
 function detailForm(num){
-	 var popupX = (window.screen.width / 2) - (100 / 2);
-	   var popupY= (window.screen.height /2) - (150 / 2);
-	    window.open('about:blank','popup_window','width=350, height=250, left='+popupX+', top='+popupY);
+	 var popupX = (window.screen.width / 4) - (100);
+	   var popupY= (window.screen.height /4) - (150);
+	    window.open('about:blank','popup_window','width=450, height=470, left='+popupX+', top='+popupY);
 	    var wantForm = 'detailForm'+num;
 	    var frm =document.getElementById(wantForm);
 	    frm.submit();
 	}
+
 	
 $(function(){
 	
@@ -315,6 +316,7 @@ cursor: pointer;
          <form id="detailForm${listMessage.m_num}" name="detailForm${listMessage.m_num }" method="post" action="/message/detail_message?m_num=${listMessage.m_num}" target="popup_window">
           <div>
               <a href="#test-form" class="btn-calendar" id="write_message">답장 하기</a>
+           
             <input type="button" style="float: right; padding-top: 5px;" value="확인하기"  onclick="detailForm(${listMessage.m_num});">
               <label style="float: right; padding-top: 5px;">${listMessage.m_category }&nbsp&nbsp&nbsp</label>
               <span class="country"></span>
@@ -323,7 +325,7 @@ cursor: pointer;
               ${listMessage.u_id_sender }
               </h3>
               <br>
-        
+        		
          </form>
           </li>
 
@@ -338,8 +340,6 @@ cursor: pointer;
               <!-- <a href="#test-form" class="btn-calendar" id="write_message">답장 하기</a> -->
               <label style="float: right; padding-top: 5px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp쪽지 상태 &nbsp&nbsp  <label padding-top: 5px;"> ${listMessage.m_status}</label></label>
               <label style="float: right; padding-top: 5px;">쪽지 분류 :  ${listMessage.m_category }</label>
-              
-             
               <span class="country"></span>
          </div>
               <h3>

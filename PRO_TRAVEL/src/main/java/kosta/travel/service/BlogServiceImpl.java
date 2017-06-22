@@ -50,7 +50,7 @@ public void updateBlog(BlogPostVO blogPost) throws Exception {
 }
 
 @Override
-public BlogPostVO postDetail(int bp_postnum) throws Exception {
+public BlogPostVO postDetail(String bp_postnum) throws Exception {
 	return dao.postDetail(bp_postnum);
 }
 
