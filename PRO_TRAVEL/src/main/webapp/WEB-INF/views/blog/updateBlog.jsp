@@ -30,16 +30,26 @@
 
 
 						<form id="results-form" action="/blog/updateBlog" class="results-form"
-							method="post" enctype="multipart/form-data">
+							method="post">
 							
-							<td class="value"><input type="text" name="bp_postnum" id="bp_postnum"
-								value="${bp_postnum}" /> &nbsp; <span class="mandatory"></span>
+							<td class="value"><input type="hidden" name="u_id" id="u_id"
+								value="${blogPost.u_id}" /> 
+								
+								<input type="hidden" name="bp_postnum" id="bp_postnum"
+								value="${blogPost.bp_postnum}" /> 
+								
+								&nbsp; <span class="mandatory"></span>
+								<ul class="errorField"></ul>
+							</td>  
+							
+							<td class="value">
+							${blogPost.bp_postnum } &nbsp; <span class="mandatory"></span>
 								<ul class="errorField"></ul>
 							</td>  
 							
 							<div class="row">
 								<textarea rows="20" cols="68" name="bp_contents"
-								id="bp_contents" value="${blogPost.bp_postnum }"></textarea>
+								id="bp_contents" value="">${blogPost.bp_contents }</textarea>
 							</div>
 							 
 							<td class="value"><input type="file" name="file3" id="bp_img"

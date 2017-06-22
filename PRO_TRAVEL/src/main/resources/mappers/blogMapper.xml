@@ -39,12 +39,12 @@
 	</select>
 
 	<update id="updateBlog">
-		UPDATE blogpost SET b_contents = #{b_contents}, bp_img = #{bp_img} 
+		UPDATE blogpost SET bp_contents = #{bp_contents}, bp_img = #{bp_img} 
 		WHERE bp_postnum = #{bp_postnum}
 	</update>
 	
 	<!-- Get a one post -->
-	<select id = "postDetail">
+	<select id = "postDetail" resultType="BlogPostVO">
 	SELECT * FROM blogpost
 	WHERE bp_postnum = #{bp_postnum}
 	</select>

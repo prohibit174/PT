@@ -89,11 +89,14 @@
 		select count(ar.acr_ox)
 		from Accomp_group ag, Accomp_group_list agl,
 		AccompanyRequest ar
-		where ag.u_id=#{u_id} and agl.accomp_group_num = #{accomp_group_num}
+		where ag.u_id=#{u_id} and agl.accomp_group_num =
+		#{accomp_group_num}
 		and agl.accomp_group_num = ag.accomp_group_num
-		and ag.accomp_group_num = ar.accomp_group_num
-  		and ar.u_id=agl.u_id
-		and ar.acr_ox = 'o'
+		and
+		ag.accomp_group_num = ar.accomp_group_num
+		and ar.u_id=agl.u_id
+		and
+		ar.acr_ox = 'o'
 		group by
 		agl.accomp_group_num
 	</select>
@@ -110,11 +113,14 @@
 		select count(ar.acr_ox)
 		from Accomp_group ag, Accomp_group_list agl,
 		AccompanyRequest ar
-		where ag.u_id=#{u_id} and agl.accomp_group_num =#{group_id}
+		where ag.u_id=#{u_id} and agl.accomp_group_num
+		=#{group_id}
 		and agl.accomp_group_num = ag.accomp_group_num
-		and ag.accomp_group_num = ar.accomp_group_num
-  		and ar.u_id=agl.u_id
-		and ar.acr_ox = 'o'
+		and
+		ag.accomp_group_num = ar.accomp_group_num
+		and ar.u_id=agl.u_id
+		and
+		ar.acr_ox = 'o'
 		group by
 		agl.accomp_group_num
 	</select>
@@ -128,46 +134,77 @@
 
 	<select id="getGuestGroupList" resultType="GroupVO"
 		parameterType="Integer">
-			select ar.u_id, AGL.ACCOMP_GROUP_NUM,ar.acr_ox,ar.acr_num from
-			Accomp_group ag,
-			Accomp_group_list agl, AccompanyRequest ar
-			where
-			agl.accomp_group_num=#{accomp_group_num}
-			and AGL.U_ID=AR.U_ID and
-			agl.accomp_group_num=ag.accomp_group_num and
-			ag.accomp_group_num=ar.accomp_group_num
+		select ar.u_id,
+		AGL.ACCOMP_GROUP_NUM,ar.acr_ox,ar.acr_num from
+		Accomp_group ag,
+		Accomp_group_list agl, AccompanyRequest ar
+		where
+		agl.accomp_group_num=#{accomp_group_num}
+		and AGL.U_ID=AR.U_ID and
+		agl.accomp_group_num=ag.accomp_group_num and
+		ag.accomp_group_num=ar.accomp_group_num
 	</select>
 
 	<update id="Accom_accept">
 		update accompanyrequest set acr_ox ='o'
-		where acr_num = #{acr_num}
+		where acr_num
+		= #{acr_num}
 	</update>
 
 	<update id="Accom_reject">
 		update accompanyrequest set acr_ox ='x'
-		where acr_num = #{acr_num}
+		where acr_num
+		= #{acr_num}
 	</update>
-	
+
 	<select id="searchGroupList" resultType="GroupVO" parameterType="RouteVO">
 		select * from accomp_group ag
-		where max_people_num > (select count(*) from accomp_group_list agl where ag.accomp_group_num = agl.accomp_group_num)
-		and ag.TP_DATE = #{tp_date} and ag.COR_REGION = #{cor_region} and ag.u_id != #{u_id}
-	</select> 
+		where max_people_num > (select count(*)
+		from accomp_group_list agl where ag.accomp_group_num =
+		agl.accomp_group_num)
+		and ag.TP_DATE = #{tp_date} and ag.COR_REGION =
+		#{cor_region} and ag.u_id != #{u_id}
+	</select>
 
 	<insert id="requestGroup" parameterType="GroupVO">
-		insert into accompanyrequest values((select max(ACR_NUM) from accompanyrequest)+1, 'X', #{accomp_group_num}, #{u_id})
+		insert into
+		accompanyrequest values((select max(ACR_NUM) from accompanyrequest)+1,
+		'X', #{accomp_group_num}, #{u_id})
 	</insert>
 
 	<insert id="requestGroupZero" parameterType="GroupVO">
-		insert into accompanyrequest values(1, 'X', #{accomp_group_num}, #{u_id})
+		insert into
+		accompanyrequest values(1, 'X', #{accomp_group_num}, #{u_id})
 	</insert>
 
 	<select id="getCurrentGroupRequestNum" resultType="Integer">
-		select max(ACR_NUM) from accompanyrequest
+		select
+		max(ACR_NUM) from accompanyrequest
 	</select>
+	<delete id="remove_accomp_group">
+		delete from accomp_group
+		where accomp_group_num =
+		#{accomp_group_num}
+	</delete>
+	<delete id="remove_accomp_group_list">
+		delete from accomp_group_list
+		where accomp_group_num =
+		#{accomp_group_num}
+	</delete>
+	<delete id="remove_accompanyRequest">
+		delete from accompanyRequest
+		where accomp_group_num =
+		#{accomp_group_num}
+	</delete>
 
-
-
-
+	<update id="mypage_accomp_edit_post">
+update accomp_group
+		set 
+    max_people_num =#{max_people_num},
+		cor_region =#{cor_region},
+		tp_date =#{tp_date}
+		where accomp_group_num = #{accomp_group_num}
+	</update>
+	
 </mapper>
   
