@@ -196,24 +196,23 @@ public class BlogController {
     	return "redirect:/blog/myBlog";
     }*/
     
-    @RequestMapping(value="/updateBlog", method=RequestMethod.POST)
-    public String updatePost(BlogPostVO blogPost, Model model) throws Exception{
+   @RequestMapping(value="/updateBlog", method=RequestMethod.POST)
+    public String updatePost(@RequestParam("blogPost") BlogPostVO blogPost, HttpSession session, Model model) throws Exception{
     	System.out.println("blog update controller in" + blogPost.getU_id());
-    	/*String bp_contents = blogPost.getBp_contents();
-    	blogPost.setBp_contents(bp_contents);*/
+    	String bp_contents = blogPost.getBp_contents();
+    	blogPost.setBp_contents(bp_contents);
     	service.updateBlog(blogPost);
     	
     	String u_id = blogPost.getU_id();
     	/*String u_id = (String)session.getAttribute("login");*/
     	model.addAttribute("u_id", u_id);
-    	System.out.println("blogupdate controller out");
+    	System.out.println("blogupdate controller out" + bp_contents);
     	
     	return "redirect:/blog/myBlog";
-    	
     }
     
     
-    @RequestMapping(value="/updateBlog", method=RequestMethod.POST)
+   /* @RequestMapping(value="/updateBlog", method=RequestMethod.POST)
     public String updatePost(@RequestParam("bp_postnum") String bp_postnum, HttpSession session, Model model) throws Exception{
        System.out.println("blog update controller in"+bp_postnum);
        BlogPostVO blogpost = service.postDetail(bp_postnum);
@@ -221,9 +220,9 @@ public class BlogController {
        
        String u_id = (String)session.getAttribute("login");
        model.addAttribute("u_id", u_id);
-       System.out.println("blogupdate controller out");
+       System.out.println("blogupdate controller out" + blogpost.getBp_contents());
        
        return "redirect:/blog/myBlog";
-    }
+    }*/
    
 }
