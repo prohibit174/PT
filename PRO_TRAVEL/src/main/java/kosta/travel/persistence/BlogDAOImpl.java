@@ -49,7 +49,7 @@ public class BlogDAOImpl implements BlogDAO {
 	}
 
 @Override
-public BlogPostVO postDetail(int bp_postnum) throws Exception {
+public BlogPostVO postDetail(String bp_postnum) throws Exception {
 	return session.selectOne(namespace+".postDetail", bp_postnum);
 }
 	
