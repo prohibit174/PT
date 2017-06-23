@@ -61,25 +61,17 @@
 
 
   
-   function blogUpdate(bp_postnum){
-      alert("update JS");
-       document.location.href="updateBlog?bp_postnum="+bp_postnum;
+   function updatePost(bp_postnum){
+       document.location.href="updatePost?bp_postnum="+bp_postnum;
      }
  
-    function btn_js_delete_click(){
+    function removePost(bp_postnum){
          /* confirm(문자열, 초기값) */
-         var check = confirm("삭제하시겠습니까?");
+         var check = confirm("Are you remove this post?");
          /* if(check == true) else false */
-         if(check) document.location.href="product_delete?p_num=${product.p_num}";
+         if(check) document.location.href="removePost?bp_postnum=${blogPost.bp_postnum}";
        }
-
-   function btn_js_request_click(){
-       /* confirm(문자열, 초기값) */
-       var check = confirm("요청하시겠습니까?");
-       /* if(check == true) else false */
-       if(check) document.location.href="productReq_register?p_num=${product.p_num}";
        
-      }  
   </script>
 </head>
 <body>
@@ -239,8 +231,8 @@
                         class="primaryAction">
                         <span>Register</span>  -->
                         
-                   <button type="submit" class="btn btn-warning" id="modifyBtn" onclick="blogUpdate('${blogpost.bp_postnum}')">Modify</button>
-                   <button type="submit" class="btn btn-danger" id="removeBtn" onclick="btn_js_delete_click()">Remove</button>        
+                   <button type="submit" class="btn btn-warning" id="modifyBtn" onclick="updatePost('${blogpost.bp_postnum}')">Modify</button>
+                   <button type="submit" class="btn btn-danger" id="removeBtn" onclick="removePost('${blogPost.bp_postnum}')">Remove</button>        
                      </c:when>
                   </c:choose>    
                             
