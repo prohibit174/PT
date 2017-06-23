@@ -25,10 +25,10 @@ public class MessageController {
 	private MessageService service;
 	
 	@RequestMapping(value = "/main", method = RequestMethod.GET)
-	public String main(Model model,@RequestParam("u_id_recipient")String u_id_recipient) throws Exception {
+	public String main(Model model,HttpSession session) throws Exception {
 		System.out.println("controller main method in");
-		System.out.println(u_id_recipient);
-		List<MessageVO> list = service.list(u_id_recipient);
+		System.out.println(session.getAttribute("login").toString());
+		List<MessageVO> list = service.list(session.getAttribute("login").toString());
 		System.out.println("print_list");
 		for(int i=0;i<list.size();i++){
 			System.out.println(list.get(i).getM_num());
@@ -69,10 +69,10 @@ public class MessageController {
 	}
 	
 	@RequestMapping(value = "/resend_message", method = RequestMethod.POST)
-	public String resend_message(Model model,@RequestParam("u_id_sender")String u_id_sender)throws Exception {
+	public String resend_message(Model model,String u_id_sender)throws Exception {
 		System.out.println("resend_message post method call");
-		
-		model.addAttribute("u_id", u_id_sender);
+		System.out.println(u_id_sender);
+		model.addAttribute("sender", u_id_sender);
 		
 		return "/message/resend_message";
 	}
@@ -119,8 +119,8 @@ public class MessageController {
 		vo.setM_num(service.max_num() + 1);
 		
 		service.message_insert(vo);
-		
-		return "/message/test";
+
+		return "redirect:/message/main";
 	}
 
 }

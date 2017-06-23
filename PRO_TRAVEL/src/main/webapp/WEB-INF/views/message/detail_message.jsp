@@ -7,11 +7,11 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/message/jquery.magnific-popup.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/message/jquery.magnific-popup.min.js"></script>
 <script type="text/javascript">
-function resendForm(u_id_sender){
+function resendForm(){
 	 var popupX = (window.screen.width / 4) - (100);
 	   var popupY= (window.screen.height /4) - (150);
 	    window.open('about:blank','popup_window','width=450, height=470, left='+popupX+', top='+popupY);
-	    var wantForm = 'resendForm'+u_id_sender;
+	    var wantForm = 'resendForm';
 	    var frm =document.getElementById(wantForm);
 	    frm.submit();
 	}	
@@ -134,7 +134,7 @@ cursor: pointer;
 </head>
 <body>
 
-<form class="white-popup-block" id="resendForm${vo.u_id_sender}" method="post" action="/message/resend_message?u_id_sender=${vo.u_id_sender}" target="popup_window">
+<form class="white-popup-block" id="resendForm" method="post" action="/message/resend_message" target="popup_window">
    <fieldset style="border:0; background: white; width: 50%;">
   <!--  <div class="close" style="float: right; margin-right: 20px; margin-top: 10px;" onclick=""></div> -->
    <br><br>
@@ -163,7 +163,7 @@ cursor: pointer;
       </ul>
    </fieldset>
       <button style="margin-left: 40%;" onClick="window.close()">confirm</button>
-      <button style="margin-left: 40%;" onClick="resendForm(${vo.u_id_sender});">send</button>
+      <button style="margin-left: 40%;" onClick="resendForm();">send</button>
 </form>
 </body>
 </html>
