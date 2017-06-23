@@ -83,8 +83,8 @@ width:0;
 <link rel="canonical" href="https://www.olympic.org/sochi-2014" />
 <link rel="alternate" href="https://www.olympic.org/sochi-2014"
 	hreflang="en" />
-<link rel="alternate" href="https://www.olympic.org/fr/sotchi-2014"
-	hreflang="fr" />
+<!-- <link rel="alternate" href="https://www.olympic.org/fr/sotchi-2014"
+	hreflang="fr" /> -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <link rel="apple-touch-icon" sizes="57x57"
@@ -362,23 +362,16 @@ width:0;
 								<%-- <c:if test="${admin!=null}">
 								<c:set var="admin" value="${admin }"></c:set>
 							<li class="welcome" style="display:none;"><span class="session" style="font-weight: bold;" ><%=session.getAttribute("admin") %></span>님 환영합니다.</li> 
-									
-
 								</c:if> --%>
-								
 								<c:choose>
 									<c:when test="${login!=null }">
 									<c:set var="login" value="${login }"></c:set>
 									<li class="welcome" style="display:none;"><span class="session" style="font-weight: bold;" ><%=session.getAttribute("login") %></span>님 환영합니다.</li>
 									</c:when>
-									
 									<c:otherwise>
 									<c:set var="admin" value="${admin }"></c:set>
 									<li class="welcome" style="display:none;"><span class="session" style="font-weight: bold;" ><%=session.getAttribute("admin") %></span>님 환영합니다.</li> 
-									
 									</c:otherwise>
-								
-								
 								</c:choose>
 
 								<%-- <li class="welcome" style="display:none;"><span class="session" style="font-weight: bold;" ><%=session.getAttribute("login") %></span>님 환영합니다.</li> --%>
@@ -400,13 +393,25 @@ width:0;
 							</a></li>
 							</c:when>
 							</c:choose>
-							<li class="button_base b01_simple_rollover" id="mypage" style="display: none; "><a href="/mypage/usercheckInfo">MY PAGE</a></li>
+							<c:choose>
+							<c:when test="${login!=null}">
 							<li>
+								<a href="/" onclick="chattingForm();">
+					<img src="${pageContext.request.contextPath}/resources/images/chat.PNG" style="margin-left: -30px; margin-top:-7px;" width="30px" height="30px"/> 
+								</a>
+								</li>
+								</c:when>
+								</c:choose>
+							<li class="button_base b01_simple_rollover" id="mypage" style="display: none; "><a href="/mypage/usercheckInfo">MY PAGE</a></li>
+							<%-- <li>
+								<a href="/" onclick="chattingForm();">
+					<img src="${pageContext.request.contextPath}/resources/images/chat.PNG" width="30px" height="30px"/> 
+								</a>
 							 <form id="chattingForm" method="post" action="/chatting" target="popup_window">
-							<input type="submit" class="ss-icon" onclick="chattingForm();">twitter
+							<!-- <input type="submit" class="ss-icon" onclick="chattingForm();">twitter -->
 							</form>
-							</li>
-							<li><a href="https://www.youtube.com/user/olympic"
+							</li> --%>
+							<!-- <li><a href="https://www.youtube.com/user/olympic"
 								class="ss-icon">youtube</a></li>
 							<li><a href="#popup2" class="lightbox-link alt"> <span
 									class="sss-icon"> redirect </span> Share
@@ -414,7 +419,7 @@ width:0;
 							<li><a href="https://www.facebook.com/olympics"
 								class="ss-icon">facebook</a></li>
 							<li><a href="https://plus.google.com/+Olympics"
-								class="ss-icon">googleplus</a></li>
+								class="ss-icon">googleplus</a></li> -->
 							
 						</ul>
 					</div>
