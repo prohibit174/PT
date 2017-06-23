@@ -182,7 +182,6 @@
 				</div>
 				<div class="text-block">
 
-					<c:when test="${id == blog.u_id}">
 						<h1>Try Your First Blog Posting</h1>
 						<h2 style="font-size: 20px">
 							<a href="/blog/blogPost?u_id=${id}">post</a>
@@ -245,7 +244,6 @@
 											</picture>
 										</table>
 									</span>
-					</c:when>
 					</fieldset>
 					</c:forEach>
 				</div>
