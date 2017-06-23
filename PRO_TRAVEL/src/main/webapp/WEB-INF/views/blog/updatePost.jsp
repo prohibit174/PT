@@ -43,7 +43,7 @@
 							</td>  
 							
 							<td class="value">
-							${blogPost.bp_postnum } &nbsp; <span class="mandatory"></span>
+							<span>${blogPost.bp_postnum }</span> &nbsp; <span class="mandatory"></span>
 								<ul class="errorField"></ul>
 							</td>  
 							
@@ -52,13 +52,7 @@
 								id="bp_contents" value="">${blogPost.bp_contents }</textarea>
 							</div>
 							 
-							<td class="value"><input type="file" name="file3" id="bp_img"
-								value="${blogPost.bp_img }" /> &nbsp; <span class="mandatory"></span>
-								<ul class="errorField"></ul>
-							</td> 
-						
-								
-						
+							
 							<div class="row">
 								<input type="submit" value="Modify" />
 							</div>

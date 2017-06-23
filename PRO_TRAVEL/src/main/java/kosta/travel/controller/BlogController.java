@@ -17,6 +17,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -175,68 +176,40 @@ public class BlogController {
     }
       
     
-    @RequestMapping(value = "/updateBlog", method=RequestMethod.GET)
+    @RequestMapping(value = "/updatePost", method=RequestMethod.GET)
     public String updateBlog(String bp_postnum, Model model) throws Exception{
-       /*BlogPostVO blogPost = service.postDetail(bp_postnum);
-       model.addAttribute("blogPost", blogPost);*/
+       BlogPostVO blogPost = service.postDetail(bp_postnum);
+       //유저가 선택한 글 번호를 통해서 관련정보(글번호, 내용)를 가져와서 blogPost객체에 넣음.
+       model.addAttribute("blogPost", blogPost);
+       //넣은 내용을 model객체를 통해서 전송
        
-    	model.addAttribute(service.postDetail(bp_postnum));
-       return "/blog/updateBlog";
+       return "/blog/updatePost";
     }
     
-   /* @RequestMapping(value="/updateBlog", method=RequestMethod.POST)
-    public String updatePost(@RequestParam("bp_postnum") String bp_postnum, HttpSession session, Model model) throws Exception{
-    	System.out.println("blog update controller in"+bp_postnum);
-    	BlogPostVO blogpost = service.postDetail(bp_postnum);
-    	service.updateBlog(blogpost);
-    	
-    	String u_id = (String)session.getAttribute("login");
-    	model.addAttribute("u_id", u_id);
-    	System.out.println("blogupdate controller out");
-    	
-    	return "redirect:/blog/myBlog";
-    }*/
-    
- /*  @RequestMapping(value="/updateBlog", method=RequestMethod.POST)
-    public String updatePost(BlogPostVO blogPost, HttpSession session, Model model) throws Exception{
-    	System.out.println("blog update controller in" + blogPost.getU_id());
-    	String bp_contents = blogPost.getBp_contents();
-    	blogPost.setBp_contents(bp_contents);
-    	service.updateBlog(blogPost);
-    	
-    	String u_id = blogPost.getU_id();
-    	String u_id = (String)session.getAttribute("login");
-    	model.addAttribute("u_id", u_id);
-    	System.out.println("blogupdate controller out" + blogPost.getBp_contents());
-    	
-    	return "redirect:/blog/myBlog";
-    }*/
-    
-    //페이지는 넘어가는데 업데이트가 안됨
-    /*@RequestMapping(value="/updateBlog", method=RequestMethod.POST)
-    public String updatePost(@RequestParam("bp_postnum") String bp_postnum, HttpSession session, Model model) throws Exception{
-       System.out.println("blog update controller in"+bp_postnum);
-       BlogPostVO blogPost = service.postDetail(bp_postnum);
+	@RequestMapping(value="/updatePost", method=RequestMethod.POST)
+    public String updatePost(@RequestParam("bp_postnum") String bp_postnum, String bp_contents, Model model) throws Exception{
+       BlogPostVO blogPost = new BlogPostVO();
+       //blogPost객체. update메소드에는 객체가 들어가야함.(글번호나 글 내용등 객체를 파라미터로)
+       blogPost=service.postDetail(bp_postnum);
+       //글 번호를 파라미터로 포스팅 한 내용을 가져와서 객체에 담음
+       blogPost.setBp_contents(bp_contents);
+       //그 중에 내용을 set메소드로 새로 담음.
        service.updateBlog(blogPost);
+       //새로운 내용이 담긴 객체를 파라미터로 update함
        
-       service.updateBlog(bp_postnum);
-       
-       String u_id = (String)session.getAttribute("login");
+       String u_id = blogPost.getU_id();
+       //객체에서 u_id를 구해서 String변수에 담음
        model.addAttribute("u_id", u_id);
        System.out.println("blogupdate controller out");
        
        return "redirect:/blog/myBlog";
-    }*/
-   
-    @RequestMapping(value="/updateBlog", method=RequestMethod.POST)
-    public String updatePost(BlogPostVO blogPost, HttpSession session, Model model) throws Exception{
-
-    	service.updateBlog(blogPost);
-    	
-    	String u_id = blogPost.getU_id();
-    	model.addAttribute("u_id", u_id);
-    	
-    	return "redirect:/blog/myBlog";
     }
-    
+   
+	@RequestMapping(value="/removePost")
+	public String removePost(HttpSession session, Model model){
+		
+		String u_id = (String)session.getAttribute("login");
+		model.addAttribute("u_id", u_id);
+		return "redirect:/blog/myBlog";
+	}
 }
