@@ -1,5 +1,7 @@
 package kosta.travel.controller;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
+
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -205,10 +207,24 @@ public class BlogController {
        return "redirect:/blog/myBlog";
     }
    
+ /*   @RequestMapping(value = "/removePost", method=RequestMethod.GET)
+    public String removePostGet(String bp_postnum, Model model) throws Exception{
+       BlogPostVO blogPost = service.postDetail(bp_postnum);
+       //유저가 선택한 글 번호를 통해서 관련정보(글번호, 내용)를 가져와서 blogPost객체에 넣음.
+       model.addAttribute("blogPost", blogPost);
+       //넣은 내용을 model객체를 통해서 전송
+       
+       return "redirect:/blog/removePost";
+    }
+*/
 	@RequestMapping(value="/removePost")
-	public String removePost(HttpSession session, Model model){
+	public String removePost(String bp_postnum, Model model) throws Exception{
+		System.out.println("remove controller in");
+		BlogPostVO blogPost = service.postDetail(bp_postnum);
+		service.removePost(blogPost);
+		System.out.println("removePost controller");
 		
-		String u_id = (String)session.getAttribute("login");
+		String u_id = blogPost.getU_id();
 		model.addAttribute("u_id", u_id);
 		return "redirect:/blog/myBlog";
 	}

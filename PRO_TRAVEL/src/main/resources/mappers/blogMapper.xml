@@ -49,4 +49,8 @@
 	WHERE bp_postnum = #{bp_postnum}
 	</select>
 	
+	<delete id = "removePost">
+	DELETE FROM blogpost 
+	WHERE bp_postnum = #{bp_postnum} AND u_id = #{u_id}
+	</delete>
 </mapper>
