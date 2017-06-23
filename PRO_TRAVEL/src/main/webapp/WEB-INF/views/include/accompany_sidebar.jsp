@@ -8,39 +8,45 @@
 </head>
 <body>
 
-	<span id="sidebar">
-		<span class="tabs-section alt" id="tabsSection"> 
-		<div class="tabset-box">
-			<ul class="tabset">
+	<span id="sidebar"> <span class="tabs-section alt"
+		id="tabsSection">
+			<div class="tabset-box">
+				<ul class="tabset">
 
-				<li class=""><a href="/accompany/"
-					data-class="games2014-2" target=""> ACCOMPANY MAIN <i
-						class="icon-arrow-right"> <span class="hide">arrow</span>
-					</i>
-				</a></li>
-				<li class=""><a href="/accompany/enroll" data-class="games2014-2"
-					target=""> ACCOMPANY REGISTER <i class="icon-arrow-right"> <span
-							class="hide">arrow</span>
-					</i>
-				</a></li>
-					
+					<li class=""><a href="/accompany/" data-class="games2014-2"
+						target=""> ACCOMPANY MAIN <i class="icon-arrow-right"> <span
+								class="hide">arrow</span>
+						</i>
+					</a></li>
+					<li class=""><a href="/accompany/enroll"
+						data-class="games2014-2" target=""> ACCOMPANY REGISTER <i
+							class="icon-arrow-right"> <span class="hide">arrow</span>
+						</i>
+					</a></li>
+
+					<li class=""><a href="/accompany/search"
+						data-class="games2014-2" target=""> ACCOMPANY SEARCH <i
+							class="icon-arrow-right"> <span class="hide">arrow</span>
+						</i>
+					</a></li>
+
 					<li class=""><a href="/accompany/registerGroup"
-					data-class="games2014-2" target=""> regist Group <i
-						class="icon-arrow-right"> <span class="hide">arrow</span>
-					</i>
-				</a></li>
-				
-					
+						data-class="games2014-2" target="">  Group REGISTER  <i
+							class="icon-arrow-right"> <span class="hide">arrow</span>
+						</i>
+					</a></li>
+
+
 					<li class=""><a href="/accompany/searchGroup"
-					data-class="games2014-2" target=""> search Group <i
-						class="icon-arrow-right"> <span class="hide">arrow</span>
-					</i>
-				</a></li>
-				
-			</ul>
-		</div>
+						data-class="games2014-2" target=""> GROUP SEARCH <i
+							class="icon-arrow-right"> <span class="hide">arrow</span>
+						</i>
+					</a></li>
+
+				</ul>
+			</div>
 	</span>
-</span>
+	</span>
 
 </body>
 

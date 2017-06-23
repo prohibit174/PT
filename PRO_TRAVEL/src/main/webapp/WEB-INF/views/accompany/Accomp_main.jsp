@@ -29,6 +29,50 @@
       height: 30%;
       }
  */
+.results-form{
+    margin-right: 550px;
+}
+
+input[type="button"] {
+      float:right;
+      width:110px;
+      height:45px;
+      border:2px solid #e62644;
+      font-size:14px;
+      line-height:16px;
+      color:#e62644;
+      outline:none;
+      cursor:pointer;
+      background:none;
+      padding:0;
+      margin:10px 0 0 10px;
+      font-weight:bold;
+   }
+    input[type="button"]:hover {
+      border:2px solid #0081c8;
+      background-color: #0081c8;
+      color:#fff;
+    }
+    
+input[type="submit"] {
+  float: right;
+  width: 110px;
+  height: 45px;
+  border: 2px solid #acacac;
+  font-size: 14px;
+  line-height: 16px;
+  color: #959595;
+  outline: none;
+  cursor: pointer;
+  background: none;
+  padding: 0;
+  margin: 10px 0 0 10px;
+  font-weight: bold; }
+input[type="submit"]:hover {
+  border: 2px solid #0081c8;
+  background-color: #0081c8;
+  color: #fff; }
+    
     </style>
 
 </head>
@@ -36,31 +80,18 @@
 <body>
 <%@include file="../include/accompany_sidebar.jsp" %>
 
-<div id="contents" class="city" style="margin-top: -200px;">
+<div id="contents" class="city" style="margin-top: -265px;">
     <div class="conts-container">
         <div class="present">
            <div class="tabs-list"> 
-                
-                <div id="google-ad-sense" style="margin-top:228px; float:left; margin-left: -212px;" data-type="260x260">
-                  <script type="text/javascript">
-                    google_ad_client = "ca-pub-9419115827273897";
-                    google_ad_slot = "3548612763";
-                    google_ad_width = 260;
-                    google_ad_height = 260;
-                  </script>
-                  <!-- search-260x260 -->
-                  
-                  <script type="text/javascript"
-                          src="//pagead2.googlesyndication.com/pagead/show_ads.js">
-                  </script>
-                </div>
+             
             
             </div> <!-- //tabs-list  -->
      <!--   <div id="carpool_map"></div> -->
      
-       <h3 id="carpool_title" style="margin-top: -80px;">My Trip Plan With Recomanding Other traveler</h3>
+       <h2 id="carpool_title" style="margin-top: -80px;margin-left: 150px;padding-left: 105px;border-left-width: 50px;">   My Trip Plan With Recomanding Other traveler</h2>
        <br>
-       <div id="map" style="margin-top: 0px;"></div>
+       <div id="map" style="margin-top: 0px; left: 30px;"></div>
     
     <script type="text/javascript">
     var index=0;
@@ -228,7 +259,7 @@
                            +'<img src="/resources/images/accompany/cal.png" width="10" height="10">'
                            +accom_tp_date[index]+'<br>'
                             +'<img src="/resources/images/accompany/age.png" width="10" height="10">'
-                           +age+'살'+'<br>'
+                           +age+'years old'+'<br>'
                            + "<button onclick='showLeftAccom("+index+","+markerIndex+" )' style='font-size:8px'>&lt</button>"  
                            +'<button style="font-size:8px">'+currentCount+'/'+totalCount+'</button>'
                            + "<button onclick='showRightAccom("+index+","+markerIndex+" )' style='font-size:8px'>&gt</button>"  
@@ -291,7 +322,7 @@ function showLeftAccom(leftIndex, markerIndex){
                            +'<img src="/resources/images/accompany/cal.png" width="10" height="10">'
                            +accom_tp_date[index]+'<br>'
                             +'<img src="/resources/images/accompany/age.png" width="10" height="10">'
-                           +age+'살'+'<br>'
+                           +age+'years old'+'<br>'
                            + "<button onclick='showLeftAccom("+index+","+markerIndex+" )' style='font-size:8px'>&lt</button>"  
                            +'<button style="font-size:8px">'+currentCount+'/'+totalCount+'</button>'
                            + "<button onclick='showRightAccom("+index+","+markerIndex+" )' style='font-size:8px'>&gt</button>"  
@@ -448,8 +479,10 @@ function showLeftAccom(leftIndex, markerIndex){
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnrWQ2SHvedNrvdozheYo32pHwCbuvPgs&callback=initMap">
     </script>
-   
-   <div style="margin-left: 50.5%;">
+	
+
+	   
+  <!--  <div style="margin-left: 50.5%;">
       <input id="aaa" type="button" onclick="showAccom()" value="recommend show">
       <input id="aaa" type="button" onclick="hideAccom()" value="recommend hide" style="position: absolute,
         top: 10px,
@@ -462,184 +495,22 @@ function showLeftAccom(leftIndex, markerIndex){
         font-family: 'Roboto','sans-serif',
         line-height: 30px,
         padding-left: 10px">
-     </div>
+     </div> -->
+         <div class="tab-section" style="padding-right: 640px";>
+                                <div class="row">
+                                       <input type="hidden" name="json" value="" id="json">
+                                          <input type="submit" value="Show" onclick="showAccom()">
+                                   <input type="button" value="Hide" onclick="hideAccom()">
+                                
+
+                                </div>
+                        </div>
+                        <br><br><br><br><br><br>
     </div>
+       
             </div>
-            
-<div style="margin-top: 50px; margin-left: 17px">
-<h1 style="font-size: large;">Search Other Traveler</h1>
-</div>
-
-<form action="/accompany/cal" method="post" role="form" class="ajaxform">
-<div class="id-card-box" style="width: 100% ;border: black;">
-
-         <div class="item-list" style="width: 1400px; padding-right: 30px;">
-               <div style="font-size: 20px;">
-                     <span class="label" style="margin-right: 80px;"  >departure</span>
-                   <select class="label ajaxCity" style="margin-top: -5px; width: 150px" name="trav[0].city">
-                  <option class="locationName" style="margin-bottom: 10px">name</option>
-                  <option value="Zurich">Zurich</option>
-<option value="France">France</option>
-<option value="Nice">Nice</option>
-<option value="Brussels">Brussels</option>
-<option value="Berlin">Berlin</option>
-<option value="Munich">Munich</option>
-<option value="Bern">Bern</option>
-<option value="France">France</option>
-<option value="Belgium">Belgium</option>
-<option value="Germany">Germany</option>
-<option value="Swiss" selected="selected">Swiss</option>
-                  </select>
-                  
-                  <span class="label" style="margin: 0 40px;">begin</span>
-                  <input class="datepick label ajaxStart" type="text" name="trav[0].sdate" value="start" style="margin-top: -5px; padding: 0px; width: 150px;">
-                  <span class="label" style="margin: 0 40px;">end</span>
-                  <input class="datepick label ajaxEnd" type="text" name="trav[0].edate" value="end" style="margin-top: -5px; padding: 0px; width: 150px;">
-                     <img class="appendcp" src="../resources/images/accompany/plus.png" width="30" height="30" style="margin-top: -5px;">
-            </div>
-      <div class="accompanyList row">
-      </div>
-      <div style="padding-left: 45%; float: none;" class="calendar-form">
-      
-      <input class="btn-more ajaxbtn" type="submit" value="search" style="margin-right: 20%; margin-top: 10px; width: 120px; height: 50px; font-size: medium; float: none;" />
-      </div>
-      </div>
-   
-   
-   
-   </div>
-</form>
-
-<script type="text/javascript">
-var city = [];
-var sdate = [];
-var edate = [];
-var ct = 0;
-
- $(document).on('click','.appendcp',function() {
-   if(ct <= 0){
-      ct ++;
-      $(this).parent('div')
-      .append('<div class="row destination" style="font-size: 20px;">'+
-      '<span class="label" style="margin-right: 80px;">destination</span>'+
-      '<select class="label ajaxCity" style="margin-top: -5px; width: 150px" name="trav['+
-      ct+
-      '].city"><option class="locationName" style="margin-bottom: 10px">name</option>'+
-      '<option value="Zurich">Zurich</option><option value="France">France</option>'+
-      '<option value="Nice">Nice</option><option value="Brussels">Brussels</option>'+
-      '<option value="Berlin">Berlin</option><option value="Munich">Munich</option>'+
-      '<option value="Bern">Bern</option><option value="France">France</option>'+
-      '<option value="Belgium">Belgium</option><option value="Germany">Germany</option>'+
-      '<option value="Swiss" selected="selected">Swiss</option></select>'+
-      '<span class="label" style="margin: 0 40px;">begin</span>'+
-      '<input class="datepick label ajaxStart" type="text" name="trav['+
-      ct+
-      '].sdate" value="start" style="margin-top: -5px; padding: 0px; width: 150px;"><span class="label" style="margin: 0 40px;">end</span>'+
-      '<input class="datepick label ajaxEnd" type="text"  name="trav['+
-      ct+
-      '].edate" value="end" style="margin-top: -5px; padding: 0px; width: 150px;">'+
-      '<img class="appendcp" src="../resources/images/accompany/plus.png" width="30" height="30" style="margin-top: -5px;">'+
-      '<img class="appendcm" src="../resources/images/accompany/miners.png" width="30" height="30" style="margin-top: -5px;"></div>');
-   }else{
-      ct ++;
-   $('div.destination')
-   .before('<div class="row stops" style="font-size: 20px; padding-bottom: 0px;">'+
-   '<span class="label" style="margin-right: 80px;">stops</span>'+
-   '<select class="label ajaxCity" style="margin-top: -5px; width: 150px" name="trav['+
-   ct+
-   '].city"><option class="locationName" style="margin-bottom: 10px">name</option>'+
-   '<option value="Zurich">Zurich</option><option value="France">France</option>'+
-   '<option value="Nice">Nice</option><option value="Brussels">Brussels</option>'+
-   '<option value="Berlin">Berlin</option><option value="Munich">Munich</option>'+
-   '<option value="Bern">Bern</option><option value="France">France</option>'+
-   '<option value="Belgium">Belgium</option><option value="Germany">Germany</option>'+
-   '<option value="Swiss" selected="selected">Swiss</option></select>'+
-   '<span class="label" style="margin: 0 40px;">begin</span>'+
-   '<input class="datepick label ajaxStart" type="text" name="trav['+
-   ct+
-   '].sdate" value="start" style="margin-top: -5px; padding: 0px; width: 150px;">'+
-   '<span class="label" style="margin: 0 40px;">end</span>'+
-   '<input class="datepick label ajaxEnd" type="text"  name="trav['+
-   ct+
-   '].edate" value="end" style="margin-top: -5px; padding: 0px; width: 150px;">'+
-   '<img class="appendcp" src="../resources/images/accompany/plus.png" width="30" height="30" style="margin-top: -5px;">'+
-   '<img class="appendcm" src="../resources/images/accompany/miners.png" width="30" height="30" style="margin-top: -5px;"></div>');
-   }
-   
-   console.log("plus and ct value = "+ct);
-});
- 
- $(document).on('click','.appendcm',function() {
-       console.log($(this).parent('div.row').attr('class'));
-       ct -= 1;
-      $(this).parent('div.row').remove();
-      
-      
-      console.log("minuse and ct value = "+ct);
-});
-
-$('body').on('focus','.datepick', function(){
-    $(this).datepicker({
-       changeYear : true,
-       changeMonth : true,
-       dateFormat : "yy/mm/dd",
-          });
-    });
-
-    var frm = $('.ajaxform');
-
-    frm.submit(function (e) {
-        e.preventDefault();
-
-        $.ajax({
-            type: frm.attr('method'),
-            url: frm.attr('action'),
-            data: frm.serialize(),
-            success : function (data) {
-               var eachCounter = 0;
-               var htmlText = '<section class="results ajax-area" data-tmpl="athleteResults_tmpl">';
-               htmlText += '<div class="heading">';
-               htmlText += '<h2>Other Traveler</h2>';
-               htmlText += '</div>';
-               htmlText += '<ul class="table2 ajax-content">';
-               htmlText += '<li>';
-                  htmlText += '<div class="th col1"> Number </div>';
-                    htmlText += '<div class="th col4"> Join </div>';
-                       htmlText += '<div class="th col4"> Date </div>';
-                          htmlText += '<div class="th col4"> Place </div>';
-                             htmlText += '<div class="th col4"> Birth </div>';
-                                htmlText += '<div class="th col4"> Name </div>'; 
-                                   htmlText += '<div class="th col4"> Profile </div>';
-                                       htmlText += '</li>';
-                                    
-
-               $(data).each(function(){
-              htmlText += '<li>';
-                  htmlText += '<div class="th col1">'+(eachCounter+1)+'</div>';
-                    htmlText += '<div class="th col4"><a href=""> Join </a></div>';
-                       htmlText += '<div class="th col4">'+data[eachCounter].tp_date+'</div>';
-                          htmlText += '<div class="th col4">'+data[eachCounter].cor_region+'</div>';
-                             htmlText += '<div class="th col4">'+data[eachCounter].u_birth+'</div>';
-                                htmlText += '<div class="th col4">'+data[eachCounter].u_name+'</div>'; 
-                                   htmlText += '<div class="th col4"><a href=""> Profile </a></div>';
-                                       htmlText += '</li>';
-                  eachCounter++;
-               })
-                  htmlText += '</ul>';
-                     htmlText += '</section>';   
-               
-               $('div.accompanyList').append(htmlText);
-               
-               
-            },
-            error: function (data) {
-                console.log('An error occurred.');
-            },
-        });
-    });
-    
-</script>
-
+            	
+	
 </body>
 <%@include file="../include/footer.jsp" %>
 </html>
