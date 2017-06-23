@@ -200,8 +200,13 @@
 
 									<span style="font-family: Arial; font-size: 13px;">
 										<table border="0" width="100%">
-											<br>
+											<tr>
 											<p>${blogpost.bp_date }</p>
+											</tr>
+											
+											<tr>
+											<td><input type="hidden"> ${blogpost.bp_postnum }</td>
+											</tr>
 
 											<!-- makeQuery -->
 											<picture class="img"> <c:if
@@ -235,7 +240,7 @@
 														id="modifyBtn"
 														onclick="updatePost('${blogpost.bp_postnum}')">Modify</button>
 													<button type="submit" class="btn btn-danger" id="removeBtn"
-														onclick="removePost('${blogPost.bp_postnum}')">Remove</button>
+														onclick="removePost('${blogpost.bp_postnum}')">Remove</button>
 												</c:when>
 											</c:choose>
 

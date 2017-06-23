@@ -207,18 +207,9 @@ public class BlogController {
        return "redirect:/blog/myBlog";
     }
    
-   /* @RequestMapping(value = "/removePost", method=RequestMethod.GET)
-    public String removePostGet(String bp_postnum, Model model) throws Exception{
-       BlogPostVO blogPost = service.postDetail(bp_postnum);
-       //유저가 선택한 글 번호를 통해서 관련정보(글번호, 내용)를 가져와서 blogPost객체에 넣음.
-       model.addAttribute("blogPost", blogPost);
-       //넣은 내용을 model객체를 통해서 전송
-       
-       return "redirect:/blog/removePostPost";
-    }*/
 
 	@RequestMapping("/removePost")
-	public String removePost(@RequestParam("bp_postnum") String bp_postnum, Model model) throws Exception{
+	public String removePost(String bp_postnum, Model model) throws Exception{
 		System.out.println("remove controller in" + bp_postnum);
 		BlogPostVO blogPost = service.postDetail(bp_postnum);
 		service.removePost(blogPost);
@@ -226,6 +217,7 @@ public class BlogController {
 		
 		String u_id = blogPost.getU_id();
 		model.addAttribute("u_id", u_id);
+		System.out.println("controller out");
 		return "redirect:/blog/myBlog";
 	}
 }
