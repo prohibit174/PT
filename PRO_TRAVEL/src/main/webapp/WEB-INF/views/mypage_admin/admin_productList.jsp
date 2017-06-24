@@ -8,6 +8,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+div.main {
+  margin: 0 auto;
+  padding-left: 30px;
+  max-width: 800px;
+  min-height: 320px;
+  height: auto;
+}
+
+
+
+</style>
+
 </head>
 	<%@ include file="/WEB-INF/views/include/header.jsp"%>
 	<%@ include file="/WEB-INF/views/include/admin_sidebar.jsp"%>

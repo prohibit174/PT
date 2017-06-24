@@ -58,7 +58,24 @@
 
 <!--[if IE]><script type="text/javascript" src="https://stillres.olympic.org/Museum/js/ie.js"></script><![endif]-->
 
+ <style type="text/css">
+.btn-more1 button, .btn-more1 a {
+    display: inline-block;
+    vertical-align: top;
+   /*  color: #959595; */
+    border: 2px solid #959595;
+    padding: 7px 20px;
+    min-width: 110px;
+    text-decoration: none !important;
+    font-weight: bold;
+    line-height: 2em; 
+    background: white;}
+    
+ button, a{
+    color : #959595}
 
+
+</style> 
 
 <script type="text/javascript">
 	function updatePost(bp_postnum) {
@@ -191,8 +208,11 @@
 						
 						<c:choose>
 							<c:when test="${id == blog.u_id}">
+						
 						<h2 style="font-size: 20px">
-							<a href="/blog/blogPost?u_id=${id}">post</a>
+						<!-- <span class="btn-more1" > -->
+							<a  href="/blog/blogPost?u_id=${id}">post</a>
+						<!-- 	</span> -->
 						</h2>
 							</c:when>
 						</c:choose>
@@ -247,18 +267,20 @@
 											<p>${blogpost.bp_contents }</p>
 											<br>
 
-										<span class = "btn-more">
+									
 											<c:choose>
 												<c:when test="${id == blog.u_id}">
-
+								
+									 <span class="btn-more1" > 
 													<button type="submit" class="btn btn-warning"
 														id="modifyBtn"
 														onclick="updatePost('${blogpost.bp_postnum}')">Modify</button>
 													<button type="submit" class="btn btn-danger" id="removeBtn"
 														onclick="removePost('${blogpost.bp_postnum}')">Remove</button>
+									  </span> 
 												</c:when>
 											</c:choose>
-										</span>
+										
 											<hr>
 
 											</picture>

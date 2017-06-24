@@ -21,6 +21,38 @@
 
 
 </script>
+
+<style type="text/css">
+
+    .btn-more input {
+    display: inline-block;
+    vertical-align: top;
+   /*  color: #959595; */
+    border: 2px solid #959595;
+    padding: 7px 20px;
+    min-width: 110px;
+    text-decoration: none !important;
+    font-weight: bold;
+    line-height: 2em; 
+    background: white;}
+   /*  .btn-more input {
+      color: #494949;
+      border-color: #494949; } 
+  .photovideo .btn-more a, .photovideo .btn-more-ext a {
+    color: #fff;
+    border-color: #fff; }
+    .photovideo .btn-more a:hover, .photovideo .btn-more-ext a:hover {
+      color: #bbb;
+      border-color: #bbb; }
+  .btn-more.white input, .btn-more-ext.white a {
+    color: #fff;
+    border-color: #fff; }
+  .btn-more .empty-load, .btn-more-ext .empty-load {
+    display: none; }*/
+    
+    input{
+    color : #959595}
+</style>
 </head>
 <body>
 <%-- <form action="yellowCard">
@@ -102,11 +134,14 @@
 				</div>
 
 
-				<div class="td col2">
+				<div class="td col1">
 
 					<div class="status">
+					
 						
-						<input type="button" value = "경고" id="yellowCard" onclick="yellowCard_click('${user_ListVO.u_id }')">
+						<span class="btn-more" >
+						<input type="button" value = "경고" id="yellowCard" onclick="yellowCard_click('${user_ListVO.u_id }')" style="cursor: pointer;">
+						</span>
 					</div>
 				</div>
 
@@ -139,9 +174,9 @@
 
 
 	</ul>
-	<span class="btn-more"> <a
+	<!-- <span class="btn-more"> <a
 		href="/ajaxscript/loadmoretablelist/games/athletes/{535B8008-29D0-44BB-8B14-E2B29CC79DD5}/3/3">More</a>
-	</span> </section>
+	</span> </section> -->
 
 
 
