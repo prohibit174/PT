@@ -155,15 +155,6 @@ String id = (String)session.getAttribute("login");
 
   <article class="profile-box">
                
-
-<c:set var="u_id" value="${id }"></c:set>
-
-<c:if test="${id!=null}">
-										
-<iframe  width="500" height="500" src="http://127.0.0.1:5000?username=${id }" frameborder="1">
-</iframe>										
-
-</c:if>
                 </article>
     <section  class="id-card gallery-js-ready games2014-2" >
         <div class="holder">

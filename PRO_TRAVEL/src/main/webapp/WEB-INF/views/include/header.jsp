@@ -362,11 +362,11 @@ width:0;
 								<c:choose>
 									<c:when test="${login!=null }">
 									<c:set var="login" value="${login }"></c:set>
-									<li class="welcome" style="display:none;"><span class="session" style="font-weight: bold;" ><%=session.getAttribute("login") %></span>님 환영합니다.</li>
+									<li class="welcome" style="display:none;"><span class="session" style="font-weight: bold;" >Welcome to <%=session.getAttribute("login") %>.</span></li>
 									</c:when>
 									<c:otherwise>
 									<c:set var="admin" value="${admin }"></c:set>
-									<li class="welcome" style="display:none;"><span class="session" style="font-weight: bold;" ><%=session.getAttribute("admin") %></span>님 환영합니다.</li> 
+									<li class="welcome" style="display:none;"><span class="session" style="font-weight: bold;" ><%=session.getAttribute("admin") %></span></li> 
 									</c:otherwise>
 								</c:choose>
 
@@ -393,7 +393,7 @@ width:0;
 							<c:when test="${login!=null}">
 							<li>
 								<a href="/" onclick="chattingForm();">
-					<img src="${pageContext.request.contextPath}/resources/images/chat.PNG" style="margin-left: -30px; margin-top:-7px;" width="30px" height="30px"/> 
+					<img src="${pageContext.request.contextPath}/resources/images/chatting1.png" style="margin-left: -30px; margin-top:-7px;" width="30px" height="30px"/> 
 								</a>
 								</li>
 								</c:when>

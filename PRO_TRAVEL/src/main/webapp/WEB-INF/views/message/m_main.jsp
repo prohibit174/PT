@@ -238,7 +238,7 @@ cursor: pointer;
       <ol>
          <li>
          <label style="font-weight: bold;">Sender : </label>
-            <input id="name" name="u_id_sender2" readonly="readonly" value="" type="text" placeholder="Name" required="">
+            <input id="name" name="u_id_sender2" readonly="readonly" value="<%=session.getAttribute("login") %>" type="text" placeholder="Name" required="">
          </li>
 
          <li>
@@ -267,7 +267,7 @@ cursor: pointer;
             
     <section class="events-section" >
         <header class="heading">
-            <form action="/ioc-event-calendar" class="calendar-form">
+           <!--  <form action="/ioc-event-calendar" class="calendar-form">
                 <input type="submit" value="Go" />
                 <select title="Year" name="y" class="calendar-select">
         <option selected value="Year">Year</option>
@@ -293,7 +293,7 @@ cursor: pointer;
                 <option value="12">December</option>
 
                 </select>
-            </form>
+            </form> -->
             <h2>My Message</h2>
         </header>
         <ul class="events-list">
@@ -302,21 +302,26 @@ cursor: pointer;
         
            <c:when test="${list1 == null}">
             <li>  
-        <div>
-              <label style="float: right; padding-top: 5px;">쪽지 분류</label>
-              <span class="country"></span>
-         </div>
               <h3>
-                      보낸 사람
-              </h3></li>
+                      SENDER &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+              Classification
+              </h3>
+              </li>
             <c:forEach items="${list}" var="listMessage">
           <li>
         
          <form id="detailForm${listMessage.m_num}" name="detailForm${listMessage.m_num }" method="post" action="/message/detail_message?m_num=${listMessage.m_num}" target="popup_window">
           <div>
-              <a href="#test-form" class="btn-calendar" id="write_message">답장 하기</a>
+              <!-- <a href="#test-form" class="btn-calendar" id="write_message">답장 하기</a> -->
            
-            <input type="button" style="float: right; padding-top: 5px;" value="확인하기"  onclick="detailForm(${listMessage.m_num});">
+            <button class="write_message" style="float: right;" onclick="detailForm(${listMessage.m_num});">CONFIRM</button>
               <label style="float: right; padding-top: 5px;">${listMessage.m_category }&nbsp&nbsp&nbsp</label>
               <span class="country"></span>
          </div>
@@ -331,21 +336,39 @@ cursor: pointer;
     </c:forEach>
            </c:when>
             <c:otherwise>
+               <li>  
+              <h3>
+                      RECIPIENT &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                       &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                         &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                   
+              Classification&nbsp&nbsp&nbsp&nbsp
+				Acknowledgment
+              </h3>
+              </li>
                <c:forEach items="${list1}" var="listMessage">
+                        
           <li>
         
          <form id="detailForm${listMessage.m_num}" name="detailForm${listMessage.m_num }" method="post" action="/message/detail_message2?m_num=${listMessage.m_num}" target="popup_window">
-          <div>
-              <!-- <a href="#test-form" class="btn-calendar" id="write_message">답장 하기</a> -->
-              <label style="float: right; padding-top: 5px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp쪽지 상태 &nbsp&nbsp  <label padding-top: 5px;"> ${listMessage.m_status}</label></label>
-              <label style="float: right; padding-top: 5px;">쪽지 분류 :  ${listMessage.m_category }</label>
-              <span class="country"></span>
-         </div>
               <h3>
-                      받은 사람 : ${listMessage.u_id_recipient }
+               ${listMessage.u_id_recipient } &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                       &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                         &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        
+                    
+               ${listMessage.m_category }&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+               ${listMessage.m_status}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button class="write_message" style="float:rignt;" onclick="detailForm(${listMessage.m_num});">CONFIRM</button> 
+              
               </h3>
-              <br>
-        <input type="button" value="확인하기" onclick="detailForm(${listMessage.m_num});">
+  
+       
          </form>
           </li>
 
@@ -369,7 +392,7 @@ cursor: pointer;
         <h2>Menu</h2>
         <div>
         <button class="write_message" href="#test-form">Write</button>
-        <button class="write_to_me">To me</button>
+        <button class="write_to_me" href="#test-form2" >To me</button>
         </div>
         <br>
    <a class="aside-tag" href="/message/received_message?u_id=<%=session.getAttribute("login") %>" id="receive">¤ 받은 쪽지함</a>
