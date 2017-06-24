@@ -154,8 +154,8 @@ public class BlogController {
          File originalFileNm = new File(uploadPath + "\\" + savedName);
          File thumbnailFileNm = new File(uploadPath + "\\" + headName + "_small." + pattern);
 
-         int width = 130;
-         int height = 200;
+         int width = 500;
+         int height = 500;
 
          BufferedImage originalImg = ImageIO.read(originalFileNm);
          BufferedImage thumbnailImg = new BufferedImage(width, height, BufferedImage.TYPE_3BYTE_BGR);

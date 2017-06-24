@@ -2,6 +2,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
+
 <%
 	String id = (String) session.getAttribute("login");
 	request.setAttribute("id", id);
@@ -40,14 +41,17 @@
 	href="https://www.olympic.org/fr/musee/visiter/infos-pratiques/horaires-et-tarifs"
 	hreflang="fr" />
 
-<link media="screen" rel="stylesheet"
-	href="https://stillres.olympic.org/Museum/css/jquery-ui.css">
-<link media="screen" rel="stylesheet"
-	href="https://stillres.olympic.org/Museum/css/all.css">
-<link media="print" rel="stylesheet"
+
+<!-- <link media="screen" rel="stylesheet"
+	href="https://stillres.olympic.org/Museum/css/jquery-ui.css"> -->
+<!-- <link media="screen" rel="stylesheet"
+	href="https://stillres.olympic.org/Museum/css/all.css"> -->
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/blog/all.css">
+<!-- <link media="print" rel="stylesheet"
 	href="https://stillres.olympic.org/Museum/css/print.css">
 <link media="screen" rel="stylesheet"
-	href="https://stillres.olympic.org/Museum/css/fancybox.css">
+	href="https://stillres.olympic.org/Museum/css/fancybox.css"> -->
 
 
 <!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="https://stillres.olympic.org/Museum/css/ie.css" /><![endif]-->
@@ -70,6 +74,7 @@
 	}
 </script>
 </head>
+
 <body>
 	<script>
 		var dataLayer = [ {} ];
@@ -123,10 +128,10 @@
 
 						</div>
 					</div>
-					<div class="back-frame lang-switcher-container">
-						<!-- <a href="/" class="back-link"><span class="icon-arrow-left"></span></a> -->
-						<!--    <span class="separator">|</span> -->
-					</div>
+					<!-- <div class="back-frame lang-switcher-container">
+						<a href="/" class="back-link"><span class="icon-arrow-left"></span></a>
+						   <span class="separator">|</span>
+					</div> -->
 				</div>
 
 			</div>
@@ -135,7 +140,7 @@
 
 	<main id="main">
 
-	<nav class="breadcrumbs" role="navigation">
+	<!-- <nav class="breadcrumbs" role="navigation">
 		<ul>
 
 			<li><a href="/museum"> Home </a></li>
@@ -145,7 +150,7 @@
 			<li><a href="/museum/visit/practical-information"> Practical
 					Information </a></li>
 		</ul>
-	</nav>
+	</nav> -->
 
 
 
@@ -183,11 +188,16 @@
 				<div class="text-block">
 
 						<h1>Try Your First Blog Posting</h1>
+						
+						<c:choose>
+							<c:when test="${id == blog.u_id}">
 						<h2 style="font-size: 20px">
 							<a href="/blog/blogPost?u_id=${id}">post</a>
 						</h2>
+							</c:when>
+						</c:choose>
 
-
+						<br><br><br>
 
 
 
@@ -215,8 +225,10 @@
 													value="${fn:substring(blogpost.bp_img, 0, fn:length(blogpost.bp_img)-4) }"></c:set>
 												<c:set var="pattern"
 													value="${fn:substring(blogpost.bp_img, fn:length(head)+1, fn:length(blogpost.bp_img)) }"></c:set>
-												<c:set var="small" value="_small"></c:set>
+												<c:set var="small" value="_small"></c:set> 
 
+
+												
 												<c:choose>
 													<c:when
 														test="${pattern=='jpg' || pattern =='gif' || pattern =='png' }">
@@ -228,11 +240,14 @@
 														<c:out value="No IMAGE"></c:out>
 													</c:otherwise>
 												</c:choose>
+										
+											
 											</c:if> <%-- <img srcset="${blogpost.bp_img}"></picture> --%>
 
 											<p>${blogpost.bp_contents }</p>
 											<br>
 
+										<span class = "btn-more">
 											<c:choose>
 												<c:when test="${id == blog.u_id}">
 
@@ -243,7 +258,7 @@
 														onclick="removePost('${blogpost.bp_postnum}')">Remove</button>
 												</c:when>
 											</c:choose>
-
+										</span>
 											<hr>
 
 											</picture>
@@ -348,7 +363,7 @@
          class="lang-switcher lang-link link">Fran&#231;ais</a> -->
 
 
-	<footer id="footer">
+	<!-- <footer id="footer">
 		<div class="footer-section">
 			<div class="holder">
 				<ul class="links-boxes">
@@ -424,7 +439,7 @@
 					<p>&copy; Copyright 2017. All rights reserved</p>
 				</div>
 			</div>
-	</footer>
+	</footer> -->
 
 
 
@@ -519,6 +534,6 @@
             </div> --%>
         </script>
 
-
+<%@include file="../include/footer.jsp" %>
 </body>
 </html>
