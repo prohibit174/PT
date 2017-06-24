@@ -232,7 +232,14 @@
 
 	</select>
 
-
+	<select id="productAll" resultType="Integer">
+       <![CDATA[      
+       select 
+         count(*)
+       from 
+         product 
+       ]]>
+	</select>
 
 
 

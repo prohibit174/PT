@@ -36,6 +36,7 @@ public interface ProductDAO {
 	public List<Product_RequestVO> listProductRejected(String u_id)throws Exception;
 	public void updateCancel(Product_RequestVO proReq)throws Exception;
 	public List<Product_RequestVO> listProductCanceled(String u_id)throws Exception;
+	public Integer productAll()throws Exception;
 
 
 
