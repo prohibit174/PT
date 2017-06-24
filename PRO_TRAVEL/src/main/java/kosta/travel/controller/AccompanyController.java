@@ -197,7 +197,11 @@ public class AccompanyController {
 
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public String admin(Model model, HttpSession session) throws Exception {
-		model.addAttribute("list", service.getUserRoute(session));
+		
+		 model.addAttribute("IDList", service.getUser_havingTripInfo(session));
+		 model.addAttribute("list", service.getUserRoute(session)); 
+		 System.out.println(service.getUser_havingTripInfo(session).get(0).getU_id());
+		 System.out.println(service.getUser_havingTripInfo(session).get(1).getU_id());
 		return "/accompany/admin";
 	}
 
@@ -205,11 +209,11 @@ public class AccompanyController {
 	public @ResponseBody List<AccompanyVO> admin_search_text(String u_id, Model model, HttpSession session) throws Exception {
 		System.out.println("컨트롤러에 들어온 id는 : " + u_id);
 		List<AccompanyVO> list = new ArrayList<AccompanyVO>();
+
 		try {
 			list = service.getUserRoute(session, u_id);
 		} catch (Exception e) {
 			e.printStackTrace();
-
 		}
 		
 		if (list.isEmpty())

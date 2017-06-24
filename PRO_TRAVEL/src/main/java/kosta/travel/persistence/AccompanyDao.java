@@ -1,5 +1,6 @@
 package kosta.travel.persistence;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -136,6 +137,11 @@ public class AccompanyDao {
 			}
 			
 			
+		}
+
+		public List<GroupVO> getUser_havingTripInfo() {
+			System.out.println("dao 진입");
+			return session.selectList(namespace + ".getUser_havingTripInfo");
 		}
 		
 		
