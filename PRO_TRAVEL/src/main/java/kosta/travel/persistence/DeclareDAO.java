@@ -5,10 +5,12 @@ import java.util.List;
 import kosta.travel.domain.DeclareVO;
 
 public interface DeclareDAO {
-	//½Å°í ÀÔ·Â
+	//ï¿½Å°ï¿½ ï¿½Ô·ï¿½
 	public void declare_insert(DeclareVO vo) throws Exception;
-	//d_num ÀÚµ¿ Áõ°¡
+	//d_num ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½
 	public Integer d_maxNum() throws Exception;
-	//½Å°í ¸®½ºÆ®
+	//ï¿½Å°ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
 	public List<DeclareVO> declare_list() throws Exception;
+	
+	public List<DeclareVO> myDeclaration(String u_id) throws Exception;
 }
