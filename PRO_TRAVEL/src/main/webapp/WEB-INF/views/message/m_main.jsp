@@ -18,6 +18,15 @@ function detailForm(num){
 	    var frm =document.getElementById(wantForm);
 	    frm.submit();
 	}
+function sendForm(){
+	 var popupX = (window.screen.width / 4) - (100);
+	   var popupY= (window.screen.height /4) - (150);
+	    window.open('about:blank','popup_window','width=450, height=470, left='+popupX+', top='+popupY);
+	    var wantForm = 'sendForm';
+	    var frm =document.getElementById(wantForm);
+	    frm.submit();
+	}
+	
 
 	
 $(function(){
@@ -391,6 +400,7 @@ cursor: pointer;
     <div class="selects-box">
         <h2>Menu</h2>
         <div>
+        
         <button class="write_message" href="#test-form">Write</button>
         <button class="write_to_me" href="#test-form2" >To me</button>
         </div>
@@ -410,7 +420,7 @@ cursor: pointer;
            <option value="#">Accompany</option>
        </select>
        <br><br>
-   <a class="aside-tag" style="cursor: pointer;">¤ 전체 쪽지함</a>
+ 
     </div>
 </aside>
 </div>

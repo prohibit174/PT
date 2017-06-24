@@ -162,7 +162,7 @@ cursor: pointer;
 
       </ul>
       <div style="float: right;"><button class="write_message" onClick="window.close()">confirm</button>
-      <button class="write_message" onClick="resendForm();">send</button></div>
+      <button class="write_message" onClick="resendForm();">reply</button></div>
       
    </fieldset>
       
