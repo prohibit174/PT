@@ -8,7 +8,7 @@
 		INSERT INTO declare(
 			d_num, u_id, d_reported, d_big, d_small, d_content, d_file
 		) VALUES (
-			#{d_num}, #{u_id}, #{d_reported}, #{d_big}, #{d_small}, #{d_content}, #{d_file}
+			#{d_num}, #{u_id}, 'x', #{d_big}, #{d_small}, #{d_content}, #{d_file}
 		)
 	</insert>
 
@@ -22,9 +22,11 @@
 	</select>
 	
 	<select id="myDeclaration" resultType="kosta.travel.domain.DeclareVO">
-		SELECT *
-		FROM DECLARE
-		WHERE u_id=#{u_id}
+		SELECT d_num, d.u_id as u_id,d_reported, d_big, d_small, d_content, d_file,
+		u.u_id as d_reported_id, u.u_name as d_reported_name, u. u_img as d_reported_img	
+		FROM DECLARE d, USERS u
+		WHERE d.d_reported=u.u_id
+		AND d.u_id=#{u_id}
 		ORDER by d_num desc
 	</select>
 	</mapper>
