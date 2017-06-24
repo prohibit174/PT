@@ -167,7 +167,7 @@
 									
 									<picture class="picture">	
 									 <c:set var="file" value="${user.u_img }"/>
-									 <img src="/resources/upload/${file }" > 
+									 <img src="/resources/upload/${file }" width="120" height="160" > 
 									  </picture>
 <!-- 									<span class="mask"></span> 엿같은 mask... 주겨버립시다
  -->									</td>

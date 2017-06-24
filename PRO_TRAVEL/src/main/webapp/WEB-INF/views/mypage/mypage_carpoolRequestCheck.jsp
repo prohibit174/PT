@@ -126,9 +126,11 @@
 
 			<li style="margin-top: 20px">
 			<c:forEach items="${requestList}" var="carpool">
-					<div class="th col-first"> ${carpool.c_month }/${carpool.c_date }</div>
+					<div class="th col-first"> <img src="/resources/upload/${carpool.u_u_img }" width="30" height="30" >
+         ${carpool.c_u_name }</div>
 					<div class="th col1">${carpool.cr_ox}</div>
-					<div class="th col2">${carpool.c_hour }:${carpool.c_minute }</div>
+					<div class="th col2">${carpool.c_month },${carpool.c_date }th, ${carpool.c_year }
+        ${carpool.c_hour }:${carpool.c_minute }</div>
 					<div class="th col2">${carpool.start_point}</div>
 					<div class="th col3"><strong><a href = '/mypage/requestRead?cr_num=${carpool.cr_num }&c_num=${carpool.c_num}'> Go </a></strong></div>
 					<div class="th col5"></div>
