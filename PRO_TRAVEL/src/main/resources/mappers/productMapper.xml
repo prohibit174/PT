@@ -20,7 +20,7 @@
 	       select *
 	       from product
 	       where p_num > 0 
-	       order by p_date desc, p_date desc
+	       order by p_num desc, p_date desc
        ]]>
 	</select>
 
