@@ -83,8 +83,8 @@ width:0;
 <link rel="canonical" href="https://www.olympic.org/sochi-2014" />
 <link rel="alternate" href="https://www.olympic.org/sochi-2014"
 	hreflang="en" />
-<link rel="alternate" href="https://www.olympic.org/fr/sotchi-2014"
-	hreflang="fr" />
+<!-- <link rel="alternate" href="https://www.olympic.org/fr/sotchi-2014"
+	hreflang="fr" /> -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <link rel="apple-touch-icon" sizes="57x57"
@@ -152,7 +152,6 @@ width:0;
 	src="https://stillres.olympic.org/js/ss-social.js"></script>
 <script type="text/javascript"
 	src="https://stillres.olympic.org/js/ss-standard.js"></script>
-	
 <!--[if IE]><script type="text/javascript" src="https://stillres.olympic.org/js/ie.js"></script><![endif]-->
 <noscript>
 	<div>Javascript must be enabled for the correct page display</div>
@@ -180,6 +179,15 @@ width:0;
                     }
                 }
             });
+            
+            function chattingForm(){
+           	 var popupX = (window.screen.width / 4) - (100);
+           	   var popupY= (window.screen.height /4) - (150);
+           	    window.open('about:blank','popup_window','width=450, height=470, left='+popupX+', top='+popupY);
+           	    var wantForm = 'chattingForm';
+           	    var frm =document.getElementById(wantForm);
+           	    frm.submit();
+           	}
         </script>
 
 
@@ -354,23 +362,16 @@ width:0;
 								<%-- <c:if test="${admin!=null}">
 								<c:set var="admin" value="${admin }"></c:set>
 							<li class="welcome" style="display:none;"><span class="session" style="font-weight: bold;" ><%=session.getAttribute("admin") %></span>님 환영합니다.</li> 
-									
-
 								</c:if> --%>
-								
 								<c:choose>
 									<c:when test="${login!=null }">
 									<c:set var="login" value="${login }"></c:set>
 									<li class="welcome" style="display:none;"><span class="session" style="font-weight: bold;" ><%=session.getAttribute("login") %></span>님 환영합니다.</li>
 									</c:when>
-									
 									<c:otherwise>
 									<c:set var="admin" value="${admin }"></c:set>
 									<li class="welcome" style="display:none;"><span class="session" style="font-weight: bold;" ><%=session.getAttribute("admin") %></span>님 환영합니다.</li> 
-									
 									</c:otherwise>
-								
-								
 								</c:choose>
 
 								<%-- <li class="welcome" style="display:none;"><span class="session" style="font-weight: bold;" ><%=session.getAttribute("login") %></span>님 환영합니다.</li> --%>
@@ -378,6 +379,8 @@ width:0;
 							<li class="button_base b01_simple_rollover"><a style="cursor:pointer" id="login-button">LOGIN</a></li>
 							<li class="button_base b01_simple_rollover"><a href="/join/joinform">SIGN UP</a></li>
 							<li><a class="mail" href="/message/main?u_id_recipient=<%=session.getAttribute("login") %>"></a></li>
+							<c:choose>
+							<c:when test="${login!=null}">
 							<li><a style="background-color: red; border-radius: 20px; padding: 2px 5px 3px 5px; position: relative; left: -30px; top: -10px">
 							<c:choose>
 								<c:when test="${noReadMessage==null}">
@@ -386,11 +389,29 @@ width:0;
 							<c:otherwise>
                       			<%=session.getAttribute("noReadMessage") %>
                    				</c:otherwise>
-							</c:choose>
+							</c:choose>	
 							</a></li>
+							</c:when>
+							</c:choose>
+							<c:choose>
+							<c:when test="${login!=null}">
+							<li>
+								<a href="/" onclick="chattingForm();">
+					<img src="${pageContext.request.contextPath}/resources/images/chat.PNG" style="margin-left: -30px; margin-top:-7px;" width="30px" height="30px"/> 
+								</a>
+								</li>
+								</c:when>
+								</c:choose>
 							<li class="button_base b01_simple_rollover" id="mypage" style="display: none; "><a href="/mypage/usercheckInfo">MY PAGE</a></li>
-							<li><a href="https://twitter.com/olympics" class="ss-icon">twitter</a></li>
-							<li><a href="https://www.youtube.com/user/olympic"
+							<%-- <li>
+								<a href="/" onclick="chattingForm();">
+					<img src="${pageContext.request.contextPath}/resources/images/chat.PNG" width="30px" height="30px"/> 
+								</a>
+							 <form id="chattingForm" method="post" action="/chatting" target="popup_window">
+							<!-- <input type="submit" class="ss-icon" onclick="chattingForm();">twitter -->
+							</form>
+							</li> --%>
+							<!-- <li><a href="https://www.youtube.com/user/olympic"
 								class="ss-icon">youtube</a></li>
 							<li><a href="#popup2" class="lightbox-link alt"> <span
 									class="sss-icon"> redirect </span> Share
@@ -398,7 +419,7 @@ width:0;
 							<li><a href="https://www.facebook.com/olympics"
 								class="ss-icon">facebook</a></li>
 							<li><a href="https://plus.google.com/+Olympics"
-								class="ss-icon">googleplus</a></li>
+								class="ss-icon">googleplus</a></li> -->
 							
 						</ul>
 					</div>

@@ -43,6 +43,13 @@ public class BlogServiceImpl implements BlogService {
       return dao.postBlogList(u_id);
    }
 
+
+
+@Override
+public BlogPostVO postDetail(String bp_postnum) throws Exception {
+	return dao.postDetail(bp_postnum);
+}
+
 @Override
 public void updateBlog(BlogPostVO blogPost) throws Exception {
 	dao.updateBlog(blogPost);
@@ -50,8 +57,9 @@ public void updateBlog(BlogPostVO blogPost) throws Exception {
 }
 
 @Override
-public BlogPostVO postDetail(int bp_postnum) throws Exception {
-	return dao.postDetail(bp_postnum);
+public void removePost(BlogPostVO blogPost) throws Exception {
+	dao.removePost(blogPost);
+	
 }
 
 }

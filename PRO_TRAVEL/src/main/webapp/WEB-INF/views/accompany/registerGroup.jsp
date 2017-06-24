@@ -346,6 +346,7 @@ function showLeftAccom(leftIndex, markerIndex){
                  position: latlng,
                  map: map,
                  title: region[markerIndex],
+                 icon:"http://www.stubbyplanner.com/img_v8/selectcityICON_red.png",
                  hasInfoWindow : false// one marker, one InfoWindow. So If a marker has window, it is prohibited to make Infowindow
         		/*  date : travelDate[i] */
                });
