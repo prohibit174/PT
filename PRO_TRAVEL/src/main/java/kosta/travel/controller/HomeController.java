@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import kosta.travel.domain.Carpool_ListVO;
+import kosta.travel.service.AccompanyService;
 import kosta.travel.service.CarpoolService;
 import kosta.travel.service.MessageService;
 
@@ -33,6 +34,9 @@ public class HomeController {
 	@Inject
 	private CarpoolService carpoolService;
 	
+	@Inject
+	private AccompanyService accompanyService;
+
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
@@ -49,6 +53,8 @@ public class HomeController {
 		
 		//카풀부분
 		model.addAttribute("carpoolcount", carpoolService.count());
+		System.out.println("home 진입 전");
+		model.addAttribute("accompanycount", accompanyService.count());
 		
 		List<Carpool_ListVO> carpoolAll = carpoolService.carpoolAll();
 		model.addAttribute("carpoolAll", carpoolAll);
