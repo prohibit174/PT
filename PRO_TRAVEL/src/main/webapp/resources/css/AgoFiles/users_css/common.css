@@ -23,7 +23,31 @@
     background주석처리
     
     #main .content label, .mfp-wrap .content label
-    width 150>100*/
+    width 150>100
+    
+    384라인
+    
+    #main .section .content, .mfp-wrap .section .content {
+    padding-left: 40px;
+    padding-right: 80px;
+    padding-top: 40px;
+    padding-bottom: 30px;
+    width: 100%; }
+    
+    1310라인
+    
+      #main button, .mfp-wrap button {
+    text-transform: uppercase;
+    font-size: 1.3em;
+    padding: 8px 16px;
+    display: inline-block;
+    border-radius: 20px;
+    border: 2px solid #ffffff;
+    background-color: #ec374e;
+    color: #ffffff;
+    cursor: pointer; }
+    
+    */
     
 
 #wrapper {
@@ -382,9 +406,9 @@
   #main .section.first, .mfp-wrap .section.first {
     margin-top: 0 !important; }
   #main .section .content, .mfp-wrap .section .content {
-    padding-left: 40px;
+    padding-left: 0px;
     padding-right: 80px;
-    padding-top: 40px;
+    padding-top: 0px;
     padding-bottom: 30px;
     width: 100%; }
   #main .section .content.middle, .mfp-wrap .section .content.middle {
@@ -1296,7 +1320,7 @@
     border: none;
     padding: 0px;
     margin: 0px; }
-  #main button, .mfp-wrap button {
+/*   #main button, .mfp-wrap button {
     text-transform: uppercase;
     font-size: 1.3em;
     padding: 8px 16px;
@@ -1305,7 +1329,7 @@
     border: 2px solid #ffffff;
     background-color: #ec374e;
     color: #ffffff;
-    cursor: pointer; }
+    cursor: pointer; } */
   #main button:hover, .mfp-wrap button:hover {
     background-color: #ffffff;
     border: 2px solid #ec374e;
