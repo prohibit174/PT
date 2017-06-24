@@ -63,7 +63,7 @@ String id = (String)session.getAttribute("login");
 	        <div class="gallery-holder" style="bottom: 146px;">
 	            <span class="mask-l"></span>
 	            <span class="mask-r"></span>
-	            <a class="btn-prev" href="#" style="padding-top: 10px;top: 390px; z-index:10;"><span class="icon-arrow-left"><span class="hide">prev</span></span></a>
+	            <a class="btn-prev" href="#" style="padding-top: 10px; padding-top: 10px; top: 390px; z-index:10;"><span class="icon-arrow-left"><span class="hide">prev</span></span></a>
 	            <a class="btn-next" href="#" style="padding-top: 10px;top: 390px; z-index:10;"><span class="icon-arrow-right"><span class="hide">next</span></span></a>
 	            <ul style="position: relative; height: 80%; margin-left: -1060px;">
 	        <li>
@@ -179,7 +179,7 @@ String id = (String)session.getAttribute("login");
                         <li >
                             <div class="text-box">
                                 <strong class="title">ACCOMPANY</strong>
-								<a href="/accompany/searchGroup">개수찍으삼</a>                           
+								<a href="/accompany/searchGroup">${accompanycount }</a>                           
 							 </div>
                         </li>
                         <li >
@@ -214,9 +214,7 @@ String id = (String)session.getAttribute("login");
             <div class="heading">
                 <h2>ACCOMPANY</h2>
                     <ul class="add-links">
-                        <li>
-                            <a href="/news/sochi-2014">Go to Sochi 2014 news →</a>
-                        </li>
+                 
                     </ul>
             </div>
         </div>
@@ -225,12 +223,12 @@ String id = (String)session.getAttribute("login");
             <span class="mask-r" style="width: 91.5px;">mask right</span>
             <div class="holder">
                 <div class="frame">
-                    <a class="btn-prev disabled" href="#">
+                    <a class="btn-prev disabled" style="border-top-width: 10px;" href="#">
                         <span class="icon-arrow-left">
                             <span class="hide">prev</span>
                         </span>
                     </a>
-                    <a class="btn-next" href="#">
+                    <a class="btn-next" href="#" style="border-top-width: 10px;">
                         <span class="icon-arrow-right">
                             <span class="hide">next</span>
                         </span>
@@ -239,22 +237,13 @@ String id = (String)session.getAttribute("login");
 
     <li class="">
         <article>
-            <a href="/news/sochi-2014-bids-farewell">
-                <picture class="image">
-<!--[if IE 9]><video style="display: none;"><![endif]-->
-
-<source srcset="https://stillmed.olympic.org/Global/Images/News/2014-02/23/ClosingCeremony_BG.jpg?interpolation=lanczos-none&resize=340:191, https://stillmed.olympic.org/Global/Images/News/2014-02/23/ClosingCeremony_BG.jpg?interpolation=lanczos-none&resize=680:382 2x" media="(min-width: 1024px)">
-<source srcset="https://stillmed.olympic.org/Global/Images/News/2014-02/23/ClosingCeremony_BG.jpg?interpolation=lanczos-none&resize=340:191, https://stillmed.olympic.org/Global/Images/News/2014-02/23/ClosingCeremony_BG.jpg?interpolation=lanczos-none&resize=680:382 2x" media="(min-width: 768px)">
-<!--[if IE 9]></video><![endif]-->
-
-<img srcset="https://stillmed.olympic.org/Global/Images/News/2014-02/23/ClosingCeremony_BG.jpg?interpolation=lanczos-none&resize=250:140, https://stillmed.olympic.org/Global/Images/News/2014-02/23/ClosingCeremony_BG.jpg?interpolation=lanczos-none&resize=500:280 2x" alt=""></picture>
-
-            </a>
-            <span class="news-topic-label sochi2014">Sochi 2014</span>
+              <div id="map" style="margin-top: 0px; left: 0px; height:191px; width:340px"></div>
+            <span class="news-topic-label sochi2014">Europe</span>
+            <br>
                 <h2>
-                    <a href="/news/sochi-2014-bids-farewell">Sochi 2014 bids farewell</a>
+                    <a href="/news/sochi-2014-bids-farewell">10 days recommeding route in Eastern Europe</a>
                 </h2>
-                            <time datetime="23 Feb 2014">23 Feb 2014</time>
+                            <time datetime="23 Feb 2014">Jiwoong</time>
         </article>
     </li>
 
@@ -703,7 +692,19 @@ String id = (String)session.getAttribute("login");
     </div>
                     <a href="/fr/sotchi-2014" class="lang-switcher link">Fr</a>
     </div>
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>
+var map;
+function initMap() {
+    var paris = {lat: 48.856667, lng: 2.350833};
+    map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 5,
+      center: paris
+    });
+}
+</script>
+       <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnrWQ2SHvedNrvdozheYo32pHwCbuvPgs&callback=initMap">
+    </script>    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript">window.jQuery || document.write('<script src="https://stillres.olympic.org/js/jquery-1.11.1.min.js"><\/script>')</script>
 <script type="text/javascript" src="https://stillres.olympic.org/js/jquery.main.js"></script>
 <script type="text/javascript" src="https://stillres.olympic.org/js/jquery.cookie.js"></script>

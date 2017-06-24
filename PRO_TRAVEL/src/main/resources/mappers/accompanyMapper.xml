@@ -206,5 +206,10 @@ update accomp_group
 		where accomp_group_num = #{accomp_group_num}
 	</update>
 	
+	<select id="count" resultType="Integer">
+		select sum(count(*)+1) as count from accomp_group
+		group by accomp_group_num
+	</select>
+	
 </mapper>
   

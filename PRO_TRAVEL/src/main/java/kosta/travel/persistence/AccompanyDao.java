@@ -125,6 +125,11 @@ public class AccompanyDao {
 		public void mypage_accomp_edit_post(GroupVO newGroupVO) {
 				session.update(namespace+".mypage_accomp_edit_post", newGroupVO);
 		}
+
+		public int count() {
+			System.out.println("에러 발생 지점?"+session.selectOne(namespace + ".count"));
+			return session.selectOne(namespace + ".count");
+		}
 		
 		
 }
