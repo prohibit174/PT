@@ -83,6 +83,8 @@ public class CarpoolController {
 	
 	@RequestMapping(value = "/listAll", method = RequestMethod.GET)
 	public String listAll(Model model, HttpServletRequest request) throws Exception {
+		
+		
 		List<Carpool_ListVO> carpoolAll = service.carpoolAll();
 		model.addAttribute("carpoolAll", carpoolAll);
 		
@@ -93,6 +95,30 @@ public class CarpoolController {
 		return "/carpool/list";
 	}
 
+	@RequestMapping(value = "/listAll", method = RequestMethod.POST)
+	public void searchCarpool(Model model, CarpoolRequestUser user) throws Exception {
+
+		System.out.println("controller in");
+		/*System.out.println(user.getC_hour());*/
+		
+		int year = Integer.parseInt(user.getC_hour().substring(0, 4));
+		int month = Integer.parseInt((user.getC_hour().substring(5, 7)));
+	/*	System.out.println("month == "+month);*/
+		int date = Integer.parseInt(user.getC_hour().substring(8, 10));
+		/*System.out.println("date == "+date);*/
+		
+		
+		user.setC_year(year);
+		user.setC_month(month);
+		user.setC_date(date);
+		
+		System.out.println("user vo info === "+user.toString());
+
+		System.out.println(service.searchCarpool(user));
+		
+	}
+	
+	
 		
 	@RequestMapping(value = "/request", method = RequestMethod.GET)
 	public String request(Carpool_RequestVO carpoolRequest, @RequestParam("c_num") int c_num,  HttpSession session) throws Exception {

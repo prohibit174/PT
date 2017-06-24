@@ -53,4 +53,7 @@ public interface CarpoolService {
 	//추천
 	public List<Carpool_ListVO> recommendList()throws Exception;
 	
+	//검색
+	public List<CarpoolRequestUser> searchCarpool(CarpoolRequestUser user )throws Exception;
+	
 }

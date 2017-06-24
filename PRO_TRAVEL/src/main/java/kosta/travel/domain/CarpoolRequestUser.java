@@ -320,6 +320,18 @@ public class CarpoolRequestUser {
 		this.cr_u_name = cr_u_name;
 	}
 
+	@Override
+	public String toString() {
+		return "CarpoolRequestUser [c_num=" + c_num + ", u_id=" + u_id + ", start_point=" + start_point
+				+ ", dest_point=" + dest_point + ", way_point=" + way_point + ", c_price=" + c_price + ", c_year="
+				+ c_year + ", c_month=" + c_month + ", c_date=" + c_date + ", c_hour=" + c_hour + ", c_minute="
+				+ c_minute + ", c_person=" + c_person + ", u_pwd=" + u_pwd + ", u_name=" + u_name + ", u_birth="
+				+ u_birth + ", u_sex=" + u_sex + ", u_address=" + u_address + ", u_job=" + u_job + ", u_lang=" + u_lang
+				+ ", u_religion=" + u_religion + ", u_license=" + u_license + ", u_u_img=" + u_u_img + ", u_style="
+				+ u_style + ", img_file=" + img_file + ", cr_num=" + cr_num + ", cr_ox=" + cr_ox + ", c_u_id=" + c_u_id
+				+ ", cr_u_id=" + cr_u_id + ", c_u_name=" + c_u_name + ", cr_u_name=" + cr_u_name + "]";
+	}
+
 	
 	
 	

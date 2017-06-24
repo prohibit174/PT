@@ -141,6 +141,11 @@ public class CarpoolDAOImpl implements CarpoolDAO {
 		return session.selectList(namespace+".recommendList");
 	}
 
+	@Override
+	public List<CarpoolRequestUser> searchCarpool(CarpoolRequestUser user) throws Exception {
+		return session.selectList(namespace+".searchCarpool", user);
+	}
+
 
 
 }

@@ -133,6 +133,11 @@ public class CarpoolServiceImpl implements CarpoolService {
 		return dao.recommendList();
 	}
 
+	@Override
+	public List<CarpoolRequestUser> searchCarpool(CarpoolRequestUser user) throws Exception {
+		return dao.searchCarpool(user);
+	}
+
 
 
 }
