@@ -131,7 +131,24 @@ $(document).ready(function(){
 });
 </script> -->
 	
+<style>
+.btn-more1 button {
+    display: inline-block;
+    vertical-align: top;
+   /*  color: #959595; */
+    border: 2px solid #959595;
+    padding: 7px 20px;
+    min-width: 110px;
+    text-decoration: none !important;
+    font-weight: bold;
+    line-height: 2em; 
+    background: white;
+    text-align: center;
+    }
 
+ button{
+    color : #959595}
+</style>
 
 <!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="https://stillres.olympic.org/css/ie.css" /><![endif]-->
 </head>
@@ -188,41 +205,43 @@ $(document).ready(function(){
 						<div class="txt" itemprop="faxNumber">${product.p_date}</div>
 					</div>
 					<div class="row">
-						<span class="label">내용</span>
-						<div class="txt">
-							<a href="mailto:olympics@ibl.bm" itemprop="email">${product.p_detail}</a>
-						</div>
-					</div>
-					<div class="row">
 						<span class="label">판매여부</span>
 						<div class="txt">
 
 							<a href="http://www.olympics.bm" target="_blank" itemprop="url">${product.p_ox}</a>
 						</div>
 					</div>
+					<div class="row">
+						<span class="label">내용</span>
+						<div class="txt">
+							<a href="mailto:olympics@ibl.bm" itemprop="email">${product.p_detail}</a>
+						</div>
+					</div>
+					
 				
 				<ul class="mailbox-attachments clearfix uploadedList"></ul>	
 				
-			<div class="row">
+			<div class="row" align="center">
 						<c:choose>
 					        <c:when test="${id == product.u_id}">
 					       <!-- <button name="submit" id="validate_order" type="submit"
 								class="primaryAction">
 								<span>Register</span>  -->
-								
-						 <button type="submit" class="btn btn-warning" id="modifyBtn" onclick="btn_js_update_click()">수정</button>
-						 <button type="submit" class="btn btn-danger" id="removeBtn" onclick="btn_js_delete_click()">삭제</button> 		 
+						<span class="btn-more1">
+						 <button  onclick="btn_js_update_click()">MODIFY</button>
+						 <button  onclick="btn_js_delete_click()">DELETE</button></span>	 		 
 							</c:when>
 							
 							<c:when test="${admin == 'admin'}">
 					       <!-- <button name="submit" id="validate_order" type="submit"
 								class="primaryAction">
 								<span>Register</span>  -->
-								
-						 <button type="submit" class="btn btn-danger" id="removeBtn" onclick="btn_js_delete_click()">삭제</button> 		 
+							<span class="btn-more">
+						 <button onclick="btn_js_delete_click()">DELETE</button> 		</span>	 
 							</c:when>
 					    <c:otherwise>
-							 <button type="submit" class="btn btn-request" id="removeBtn" onclick="btn_js_request_click()">거래요청</button> 
+					    <span class="btn-more1">
+							 <button onclick="btn_js_request_click()">REQUEST</button> </span>
 						 </c:otherwise>
 				 	  </c:choose>	 
 			</div>

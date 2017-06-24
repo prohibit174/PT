@@ -4,7 +4,7 @@ package kosta.travel.domain;
 import org.springframework.web.multipart.MultipartFile;
 
 public class ProductVO {
-   private String p_num;
+   private int p_num;
    private String u_id;
    private String p_img;
    private String p_detail;
@@ -16,11 +16,11 @@ public class ProductVO {
    
    public ProductVO(){}
 
-   public String getP_num() {
+   public int getP_num() {
       return p_num;
    }
 
-   public void setP_num(String p_num) {
+   public void setP_num(int p_num) {
       this.p_num = p_num;
    }
 

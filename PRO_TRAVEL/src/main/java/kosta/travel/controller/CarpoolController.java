@@ -57,8 +57,37 @@ public class CarpoolController {
 		List<Carpool_ListVO> list = service.carpoolAll();
 		model.addAttribute("list", list);
 		
+		List<Carpool_ListVO> recommend = service.recommendList();
+		model.addAttribute("recommend", recommend);
+		
 
 		return "/carpool/main";
+	}
+	
+	@RequestMapping(value = "/", method = RequestMethod.POST)
+	public void mainPOST(Model model, CarpoolRequestUser user) throws Exception {
+
+		System.out.println("controller in");
+		/*System.out.println(user.getC_hour());*/
+		
+		int year = Integer.parseInt(user.getC_hour().substring(0, 4));
+		int month = Integer.parseInt((user.getC_hour().substring(5, 7)));
+	/*	System.out.println("month == "+month);*/
+		int date = Integer.parseInt(user.getC_hour().substring(8, 10));
+		/*System.out.println("date == "+date);*/
+		
+		
+		user.setC_year(year);
+		user.setC_month(month);
+		user.setC_date(date);
+		
+		System.out.println("user vo info === "+user.toString());
+
+		System.out.println(service.searchCarpool(user));
+		
+		
+		model.addAttribute("search", service.searchCarpool(user));
+		
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
@@ -127,11 +156,19 @@ public class CarpoolController {
 	public String request(Carpool_RequestVO carpoolRequest, @RequestParam("c_num") int c_num,  HttpSession session) throws Exception {
 		
 		String id = (String)session.getAttribute("login");
-		int cr_num = service.maxSelectRequest()+1;
+		
+
+		
+		if(service.maxSelectRequest()==null){
+			carpoolRequest.setC_num(1);
+		} else{
+			int cr_num = service.maxSelectRequest()+1;
+			carpoolRequest.setCr_num(cr_num);
+		}
+		
 		
 		carpoolRequest.setU_id(id);
 		carpoolRequest.setC_num(c_num);
-		carpoolRequest.setCr_num(cr_num);
 		
 		service.registRequest(carpoolRequest);
 		

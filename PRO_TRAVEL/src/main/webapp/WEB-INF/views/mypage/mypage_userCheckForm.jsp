@@ -11,7 +11,31 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/AgoFiles/users_css/all.css">
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/AgoFiles/users_css/common.css">
+	href="${pageContext.request.contextPath}/resources/css/AgoFiles/users_css/common.css?version=20170624">
+	
+	<style type="text/css">
+	
+	.btn-more1 > .btn-join {
+    display: inline-block;
+    vertical-align: top;
+    color: #959595; 
+    border: 2px solid #959595;
+    padding: 7px 20px;
+    min-width: 110px;
+    text-decoration: none !important;
+    font-weight: bold;
+ /*    font: bold 1.3em; */
+    line-height: 2em; 
+    background: white;
+    width: 50px;
+    height: 50px;
+    }
+
+ button{
+    color : #959595;
+    }
+	
+	</style>
 </head>
 <%@include file="/WEB-INF/views/include/header.jsp" %>
 <%@include file="/WEB-INF/views/include/mypage_sidebar.jsp" %>
@@ -167,7 +191,7 @@
 									
 									<picture class="picture">	
 									 <c:set var="file" value="${user.u_img }"/>
-									 <img src="/resources/upload/${file }" > 
+									 <img src="/resources/upload/${file }" width="120" height="160" > 
 									  </picture>
 <!-- 									<span class="mask"></span> 엿같은 mask... 주겨버립시다
  -->									</td>
@@ -204,10 +228,14 @@
 
 							
 
-							<button name="submit" id="validate_order" type="submit"
+							<span class="btn-more1" >
+							 <!-- <button name="submit" id="validate_order" type="submit"
 								class="primaryAction">
-								<span>수정하기</span>
-							</button>
+								<span>가입하기</span>
+							</button>  -->
+							
+							<button type="submit" class="btn-join" id="validate_order">MODIFY</button>
+						</span>
 							<div class="clear"></div>
 						</div>
 				</form>

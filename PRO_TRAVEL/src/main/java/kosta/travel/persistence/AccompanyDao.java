@@ -128,15 +128,12 @@ public class AccompanyDao {
 		}
 
 		public int count() {
-			System.out.println("에러 발생 지점?"+session.selectOne(namespace + ".count"));
-			try {
-				int temp=session.selectOne(namespace + ".count");
-				return temp;
-			} catch (Exception e) {
-				return 0;
-			}
-			
-			
+	         try {
+	             int temp=session.selectOne(namespace + ".count");
+	             return temp;
+	          } catch (Exception e) {
+	             return 0;
+	          }
 		}
 
 		public List<GroupVO> getUser_havingTripInfo() {

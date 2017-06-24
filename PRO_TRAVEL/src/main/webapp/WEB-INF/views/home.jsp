@@ -245,7 +245,7 @@ function changeMonth(m){
                         <li >
                             <div class="text-box">
                                 <strong class="title">TRAVEL ITEM</strong>
-                                <a href="/mypage/carpoolCheck">물건개수 ㄱㄱ</a>                        
+                                <a href="/product/product_list">${productAll }</a>                        
                                 </div>
                         </li>
                         <li >

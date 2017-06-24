@@ -84,8 +84,28 @@
 	type="text/javascript"></script>
 
 <style>
+#header > h3 {
+background-color:white;
+margin :0;
+}
 
+.btn-more1 button{
+    display: inline-block;
+    vertical-align: top;
+   /*  color: #959595; */
+    border: 2px solid #959595;
+/*     padding: 0px 0px; */
+    min-width: 110px;
+    text-decoration: none !important;
+    font-weight: bold;
+    line-height: 2em; 
+    background: white;
+    width: 30px;
+    height: 30px;
+    }
 
+ button{
+    color : #959595}
 </style>
 <!-- 	<script>
  		 var result = '${msg}';
@@ -122,15 +142,23 @@
 	<%@ include file="/WEB-INF/views/include/header.jsp"%>
 	<%@ include file="/WEB-INF/views/include/product_sidebar.jsp"%>
 
+
 	<div id="highlights-of-the-games"></div>
+	
 	<section class="text-post"
 		itemscopeitemtype="http://schema.org/NewsArticle">
 		<div class="main" style="margin-right: 150px;">
 			<div class="main-holder photovideo" style="margin-left: 100px;">
+			<div id="header">
+<h3 >PRODUCT LIST</h3>
+</div>
 
+
+
+<div style="float: right">
 				<div class='box-body' style="background-color: white;">
 
-					<select name="searchType" class="searchBox">
+					<select name="searchType" class="searchBox" style="width: 259px; height:30px ;">
 						<option value="n"
 							<c:out value="${cri.searchType == null?'selected':''}"/>>
 							---</option>
@@ -154,9 +182,10 @@
 							ProductName OR Content OR UserId</option>
 					</select>
 					
-					 <input type="text" name='keyword' id="keywordInput" value='${cri.keyword }'>
-					<button id='searchBtn'>Search</button>
-
+					 <input type="text" name='keyword' style="width: 259px; height:30px ;" id="keywordInput" value='${cri.keyword }'>
+					<span class="btn-more1"><button id='searchBtn'>SEARCH</button></span>
+					</div>
+					<br><br>
 
 				</div>
 
@@ -185,9 +214,10 @@
 
 											<c:choose>
 												<c:when
-													test="${pattern=='jpg' || pattern =='gif' || pattern =='png' }">
+													test="${pattern=='jpg' || pattern =='gif' || pattern =='png'|| pattern =='PNG' }">
 													<!-- <img srcset="resources/upload/${head }_small.${pattern}" alt="img /"> -->
-													<img src="/resources/upload/${head}${small}.${pattern}"
+													<%-- <img src="/resources/upload/${head}${small}.${pattern}" --%>
+													<img src="/resources/upload/${product.p_img }"
 														alt="img /">
 												</c:when>
 												<c:otherwise>

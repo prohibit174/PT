@@ -28,11 +28,6 @@
 							class="hide">arrow</span>
 					</i>
 				</a></li>
-				<li class=""><a href="/mypage/carpoolCheck" data-class="games2014-2"
-					target=""> MY CARPOOL <i class="icon-arrow-right"> <span
-							class="hide">arrow</span>
-					</i>
-				</a></li>
 			</ul>
 		</div>
 	</span>

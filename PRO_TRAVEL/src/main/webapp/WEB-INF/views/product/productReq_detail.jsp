@@ -84,6 +84,26 @@
 
 
 <!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="https://stillres.olympic.org/css/ie.css" /><![endif]-->
+<style>
+
+
+.btn-more1 > #button-register{
+    display: inline-block;
+    vertical-align: top;
+   color: #959595;
+    border: 2px solid #959595;
+/*      padding: 0px 0px;  */
+    min-width: 110px;
+    text-decoration: none !important;
+    font-weight: bold;
+    line-height: 2em; 
+    background: white;
+    }
+
+ button{
+    color : #959595}
+
+</style>
 </head>
 <body>
 
@@ -98,10 +118,10 @@
 				<div class="items active">
 					<div class="item-list">
 						<div style="display: block;" class="slide">
-							<div class="row">
+	<%-- 						<div class="row">
 								<span class="label">거래번호</span>
 								<div class="txt">${proReq.pr_reqnum}</div>
-							</div>
+							</div> --%>
 
 							<div class="row">
 								<span class="label">사용자 아이디</span>
@@ -132,14 +152,10 @@
 							</div>
 
 							<ul class="mailbox-attachments clearfix uploadedList"></ul>
-							<div class="row">
-								<button type="submit" class="btn btn-primary">목록으로 가기</button>
-
-							</div>
 						</div>
 					</div>
 					
-					<span class="btn-more"> <a title="more link" href="#">More</a>
+					<span class="btn-more1"><button id="button-register">GO LIST</button>
 					</span>
 			</div></form>
 			

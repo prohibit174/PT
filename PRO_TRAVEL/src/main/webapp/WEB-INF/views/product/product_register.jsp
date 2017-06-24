@@ -26,7 +26,23 @@
 	src="${pageContext.request.contextPath}/resources/js/AgoFiles/prouduct_javascript/join_checkInfo.js"></script>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/js/AgoFiles/prouduct_javascript/JoinCheck.js"></script>
+<style>
+.btn-more1 > #button-register{
+    display: inline-block;
+    vertical-align: top;
+   color: #959595;
+    border: 2px solid #959595;
+/*     padding: 0px 0px; */
+    min-width: 110px;
+    text-decoration: none !important;
+    font-weight: bold;
+    line-height: 2em; 
+    background: white;
+    }
 
+ button{
+    color : #959595}
+</style>
 
 
 </head>
@@ -64,14 +80,6 @@
 
 								<div class="right">
 									<table cellpadding="0" cellspacing="0" class="tab">
-										<tr>
-											<td class="label"><label for="u_lang">Product
-													Number</label></td>
-											<td class="value"><input type="text" name="p_num"
-												id="p_num" value="" /> &nbsp; <span class="mandatory"></span>
-												<ul class="errorField">
-												</ul></td>
-										</tr>
 
 										<tr>
 											<td class="label"><label for="u_lang">Product
@@ -89,14 +97,7 @@
 												</ul></td>
 										</tr>
 
-										<tr>
-											<td class="label"><label for="u_lang">Product
-													Detail</label></td>
-											<td class="value"><input type="text" name="p_detail"
-												id="p_detail" value="" /> &nbsp; <span class="mandatory"></span>
-												<ul class="errorField">
-												</ul></td>
-										</tr>
+
 										<tr>
 											<td class="label"><label for="u_lang">Price</label></td>
 											<td class="value"><input type="text" name="p_price"
@@ -114,6 +115,15 @@
 													Image</label></td>
 											<td class="value"><input type="file" name="file1"
 												id="p_img" value="" /> &nbsp; <span class="mandatory"></span>
+												<ul class="errorField">
+												</ul></td>
+										</tr>
+										
+																				<tr>
+											<td class="label"><label for="u_lang">Description</label></td>
+											<td class="value">
+											<textarea cols="60px" rows="60px" name="p_detail"
+												id="p_detail" /> </textarea>&nbsp; <span class="mandatory"></span>
 												<ul class="errorField">
 												</ul></td>
 										</tr>
@@ -139,19 +149,11 @@
 
 						<br />
 
-						<div class="buttonHolder">
-<!-- <style type="text/css">
-/*ie7onli - skin bouton */
-*+html .primaryAction {
-	width: 155px;
-}
-</style> -->
-<button name="submit" id="validate_order" type="submit"
-								class="primaryAction">
-								<span>Register</span>
-</button>
+				
 
-						</div></div>
+<div align="center" class="btn-more1">
+<button id="button-register"> Register</button></div>
+</div>
 				</form>
 				
 			</div>
