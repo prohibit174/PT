@@ -64,6 +64,7 @@
   list-style: none;
  /*  background: #efeeed; */
   font: 10px "tomregular", arial !important;
+  min-height: 320px;
   height: 100%;
   width: 100%;
   /*
