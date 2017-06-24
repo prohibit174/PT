@@ -182,7 +182,6 @@
 				</div>
 				<div class="text-block">
 
-					<c:when test="${id == blog.u_id}">
 						<h1>Try Your First Blog Posting</h1>
 						<h2 style="font-size: 20px">
 							<a href="/blog/blogPost?u_id=${id}">post</a>
@@ -201,8 +200,13 @@
 
 									<span style="font-family: Arial; font-size: 13px;">
 										<table border="0" width="100%">
-											<br>
+											<tr>
 											<p>${blogpost.bp_date }</p>
+											</tr>
+											
+											<tr>
+											<td><input type="hidden"> ${blogpost.bp_postnum }</td>
+											</tr>
 
 											<!-- makeQuery -->
 											<picture class="img"> <c:if
@@ -236,7 +240,7 @@
 														id="modifyBtn"
 														onclick="updatePost('${blogpost.bp_postnum}')">Modify</button>
 													<button type="submit" class="btn btn-danger" id="removeBtn"
-														onclick="removePost('${blogPost.bp_postnum}')">Remove</button>
+														onclick="removePost('${blogpost.bp_postnum}')">Remove</button>
 												</c:when>
 											</c:choose>
 
@@ -245,7 +249,6 @@
 											</picture>
 										</table>
 									</span>
-					</c:when>
 					</fieldset>
 					</c:forEach>
 				</div>

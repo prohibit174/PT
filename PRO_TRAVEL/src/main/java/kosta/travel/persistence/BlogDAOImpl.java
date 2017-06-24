@@ -52,6 +52,11 @@ public class BlogDAOImpl implements BlogDAO {
 public BlogPostVO postDetail(String bp_postnum) throws Exception {
 	return session.selectOne(namespace+".postDetail", bp_postnum);
 }
+
+@Override
+public Integer removePost(BlogPostVO blogPost) throws Exception {
+	return session.delete(namespace+".removePost", blogPost);
+}
 	
    
 }

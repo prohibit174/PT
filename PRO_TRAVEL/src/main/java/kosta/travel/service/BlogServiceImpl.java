@@ -56,4 +56,10 @@ public void updateBlog(BlogPostVO blogPost) throws Exception {
 	
 }
 
+@Override
+public void removePost(BlogPostVO blogPost) throws Exception {
+	dao.removePost(blogPost);
+	
+}
+
 }

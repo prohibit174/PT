@@ -11,6 +11,7 @@ import kosta.travel.domain.CarpoolRequestUser;
 import kosta.travel.domain.CarpoolVO;
 import kosta.travel.domain.Carpool_ListVO;
 import kosta.travel.domain.Carpool_RequestVO;
+import kosta.travel.domain.Criteria;
 import kosta.travel.persistence.CarpoolDAO;
 
 
@@ -132,20 +133,10 @@ public class CarpoolServiceImpl implements CarpoolService {
 		return dao.recommendList();
 	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	@Override
+	public List<CarpoolRequestUser> searchCarpool(CarpoolRequestUser user) throws Exception {
+		return dao.searchCarpool(user);
+	}
 
 
 
