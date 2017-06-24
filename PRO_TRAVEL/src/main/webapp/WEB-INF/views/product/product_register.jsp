@@ -27,10 +27,10 @@
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/js/AgoFiles/prouduct_javascript/JoinCheck.js"></script>
 <style>
-.btn-more1 button{
+.btn-more1 > #button-register{
     display: inline-block;
     vertical-align: top;
-   /*  color: #959595; */
+   color: #959595;
     border: 2px solid #959595;
 /*     padding: 0px 0px; */
     min-width: 110px;
@@ -38,8 +38,6 @@
     font-weight: bold;
     line-height: 2em; 
     background: white;
-    width: 30px;
-    height: 30px;
     }
 
  button{
@@ -99,13 +97,7 @@
 												</ul></td>
 										</tr>
 
-										<tr>
-											<td class="label"><label for="u_lang">Description</label></td>
-											<td class="value"><input type="text" name="p_detail"
-												id="p_detail" value="" /> &nbsp; <span class="mandatory"></span>
-												<ul class="errorField">
-												</ul></td>
-										</tr>
+
 										<tr>
 											<td class="label"><label for="u_lang">Price</label></td>
 											<td class="value"><input type="text" name="p_price"
@@ -123,6 +115,15 @@
 													Image</label></td>
 											<td class="value"><input type="file" name="file1"
 												id="p_img" value="" /> &nbsp; <span class="mandatory"></span>
+												<ul class="errorField">
+												</ul></td>
+										</tr>
+										
+																				<tr>
+											<td class="label"><label for="u_lang">Description</label></td>
+											<td class="value">
+											<textarea cols="60px" rows="60px" name="p_detail"
+												id="p_detail" /> </textarea>&nbsp; <span class="mandatory"></span>
 												<ul class="errorField">
 												</ul></td>
 										</tr>
@@ -148,20 +149,11 @@
 
 						<br />
 
-						<div class="buttonHolder">
-<!-- <style type="text/css">
-/*ie7onli - skin bouton */
-*+html .primaryAction {
-	width: 155px;
-}
-</style> -->
-<span class="btn-more1">
-<button name="submit" id="validate_order" type="submit"
-								class="primaryAction">
-								<span>Register</span>
-</button></span>
+				
 
-						</div></div>
+<div align="center" class="btn-more1">
+<button id="button-register"> Register</button></div>
+</div>
 				</form>
 				
 			</div>
