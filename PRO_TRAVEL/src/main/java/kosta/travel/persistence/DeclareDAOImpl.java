@@ -32,4 +32,9 @@ public class DeclareDAOImpl implements DeclareDAO {
 		return session.selectList(namespace + ".declare_list");
 	}
 
+	@Override
+	public List<DeclareVO> myDeclaration(String u_id) throws Exception {
+		return session.selectList(namespace+".myDeclaration", u_id);
+	}
+
 }

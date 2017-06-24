@@ -17,7 +17,7 @@ public class DeclareController {
 	@Inject
 	private DeclareService service;
 	
-	@RequestMapping(value="/main", method=RequestMethod.GET)
+	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String declare_main(){
 		return "declaration/declare_main";
 	}
@@ -35,7 +35,7 @@ public class DeclareController {
 		
 		service.declare_insert(vo);
 		
-		return "declaration/declare_main";
+		return "redirect:/mypage/declare";
 	}
 	
 	@RequestMapping(value="/accompany", method=RequestMethod.POST)
@@ -51,7 +51,7 @@ public class DeclareController {
 		
 		service.declare_insert(vo);
 		
-		return "declaration/declare_main";
+		return "redirect:/mypage/declare";
 	}
 	
 	@RequestMapping(value="/carpool", method=RequestMethod.POST)
@@ -67,6 +67,6 @@ public class DeclareController {
 		
 		service.declare_insert(vo);
 		
-		return "declaration/declare_main";
+		return "redirect:/mypage/declare";
 	}
 }

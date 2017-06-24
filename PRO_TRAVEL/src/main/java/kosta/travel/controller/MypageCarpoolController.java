@@ -97,9 +97,6 @@ public class MypageCarpoolController {
 	
 	@RequestMapping(value = "/withdraw", method = RequestMethod.GET)
 	public String withdraw(@RequestParam("cr_num") int cr_num, @RequestParam("c_num") int c_num) throws Exception {
-		System.out.println(cr_num);
-		System.out.println("뭐지" +c_num);
-		
 		service.deleteRequest(cr_num, c_num);
 		
 		return "redirect:/mypage/carpoolCheck";

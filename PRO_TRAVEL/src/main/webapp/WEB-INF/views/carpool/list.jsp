@@ -65,12 +65,12 @@ $(function(){
 
 	            	$(data).each(function(){
 	        		htmlText += '<li>';
-	            		htmlText += '<div class="th col1">'+(eachCounter+1)+'</div>';
+	            		htmlText += '<div class="th col1">''</div>';
 	        				htmlText += '<div class="th col4"><a class="groupJoin" href="#">  Join </a></div>';
-	        					htmlText += '<div class="th col4">'+data[eachCounter].tp_date+'</div>';
-	        						htmlText += '<div class="th col4">'+data[eachCounter].cor_region+'</div>';
+	        					htmlText += '<div class="th col4">''</div>';
+	        						htmlText += '<div class="th col4">'+'</div>';
 	        							/*htmlText += '<div class="th col4">'+data[eachCounter].u_birth+'</div>';*/
-	        								htmlText += '<div class="th col4">'+data[eachCounter].u_id+'</div>'; 
+	        								htmlText += '<div class="th col4">''</div>'; 
 	        									htmlText += '<div class="th col4"><a href=""> Detail </a></div>';
 	        										htmlText += '<input type="hidden" class="accomp_group_num" name="accomp_group_num" value="'+data[eachCounter].accomp_group_num+'">';
 	        											htmlText += '</li>';
@@ -141,7 +141,7 @@ $(function(){
 	
 			<div class="item-list" style="width: 1400px; padding-right: 30px;">
 					<div style="font-size: 20px;">
-							<span class="label" style="margin-right: 80px;"  >departure City</span>
+							<span class="label" style="margin-right: 80px;"  >departure</span>
 						 <select class="label ajaxCity" style="margin-top: -5px; width: 150px" name="start_point">
 							<option class="locationName" style="margin-bottom: 10px">name</option>
 							<option value="Zurich">Zurich</option>
@@ -159,7 +159,7 @@ $(function(){
 							<option value="Swiss">Swiss</option>
 						</select>
 						
-							<span class="label" style="margin-right: 80px;"  >destination City </span>
+							<span class="label" style="margin-right: 80px;"  >destination</span>
 						 <select class="label ajaxCity" style="margin-top: -5px; width: 150px" name="dest_point">
 							<option class="locationName" style="margin-bottom: 10px">name</option>
 							<option value="Zurich">Zurich</option>
@@ -188,6 +188,9 @@ $(function(){
 			<div style="padding-left: 45%; float: none;" class="calendar-form">
 		<input class="btn-more ajaxbtn" type="submit" value="search" style="margin-right: 20%; margin-top: 10px; width: 120px; height: 50px; font-size: medium; float: none;" />
 		</div>
+		</div>
+		
+				<div class="accompanyList row">
 		</div>
 	
 	

@@ -1,3 +1,7 @@
+<%@page import="org.jsoup.select.Elements"%>
+<%@page import="org.jsoup.Jsoup"%>
+<%@page import="org.jsoup.nodes.Document"%>
+
 <% response.setHeader("P3P", "CP='CAO PSA CONi OTR OUR DEM ONL'"); %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -19,7 +23,7 @@ String id = (String)session.getAttribute("login");
 <title>Insert title here</title>
 
 </head>
-<body>
+<body onload = "startTime()">
 
 <%-- <br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br>
@@ -52,6 +56,65 @@ String id = (String)session.getAttribute("login");
         '//www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-NTJZ3D');
 </script>
+
+<script type="text/javascript">
+function startTime() {
+    var today = new Date();
+    var year = 2017;
+    var month = today.getMonth() + 1;
+    var day = today.getDate();
+    var hour = today.getHours();
+    var minute = today.getMinutes();
+    var seconds = today.getSeconds();
+    minute = checkTime(minute);
+    seconds = checkTime(seconds);
+    month=changeMonth(month);
+    document.getElementById('today').innerHTML =
+    	month+" "+day + ", " +year + ", "+ hour + ":" + minute + ":" + seconds;
+    var time = setTimeout(startTime, 500);
+}
+
+
+function checkTime(i) {
+    if (i < 10) {i = "0" + i}; // 숫자가 10보다 작을 경우 앞에 0을 붙여줌
+    return i;
+}
+
+function changeMonth(m){
+	if(m==1){
+		m='Jan';
+	} else if(m==2){
+		m='Fed';
+	} else if(m==3){
+		m='Mar';
+	} else if(m==4){
+		m='Apr';
+	} else if(m==5){
+		m='May';
+	} else if(m==6){
+		m='Jun';
+	} else if(m==7){
+		m='Jul';
+	} else if(m==8){
+		m='Aug';
+	} else if(m==9){
+		m='Sep';
+	} else if(m==10){
+		m='Oct';
+	} else if(m==11){
+		m='Nov';
+	} else{
+		m='Dec';
+	} 
+	
+	return m;
+}
+
+
+
+</script>
+
+
 <!-- End Google Tag Manager -->
 
     <noscript><div>Javascript must be enabled for the correct page display</div></noscript>
@@ -155,15 +218,6 @@ String id = (String)session.getAttribute("login");
 
   <article class="profile-box">
                
-
-<c:set var="u_id" value="${id }"></c:set>
-
-<c:if test="${id!=null}">
-										
-<iframe  width="500" height="500" src="http://127.0.0.1:5000?username=${id }" frameborder="1">
-</iframe>										
-
-</c:if>
                 </article>
     <section  class="id-card gallery-js-ready games2014-2" >
         <div class="holder">
@@ -172,9 +226,9 @@ String id = (String)session.getAttribute("login");
                 <ul>
                         <li >
                             <div class="text-box">
-                                <strong class="title">Date</strong>
-
-07 Feb - 23 Feb                            </div>
+                                <strong class="title">TODAY</strong>
+									<a id="today" style="cursor: pointer; font-size: 30px;"></a>
+                     		</div>
                         </li>
                         <li >
                             <div class="text-box">
