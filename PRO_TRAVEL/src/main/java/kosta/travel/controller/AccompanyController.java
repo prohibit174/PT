@@ -197,5 +197,9 @@ public class AccompanyController {
 		return "request complete";
 	}
 	
+	@RequestMapping(value = "/admin", method = RequestMethod.GET)
+	public String admin() {
+		return "/accompany/admin";
+	}
 	
 }

@@ -6,6 +6,16 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/message/magnific-popup.css"> 
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/message/jquery.magnific-popup.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/message/jquery.magnific-popup.min.js"></script>
+<script type="text/javascript">
+function resendForm(){
+	    var frm =document.getElementById('sendForm');
+	    frm.submit();
+	    closeBrowser();
+}	
+function closeBrowser(){
+	 window.close();
+}
+</script>
 <style type="text/css">
 button{
     width: 93px;
@@ -123,7 +133,7 @@ cursor: pointer;
 <title>Insert title here</title>
 </head>
 <body>
-<form class="white-popup-block" action="/message/insert" method="post">
+<form class="white-popup-block" id="sendForm" action="/message/insert" method="post">
    <fieldset style="border:0; background: white; width: 50%;">
   <!--  <div class="close" style="float: right; margin-right: 20px; margin-top: 10px;" onclick=""></div> -->
    <br><br>
@@ -155,7 +165,7 @@ cursor: pointer;
 
       </ul>
    </fieldset>
-      <button style="margin-left: 40%;" onClick="window.close()">send</button>
+      <button style="margin-left: 40%;" onClick="resendForm()">send</button>
 </form>
 </body>
 </html>

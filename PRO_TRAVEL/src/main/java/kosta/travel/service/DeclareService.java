@@ -11,4 +11,6 @@ public interface DeclareService {
 	public Integer d_maxNum() throws Exception;
 	
 	public List<DeclareVO> declare_list() throws Exception;
+	
+	public List<DeclareVO> myDeclaration(String u_id)throws Exception;
 }

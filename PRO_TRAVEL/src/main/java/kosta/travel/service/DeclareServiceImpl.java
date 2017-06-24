@@ -30,5 +30,10 @@ public class DeclareServiceImpl implements DeclareService {
 		return dao.declare_list();
 	}
 
+	@Override
+	public List<DeclareVO> myDeclaration(String u_id) throws Exception {
+		return dao.myDeclaration(u_id);
+	}
+
 
 }

@@ -182,6 +182,14 @@
 		delete from car_request
 		where cr_num = #{cr_num}
 	</delete>
+		
 	
+	<select id="searchCarpool"  resultType = "CarpoolRequestUser" >
+		select * from car_list 
+		where (START_POINT =#{start_point} and DEST_POINT =#{dest_point}) 
+		 or (WAY_POINT = #{start_point} and dest_point = #{dest_point})
+		 or (START_POINT = #{start_point} and way_point =#{dest_point})
 	
+	</select>	 
+
 </mapper>	

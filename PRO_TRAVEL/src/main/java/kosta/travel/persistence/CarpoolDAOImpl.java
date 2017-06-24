@@ -11,6 +11,7 @@ import kosta.travel.domain.CarpoolRequestUser;
 import kosta.travel.domain.CarpoolVO;
 import kosta.travel.domain.Carpool_ListVO;
 import kosta.travel.domain.Carpool_RequestVO;
+import kosta.travel.domain.Criteria;
 
 @Repository
 public class CarpoolDAOImpl implements CarpoolDAO {
@@ -140,21 +141,10 @@ public class CarpoolDAOImpl implements CarpoolDAO {
 		return session.selectList(namespace+".recommendList");
 	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	@Override
+	public List<CarpoolRequestUser> searchCarpool(CarpoolRequestUser user) throws Exception {
+		return session.selectList(namespace+".searchCarpool", user);
+	}
 
 
 
