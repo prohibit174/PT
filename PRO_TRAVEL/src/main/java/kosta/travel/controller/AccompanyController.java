@@ -57,6 +57,20 @@ public class AccompanyController {
 		return "/accompany/Accomp_main";
 	}
 
+	@RequestMapping(value = "/search", method = RequestMethod.GET)
+	public String search(Model model, HttpSession session) {
+		try {
+			model.addAttribute("list", service.getUserRoute(session));
+			model.addAttribute("allAccompanyList", service.getAccompanies());
+			model.addAttribute("getCordinates", service.getCordinates());
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}	
+		return "/accompany/search";
+
+	}
+	
 	@RequestMapping(value = "/enroll", method = RequestMethod.GET)
 	public String enrollpage2(Model model, HttpSession session) {
 		try {
@@ -66,6 +80,7 @@ public class AccompanyController {
 		}
 		return "/accompany/enroll";
 	}
+	
 
 	@RequestMapping(value = "/enroll", method = RequestMethod.POST)
 	public String insertRoute(HttpServletRequest req) {
@@ -182,5 +197,9 @@ public class AccompanyController {
 		return "request complete";
 	}
 	
+	@RequestMapping(value = "/admin", method = RequestMethod.GET)
+	public String admin() {
+		return "/accompany/admin";
+	}
 	
 }

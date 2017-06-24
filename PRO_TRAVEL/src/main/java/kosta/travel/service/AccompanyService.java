@@ -303,6 +303,11 @@ public class AccompanyService {
 	public void mypage_accomp_edit_post(GroupVO newGroupVO) {
 		 dao.mypage_accomp_edit_post(newGroupVO);
 	}
+
+	public int count() {
+		System.out.println("accom service 진입");
+		return dao.count();
+	}
 	   
 	   
 }

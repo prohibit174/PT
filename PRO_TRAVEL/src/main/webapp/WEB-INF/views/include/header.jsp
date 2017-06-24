@@ -241,7 +241,6 @@ width:0;
 									<div class="links-row">
 										<ul>
 											<li><a href="/blog/makeBlog">BLOG MAKE</a></li>
-											<li><a href="/declaration">Declaration RECIPT</a></li>
 										</ul>
 									</div>
 								</div>
@@ -275,7 +274,6 @@ width:0;
 									<div class="links-row">
 										<ul>
 											<li><a href="/blog/makeBlog">BLOG MAKE</a></li>
-											<li><a href="/declaration">Declaration RECIPT</a></li>
 										</ul>
 									</div>
 								</div>
@@ -310,7 +308,6 @@ width:0;
 									<div class="links-row">
 										<ul>
 											<li><a href="/blog/makeBlog">BLOG MAKE</a></li>
-											<li><a href="/declaration">Declaration RECIPT</a></li>
 										</ul>
 									</div>
 								</div>
@@ -344,14 +341,13 @@ width:0;
 									<div class="links-row">
 										<ul>
 											<li><a href="/blog/makeBlog">BLOG MAKE</a></li>
-											<li><a href="/declaration">Declaration RECIPT</a></li>
 										</ul>
 									</div>
 								</div>
 							</div>
 						</div></li>
 
-					<li><a href="${pageContext.request.contextPath}/declaration">Declaration</a></li>
+					<li><a href="${pageContext.request.contextPath}/declare/">Declaration</a></li>
 				</ul>
 
 				<div class="add-top-section">

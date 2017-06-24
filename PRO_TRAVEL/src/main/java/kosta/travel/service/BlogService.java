@@ -14,4 +14,5 @@ public interface BlogService {
    public List<BlogPostVO> postBlogList(String u_id)throws Exception;
    public void updateBlog(BlogPostVO blogPost) throws Exception;
    public BlogPostVO postDetail(String bp_postnum) throws Exception;
+   public void removePost(BlogPostVO blogPost) throws Exception;
 }

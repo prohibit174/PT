@@ -6,6 +6,7 @@ import kosta.travel.domain.CarpoolRequestUser;
 import kosta.travel.domain.CarpoolVO;
 import kosta.travel.domain.Carpool_ListVO;
 import kosta.travel.domain.Carpool_RequestVO;
+import kosta.travel.domain.Criteria;
 
 public interface CarpoolService {
 	
@@ -51,4 +52,8 @@ public interface CarpoolService {
 	
 	//추천
 	public List<Carpool_ListVO> recommendList()throws Exception;
+	
+	//검색
+	public List<CarpoolRequestUser> searchCarpool(CarpoolRequestUser user )throws Exception;
+	
 }

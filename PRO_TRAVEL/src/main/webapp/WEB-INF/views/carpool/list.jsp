@@ -10,6 +10,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<script src='${pageContext.request.contextPath}/resources/js/accompanyJs/jquery-ui.min.js'></script>
+<link rel='stylesheet' href='/resources/css/accompany/jquery-ui.min.css' />
+
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 
@@ -26,6 +29,97 @@ function applyLink(URL){
 }
 </script>
 
+<script type="text/javascript">
+$(function(){
+	var ct = 0;
+	var frm = $('.ajaxform');
+
+	$(document).on('submit', '.ajaxform', function(e){
+		e.preventDefault();
+	    	console.log("search.js log = "+frm.serialize());
+	    	/* console.log("url = "+frm.attr('url')); */
+	    	
+	    	
+	        	
+	        $.ajax({
+	            type: frm.attr('method'),
+	            url: frm.attr('url'),
+	            data: frm.serialize(),
+	            success : function (data) {
+	            	var eachCounter = 0;
+	            	var htmlText = '<section class="results ajax-area" data-tmpl="athleteResults_tmpl">';
+	            	htmlText += '<div class="heading">';
+	            	htmlText += '<h2>Group Searching accompanies</h2>';
+	            	htmlText += '</div>';
+	            	htmlText += '<ul class="table2 ajax-content">';
+	            	htmlText += '<li>';
+	            		htmlText += '<div class="th col1"> Number </div>';
+	        				htmlText += '<div class="th col4"> Join </div>';
+	        					htmlText += '<div class="th col4"> Date </div>';
+	        						htmlText += '<div class="th col4"> Place </div>';
+	        							/*htmlText += '<div class="th col4"> Birth </div>';*/
+	        								htmlText += '<div class="th col4"> ID </div>'; 
+	        									htmlText += '<div class="th col4"> Detail </div>';
+	            									htmlText += '</li>';
+	            								
+
+	            	$(data).each(function(){
+	        		htmlText += '<li>';
+	            		htmlText += '<div class="th col1">''</div>';
+	        				htmlText += '<div class="th col4"><a class="groupJoin" href="#">  Join </a></div>';
+	        					htmlText += '<div class="th col4">''</div>';
+	        						htmlText += '<div class="th col4">'+'</div>';
+	        							/*htmlText += '<div class="th col4">'+data[eachCounter].u_birth+'</div>';*/
+	        								htmlText += '<div class="th col4">''</div>'; 
+	        									htmlText += '<div class="th col4"><a href=""> Detail </a></div>';
+	        										htmlText += '<input type="hidden" class="accomp_group_num" name="accomp_group_num" value="'+data[eachCounter].accomp_group_num+'">';
+	        											htmlText += '</li>';
+	            		eachCounter++;
+	            	})
+	            		htmlText += '</ul>';
+	            			htmlText += '</section>';	
+	            	
+	            	$('div.accompanyList').append(htmlText);
+	            	
+	            	
+	            },
+	            error: function (data) {
+	                console.log('An error occurred.');
+	            },
+	        });
+	    });
+
+	$('body').on('focus','.datepick', function(){
+	    $(this).datepicker({
+	    	changeYear : true,
+	    	changeMonth : true,
+	    	dateFormat : "yy/mm/dd",
+	   		 });
+	    });
+
+/* 	$(document).on('click','.groupJoin',function() {
+		event.preventDefault();
+		var conf = confirm("Join this Group?");
+		if(conf == true){
+			$.ajax({
+				type : 'POST',
+				url : 'requestGroup',
+				data : {
+					"accomp_group_num" : $(this).parent().siblings('.accomp_group_num').val(),
+					"u_id" :  $('.welcome > span.session').val(),
+				},
+				 success : function (data) {
+					 alert(data);
+				 }
+			})
+		}	
+	}); */
+	});
+
+</script>
+
+
+
 <style>
 @CHARSET "EUC-KR";
 .wrapper {
@@ -41,6 +135,70 @@ function applyLink(URL){
 <div class=wrapper>
 	<img srcset="${pageContext.request.contextPath}/resources/images/carpool/list.png">
 </div>	
+
+          <form action="/carpool/listAll" method="post" class="ajaxform">
+<div class="id-card-box" style="width: 100% ;border: black;">
+	
+			<div class="item-list" style="width: 1400px; padding-right: 30px;">
+					<div style="font-size: 20px;">
+							<span class="label" style="margin-right: 80px;"  >departure</span>
+						 <select class="label ajaxCity" style="margin-top: -5px; width: 150px" name="start_point">
+							<option class="locationName" style="margin-bottom: 10px">name</option>
+							<option value="Zurich">Zurich</option>
+							<option value="Paris" >Paris</option>
+							<option value="Rouen" selected="selected">Rouen</option>
+							<option value="France">France</option>
+							<option value="Nice">Nice</option>
+							<option value="Brussels">Brussels</option>
+							<option value="Berlin">Berlin</option>
+							<option value="Munich">Munich</option>
+							<option value="Bern">Bern</option>
+							<option value="France">France</option>
+							<option value="Belgium">Belgium</option>
+							<option value="Germany">Germany</option>
+							<option value="Swiss">Swiss</option>
+						</select>
+						
+							<span class="label" style="margin-right: 80px;"  >destination</span>
+						 <select class="label ajaxCity" style="margin-top: -5px; width: 150px" name="dest_point">
+							<option class="locationName" style="margin-bottom: 10px">name</option>
+							<option value="Zurich">Zurich</option>
+							<option value="Paris" selected="selected">Paris</option>
+							<option value="Rouen">Rouen</option>
+							<option value="France">France</option>
+							<option value="Nice">Nice</option>
+							<option value="Brussels">Brussels</option>
+							<option value="Berlin">Berlin</option>
+							<option value="Munich">Munich</option>
+							<option value="Bern">Bern</option>
+							<option value="France">France</option>
+							<option value="Belgium">Belgium</option>
+							<option value="Germany" >Germany</option>
+							<option value="Swiss">Swiss</option>
+						</select>
+						
+							<span class="label" style="margin: 0 40px;">begin</span>
+						<input class="datepick label ajaxStart" type="text" name="c_hour" value="start" style="margin-top: -5px; padding: 0px; width: 150px;">
+								
+		
+				</div>
+		<div class="accompanyList row">
+		
+		</div>
+			<div style="padding-left: 45%; float: none;" class="calendar-form">
+		<input class="btn-more ajaxbtn" type="submit" value="search" style="margin-right: 20%; margin-top: 10px; width: 120px; height: 50px; font-size: medium; float: none;" />
+		</div>
+		</div>
+		
+				<div class="accompanyList row">
+		</div>
+	
+	
+	
+	</div>
+</form>
+
+
         <section class="results ajax-area" data-tmpl="athleteResults_tmpl">
         <div class="heading">
             <h2>recommend list</h2>
@@ -139,6 +297,9 @@ function applyLink(URL){
     <section class="results ajax-area" data-tmpl="athleteResults_tmpl">
         <div class="heading">
             <h2>carpool list</h2>
+  
+            
+            
             <ul class="add-links">
 
             </ul>

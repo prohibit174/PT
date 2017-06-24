@@ -1,5 +1,7 @@
 package kosta.travel.controller;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
+
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -205,11 +207,17 @@ public class BlogController {
        return "redirect:/blog/myBlog";
     }
    
-	@RequestMapping(value="/removePost")
-	public String removePost(HttpSession session, Model model){
+
+	@RequestMapping("/removePost")
+	public String removePost(String bp_postnum, Model model) throws Exception{
+		System.out.println("remove controller in" + bp_postnum);
+		BlogPostVO blogPost = service.postDetail(bp_postnum);
+		service.removePost(blogPost);
+		System.out.println("removePost controller");
 		
-		String u_id = (String)session.getAttribute("login");
+		String u_id = blogPost.getU_id();
 		model.addAttribute("u_id", u_id);
+		System.out.println("controller out");
 		return "redirect:/blog/myBlog";
 	}
 }
