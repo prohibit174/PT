@@ -60,10 +60,10 @@
             
         </nav>
 
-                <div id="highlights-of-the-games">
+   <!--              <div id="highlights-of-the-games">
 
 </div>
     <span class="text-post" itemscope itemtype="http://schema.org/NewsArticle" >
-</span>
+</span> -->
 </body>
 </html>

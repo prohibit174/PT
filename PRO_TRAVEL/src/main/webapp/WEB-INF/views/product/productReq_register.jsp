@@ -33,6 +33,25 @@
    src="${pageContext.request.contextPath}/resources/js/AgoFiles/prouduct_javascript/JoinCheck.js"></script>
 
 
+<style>
+.btn-more1 > #button-register{
+    display: inline-block;
+    vertical-align: top;
+   color: #959595;
+    border: 2px solid #959595;
+/*      padding: 0px 0px;  */
+    min-width: 110px;
+    text-decoration: none !important;
+    font-weight: bold;
+    line-height: 2em; 
+    background: white;
+    }
+
+ button{
+    color : #959595}
+</style>
+
+
 
 </head>
 
@@ -126,25 +145,23 @@
                   </div>
                   <br />
 
-                  <div class="clear"></div>
+              
 
 
                   <br />
 
                   <div class="buttonHolder">
-                     <style type="text/css">
+<!--                      <style type="text/css">
 /*ie7onli - skin bouton */
 *+html .primaryAction {
    width: 155px;
 }
-</style>
+</style> -->
+<div align="center" class="btn-more1">
+<button id="button-register">Request Register</button></div>
+</div>
 
-                     <button  id="validate_order" type="submit"
-                        class="primaryAction">
-                        <span>Request Register</span>
-                     </button>
-
-                     <div class="clear"></div>
+                    
 
                   </div>
             

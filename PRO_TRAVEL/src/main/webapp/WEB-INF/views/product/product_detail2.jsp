@@ -205,18 +205,19 @@ $(document).ready(function(){
 						<div class="txt" itemprop="faxNumber">${product.p_date}</div>
 					</div>
 					<div class="row">
-						<span class="label">내용</span>
-						<div class="txt">
-							<a href="mailto:olympics@ibl.bm" itemprop="email">${product.p_detail}</a>
-						</div>
-					</div>
-					<div class="row">
 						<span class="label">판매여부</span>
 						<div class="txt">
 
 							<a href="http://www.olympics.bm" target="_blank" itemprop="url">${product.p_ox}</a>
 						</div>
 					</div>
+					<div class="row">
+						<span class="label">내용</span>
+						<div class="txt">
+							<a href="mailto:olympics@ibl.bm" itemprop="email">${product.p_detail}</a>
+						</div>
+					</div>
+					
 				
 				<ul class="mailbox-attachments clearfix uploadedList"></ul>	
 				
