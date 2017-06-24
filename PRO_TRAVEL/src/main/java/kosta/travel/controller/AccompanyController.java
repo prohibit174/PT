@@ -8,9 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.eclipse.jdt.internal.compiler.codegen.StackMapFrameCodeStream.ExceptionMarker;
 import org.slf4j.Logger;
-
-
 
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -38,12 +37,10 @@ public class AccompanyController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String main(Model model, HttpSession session) {
-/*
-		// when user not login
-		if (session.getAttribute("login") == null) {
-			return "/accompany/Accomp_main";
-		}
-*/
+		/*
+		 * // when user not login if (session.getAttribute("login") == null) {
+		 * return "/accompany/Accomp_main"; }
+		 */
 		// when user login
 		try {
 			model.addAttribute("list", service.getUserRoute(session));
@@ -53,7 +50,7 @@ public class AccompanyController {
 			e.printStackTrace();
 		}
 
-		/*return "/accompany/Accomp_main";*/
+		/* return "/accompany/Accomp_main"; */
 		return "/accompany/Accomp_main";
 	}
 
@@ -66,11 +63,11 @@ public class AccompanyController {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-		}	
+		}
 		return "/accompany/search";
 
 	}
-	
+
 	@RequestMapping(value = "/enroll", method = RequestMethod.GET)
 	public String enrollpage2(Model model, HttpSession session) {
 		try {
@@ -80,7 +77,6 @@ public class AccompanyController {
 		}
 		return "/accompany/enroll";
 	}
-	
 
 	@RequestMapping(value = "/enroll", method = RequestMethod.POST)
 	public String insertRoute(HttpServletRequest req) {
@@ -104,14 +100,14 @@ public class AccompanyController {
 	public @ResponseBody List<AccompanyVO> callender(SearchTraveler trav, Model model, HttpSession session) {
 		List<AccompanyVO> list = new ArrayList<AccompanyVO>();
 		try {
-		for(int i=0; i < trav.getTrav().size();i++){
-		trav.getTrav().get(i).setU_id((String) session.getAttribute("login"));
-		
-		list.addAll(service.getTraveler(trav.getTrav().get(i)));
-		}
+			for (int i = 0; i < trav.getTrav().size(); i++) {
+				trav.getTrav().get(i).setU_id((String) session.getAttribute("login"));
+
+				list.addAll(service.getTraveler(trav.getTrav().get(i)));
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		
+
 		}
 		return list;
 	}
@@ -165,41 +161,61 @@ public class AccompanyController {
 	public String searchPage() {
 		return "/accompany/searchGroup";
 	}
-	
+
 	@RequestMapping(value = "/searchGroup", method = RequestMethod.POST)
 	public @ResponseBody List<GroupVO> searchGroupList(SearchTraveler trav, Model model, HttpSession session,
 			HttpServletResponse res) {
 		List<GroupVO> list = new ArrayList<GroupVO>();
-		System.out.println("controller search == "+trav.toString());
-		
-		System.out.println("controller to string == "+trav.getTrav().get(0).toString());
-		
+		System.out.println("controller search == " + trav.toString());
+
+		System.out.println("controller to string == " + trav.getTrav().get(0).toString());
+
 		try {
-		for(int i =0; i<trav.getTrav().size();i++){
-		trav.getTrav().get(i).setU_id((String) session.getAttribute("login"));
-		list.addAll(service.searchGroupList(trav.getTrav().get(i)));
-		}
-		
+			for (int i = 0; i < trav.getTrav().size(); i++) {
+				trav.getTrav().get(i).setU_id((String) session.getAttribute("login"));
+				list.addAll(service.searchGroupList(trav.getTrav().get(i)));
+			}
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return list;
 	}
-	
-	
+
 	@RequestMapping(value = "/requestGroup", method = RequestMethod.POST)
 	public String requestGroup(GroupVO groupvo, HttpSession session) {
-		/*System.out.println("controller u_id == "+groupvo.getU_id());
-		System.out.println("controller accomp_group_num == "+groupvo.getAccomp_group_num()); */
-		
-		groupvo.setU_id((String)session.getAttribute("login"));
+		/*
+		 * System.out.println("controller u_id == "+groupvo.getU_id());
+		 * System.out.println("controller accomp_group_num == "+groupvo.
+		 * getAccomp_group_num());
+		 */
+
+		groupvo.setU_id((String) session.getAttribute("login"));
 		service.requestGroup(groupvo);
 		return "request complete";
 	}
-	
+
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
-	public String admin() {
+	public String admin(Model model, HttpSession session) throws Exception {
+		model.addAttribute("list", service.getUserRoute(session));
 		return "/accompany/admin";
 	}
-	
+
+	@RequestMapping(value = "/admin_search_text", method = RequestMethod.POST)
+	public @ResponseBody List<AccompanyVO> admin_search_text(String u_id, Model model, HttpSession session) throws Exception {
+		System.out.println("컨트롤러에 들어온 id는 : " + u_id);
+		List<AccompanyVO> list = new ArrayList<AccompanyVO>();
+		try {
+			list = service.getUserRoute(session, u_id);
+		} catch (Exception e) {
+			e.printStackTrace();
+
+		}
+		
+		if (list.isEmpty())
+			throw new Exception();
+		else
+			return list;
+	}
+
 }
