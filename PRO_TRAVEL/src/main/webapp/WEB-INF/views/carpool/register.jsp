@@ -10,8 +10,8 @@
 <title>Insert title here</title>
 <style>
 #map {
-   height: 500px;
-   width: 75%;
+   height: 400px;
+   width: 60%;
    margin-left: 300px;
 }
 
@@ -19,7 +19,7 @@
 </head>
 <body>
 
-    <div id="map"></div>
+    
    <script>
 
     var markerPosition;   
@@ -154,7 +154,6 @@
              $('select.destination option.destination').text(data);
              $('select.destination option.destination').val(data);
              $('select.destination option.destination').text(data).attr("selected", "selected");
-            
             }
       });
       alert("목적지가 추가 되었습니다.");
@@ -225,23 +224,27 @@
           movingPath = null;
      }
 
-    
-
-
-       
-    
+ 
     </script>
+    
+   
+    
+    <div id="map"></div>
+        
+    <div style="font-size: 30px; font-weight: bold; margin-left: 100px;">
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnrWQ2SHvedNrvdozheYo32pHwCbuvPgs&callback=initMap">
     </script>
+    </div>
     <br><br>
-    <div style="font-size: 30px; font-weight: bold; margin-left: 130px;">Register Your Carpool !</div>
-    <br><br>
-   <div class="id-card-box" style="width: 100% ;border: black;">
+   <div class="id-card-box" >
    <form role="form" method="post" class="calendar-form">
 
-         <div class="item-list" style="width: 1400px; padding-right: 30px;">
+         <div class="item-list" style="width: 1200px; padding-right: 30px;">
+         Register Your Carpool!
+         
                <div class="row" style="font-size: 20px;">
+               
                   <span class="label">Location</span> 
                    <select class="destination" name="dest_point">
                      <option class="destination"  value="">목적지를 지도에 마크하세요</option>
@@ -384,7 +387,7 @@
             </div>
             <div>
       <input class="btn-more" type="submit" value="register" style="margin-right: 50%; margin-top: 10px; width: 120px; height: 50px;" />
-      <input type="button" value="clear" onclick="revert()" style="margin-right: 50%; margin-top: 10px; width: 120px; height: 50px;"/>
+     <!--  <input type="button" value="clear" onclick="revert()" style="margin-right: 50%; margin-top: 10px; width: 120px; height: 50px;"/> -->
       </div>
    </form>
    </div>

@@ -5,6 +5,7 @@
 	pageEncoding="UTF-8"%>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
+<%@ include file="/WEB-INF/views/include/carpool_sidebar.jsp" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -87,122 +88,288 @@ $(function(){
  		 });
  	});
 </script>
+
+<script src='${pageContext.request.contextPath}/resources/js/accompanyJs/jquery-ui.min.js'></script>
+<link rel='stylesheet' href='/resources/css/accompany/jquery-ui.min.css' />
+
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>Insert title here</title>
+
 <script type="text/javascript">
-function startTime() {
-    var today = new Date();
-    var year = 2017;
-    var month = today.getMonth() + 1;
-    var day = today.getDay() + 4;
-    var hour = today.getHours();
-    var minute = today.getMinutes();
-    var seconds = today.getSeconds();
-    minute = checkTime(minute);
-    seconds = checkTime(seconds);
-    document.getElementById('today').innerHTML =
-        year + "년" + month + "월" + day + "일" + hour + ":" + minute + ":" + seconds;
-    var time = setTimeout(startTime, 500);
-}
-function checkTime(i) {
-    if (i < 10) {i = "0" + i}; // 숫자가 10보다 작을 경우 앞에 0을 붙여줌
-    return i;
-}
+function applyLink(URL){
+	if(confirm("신청하시겠습니까?") == true){
+		location.href=URL;
+		alert('신청되었습니다');
 
+	}
+	else{
+		alert('Cancle');
+	}
+}
+</script>
 
+<script type="text/javascript">
+$(function(){
+	var ct = 0;
+	var frm = $('.ajaxform');
+
+	$(document).on('submit', '.ajaxform', function(e){
+		e.preventDefault();
+	    	console.log("search.js log = "+frm.serialize());
+	    	/* console.log("url = "+frm.attr('url')); */
+	    	
+	    	
+	        	
+	        $.ajax({
+	            type: frm.attr('method'),
+	            url: frm.attr('url'),
+	            data: frm.serialize(),
+	            success : function (data) {
+	            	var eachCounter = 0;
+	            	var htmlText = '<section class="results ajax-area" data-tmpl="athleteResults_tmpl">';
+	            	htmlText += '<div class="heading">';
+	            	htmlText += '<h2>Group Searching accompanies</h2>';
+	            	htmlText += '</div>';
+	            	htmlText += '<ul class="table2 ajax-content">';
+	            	htmlText += '<li>';
+	            		htmlText += '<div class="th col1"> Number </div>';
+	        				htmlText += '<div class="th col4"> Join </div>';
+	        					htmlText += '<div class="th col4"> Date </div>';
+	        						htmlText += '<div class="th col4"> Place </div>';
+	        							/*htmlText += '<div class="th col4"> Birth </div>';*/
+	        								htmlText += '<div class="th col4"> ID </div>'; 
+	        									htmlText += '<div class="th col4"> Detail </div>';
+	            									htmlText += '</li>';
+	            								
+
+	            	$(data).each(function(){
+	        		htmlText += '<li>';
+	            		htmlText += '<div class="th col1">''</div>';
+	        				htmlText += '<div class="th col4"><a class="groupJoin" href="#">  Join </a></div>';
+	        					htmlText += '<div class="th col4">''</div>';
+	        						htmlText += '<div class="th col4">'+'</div>';
+	        							/*htmlText += '<div class="th col4">'+data[eachCounter].u_birth+'</div>';*/
+	        								htmlText += '<div class="th col4">''</div>'; 
+	        									htmlText += '<div class="th col4"><a href=""> Detail </a></div>';
+	        										htmlText += '<input type="hidden" class="accomp_group_num" name="accomp_group_num" value="'+data[eachCounter].accomp_group_num+'">';
+	        											htmlText += '</li>';
+	            		eachCounter++;
+	            	})
+	            		htmlText += '</ul>';
+	            			htmlText += '</section>';	
+	            	
+	            	$('div.accompanyList').append(htmlText);
+	            	
+	            	
+	            },
+	            error: function (data) {
+	                console.log('An error occurred.');
+	            },
+	        });
+	    });
+
+	$('body').on('focus','.datepick', function(){
+	    $(this).datepicker({
+	    	changeYear : true,
+	    	changeMonth : true,
+	    	dateFormat : "yy/mm/dd",
+	   		 });
+	    });
+
+/* 	$(document).on('click','.groupJoin',function() {
+		event.preventDefault();
+		var conf = confirm("Join this Group?");
+		if(conf == true){
+			$.ajax({
+				type : 'POST',
+				url : 'requestGroup',
+				data : {
+					"accomp_group_num" : $(this).parent().siblings('.accomp_group_num').val(),
+					"u_id" :  $('.welcome > span.session').val(),
+				},
+				 success : function (data) {
+					 alert(data);
+				 }
+			})
+		}	
+	}); */
+	});
 
 </script>
 
-<!-- 웹 크롤링 -->
-<script type="text/javascript">
+<style>
+@CHARSET "EUC-KR";
+.wrapper {
+  margin: 0 auto;
+  padding-left: 20px;
+  max-width: 800px;
+}
+</style>
 
-</script>
+
+
 </head>
 <body onload = "startTime()">
-
-	<section class="profiles alt2">
-	<div class="btn-hold">
-		<a href="/london-2012"> <span class="btn-prev"> <span
-				class="icon-arrow-left"> <span class="hide"></span>
-			</span>
-		</span> <span class="txt">London 2012</span>
-		</a>
-	</div>
-	<div class="btn-hold right">
-		<a href="/beijing-2022"> <span class="btn-next"> <span
-				class="icon-arrow-right"> <span class="hide"></span>
-			</span>
-		</span> <span class="txt">Beijing 2022</span>
-		</a>
-	</div>
-	<div class="bg-image">
-		<picture class="image"> <!--[if IE 9]><video style="display: none;"><![endif]-->
-
-		<source
-			srcset="${pageContext.request.contextPath}/resources/images/carpool/carpool_main.jpg"
-			media="(min-width: 1921px)"> <sourc
-			srcset="https://stillmed.olympic.org/media/Images/OlympicOrg/Games/Winter/Sochi_2014/Sochi_2014_banner.jpg?interpolation=lanczos-none&resize=1920:640, https://stillmed.olympic.org/media/Images/OlympicOrg/Games/Winter/Sochi_2014/Sochi_2014_banner.jpg?interpolation=lanczos-none&resize=3840:1280 2x"
-			media="(min-width: 1024px)"> <source
-			srcset="https://stillmed.olympic.org/media/Images/OlympicOrg/Games/Winter/Sochi_2014/Sochi_2014_banner.jpg?interpolation=lanczos-none&fit=around|1024:250&crop=1024:250;*,*, https://stillmed.olympic.org/media/Images/OlympicOrg/Games/Winter/Sochi_2014/Sochi_2014_banner.jpg?interpolation=lanczos-none&fit=around|2048:500&crop=2048:500;*,* 2x"
-			media="(min-width: 768px)"> <!--[if IE 9]></video><![endif]-->
-
-		<img srcset="${pageContext.request.contextPath}/resources/images/carpool/carpool_main.jpg"
-			alt="pro traveler">
-			</picture>
-	</div>
-	<div class="holder">
-		<article class="profile-box"> <picture class="image">
-		<!--[if IE 9]><video style="display: none;"><![endif]--> <source
-			srcset="https://stillimg.olympic.org/games/280x280/2014_2.png?interpolation=lanczos-none&resize=240:240, https://stillimg.olympic.org/games/280x280/2014_2.png?interpolation=lanczos-none&resize=480:480 2x"
-			media="(min-width: 1024px)"> <source
-			srcset="https://stillimg.olympic.org/games/280x280/2014_2.png?interpolation=lanczos-none&resize=70:70, https://stillimg.olympic.org/games/280x280/2014_2.png?interpolation=lanczos-none&resize=140:140 2x"
-			media="(min-width: 768px)"> <!--[if IE 9]></video><![endif]-->
-
-		<img
-			srcset="https://stillimg.olympic.org/games/280x280/2014_2.png?interpolation=lanczos-none&resize=140:140, https://stillimg.olympic.org/games/280x280/2014_2.png?interpolation=lanczos-none&resize=280:280 2x"
-			alt="Sochi 2014"></picture>
-		<div class="text-box">
-			<h1>
-				<a href="/sochi-2014">CARPOOL</a>
-			</h1>
+<div class=wrapper>
+	<img srcset="${pageContext.request.contextPath}/resources/images/carpool/list.png">
+</div>	
+	
+<form action="/carpool/listAll" method="post" class="ajaxform">
+<div class="id-card-box" style="width: 100% ;border: black;">
+	
+			<div class="item-list" style="width: 1400px; padding-right: 30px;">
+					<div style="font-size: 20px;">
+							<span class="label" style="margin-right: 80px;"  >departure</span>
+						 <select class="label ajaxCity" style="margin-top: -5px; width: 150px" name="start_point">
+							<option class="locationName" style="margin-bottom: 10px">name</option>
+							<option value="Zurich">Zurich</option>
+							<option value="Paris" >Paris</option>
+							<option value="Rouen" selected="selected">Rouen</option>
+							<option value="France">France</option>
+							<option value="Nice">Nice</option>
+							<option value="Brussels">Brussels</option>
+							<option value="Berlin">Berlin</option>
+							<option value="Munich">Munich</option>
+							<option value="Bern">Bern</option>
+							<option value="France">France</option>
+							<option value="Belgium">Belgium</option>
+							<option value="Germany">Germany</option>
+							<option value="Swiss">Swiss</option>
+						</select>
+						
+							<span class="label" style="margin-right: 80px;"  >destination</span>
+						 <select class="label ajaxCity" style="margin-top: -5px; width: 150px" name="dest_point">
+							<option class="locationName" style="margin-bottom: 10px">name</option>
+							<option value="Zurich">Zurich</option>
+							<option value="Paris" selected="selected">Paris</option>
+							<option value="Rouen">Rouen</option>
+							<option value="France">France</option>
+							<option value="Nice">Nice</option>
+							<option value="Brussels">Brussels</option>
+							<option value="Berlin">Berlin</option>
+							<option value="Munich">Munich</option>
+							<option value="Bern">Bern</option>
+							<option value="France">France</option>
+							<option value="Belgium">Belgium</option>
+							<option value="Germany" >Germany</option>
+							<option value="Swiss">Swiss</option>
+						</select>
+						
+							<span class="label" style="margin: 0 40px;">begin</span>
+						<input class="datepick label ajaxStart" type="text" name="c_hour" value="start" style="margin-top: -5px; padding: 0px; width: 150px;">
+								
+		
+				</div>
+		<div class="accompanyList row">
+		
 		</div>
-		</article>
-	</div>
-	</section>
-
-	<section class="id-card gallery-js-ready games2014-2">
-	<div class="holder">
-		<div class="frame">
-			<ul>
-				<li>
-					<div class="text-box">
-						<strong class="title">TODAY</strong> 
-						<a id="today" style="cursor: pointer; font-size: 30px;"></a>
-					</div>
-				</li>
-				<li>
-					<div class="text-box">
-						<strong class="title">대기중인 카풀 목록</strong>
-						<a style="cursor: pointer; font-size: 30px;" id=waiting_carpool>Wating Carpool</a>
-					</div>
-				</li>
-				<li>
-					<div class="text-box">
-						<strong class="title">대여 가능한 렌트 목록</strong>
-						<a style="cursor: pointer; font-size: 30px;" id="rental">Rental Car List</a>
-					</div>
-				</li>
-				<li>
-					<div class="text-box">
-						<strong class="title">카풀 등록하기</strong>
-						<a style="cursor: pointer; font-size: 30px;" href="${pageContext.request.contextPath}/carpool/register">Register your Carpool</a>
-					</div>
-				</li>
-			</ul>
+			<div style="padding-left: 45%; float: none;" class="calendar-form">
+		<input class="btn-more ajaxbtn" type="submit" value="search" style="margin-right: 20%; margin-top: 10px; width: 120px; height: 50px; font-size: medium; float: none;" />
 		</div>
-		<div class="switcher"></div>
-	</div>
-	</section>
+		</div>
+		
+				<div class="accompanyList row">
+		</div>
 	
 	
+	
+	</div>
+</form>
+
+<section class="results ajax-area" data-tmpl="athleteResults_tmpl">
+        <div class="heading">
+            <h2>recommend list</h2>
+            <ul class="add-links">
+
+            </ul>
+        </div>
+
+        <ul class="table2 ajax-content">
+            <li>
+                    
+                    <div class="th col1"> DRIVER </div>
+                    <div class="th col2"> DATE</div>
+                    <div class="th col2"> CITY </div> 
+                    <div class="th col3"> SEAT </div>
+                    <div class="th col3"> PRICE </div>
+                    <div class="th col4"> SIGN UP </div>
+            </li>
+            
+            <c:forEach items="${recommend}" var="carpool_ListVO">
+                <li>
+
+                <div class="td col1">
+
+    <a href = '/carpool/read?c_num=${carpool_ListVO.c_num }'>
+<picture class="picture">
+
+<img src="/resources/upload/${carpool_ListVO.u_img }" width="50" height="50" >
+<span class="mask"></span>
+</picture>
+        <div class="area">
+            <strong class="name">${carpool_ListVO.u_name } </strong>
+        </div>
+    </a>
+                </div>
+
+                
+                
+                <div class="td col2">
+
+        <div class="area">
+            <strong> ${carpool_ListVO.c_month }, ${carpool_ListVO.c_date }th, ${carpool_ListVO.c_year}
+            ${carpool_ListVO.c_hour }:${carpool_ListVO.c_minute }   </strong>
+        </div>
+                </div>
+                
+                 <div class="td col2">
+
+        <div class="area">
+            <strong>     ${carpool_ListVO.start_point } ->  ${carpool_ListVO.way_point } -> ${carpool_ListVO.dest_point}</strong>
+        </div>
+                </div>
+               
+
+
+                
+                
+                
+                        <div class="td col3">
+
+        <div class="area">
+            <strong> ${carpool_ListVO.c_person} </strong>
+        </div>
+                </div>        
+                
+                         <div class="td col3">
+
+        <div class="area">
+            <strong> ${carpool_ListVO.c_price}$ </strong>
+        </div>
+                </div>   
+                
+                <div class="td col4">
+
+
+                <div class="area">
+                    <ul class="medal-box">
+
+                        <li>
+                            <a href="javascript:applyLink('/carpool/request?c_num=${carpool_ListVO.c_num}')" class="btn-calendar">GO</a>
+                        </li>
+
+                    </ul>
+                </div>
+                </div>
+    </li>
+            </c:forEach>
+
+
+    
+
+   
+        </ul>
+    </section>	
 	
 <section class="results ajax-area" data-tmpl="athleteResults_tmpl">
         <div class="heading">
@@ -307,7 +474,9 @@ function checkTime(i) {
                 </span>
     </section>
    	<div>
-<%-- <%
+   	
+   	
+<script type="text/javascript">
 	try {
 		Document doc = Jsoup.connect("http://www.alamo.co.kr/rent/carInfo.php?vendor=AL").get();
 		Elements contents = doc.select("div.body_contents");
@@ -316,9 +485,8 @@ function checkTime(i) {
 	} catch (Exception e) {
 		e.printStackTrace();
 	}
-%> --%>
-
-<%-- <div class=web_parser>${result }</div> --%>
+	</script>
+ <div class=web_parser>${result }</div> 
 	</div>
 </div>
 
