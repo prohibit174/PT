@@ -12,12 +12,8 @@
 			<div class="tabset-box">
 				<ul class="tabset">
 
-					<li class="active"><a href="/carpool/"
-						data-class="games2014-2" target=""> CARPOOL MAIN <i
-							class="icon-arrow-right"> <span class="hide">arrow</span>
-						</i>
-					</a></li>
-					<li class=""><a href="/accompany/admin"
+					
+					<li class="active"><a href="/accompany/admin"
 						data-class="games2014-2" target=""> Accompany Manage <i
 							class="icon-arrow-right"> <span class="hide">arrow</span>
 						</i>
