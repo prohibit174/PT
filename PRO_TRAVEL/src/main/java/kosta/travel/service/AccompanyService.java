@@ -41,6 +41,19 @@ public class AccompanyService {
 
 		return list;
 	}
+	
+	public List<AccompanyVO> getUserRoute(HttpSession session, String id) throws Exception {
+
+		if (list != null) {
+			list.clear();
+		}
+		RouteVO route = new RouteVO();
+		route.setU_id(id);
+
+		list = dao.getUserRoute(id);
+
+		return list;
+	}
 
 	public List<AccompanyVO> getAccompanies() throws Exception {
 
