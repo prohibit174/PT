@@ -161,9 +161,11 @@ cursor: pointer;
          </li>
 
       </ul>
+      <div style="float: right;"><button class="write_message" onClick="window.close()">confirm</button>
+      <button class="write_message" onClick="resendForm();">send</button></div>
+      
    </fieldset>
-      <button style="margin-left: 40%;" onClick="window.close()">confirm</button>
-      <button style="margin-left: 40%;" onClick="resendForm();">send</button>
+      
 </form>
 </body>
 </html>
