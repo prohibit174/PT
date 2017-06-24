@@ -116,6 +116,9 @@ public class CarpoolController {
 
 		System.out.println(service.searchCarpool(user));
 		
+		
+		model.addAttribute("search", service.searchCarpool(user));
+		
 	}
 	
 	

@@ -17,7 +17,7 @@ public class DeclareController {
 	@Inject
 	private DeclareService service;
 	
-	@RequestMapping(value="/main", method=RequestMethod.GET)
+	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String declare_main(){
 		return "declaration/declare_main";
 	}
