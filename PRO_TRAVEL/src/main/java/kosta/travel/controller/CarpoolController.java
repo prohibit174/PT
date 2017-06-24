@@ -57,8 +57,37 @@ public class CarpoolController {
 		List<Carpool_ListVO> list = service.carpoolAll();
 		model.addAttribute("list", list);
 		
+		List<Carpool_ListVO> recommend = service.recommendList();
+		model.addAttribute("recommend", recommend);
+		
 
 		return "/carpool/main";
+	}
+	
+	@RequestMapping(value = "/", method = RequestMethod.POST)
+	public void mainPOST(Model model, CarpoolRequestUser user) throws Exception {
+
+		System.out.println("controller in");
+		/*System.out.println(user.getC_hour());*/
+		
+		int year = Integer.parseInt(user.getC_hour().substring(0, 4));
+		int month = Integer.parseInt((user.getC_hour().substring(5, 7)));
+	/*	System.out.println("month == "+month);*/
+		int date = Integer.parseInt(user.getC_hour().substring(8, 10));
+		/*System.out.println("date == "+date);*/
+		
+		
+		user.setC_year(year);
+		user.setC_month(month);
+		user.setC_date(date);
+		
+		System.out.println("user vo info === "+user.toString());
+
+		System.out.println(service.searchCarpool(user));
+		
+		
+		model.addAttribute("search", service.searchCarpool(user));
+		
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.GET)

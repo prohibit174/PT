@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Product_RequestVO implements Serializable{
 	
-	private String pr_reqnum;
+	private int pr_reqnum;
 	private String u_id;
 	private String p_num;
 	private String pr_ox;
@@ -13,7 +13,7 @@ public class Product_RequestVO implements Serializable{
 	
 	public Product_RequestVO(){}
 
-	public Product_RequestVO(String pr_reqnum, String u_id, String p_num, String pr_ox, String pr_place, String pr_date) {
+	public Product_RequestVO(int pr_reqnum, String u_id, String p_num, String pr_ox, String pr_place, String pr_date) {
 		super();
 		this.pr_reqnum = pr_reqnum;
 		this.u_id = u_id;
@@ -23,11 +23,11 @@ public class Product_RequestVO implements Serializable{
 		this.pr_date = pr_date;
 	}
 
-	public String getPr_reqnum() {
+	public int getPr_reqnum() {
 		return pr_reqnum;
 	}
 
-	public void setPr_reqnum(String pr_reqnum) {
+	public void setPr_reqnum(int pr_reqnum) {
 		this.pr_reqnum = pr_reqnum;
 	}
 

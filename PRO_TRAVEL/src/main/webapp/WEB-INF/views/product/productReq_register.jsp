@@ -73,15 +73,6 @@
                         <div class="right">
                            <table cellpadding="0" cellspacing="0" class="tab">
                               <tr>
-                                 <td class="label"><label for="u_lang">Product
-                                       Request Number</label></td>
-                                 <td class="value"><input type="text" name="pr_reqnum"
-                                    id="pr_reqnum" value="" /> &nbsp; <span class="mandatory"></span>
-                                    <ul class="errorField">
-                                    </ul></td>
-                              </tr>
-
-                              <tr>
                                  <td class="label"><label for="u_lang">User ID</label></td>
                                  <td class="value"><input type="text" name="u_id"
                                     id="u_id" value="${id }" /> &nbsp; <span class="mandatory"></span>

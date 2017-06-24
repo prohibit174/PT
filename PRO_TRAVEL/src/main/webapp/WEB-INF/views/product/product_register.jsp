@@ -26,7 +26,25 @@
 	src="${pageContext.request.contextPath}/resources/js/AgoFiles/prouduct_javascript/join_checkInfo.js"></script>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/js/AgoFiles/prouduct_javascript/JoinCheck.js"></script>
+<style>
+.btn-more1 button{
+    display: inline-block;
+    vertical-align: top;
+   /*  color: #959595; */
+    border: 2px solid #959595;
+/*     padding: 0px 0px; */
+    min-width: 110px;
+    text-decoration: none !important;
+    font-weight: bold;
+    line-height: 2em; 
+    background: white;
+    width: 30px;
+    height: 30px;
+    }
 
+ button{
+    color : #959595}
+</style>
 
 
 </head>
@@ -64,14 +82,6 @@
 
 								<div class="right">
 									<table cellpadding="0" cellspacing="0" class="tab">
-										<tr>
-											<td class="label"><label for="u_lang">Product
-													Number</label></td>
-											<td class="value"><input type="text" name="p_num"
-												id="p_num" value="" /> &nbsp; <span class="mandatory"></span>
-												<ul class="errorField">
-												</ul></td>
-										</tr>
 
 										<tr>
 											<td class="label"><label for="u_lang">Product
@@ -90,8 +100,7 @@
 										</tr>
 
 										<tr>
-											<td class="label"><label for="u_lang">Product
-													Detail</label></td>
+											<td class="label"><label for="u_lang">Description</label></td>
 											<td class="value"><input type="text" name="p_detail"
 												id="p_detail" value="" /> &nbsp; <span class="mandatory"></span>
 												<ul class="errorField">
@@ -146,10 +155,11 @@
 	width: 155px;
 }
 </style> -->
+<span class="btn-more1">
 <button name="submit" id="validate_order" type="submit"
 								class="primaryAction">
 								<span>Register</span>
-</button>
+</button></span>
 
 						</div></div>
 				</form>
