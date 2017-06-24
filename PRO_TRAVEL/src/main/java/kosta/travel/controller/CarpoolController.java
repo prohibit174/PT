@@ -156,11 +156,19 @@ public class CarpoolController {
 	public String request(Carpool_RequestVO carpoolRequest, @RequestParam("c_num") int c_num,  HttpSession session) throws Exception {
 		
 		String id = (String)session.getAttribute("login");
-		int cr_num = service.maxSelectRequest()+1;
+		
+
+		
+		if(service.maxSelectRequest()==null){
+			carpoolRequest.setC_num(1);
+		} else{
+			int cr_num = service.maxSelectRequest()+1;
+			carpoolRequest.setCr_num(cr_num);
+		}
+		
 		
 		carpoolRequest.setU_id(id);
 		carpoolRequest.setC_num(c_num);
-		carpoolRequest.setCr_num(cr_num);
 		
 		service.registRequest(carpoolRequest);
 		

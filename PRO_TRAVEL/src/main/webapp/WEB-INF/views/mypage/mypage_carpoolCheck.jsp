@@ -17,6 +17,8 @@
   margin: 0 auto;
   padding-left: 30px;
   max-width: 800px;
+  min-height: 320px;
+  height: auto;
 }
 
 .table {
@@ -49,110 +51,96 @@
 .row.blue {
   background: #2980b9;
 }
-@media screen and (max-width: 580px) {
-  .row {
-    padding: 8px 0;
-    display: block;
-  }
-}
+
+
 
 .cell {
   padding: 6px 12px;
   display: table-cell;
 }
-@media screen and (max-width: 580px) {
-  .cell {
-    padding: 2px 12px;
-    display: block;
-  }
+
+.table .th, .table2 .th {
+	font-size: 13px;
+	width: 12%;
 }
 
+.table2 .col-first {
+	width: 10%;
+	padding: 0px 30px 0px 0px;
+	margin: 0px 10px 0px 0px;
+}
+
+.table2 .col2 {
+	width: 18%;
+
+	margin: 0px 10px 0px 0px;
+}
+
+.table2 .col3 {
+	width: 15%;
+	margin: 0px 10px 0px 0px;
+}
+
+.table2 .col5 {
+	width: 12%;
+	margin: 0px 10px 0px 0px;
+}
 </style>
+
+
+
 </head>
 <body>
 
-
-
 <div class="wrapper">
-  <h2>MY CARPOOL</h2>
-  <div class="table">
-    
-    <div class="row header">
-      <div class="cell">DATE</div>
-      <div class="cell">CITY</div>
-      <div class="cell">EMPTY</div>
-      <div class="cell">PRICE</div>
-      <div class="cell">Detail</div>
-    </div>
-    
-    <c:forEach items="${list}" var="carpoolVO">
-    <div class="row">
-      <div class="cell">
-        ${carpoolVO.c_year } ${carpoolVO.c_month } ${carpoolVO.c_date }
-      </div>
-      <div class="cell">
-        ${carpoolVO.start_point } -> ${carpoolVO.way_point } -> ${carpoolVO.dest_point }
-      </div>
-      <div class="cell">
-        ${carpoolVO.c_person }
-      </div>
-      <div class="cell">
-        ${carpoolVO.c_price }$
-      </div>
-      <div class="cell">
-        <strong><a href = '/mypage/read?c_num=${carpoolVO.c_num }'> Go </a></strong>
-      </div>
-    </div>
-    </c:forEach>
-    
-  </div>
-  
+  <div class="section-links" style="margin-top:0px; padding-top:0px;
+		font-size:16px; float: right; margin-right:70px;">
+				<ul>
+					<li> Requested List </li>
+					<li><a href="/mypage/product_myRequestList">Request List</a></li>
+				</ul>
+			</div>
+		
+		<div class="content1">
+	<div class="heading">
+		<h2>REQUEST LIST</h2>
+		<ul class="add-links">
 
-<h2>REQUEST CARPOOL</h2>
-    <div class="table">
-    
-    <div class="row header blue">
-      <div class="cell">
-        Driver
-      </div>
-      <div class="cell">
-        Accept
-      </div>
-      <div class="cell">
-        Date
-      </div>
-      <div class="cell">
-       Start
-      </div>
-      <div class="cell">
-        Detail
-      </div>
-    </div>
-    
-    <c:forEach items="${requestList}" var="carpool">
-    <div class="row">
-      <div class="cell">
-        <img src="/resources/upload/${carpool.u_u_img }" width="30" height="30" >
-         ${carpool.c_u_name }
-      </div>
-      <div class="cell">
-        ${carpool.cr_ox}
-      </div>
-      <div class="cell">
-        ${carpool.c_month },${carpool.c_date }th, ${carpool.c_year }
-        ${carpool.c_hour }:${carpool.c_minute }
-      </div>
-      <div class="cell">
-        ${carpool.start_point}
-      </div>
-      <div class="cell">
-        <strong><a href = '/mypage/requestRead?cr_num=${carpool.cr_num }&c_num=${carpool.c_num}'> Go </a></strong>
-      </div>
-      
-    </div>
-    </c:forEach>
-  </div> 
-  
+		</ul>
+	</div>
+	
+	
+
+
+		<ul class="table2 ajax-content">
+			<li >
+				<div class="th col-first">DATE</div>
+				<div class="th col1">CITY</div>
+				<div class="th col2">EMPTY</div>
+				<div class="th col2">PLACE</div>
+				<div class="th col3">PRICE</div>
+				<div class="th col5">DETAIL</div>
+
+			</li>
+
+
+			<li style="margin-top: 20px">
+			<c:forEach items="${requestList}" var="carpool">
+					<div class="th col-first"> ${carpool.c_month }/${carpool.c_date }</div>
+					<div class="th col1">${carpool.cr_ox}</div>
+					<div class="th col2">${carpool.c_hour }:${carpool.c_minute }</div>
+					<div class="th col2">${carpool.start_point}</div>
+					<div class="th col3"><strong><a href = '/mypage/requestRead?cr_num=${carpool.cr_num }&c_num=${carpool.c_num}'> Go </a></strong></div>
+					<div class="th col5"></div>
+				
+					</c:forEach>
+					 <c:if test="${empty list}">
+			요청 목록이 없습니다.
+		</c:if>
+					</li>
+					</div>
+					
+
   </div>
 
 
