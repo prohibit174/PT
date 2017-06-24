@@ -10,9 +10,7 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/AgoFiles/users_css/all.css">
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/AgoFiles/users_css/common.css">
-<%--  <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/AgoFiles/users_css/style.css">  --%>
+	href="${pageContext.request.contextPath}/resources/css/AgoFiles/users_css/common.css?version=20170624">
  <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/AgoFiles/users_css/jquery.js.selecter.css"> 
 	
@@ -108,7 +106,25 @@ jQuery(function($) {
     float: right;
 }
 
+.btn-more1 > .btn-join {
+    display: inline-block;
+    vertical-align: top;
+    color: #959595; 
+    border: 2px solid #959595;
+    padding: 7px 20px;
+    min-width: 110px;
+    text-decoration: none !important;
+    font-weight: bold;
+ /*    font: bold 1.3em; */
+    line-height: 2em; 
+    background: white;
+    width: 50px;
+    height: 50px;
+    }
 
+ button{
+    color : #959595;
+    }
 
 </style>
 
@@ -323,12 +339,7 @@ jQuery(function($) {
 											<option value="휴양">휴양</option>
 											
 											</select>
-										<!-- 	<input type="radio" name="u_style" value="힐링" checked="checked"><label>힐링</label>
-											<input type="radio" name="u_style" value="관광"><label>관광</label>
-							<input type="radio" name="u_style" value="맛집"> <label>맛집</label>
-							<input type="radio" name="u_style" value="액티비티"> <label>액티비티</label>
-							<input type="radio" name="u_style" value="휴양"><label>휴양</label>
-							&nbsp;&nbsp;<span>하나만 선택해주세요</span> -->
+									
 											</td>
 										</tr>
 									</table>
@@ -387,10 +398,14 @@ jQuery(function($) {
 									title="privacy policy">privacy policy</a> -->
 							</div>
 
-							<button name="submit" id="validate_order" type="submit"
+						<span class="btn-more1" >
+							 <!-- <button name="submit" id="validate_order" type="submit"
 								class="primaryAction">
 								<span>가입하기</span>
-							</button>
+							</button>  -->
+							
+							<button type="submit" class="btn-join" id="validate_order">JOIN</button>
+						</span>
 							<div class="clear"></div> 
 						</div>
 				</form>
