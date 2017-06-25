@@ -57,6 +57,11 @@ public BlogPostVO postDetail(String bp_postnum) throws Exception {
 public Integer removePost(BlogPostVO blogPost) throws Exception {
 	return session.delete(namespace+".removePost", blogPost);
 }
+
+@Override
+public Integer blogcount() throws Exception {
+	return session.selectOne(namespace+".blogcount");
+}
 	
    
 }
