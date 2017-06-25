@@ -368,9 +368,9 @@
   #main .section.first, .mfp-wrap .section.first {
     margin-top: 0 !important; }
   #main .section .content, .mfp-wrap .section .content {
-    padding-left: 40px;
+    padding-left: 0px;
     padding-right: 80px;
-    padding-top: 40px;
+    padding-top: 0px;
     padding-bottom: 30px;
     width: 100%; }
   #main .section .content.middle, .mfp-wrap .section .content.middle {

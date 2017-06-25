@@ -46,6 +46,25 @@
 	width: 12%;
 	margin: 0px 10px 0px 0px;
 }
+
+.btn-more1{
+    display: inline-block;
+    vertical-align: top;
+   color: #959595;
+    border: 2px solid #959595;
+  /*   padding: 7px 20px; */
+ 
+    text-decoration: none !important;
+    font-weight: bold;
+    line-height: 2em; 
+    background: white;
+    text-align: center;
+    width: 60px;
+    height: 30px;
+    }
+
+ button{
+    color : #959595}
 </style>
 </head>
 
@@ -115,33 +134,36 @@ function btn_js_rejection_click(URL){
 		<ul class="table2 ajax-content">
 			<li >
 				<div class="th col-first">REQNUM</div>
-				<div class="th col1">USER_ID</div>
+				<div class="th col2">USER_ID</div>
 				<div class="th col2">PRODUCT_NAME</div>
 				<div class="th col2">PLACE</div>
-				<div class="th col3">DATE</div>
-				<div class="th col5">REQ_STATUS</div>
+				<div class="th col2">DATE</div>
+ 				<div class="th col">REQ_STATUS</div>
 
 			</li>
 
 
-			<li style="margin-top: 20px"><c:forEach items="${list}"
+			<li style="margin-top: 20px">
+			<c:forEach items="${list}"
 					var="Product_RequestVO">
 					<div class="th col-first">${Product_RequestVO.pr_reqnum}</div>
-					<div class="th col1">${Product_RequestVO.u_id}</div>
+					<div class="th col2">${Product_RequestVO.u_id}</div>
 					<div class="th col2">${Product_RequestVO.p_num}</div>
 					<div class="th col2">${Product_RequestVO.pr_place}</div>
-					<div class="th col3">${Product_RequestVO.pr_date}</div>
-					<div class="th col5">${Product_RequestVO.pr_ox}</div>
+					<div class="th col2">${Product_RequestVO.pr_date}</div>
+					<%-- <div class="th col5">${Product_RequestVO.pr_ox}</div> --%>
 				
 
-				<td align="center"><input type="button" value="수락"
-					class="nlogin_btn" style="margin-bottom:6px"
+				<td align="center"><input type="button" value="accept"
+					class="btn-more1" style="margin-bottom:6px"
 					onclick="javascript:btn_js_accept_click('/mypage/product_requestAccept?pr_reqnum=${Product_RequestVO.pr_reqnum }')"></td>
-			 <td align="center"><input type="button" style="margin-bottom:6px" value="거절"
+			 <td align="center"><input type="button" style="margin-bottom:6px" value="reject"
 					onclick="javascript:btn_js_rejection_click('/mypage/product_requestReject?pr_reqnum=${Product_RequestVO.pr_reqnum }')"
-					class="nlogin_btn"></td> 
+					class="btn-more1"></td> 
+			
 					</c:forEach>
 					 <c:if test="${empty list}">
+					 <br>
 			요청 목록이 없습니다.
 		</c:if>
 					</li>
@@ -180,6 +202,7 @@ function btn_js_rejection_click(URL){
 			</c:forEach>
 			
 			 <c:if test="${empty list_o}">
+			 <br>
 			수락 목록이 없습니다.
 		</c:if>
 	</ul>
@@ -215,6 +238,7 @@ function btn_js_rejection_click(URL){
 			</c:forEach>
 			
 			 <c:if test="${empty list_x}">
+			 <br>
 			거절 목록이 없습니다.
 		</c:if>
 	</ul>

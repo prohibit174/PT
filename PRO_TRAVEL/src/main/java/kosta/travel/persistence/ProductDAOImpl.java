@@ -150,6 +150,12 @@ public class ProductDAOImpl implements ProductDAO {
 		return session.selectList(namespace+".listProductCanceled", u_id);
 	}
 
+	@Override
+	public Integer productAll() throws Exception {
+		
+		return session.selectOne(namespace+".productAll");
+	}
+
 	
 
 	

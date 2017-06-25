@@ -198,18 +198,28 @@
 	</delete>
 
 	<update id="mypage_accomp_edit_post">
-update accomp_group
-		set 
-    max_people_num =#{max_people_num},
+		update accomp_group
+		set
+		max_people_num
+		=#{max_people_num},
 		cor_region =#{cor_region},
 		tp_date =#{tp_date}
-		where accomp_group_num = #{accomp_group_num}
+		where
+		accomp_group_num = #{accomp_group_num}
 	</update>
-	
+
 	<select id="count" resultType="Integer">
-		select sum(count(*)+1) as count from accomp_group
+		select sum(count(*)+1) as count
+		from accomp_group
 		group by accomp_group_num
 	</select>
-	
+
+
+	<select id="getUser_havingTripInfo" resultType="GroupVo">
+		select distinct u.u_id
+		from users u, trip_plan t
+		where u.u_id=t.u_id
+	</select>
+
 </mapper>
   
