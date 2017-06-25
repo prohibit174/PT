@@ -28,13 +28,38 @@ public class DeclareDAOImpl implements DeclareDAO {
 	}
 
 	@Override
-	public List<DeclareVO> declare_list() throws Exception {
-		return session.selectList(namespace + ".declare_list");
+	public List<DeclareVO> myDeclare(String u_id) throws Exception {
+		return session.selectList(namespace + ".myDeclare", u_id);
 	}
 
 	@Override
 	public List<DeclareVO> myDeclaration(String u_id) throws Exception {
 		return session.selectList(namespace+".myDeclaration", u_id);
+	}
+
+	@Override
+	public List<DeclareVO> waitDeclare() throws Exception {
+		return session.selectList(namespace+".waitDeclare");
+	}
+
+	@Override
+	public List<DeclareVO> acceptDeclare() throws Exception {
+		return session.selectList(namespace+".acceptDeclare");
+	}
+
+	@Override
+	public List<DeclareVO> rejectDeclare() throws Exception {
+		return session.selectList(namespace+".rejectDeclare");
+	}
+
+	@Override
+	public void accept(Integer d_num) throws Exception {
+		session.update(namespace+".accept", d_num);
+	}
+
+	@Override
+	public void reject(Integer d_num) throws Exception {
+		session.update(namespace+".reject", d_num);	
 	}
 
 }

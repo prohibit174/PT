@@ -99,7 +99,7 @@
 					<li> MY CARPOOL </li>
 					<li><a href="/mypage/carpoolRequestCheck">REQUEST CARPOOL</a></li>
 				</ul>
-			</div>
+	</div>
 		
 		<div class="content1">
 	<div class="heading">

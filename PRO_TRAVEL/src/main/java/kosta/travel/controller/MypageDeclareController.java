@@ -27,11 +27,12 @@ public class MypageDeclareController {
 	public String carpoolCheck(Model model,  HttpSession session) throws Exception{
 		String u_id = (String)session.getAttribute("login");
 		
-		List<DeclareVO> list = service.myDeclaration(u_id);
+/*		List<DeclareVO> list = service.myDeclaration(u_id);
 		
+		model.addAttribute("list", list);*/
+		
+		List<DeclareVO> list = service.myDeclare(u_id);
 		model.addAttribute("list", list);
-		
-		
 		
 		return "/mypage/mypage_declareList";
 	}

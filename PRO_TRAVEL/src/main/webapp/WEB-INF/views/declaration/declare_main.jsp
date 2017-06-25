@@ -358,7 +358,7 @@ cursor: pointer;
  <div id="sub-contents">
     <div class="l-box">
       <div id="de-select">
-        <div class="select-box-l box-1" style="width: 300px; height: 500px; margin-left: 230px;">
+        <div class="select-box-l box-1" style="width: 300px; height: 500px; margin-left: 140px;">
           <h3>일반신고 접수</h3>
           <p>욕설이나 비방, 교환에 대한 신고하시기 바랍니다.</p>
           <div class="select-box-s">
