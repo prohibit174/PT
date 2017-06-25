@@ -96,8 +96,8 @@
   <div class="section-links" style="margin-top:0px; padding-top:0px;
 		font-size:16px; float: right; margin-right:70px;">
 				<ul>
-					<li> Requested List </li>
-					<li><a href="/mypage/product_myRequestList">Request List</a></li>
+					<li> MY CARPOOL </li>
+					<li><a href="/mypage/carpoolRequestCheck">REQUEST CARPOOL</a></li>
 				</ul>
 			</div>
 		
@@ -115,9 +115,9 @@
 		<ul class="table2 ajax-content">
 			<li >
 				<div class="th col-first">DATE</div>
-				<div class="th col1">CITY</div>
+				<div class="th col1">TIME</div>
+				<div class="th col2">START</div>
 				<div class="th col2">EMPTY</div>
-				<div class="th col2">PLACE</div>
 				<div class="th col3">PRICE</div>
 				<div class="th col5">DETAIL</div>
 
@@ -125,18 +125,19 @@
 
 
 			<li style="margin-top: 20px">
-			<c:forEach items="${requestList}" var="carpool">
+			<c:forEach items="${list}" var="carpool">
 					<div class="th col-first"> ${carpool.c_month }/${carpool.c_date }</div>
-					<div class="th col1">${carpool.cr_ox}</div>
-					<div class="th col2">${carpool.c_hour }:${carpool.c_minute }</div>
+					<div class="th col1">${carpool.c_hour }:${carpool.c_minute }</div>
 					<div class="th col2">${carpool.start_point}</div>
-					<div class="th col3"><strong><a href = '/mypage/requestRead?cr_num=${carpool.cr_num }&c_num=${carpool.c_num}'> Go </a></strong></div>
-					<div class="th col5"></div>
+					<div class="th col2">${carpool.c_person}</div>
+					<div class="th col3">${carpool.c_price}</div>
+					<div class="th col5"><strong><a href = '/mypage/read?c_num=${carpool.c_num }'> Go </a></strong></div>
+					<!-- <div class="th col5"></div> -->
 				
 					</c:forEach>
 					 <c:if test="${empty list}">
-			요청 목록이 없습니다.
-		</c:if>
+							신청 목록이 없습니다.
+						</c:if>
 					</li>
 					</div>
 					
