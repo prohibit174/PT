@@ -15,6 +15,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+   	<script type="text/javascript">
+	try {
+		Document doc = Jsoup.connect("http://www.alamo.co.kr/rent/carInfo.php?vendor=AL").get();
+		Elements contents = doc.select("div.body_contents");
+		String result = contents.html();
+		request.setAttribute("result", result);
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+	</script>
+
 <script type="text/javascript">
 
 function detailForm(u_id){
@@ -25,6 +36,8 @@ function detailForm(u_id){
  	    var frm =document.getElementById(wantForm);
 	    frm.submit(); 
 	}
+	
+	
 function applyLink(URL){
 	if(confirm("신청하시겠습니까?") == true){
 		location.href=URL;
@@ -35,6 +48,8 @@ function applyLink(URL){
 		alert('Cancle');
 	}
 }
+
+
 // 클릭하면 해당 div 로 이동...
 $(function(){
 	var offset = $(".web_parser").offset();
@@ -90,6 +105,88 @@ $(function(){
  	
  
 </script>
+
+<style>
+@CHARSET "EUC-KR";
+.wrapper {
+  margin: 0 auto;
+  padding-left: 100px;
+  max-width: 1000px;
+}
+
+.table {
+  margin: 0 0 40px 0;
+  width: 100%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  display: table;
+}
+@media screen and (max-width: 580px) {
+  .table {
+    display: block;
+  }
+}
+
+.row {
+  display: table-row;
+  background: #f6f6f6;
+}
+.row:nth-of-type(odd) {
+  background: #e9e9e9;
+}
+.row.header {
+  font-weight: 900;
+  color: #ffffff;
+  background: #ea6153;
+}
+.row.green {
+  background: #27ae60;
+}
+.row.blue {
+  background: #2980b9;
+}
+
+
+
+.cell {
+  padding: 6px 12px;
+  display: table-cell;
+}
+
+.table .th, .table2 .th {
+	font-size: 13px;
+	width: 12%;
+}
+
+.table2 .col-first {
+	width: 10%;
+	padding: 0px 30px 0px 0px;
+	margin: 0px 10px 0px 0px;
+}
+
+.table2 .col1 {
+	width: 10%;
+	padding: 0px 30px 0px 0px;
+	margin: 0px 10px 0px 0px;
+}
+
+.table2 .col2 {
+	width: 25%;
+
+	margin: 0px 10px 0px 0px;
+}
+
+.table2 .col3 {
+	width: 10%;
+	margin: 0px 10px 0px 0px;
+}
+
+.table2 .col4 {
+	width: 10%;
+	margin: 0px 10px 0px 0px;
+}
+
+
+</style>
 
 <script src='${pageContext.request.contextPath}/resources/js/accompanyJs/jquery-ui.min.js'></script>
 <link rel='stylesheet' href='/resources/css/accompany/jquery-ui.min.css' />
@@ -156,7 +253,7 @@ $(function(){
 	        										htmlText += '<input type="hidden" class="accomp_group_num" name="accomp_group_num" value="'+data[eachCounter].c_num+'">';
 	        											htmlText += '</li>';
 	            		eachCounter++;
-	            	})
+	            	});
 	            		htmlText += '</ul>';
 	            			htmlText += '</section>';	
 	            	
@@ -199,14 +296,6 @@ $(function(){
 
 </script>
 
-<style>
-@CHARSET "EUC-KR";
-.wrapper {
-  margin: 0 auto;
-  padding-left: 20px;
-  max-width: 800px;
-}
-</style>
 
 
 
@@ -214,15 +303,14 @@ $(function(){
 <body onload = "startTime()">
 <div class=wrapper>
 	<img srcset="${pageContext.request.contextPath}/resources/images/carpool/list.png">
-</div>	
 	
-<form action="/carpool" method="post" class="ajaxform">
+	<form action="/carpool" method="post" class="ajaxform">
 <div class="id-card-box" style="width: 100% ;border: black;">
 	
-			<div class="item-list" style="width: 1400px; padding-right: 30px;">
+			<div class="item-list" style="width: 800px; padding-right: 10px;">
 					<div style="font-size: 20px;">
-							<span class="label" style="margin-right: 80px;"  >departure</span>
-						 <select class="label ajaxCity" style="margin-top: -5px; width: 150px" name="start_point">
+							<div class="label" style="margin-right: 0px;"  >START</div>
+						 <select class="label ajaxCity" style="margin-top: -5px;  margin-right : 50px ;width: 100px;" name="start_point">
 							<option class="locationName" style="margin-bottom: 10px">name</option>
 							<option value="Zurich">Zurich</option>
 							<option value="Paris" >Paris</option>
@@ -239,8 +327,8 @@ $(function(){
 							<option value="Swiss">Swiss</option>
 						</select>
 						
-							<span class="label" style="margin-right: 80px;"  >destination</span>
-						 <select class="label ajaxCity" style="margin-top: -5px; width: 150px" name="dest_point">
+							<div class="label" style="margin-right: 0px;"  >END</div>
+						 <select class="label ajaxCity" style="margin-top: -5px; margin-right : 50px ; width: 100px" name="dest_point">
 							<option class="locationName" style="margin-bottom: 10px">name</option>
 							<option value="Zurich">Zurich</option>
 							<option value="Paris" selected="selected">Paris</option>
@@ -257,22 +345,20 @@ $(function(){
 							<option value="Swiss">Swiss</option>
 						</select>
 						
-							<span class="label" style="margin: 0 40px;">begin</span>
-						<input class="datepick label ajaxStart" type="text" name="c_hour" value="start" style="margin-top: -5px; padding: 0px; width: 150px;">
+							<div class="label" style="margin: ;">DAY</div>
+						<input class="datepick label ajaxStart" type="text" name="c_hour" value="click" style="margin-top: -5px; padding: 0px; width: 100px;">
 								
 		
 				</div>
 		<div class="accompanyList row">
 		
 		</div>
-			<div style="padding-left: 45%; float: none;" class="calendar-form">
+			<div style="padding-left: 0%; float: none;" class="calendar-form">
 			
-		<input class="btn-more ajaxbtn" type="submit" value="search" style="margin-right: 20%; margin-top: 10px; width: 120px; height: 50px; font-size: medium; float: none;" />
+		<input class="btn-more ajaxbtn" type="submit" value="search" style="margin-right: 41%; margin-top: 30px; width: 120px; height: 50px; font-size: medium; " />
 		</div>
 		</div>
 		
-				<div class="accompanyList row">
-		</div>
 	
 	
 	
@@ -302,8 +388,12 @@ $(function(){
                 <li>
 
                 <div class="td col1">
+<%-- onclick="detailForm(${listMessage.m_num});" --%>
 
-    <a href = '/carpool/read?c_num=${carpool_ListVO.c_num }'>
+ <form id="detailForm${carpool_ListVO.u_id }" name="detailForm${carpool_ListVO.u_id }" method="post" 
+ action="/user?u_id=${carpool_ListVO.u_id }" target="popup_window">
+    <a onclick = "detailForm(${carpool_ListVO.u_id });">
+    
 <picture class="picture">
 
 <img src="/resources/upload/${carpool_ListVO.u_img }" width="50" height="50" >
@@ -312,7 +402,7 @@ $(function(){
         <div class="area">
             <strong class="name">${carpool_ListVO.u_name } </strong>
         </div>
-    </a>
+  </a> </form>
                 </div>
 
                 
@@ -477,23 +567,14 @@ $(function(){
                  <a style="cursor: pointer;">Go List Page</a>  
                 </span>
     </section>
-   	<div>
    	
    	
-<!-- <script type="text/javascript">
-	try {
-		Document doc = Jsoup.connect("http://www.alamo.co.kr/rent/carInfo.php?vendor=AL").get();
-		Elements contents = doc.select("div.body_contents");
-		String result = contents.html();
-		request.setAttribute("result", result);
-	} catch (Exception e) {
-		e.printStackTrace();
-	}
-	</script> -->
- <div class=web_parser>${result }</div> 
-	</div>
-</div>
 
+ <div class=web_parser>
+ ${result }
+ </div> 
+	</div>
+	
 	<%@ include file="/WEB-INF/views/include/footer.jsp"%>
 </body>
 </html>

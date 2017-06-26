@@ -110,11 +110,10 @@ ul.twPc-Arrange {
 
 	<div>
 		<div class="twPc-button">
-            <a href="https://twitter.com/mertskaplan" class="twitter-follow-button" data-show-count="false" data-size="large" data-show-screen-name="false" data-dnt="true">Blog</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+            <a href="/blog/myBlog?u_id=${user.u_id }"><img src="${pageContext.request.contextPath}/resources/images/blog.png"></a>
 		</div>
 
-		<a title="Mert Salih Kaplan" href="https://twitter.com/mertskaplan" class="twPc-avatarLink">
+		<a title="Mert Salih Kaplan" href="" class="twPc-avatarLink">
 			<img alt="Mert Salih Kaplan" src="/resources/upload/${user.u_img }"class="twPc-avatarImg">
 		</a>
 
