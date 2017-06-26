@@ -20,11 +20,11 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 
 <script type="text/javascript"
-	src="${pageContext.request.contextPath}/resources/js/AgoFiles/UsersJS/CheckEssential.js"></script>
+	src="${pageContext.request.contextPath}/resources/js/AgoFiles/UsersJS/CheckEssential.js?version=20170626"></script>
 <script type="text/javascript"
-	src="${pageContext.request.contextPath}/resources/js/AgoFiles/UsersJS/IdCheck.js"></script>
+	src="${pageContext.request.contextPath}/resources/js/AgoFiles/UsersJS/IdCheck.js?version=20170626"></script>
 <script type="text/javascript"
-	src="${pageContext.request.contextPath}/resources/js/AgoFiles/UsersJS/join_checkInfo.js?version=20170608"></script>
+	src="${pageContext.request.contextPath}/resources/js/AgoFiles/UsersJS/join_checkInfo.js?version=20170626"></script>
 
 
 <script type="text/javascript"
@@ -242,7 +242,7 @@ jQuery(function($) {
 										<tr> 
 											<td>Sex</td> 
 											<td> 
-											<input type="radio" name="u_sex" id="u_sex_m" value="Male"><label for="u_sex_m" class="radioSpan">Male</label> 
+											<input type="radio" name="u_sex" id="u_sex_m" value="Male" checked="checked"><label for="u_sex_m" class="radioSpan">Male</label> 
 											<input type="radio" name="u_sex" id="u_sex_f" value="Female"> <label for="u_sex_f" class="radioSpan">Female</label> 
 											&nbsp; <span class="mandatory">*</span> 
 											</td> 
@@ -253,7 +253,7 @@ jQuery(function($) {
 										<tr>
 											<td class="label"><label for="u_license">Driving License</label></td>
 											<td><input type="radio" name="u_license" id="u_license"
-												value="Licensed"><label>Licensed</label> 
+												value="Licensed" checked="checked"><label>Licensed</label> 
 												 <input type="radio"
 												name="u_license" id="u_license" value="No License"> 
 												<label>No License</label>

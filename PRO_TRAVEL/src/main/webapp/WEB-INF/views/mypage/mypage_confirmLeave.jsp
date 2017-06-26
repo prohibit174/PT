@@ -55,8 +55,8 @@
                                 	AUTO LOGIN
                                 	</span>&nbsp
                                 	<input type="checkbox" name="useCookie"/> -->
-                                    <input type="submit" value="탈퇴" id="leave"/>
-                                    <input type="reset" value="취소" />
+                                    <input type="submit" value="Leave" id="leave"/>
+                                    <input type="reset" value="Cancel" />
                                 </div> 
                             </form>
                         </div>

@@ -67,10 +67,10 @@
 								<div class="left">
 									<table cellpadding="0" cellspacing="0" class="tab">
 										<tr>
-											<td class="label"><label for="u_pwd">비밀번호</label></td>
+											<td class="label"><label for="u_pwd">Password</label></td>
 											<td class="value"><input type="password" name="u_pwd" id="u_pwd"> &nbsp; <span
 												class="mandatory">*</span> <br>
-												<span>본인 확인을 위해 비밀번호를 입력해주세요.</span>
+												<span>Please input password to secure your information.</span>
 										</td>
 										
 									</table>

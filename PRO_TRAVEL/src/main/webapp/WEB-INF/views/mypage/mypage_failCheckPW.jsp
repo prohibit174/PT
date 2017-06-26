@@ -75,7 +75,7 @@
 								<div class="left">
 								<table cellpadding="0" cellspacing="0" class="tab">
 								
-									<div>Wrong password. Please check password, Again.</div>
+									<div>Wrong password. Please check password.</div>
 								</table>
 								</div>
 
