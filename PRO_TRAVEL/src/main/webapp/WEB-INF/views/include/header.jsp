@@ -392,9 +392,11 @@ width:0;
 							<c:choose>
 							<c:when test="${login!=null}">
 							<li>
-								<a href="/" onclick="chattingForm();">
-					<img src="${pageContext.request.contextPath}/resources/images/chatting1.png" style="margin-left: -30px; margin-top:-7px;" width="30px" height="30px"/> 
-								</a>
+							<form id="chattingForm()" name="chattingForm()" method="post" action="/chatting" target="popup_window"> 
+								<input type="image" src="${pageContext.request.contextPath}/resources/images/chatting1.png" onclick="chattingForm();" style="margin-left: -30px; margin-top:-7px;" width="30px" height="30px">
+				 	<%-- <img src="${pageContext.request.contextPath}/resources/images/chatting1.png" style="margin-left: -30px; margin-top:-7px;" width="30px" height="30px"/>  --%>
+								
+							</form>  
 								</li>
 								</c:when>
 								</c:choose>
@@ -430,6 +432,6 @@ width:0;
 	</div>
 	</header>
 	</div>
-	<hr class="alt clearboth">
+	<hr class="alt clearboth" style="margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px;" >
 </body>
 </html>

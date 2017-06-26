@@ -104,10 +104,10 @@ public class BlogController {
 
  
    @RequestMapping(value = "/myBlog", method = RequestMethod.GET)
-   public String myBlog(HttpSession session, Model model) throws Exception {
+   public String myBlog(HttpSession session, Model model, @RequestParam("u_id") String u_id) throws Exception {
 
-      String u_id = (String)session.getAttribute("login");
-      model.addAttribute("u_id", u_id);
+      String id = (String)session.getAttribute("login");
+      model.addAttribute("id", id);
 
       BlogVO blog = service.detailBlog(u_id);
       List<BlogPostVO> blogpost=service.postBlogList(u_id);
@@ -142,8 +142,8 @@ public class BlogController {
       logger.info(blogpost.toString());
       service.postingBlog(blogpost);
       
-      String u_id = (String)session.getAttribute("login");
-      model.addAttribute("u_id", u_id);
+      String id = (String)session.getAttribute("login");
+      model.addAttribute("id", id);
 
       rttr.addFlashAttribute("msg", "SUCCESS");
       try {
@@ -168,8 +168,10 @@ public class BlogController {
          e.printStackTrace();
       }
 
-      return "redirect:/blog/myBlog";
+      return "redirect:/blog/myBlog?u_id="+id;
    }
+   
+   
     @RequestMapping("/myRealBlog")
     public String userOwnBlog(HttpSession session, Model model){
        String u_id = (String)session.getAttribute("login");
@@ -181,9 +183,9 @@ public class BlogController {
     @RequestMapping(value = "/updatePost", method=RequestMethod.GET)
     public String updateBlog(String bp_postnum, Model model) throws Exception{
        BlogPostVO blogPost = service.postDetail(bp_postnum);
-       //유저가 선택한 글 번호를 통해서 관련정보(글번호, 내용)를 가져와서 blogPost객체에 넣음.
+       //�쑀��媛� �꽑�깮�븳 湲� 踰덊샇瑜� �넻�빐�꽌 愿��젴�젙蹂�(湲�踰덊샇, �궡�슜)瑜� 媛��졇���꽌 blogPost媛앹껜�뿉 �꽔�쓬.
        model.addAttribute("blogPost", blogPost);
-       //넣은 내용을 model객체를 통해서 전송
+       //�꽔�� �궡�슜�쓣 model媛앹껜瑜� �넻�빐�꽌 �쟾�넚
        
        return "/blog/updatePost";
     }
@@ -191,16 +193,16 @@ public class BlogController {
 	@RequestMapping(value="/updatePost", method=RequestMethod.POST)
     public String updatePost(@RequestParam("bp_postnum") String bp_postnum, String bp_contents, Model model) throws Exception{
        BlogPostVO blogPost = new BlogPostVO();
-       //blogPost객체. update메소드에는 객체가 들어가야함.(글번호나 글 내용등 객체를 파라미터로)
+       //blogPost媛앹껜. update硫붿냼�뱶�뿉�뒗 媛앹껜媛� �뱾�뼱媛��빞�븿.(湲�踰덊샇�굹 湲� �궡�슜�벑 媛앹껜瑜� �뙆�씪誘명꽣濡�)
        blogPost=service.postDetail(bp_postnum);
-       //글 번호를 파라미터로 포스팅 한 내용을 가져와서 객체에 담음
+       //湲� 踰덊샇瑜� �뙆�씪誘명꽣濡� �룷�뒪�똿 �븳 �궡�슜�쓣 媛��졇���꽌 媛앹껜�뿉 �떞�쓬
        blogPost.setBp_contents(bp_contents);
-       //그 중에 내용을 set메소드로 새로 담음.
+       //洹� 以묒뿉 �궡�슜�쓣 set硫붿냼�뱶濡� �깉濡� �떞�쓬.
        service.updateBlog(blogPost);
-       //새로운 내용이 담긴 객체를 파라미터로 update함
+       //�깉濡쒖슫 �궡�슜�씠 �떞湲� 媛앹껜瑜� �뙆�씪誘명꽣濡� update�븿
        
        String u_id = blogPost.getU_id();
-       //객체에서 u_id를 구해서 String변수에 담음
+       //媛앹껜�뿉�꽌 u_id瑜� 援ы빐�꽌 String蹂��닔�뿉 �떞�쓬
        model.addAttribute("u_id", u_id);
        System.out.println("blogupdate controller out");
        

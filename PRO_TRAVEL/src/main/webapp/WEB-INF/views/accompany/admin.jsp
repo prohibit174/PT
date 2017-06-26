@@ -146,12 +146,16 @@ input[type="submit"]:hover {
 				</form>
 
 				<div class="btns" onclick="searchTrip_plan('L')" style="position: absolute; top: 450px; left: 250px; z-index: 20;">
-					<span class="btn-prev" style="background: white; padding-top: 10px;"><span
-						class="icon-arrow-left"> <span class="hide"
-							onclick="searchTrip_plan(L)">prev</span></span></span> 
-							
- 					<span class="btn-next" style="background: white; padding-top: 10px; margin-left: 571px;">
- <span class="icon-arrow-right"> <span class="hide" onclick="searchTrip_plan(R)">next</span></span></span>
+					<span class="btn-prev" style="background: white; padding-top: 10px;"> 
+						<span class="icon-arrow-left"> 
+						<span class="hide" >prev</span></span>
+					</span>
+				</div>
+				<div class="btns" onclick="searchTrip_plan('R')" style="position: absolute;top: 450px;left: 500px;z-index: 20;right: 0px;width: 400px;">
+					<span class="btn-next" style="background: white;padding-top: 10px;margin-left: 300px;">
+						<span class="icon-arrow-right"> 
+						<span class="hide" onclick="searchTrip_plan()">next</span></span>
+					</span>
 				</div>
 
 				<div id="map" style="margin-top: 0px; left: 30px;"></div>
@@ -204,7 +208,8 @@ input[type="submit"]:hover {
 					<c:set var="userList" value="${IDList.u_id}"></c:set>
 					<script type="text/javascript">
 						userList[userList_index] = "${userList}";
-						console.log(userList[userList_index]);
+						console.log(userList_index + ' : '
+								+ userList[userList_index]);
 						userList_index++;
 					</script>
 				</c:forEach>
@@ -283,50 +288,72 @@ input[type="submit"]:hover {
 							movingPath[movingPathIndex++].setMap(map);
 						}
 					}
+	
 					function searchTrip_plan(str) {
+						console.log(str+' : str');
 						var u_id;
 						var textBoxStr = document
 								.getElementById("Search_User_ID").value;
-
 						if (str == "L") {
 							if (textBoxStr == "") {
 								u_id = userList[0];
-							}
-
-							else
-								for (var i = 0; i < userList.length; i++) {
+							} else {
+								var idIndex = 0;
+								var hasTextValidID = false;
+								for (var i = 0; i <= userList.length; i++) {
 									if (textBoxStr == userList[i]) {
-										if (i == 0) {
-											u_id = userList[i];
-										}
-									} else {
-										u_id = userList[i-1];
+										hasTextValidID = true;
+										idIndex = i;
 									}
-
 								}
-							console.log('id : '+id);
+								if (hasTextValidID == false) {
+									alert('not found ID or not exist Trip_plan on ID In the loop');
+								} else {
+									if (idIndex == 0) {
+										u_id = userList[idIndex];
+										console.log(' if(str == L), u_id 1 : ' + u_id);
+									} else {
+										u_id = userList[idIndex-1];
+										console.log(' if(str == L), u_id 2: ' + u_id);
+									}
+								}
+							}
+							console.log(' if(str == L), u_id 3: ' + u_id);
 							document.getElementById("Search_User_ID").value = u_id;
-						
-						} else if (str == 'R') {
+						}
+
+						if (str == "R") {
 							if (textBoxStr == "") {
 								u_id = userList[0];
-							}
-
-							else
-								for (var i = 0; i < userList.length; i++) {
+							} else {
+								var idIndex = 0;
+								var hasTextValidID = false;
+								for (var i = 0; i <= userList.length; i++) {
 									if (textBoxStr == userList[i]) {
-										if (i == 4) {
-											u_id = userList[userList.length];
-										}
-									} else {
-										u_id = userList[i+	1];
+										hasTextValidID = true;
+										idIndex = i;
+										console.log('idIndex : ' + idIndex +' / '+ 'i : '+i);
 									}
-
 								}
-							console.log('id : '+id);
+								if (hasTextValidID == false) {
+									alert('not found ID or not exist Trip_plan on ID In the loop');
+								} else {
+									console.log(' idIndex' + idIndex +'userList.length : ' +userList.length );
+
+									if (idIndex == userList.length-1) {
+										u_id = userList[userList.length-1];
+										console.log(' if(str == L), u_id 1 : ' + u_id);
+									} else {
+										u_id = userList[idIndex+1];
+										console.log(' if(str == L), u_id 2: ' + u_id);
+									}
+								}
+							}
+							console.log(' if(str == L), u_id 3: ' + u_id);
 							document.getElementById("Search_User_ID").value = u_id;
+						}
 						
-						} else {
+						else {
 							u_id = document.getElementById("Search_User_ID").value;
 						}
 
@@ -352,7 +379,7 @@ input[type="submit"]:hover {
 										"u_id" : u_id
 									},
 									success : function(data) {
-										console.log(parseInt(data.length / 2));
+
 										var sumLat = Number(0);
 										var sumLng = Number(0);
 
@@ -360,13 +387,9 @@ input[type="submit"]:hover {
 											sumLat += Number(data[i].cor_lati);
 											sumLng += Number(data[i].cor_longi);
 										}
-										console.log(sumLat);
-										console.log(sumLng);
+
 										var avgLat = sumLat / data.length;
 										var avgLng = sumLng / data.length;
-
-										console.log(avgLat);
-										console.log(avgLng);
 
 										var center = {
 											lat : avgLat,

@@ -156,6 +156,11 @@ public class ProductDAOImpl implements ProductDAO {
 		return session.selectOne(namespace+".productAll");
 	}
 
+	@Override
+	public List<ProductVO> listProduct3() throws Exception {
+		return session.selectList(namespace+".listProduct3");
+	}
+
 	
 
 	
