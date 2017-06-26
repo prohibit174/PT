@@ -137,23 +137,23 @@ $(function(){
 	            		htmlText += '<div class="th col1"> Number </div>';
 	        				htmlText += '<div class="th col4"> Join </div>';
 	        					htmlText += '<div class="th col4"> Date </div>';
-	        						htmlText += '<div class="th col4"> Place </div>';
+	        						htmlText += '<div class="th col4"> person </div>';
 	        							/*htmlText += '<div class="th col4"> Birth </div>';*/
-	        								htmlText += '<div class="th col4"> ID </div>'; 
+	        								/* htmlText += '<div class="th col4"> ID </div>'; */ 
 	        									htmlText += '<div class="th col4"> Detail </div>';
 	            									htmlText += '</li>';
 	            								
 
 	            	$(data).each(function(){
 	        		htmlText += '<li>';
-	            		htmlText += '<div class="th col1"></div>';
+	            		htmlText += '<div class="th col1">'+data[eachCounter].c_num+'</div>';
 	        				htmlText += '<div class="th col4"><a class="groupJoin" href="#">  Join </a></div>';
-	        					htmlText += '<div class="th col4">'+'</div>';
-	        						htmlText += '<div class="th col4">'+'</div>';
+	        					htmlText += '<div class="th col4">'+data[eachCounter].c_year+"/"+data[eachCounter].c_month+"/"+data[eachCounter].c_date+'</div>';
+	        						htmlText += '<div class="th col4">'+data[eachCounter].c_person+'</div>';
 	        							/*htmlText += '<div class="th col4">'+data[eachCounter].u_birth+'</div>';*/
-	        								htmlText += '<div class="th col4">'+'</div>'; 
+	        								/* htmlText += '<div class="th col4">'+'</div>'; */ 
 	        									htmlText += '<div class="th col4"><a href=""> Detail </a></div>';
-	        										htmlText += '<input type="hidden" class="accomp_group_num" name="accomp_group_num" value="'+data[eachCounter].accomp_group_num+'">';
+	        										htmlText += '<input type="hidden" class="accomp_group_num" name="accomp_group_num" value="'+data[eachCounter].c_num+'">';
 	        											htmlText += '</li>';
 	            		eachCounter++;
 	            	})
@@ -216,7 +216,7 @@ $(function(){
 	<img srcset="${pageContext.request.contextPath}/resources/images/carpool/list.png">
 </div>	
 	
-<form action="/carpool/" method="post" class="ajaxform">
+<form action="/carpool" method="post" class="ajaxform">
 <div class="id-card-box" style="width: 100% ;border: black;">
 	
 			<div class="item-list" style="width: 1400px; padding-right: 30px;">

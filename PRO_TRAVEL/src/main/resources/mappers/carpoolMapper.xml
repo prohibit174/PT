@@ -184,13 +184,13 @@
 	</delete>
 		
 	
-	<select id="searchCarpool"  resultType = "CarpoolRequestUser" >
+	<select id="searchCarpool" resultType ="CarpoolRequestUser" parameterType="CarpoolRequestUser">
 		select * from car_list 
-		where START_POINT =#{start_point} and DEST_POINT =#{dest_point}
-	<!-- 	 or (WAY_POINT = #{start_point} and dest_point = #{dest_point})
-		 or (START_POINT = #{start_point} and way_point =#{dest_point} ) -->
-		
-	
+		where c_year = #{c_year} and c_month = #{c_month} and c_date = #{c_date}
+		 and ((start_point = #{start_point} and dest_point = #{dest_point})
+	 	 or (WAY_POINT = #{start_point} and dest_point = #{dest_point})
+		 or (START_POINT = #{start_point} and way_point =#{dest_point}))
+		 
 	</select>	 
 
 </mapper>	
