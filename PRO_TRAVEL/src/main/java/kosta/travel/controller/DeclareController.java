@@ -92,6 +92,10 @@ public class DeclareController {
 	
 	@RequestMapping(value="/accompany", method=RequestMethod.POST)
 	public String declare_insert2(DeclareVO vo, HttpSession session) throws Exception{
+		String savedName = UploadFile(vo.getImg_file().getOriginalFilename(), vo.getImg_file().getBytes());
+		
+		vo.setD_file(savedName);
+		
 		vo.setD_big("accompany");
 		vo.setU_id((String)session.getAttribute("login"));
 		if(service.d_maxNum() == null){
@@ -103,11 +107,38 @@ public class DeclareController {
 		
 		service.declare_insert(vo);
 		
+		try {
+			//Create Thumbnail image as small size.
+			String pattern = savedName.substring(savedName.lastIndexOf(".") + 1);
+			String headName = savedName.substring(0, savedName.lastIndexOf("."));
+
+			File originalFileNm = new File(uploadPath + "\\" + savedName);
+			File thumbnailFileNm = new File(uploadPath + "\\" + headName + "_small." + pattern);
+
+			int width = 130;
+			int height = 200;
+			// 占쏙옙占쏙옙占� 占싱뱄옙占쏙옙 占쏙옙占쏙옙
+			BufferedImage originalImg = ImageIO.read(originalFileNm);
+			BufferedImage thumbnailImg = new BufferedImage(width, height, BufferedImage.TYPE_3BYTE_BGR);
+			// 占쏙옙占쏙옙占� 占쌓몌옙占쏙옙
+			Graphics2D g = thumbnailImg.createGraphics();
+			g.drawImage(originalImg, 0, 0, width, height, null);
+			// 占쏙옙占싹삼옙占쏙옙
+			ImageIO.write(thumbnailImg, pattern, thumbnailFileNm);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 		return "redirect:/mypage/declare";
 	}
 	
 	@RequestMapping(value="/carpool", method=RequestMethod.POST)
 	public String declare_insert3(DeclareVO vo, HttpSession session) throws Exception{
+		String savedName = UploadFile(vo.getImg_file().getOriginalFilename(), vo.getImg_file().getBytes());
+		
+		vo.setD_file(savedName);
+		
+		
 		vo.setD_big("carpool");
 		vo.setU_id((String)session.getAttribute("login"));
 		if(service.d_maxNum() == null){
@@ -118,6 +149,28 @@ public class DeclareController {
 		}
 		
 		service.declare_insert(vo);
+		
+		try {
+			//Create Thumbnail image as small size.
+			String pattern = savedName.substring(savedName.lastIndexOf(".") + 1);
+			String headName = savedName.substring(0, savedName.lastIndexOf("."));
+
+			File originalFileNm = new File(uploadPath + "\\" + savedName);
+			File thumbnailFileNm = new File(uploadPath + "\\" + headName + "_small." + pattern);
+
+			int width = 130;
+			int height = 200;
+			// 占쏙옙占쏙옙占� 占싱뱄옙占쏙옙 占쏙옙占쏙옙
+			BufferedImage originalImg = ImageIO.read(originalFileNm);
+			BufferedImage thumbnailImg = new BufferedImage(width, height, BufferedImage.TYPE_3BYTE_BGR);
+			// 占쏙옙占쏙옙占� 占쌓몌옙占쏙옙
+			Graphics2D g = thumbnailImg.createGraphics();
+			g.drawImage(originalImg, 0, 0, width, height, null);
+			// 占쏙옙占싹삼옙占쏙옙
+			ImageIO.write(thumbnailImg, pattern, thumbnailFileNm);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		return "redirect:/mypage/declare";
 	}

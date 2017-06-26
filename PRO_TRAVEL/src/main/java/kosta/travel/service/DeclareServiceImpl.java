@@ -57,7 +57,7 @@ public class DeclareServiceImpl implements DeclareService {
 
 	@Override
 	public void reject(Integer d_num) throws Exception {
-		dao.accept(d_num);
+		dao.reject(d_num);
 	}
 
 	@Override

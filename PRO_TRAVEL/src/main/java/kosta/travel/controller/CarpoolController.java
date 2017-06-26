@@ -1,5 +1,6 @@
 package kosta.travel.controller;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -65,9 +66,9 @@ public class CarpoolController {
 	}
 	
 	@RequestMapping(value = "/", method = RequestMethod.POST)
-	public void mainPOST(Model model, CarpoolRequestUser user) throws Exception {
+	public @ResponseBody List<CarpoolRequestUser> mainPOST(Model model, CarpoolRequestUser user, HttpServletResponse response) throws Exception {
 
-		System.out.println("controller in");
+		System.out.println("main controller in");
 		System.out.println(user.getC_hour());
 		
 		int year = Integer.parseInt(user.getC_hour().substring(0, 4));
@@ -80,13 +81,22 @@ public class CarpoolController {
 		user.setC_year(year);
 		user.setC_month(month);
 		user.setC_date(date);
+		System.out.println("start point == "+user.getStart_point());
+		System.out.println("dest point == "+user.getDest_point());
 		
 		/*System.out.println("user vo info === "+user.toString());*/
 
 		/*System.out.println(service.searchCarpool(user));*/
+		List<CarpoolRequestUser> list = new ArrayList<CarpoolRequestUser>();
 		
 		
-		model.addAttribute("search", service.searchCarpool(user));
+		System.out.println("cont =="+service.searchCarpool(user).get(0).toString());
+		list.addAll(service.searchCarpool(user));
+		System.out.println("cont list c_num=="+list.get(0).getC_num());
+		
+		response.reset();
+		
+		return list;
 		
 	}
 
@@ -127,7 +137,7 @@ public class CarpoolController {
 	@RequestMapping(value = "/listAll", method = RequestMethod.POST)
 	public void searchCarpool(Model model, CarpoolRequestUser user) throws Exception {
 
-		System.out.println("controller in");
+		System.out.println("listAll controller in");
 		/*System.out.println(user.getC_hour());*/
 		
 		int year = Integer.parseInt(user.getC_hour().substring(0, 4));

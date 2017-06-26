@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-${vo.d_file}
-<img src="/resources/upload/${vo.d_file}">
+<img src="/resources/upload/${vo.d_file}" width="600" height="400">
 </body>
 </html>
