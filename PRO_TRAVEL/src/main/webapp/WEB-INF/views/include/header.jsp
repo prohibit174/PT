@@ -430,6 +430,6 @@ width:0;
 	</div>
 	</header>
 	</div>
-	<hr class="alt clearboth">
+	<hr class="alt clearboth" style="margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px;" >
 </body>
 </html>
