@@ -154,7 +154,7 @@ jQuery(function($) {
 						<div class="top"></div>
 
 						<h2>
-							<span>1</span>필수 입력사항
+							<span>1</span>Essential Field
 						</h2>
 
 						<div class="clear"></div>
@@ -179,13 +179,13 @@ jQuery(function($) {
 								<div class="left">
 									<table cellpadding="0" cellspacing="0" class="tab">
 										<tr>
-											<td class="label"><label for="u_id">아이디</label></td>
+											<td class="label"><label for="u_id">User ID</label></td>
 											<td class="value"><input type="text"
 												name="u_id"
 												id="u_id" value="" /> &nbsp; <span
 												class="mandatory">*</span> <br>
-											<span>영문소문자 / 숫자, 4~12자</span> <input type="button"
-												id="u_idcheck" value="중복체크">
+											<span>Small Character / Number, 4~12 Character</span> <input type="button"
+												id="u_idcheck" value="Duplication Check">
 												<ul class="errorField">
 												</ul>
 												<font id="idcheck" size="2" color="green"></font>
@@ -196,7 +196,7 @@ jQuery(function($) {
 								<div class="right">
 									<table cellpadding="0" cellspacing="0" class="tab"> -->
 										<tr>
-											<td class="label"><label for="u_pwd">비밀번호</label></td>
+											<td class="label"><label for="u_pwd">Password</label></td>
 											<td class="value"><input type="password"
 												name="u_pwd"
 												id="u_pwd" value=""  data-indicator="pwindicator"/>
@@ -222,7 +222,7 @@ jQuery(function($) {
 										<td></tr> -->
 										
 										<tr>
-											<td class="label"><label for="pwd">비밀번호 확인</label></td>
+											<td class="label"><label for="pwd">Password Check</label></td>
 											<td class="value"><input type="password"
 												name="pwcheck"
 												id="pwcheck" value="" />
@@ -232,7 +232,7 @@ jQuery(function($) {
 										</tr>
 
 										<tr>
-											<td class="label"><label for="name">닉네임</label></td>
+											<td class="label"><label for="name">Nick Name</label></td>
 											<td class="value"><input type="text" name="u_name"
 												id="u_name" value="" /> &nbsp; <span class="mandatory">*</span>
 												<ul class="errorField">
@@ -240,10 +240,10 @@ jQuery(function($) {
 										</tr>
 
 										<tr> 
-											<td>성별</td> 
+											<td>Sex</td> 
 											<td> 
-											<input type="radio" name="u_sex" id="u_sex_m" value="남자"><label for="u_sex_m" class="radioSpan">남자</label> 
-											<input type="radio" name="u_sex" id="u_sex_f" value="여자"> <label for="u_sex_f" class="radioSpan">여자</label> 
+											<input type="radio" name="u_sex" id="u_sex_m" value="Male"><label for="u_sex_m" class="radioSpan">Male</label> 
+											<input type="radio" name="u_sex" id="u_sex_f" value="Female"> <label for="u_sex_f" class="radioSpan">Female</label> 
 											&nbsp; <span class="mandatory">*</span> 
 											</td> 
 											</tr>
@@ -251,12 +251,12 @@ jQuery(function($) {
 										<tr><td></tr>
 
 										<tr>
-											<td class="label"><label for="u_license">운전면허 유무</label></td>
+											<td class="label"><label for="u_license">Driving License</label></td>
 											<td><input type="radio" name="u_license" id="u_license"
-												value="운전면허 소지"><label>유</label> 
+												value="Licensed"><label>Licensed</label> 
 												 <input type="radio"
-												name="u_license" id="u_license" value="운전면허 미소지"> 
-												<label>무</label>
+												name="u_license" id="u_license" value="No License"> 
+												<label>No License</label>
 
 												&nbsp; <span class="mandatory">*</span>
 												<ul class="errorField">
@@ -266,7 +266,7 @@ jQuery(function($) {
 										<tr><td></tr>
 
 										<tr>
-											<td class="label"><label for="lastname">생년월일</label></td>
+											<td class="label"><label for="lastname">Birth Date</label></td>
 											<td class="value"><input type="text" name="u_birth"
 												id="u_birth" value="" /> &nbsp; <span class="mandatory">*</span>
 												<ul class="errorField">
@@ -275,7 +275,7 @@ jQuery(function($) {
 
 
 										<tr>
-											<td class="label"><label for="u_address">거주지역</label></td>
+											<td class="label"><label for="u_address">Address</label></td>
 											<td class="value"><input type="text" name="u_address"
 												id="u_address" value="" /> &nbsp; <span class="mandatory">*</span>
 												<ul class="errorField">
@@ -288,7 +288,7 @@ jQuery(function($) {
 							<div class="clear"></div>
 							<div id="Option_Info">
 								<h2>
-									<span>2</span>선택 입력 사항
+									<span>2</span>Optional Field
 								</h2>
 								<h3>Additional Information</h3>
 
@@ -296,7 +296,7 @@ jQuery(function($) {
 									<table cellpadding="0" cellspacing="0" class="tab">
 
 										<tr>
-											<td class="label"><label for="u_job">직업</label></td>
+											<td class="label"><label for="u_job">Job</label></td>
 											<td class="value"><input type="text"
 												name="u_job"
 												id="u_job" value="" /></td>
@@ -306,14 +306,14 @@ jQuery(function($) {
 								<div class="right">
 									<table cellpadding="0" cellspacing="0" class="tab"> -->
 										<tr>
-											<td class="label"><label for="u_lang">사용언어</label></td>
+											<td class="label"><label for="u_lang">Language</label></td>
 											<td class="value"><input type="text" name="u_lang"
 												id="u_lang" value="" /> &nbsp; 
 												<ul class="errorField">
 												</ul></td>
 										</tr>
 										<tr>
-											<td class="label"><label for="u_religion">종교</label></td>
+											<td class="label"><label for="u_religion">Religion</label></td>
 											<td class="value"><input type="text" name="u_religion"
 												id="u_religion" value="" /> &nbsp;
 												<ul class="errorField">
@@ -322,21 +322,21 @@ jQuery(function($) {
 
 
 										<tr>
-											<td class="label"><label for="u_img">프로필 이미지</label></td>
+											<td class="label"><label for="u_img">Profile Image</label></td>
 											<td class="value"><input type="file" name="img_file"
 												id="u_img" value="" /> &nbsp; 
 												<ul class="errorField">
 												</ul></td>
 										</tr>
 										<tr>
-											<td class="label"><label for="u_style">여행 스타일</label></td>
+											<td class="label"><label for="u_style">Trip Style</label></td>
 											<td class="value">
 											<select name="u_style">
-											<option value="힐링">힐링</option>
-											<option value="관광">관광</option>
-											<option value="맛집">맛집</option>
-											<option value="액티비티">액티비티</option>
-											<option value="휴양">휴양</option>
+											<option value="Healing">Healing</option>
+											<option value="Sight seeing">Sight seeing</option>
+											<option value="Restaurant">Restaurant</option>
+											<option value="Activity">Activity</option>
+											<option value="Relax">Relax</option>
 											
 											</select>
 									
@@ -377,7 +377,7 @@ jQuery(function($) {
 
 								<input type="hidden" name="terms" value="0" /><input
 									type="checkbox" name="law_agree" id="law_agree" value="1" />
-									<a href="terms_conditions">이용약관</a>에 동의합니다.
+									I Accept<a href="terms_conditions">&nbsp; terms and conditions</a>
 									<br><br>
 									<!-- 
 									 I accept
@@ -389,7 +389,7 @@ jQuery(function($) {
 									type="hidden" name="privacy_policy" value="0" />
 									<input type="checkbox" name="privacy_policy" id="privacy_policy"
 									value="1" /> 
-									<a href="privacy_policy">개인정보수집및이용</a>에 동의합니다.
+									I accept<a href="privacy_policy">&nbsp; private policy</a>
 									
 									
 									<!-- I accept the <a target="_blank"

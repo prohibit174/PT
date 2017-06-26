@@ -17,28 +17,28 @@
 				<li><strong class="title"> Package Tour </strong>
 					<div class="slide">
 						<ul>
-							<li><a href="www.hanatour.com/‎">Hana Tour</a></li>
+							<li><a href="https://www.hanatour.com/‎">Hana Tour</a></li>
 							<li><a href="https://www.ybtour.co.kr/">Yellow Balloons Tour</a></li>
 							<li><a href="https://www.redcaptour.com/">Red Cap Tour</a></li>
-							<li><a href="www.naeiltour.co.kr/‎">Naeil Tour</a></li>
+							<li><a href="https://www.naeiltour.co.kr/‎">Naeil Tour</a></li>
 
 						</ul>
 					</div></li>
 				<li><strong class="title"> Tour Tip </strong>
 					<div class="slide">
 						<ul>
-							<li><a href="www.tourtips.com/">Tour Tips</a></li>
+							<li><a href="https://www.tourtips.com/">Tour Tips</a></li>
 							<li><a href="https://www.wishbeen.co.kr/">WishBeen</a></li>
-							<li><a href="www.stubbyplanner.com/index.asp?lang=ko">Stubby Planner</a></li>
+							<li><a href="https://www.stubbyplanner.com/index.asp?lang=ko">Stubby Planner</a></li>
 							<li><a href="https://www.tripadvisor.co.kr/">Trip Advisor</a></li>
 						</ul>
 					</div></li>
 				<li><strong class="title"> Hotel Reservation</strong>
 					<div class="slide">
 						<ul>
-							<li><a href="www.agoda.com/‎">Agoda</a></li>
-							<li><a href="www.expedia.co.kr/‎">Expedia</a></li>
-							<li><a href="www.hotelscombined.co.kr/">Hotels Combine</a></li>
+							<li><a href="https://www.agoda.com/‎">Agoda</a></li>
+							<li><a href="https://www.expedia.co.kr/‎">Expedia</a></li>
+							<li><a href="https://www.hotelscombined.co.kr/">Hotels Combine</a></li>
 							<li><a href="https://www.trivago.co.kr/">Trivago</a></li>
 						</ul>
 					</div></li>
@@ -54,10 +54,10 @@
 				<li><strong class="title"> Prepare Travel As Shopping </strong>
 					<div class="slide">
 						<ul>
-							<li><a href="www.gmarket.co.kr/‎">GMarket</a></li>
-							<li><a href="www.11st.co.kr">11th Street</a></li>
-							<li><a href="www.interpark.com/">InterPark</a></li>
-							<li><a href="www.auction.co.kr">Auction</a></li>
+							<li><a href="https://www.gmarket.co.kr/‎">GMarket</a></li>
+							<li><a href="https://www.11st.co.kr">11th Street</a></li>
+							<li><a href="https://www.interpark.com/">InterPark</a></li>
+							<li><a href="https://www.auction.co.kr">Auction</a></li>
 						</ul>
 					</div></li>
 			</ul>

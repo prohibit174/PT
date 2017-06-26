@@ -55,7 +55,7 @@
 						<div class="top"></div>
 
 						<h2>
-							<span>1</span>필수 입력사항
+							<span>1</span>Essential Field
 						</h2>
 
 						<div class="clear"></div>
@@ -80,7 +80,7 @@
 								<div class="left">
 									<table cellpadding="0" cellspacing="0" class="tab">
 										<tr>
-											<td class="label"><label for="u_id">아이디</label></td>
+											<td class="label"><label for="u_id">User ID</label></td>
 											<td class="value">
 											${user.u_id }
 												<ul class="errorField">
@@ -91,7 +91,7 @@
 								<div class="right">
 									<table cellpadding="0" cellspacing="0" class="tab"> -->
 										<tr>
-											<td class="label"><label for="pwd">비밀번호</label></td>
+											<td class="label"><label for="pwd">Password</label></td>
 											<td class="value"><input type="password"
 												name="u_pwd"
 												id="u_pwd" value="${user.u_pwd }" />
@@ -100,7 +100,7 @@
 												</ul></td>
 										</tr>
 										<tr>
-											<td class="label"><label for="pwd">비밀번호 확인</label></td>
+											<td class="label"><label for="pwd">Password Check</label></td>
 											<td class="value"><input type="password"
 												name="pwcheck"
 												id="pwcheck" value="${user.u_pwd }" />
@@ -110,14 +110,14 @@
 										</tr>
 
 										<tr>
-											<td class="label"><label for="name">닉네임</label></td>
+											<td class="label"><label for="name">Nick Name</label></td>
 											<td class="value">${user.u_name } &nbsp; <span class="mandatory">*</span>
 												<ul class="errorField">
 												</ul></td>
 										</tr>
 
 										<tr> 
-											<td>성별</td> 
+											<td>Sex</td> 
 											<td> 
 											${user.u_sex }&nbsp; <span class="mandatory">*</span> 
 											</td> 
@@ -126,12 +126,12 @@
 										<tr><td></tr>
 
 										<tr>
-											<td class="label"><label for="u_license">운전면허 유무</label></td>
+											<td class="label"><label for="u_license">Driving License</label></td>
 											<td><input type="radio" name="u_license" id="u_license"
-												value="운전면허 소지" checked="checked"><label>유</label> 
+												value="Licensed" checked="checked"><label>Licensed</label> 
 												 <input type="radio"
-												name="u_license" id="u_license" value="운전면허 미소지"> 
-												<label>무</label>
+												name="u_license" id="u_license" value="No License"> 
+												<label>No License</label>
 
 												&nbsp; <span class="mandatory">*</span>
 												<ul class="errorField">
@@ -141,7 +141,7 @@
 										<tr><td></tr>
 
 										<tr>
-											<td class="label"><label for="lastname">생년월일</label></td>
+											<td class="label"><label for="lastname">Birth Date</label></td>
 											<td class="value">${user.u_birth } &nbsp; <span class="mandatory">*</span>
 												<ul class="errorField">
 												</ul></td>
@@ -149,7 +149,7 @@
 
 
 										<tr>
-											<td class="label"><label for="u_address">거주지역</label></td>
+											<td class="label"><label for="u_address">Address</label></td>
 											<td class="value"><input type="text" name="u_address"
 												id="u_address" value="${user.u_address }" /> &nbsp; <span class="mandatory">*</span>
 												<ul class="errorField">
@@ -162,7 +162,7 @@
 							<div class="clear"></div>
 							<div id="Option_Info">
 								<h2>
-									<span>2</span>선택 입력 사항
+									<span>2</span>Optional Field
 								</h2>
 								<h3>Additional Information</h3>
 
@@ -170,21 +170,21 @@
 									<table cellpadding="0" cellspacing="0" class="tab">
 
 										<tr>
-											<td class="label"><label for="u_job">직업</label></td>
+											<td class="label"><label for="u_job">Job</label></td>
 											<td class="value"><input type="text"
 												name="u_job"
 												id="u_job" value="" /></td>
 										</tr>
 							
 										<tr>
-											<td class="label"><label for="u_lang">사용언어</label></td>
+											<td class="label"><label for="u_lang">Language</label></td>
 											<td class="value"><input type="text" name="u_lang"
 												id="u_lang" value="" /> &nbsp; 
 												<ul class="errorField">
 												</ul></td>
 										</tr>
 										<tr>
-											<td class="label"><label for="u_religion">종교</label></td>
+											<td class="label"><label for="u_religion">Religion</label></td>
 											<td class="value"><input type="text" name="u_religion"
 												id="u_religion" value="" /> &nbsp;
 												<ul class="errorField">
@@ -192,14 +192,14 @@
 										</tr>
 
 										<tr>
-											<td class="label"><label for="u_style">여행 스타일</label></td>
+											<td class="label"><label for="u_style">Trip Style</label></td>
 											<td class="value">
 											<select name="u_style">
-											<option value="힐링">힐링</option>
-											<option value="관광">관광</option>
-											<option value="맛집">맛집</option>
-											<option value="액티비티">액티비티</option>
-											<option value="휴양">휴양</option>
+											<option value="Healing">Healing</option>
+											<option value="Sight seeing">Sight seeing</option>
+											<option value="Restaurant">Restaurant</option>
+											<option value="Activity">Activity</option>
+											<option value="Relax">Relax</option>
 											
 											</select>
 							
