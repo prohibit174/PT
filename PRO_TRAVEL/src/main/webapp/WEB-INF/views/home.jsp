@@ -26,7 +26,11 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-
+<style>
+#img_size{
+width:200px;
+height: 250px;}
+</style>
 </head>
 <body onload="startTime()">
 
@@ -615,7 +619,7 @@
 													test="${pattern=='jpg' || pattern =='gif' || pattern =='png'|| pattern =='PNG' }">
 													<!-- <img srcset="resources/upload/${head }_small.${pattern}" alt="img /" style="width:200px; height:250px;> -->
 													<%-- <img src="/resources/upload/${head}${small}.${pattern}"  --%>
-													<img src="/resources/upload/${product.p_img }" style="width:200px; height:250px;">
+													<img src="/resources/upload/${product.p_img }" id="img_size" style="width:200px; height:250px;">
 														
 												</c:when>
 												<c:otherwise>

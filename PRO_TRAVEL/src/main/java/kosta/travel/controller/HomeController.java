@@ -87,9 +87,12 @@ public class HomeController {
 
 		List<BlogVO> blogList = blogService.blogList();
 		model.addAttribute("blogVO", blogList);
-
-		model.addAttribute("list", productService.listProduct());
-
+		
+		
+		List<ProductVO> list = productService.listProduct3();
+		System.out.println("list.size: "+list.size());
+		model.addAttribute("list", list);
+		
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
 		model.addAttribute("pageMaker", pageMaker);

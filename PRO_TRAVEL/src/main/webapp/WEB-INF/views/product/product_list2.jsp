@@ -217,7 +217,7 @@ margin :0;
 													test="${pattern=='jpg' || pattern =='gif' || pattern =='png'|| pattern =='PNG' }">
 													<!-- <img srcset="resources/upload/${head }_small.${pattern}" alt="img /"> -->
 													<%-- <img src="/resources/upload/${head}${small}.${pattern}" --%>
-													<img src="/resources/upload/${product.p_img }"
+													<img src="/resources/upload/${product.p_img }" style="width:200px; height:250px;"
 														alt="img /">
 												</c:when>
 												<c:otherwise>
