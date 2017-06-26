@@ -32,8 +32,8 @@ $(function(){
 	            data: frm.serialize(),
 	            success : function (data) {
 	            	var eachCounter = 0;
-	            	var htmlText = '<section class="results ajax-area" data-tmpl="athleteResults_tmpl">';
-	            	htmlText += '<div class="heading">';
+	            	var htmlText = '<section class="results ajax-area" data-tmpl="athleteResults_tmpl" style="padding-top: 0px;">';
+	            	htmlText += '<div class="heading" style="padding-top: 0px;width: 1300px;">';
 	            	htmlText += '<h2>Group Searching accompanies</h2>';
 	            	htmlText += '</div>';
 	            	htmlText += '<ul class="table2 ajax-content">';
@@ -84,8 +84,8 @@ $(function(){
 		if(ct <= 0){
 			ct ++;
 			$(this).parent('div')
-			.append('<div class="row destination" style="font-size: 20px;">'+
-			'<span class="label" style="margin-right: 80px;">destination</span>'+
+			.append('<div class="row destination" style="font-size: 20px;height: 41px;padding-bottom: 0px;">'+
+			'<span class="label" style="margin-right: 60px;">destination</span>'+
 			'<select class="label ajaxCity" style="margin-top: -5px; width: 150px" name="trav['+
 			ct+
 			'].city"><option class="locationName" style="margin-bottom: 10px">name</option>'+
@@ -95,20 +95,20 @@ $(function(){
 			'<option value="Bern">Bern</option><option value="France">France</option>'+
 			'<option value="Belgium">Belgium</option><option value="Germany">Germany</option>'+
 			'<option value="Swiss" selected="selected">Swiss</option></select>'+
-			'<span class="label" style="margin: 0 40px;">begin</span>'+
+			'<span class="label" style="margin-left: 20px;width: 74px;">begin</span>'+
 			'<input class="datepick label ajaxStart" type="text" name="trav['+
 			ct+
-			'].sdate" value="start" style="margin-top: -5px; padding: 0px; width: 150px;"><span class="label" style="margin: 0 40px;">end</span>'+
+			'].sdate" value="start" style="margin-top: -5px; padding: 0px; width: 150px;"><span class="label" style="margin-left: 20px;margin-right: 13px;width: 50px;">end</span>'+
 			'<input class="datepick label ajaxEnd" type="text"  name="trav['+
 			ct+
 			'].edate" value="end" style="margin-top: -5px; padding: 0px; width: 150px;">'+
 			'<img class="appendcp" src="../resources/images/accompany/plus.png" width="30" height="30" style="margin-top: -5px;">'+
-			'<img class="appendcm" src="../resources/images/accompany/miners.png" width="30" height="30" style="margin-top: -5px;"></div>');
+			'<img class="appendcm" src="../resources/images/accompany/miners.png" width="30" height="30" style="margin-top: -5px;margin-left: 8px;"></div>');
 		}else{
 			ct ++;
 			$('div.destination')
-			.before('<div class="row stops" style="font-size: 20px; padding-bottom: 0px;">'+
-			'<span class="label" style="margin-right: 80px;">stops</span>'+
+			.before('<div class="row stops" style="font-size: 20px;padding-bottom: 0px;height: 40px;">'+
+			'<span class="label" style="width: 70px;margin-right: 90px;margin-left: 0px;">stops</span>'+
 			'<select class="label ajaxCity" style="margin-top: -5px; width: 150px" name="trav['+
 			ct+
 			'].city"><option class="locationName" style="margin-bottom: 10px">name</option>'+
@@ -118,16 +118,16 @@ $(function(){
 			'<option value="Bern">Bern</option><option value="France">France</option>'+
 			'<option value="Belgium">Belgium</option><option value="Germany">Germany</option>'+
 			'<option value="Swiss" selected="selected">Swiss</option></select>'+
-			'<span class="label" style="margin: 0 40px;">begin</span>'+
+			'<span class="label" style="width: 70px;margin-right: 13px;margin-left: 20px;">begin</span>'+
 			'<input class="datepick label ajaxStart" type="text" name="trav['+
 			ct+
 			'].sdate" value="start" style="margin-top: -5px; padding: 0px; width: 150px;">'+
-			'<span class="label" style="margin: 0 40px;">end</span>'+
+			'<span class="label" style="margin-left: 20px;margin-right: 13px;width: 50px;">end</span>'+
 			'<input class="datepick label ajaxEnd" type="text"  name="trav['+
 			ct+
 			'].edate" value="end" style="margin-top: -5px; padding: 0px; width: 150px;">'+
 			'<img class="appendcp" src="../resources/images/accompany/plus.png" width="30" height="30" style="margin-top: -5px;">'+
-			'<img class="appendcm" src="../resources/images/accompany/miners.png" width="30" height="30" style="margin-top: -5px;"></div>');
+			'<img class="appendcm" src="../resources/images/accompany/miners.png" width="30" height="30" style="margin-top: -5px;margin-left: 8px;"></div>');
 		}
 		
 		console.log("plus");
@@ -181,13 +181,15 @@ $(function(){
 <title>Search Group</title>
 </head>
 <body>
-
+<div id="contents" class="city" style="margin-top: -265px;">
+    <div class="conts-container">
+        <div class="present">
+           <div class="tabs-list"> 
 <form action="" method="post" class="ajaxform">
-<div class="id-card-box" style="width: 100% ;border: black;">
 	
-			<div class="item-list" style="width: 1400px; padding-right: 30px;">
+			<div class="item-list" style="width: 1400px;padding-right: 30px;margin-left: 260px;">
 					<div style="font-size: 20px;">
-							<span class="label" style="margin-right: 80px;"  >departure</span>
+							<span class="label" style="margin-right: 60px;">departure</span>
 						 <select class="label ajaxCity" style="margin-top: -5px; width: 150px" name="trav[0].city">
 						<option class="locationName" style="margin-bottom: 10px">name</option>
 						<option value="Zurich">Zurich</option>
@@ -203,15 +205,15 @@ $(function(){
 <option value="Swiss">Swiss</option>
 						</select>
 						
-							<span class="label" style="margin: 0 40px;">begin</span>
+							<span class="label" style="width: 70px;margin-right: 13px;margin-left: 20px;">begin</span>
 						<input class="datepick label ajaxStart" type="text" name="trav[0].sdate" value="start" style="margin-top: -5px; padding: 0px; width: 150px;">
-						<span class="label" style="margin: 0 40px;">end</span>
+						<span class="label" style="margin-left: 20px;margin-right: 13px;width: 50px;">end</span>
 						<input class="datepick label ajaxEnd" type="text" name="trav[0].edate" value="end" style="margin-top: -5px; padding: 0px; width: 150px;">
 							<img class="appendcp" src="../resources/images/accompany/plus.png" width="30" height="30" style="margin-top: -5px;">
 				</div>
-		<div class="accompanyList row">
+		<div class="accompanyList row"	>
 		</div>
-		<div style="padding-left: 45%; float: none;" class="calendar-form">
+		<div style="padding-left: 350px;float: none;padding-bottom: 50px;" class="calendar-form" style="padding-left: 350px;float: none; ">
 		
 		<input class="btn-more ajaxbtn" type="submit" value="search" style="margin-right: 20%; margin-top: 10px; width: 120px; height: 50px; font-size: medium; float: none;" />
 		</div>
@@ -221,6 +223,7 @@ $(function(){
 	
 	</div>
 </form>
-
+</div></div>
+   <%@include file="../include/footer.jsp"%>
 </body>
 </html>
