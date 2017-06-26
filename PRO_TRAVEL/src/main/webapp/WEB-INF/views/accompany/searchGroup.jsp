@@ -189,9 +189,11 @@ $(function(){
 <div id="contents" class="city" style="margin-top: -265px;">
     <div class="conts-container">
         <div class="present">
+        	<h3 style="font-size: x-large;margin-left: 260px;">Group Searching</h3>
+        	<br><br>
            <div class="tabs-list"> 
 <form action="" method="post" class="ajaxform" style="margin-bottom: 130px;">
-	
+		
 			<div class="item-list" style="padding-right: 30px;margin-left: 260px;">
 					<div style="font-size: 20px;">
 							<span class="label" style="margin-right: 60px;">departure</span>

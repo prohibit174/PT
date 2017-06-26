@@ -89,7 +89,7 @@ input[type="submit"]:hover {
             </div> <!-- //tabs-list  -->
      <!--   <div id="carpool_map"></div> -->
      
-       <h2 id="carpool_title" style="margin-top: -80px;margin-left: 150px;padding-left: 105px;border-left-width: 50px;">   My Trip Plan With Recomanding Other traveler</h2>
+       <h2 id="carpool_title" style="margin-top: -80px;margin-left: 150px;padding-left: 105px;border-left-width: 50px; font-size: x-large; ">   My Trip Plan With Recomanding Other traveler</h2>
        <br>
        <div id="map" style="margin-top: 0px; left: 30px;"></div>
     

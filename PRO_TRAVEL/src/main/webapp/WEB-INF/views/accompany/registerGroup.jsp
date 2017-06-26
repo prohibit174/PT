@@ -47,7 +47,7 @@
             </div> <!-- //tabs-list  -->
   	<!--   <div id="carpool_map"></div> -->
   	
-    	<h3 id="carpool_title" style="margin-left: 260px; font-size: large; border-left-width: 50px;">Your Trip Route</h3>
+    	<h3 id="carpool_title" style="margin-left: 260px; font-size: x-large; border-left-width: 50px;">Your Trip Route</h3>
     	<br>
     	<div id="map" style="margin-top: 0px; margin-left: 260px;"></div>
     
