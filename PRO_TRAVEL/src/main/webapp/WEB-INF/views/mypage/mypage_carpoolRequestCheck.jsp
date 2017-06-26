@@ -11,6 +11,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
+<script>
+function detailForm(u_id){
+	 var popupX = (window.screen.width / 2) - (800 / 2);
+	   var popupY= (window.screen.height /2) - (500 / 2);
+	    window.open('about:blank','popup_window','width=350, height=250, left='+popupX+', top='+popupY);
+	    var wantForm = 'detailForm'+u_id;
+	    var frm =document.getElementById(wantForm);
+	    frm.submit(); 
+	}
+
+</script>
+
 <style>
 @CHARSET "EUC-KR";
 .wrapper {
@@ -126,10 +138,19 @@
 
 			<li style="margin-top: 20px">
 			<c:forEach items="${requestList}" var="carpool">
+			 <form id="detailForm${carpool.c_u_id }" name="detailForm${carpool.c_u_id }" method="post" 
+ 				action="/user?u_id=${carpool.c_u_id }" target="popup_window">
+ 				<a onclick = "detailForm(${carpool.c_u_id });">
+ 				
 					<div class="th col-first">
 					 <img src="/resources/upload/${carpool.u_u_img }" width="30" height="30" >
 					 ${carpool.c_u_name }
+					 
 					 </div>
+				</a> 
+				</form>
+				
+				
 					<div class="th col1">${carpool.cr_ox}</div>
 					<div class="th col2">${carpool.c_month }/${carpool.c_date }</div>
 					<div class="th col2">${carpool.c_hour }:${carpool.c_minute }</div>
