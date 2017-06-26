@@ -24,7 +24,7 @@ function content(d_num){
 function fileView(d_num){
 	 var popupX = (window.screen.width / 2) - (800 / 2);
 	   var popupY= (window.screen.height /2) - (500 / 2);
-	    window.open('about:blank','popup_window','width=1000, height=500, left='+popupX+', top='+popupY);
+	    window.open('about:blank','popup_window','width=800, height=600, left='+popupX+', top='+popupY);
 	    var wantForm = 'fileView'+d_num;
 	    var frm =document.getElementById(wantForm);
 	    frm.submit(); 
