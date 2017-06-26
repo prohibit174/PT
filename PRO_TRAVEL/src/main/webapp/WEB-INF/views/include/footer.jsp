@@ -14,60 +14,50 @@
 		<div class="holder">
 			<nav>
 			<ul class="links-boxes">
-				<li><strong class="title"> Olympic Games </strong>
+				<li><strong class="title"> Package Tour </strong>
 					<div class="slide">
 						<ul>
-							<li><a href="/olympic-games">all olympic games</a></li>
-							<li><a href="/summer-games">summer olympics</a></li>
-							<li><a href="/winter-games">winter olympics</a></li>
-							<li><a href="/youth-olympic-games">Youth Olympic Games</a></li>
-							<li><a href="/olympic-results">results</a></li>
+							<li><a href="www.hanatour.com/‎">Hana Tour</a></li>
+							<li><a href="https://www.ybtour.co.kr/">Yellow Balloons Tour</a></li>
+							<li><a href="https://www.redcaptour.com/">Red Cap Tour</a></li>
+							<li><a href="www.naeiltour.co.kr/‎">Naeil Tour</a></li>
 
 						</ul>
 					</div></li>
-				<li><strong class="title"> Media </strong>
+				<li><strong class="title"> Tour Tip </strong>
 					<div class="slide">
 						<ul>
-							<li><a href="/news/media-resources">Media resources</a></li>
-							<li><a href="/news">latest news</a></li>
-							<li><a href="/ioc-event-calendar">key events calendar</a></li>
-							<li><a href="/publications">Publications</a></li>
-							<li><a href="/documents">documents</a></li>
-							<li><a href="http://registration.olympic.org/en/faq"
-								target="_blank">faq</a></li>
+							<li><a href="www.tourtips.com/">Tour Tips</a></li>
+							<li><a href="https://www.wishbeen.co.kr/">WishBeen</a></li>
+							<li><a href="www.stubbyplanner.com/index.asp?lang=ko">Stubby Planner</a></li>
+							<li><a href="https://www.tripadvisor.co.kr/">Trip Advisor</a></li>
 						</ul>
 					</div></li>
-				<li><strong class="title"> behind the games </strong>
+				<li><strong class="title"> Hotel Reservation</strong>
 					<div class="slide">
 						<ul>
-							<li><a href="/olympic-torch-relay">torch relay</a></li>
-							<li><a href="/mascots">mascots</a></li>
-							<li><a href="/olympic-medals">olympic medals</a></li>
-							<li><a href="/ancient-olympic-games">ancient games</a></li>
+							<li><a href="www.agoda.com/‎">Agoda</a></li>
+							<li><a href="www.expedia.co.kr/‎">Expedia</a></li>
+							<li><a href="www.hotelscombined.co.kr/">Hotels Combine</a></li>
+							<li><a href="https://www.trivago.co.kr/">Trivago</a></li>
 						</ul>
 					</div></li>
-				<li><strong class="title"> Programmes </strong>
+				<li><strong class="title"> Required Site </strong>
 					<div class="slide">
 						<ul>
-							<li><a href="/olympic-solidarity">olympic solidarity</a></li>
-							<li><a href="/sport-and-active-society">sport and active
-									society</a></li>
-							<li><a href="/women-in-sport">women in sport</a></li>
-							<li><a href="/sport-for-hope">Sport for Hope</a></li>
-							<li><a href="/olympic-legacy">olympic legacy</a></li>
+							<li><a href="http://www.0404.go.kr/dev/main.mofa">MOFA</a></li>
+							<li><a href="http://www.ftc.go.kr/">KFTC</a></li>
+							<li><a href="https://www.kca.go.kr/index.do">KCA</a></li>
+							<li><a href="https://www.kata.or.kr/index.asp">KATA</a></li>
 						</ul>
 					</div></li>
-				<li><strong class="title"> The IOC </strong>
+				<li><strong class="title"> Prepare Travel As Shopping </strong>
 					<div class="slide">
 						<ul>
-							<li><a href="/about-ioc-institution">The Organisation</a></li>
-							<li><a href="/olympic-agenda-2020">Olympic agenda 2020</a></li>
-							<li><a href="/sponsors">Sponsors</a></li>
-							<li><a href="/jobs">Jobs at the IOC</a></li>
-							<li><a href="/olympic-studies-centre">Olympic Studies
-									Centre</a></li>
-							<li><a href="http://library.olympic.org" target="_blank">Olympic
-									World Library</a></li>
+							<li><a href="www.gmarket.co.kr/‎">GMarket</a></li>
+							<li><a href="www.11st.co.kr">11th Street</a></li>
+							<li><a href="www.interpark.com/">InterPark</a></li>
+							<li><a href="www.auction.co.kr">Auction</a></li>
 						</ul>
 					</div></li>
 			</ul>
