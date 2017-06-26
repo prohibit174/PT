@@ -272,27 +272,27 @@ public class AccompanyService {
 				boolean loopTest = true;
 				
 				while (loopTest) {
-					 System.out.println(dates); 
+//					 System.out.println(dates); 
 
 					if (switchh == 1) {
 						loopTest = false;
-						System.out.println("반복 중단 입력");
+//						System.out.println("반복 중단 입력");
 					}
 					
 					RouteVO route = new RouteVO("", search.getCity(), search.getU_id(), dates);
 					GroupVO groups = null;
 					groups = dao.searchGroupList(route);
 					
-					System.out.println("dao.searchGroupList(route) == " + dao.searchGroupList(route));
+//					System.out.println("dao.searchGroupList(route) == " + dao.searchGroupList(route));
 					
-					System.out.println("1");
+//					System.out.println("1");
 					if (sdate.getTimeInMillis() == edate.getTimeInMillis()) {
-						System.out.println("2");
+//						System.out.println("2");
 						switchh = 1;
-					System.out.println("AccompanyService.java 반복 중단 준비");
+//					System.out.println("AccompanyService.java 반복 중단 준비");
 					}
 					
-					System.out.println("3");
+//					System.out.println("3");
 					
 					if (groups == null) {
 						sdate.add(Calendar.DATE, 1);
@@ -304,16 +304,16 @@ public class AccompanyService {
 						
 						groups.setTp_date(substr);
 						
-						System.out.println("4");
+//						System.out.println("4");
 						allgroups.add(groups);
-						System.out.println("5");
+//						System.out.println("5");
 						}
 					sdate.add(Calendar.DATE, 1);
 					dates = fmt.format(sdate.getTime());
-					System.out.println("6");
+//					System.out.println("6");
 				
 				}
-				System.out.println("allgroups size == "+allgroups.size());
+//				System.out.println("allgroups size == "+allgroups.size());
 				return allgroups;
 			}
 		}
