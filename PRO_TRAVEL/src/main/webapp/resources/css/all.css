@@ -1,7 +1,8 @@
-/* 3048line
-.table2 .td {
-    padding-top: 28px;
-    padding-bottom: 13px; }  */
+/*  3035line
+  .table2 .col1.td {
+      padding-top: 28px;
+      padding-bottom: 13px;
+       } */
 
 html {
   box-sizing: border-box; }
@@ -3036,8 +3037,8 @@ hr.alt + .related-posts {
     width: 5%;
      }
     .table2 .col1.td {
-      padding-top: 16px;
-      padding-bottom: 16px;
+      padding-top: 28px;
+      padding-bottom: 13px;
        }
     .table2 .col1 > a {
       display: inline-block;
@@ -3049,8 +3050,8 @@ hr.alt + .related-posts {
   .table2 .col2 {
     width: 30%; }
   .table2 .td {
-    padding-top: 16px;
-    padding-bottom: 16px; }
+    padding-top: 28px;
+    padding-bottom: 13px; }
   .table2 .col3 {
     width: 100px;
     color: #999; }

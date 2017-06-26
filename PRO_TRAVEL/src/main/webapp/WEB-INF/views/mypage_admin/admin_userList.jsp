@@ -35,7 +35,20 @@
     font-weight: bold;
     line-height: 2em; 
     background: white;}
- 
+   /*  .btn-more input {
+      color: #494949;
+      border-color: #494949; } 
+  .photovideo .btn-more a, .photovideo .btn-more-ext a {
+    color: #fff;
+    border-color: #fff; }
+    .photovideo .btn-more a:hover, .photovideo .btn-more-ext a:hover {
+      color: #bbb;
+      border-color: #bbb; }
+  .btn-more.white input, .btn-more-ext.white a {
+    color: #fff;
+    border-color: #fff; }
+  .btn-more .empty-load, .btn-more-ext .empty-load {
+    display: none; }*/
     
     input{
     color : #959595}
@@ -103,33 +116,31 @@
 					</a>
 				</div>--%>
 				
-				<ol class="td col1">
-					<!-- <div class="id"> --><a href = "/userDetail?u_id=${user_ListVO.u_id }">
+				<div class="td col1">
+					<div class="id"><a href = "/userDetail?u_id=${user_ListVO.u_id }">
 					${user_ListVO.u_id }
 					</a>
-					<!-- </div> -->
-				</ol>
+					</div>
+				</div>
 				
 				<div class="td col1"></div>
 				
-				<ol class="td col2">
-					<!-- <div class="name"> -->${user_ListVO.u_name }<!-- </div> -->
-				</ol>
+				<div class="td col2">
+					<div class="name">${user_ListVO.u_name }</div>
+				</div>
 
 				<div class="td col2">
 					<div class="license">${user_ListVO.u_status }</div>
 				</div>
 
 
-				<div class="td col1">
+				<div class="td col1" style="padding-top: 0px;">
 
-					<div class="status">
-					
-						
+					<!-- <div class="status"> -->
 						<span class="btn-more" >
-						<input type="button" value = "경고" id="yellowCard" onclick="yellowCard_click('${user_ListVO.u_id }')" style="cursor: pointer;">
+						<input type="button" value = "경고" id="yellowCard" onclick="yellowCard_click('${user_ListVO.u_id }')">
 						</span>
-					</div>
+					<!-- </div> -->
 				</div>
 
 				

@@ -125,7 +125,7 @@ width:0;
    href="https://stillres.olympic.org/css/modules.css" />
 
 
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/all.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/all.css?version=20170626">
 
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/button.css">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> 
