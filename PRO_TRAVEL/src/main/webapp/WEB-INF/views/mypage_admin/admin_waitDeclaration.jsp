@@ -12,6 +12,24 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
+function content(d_num){
+	 var popupX = (window.screen.width / 2) - (800 / 2);
+	   var popupY= (window.screen.height /2) - (500 / 2);
+	    window.open('about:blank','popup_window','width=350, height=250, left='+popupX+', top='+popupY);
+	    var wantForm = 'content'+d_num;
+	    var frm =document.getElementById(wantForm);
+	    frm.submit(); 
+	}
+	
+function fileView(d_num){
+	 var popupX = (window.screen.width / 2) - (800 / 2);
+	   var popupY= (window.screen.height /2) - (500 / 2);
+	    window.open('about:blank','popup_window','width=618, height=418, left='+popupX+', top='+popupY);
+	    var wantForm = 'fileView'+d_num;
+	    var frm =document.getElementById(wantForm);
+	    frm.submit(); 
+	}
+
 function acceptLink(URL){
 	if(confirm("Would you accept it?") == true){
 		location.href=URL;
@@ -135,7 +153,7 @@ function rejectLink(URL){
 		<ul class="table2 ajax-content">
 			<li >
 				<div class="th col-first">REPORTER</div>
-				<div class="th col1">REPORTED</div>
+				<div class="th col1">CONTENT</div>
 				<div class="th col2">SECTION</div>
 				<div class="th col2">FILE</div>
 				<div class="th col3"></div>
@@ -147,10 +165,22 @@ function rejectLink(URL){
 			<li style="margin-top: 20px">
 			<c:forEach items="${waitList}" var="waitList">
 					<div class="th col-first"> ${waitList.u_id }</div>
-					<div class="th col1">${waitList.d_reported }</div>
+					
+					<form id="content${waitList.d_num }" name="content${waitList.d_num }" method="post" 
+ 						action="/detailContent?d_num=${waitList.d_num }" target="popup_window">
+ 					<a onclick = "content(${waitList.d_num });">
+					<div class="th col1">Click</div>
+					</a>
+					</form>
+					
 					<div class="th col2">${waitList.d_small }</div>
+					<form id="fileView${waitList.d_num }" name="fileView${waitList.d_num }" method="post" 
+ 						action="/fileview?d_num=${waitList.d_num }" target="popup_window">	
+ 					<a onclick = "fileView(${waitList.d_num });">
 					<div class="th col2">${waitList.d_file }</div>
+					</a>
 					<div class="th col3"></div>
+					</form>
 					<div class="th col5">
 			<input type="button" value="OK" onclick="javascript:acceptLink('/accept?d_num=${waitList.d_num}')">
 			<input type="button" value="NOT" onclick="javascript:rejectLink('/reject?d_num=${waitList.d_num}')">
