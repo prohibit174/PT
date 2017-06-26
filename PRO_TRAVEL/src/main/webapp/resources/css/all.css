@@ -1,4 +1,8 @@
-
+/*  3035line
+  .table2 .col1.td {
+      padding-top: 28px;
+      padding-bottom: 13px;
+       } */
 
 html {
   box-sizing: border-box; }
@@ -3033,8 +3037,8 @@ hr.alt + .related-posts {
     width: 5%;
      }
     .table2 .col1.td {
-      padding-top: 16px;
-      padding-bottom: 16px;
+      padding-top: 28px;
+      padding-bottom: 13px;
        }
     .table2 .col1 > a {
       display: inline-block;

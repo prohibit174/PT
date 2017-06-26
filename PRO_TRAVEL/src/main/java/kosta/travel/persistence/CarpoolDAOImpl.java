@@ -143,8 +143,8 @@ public class CarpoolDAOImpl implements CarpoolDAO {
 
 	@Override
 	public List<CarpoolRequestUser> searchCarpool(CarpoolRequestUser user) throws Exception {
-		System.out.println("dao one select ==="+ session.selectOne(namespace+".searchCarpool", user));
-		
+		/*System.out.println("dao one select ==="+ session.selectOne(namespace+".searchCarpool", user).toString());*/
+		/*System.out.println(session.selectList(namespace+".searchCarpool", user).get(0).toString());*/
 		return session.selectList(namespace+".searchCarpool", user);
 	}
 

@@ -602,39 +602,39 @@ height: 250px;}
       
       <div class="" data-tmpl="photoItem_tmpl">
          <div class="Collage effect-parent images ajax-content">
- 				<c:forEach var="product" items="${list}">
-								<li><a
-									href="/product/product_detail${pageMaker.makeSearch(pageMaker.cri.page) }&p_num=${product.p_num }"
-								> 
-										<picture id="img_size"> <c:if
-											test="${product.p_img!=null}">
-											<c:set var="head"
-												value="${fn:substring(product.p_img, 0, fn:length(product.p_img)-4) }"></c:set>
-											<c:set var="pattern"
-												value="${fn:substring(product.p_img, fn:length(head)+1, fn:length(product.p_img)) }"></c:set>
-											<c:set var="small" value="_small"></c:set>
+             <c:forEach var="product" items="${list}">
+                        <li><a
+                           href="/product/product_detail${pageMaker.makeSearch(pageMaker.cri.page) }&p_num=${product.p_num }"
+                        > 
+                              <picture id="img_size"> <c:if
+                                 test="${product.p_img!=null}">
+                                 <c:set var="head"
+                                    value="${fn:substring(product.p_img, 0, fn:length(product.p_img)-4) }"></c:set>
+                                 <c:set var="pattern"
+                                    value="${fn:substring(product.p_img, fn:length(head)+1, fn:length(product.p_img)) }"></c:set>
+                                 <c:set var="small" value="_small"></c:set>
 
-											<c:choose>
-												<c:when
-													test="${pattern=='jpg' || pattern =='gif' || pattern =='png'|| pattern =='PNG' }">
-													<!-- <img srcset="resources/upload/${head }_small.${pattern}" alt="img /" style="width:200px; height:250px;> -->
-													<%-- <img src="/resources/upload/${head}${small}.${pattern}"  --%>
-													<img src="/resources/upload/${product.p_img }" id="img_size" style="width:200px; height:250px;">
-														
-												</c:when>
-												<c:otherwise>
-													<c:out value="No IMAGE"></c:out>
-												</c:otherwise>
-											</c:choose>
-										</c:if> <%-- <img srcset="${product.p_img}"> --%> </picture>
-								</a>
-									<h2 itemprop="name">
+                                 <c:choose>
+                                    <c:when
+                                       test="${pattern=='jpg' || pattern =='gif' || pattern =='png'|| pattern =='PNG' }">
+                                       <!-- <img srcset="resources/upload/${head }_small.${pattern}" alt="img /" style="width:200px; height:250px;> -->
+                                       <%-- <img src="/resources/upload/${head}${small}.${pattern}"  --%>
+                                       <img src="/resources/upload/${product.p_img }" id="img_size" style="width:200px; height:250px;">
+                                          
+                                    </c:when>
+                                    <c:otherwise>
+                                       <c:out value="No IMAGE"></c:out>
+                                    </c:otherwise>
+                                 </c:choose>
+                              </c:if> <%-- <img srcset="${product.p_img}"> --%> </picture>
+                        </a>
+                           <h2 itemprop="name">
 
-										<a href="/product/product_detail${pageMaker.makeSearch(pageMaker.cri.page) }&p_num=${product.p_num }""
-											itemprop="url" style="color: DarkSlateGray";>${product.p_name }</a>
+                              <a href="/product/product_detail${pageMaker.makeSearch(pageMaker.cri.page) }&p_num=${product.p_num }""
+                                 itemprop="url" style="color: DarkSlateGray";>${product.p_name }</a>
 
-									</h2> <span>판매자: ${product.u_id }</span></li>
-							</c:forEach>
+                           </h2> <span>판매자: ${product.u_id }</span></li>
+                     </c:forEach>
 
 
 

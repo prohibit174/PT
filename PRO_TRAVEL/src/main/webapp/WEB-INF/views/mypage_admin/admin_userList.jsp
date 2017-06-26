@@ -134,15 +134,13 @@
 				</div>
 
 
-				<div class="td col1">
+				<div class="td col1" style="padding-top: 0px;">
 
-					<div class="status">
-					
-						
+					<!-- <div class="status"> -->
 						<span class="btn-more" >
-						<input type="button" value = "경고" id="yellowCard" onclick="yellowCard_click('${user_ListVO.u_id }')" style="cursor: pointer;">
+						<input type="button" value = "경고" id="yellowCard" onclick="yellowCard_click('${user_ListVO.u_id }')">
 						</span>
-					</div>
+					<!-- </div> -->
 				</div>
 
 				

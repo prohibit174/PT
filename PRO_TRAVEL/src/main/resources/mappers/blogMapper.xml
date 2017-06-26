@@ -46,6 +46,7 @@
 	   ]]>
 	</select>
 
+
 	<update id="updateBlog">
 		UPDATE blogpost SET bp_contents = #{bp_contents}
 		WHERE bp_postnum = #{bp_postnum}

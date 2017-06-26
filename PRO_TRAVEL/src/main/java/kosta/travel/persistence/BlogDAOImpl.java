@@ -4,11 +4,13 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import kosta.travel.domain.BlogPostVO;
 import kosta.travel.domain.BlogVO;
+import kosta.travel.domain.Criteria;
 
 @Repository
 public class BlogDAOImpl implements BlogDAO {
