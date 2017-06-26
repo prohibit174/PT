@@ -73,6 +73,7 @@ input[type="submit"]:hover {
   background-color: #0081c8;
   color: #fff; }
     
+    
     </style>
 
 </head>
@@ -80,6 +81,10 @@ input[type="submit"]:hover {
 <body>
 <%@include file="../include/accompany_sidebar.jsp" %>
               <script>
+              
+              document.styleSheets[0].addRule('.col4', 'float: left !important;');
+              document.styleSheets[1].addRule('.th', 'text-align: center;');
+              
        var marker =[];
        latLngList = [];
        var allEvent=[];
@@ -105,7 +110,9 @@ input[type="submit"]:hover {
     	  console.log('id : ' +i);
       }
          </script>
-<c:forEach var="cordinates" items="${getCordinates}">
+         
+         
+ <c:forEach var="cordinates" items="${getCordinates}">
 
                <c:set var="cor_name" value="${cordinates.cor_region}"></c:set>
                <c:set var="cor_longi" value="${cordinates.cor_longi}"></c:set>
@@ -137,12 +144,16 @@ input[type="submit"]:hover {
                        zoom : 4,
                        center : center
                     });
-                    for(var i=0; i<cor_index;i++){//making marker
+                    
+                    
+                     for(var i=0; i<cor_index;i++){//making marker
                        var latlng = {
                              lat : Number(cor_lati[i]),
                              lng : Number(cor_longi[i])
                           };
 
+                          
+                          
                        marker[i] = new google.maps.Marker({
                        position : latlng,
                        map : map,
@@ -192,7 +203,9 @@ input[type="submit"]:hover {
                          }
                             
                          });
-                
+                      
+                      
+                      
                 for(i=0;i<marker.length;i++)
                {
                   marker[i].addListener('click', function() {
@@ -328,23 +341,23 @@ input[type="submit"]:hover {
 </div>
  -->
 <form action="/accompany/cal" method="post" role="form" class="ajaxform">
-<div class="id-card-box" style="width: 100%;border: black;margin-left: 235px;">
+<div class="id-card-box" style="width: 70%;border: black;margin-left: 235px;">
 
          <div class="item-list" style="width: 1400px; padding-right: 30px;">
                <div style="font-size: 20px;">
                      <span class="label" style="margin-right: 80px;"  >departure</span>
 
-                  <input class="label ajaxCity" type="text" onclick="textClick(0)" name="trav[0].city" id="trav[0].city" value="" style="margin-top: -5px; padding: 0px; width: 150px;">
+                  <input class="label ajaxCity" type="text" onclick="textClick(0)" name="trav[0].city" id="trav[0].city" value="France" style="margin-top: -5px; padding: 0px; width: 150px;">
                   
-                  <span class="label" style="margin: 0 40px;">begin</span>
+                  <span class="label" style="margin: 0 0px;">begin</span>
                   <input class="datepick label ajaxStart" type="text" name="trav[0].sdate" value="start" style="margin-top: -5px; padding: 0px; width: 150px;">
-                  <span class="label" style="margin: 0 40px;">end</span>
+                  <span class="label" style="margin: 0 0px;">end</span>
                   <input class="datepick label ajaxEnd" type="text" name="trav[0].edate" value="end" style="margin-top: -5px; padding: 0px; width: 150px;">
                      <img class="appendcp" src="../resources/images/accompany/plus.png" width="30" height="30" style="margin-top: -5px;">
             </div>
       <div class="accompanyList row">
       </div>
-      <div style="padding-left: 45%; float: none;" class="calendar-form">
+      <div style="padding-left: 400px; float: none;" class="calendar-form">
       
       <input class="btn-more ajaxbtn" type="submit" value="search" style="margin-right: 20%; margin-top: 10px; width: 120px; height: 50px; font-size: medium; float: none;" />
       </div>
@@ -377,10 +390,10 @@ var ct = 0;
       '].city" name="trav['+
       ct+
       '].city" onclick="textClick('+ct+')" value="" style="margin-top: -5px; padding: 0px; width: 150px;">'+
-      '<span class="label" style="margin: 0 40px;">begin</span>'+
+      '<span class="label" style="margin: 0 0px;">begin</span>'+
       '<input class="datepick label ajaxStart" type="text" name="trav['+
       ct+
-      '].sdate" value="start" style="margin-top: -5px; padding: 0px; width: 150px;"><span class="label" style="margin: 0 40px;">end</span>'+
+      '].sdate" value="start" style="margin-top: -5px; padding: 0px; width: 150px;"><span class="label" style="margin: 0 0px;">end</span>'+
       '<input class="datepick label ajaxEnd" type="text"  name="trav['+
       ct+
       '].edate" value="end" style="margin-top: -5px; padding: 0px; width: 150px;">'+
@@ -394,11 +407,11 @@ var ct = 0;
    '<input class="label ajaxCity" type="text" id="trav['+
    ct+'].city" name="trav['+ ct+
    '].city" onclick="textClick('+ct+')" value="" style="margin-top: -5px; padding: 0px; width: 150px;">'+
-   '<span class="label" style="margin: 0 40px;">begin</span>'+
+   '<span class="label" style="margin: 0 0px;">begin</span>'+
    '<input class="datepick label ajaxStart" type="text" name="trav['+
    ct+
    '].sdate" value="start" style="margin-top: -5px; padding: 0px; width: 150px;">'+
-   '<span class="label" style="margin: 0 40px;">end</span>'+
+   '<span class="label" style="margin: 0 0px;">end</span>'+
    '<input class="datepick label ajaxEnd" type="text"  name="trav['+
    ct+
    '].edate" value="end" style="margin-top: -5px; padding: 0px; width: 150px;">'+
@@ -444,25 +457,25 @@ $('body').on('focus','.datepick', function(){
                htmlText += '<ul class="table2 ajax-content">';
                htmlText += '<li>';
                   htmlText += '<div class="th col1"> Number </div>';
-                    htmlText += '<div class="th col4"> Join </div>';
+                  	htmlText += '<div class="th col3"> Profile </div>';
                        htmlText += '<div class="th col4"> Date </div>';
                           htmlText += '<div class="th col4"> Place </div>';
-                             htmlText += '<div class="th col4"> Birth </div>';
-                                htmlText += '<div class="th col4"> Name </div>'; 
-                                   htmlText += '<div class="th col4"> Profile </div>';
+                             htmlText += '<div class="th col3"> Birth </div>';
+                                htmlText += '<div class="th col3"> Name </div>'; 
+                                  	htmlText += '<div class="th col3"> Join </div>';
                                        htmlText += '</li>';
                                     
 
                $(data).each(function(){
               htmlText += '<li>';
                   htmlText += '<div class="th col1">'+(eachCounter+1)+'</div>';
-                    htmlText += '<div class="th col4"><a href=""> Join </a></div>';
+                  	htmlText += '<div class="th col3"><a href=""> Profile </a></div>';
                        htmlText += '<div class="th col4">'+data[eachCounter].tp_date+'</div>';
                           htmlText += '<div class="th col4">'+data[eachCounter].cor_region+'</div>';
-                             htmlText += '<div class="th col4">'+data[eachCounter].u_birth+'</div>';
-                                htmlText += '<div class="th col4">'+data[eachCounter].u_name+'</div>'; 
-                                   htmlText += '<div class="th col4"><a href=""> Profile </a></div>';
-                                       htmlText += '</li>';
+                             htmlText += '<div class="th col3">'+data[eachCounter].u_birth+'</div>';
+                                htmlText += '<div class="th col3">'+data[eachCounter].u_name+'</div>'; 
+                                   	htmlText += '<div class="th col3"><a href=""> Join </a></div>';
+                                  	 htmlText += '</li>';
                   eachCounter++;
                })
                   htmlText += '</ul>';

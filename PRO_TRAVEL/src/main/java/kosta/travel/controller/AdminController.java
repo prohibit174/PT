@@ -176,5 +176,22 @@ public class AdminController {
 		return "redirect:/rejectDeclareList";
 	}
 	
+	@RequestMapping(value = "/detailContent", method = RequestMethod.POST)
+	public String detailContent(Model model, @RequestParam("d_num")  int d_num) throws Exception {
+		DeclareVO vo = declareService.detailDeclare(d_num);
+		model.addAttribute("vo", vo);
+	
+		return "/mypage_admin/admin_popupContentDeclaration";
+	}
+	
+	@RequestMapping(value = "/fileview", method = RequestMethod.POST)
+	public String fileview(Model model, @RequestParam("d_num")  int d_num) throws Exception {
+		DeclareVO vo = declareService.detailDeclare(d_num);
+		model.addAttribute("vo", vo);
+	
+		return "/mypage_admin/admin_popupFileDeclaration";
+	}
+	
+
 	
 }

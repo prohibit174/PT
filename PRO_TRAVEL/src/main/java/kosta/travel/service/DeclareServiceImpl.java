@@ -60,5 +60,10 @@ public class DeclareServiceImpl implements DeclareService {
 		dao.accept(d_num);
 	}
 
+	@Override
+	public DeclareVO detailDeclare(Integer d_num) throws Exception {
+		return dao.detailDeclare(d_num);
+	}
+
 
 }

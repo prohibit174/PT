@@ -10,14 +10,14 @@ $(function(){
 			data : $("#u_id").serialize(),
 			success : function(data){
 				if(data>0){
-					alert("사용중인 아이디 입니다")
+					alert("Duplicated ID")
 				}else if($("#u_id").val().length<5 || $("#u_id").val().length>12){
-					alert('아이디는 4~12자로 등록해주세요.');
+					alert('Make ID from 4 to 12 length.');
 				}else if(!$("#u_id").val().match(regexp)){
-					alert('아이디는 알파벳 소문자, 숫자로 구성됩니다.');
+					alert('Make ID with small character and number.');
 				}else{
 					$('#idcheck').text(''); 
-					$('#idcheck').html('사용가능한 아이디 입니다.'); 
+					$('#idcheck').html('Available ID.'); 
 				}
 			}
 		

@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>    
 <%@ include file="/WEB-INF/views/include/header.jsp" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -328,8 +329,6 @@ cursor: pointer;
         
          <form id="detailForm${listMessage.m_num}" name="detailForm${listMessage.m_num }" method="post" action="/message/detail_message?m_num=${listMessage.m_num}" target="popup_window">
           <div>
-              <!-- <a href="#test-form" class="btn-calendar" id="write_message">답장 하기</a> -->
-           
             <button class="write_message" style="float: right;" onclick="detailForm(${listMessage.m_num});">CONFIRM</button>
               <label style="float: right; padding-top: 5px;">${listMessage.m_category }&nbsp&nbsp&nbsp</label>
               <span class="country"></span>

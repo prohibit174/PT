@@ -133,4 +133,9 @@ public class ProductServiceImpl implements ProductService {
 		return dao.productAll();
 	}
 
+	@Override
+	public List<ProductVO> listProduct3() throws Exception {
+		return dao.listProduct3();
+	}
+
 }

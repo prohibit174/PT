@@ -62,4 +62,9 @@ public class DeclareDAOImpl implements DeclareDAO {
 		session.update(namespace+".reject", d_num);	
 	}
 
+	@Override
+	public DeclareVO detailDeclare(Integer d_num) throws Exception {
+		return session.selectOne(namespace+".detailDeclare", d_num);
+	}
+
 }

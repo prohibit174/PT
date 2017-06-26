@@ -264,6 +264,7 @@ $(function(){
 		
 		</div>
 			<div style="padding-left: 45%; float: none;" class="calendar-form">
+			
 		<input class="btn-more ajaxbtn" type="submit" value="search" style="margin-right: 20%; margin-top: 10px; width: 120px; height: 50px; font-size: medium; float: none;" />
 		</div>
 		</div>

@@ -23,4 +23,6 @@ public interface DeclareService {
 	public void accept(Integer d_num)throws Exception;
 	
 	public void reject(Integer d_num)throws Exception;
+	
+	public DeclareVO detailDeclare(Integer d_num) throws Exception;
 }
