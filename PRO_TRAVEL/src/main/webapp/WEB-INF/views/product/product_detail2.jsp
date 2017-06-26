@@ -87,21 +87,21 @@
   
 	function btn_js_update_click(){
   	  /* confirm(문자열, 초기값) */
-  	  var check = confirm("수정하시겠습니까?");
+  	  var check = confirm("Would you like to edit it?");
   	  /* if(check == true) else false */
   	  if(check) document.location.href="product_update?p_num=${product.p_num}";
   	}
  
 	function btn_js_delete_click(){
     	  /* confirm(문자열, 초기값) */
-    	  var check = confirm("삭제하시겠습니까?");
+    	  var check = confirm("Would you like to delete it?");
     	  /* if(check == true) else false */
     	  if(check) document.location.href="product_delete?p_num=${product.p_num}";
     	}
 
 	function btn_js_request_click(){
   	  /* confirm(문자열, 초기값) */
-  	  var check = confirm("요청하시겠습니까?");
+  	  var check = confirm("Would you like to request it?");
   	  /* if(check == true) else false */
   	  if(check) document.location.href="productReq_register?p_num=${product.p_num}";
   	  
@@ -184,12 +184,12 @@ $(document).ready(function(){
 			<div class="item-list">
 				<div style="display: block;" class="slide">
 					<div class="row">
-						<span class="label">판매자</span>
+						<span class="label">Seller</span>
 						<div class="txt">${product.u_id}</div>
 					</div>
 
 					<div class="row">
-						<span class="label">상품명</span>
+						<span class="label">Product Name</span>
 						<div class="txt" itemprop="streetAddress">
 							<address>
 								${product.p_name}
@@ -197,22 +197,22 @@ $(document).ready(function(){
 						</div>
 					</div>
 					<div class="row">
-						<span class="label">가격</span>
+						<span class="label">Price</span>
 						<div class="txt" itemprop="telephone">${product.p_price}</div>
 					</div>
 					<div class="row">
-						<span class="label">판매기간</span>
+						<span class="label">Sales Period </span>
 						<div class="txt" itemprop="faxNumber">${product.p_date}</div>
 					</div>
 					<div class="row">
-						<span class="label">판매여부</span>
+						<span class="label">Sales Status</span>
 						<div class="txt">
 
 							<a href="http://www.olympics.bm" target="_blank" itemprop="url">${product.p_ox}</a>
 						</div>
 					</div>
 					<div class="row">
-						<span class="label">내용</span>
+						<span class="label">Content</span>
 						<div class="txt">
 							<a href="mailto:olympics@ibl.bm" itemprop="email">${product.p_detail}</a>
 						</div>

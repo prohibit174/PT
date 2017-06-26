@@ -231,7 +231,7 @@ margin :0;
 										<a href="/product/product_detail${pageMaker.makeSearch(pageMaker.cri.page) }&p_num=${product.p_num }""
 											itemprop="url" style="color: DarkSlateGray";>${product.p_name }</a>
 
-									</h2> <span>판매자: ${product.u_id }</span></li>
+									</h2> <span>Seller: ${product.u_id }</span></li>
 							</c:forEach>
 						</ul>
 						<span class="btn-more"> <a
@@ -353,7 +353,7 @@ margin :0;
 	var result = '${msg}';
 
 	if (result == 'SUCCESS') {
-		alert("처리가 완료되었습니다.");
+		alert("The goods have been registered.");
 		location.replace(self.location);
 	}
 </script>

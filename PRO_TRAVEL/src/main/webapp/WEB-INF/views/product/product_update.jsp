@@ -167,8 +167,8 @@
 }
 </style>
 
-<button type="submit" class="btn btn-primary">수정</button>
-<button type="submit" class="btn btn-warning">취소</button>
+<button type="submit" class="btn btn-primary">Modify</button>
+<button type="submit" class="btn btn-warning">Cancel</button>
                      
                      <div class="clear"></div>
                      
