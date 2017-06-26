@@ -13,22 +13,46 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 
-<!-- <script type="text/javascript">
-function applyLink(URL){
-	if(confirm("신청하시겠습니까?") == true){
-		location.href=URL;
-		alert('신청되었습니다');
+<style type="text/css">
 
-	}
-	else{
-		alert('Cancle');
-	}
+.table .th, .table2 .th {
+	font-size: 13px;
+	width: 12%;
 }
-</script> -->
+
+.table2 .col-first {
+	width: 10%;
+	padding: 0px 30px 0px 0px;
+	margin: 0px 10px 0px 0px;
+}
+
+.table2 .col1 {
+	width: 10%;
+	padding: 0px 30px 0px 0px;
+	margin: 0px 10px 0px 0px;
+}
+
+.table2 .col2 {
+	width: 25%;
+
+	margin: 0px 10px 0px 0px;
+}
+
+.table2 .col3 {
+	width: 10%;
+	margin: 0px 10px 0px 0px;
+}
+
+.table2 .col4 {
+	width: 10%;
+	margin: 0px 10px 0px 0px;
+}
+
+</style>
 </head>
 <body>	
    <section class="id-card-box" itemtype="http://schema.org/Organization"
-		itemscope="" style="margin: 0px 200px 100px 0px"; >
+		itemscope="" style="margin: 0px 200px 100px 0px; padding-left:50px;" >
         <div class="heading">
             <h2>carpool list</h2>
             <ul class="add-links">

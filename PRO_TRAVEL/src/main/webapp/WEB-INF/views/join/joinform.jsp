@@ -266,7 +266,7 @@ jQuery(function($) {
 										<tr><td></tr>
 
 										<tr>
-											<td class="label"><label for="lastname">Birth Date</label></td>
+											<td class="label"><label for="lastname">Birthday</label></td>
 											<td class="value"><input type="text" name="u_birth"
 												id="u_birth" value="" /> &nbsp; <span class="mandatory">*</span>
 												<ul class="errorField">

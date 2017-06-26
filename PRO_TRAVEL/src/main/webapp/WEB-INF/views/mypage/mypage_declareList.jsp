@@ -84,6 +84,27 @@
 	margin: 0px 10px 0px 0px;
 }
 </style>
+
+<script type="text/javascript">
+function content(d_num){
+	 var popupX = (window.screen.width / 2) - (800 / 2);
+	   var popupY= (window.screen.height /2) - (500 / 2);
+	    window.open('about:blank','popup_window','width=350, height=250, left='+popupX+', top='+popupY);
+	    var wantForm = 'content'+d_num;
+	    var frm =document.getElementById(wantForm);
+	    frm.submit(); 
+	}
+	
+function fileView(d_num){
+	 var popupX = (window.screen.width / 2) - (800 / 2);
+	   var popupY= (window.screen.height /2) - (500 / 2);
+	    window.open('about:blank','popup_window','width=618, height=418, left='+popupX+', top='+popupY);
+	    var wantForm = 'fileView'+d_num;
+	    var frm =document.getElementById(wantForm);
+	    frm.submit(); 
+	}
+</script>
+
 </head>
 
 <body>
@@ -102,11 +123,11 @@
 		<ul class="table2 ajax-content">
 			<li >
 				<div class="th col-first">USER</div>
-				<div class="th col1">CATEGORY</div>
-				<div class="th col2"></div>
-				<div class="th col2"></div>
-				<div class="th col3">RESULT</div>
-				<div class="th col5"></div>
+				<div class="th col1">CONTENT</div>
+				<div class="th col2">CATEGORY</div>
+				<div class="th col2">FILE</div>
+				<div class="th col3"></div>
+				<div class="th col5">RESULT</div>
 
 			</li>
 
@@ -114,11 +135,26 @@
 			<li style="margin-top: 20px">
 			<c:forEach items="${list}" var="myDeclare">
 					<div class="th col-first">${myDeclare.d_reported}</div>
-					<div class="th col1">${myDeclare.d_big }</div>
-					<div class="th col2">${myDeclare.d_small }</div>
-					<div class="th col2"></div>
-					<div class="th col3">${myDeclare.d_state }</div>
-					<div class="th col5"></div>
+					
+					
+					<form id="content${myDeclare.d_num }" name="content${myDeclare.d_num }" method="post" 
+ 						action="/detailContent?d_num=${myDeclare.d_num }" target="popup_window">
+ 					<a onclick = "content(${myDeclare.d_num });">
+					<div class="th col1">Click</div>
+					</a>
+					</form>
+					
+					
+					<div class="th col2">${myDeclare.d_big }</div>
+					
+					<form id="fileView${myDeclare.d_num }" name="fileView${myDeclare.d_num }" method="post" 
+ 						action="/fileview?d_num=${myDeclare.d_num }" target="popup_window">	
+ 					<a onclick = "fileView(${myDeclare.d_num });">
+					<div class="th col2">${myDeclare.d_file }</div>
+					</a>
+					<div class="th col3"></div>
+					</form>
+					<div class="th col5">${myDeclare.d_state }</div>
 					<!-- <div class="th col5"></div> -->
 				
 					</c:forEach>
