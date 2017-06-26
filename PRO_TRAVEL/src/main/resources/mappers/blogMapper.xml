@@ -6,56 +6,66 @@
 <mapper namespace="kosta.travel.mappers.blogMapper">
 
 	<select id="blogList" resultType="kosta.travel.domain.BlogVO">
-	select * from blog
+		select * from blog
 	</select>
 
 	<insert id="insertBlog">
-			insert into blog(
-			b_id, b_title, u_name, b_introduction, b_img, u_id)
-			values(
-			blog_seq.nextval, #{b_title}, #{u_name},#{b_introduction},#{b_img}, #{u_id})	
+		insert into blog(
+		b_id, b_title, u_name,
+		b_introduction, b_img, u_id)
+		values(
+		blog_seq.nextval, #{b_title},
+		#{u_name},#{b_introduction},#{b_img}, #{u_id})
 	</insert>
-	
+
 	<select id="detailBlog" resultType="BlogVO">
 		select *
 		from blog
-		where u_id=#{u_id}
-	
+		where
+		u_id=#{u_id}
+
 	</select>
-	
-	
+
+
 	<insert id="postingBlog">
-			insert into blogpost(
-			bp_postnum, u_id, bp_contents, bp_date, bp_img)
-			values(
-			blogpost_seq.nextval, #{u_id},#{bp_contents}, sysdate ,#{bp_img}
-			)
+		insert into blogpost(
+		bp_postnum, u_id, bp_contents,
+		bp_date, bp_img)
+		values(
+		blogpost_seq.nextval, #{u_id},#{bp_contents},
+		sysdate ,#{bp_img}
+		)
 	</insert>
-	
+
 	<select id="postBlogList" resultType="BlogPostVO">
+	 <![CDATA[
 	select * 
 	from blogpost
 	where u_id=#{u_id}
+	order by bp_postnum desc, bp_date desc
+	   ]]>
 	</select>
 
 	<update id="updateBlog">
 		UPDATE blogpost SET bp_contents = #{bp_contents}
 		WHERE bp_postnum = #{bp_postnum}
 	</update>
-	
+
 	<!-- Get a one post -->
-	<select id = "postDetail" resultType="BlogPostVO">
-	SELECT * FROM blogpost
-	WHERE bp_postnum = #{bp_postnum}
+	<select id="postDetail" resultType="BlogPostVO">
+		SELECT * FROM blogpost
+		WHERE
+		bp_postnum = #{bp_postnum}
 	</select>
-	
-	<delete id = "removePost">
-	DELETE FROM blogpost 
-	WHERE bp_postnum = #{bp_postnum} AND u_id = #{u_id}
+
+	<delete id="removePost">
+		DELETE FROM blogpost
+		WHERE bp_postnum = #{bp_postnum}
+		AND u_id = #{u_id}
 	</delete>
-	
-	
-	<select id = "blogcount" resultType="Integer">
+
+
+	<select id="blogcount" resultType="Integer">
 		select count(*)
 		from blog
 	</select>

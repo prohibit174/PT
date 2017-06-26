@@ -396,7 +396,8 @@ $(function(){
                 <div class="td col1">
 <%-- onclick="detailForm(${listMessage.m_num});" --%>
 
- <form id="detailForm${carpool_ListVO.u_id }" name="detailForm${carpool_ListVO.u_id }" method="post" action="/carpool/user?u_id=${carpool_ListVO.u_id }" target="popup_window">
+ <form id="detailForm${carpool_ListVO.u_id }" name="detailForm${carpool_ListVO.u_id }" method="post" 
+ action="/user?u_id=${carpool_ListVO.u_id }" target="popup_window">
     <a onclick = "detailForm(${carpool_ListVO.u_id });">
     
 <picture class="picture">

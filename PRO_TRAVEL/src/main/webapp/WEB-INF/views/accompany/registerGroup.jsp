@@ -30,7 +30,7 @@
 		}
  */
  	.liSize{
- 		width: 82%;
+ 		width: 71%;
  	}
     </style>
 
@@ -451,13 +451,13 @@ function showLeftAccom(leftIndex, markerIndex){
 		<form action="/accompany/registerGroup" method="post" role="form">
 		<div class="accompanyList row" style="border: none;">
 		 <section class="ajax-area" data-tmpl="athleteResults_tmpl">
-    	<div class="heading" style="margin: 20px;padding-left: 540px;">
+    	<div class="heading" style="margin: 20px;padding-left: 185px;">
     	<h2>Your Route</h2>
     	</div>
     	<ul class="table2 ajax-content" style="margin-bottom: 0px;">
-    	<li class="liSize" style="width: 77%">
+    	<li class="liSize" style="width: 49%;margin-left: 200px;">
     		
-				<div class="th col4">Except</div>
+				<div class="th col4" style="width: 100px;">Except</div>
 					<div class="th col4"> Date </div>
 						<div class="th col4"> MaxPeople </div>
     						<div class="th col4"> Place </div>
@@ -465,9 +465,9 @@ function showLeftAccom(leftIndex, markerIndex){
     								
 		
     	<c:forEach var="data" items="${list}" varStatus="status">
-		<li class="liSize" style="padding-top: 10px;width: 77%;height: 43px;">
+		<li class="liSize" style="padding-top: 10px;width: 49%;height: 43px;margin-left: 200px;">
 			<input type="hidden" name="groupVolist[${status.index}].tp_num" value="${data.tp_num}">
-				<div class="th col4"><img class="appendcm" src="../resources/images/accompany/miners.png" width="30" height="30" style="margin-top: -5px;"></div>
+				<div class="th col4" style="width: 100px;"><img class="appendcm" src="../resources/images/accompany/miners.png" width="30" height="30" style="margin-top: -5px;"></div>
     				<div class="th col4"><input type="hidden" name="groupVolist[${status.index}].tp_date" value="${data.tp_date}">${data.tp_date}</div>
 					<div class="th col4"><input type="text" name="groupVolist[${status.index}].max_people_num"></div>
 						<div class="th col4"><input type="hidden" name="groupVolist[${status.index}].cor_region" value="${data.cor_region}">${data.cor_region}</div>

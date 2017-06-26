@@ -28,11 +28,11 @@
  
   <script type="text/javascript">
   
-	function btn_js_register_click(u_id){
+	function btn_js_register_click(id){
 	  /* confirm(문자열, 초기값) */
 	  var check = confirm("등록하시겠습니까?");
 	  /* if(check == true) else false */
-	  if(check) document.location.href="myblog?u_id="+u_id;
+	  if(check) document.location.href="myblog?u_id="+id;
 	}
 	
   </script> 
