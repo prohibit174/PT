@@ -24,7 +24,7 @@ $(function(){
 	$('#pwcheck').keyup(function(){ 
 		if($('#u_pwd').val()!=$('#pwcheck').val()){ 
 			$('.PWCerrorField').text(''); 
-			$('.PWCerrorField').html('암호를 다시 확인하세요'); 
+			$('.PWCerrorField').html('Please Check password'); 
 		} else{ 
 			$('.PWCerrorField').text(''); 
 			$('.PWCerrorField').html(''); 

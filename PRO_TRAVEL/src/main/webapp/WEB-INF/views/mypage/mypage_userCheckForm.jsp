@@ -61,7 +61,7 @@
 						<div class="top"></div>
 
 						<h2>
-							<span>1</span>필수 입력사항
+							<span>1</span>Essential Field
 						</h2>
 
 						<div class="clear"></div>
@@ -85,7 +85,7 @@
 								<div class="left">
 									<table cellpadding="0" cellspacing="0" class="tab">
 										<tr>
-											<td class="label"><label for="u_id">아이디</label></td>
+											<td class="label"><label for="u_id">v</label></td>
 											<td class="value">${user.u_id } &nbsp; <span
 												class="mandatory">*</span> <br>
 										</td>
@@ -94,7 +94,7 @@
 										
 
 										<tr>
-											<td class="label"><label for="name">닉네임</label></td>
+											<td class="label"><label for="name">Nick Name</label></td>
 											<td class="value">
 											${user.u_name } &nbsp; <span class="mandatory">*</span>
 												<ul class="errorField">
@@ -102,7 +102,7 @@
 										</tr>
 
 										<tr> 
-											<td>성별</td> 
+											<td>Sex</td> 
 											<td> 
 											${user.u_sex }
 											&nbsp; <span class="mandatory">*</span> 
@@ -112,7 +112,7 @@
 										<tr><td></tr>
 
 										<tr>
-											<td class="label"><label for="u_license">운전면허 유무</label></td>
+											<td class="label"><label for="u_license">Driving License</label></td>
 											<td>${user.u_license }
 												&nbsp; <span class="mandatory">*</span>
 												<ul class="errorField">
@@ -122,7 +122,7 @@
 										<tr><td></tr>
 
 										<tr>
-											<td class="label"><label for="lastname">생년월일</label></td>
+											<td class="label"><label for="lastname">Birth Date</label></td>
 											<td class="value">${user.u_birth } &nbsp; <span class="mandatory">*</span>
 												<ul class="errorField">
 												</ul></td>
@@ -130,7 +130,7 @@
 
 
 										<tr>
-											<td class="label"><label for="u_address">거주지역</label></td>
+											<td class="label"><label for="u_address">Address</label></td>
 											<td class="value">${user.u_address } &nbsp; <span class="mandatory">*</span>
 												<ul class="errorField">
 												</ul></td>
@@ -142,7 +142,7 @@
 							<div class="clear"></div>
 							<div id="Option_Info">
 								<h2>
-									<span>2</span>선택 입력 사항
+									<span>2</span>Optional Field
 								</h2>
 								<h3>Additional Information</h3>
 
@@ -150,7 +150,7 @@
 									<table cellpadding="0" cellspacing="0" class="tab">
 
 										<tr>
-											<td class="label"><label for="u_job">직업</label></td>
+											<td class="label"><label for="u_job">Job</label></td>
 											<td class="value">${user.u_job }&nbsp;</td>
 										</tr>
 									<!-- </table>
@@ -158,13 +158,13 @@
 								<div class="right">
 									<table cellpadding="0" cellspacing="0" class="tab"> -->
 										<tr>
-											<td class="label"><label for="u_lang">사용언어</label></td>
+											<td class="label"><label for="u_lang">Language</label></td>
 											<td class="value">${user.u_lang } &nbsp; 
 												<ul class="errorField">
 												</ul></td>
 										</tr>
 										<tr>
-											<td class="label"><label for="u_religion">종교</label></td>
+											<td class="label"><label for="u_religion">Religion</label></td>
 											<td class="value">${user.u_religion }&nbsp;
 												<ul class="errorField">
 												</ul></td>
@@ -179,14 +179,14 @@
 												</ul></td>
 										</tr> -->
 										<tr>
-											<td class="label"><label for="u_style">여행 스타일</label></td>
+											<td class="label"><label for="u_style">Trip Style</label></td>
 											<td class="value">
 											${user.u_style }
 											</td>
 										</tr>
 										
 										 <tr>
-											<td class="label"><label for="u_img">프로필 사진</label></td>
+											<td class="label"><label for="u_img">Profile Image</label></td>
 											<td class="value">
 									
 									<picture class="picture">	

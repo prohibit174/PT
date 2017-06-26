@@ -1,34 +1,34 @@
 
 $(function(){
-	$('.primaryAction').click(function(){
+	$('#validate_order').click(function(){
 		if($('#u_id').val()==""){
-			alert('아이디는 필수 사항 입니다.');
+			alert('Please Input ID.');
 			$('#u_id').focus();
 			return false;
 		}else if($('#pwcheck').val()==""){
-			alert('비밀번호를 확인 해주세요.');
+			alert('Please Check Password.');
 			$('#pwcheck').focus();
 			return false;
 		}else if($('#u_name').val()==""){
-			alert('닉네임을 설정해주세요');
+			alert('Please Input Nick Name');
 			$('#u_name').focus();
 			return false;
 		}else if($('#u_birth').val()==""){
-			alert('생일을 입력해주세요.');
+			alert('Please Input Birthday');
 			$('#u_birth').focus();
 			return false;			
 		}else if($('#u_address').val()==""){
-			alert('거주 지역을 입력해주세요.');
+			alert('Please Input Address.');
 			$('#u_address').focus();
 			return false;			
 		}else if($('#law_agree').is(":checked")==false){
-			alert('이용 약관에 동의가 필요합니다.');
+			alert('Please Agree with terms and conditions.');
 			return false;
 		}else if($('#privacy_policy').is(':checked')==false){
-			alert('개인정보수집에 동의가 필요합니다.');
+			alert('Please Agree with Private Policy.');
 			return false;
 		}else{
-			alert('회원가입을 환영합니다.');
+			alert('Welcome Join.');
 			$(document.getElementsByClassName('join_form').submit());
 			
 		}		
