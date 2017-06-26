@@ -104,8 +104,8 @@ public class AccompanyDao {
 
 		}
 		
-		public List<GroupVO> searchGroupList(RouteVO route) {
-				return session.selectList(namespace + ".searchGroupList", route);
+		public GroupVO searchGroupList(RouteVO route) {
+				return session.selectOne(namespace + ".searchGroupList", route);
 	}
 	
 		public void requestGroup(GroupVO groupvo){

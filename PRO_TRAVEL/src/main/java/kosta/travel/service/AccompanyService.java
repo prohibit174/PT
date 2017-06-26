@@ -261,45 +261,59 @@ public class AccompanyService {
 
 			if (sdate.getTimeInMillis() == edate.getTimeInMillis()) {
 				RouteVO route = new RouteVO("", search.getCity(), search.getU_id(), search.getSdate());
-				List<GroupVO> groups = dao.searchGroupList(route);
-				String substr = groups.get(0).getTp_date().substring(2, 10);
-				groups.get(0).setTp_date(substr);
-				return groups;
+				GroupVO groups = dao.searchGroupList(route);
+				String substr = groups.getTp_date().substring(2, 10);
+				groups.setTp_date(substr);
+				allgroups.add(groups);
+				return allgroups;
 
 			} else {
 				int switchh = 0;
 				boolean loopTest = true;
-				int count = 0;
 				
 				while (loopTest) {
-					/* System.out.println(dates); */
+//					 System.out.println(dates); 
 
 					if (switchh == 1) {
 						loopTest = false;
-						/*System.out.println("반복 중단 입력");*/
+//						System.out.println("반복 중단 입력");
 					}
 					
 					RouteVO route = new RouteVO("", search.getCity(), search.getU_id(), dates);
-
-					List<GroupVO> groups = dao.searchGroupList(route);
+					GroupVO groups = null;
+					groups = dao.searchGroupList(route);
 					
+//					System.out.println("dao.searchGroupList(route) == " + dao.searchGroupList(route));
 					
-/*					System.out.println("dao.searchGroupList(route) == " + dao.searchGroupList(route));
-*/					
-					if (!groups.isEmpty()) {
-						String substr = groups.get(count).getTp_date().substring(2, 10);
-						groups.get(count).setTp_date(substr);
-						count++;
-						allgroups.addAll(groups);
+//					System.out.println("1");
+					if (sdate.getTimeInMillis() == edate.getTimeInMillis()) {
+//						System.out.println("2");
+						switchh = 1;
+//					System.out.println("AccompanyService.java 반복 중단 준비");
 					}
+					
+//					System.out.println("3");
+					
+					if (groups == null) {
+						sdate.add(Calendar.DATE, 1);
+						dates = fmt.format(sdate.getTime());
+						continue;
+						}else{
+						
+						String substr = groups.getTp_date().substring(2, 10);
+						
+						groups.setTp_date(substr);
+						
+//						System.out.println("4");
+						allgroups.add(groups);
+//						System.out.println("5");
+						}
 					sdate.add(Calendar.DATE, 1);
 					dates = fmt.format(sdate.getTime());
-					
-					if (sdate.getTimeInMillis() == edate.getTimeInMillis()) {
-						switchh = 1;
-/*						System.out.println("AccompanyService.java 반복 중단 준비");
-*/					}
+//					System.out.println("6");
+				
 				}
+//				System.out.println("allgroups size == "+allgroups.size());
 				return allgroups;
 			}
 		}

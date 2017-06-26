@@ -485,35 +485,7 @@ button, a {
 		</div>
 	</div>
 	<script type="text/html" id="popup_slide">
-            <%-- <div class="ajax-popup-holder">
-                <% for (var i = 0, arr = arguments[0]; i < arr.length; i++) { %>
-                <picture class="img imgage1">
-                    <!--[if IE 9]><video style="display: none;"><![endif]-->
-                    <source srcset="<%=arr[i].image_small%>, <%=arr[i].image_small_2x%>" media="(max-width: 767px)">
-                    <!--[if IE 9]></video><![endif]-->
-                    <img srcset="<%=arr[i].image_large%>, <%=arr[i].image_large_2x%>" alt="Image Alt Text">
-                </picture>
-                <div class="descriptions-block">
-                    <div class="socials-box">
-                        <ul class="social-networks">
-                            <li><span class="st_facebook_large"></span></li>
-                            <li><span class="st_googleplus_large"></span></li>
-                            <li><span class="st_twitter_large"></span></li>
-                        </ul>
-                    </div>
-                    <strong class="title"><%=arr[i].title%></strong>
-                    <p><%=arr[i].descriptions%></p>
-                    <p><span class="note"><%=arr[i].descriptions2%></span></p>
-                    <span class="link-holder"><a href="<%=arr[i].downloadHref%>">Download High Resolution</a></span>
-                </div>
-                <% if (arr[i].prevLink) { %>
-                <a href="<%=arr[i].prevLink%>" class="prev-picture"><i class="icon-arrow-left"></i><span class="hidden">prev video</span></a>
-                <% } %>
-                <% if (arr[i].nextLink) { %>
-                <a href="<%=arr[i].nextLink%>" class="next-picture"><i class="icon-arrow-right"></i><span class="hidden">next video</span></a>
-                <% } %>
-                <% } %>
-            </div> --%>
+            
         </script>
 
 	 <%@include file="../include/footer.jsp"%> 

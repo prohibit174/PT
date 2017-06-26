@@ -443,7 +443,8 @@ $('body').on('focus','.datepick', function(){
 
     frm.submit(function (e) {
         e.preventDefault();
-
+		$('.accompanyList section').remove();
+        
         $.ajax({
             type: frm.attr('method'),
             url: frm.attr('action'),

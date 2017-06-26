@@ -60,7 +60,7 @@
 
 </form> --%>
 <section class="id-card-box" itemtype="http://schema.org/Organization"
-		itemscope="" style="margin: 0px 200px 100px 0px"; >
+		itemscope="" style="margin: 0px 200px 100px 0px; padding-left: 50px;" >
 			<div class="heading">
 		<h2>User list</h2>
 		<ul class="add-links">
@@ -81,8 +81,9 @@
                     <div class="th col1"> RELIGION </div>
                     <div class="th col1"> STYLE </div> -->
 			<div class="th col2">STATUS</div>
-			<div class="th col2">MANAGE</div>
 			<div class="th col1"></div>
+			<div class="th col1">MANAGE</div>
+			
 		</li>
 
 		<c:forEach items="${userList}" var="user_ListVO">
@@ -134,7 +135,7 @@
 				</div>
 
 
-				<div class="td col1" style="padding-top: 0px;">
+				<div class="td col1" style="padding-top: 0px; padding-left: 20px;">
 
 					<!-- <div class="status"> -->
 						<span class="btn-more" >
