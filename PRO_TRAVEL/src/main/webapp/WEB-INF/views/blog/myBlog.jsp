@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Blog</title>
+<title>${blog.b_title}</title>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="googlepagetype" content="MuseumContent" />
@@ -58,24 +58,24 @@
 
 <!--[if IE]><script type="text/javascript" src="https://stillres.olympic.org/Museum/js/ie.js"></script><![endif]-->
 
- <style type="text/css">
+<style type="text/css">
 .btn-more1 button, .btn-more1 a {
-    display: inline-block;
-    vertical-align: top;
-   /*  color: #959595; */
-    border: 2px solid #959595;
-    padding: 7px 20px;
-    min-width: 110px;
-    text-decoration: none !important;
-    font-weight: bold;
-    line-height: 2em; 
-    background: white;}
-    
- button, a{
-    color : #959595}
+	display: inline-block;
+	vertical-align: top;
+	/*  color: #959595; */
+	border: 2px solid #959595;
+	padding: 7px 20px;
+	min-width: 110px;
+	text-decoration: none !important;
+	font-weight: bold;
+	line-height: 2em;
+	background: white;
+}
 
-
-</style> 
+button, a {
+	color: #959595
+}
+</style>
 
 <script type="text/javascript">
 	function updatePost(bp_postnum) {
@@ -87,7 +87,7 @@
 		var check = confirm("Are you remove this post?");
 		/* if(check == true) else false */
 		if (check)
-			document.location.href = "removePost?bp_postnum="+bp_postnum;
+			document.location.href = "removePost?bp_postnum=" + bp_postnum;
 	}
 </script>
 </head>
@@ -122,9 +122,11 @@
 
 	<div id="wrapper">
 
-		<header id="header" role="banner" style="background-color: #FAF1C2;">
+		<header id="header" role="banner" style="background-color: white;">
+			<img src="/resources/images/blog/myblog.png"
+				style="height: 100%, width:100%;">
 
-			<div class="container">
+			<%-- <div class="container">
 				<div class="logo">
 					<a tabindex="2" href="/museum"> <picture> <img
 							srcset="" alt=""></picture>
@@ -145,19 +147,14 @@
 
 						</div>
 					</div>
-					<!-- <div class="back-frame lang-switcher-container">
-						<a href="/" class="back-link"><span class="icon-arrow-left"></span></a>
-						   <span class="separator">|</span>
-					</div> -->
+					
 				</div>
 
-			</div>
+			</div> --%>
 		</header>
 	</div>
 
-	<main id="main">
-
-	<!-- <nav class="breadcrumbs" role="navigation">
+	<main id="main"> <!-- <nav class="breadcrumbs" role="navigation">
 		<ul>
 
 			<li><a href="/museum"> Home </a></li>
@@ -204,177 +201,181 @@
 				</div>
 				<div class="text-block">
 
-						<h1>Try Your First Blog Posting</h1>
-						
-						<c:choose>
-							<c:when test="${id == blog.u_id}">
-						
-						<h2 style="font-size: 20px">
-						<!-- <span class="btn-more1" > -->
-							<a  href="/blog/blogPost?u_id=${id}">post</a>
-						<!-- 	</span> -->
-						</h2>
-							</c:when>
-						</c:choose>
-
-						<br><br><br>
 
 
+					<c:choose>
+						<c:when test="${id == blog.u_id }">
 
-						<div>
-							<c:forEach var="blogpost" items="${blogpost}">
-								<fieldset>
+							<%-- <h1>Try Your First Blog Posting</h1>
+
+								<h2 style="font-size: 20px">
+
+									<a href="/blog/blogPost?u_id=${blog.u_id}">post</a>
+ --%>
+							</h2>
+
+						</c:when>
+					</c:choose>
+
+					<br>
 
 
 
-
-									<span style="font-family: Arial; font-size: 13px;">
-										<table border="0" width="100%">
-											<tr>
-											<p>${blogpost.bp_date }</p>
-											</tr>
-											
-											<tr>
-											<td><input type="hidden"> ${blogpost.bp_postnum }</td>
-											</tr>
-
-											<!-- makeQuery -->
-											<picture class="img"> <c:if
-												test="${blogpost.bp_img!=null}">
-												<c:set var="head"
-													value="${fn:substring(blogpost.bp_img, 0, fn:length(blogpost.bp_img)-4) }"></c:set>
-												<c:set var="pattern"
-													value="${fn:substring(blogpost.bp_img, fn:length(head)+1, fn:length(blogpost.bp_img)) }"></c:set>
-												<c:set var="small" value="_small"></c:set> 
+					<div>
+						<c:forEach var="blogpost" items="${blogpost}">
+							<fieldset>
 
 
-												
-												<c:choose>
-													<c:when
-														test="${pattern=='jpg' || pattern =='gif' || pattern =='png' }">
-														<!-- <img srcset="resources/upload/${head }_small.${pattern}" alt="img /"> -->
-														<img src="/resources/upload/${head}${small}.${pattern}"
-															alt="img /">
-													</c:when>
-													<c:otherwise>
-														<c:out value="No IMAGE"></c:out>
-													</c:otherwise>
-												</c:choose>
-										
-											
-											</c:if> <%-- <img srcset="${blogpost.bp_img}"></picture> --%>
+								<span style="font-family: Arial; font-size: 13px;">
+									<table border="0" width="100%">
+										<tr>
+											<p
+												style="color: #ee334e; font-size: 18px; line-height: 34px;">${blogpost.bp_date }</p>
+										</tr>
 
-											<p>${blogpost.bp_contents }</p>
-											<br>
 
-									
+
+										<!-- makeQuery -->
+										<picture class="img"> <c:if
+											test="${blogpost.bp_img!=null}">
+											<c:set var="head"
+												value="${fn:substring(blogpost.bp_img, 0, fn:length(blogpost.bp_img)-4) }"></c:set>
+											<c:set var="pattern"
+												value="${fn:substring(blogpost.bp_img, fn:length(head)+1, fn:length(blogpost.bp_img)) }"></c:set>
+											<c:set var="small" value="_small"></c:set>
+
+
+
 											<c:choose>
-												<c:when test="${id == blog.u_id}">
-								
-									 <span class="btn-more1" > 
+												<c:when
+													test="${pattern=='jpg' || pattern =='gif' || pattern =='png' }">
+													<!-- <img srcset="resources/upload/${head }_small.${pattern}" alt="img /"> -->
+													<img src="/resources/upload/${head}${small}.${pattern}"
+														alt="img /">
+												</c:when>
+												<c:otherwise>
+													<c:out value="No IMAGE"></c:out>
+												</c:otherwise>
+											</c:choose>
+
+
+										</c:if> <%-- <img srcset="${blogpost.bp_img}"></picture> --%>
+
+										<p>${blogpost.bp_contents }</p>
+										<br>
+
+
+										<c:choose>
+											<c:when test="${id == blog.u_id}">
+
+												<span class="btn-more1">
 													<button type="submit" class="btn btn-warning"
 														id="modifyBtn"
 														onclick="updatePost('${blogpost.bp_postnum}')">Modify</button>
 													<button type="submit" class="btn btn-danger" id="removeBtn"
 														onclick="removePost('${blogpost.bp_postnum}')">Remove</button>
-									  </span> 
-												</c:when>
-											</c:choose>
-										
-											<hr>
+												</span>
+											</c:when>
+										</c:choose>
 
-											</picture>
-										</table>
-									</span>
-					</fieldset>
-					</c:forEach>
+										<hr>
+
+										</picture>
+									</table>
+								</span>
+							</fieldset>
+						</c:forEach>
+					</div>
+
+
+					<table border="0" width="100%">
+						<tbody>
+
+							<table border="0" width="100%">
+								<tbody>
+									<tr valign="top">
+
+									</tr>
+								</tbody>
+							</table>
+							<br />
+							<strong style="font-family: Arial; font-size: small;"> </strong>
+							<div></div>
+							<div>
+								<span style="font-family: Arial; font-size: 13px;">
+									<table border="0" width="100%">
+										<tbody>
+
+										</tbody>
+									</table> <strong><br />
+								</span>
+							</div>
+						</tbody>
+					</table>
+					</span>
+
+
+
 				</div>
 
+			</div>
+			<div class="three-blocks visible-sm">
+				<article class="block"></article>
+				<div class="block">
 
-				<table border="0" width="100%">
-					<tbody>
-
-						<table border="0" width="100%">
-							<tbody>
-								<tr valign="top">
-
-								</tr>
-							</tbody>
-						</table>
-						<br />
-						<strong style="font-family: Arial; font-size: small;"> </strong>
-						<div></div>
-						<div>
-							<span style="font-family: Arial; font-size: 13px;">
-								<table border="0" width="100%">
-									<tbody>
-
-									</tbody>
-								</table> <strong><br /> < 
-							</span>
-						</div>
-					</tbody>
-				</table>
-				</span>
-
-
-
+					<div itemtype="http://schema.org/PostalAddress" itemscope=""
+						itemprop="address" class="contact-box"></div>
+				</div>
 			</div>
 
-		</div>
-		<div class="three-blocks visible-sm">
-			<article class="block"></article>
-			<div class="block">
 
-				<div itemtype="http://schema.org/PostalAddress" itemscope=""
-					itemprop="address" class="contact-box"></div>
-			</div>
-		</div>
-
-
-		<div class="comming-up-block">
-			<!--    <h2>Also coming up</h2> -->
-			<ul class="items-gallery">
+			<div class="comming-up-block">
+				<!--    <h2>Also coming up</h2> -->
+				<ul class="items-gallery">
 
 
 
 
-				<li class="small-itmem flip-box"></li>
+					<li class="small-itmem flip-box"></li>
 
 
-			</ul>
-		</div>
-
-	</div>
-	<aside id="sidebar">
-
-		<nav class="aside-nav">
-			<ul>
-
-				<li class="">Profile</li>
-
-				<li class=""><img src="/resources/upload/${blog.b_img}">
-				</li>
-
-				<li class="">${blog.u_name}<br>${blog.b_introduction}</li>
-
-
-
-
-
-			</ul>
-		</nav>
-
-		<div class="three-blocks">
-
-			<div class="block">
-
-				<ul class="socials">
 				</ul>
-
 			</div>
+
 		</div>
-	</aside>
+		<aside id="sidebar" style="margin-top: 20px;">
+
+			<nav class="aside-nav">
+				<ul>
+
+					<li class="">Profile</li>
+
+					<li class=""><img src="/resources/upload/${blog.b_img}">
+					</li>
+
+					<li class="">${blog.u_name}<br>
+					<br>${blog.b_introduction}</li>
+					<br>
+					<br>
+
+					<c:choose>
+						<c:when test="${id == blog.u_id}">
+							<a href="/blog/blogPost?u_id=${blog.u_id}">post</a>
+						</c:when>
+					</c:choose>
+				</ul>
+			</nav>
+
+			<div class="three-blocks">
+
+				<div class="block">
+
+					<ul class="socials">
+					</ul>
+
+				</div>
+			</div>
+		</aside>
 	</div>
 	</main>
 
@@ -556,6 +557,6 @@
             </div> --%>
         </script>
 
-<%@include file="../include/footer.jsp" %>
+	<%@include file="../include/footer.jsp"%>
 </body>
 </html>
