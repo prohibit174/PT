@@ -169,11 +169,14 @@ public class AccompanyController {
 		System.out.println("controller search == " + trav.toString());
 
 		System.out.println("controller to string == " + trav.getTrav().get(0).toString());
+		System.out.println("controller to size == " + trav.getTrav().size());
 
 		try {
 			for (int i = 0; i < trav.getTrav().size(); i++) {
+				System.out.println("i =="+i+"trav 확인 ::::"+trav.getTrav().get(i).toString());
 				trav.getTrav().get(i).setU_id((String) session.getAttribute("login"));
 				list.addAll(service.searchGroupList(trav.getTrav().get(i)));
+				System.out.println(i+"번째 포문 끝");
 			}
 
 		} catch (Exception e) {

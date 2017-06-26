@@ -28,10 +28,10 @@ $(function(){
 	var ct = 0;
 	var frm = $('.ajaxform');
 
-	$(document).on('submit', '.ajaxform', function(e){
+	 frm.submit(function (e) {
 		e.preventDefault();
 	    	console.log("search.js log = "+frm.serialize());
-	    	
+	    	$('.accompanyList section').remove();
 	        	
 	        $.ajax({
 	            type: frm.attr('method'),
