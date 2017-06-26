@@ -6,9 +6,12 @@
 
 <%@include file="../include/header.jsp" %>
 <%@include file="../include/accompany_sidebar.jsp" %>
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 
 <script src='${pageContext.request.contextPath}/resources/js/accompanyJs/jquery-ui.min.js'></script>
 <link rel='stylesheet' href='/resources/css/accompany/jquery-ui.min.css' />
@@ -18,6 +21,10 @@
 
 <script type="text/javascript">
 $(function(){
+	
+	document.styleSheets[0].addRule('.accompanyList:after', 'content: none !important;');
+	
+	
 	var ct = 0;
 	var frm = $('.ajaxform');
 
@@ -32,7 +39,7 @@ $(function(){
 	            data: frm.serialize(),
 	            success : function (data) {
 	            	var eachCounter = 0;
-	            	var htmlText = '<section class="results ajax-area" data-tmpl="athleteResults_tmpl" style="padding-top: 0px;">';
+	            	var htmlText = '<section class="results ajax-area" data-tmpl="athleteResults_tmpl" style="padding-top: 30px;">';
 	            	htmlText += '<div class="heading" style="padding-top: 0px;width: 1300px;">';
 	            	htmlText += '<h2>Group Searching accompanies</h2>';
 	            	htmlText += '</div>';
@@ -173,9 +180,7 @@ $(function(){
 	});
 
 </script>
-
-
-
+ 
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Search Group</title>
@@ -185,9 +190,9 @@ $(function(){
     <div class="conts-container">
         <div class="present">
            <div class="tabs-list"> 
-<form action="" method="post" class="ajaxform">
+<form action="" method="post" class="ajaxform" style="margin-bottom: 130px;">
 	
-			<div class="item-list" style="width: 1400px;padding-right: 30px;margin-left: 260px;">
+			<div class="item-list" style="padding-right: 30px;margin-left: 260px;">
 					<div style="font-size: 20px;">
 							<span class="label" style="margin-right: 60px;">departure</span>
 						 <select class="label ajaxCity" style="margin-top: -5px; width: 150px" name="trav[0].city">
@@ -217,6 +222,7 @@ $(function(){
 		
 		<input class="btn-more ajaxbtn" type="submit" value="search" style="margin-right: 20%; margin-top: 10px; width: 120px; height: 50px; font-size: medium; float: none;" />
 		</div>
+		<div class="createSpace"></div>
 		</div>
 	
 	
