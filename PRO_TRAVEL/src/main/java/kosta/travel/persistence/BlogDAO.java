@@ -4,6 +4,7 @@ import java.util.List;
 
 import kosta.travel.domain.BlogPostVO;
 import kosta.travel.domain.BlogVO;
+import kosta.travel.domain.Criteria;
 
 public interface BlogDAO {
 

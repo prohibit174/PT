@@ -12,7 +12,7 @@
 	href="${pageContext.request.contextPath}/resources/css/AgoFiles/users_css/all.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/AgoFiles/users_css/common.css">
-<title>Insert title here</title>
+<title>Blog</title>
 
 </head>
 <%@include file="/WEB-INF/views/include/header.jsp"%>
@@ -40,7 +40,7 @@
 							<li itemscope="" itemtype="http://schema.org/ImageObject"
 								class="same-height same-height-left " style="height: 367px;">
 								<a href="/blog/myBlog?u_id=${blogVO.u_id }" target="_blank">
-									<picture class="img"> <img
+									<picture class="img"> <img style="height:210px; width:260px;"
 										src="/resources/upload/${blogVO.b_img }" alt=""></picture>
 							</a>
 								<h1>
@@ -52,7 +52,7 @@
 						<c:when test="${status.count%3==2 }">
 							<li class="same-height" style="height: 367px;"><a
 								href="/blog/myBlog?u_id=${blogVO.u_id }" target="_blank"> <picture
-										class="img"> <img
+										class="img"> <img style="height:210px; width:260px;"
 										src="/resources/upload/${blogVO.b_img }" alt=""></picture>
 							</a>
 								<h1>
@@ -65,7 +65,7 @@
 							<li itemscope="" itemtype="http://schema.org/ImageObject"
 								class="same-height same-height-right" style="height: 367px;">
 								<a href="/blog/myBlog?u_id=${blogVO.u_id }" target="_blank">
-									<picture class="img"> <img
+									<picture class="img"> <img style="height:210px; width:260px;"
 										src="/resources/upload/${blogVO.b_img }" alt=""></picture>
 							</a>
 								<h1>

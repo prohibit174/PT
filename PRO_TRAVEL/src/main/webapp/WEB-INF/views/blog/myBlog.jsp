@@ -123,48 +123,16 @@ button, a {
 	<div id="wrapper">
 
 		<header id="header" role="banner" style="background-color: white;">
+		
 			<img src="/resources/images/blog/myblog.png"
 				style="height: 100%, width:100%;">
+				
 
-			<%-- <div class="container">
-				<div class="logo">
-					<a tabindex="2" href="/museum"> <picture> <img
-							srcset="" alt=""></picture>
-					</a> <span class="hidden">Blog</span>
-				</div>
-				<div class="nav-holder"
-					style="text-align: center; margin: 0px; padding: 0px;">
-					<h1>${blog.b_title}</h1>
-
-					<div class="nav-slider">
-						<div class="header-container">
-
-
-							<div class="nav-container">
-								<nav id="nav"></nav>
-
-							</div>
-
-						</div>
-					</div>
-					
-				</div>
-
-			</div> --%>
+			
 		</header>
 	</div>
 
-	<main id="main"> <!-- <nav class="breadcrumbs" role="navigation">
-		<ul>
-
-			<li><a href="/museum"> Home </a></li>
-
-			<li><a href="/museum/visit"> Visit </a></li>
-
-			<li><a href="/museum/visit/practical-information"> Practical
-					Information </a></li>
-		</ul>
-	</nav> -->
+	<main id="main"> 
 
 
 
@@ -178,12 +146,7 @@ button, a {
 					<div class="mask">
 						<div class="slideset">
 							<div class="slide active">
-								<!-- <a href="#"> <picture> <img
-                              srcset="https://stillmed.olympic.org/media/Images/Museum/Visit/Practical_Information/Rates_And_Opening_Times/Header_Slideshow/Rates_And_Opening_Times_slideshow_01.jpg?interpolation=lanczos-none&resize=862:473, https://stillmed.olympic.org/media/Images/Museum/Visit/Practical_Information/Rates_And_Opening_Times/Header_Slideshow/Rates_And_Opening_Times_slideshow_01.jpg?interpolation=lanczos-none&resize=1724:946 2x"
-                              alt="Rates and opening times"> <span class="mask"></span>
-                           </picture>
-
-                        </a> -->
+								
 								<a
 									href="/ajaxscript/showmuseumphotolightboxcaroussel/{26BF6E7B-A2D4-4970-B625-7AB021A0FF55}/0/"
 									class="btn-zoom lightbox-link fancy-link">zoom</a>
@@ -193,29 +156,25 @@ button, a {
 					<a href="#" class="btn-prev">prev</a> <a href="#" class="btn-next">next</a>
 				</div>
 				<div class="socials-box">
-					<!-- <ul>
-                  <li><span class='st_facebook_large'></span></li>
-                  <li><span class='st_googleplus_large'></span></li>
-                  <li><span class='st_twitter_large'></span></li>
-               </ul> -->
+					
 				</div>
-				<div class="text-block">
+				<div class="text-block" style="margin-top:20px;">
 
 
 
-					<c:choose>
-						<c:when test="${id == blog.u_id }">
+					<%-- <c:choose>
+						<c:when test="${id == blog.u_id}">
 
-							<%-- <h1>Try Your First Blog Posting</h1>
+							 <h1 style="margin-top:10px;">Try Your First Blog Posting</h1>
 
 								<h2 style="font-size: 20px">
 
 									<a href="/blog/blogPost?u_id=${blog.u_id}">post</a>
- --%>
+
 							</h2>
 
 						</c:when>
-					</c:choose>
+					</c:choose> --%>
 
 					<br>
 
@@ -343,7 +302,7 @@ button, a {
 			</div>
 
 		</div>
-		<aside id="sidebar" style="margin-top: 20px;">
+		<aside id="sidebar" style="margin-top: 60px;">
 
 			<nav class="aside-nav">
 				<ul>
@@ -360,7 +319,7 @@ button, a {
 
 					<c:choose>
 						<c:when test="${id == blog.u_id}">
-							<a href="/blog/blogPost?u_id=${blog.u_id}">post</a>
+							<a href="/blog/blogPost?u_id=${blog.u_id}" style="color: #ff3eee;">Writing</a>
 						</c:when>
 					</c:choose>
 				</ul>
@@ -557,6 +516,6 @@ button, a {
             </div> --%>
         </script>
 
-	<%@include file="../include/footer.jsp"%>
+	 <%@include file="../include/footer.jsp"%> 
 </body>
 </html>
