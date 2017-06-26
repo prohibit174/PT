@@ -334,7 +334,7 @@ input[type="submit"]:hover {
     </script>
 	
 
-       <h2 id="carpool_title" style="font-size: large; margin-top: 40px;margin-left: 150px;padding-left: 105px;border-left-width: 50px;"> Search Other Traveler</h2>
+       <h2 id="carpool_title" style="font-size: x-large; margin-top: 40px;margin-left: 150px;padding-left: 105px;border-left-width: 50px;"> Search Other Traveler</h2>
 
 <!-- <div style="margin-top: 50px; margin-left: 17px">
 <h1 style="font-size: large;">Search Other Traveler</h1>
