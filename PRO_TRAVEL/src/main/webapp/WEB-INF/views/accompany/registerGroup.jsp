@@ -39,31 +39,17 @@
 <body>
 <%@include file="../include/accompany_sidebar.jsp" %>
 
-<div id="contents" class="city" style="margin-top: -200px;">
+<div id="contents" class="city" style="margin-top: -250px;">
     <div class="conts-container">
         <div class="present">
            <div class="tabs-list"> 
-                
-                <div id="google-ad-sense" style="margin-top:228px; float:left; margin-left: -212px;" data-type="260x260">
-                  <script type="text/javascript">
-                    google_ad_client = "ca-pub-9419115827273897";
-                    google_ad_slot = "3548612763";
-                    google_ad_width = 260;
-                    google_ad_height = 260;
-                  </script>
-                  <!-- search-260x260 -->
-                  
-                  <script type="text/javascript"
-                          src="//pagead2.googlesyndication.com/pagead/show_ads.js">
-                  </script>
-                </div>
             
             </div> <!-- //tabs-list  -->
   	<!--   <div id="carpool_map"></div> -->
   	
-    	<h3 id="carpool_title" style="margin-top: -80px;">Your Trip Route</h3>
+    	<h3 id="carpool_title" style="margin-top: -80px; font-size: large; border-left-width: 50px;">Your Trip Route</h3>
     	<br>
-    	<div id="map" style="margin-top: 0px;"></div>
+    	<div id="map" style="margin-top: 0px; border-left-width: 50px;"></div>
     
     <script type="text/javascript">
     var index=0;
