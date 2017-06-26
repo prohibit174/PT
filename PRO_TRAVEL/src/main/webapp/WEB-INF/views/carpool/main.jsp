@@ -120,7 +120,7 @@ $(function(){
 		e.preventDefault();
 	    	console.log("search.js log = "+frm.serialize());
 	    	/* console.log("url = "+frm.attr('url')); */
-	    	
+	    	$('.accompanyList section').remove();
 	        	
 	        $.ajax({
 	            type: frm.attr('method'),
