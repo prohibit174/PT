@@ -228,7 +228,7 @@ cursor: pointer;
 
 </head>
 <body>
-<form id="normal-form" class="mfp-hide white-popup-block" style="padding-left: 500px;" method="post" action="/declare/normal">
+<form id="normal-form" class="mfp-hide white-popup-block" style="padding-left: 500px;" method="post" action="/declare/normal" enctype="multipart/form-data">
    <fieldset style="border:0; background: white; width: 50%;">
    <div class="close" style="float: right; margin-right: 20px; margin-top: 10px;" onclick=""></div>
    <br><br>
@@ -263,7 +263,7 @@ cursor: pointer;
 	<br>
          <li>
          <label style="font-weight: bold;">신고 자료가 있다면 첨부파일을 추가 해주시기 바랍니다.</label><br><br>
-         <input type="file" value="파일 첨부" name="d_file" /> 
+         <input type="file" value="파일 첨부" name="img_file"  /> 
          </li>
       </ol>
             <input type="submit" value="접수" id="receipt" style="width: 130px; height: 40px; margin-left: 180px;"/>
@@ -272,7 +272,7 @@ cursor: pointer;
 
 </form>
 
-<form id="accompany-form" class="mfp-hide white-popup-block" style="padding-left: 500px;" method="post" action="/declare/accompany">
+<form id="accompany-form" class="mfp-hide white-popup-block" style="padding-left: 500px;" method="post" action="/declare/accompany" enctype="multipart/form-data">
    <fieldset style="border:0; background: white; width: 50%;">
    <div class="close" style="float: right; margin-right: 20px; margin-top: 10px;" onclick=""></div>
    <br><br>
@@ -305,7 +305,7 @@ cursor: pointer;
 	<br>
          <li>
          <label style="font-weight: bold;">신고 자료가 있다면 첨부파일을 추가 해주시기 바랍니다.</label><br><br>
-         <input type="file" value="파일 첨부" name="d_file"/> 
+         <input type="file" value="파일 첨부" name="img_file" /> 
          </li>
       </ol>
             <input type="submit" value="send" style="width: 130px; height: 40px; margin-left: 200px;" id="receipt"/>
@@ -314,7 +314,7 @@ cursor: pointer;
 
 </form>
 
-<form id="carpool-form" class="mfp-hide white-popup-block" style="padding-left: 500px;" method="post" action="/declare/carpool">
+<form id="carpool-form" class="mfp-hide white-popup-block" style="padding-left: 500px;" method="post" action="/declare/carpool" enctype="multipart/form-data">
    <fieldset style="border:0; background: white; width: 50%;">
    <div class="close" style="float: right; margin-right: 20px; margin-top: 10px;" onclick=""></div>
    <br><br>
@@ -347,7 +347,7 @@ cursor: pointer;
 	<br>
          <li>
          <label style="font-weight: bold;">신고 자료가 있다면 첨부파일을 추가 해주시기 바랍니다.</label><br><br>
-         <input type="file" value="파일 첨부" name="d_file"/> 
+         <input type="file" value="파일 첨부" name="img_file" /> 
          </li>
       </ol>
             <input type="submit" value="send" style="width: 130px; height: 40px; margin-left: 200px;" id="receipt"/>
