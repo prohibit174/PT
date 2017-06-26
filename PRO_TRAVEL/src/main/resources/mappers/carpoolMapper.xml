@@ -186,9 +186,10 @@
 	
 	<select id="searchCarpool"  resultType = "CarpoolRequestUser" >
 		select * from car_list 
-		where (START_POINT =#{start_point} and DEST_POINT =#{dest_point}) 
-		 or (WAY_POINT = #{start_point} and dest_point = #{dest_point})
-		 or (START_POINT = #{start_point} and way_point =#{dest_point})
+		where START_POINT =#{start_point} and DEST_POINT =#{dest_point}
+	<!-- 	 or (WAY_POINT = #{start_point} and dest_point = #{dest_point})
+		 or (START_POINT = #{start_point} and way_point =#{dest_point} ) -->
+		
 	
 	</select>	 
 

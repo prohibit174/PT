@@ -16,6 +16,11 @@
 		SELECT max(d_num) FROM declare
 	</select>
 	
+	<!-- 신고하나 가져오기 -->
+	<select id="detailDeclare"  resultType="kosta.travel.domain.DeclareVO" >
+		SELECT * FROM declare WHERE d_num = #{d_num}
+	</select>
+	
 	<select id="myDeclare" resultType="kosta.travel.domain.DeclareVO">
 		SELECT * 
 		FROM declare

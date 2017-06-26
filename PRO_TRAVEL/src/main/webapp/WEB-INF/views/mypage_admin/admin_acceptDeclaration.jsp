@@ -12,6 +12,24 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
+function content(d_num){
+	 var popupX = (window.screen.width / 2) - (800 / 2);
+	   var popupY= (window.screen.height /2) - (500 / 2);
+	    window.open('about:blank','popup_window','width=350, height=250, left='+popupX+', top='+popupY);
+	    var wantForm = 'content'+d_num;
+	    var frm =document.getElementById(wantForm);
+	    frm.submit(); 
+	}
+	
+function fileView(d_num){
+	 var popupX = (window.screen.width / 2) - (800 / 2);
+	   var popupY= (window.screen.height /2) - (500 / 2);
+	    window.open('about:blank','popup_window','width=800, height=600, left='+popupX+', top='+popupY);
+	    var wantForm = 'fileView'+d_num;
+	    var frm =document.getElementById(wantForm);
+	    frm.submit(); 
+	}
+
 function acceptLink(URL){
 	if(confirm("Would you accept it?") == true){
 		location.href=URL;
@@ -139,7 +157,7 @@ function rejectLink(URL){
 				<div class="th col2">SECTION</div>
 				<div class="th col2">FILE</div>
 				<div class="th col3"></div>
-				<div class="th col5"></div>
+				<div class="th col5">CONTENT</div>
 
 			</li>
 
@@ -149,11 +167,24 @@ function rejectLink(URL){
 					<div class="th col-first"> ${acceptList.u_id }</div>
 					<div class="th col1">${acceptList.d_reported }</div>
 					<div class="th col2">${acceptList.d_small }</div>
+					
+					<form id="fileView${acceptList.d_num }" name="fileView${acceptList.d_num }" method="post" 
+ 						action="/fileview?d_num=${acceptList.d_num }" target="popup_window">	
+ 					<a onclick = "fileView(${acceptList.d_num });">
 					<div class="th col2">${acceptList.d_file }</div>
+					</a>
 					<div class="th col3"></div>
-					<div class="th col5">
-					</div>
-					<!-- <div class="th col5"></div> -->
+					</form>
+					
+					
+					<form id="content${acceptList.d_num }" name="content${acceptList.d_num }" method="post" 
+ 						action="/detailContent?d_num=${acceptList.d_num }" target="popup_window">
+ 					<a onclick = "content(${acceptList.d_num });">
+					<div class="th col5"><strong>GO</strong></div>
+					</a>
+					</form>
+					
+					
 				
 					</c:forEach>
 					 <c:if test="${empty acceptList}">

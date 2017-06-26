@@ -68,7 +68,7 @@ public class CarpoolController {
 	public void mainPOST(Model model, CarpoolRequestUser user) throws Exception {
 
 		System.out.println("controller in");
-		/*System.out.println(user.getC_hour());*/
+		System.out.println(user.getC_hour());
 		
 		int year = Integer.parseInt(user.getC_hour().substring(0, 4));
 		int month = Integer.parseInt((user.getC_hour().substring(5, 7)));
@@ -81,9 +81,9 @@ public class CarpoolController {
 		user.setC_month(month);
 		user.setC_date(date);
 		
-		System.out.println("user vo info === "+user.toString());
+		/*System.out.println("user vo info === "+user.toString());*/
 
-		System.out.println(service.searchCarpool(user));
+		/*System.out.println(service.searchCarpool(user));*/
 		
 		
 		model.addAttribute("search", service.searchCarpool(user));
