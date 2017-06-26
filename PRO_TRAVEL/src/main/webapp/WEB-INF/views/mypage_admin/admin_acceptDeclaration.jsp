@@ -24,7 +24,7 @@ function content(d_num){
 function fileView(d_num){
 	 var popupX = (window.screen.width / 2) - (800 / 2);
 	   var popupY= (window.screen.height /2) - (500 / 2);
-	    window.open('about:blank','popup_window','width=800, height=600, left='+popupX+', top='+popupY);
+	    window.open('about:blank','popup_window','width=618, height=418, left='+popupX+', top='+popupY);
 	    var wantForm = 'fileView'+d_num;
 	    var frm =document.getElementById(wantForm);
 	    frm.submit(); 
@@ -180,7 +180,7 @@ function rejectLink(URL){
 					<form id="content${acceptList.d_num }" name="content${acceptList.d_num }" method="post" 
  						action="/detailContent?d_num=${acceptList.d_num }" target="popup_window">
  					<a onclick = "content(${acceptList.d_num });">
-					<div class="th col5"><strong>GO</strong></div>
+					<div class="th col5"><strong>Click</strong></div>
 					</a>
 					</form>
 					
