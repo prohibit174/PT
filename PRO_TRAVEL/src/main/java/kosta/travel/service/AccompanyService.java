@@ -321,6 +321,11 @@ public class AccompanyService {
 		System.out.println("accom service 진입");
 		return dao.count();
 	}
+
+	public List<GroupVO> getUser_havingTripInfo(HttpSession session) {
+
+		return dao.getUser_havingTripInfo();
+	}
 	   
 	   
 }

@@ -6,9 +6,9 @@
 
 	<insert id="declare_insert">
 		INSERT INTO declare(
-			d_num, u_id, d_reported, d_big, d_small, d_content, d_file
+			d_num, u_id, d_reported, d_big, d_small, d_state, d_content, d_file
 		) VALUES (
-			#{d_num}, #{u_id}, 'x', #{d_big}, #{d_small}, #{d_content}, #{d_file}
+			#{d_num}, #{u_id}, #{d_reported}, #{d_big}, #{d_small}, 'wait', #{d_content}, #{d_file}
 		)
 	</insert>
 
@@ -16,17 +16,54 @@
 		SELECT max(d_num) FROM declare
 	</select>
 	
-	<select id="declare_list" resultType="kosta.travel.domain.DeclareVO">
-		SELECT * FROM declare 
+	<select id="myDeclare" resultType="kosta.travel.domain.DeclareVO">
+		SELECT * 
+		FROM declare
+		WHERE u_id=#{u_id}
 		ORDER by d_num desc
 	</select>
 	
 	<select id="myDeclaration" resultType="kosta.travel.domain.DeclareVO">
-		SELECT d_num, d.u_id as u_id,d_reported, d_big, d_small, d_content, d_file,
-		u.u_id as d_reported_id, u.u_name as d_reported_name, u. u_img as d_reported_img	
-		FROM DECLARE d, USERS u
-		WHERE d.d_reported=u.u_id
-		AND d.u_id=#{u_id}
+		SELECT  d_num, d.u_id as u_id,d_reported, d_big, d_small, d_state, d_content, d_file,
+		u.u_id as d_reported_id, u. u_img as d_reported_img	
+		FROM DECLARE d, USERS u 
+		WHERE d.u_id=#{u_id}
+		AND d.d_reported=u.u_id
 		ORDER by d_num desc
 	</select>
+	
+	<select id="waitDeclare" resultType="kosta.travel.domain.DeclareVO">
+		SELECT * 
+		FROM declare
+		WHERE d_state='wait'
+		ORDER by d_num desc
+	</select>
+	
+	<select id="acceptDeclare" resultType="kosta.travel.domain.DeclareVO">
+		SELECT * 
+		FROM declare
+		WHERE d_state='ACCEPT'
+		ORDER by d_num desc
+	</select>
+	
+	<select id="rejectDeclare" resultType="kosta.travel.domain.DeclareVO">
+		SELECT * 
+		FROM declare
+		WHERE d_state='REJECT'
+		ORDER by d_num desc
+	</select>
+	
+	<update id="accept">
+		update declare 
+		set d_state ='ACCEPT'
+		where d_num = #{d_num}
+	</update>
+	
+	<update id="reject">
+		update declare 
+		set d_state ='REJECT'
+		where d_num = #{d_num}
+	</update>
+	
+	
 	</mapper>

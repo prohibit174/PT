@@ -22,7 +22,7 @@
  <style>
        #map {
         height: 400px;
-        width: 50%;
+        width: 65%;
 
        }
    /*    #footer{
@@ -209,9 +209,9 @@ input[type="submit"]:hover {
             </div> <!-- //tabs-list  -->
      <!--   <div id="carpool_map"></div> -->
      
-       <h2 id="carpool_title" style="margin-top: -80px;margin-left: 150px;padding-left: 105px;border-left-width: 50px;">   My Trip Plan With Recomanding Other traveler</h2>
+       <h2 id="carpool_title" style="margin-top: -80px;font-size: large;border-left-width: 50px;padding-left: 250px;">   My Trip Plan With Recomanding Other traveler</h2>
        <br>
-       <div id="map" style="margin-top: 0px; left: 30px;"></div>
+       <div id="map" style="margin-top: 0px;border-left-width: 50px;position: relative;overflow: hidden;left: 20px;"></div>
     
 
     <c:forEach var="accompany" items="${list}">
@@ -315,26 +315,20 @@ input[type="submit"]:hover {
                   
     </script>
  </c:forEach>
- 
-    <script>
-       
-  
-    </script> 
-    
-    
-    
+
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnrWQ2SHvedNrvdozheYo32pHwCbuvPgs&callback=initMap">
     </script>
 	
 
+       <h2 id="carpool_title" style="font-size: large; margin-top: 40px;margin-left: 150px;padding-left: 105px;border-left-width: 50px;"> Search Other Traveler</h2>
 
-                        <div style="margin-top: 50px; margin-left: 17px">
+<!-- <div style="margin-top: 50px; margin-left: 17px">
 <h1 style="font-size: large;">Search Other Traveler</h1>
 </div>
-
+ -->
 <form action="/accompany/cal" method="post" role="form" class="ajaxform">
-<div class="id-card-box" style="width: 100% ;border: black;">
+<div class="id-card-box" style="width: 100%;border: black;margin-left: 235px;">
 
          <div class="item-list" style="width: 1400px; padding-right: 30px;">
                <div style="font-size: 20px;">
@@ -363,7 +357,7 @@ input[type="submit"]:hover {
     </div>
        
             </div>
-            	
+	</div>            	
 	
 
 <script type="text/javascript">
@@ -485,7 +479,7 @@ $('body').on('focus','.datepick', function(){
     });
     
 </script>
-	
+
 </body>
 <%@include file="../include/footer.jsp" %>
 </html>

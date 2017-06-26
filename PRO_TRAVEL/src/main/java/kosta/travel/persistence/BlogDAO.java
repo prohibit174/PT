@@ -15,4 +15,5 @@ public interface BlogDAO {
    public Integer updateBlog(BlogPostVO blogPost) throws Exception;
    public BlogPostVO postDetail(String bp_postnum) throws Exception;
    public Integer removePost(BlogPostVO blogPost) throws Exception;
+   public Integer blogcount()throws Exception;
 }

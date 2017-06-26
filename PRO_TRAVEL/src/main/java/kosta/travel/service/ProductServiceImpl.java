@@ -127,4 +127,10 @@ public class ProductServiceImpl implements ProductService {
 		return dao.listProductCanceled(u_id);
 	}
 
+	@Override
+	public Integer productAll()throws Exception{
+		 
+		return dao.productAll();
+	}
+
 }

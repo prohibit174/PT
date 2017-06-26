@@ -62,4 +62,9 @@ public void removePost(BlogPostVO blogPost) throws Exception {
 	
 }
 
+@Override
+public Integer blogcount() throws Exception {
+	return dao.blogcount();
+}
+
 }

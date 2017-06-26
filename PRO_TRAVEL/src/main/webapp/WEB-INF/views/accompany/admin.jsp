@@ -32,19 +32,18 @@
 }
 
 .search-box input[type="search2"] {
-    width: 100%;
-    padding: 17px 0 15px;
-    margin: 0;
-    outline: none;
-    color: #222;
-    font-size: 14px;
-    line-height: 16px;
-    font-weight: bold;
-    border: 0;
-    display: block;
-    
-    -webkit-appearance: textfield;
-    }
+	width: 100%;
+	padding: 17px 0 15px;
+	margin: 0;
+	outline: none;
+	color: #222;
+	font-size: 14px;
+	line-height: 16px;
+	font-weight: bold;
+	border: 0;
+	display: block;
+	-webkit-appearance: textfield;
+}
 
 input[type="button"] {
 	float: right;
@@ -146,18 +145,13 @@ input[type="submit"]:hover {
 					</fieldset>
 				</form>
 
-				<div class="btns"
-					style="position: absolute; top: 450px; left: 250px; z-index: 20;">
-					&nbsp <a href="#" class="btn-prev"
-						style="background: white; padding-top: 10px;"><span
-						class="icon-arrow-left"> <span class="hide">prev</span></span></a>
-					&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-					&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-					&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-
-					<a href="#" class="btn-next"
-						style="background: white; padding-top: 10px;"><span
-						class="icon-arrow-right"> <span class="hide">next</span></span></a>
+				<div class="btns" onclick="searchTrip_plan('L')" style="position: absolute; top: 450px; left: 250px; z-index: 20;">
+					<span class="btn-prev" style="background: white; padding-top: 10px;"><span
+						class="icon-arrow-left"> <span class="hide"
+							onclick="searchTrip_plan(L)">prev</span></span></span> 
+							
+ 					<span class="btn-next" style="background: white; padding-top: 10px; margin-left: 571px;">
+ <span class="icon-arrow-right"> <span class="hide" onclick="searchTrip_plan(R)">next</span></span></span>
 				</div>
 
 				<div id="map" style="margin-top: 0px; left: 30px;"></div>
@@ -174,8 +168,10 @@ input[type="submit"]:hover {
 					var marker = [];
 					var markerIndex = 0;
 					var latLngList = [];
-					var movingPath=[];
-					var movingPathIndex=0;
+					var movingPath = [];
+					var movingPathIndex = 0;
+					var userList = [];
+					var userList_index = 0;
 				</script>
 
 
@@ -201,6 +197,16 @@ input[type="submit"]:hover {
 						index++;
 					</script>
 
+				</c:forEach>
+
+				<c:forEach var="IDList" items="${IDList}">
+
+					<c:set var="userList" value="${IDList.u_id}"></c:set>
+					<script type="text/javascript">
+						userList[userList_index] = "${userList}";
+						console.log(userList[userList_index]);
+						userList_index++;
+					</script>
 				</c:forEach>
 
 
@@ -261,121 +267,167 @@ input[type="submit"]:hover {
 						// alert(parseInt(accom_birth[0].substr(0,4)));
 						// alert(parseInt(thisYear)-parseInt(accom_birth[0].substr(0,4)));
 						//alert(accom_tp_date[0].substr(0,4));
-					
 
 					}
-					
+
 					function createLine(latLngList, map) {
-						movingPath[movingPathIndex] = new google.maps.Polyline({
-							path : latLngList,
-							geodesic : true,
-							strokeColor : '#000000',
-							strokeOpacity : 10.0,
-							strokeWeight : 1
-						});
+						movingPath[movingPathIndex] = new google.maps.Polyline(
+								{
+									path : latLngList,
+									geodesic : true,
+									strokeColor : '#000000',
+									strokeOpacity : 10.0,
+									strokeWeight : 1
+								});
 						if (latLngList.length > 1) {
 							movingPath[movingPathIndex++].setMap(map);
 						}
 					}
-					function searchTrip_plan() {
-						var u_id = document.getElementById("Search_User_ID").value;
-						var result = 0;
+					function searchTrip_plan(str) {
+						var u_id;
+						var textBoxStr = document
+								.getElementById("Search_User_ID").value;
+
+						if (str == "L") {
+							if (textBoxStr == "") {
+								u_id = userList[0];
+							}
+
+							else
+								for (var i = 0; i < userList.length; i++) {
+									if (textBoxStr == userList[i]) {
+										if (i == 0) {
+											u_id = userList[i];
+										}
+									} else {
+										u_id = userList[i-1];
+									}
+
+								}
+							console.log('id : '+id);
+							document.getElementById("Search_User_ID").value = u_id;
 						
+						} else if (str == 'R') {
+							if (textBoxStr == "") {
+								u_id = userList[0];
+							}
+
+							else
+								for (var i = 0; i < userList.length; i++) {
+									if (textBoxStr == userList[i]) {
+										if (i == 4) {
+											u_id = userList[userList.length];
+										}
+									} else {
+										u_id = userList[i+	1];
+									}
+
+								}
+							console.log('id : '+id);
+							document.getElementById("Search_User_ID").value = u_id;
+						
+						} else {
+							u_id = document.getElementById("Search_User_ID").value;
+						}
+
+						var result = 0;
+
 						for (var i = 0; i < markerIndex; i++) {
 							marker[i].setMap(null);
 						}
 						for (var i = 0; i < movingPathIndex; i++) {
 							movingPath[i].setMap(null);
 						}
-						
 
-
-						latLngList=[];
-						marker=[];
-						markerIndex=0;
+						latLngList = [];
+						marker = [];
+						markerIndex = 0;
 						movingPath
 
-						$.ajax({
-							type : "post",
-							url : "/accompany/admin_search_text",
-							data : {"u_id" : u_id},
-								success : function(data) {
-									console.log(parseInt(data.length/2));
-									var sumLat=Number(0);
-									var sumLng=Number(0);
-		
-										for(var i=0;i<data.length;i++)
-										{
-											sumLat+=Number(data[i].cor_lati);
-											sumLng+=Number(data[i].cor_longi);
+						$
+								.ajax({
+									type : "post",
+									url : "/accompany/admin_search_text",
+									data : {
+										"u_id" : u_id
+									},
+									success : function(data) {
+										console.log(parseInt(data.length / 2));
+										var sumLat = Number(0);
+										var sumLng = Number(0);
+
+										for (var i = 0; i < data.length; i++) {
+											sumLat += Number(data[i].cor_lati);
+											sumLng += Number(data[i].cor_longi);
 										}
 										console.log(sumLat);
 										console.log(sumLng);
-									var avgLat=sumLat/data.length;
-									var avgLng=sumLng/data.length;
-									
-									console.log(avgLat);
-									console.log(avgLng);
-									
-									 var center = {
+										var avgLat = sumLat / data.length;
+										var avgLng = sumLng / data.length;
+
+										console.log(avgLat);
+										console.log(avgLng);
+
+										var center = {
 											lat : avgLat,
 											lng : avgLng
-										}; 
-									
-									map = new google.maps.Map(document
-											.getElementById('map'), {
-										zoom : 4,
-										center : center
-									});
-									
-									
-								result = data;
-								var eachCounter = 0;
-
-								$(data).each(function() {
-									/* console.log(data[eachCounter].u_id, data[eachCounter].cor_region); */
-									
-									
-									var latlng = {
-											lat : Number(data[eachCounter].cor_lati),
-											lng : Number(data[eachCounter].cor_longi)
 										};
-									latLngList.push(latlng);
-									
-									var title=data[eachCounter].cor_region;
-									/* alert('latlng.lat : '+ latlng.lat+ ' / '+ 'longi[i] : '+longi[i]); */
-									marker[eachCounter] = new google.maps.Marker(
-											{
-												position : latlng,
-												map : map,
-												title : title,
-												icon : "http://www.stubbyplanner.com/img_v8/selectcityICON_red.png",
-											// one marker, one InfoWindow. So If a marker has window, it is prohibited to make Infowindow
-											/*  date : travelDate[i] */
-											});
-									marker[eachCounter].setMap(map);
-									createLine(latLngList, map);
-									eachCounter++;
-								});
-							},
-							error : function(data) {
-								var paris = {// not exact coordinates of Paris
-										lat : 48.856667,
-										lng : 2.350833
-									};
-								map = new google.maps.Map(document
-										.getElementById('map'), {
-									zoom : 4,
-									center : paris
-								});
-								alert('not found ID or Trip_plan on ID');
 
-							},
-						});
-						
+										map = new google.maps.Map(document
+												.getElementById('map'), {
+											zoom : 4,
+											center : center
+										});
 
-				
-						
+										result = data;
+										var eachCounter = 0;
+
+										$(data)
+												.each(
+														function() {
+															/* console.log(data[eachCounter].u_id, data[eachCounter].cor_region); */
+
+															var latlng = {
+																lat : Number(data[eachCounter].cor_lati),
+																lng : Number(data[eachCounter].cor_longi)
+															};
+															latLngList
+																	.push(latlng);
+
+															var title = data[eachCounter].cor_region;
+															/* alert('latlng.lat : '+ latlng.lat+ ' / '+ 'longi[i] : '+longi[i]); */
+															marker[eachCounter] = new google.maps.Marker(
+																	{
+																		position : latlng,
+																		map : map,
+																		title : title,
+																		icon : "http://www.stubbyplanner.com/img_v8/selectcityICON_red.png",
+																	// one marker, one InfoWindow. So If a marker has window, it is prohibited to make Infowindow
+																	/*  date : travelDate[i] */
+																	});
+															marker[eachCounter]
+																	.setMap(map);
+															createLine(
+																	latLngList,
+																	map);
+															eachCounter++;
+														});
+									},
+									error : function(data) {
+										var paris = {// not exact coordinates of Paris
+											lat : 48.856667,
+											lng : 2.350833
+										};
+										map = new google.maps.Map(document
+												.getElementById('map'), {
+											zoom : 4,
+											center : paris
+										});
+										alert('not found ID or not exist Trip_plan on ID');
+
+									},
+								});
+
 					}
 				</script>
 				<script async defer
@@ -390,12 +442,7 @@ input[type="submit"]:hover {
 							type="button" value="Hide" onclick="hideAccom()">
 					</div>
 				</div>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
+				<br> <br> <br> <br> <br> <br>
 			</div>
 
 		</div>

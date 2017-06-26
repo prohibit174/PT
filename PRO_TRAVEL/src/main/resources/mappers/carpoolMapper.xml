@@ -122,14 +122,14 @@
 	<!-- 수락시 cr_ox o로 변경 -->
 	<update id="accept">
 		update car_request 
-		set cr_ox ='o'
+		set cr_ox ='APPROVAL'
 		where cr_num = #{cr_num}
 	</update>
 	
 	<!-- 거절시 cr_ox x로 변경 -->
 	<update id="reject">
 		update car_request 
-		set cr_ox ='x'
+		set cr_ox ='REJECTION'
 		where cr_num = #{cr_num}
 	</update>
 	

@@ -39,6 +39,17 @@ public class MypageCarpoolController {
 		return "/mypage/mypage_carpoolCheck";
 	}
 	
+	@RequestMapping(value="/carpoolRequestCheck", method=RequestMethod.GET)
+	public String carpoolRequestCheck(Model model,  HttpSession session) throws Exception{
+		String u_id = (String)session.getAttribute("login");
+				
+		List<CarpoolRequestUser>requestList = service.requestAll(u_id);
+		model.addAttribute("requestList", requestList);
+		
+		
+		return "/mypage/mypage_carpoolRequestCheck";
+	}
+	
 	@RequestMapping(value = "/read", method = RequestMethod.GET)
 	public String read(@RequestParam("c_num") int c_num, Model model, HttpServletRequest request) throws Exception {
 		//attribute하나로 넘기면 키값은 클래스이름(첫글자소문자)으로 들어감

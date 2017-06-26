@@ -66,7 +66,7 @@
 
 .table2 .col-first {
 	width: 10%;
-	padding: 0px 30px 0px 0px;
+	padding: 0px 30px 0px 0px !important;
 	margin: 0px 10px 0px 0px;
 }
 
@@ -96,8 +96,8 @@
   <div class="section-links" style="margin-top:0px; padding-top:0px;
 		font-size:16px; float: right; margin-right:70px;">
 				<ul>
-					<li> Requested List </li>
-					<li><a href="/mypage/product_myRequestList">Request List</a></li>
+					<li><a href="/mypage/carpoolCheck">MY CARPOOL</a> </li>
+					<li>REQUEST CARPOOL</li>
 				</ul>
 			</div>
 		
@@ -114,11 +114,11 @@
 
 		<ul class="table2 ajax-content">
 			<li >
-				<div class="th col-first">DATE</div>
-				<div class="th col1">CITY</div>
-				<div class="th col2">EMPTY</div>
-				<div class="th col2">PLACE</div>
-				<div class="th col3">PRICE</div>
+				<div class="th col-first">DRIVER</div>
+				<div class="th col1">ACCEPT</div>
+				<div class="th col2">DATE</div>
+				<div class="th col2">TIME</div>
+				<div class="th col3">START</div>
 				<div class="th col5">DETAIL</div>
 
 			</li>
@@ -126,17 +126,18 @@
 
 			<li style="margin-top: 20px">
 			<c:forEach items="${requestList}" var="carpool">
-					<div class="th col-first"> <img src="/resources/upload/${carpool.u_u_img }" width="30" height="30" >
-         ${carpool.c_u_name }</div>
+					<div class="th col-first">
+					 <img src="/resources/upload/${carpool.u_u_img }" width="30" height="30" >
+					 ${carpool.c_u_name }
+					 </div>
 					<div class="th col1">${carpool.cr_ox}</div>
-					<div class="th col2">${carpool.c_month },${carpool.c_date }th, ${carpool.c_year }
-        ${carpool.c_hour }:${carpool.c_minute }</div>
-					<div class="th col2">${carpool.start_point}</div>
-					<div class="th col3"><strong><a href = '/mypage/requestRead?cr_num=${carpool.cr_num }&c_num=${carpool.c_num}'> Go </a></strong></div>
-					<div class="th col5"></div>
-				
+					<div class="th col2">${carpool.c_month }/${carpool.c_date }</div>
+					<div class="th col2">${carpool.c_hour }:${carpool.c_minute }</div>
+					<div class="th col3">${carpool.start_point }</div>
+					<div class="th col5"><strong><a href = '/mypage/requestRead?cr_num=${carpool.cr_num }&c_num=${carpool.c_num}'> Go </a></strong></div>
+					<br><br> 
 					</c:forEach>
-					 <c:if test="${empty list}">
+					 <c:if test="${empty requestList}">
 			요청 목록이 없습니다.
 		</c:if>
 					</li>
