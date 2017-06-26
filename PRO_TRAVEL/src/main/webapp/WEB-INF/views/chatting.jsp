@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+성공
 <c:if test="${id!=null}">
 										
 <iframe width="500" height="500" src="http://127.0.0.1:5000?username=${id }" frameborder="1">
