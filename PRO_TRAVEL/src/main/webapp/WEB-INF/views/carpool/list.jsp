@@ -35,8 +35,79 @@ function applyLink(URL){
 @CHARSET "EUC-KR";
 .wrapper {
   margin: 0 auto;
-  padding-left: 20px;
-  max-width: 800px;
+  padding-left: 100px;
+  max-width: 1000px;
+}
+
+.table {
+  margin: 0 0 40px 0;
+  width: 100%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  display: table;
+}
+@media screen and (max-width: 580px) {
+  .table {
+    display: block;
+  }
+}
+
+.row {
+  display: table-row;
+  background: #f6f6f6;
+}
+.row:nth-of-type(odd) {
+  background: #e9e9e9;
+}
+.row.header {
+  font-weight: 900;
+  color: #ffffff;
+  background: #ea6153;
+}
+.row.green {
+  background: #27ae60;
+}
+.row.blue {
+  background: #2980b9;
+}
+
+
+
+.cell {
+  padding: 6px 12px;
+  display: table-cell;
+}
+
+.table .th, .table2 .th {
+	font-size: 13px;
+	width: 12%;
+}
+
+.table2 .col-first {
+	width: 10%;
+	padding: 0px 30px 0px 0px;
+	margin: 0px 10px 0px 0px;
+}
+
+.table2 .col1 {
+	width: 10%;
+	padding: 0px 30px 0px 0px;
+	margin: 0px 10px 0px 0px;
+}
+
+.table2 .col2 {
+	width: 25%;
+
+	margin: 0px 10px 0px 0px;
+}
+
+.table2 .col3 {
+	width: 10%;
+	margin: 0px 10px 0px 0px;
+}
+
+.table2 .col4 {
+	width: 10%;
+	margin: 0px 10px 0px 0px;
 }
 
 
@@ -47,9 +118,8 @@ function applyLink(URL){
 <body>
 <div class=wrapper>
 	<img srcset="${pageContext.request.contextPath}/resources/images/carpool/list.png">
-</div>	
-
-    <section class="results ajax-area" data-tmpl="athleteResults_tmpl">
+	
+	<section class="results ajax-area" data-tmpl="athleteResults_tmpl">
         <div class="heading">
             <h2>carpool list</h2>
   
@@ -141,6 +211,9 @@ function applyLink(URL){
             </c:forEach>
         </ul>
     </section>
+</div>	
+
+    
     
 
     
