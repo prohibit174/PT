@@ -47,9 +47,9 @@
             </div> <!-- //tabs-list  -->
   	<!--   <div id="carpool_map"></div> -->
   	
-    	<h3 id="carpool_title" style="margin-top: -80px; font-size: large; border-left-width: 50px;">Your Trip Route</h3>
+    	<h3 id="carpool_title" style="margin-left: 260px; font-size: large; border-left-width: 50px;">Your Trip Route</h3>
     	<br>
-    	<div id="map" style="margin-top: 0px; border-left-width: 50px;"></div>
+    	<div id="map" style="margin-top: 0px; margin-left: 260px;"></div>
     
     <script type="text/javascript">
     var index=0;
@@ -451,11 +451,11 @@ function showLeftAccom(leftIndex, markerIndex){
 		<form action="/accompany/registerGroup" method="post" role="form">
 		<div class="accompanyList row" style="border: none;">
 		 <section class="ajax-area" data-tmpl="athleteResults_tmpl">
-    	<div class="heading" style="margin: 20px;padding-left: 185px;">
+    	<div class="heading" style="margin: 20px;padding-left: 222px;">
     	<h2>Your Route</h2>
     	</div>
     	<ul class="table2 ajax-content" style="margin-bottom: 0px;">
-    	<li class="liSize" style="width: 49%;margin-left: 200px;">
+    	<li class="liSize" style="width: 49%;margin-left: 244px;">
     		
 				<div class="th col4" style="width: 100px;">Except</div>
 					<div class="th col4"> Date </div>
@@ -465,7 +465,7 @@ function showLeftAccom(leftIndex, markerIndex){
     								
 		
     	<c:forEach var="data" items="${list}" varStatus="status">
-		<li class="liSize" style="padding-top: 10px;width: 49%;height: 43px;margin-left: 200px;">
+		<li class="liSize" style="padding-top: 10px;width: 49%;height: 43px;margin-left: 244px;">
 			<input type="hidden" name="groupVolist[${status.index}].tp_num" value="${data.tp_num}">
 				<div class="th col4" style="width: 100px;"><img class="appendcm" src="../resources/images/accompany/miners.png" width="30" height="30" style="margin-top: -5px;"></div>
     				<div class="th col4"><input type="hidden" name="groupVolist[${status.index}].tp_date" value="${data.tp_date}">${data.tp_date}</div>
@@ -478,7 +478,7 @@ function showLeftAccom(leftIndex, markerIndex){
 		
 		
 		</div>
-		<div style="padding-left: 45%; float: none;" class="calendar-form">
+		<div style="padding-left: 42%; float: none;" class="calendar-form">
 		
 		<input class="btn-more regist" type="submit" value="regist" style="margin-right: 20%; margin-top: 10px; width: 120px; height: 50px; font-size: medium; float: none;" />
 		</div>
