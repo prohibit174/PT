@@ -28,7 +28,7 @@ function applyLink(URL){
 </head>
 <body>	
    <section class="id-card-box" itemtype="http://schema.org/Organization"
-		itemscope="" style="margin: 0px 200px 100px 0px"; >
+		itemscope="" style="margin: 0px 200px 100px 0px; padding-left:50px;" >
         <div class="heading">
             <h2>carpool list</h2>
             <ul class="add-links">
