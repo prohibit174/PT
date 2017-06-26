@@ -87,6 +87,8 @@ $(function(){
  			 location.href= "${pageContext.request.contextPath}/carpool/listAll";
  		 });
  	});
+ 	
+ 
 </script>
 
 <script src='${pageContext.request.contextPath}/resources/js/accompanyJs/jquery-ui.min.js'></script>
@@ -111,13 +113,13 @@ function applyLink(URL){
 <script type="text/javascript">
 $(function(){
 	var ct = 0;
+
 	var frm = $('.ajaxform');
 
 	$(document).on('submit', '.ajaxform', function(e){
 		e.preventDefault();
 	    	console.log("search.js log = "+frm.serialize());
 	    	/* console.log("url = "+frm.attr('url')); */
-	    	
 	    	
 	        	
 	        $.ajax({
@@ -144,12 +146,12 @@ $(function(){
 
 	            	$(data).each(function(){
 	        		htmlText += '<li>';
-	            		htmlText += '<div class="th col1">''</div>';
+	            		htmlText += '<div class="th col1"></div>';
 	        				htmlText += '<div class="th col4"><a class="groupJoin" href="#">  Join </a></div>';
-	        					htmlText += '<div class="th col4">''</div>';
+	        					htmlText += '<div class="th col4">'+'</div>';
 	        						htmlText += '<div class="th col4">'+'</div>';
 	        							/*htmlText += '<div class="th col4">'+data[eachCounter].u_birth+'</div>';*/
-	        								htmlText += '<div class="th col4">''</div>'; 
+	        								htmlText += '<div class="th col4">'+'</div>'; 
 	        									htmlText += '<div class="th col4"><a href=""> Detail </a></div>';
 	        										htmlText += '<input type="hidden" class="accomp_group_num" name="accomp_group_num" value="'+data[eachCounter].accomp_group_num+'">';
 	        											htmlText += '</li>';
@@ -214,7 +216,7 @@ $(function(){
 	<img srcset="${pageContext.request.contextPath}/resources/images/carpool/list.png">
 </div>	
 	
-<form action="/carpool/listAll" method="post" class="ajaxform">
+<form action="/carpool/" method="post" class="ajaxform">
 <div class="id-card-box" style="width: 100% ;border: black;">
 	
 			<div class="item-list" style="width: 1400px; padding-right: 30px;">
@@ -478,7 +480,7 @@ $(function(){
    	<div>
    	
    	
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 	try {
 		Document doc = Jsoup.connect("http://www.alamo.co.kr/rent/carInfo.php?vendor=AL").get();
 		Elements contents = doc.select("div.body_contents");
@@ -487,7 +489,7 @@ $(function(){
 	} catch (Exception e) {
 		e.printStackTrace();
 	}
-	</script>
+	</script> -->
  <div class=web_parser>${result }</div> 
 	</div>
 </div>
