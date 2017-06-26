@@ -176,9 +176,8 @@
 								<c:forEach var="product" items="${recommand}">
 
 									<li itemscope="" itemtype="http://schema.org/ImageObject"
-										class="same-height"><a
-										href="/product/product_detail${pageMaker.makeSearch(pageMaker.cri.page) }&p_num=${product.p_num }"
-										itemprop="url" style="color: DarkSlateGray";></a> <!-- makeQuery -->
+										class="same-height"><a href="/product/product_detail${pageMaker.makeSearch(pageMaker.cri.page) }&p_num=${product.p_num }"
+										itemprop="url" style="color: DarkSlateGray";> <!-- makeQuery -->
 										<picture class="img"> <c:if
 											test="${product.p_img!=null}">
 											<c:set var="head"
@@ -190,8 +189,9 @@
 											<c:when
 												test="${pattern=='jpg' || pattern =='gif' || pattern =='png' }">
 												<!-- <img srcset="resources/upload/${head }_small.${pattern}" alt="img /"> -->
-												<img src="/resources/upload/${head}${small}.${pattern}"
-													alt="img /">
+												<img src="/resources/upload/${product.p_img }" style="width:200px; height:250px;"
+														alt="img /">
+													
 											</c:when>
 											<c:otherwise>
 												<c:out value="No IMAGE"></c:out>
@@ -202,7 +202,7 @@
 
 											<a
 												href="/product/product_detail${pageMaker.makeSearch(pageMaker.cri.page) }&p_num=${product.p_num }"
-												"
+												
 											itemprop="url" style="color: DarkSlateGray";>${product.p_name }</a>
 
 										</h2> <span>판매자: ${product.u_id }</span></li>
