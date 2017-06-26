@@ -21,11 +21,13 @@ import kosta.travel.domain.Carpool_ListVO;
 import kosta.travel.domain.PageMaker;
 import kosta.travel.domain.ProductVO;
 import kosta.travel.domain.SearchCriteria;
+import kosta.travel.domain.UsersVO;
 import kosta.travel.service.AccompanyService;
 import kosta.travel.service.BlogService;
 import kosta.travel.service.CarpoolService;
 import kosta.travel.service.MessageService;
 import kosta.travel.service.ProductService;
+import kosta.travel.service.UserService;
 
 /**
  * Handles requests for the application home page.
@@ -49,6 +51,9 @@ public class HomeController {
 
 	@Inject
 	private BlogService blogService;
+	
+	@Inject
+	private UserService userService;
 
 	/**
 	 * Simply selects the home view to render by returning its name.
@@ -116,5 +121,13 @@ public class HomeController {
 	public void ajax_register(@RequestParam("start") String start, HttpServletResponse response) throws Exception {
 		System.out.println(start);
 		response.getWriter().print(start);
+	}
+	
+	@RequestMapping(value = "/user", method = RequestMethod.POST)
+	public String user(Model model, @RequestParam("u_id")  String u_id) throws Exception {
+		UsersVO user = userService.userDetail(u_id);
+		model.addAttribute("user", user);
+	
+		return "/userPopup";
 	}
 }

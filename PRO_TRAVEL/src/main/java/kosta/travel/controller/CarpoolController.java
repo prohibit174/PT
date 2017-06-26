@@ -192,14 +192,7 @@ public class CarpoolController {
 		response.getWriter().print(int_count);
 	}
 	
-	@RequestMapping(value = "/user", method = RequestMethod.POST)
-	public String user(Model model, @RequestParam("u_id")  String u_id) throws Exception {
-		System.out.println(u_id);
-		UsersVO user = userService.userDetail(u_id);
-		model.addAttribute("user", user);
-	
-		return "/carpool/userPopup";
-	}
+
 	
 
 	
