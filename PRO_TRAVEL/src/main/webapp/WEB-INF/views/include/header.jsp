@@ -230,7 +230,7 @@ width:0;
 											<li><a href="/mypage/carpoolCheck">MY CARPOOL</a></li>
 										</ul>
 										<ul>
-											<li><a href="/productl/product_register">PRODUCT REGISTER</a></li>
+											<li><a href="/product/product_register">PRODUCT REGISTER</a></li>
 											<li><a href="/product/product_list">PRODUCT LIST</a></li>
 											<li><a href="/product/recommand_list">PRODUCT RECOMMAND</a></li>
 										</ul>
@@ -373,7 +373,11 @@ width:0;
 								<%-- <li class="welcome" style="display:none;"><span class="session" style="font-weight: bold;" ><%=session.getAttribute("login") %></span>님 환영합니다.</li> --%>
 							<%-- <li class="welcome" style="display:none;"><span class="session" style="font-weight: bold;" ><%=session.getAttribute("admin") %></span>님 환영합니다.</li> --%>
 							<li class="button_base b01_simple_rollover"><a style="cursor:pointer" id="login-button">LOGIN</a></li>
+							<c:choose>
+							<c:when test="${login==null}">
 							<li class="button_base b01_simple_rollover"><a href="/join/joinform">SIGN UP</a></li>
+							</c:when>
+							</c:choose>
 							<li><a class="mail" href="/message/main?u_id_recipient=<%=session.getAttribute("login") %>"></a></li>
 							<c:choose>
 							<c:when test="${login!=null}">
