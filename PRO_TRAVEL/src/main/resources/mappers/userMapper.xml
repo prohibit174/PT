@@ -77,4 +77,8 @@
 		UPDATE users SET u_status = #{u_status}+1 WHERE u_id = #{u_id} 
 	
 	</update>
+	
+	<select id="findPW">
+		SELECT u_pwd FROM users WHERE u_id = #{u_id} AND u_birth = #{u_birth}
+	</select>
 </mapper>

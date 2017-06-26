@@ -35,20 +35,7 @@
     font-weight: bold;
     line-height: 2em; 
     background: white;}
-   /*  .btn-more input {
-      color: #494949;
-      border-color: #494949; } 
-  .photovideo .btn-more a, .photovideo .btn-more-ext a {
-    color: #fff;
-    border-color: #fff; }
-    .photovideo .btn-more a:hover, .photovideo .btn-more-ext a:hover {
-      color: #bbb;
-      border-color: #bbb; }
-  .btn-more.white input, .btn-more-ext.white a {
-    color: #fff;
-    border-color: #fff; }
-  .btn-more .empty-load, .btn-more-ext .empty-load {
-    display: none; }*/
+ 
     
     input{
     color : #959595}
@@ -116,18 +103,18 @@
 					</a>
 				</div>--%>
 				
-				<div class="td col1">
-					<div class="id"><a href = "/userDetail?u_id=${user_ListVO.u_id }">
+				<ol class="td col1">
+					<!-- <div class="id"> --><a href = "/userDetail?u_id=${user_ListVO.u_id }">
 					${user_ListVO.u_id }
 					</a>
-					</div>
-				</div>
+					<!-- </div> -->
+				</ol>
 				
 				<div class="td col1"></div>
 				
-				<div class="td col2">
-					<div class="name">${user_ListVO.u_name }</div>
-				</div>
+				<ol class="td col2">
+					<!-- <div class="name"> -->${user_ListVO.u_name }<!-- </div> -->
+				</ol>
 
 				<div class="td col2">
 					<div class="license">${user_ListVO.u_status }</div>

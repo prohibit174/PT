@@ -1,4 +1,7 @@
-
+/* 3048line
+.table2 .td {
+    padding-top: 28px;
+    padding-bottom: 13px; }  */
 
 html {
   box-sizing: border-box; }
@@ -3046,8 +3049,8 @@ hr.alt + .related-posts {
   .table2 .col2 {
     width: 30%; }
   .table2 .td {
-    padding-top: 28px;
-    padding-bottom: 13px; }
+    padding-top: 16px;
+    padding-bottom: 16px; }
   .table2 .col3 {
     width: 100px;
     color: #999; }

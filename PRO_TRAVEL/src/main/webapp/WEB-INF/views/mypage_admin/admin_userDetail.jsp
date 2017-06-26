@@ -12,6 +12,28 @@
 	href="${pageContext.request.contextPath}/resources/css/AgoFiles/users_css/all.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/AgoFiles/users_css/common.css">
+	
+<style type="text/css">
+
+.btn-more1 button {
+    display: inline-block;
+    vertical-align: top;
+   /*  color: #959595; */
+    border: 2px solid #959595;
+    padding: 7px 20px;
+    min-width: 110px;
+    text-decoration: none !important;
+    font-weight: bold;
+    line-height: 2em; 
+    background: white;
+    text-align: center;
+    }
+
+ button{
+    color : #959595}
+
+
+</style>
 </head>
 <%@include file="/WEB-INF/views/include/header.jsp" %>
 <%@include file="/WEB-INF/views/include/admin_sidebar.jsp" %>
@@ -202,11 +224,10 @@
 
 							
 
-							<button name="submit" id="validate_order" type="submit"
-								class="primaryAction">
-								<span>확인</span>
-							</button>
-							<div class="clear"></div>
+							<span class="btn-more1" >
+							<button type="submit" class="btn-join" id="validate_order">OK</button>
+						</span>
+							<div class="clear"></div> 
 						</div>
 				</form>
 			</div>

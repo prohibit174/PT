@@ -71,7 +71,8 @@ function changePW(){
                         <div class="tab-section">
                             <form id="results-form" action="javascript:redirectFromDisc()" class="results-form">
                                 <div class="row">
-                                    <select id="sel-disc-s" class="ajax-select" title="Sports">
+                                	<input type="text" id="u_id">
+                                    <!-- <select id="sel-disc-s" class="ajax-select" title="Sports">
                                         <option class="default">Sports</option>
                                             <option data-url="/ajaxscript/geteventsbysport/{97E99010-5C26-46FA-872A-9F1242B653D8}">Alpine Skiing</option>
                                             <option data-url="/ajaxscript/geteventsbysport/{24D2F6E9-A281-4119-82C7-D245F073777B}">Archery</option>
@@ -130,21 +131,25 @@ function changePW(){
                                             <option data-url="/ajaxscript/geteventsbysport/{52E4B05F-A04B-4147-A588-A1168164D023}">Weightlifting</option>
                                             <option data-url="/ajaxscript/geteventsbysport/{E4265AFC-C454-4341-BF1B-29CE7A25DE8F}">Wrestling Freestyle</option>
                                             <option data-url="/ajaxscript/geteventsbysport/{6DECDD44-6BB0-4184-8C93-7F51BB33056C}">Wrestling Greco-Roman</option>
-                                    </select>
+                                    </select> -->
                                     <span class="txt">* Required</span>
                                 </div>
-                                <div class="row">
-                                    <select id="sel-evt-s" class="ajax-select" title="Events" disabled="disabled">
-                                        <option>Events</option>
-                                    </select>
-                                    <span class="txt">* Required</span>
+                                  <div class="row">
+                                    <input type="text" id="insert_id" name="u_id" value="Input ID" onfocus="this.value='';"/>
+                                    <br><br>
+                                    <span class="txt" onclick="">* Required</span>
                                 </div>
                                 <div class="row">
+                                    <input type="text" id="insert_birth" name="u_birth" value="Input Birthday" onfocus="this.value='';"/>
+                                    <br><br>
+                                    <span class="txt" onclick="">* Required</span>
+                                </div>
+                                <!-- <div class="row">
                                     <select id="sel-games-s" class="ajax-select" title="Games" disabled="disabled">
                                         <option class="default">Games</option>
                                     </select>
                                     <span class="txt">* Optional</span>
-                                </div>
+                                </div> -->
                                 <div class="row">
                                     <input type="submit" value="Login" />
                                     <input type="reset" value="Clear" />
