@@ -123,8 +123,10 @@ button, a {
 	<div id="wrapper">
 
 		<header id="header" role="banner" style="background-color: white;">
+		
 			<img src="/resources/images/blog/myblog.png"
 				style="height: 100%, width:100%;">
+				
 
 			
 		</header>
