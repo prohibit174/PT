@@ -75,7 +75,7 @@
 								<div class="left">
 								<table cellpadding="0" cellspacing="0" class="tab">
 								
-									<div>잘못된 비밀번호입니다. 비밀번호를 다시 확인해주세요.</div>
+									<div>Wrong password. Please check password, Again.</div>
 								</table>
 								</div>
 

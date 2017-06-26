@@ -29,13 +29,13 @@
                             <form id="results-form" action="/mypage/reallyLeave" class="results-form" method="post">
                                 <div class="row">
                                 	<span class="txt">
-										탈퇴 후에는 개인의 데이터를 복구할 수 없습니다.<br><br>
-										탈퇴 후에는 서비스에 남아있는 게시물을 삭제할 수 없습니다.<br><br>
-										탈퇴 후 재가입시 사용하셨던 유저아이디는 사용하실 수 없습니다.
+										Once you leave, you cannot restore your information.<br><br>
+										Once you leave, you cannot remove data what you written.<br><br>
+										When you try re-join, you cannot use same user ID.
                                 	</span>
                                 	<br><br><br>
                                 	<input type="checkbox"  id="leaveCheck">
-                                	<span>안내사항을 모두 확인했으며, 이에 동의합니다.</span>
+                                	<span>I checked every terms and accept.</span>
 <!--                                 	<input type="hidden" id="u_pwd" value="u_pwd">
  -->                                    <!-- <input type="text" id="insert_id" name="u_id" value="아이디를 입력하세요" onfocus="this.value='';"/>
                                     <br><br>
