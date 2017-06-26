@@ -26,13 +26,38 @@ public class DeclareServiceImpl implements DeclareService {
 	}
 
 	@Override
-	public List<DeclareVO> declare_list() throws Exception {
-		return dao.declare_list();
+	public List<DeclareVO> myDeclare(String u_id) throws Exception {
+		return dao.myDeclare(u_id);
 	}
 
 	@Override
 	public List<DeclareVO> myDeclaration(String u_id) throws Exception {
 		return dao.myDeclaration(u_id);
+	}
+
+	@Override
+	public List<DeclareVO> waitDeclare() throws Exception {
+		return dao.waitDeclare();
+	}
+
+	@Override
+	public List<DeclareVO> acceptDeclare() throws Exception {
+		return dao.acceptDeclare();
+	}
+
+	@Override
+	public List<DeclareVO> rejectDeclare() throws Exception {
+		return dao.rejectDeclare();
+	}
+
+	@Override
+	public void accept(Integer d_num) throws Exception {
+		dao.accept(d_num);	
+	}
+
+	@Override
+	public void reject(Integer d_num) throws Exception {
+		dao.accept(d_num);
 	}
 
 

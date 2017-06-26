@@ -30,6 +30,15 @@
             </i> -->
         </a>
     </li>
+    
+    <li class="">
+        <a href="/blog/makeBlog" data-class="games2014-2" target="">
+            Make Blog
+           <!--  <i class="icon-arrow-right">
+                <span class="hide">arrow</span>
+            </i> -->
+        </a>
+    </li>
  <!--    <li class="">
         <a href="carpoolCheck" data-class="games2014-2" target="">
             My Carpool

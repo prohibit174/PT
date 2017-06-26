@@ -8,8 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-</head>
-<body>
+
 <style>
 @CHARSET "EUC-KR";
 .wrapper {
@@ -50,78 +49,96 @@
 .row.blue {
   background: #2980b9;
 }
-@media screen and (max-width: 580px) {
-  .row {
-    padding: 8px 0;
-    display: block;
-  }
-}
+
+
 
 .cell {
   padding: 6px 12px;
   display: table-cell;
 }
-@media screen and (max-width: 580px) {
-  .cell {
-    padding: 2px 12px;
-    display: block;
-  }
+
+.table .th, .table2 .th {
+	font-size: 13px;
+	width: 12%;
 }
 
+.table2 .col-first {
+	width: 10%;
+	padding: 0px 30px 0px 0px;
+	margin: 0px 10px 0px 0px;
+}
+
+.table2 .col2 {
+	width: 18%;
+
+	margin: 0px 10px 0px 0px;
+}
+
+.table2 .col3 {
+	width: 15%;
+	margin: 0px 10px 0px 0px;
+}
+
+.table2 .col5 {
+	width: 12%;
+	margin: 0px 10px 0px 0px;
+}
 </style>
 </head>
+
 <body>
-
-
-
 <div class="wrapper">
 
+	<div class="heading">
+		<h2>DECLARATION LIST</h2>
+		<ul class="add-links">
+
+		</ul>
+	</div>
+	
+	
+
+
+		<ul class="table2 ajax-content">
+			<li >
+				<div class="th col-first">USER</div>
+				<div class="th col1">CATEGORY</div>
+				<div class="th col2"></div>
+				<div class="th col2"></div>
+				<div class="th col3">RESULT</div>
+				<div class="th col5"></div>
+
+			</li>
+
+
+			<li style="margin-top: 20px">
+			<c:forEach items="${list}" var="myDeclare">
+					<div class="th col-first">${myDeclare.d_reported}</div>
+					<div class="th col1">${myDeclare.d_big }</div>
+					<div class="th col2">${myDeclare.d_small }</div>
+					<div class="th col2"></div>
+					<div class="th col3">${myDeclare.d_state }</div>
+					<div class="th col5"></div>
+					<!-- <div class="th col5"></div> -->
+				
+					</c:forEach>
+					 <c:if test="${empty list}">
+							Not Exist
+						</c:if>
+					</li>
+					</ul>
+</div>
+
+
   
 
-<h2>REQUEST CARPOOL</h2>
-    <div class="table">
-    
-    <div class="row header blue">
-      <div class="cell">
-        USER
-      </div>
-      <div class="cell">
-        CATEGORY
-      </div>
-      <div class="cell">
-        RESULT
-      </div>
-      <div class="cell">
-        DETAIL
-      </div>
-    </div>
-    
-    <c:forEach items="${list}" var="myDeclare">
-    <div class="row">
-      <div class="cell">
-        <img src="/resources/upload/${myDeclare.d_reported_img }" width="30" height="30" >
-         ${myDeclare.d_reported_id }
-      </div>
-      <div class="cell">
-      ${myDeclare.d_big }(${myDeclare.d_small })
-      </div>
-      <div class="cell">
-      ${myDeclare.d_reported }
-      </div>
-      <div class="cell">
-        <strong><a href = '/mypage/declareRead?d_num=${myDeclare.d_num }'> Go </a></strong>
-      </div>
-      
-    </div>
-    </c:forEach>
+
   </div> 
   
-  </div>
 
 
 
-    
-    
+
 
 <%@ include file="/WEB-INF/views/include/footer.jsp" %>
 </body>

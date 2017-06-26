@@ -145,9 +145,36 @@ public class AdminController {
 	
 	@RequestMapping(value="/adminDeclare", method=RequestMethod.GET)
 	public String adminDeclare(Model model, HttpServletRequest request) throws Exception{
-		List<DeclareVO> declare_list = declareService.declare_list();
-		System.out.println(declare_list);
-		model.addAttribute("declareList", declare_list);
-		return "mypage_admin/admin_declaration";
+		List<DeclareVO> waitList = declareService.waitDeclare();
+		model.addAttribute("waitList", waitList);
+		return "mypage_admin/admin_waitDeclaration";
 	}
+	
+	@RequestMapping(value="/acceptDeclareList", method=RequestMethod.GET)
+	public String acceptDeclare(Model model, HttpServletRequest request) throws Exception{
+		List<DeclareVO> acceptList = declareService.acceptDeclare();
+		model.addAttribute("acceptList", acceptList);
+		return "mypage_admin/admin_acceptDeclaration";
+	}
+	
+	@RequestMapping(value="/rejectDeclareList", method=RequestMethod.GET)
+	public String rejectDeclare(Model model, HttpServletRequest request) throws Exception{
+		List<DeclareVO> rejectList = declareService.rejectDeclare();
+		model.addAttribute("rejectList", rejectList);
+		return "mypage_admin/admin_rejectDeclaration";
+	}
+	
+	@RequestMapping(value="/accept", method=RequestMethod.GET)
+	public String accept(Model model, @RequestParam("d_num") int d_num) throws Exception{
+		declareService.accept(d_num);
+		return "redirect:/acceptDeclareList";
+	}
+	
+	@RequestMapping(value="/reject", method=RequestMethod.GET)
+	public String reject(Model model, @RequestParam("d_num") int d_num) throws Exception{
+		declareService.reject(d_num);
+		return "redirect:/rejectDeclareList";
+	}
+	
+	
 }

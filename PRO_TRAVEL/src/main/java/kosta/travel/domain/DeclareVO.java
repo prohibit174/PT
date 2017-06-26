@@ -6,6 +6,7 @@ public class DeclareVO {
 	private String d_reported;
 	private String d_big;
 	private String d_small;
+	private String d_state;
 	private String d_content;
 	private String d_file;
 	
@@ -18,14 +19,15 @@ public class DeclareVO {
 	public DeclareVO(){}
 
 
-	public DeclareVO(int d_num, String u_id, String d_reported, String d_big, String d_small, String d_content,
-			String d_file, String d_reported_id, String d_reported_name, String d_reported_img) {
+	public DeclareVO(int d_num, String u_id, String d_reported, String d_big, String d_small, String d_state,
+			String d_content, String d_file, String d_reported_id, String d_reported_name, String d_reported_img) {
 		super();
 		this.d_num = d_num;
 		this.u_id = u_id;
 		this.d_reported = d_reported;
 		this.d_big = d_big;
 		this.d_small = d_small;
+		this.d_state = d_state;
 		this.d_content = d_content;
 		this.d_file = d_file;
 		this.d_reported_id = d_reported_id;
@@ -84,6 +86,16 @@ public class DeclareVO {
 	}
 
 
+	public String getD_state() {
+		return d_state;
+	}
+
+
+	public void setD_state(String d_state) {
+		this.d_state = d_state;
+	}
+
+
 	public String getD_content() {
 		return d_content;
 	}
@@ -132,6 +144,9 @@ public class DeclareVO {
 	public void setD_reported_img(String d_reported_img) {
 		this.d_reported_img = d_reported_img;
 	}
+
+
+	
 
 	
 	
