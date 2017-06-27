@@ -183,27 +183,25 @@ public class BlogController {
     @RequestMapping(value = "/updatePost", method=RequestMethod.GET)
     public String updateBlog(String bp_postnum, Model model) throws Exception{
        BlogPostVO blogPost = service.postDetail(bp_postnum);
-       //�쑀��媛� �꽑�깮�븳 湲� 踰덊샇瑜� �넻�빐�꽌 愿��젴�젙蹂�(湲�踰덊샇, �궡�슜)瑜� 媛��졇���꽌 blogPost媛앹껜�뿉 �꽔�쓬.
        model.addAttribute("blogPost", blogPost);
-       //�꽔�� �궡�슜�쓣 model媛앹껜瑜� �넻�빐�꽌 �쟾�넚
        
        return "/blog/updatePost";
     }
     
 	@RequestMapping(value="/updatePost", method=RequestMethod.POST)
-    public String updatePost(@RequestParam("bp_postnum") String bp_postnum, String bp_contents, Model model) throws Exception{
-       BlogPostVO blogPost = new BlogPostVO();
-       //blogPost媛앹껜. update硫붿냼�뱶�뿉�뒗 媛앹껜媛� �뱾�뼱媛��빞�븿.(湲�踰덊샇�굹 湲� �궡�슜�벑 媛앹껜瑜� �뙆�씪誘명꽣濡�)
-       blogPost=service.postDetail(bp_postnum);
-       //湲� 踰덊샇瑜� �뙆�씪誘명꽣濡� �룷�뒪�똿 �븳 �궡�슜�쓣 媛��졇���꽌 媛앹껜�뿉 �떞�쓬
-       blogPost.setBp_contents(bp_contents);
-       //洹� 以묒뿉 �궡�슜�쓣 set硫붿냼�뱶濡� �깉濡� �떞�쓬.
-       service.updateBlog(blogPost);
-       //�깉濡쒖슫 �궡�슜�씠 �떞湲� 媛앹껜瑜� �뙆�씪誘명꽣濡� update�븿
+    public String updatePost(@RequestParam("bp_postnum") String bp_postnum, String bp_contents, Model model, HttpSession session) throws Exception{
        
-       String u_id = blogPost.getU_id();
-       //媛앹껜�뿉�꽌 u_id瑜� 援ы빐�꽌 String蹂��닔�뿉 �떞�쓬
-       model.addAttribute("u_id", u_id);
+		BlogPostVO blogPost = new BlogPostVO();
+		System.out.println("update method in");
+		System.out.println(blogPost.toString());
+       blogPost=service.postDetail(bp_postnum);
+       blogPost.setBp_contents(bp_contents);
+      
+       service.updateBlog(blogPost);
+       
+       
+       String id = (String)session.getAttribute("login");
+       model.addAttribute("id", id);
        System.out.println("blogupdate controller out");
        
        return "redirect:/blog/myBlog";

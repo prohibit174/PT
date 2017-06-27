@@ -42,10 +42,10 @@
 								<ul class="errorField"></ul>
 							</td>  
 							
-							<td class="value">
+							<%-- <td class="value">
 							<span>${blogPost.bp_postnum }</span> &nbsp; <span class="mandatory"></span>
 								<ul class="errorField"></ul>
-							</td>  
+							</td>   --%>
 							
 							<div class="row">
 								<textarea rows="20" cols="68" name="bp_contents"
