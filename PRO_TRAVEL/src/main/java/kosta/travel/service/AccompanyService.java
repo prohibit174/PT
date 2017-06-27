@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Service;
 
+import kosta.travel.domain.Accomp_home_map;
 import kosta.travel.domain.AccompanyVO;
 import kosta.travel.domain.CordinatesVO;
 import kosta.travel.domain.GroupVO;
@@ -341,5 +342,18 @@ public class AccompanyService {
 		return dao.getUser_havingTripInfo();
 	}
 	   
+	public List<Accomp_home_map> getHomeMap(int num) {
+		// TODO Auto-generated method stub
+		List<Accomp_home_map> temp=null;
+		try {
+			temp = dao.getHomeMap1(num);
+			System.out.println("정상 작동");
+			temp.get(0).toString();
+			return temp;
+		} catch (Exception e) {
+			System.out.println("error occured : ");
+			return temp;
+		}
+	}
 	   
 }

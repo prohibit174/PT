@@ -347,7 +347,7 @@ width:0;
 							</div>
 						</div></li>
 
-					<li><a href="${pageContext.request.contextPath}/declare/">Declaration</a></li>
+					<li><a href="${pageContext.request.contextPath}/declare/">REPORT</a></li>
 				</ul>
 
 				<div class="add-top-section">

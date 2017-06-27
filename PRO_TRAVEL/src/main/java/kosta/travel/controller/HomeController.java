@@ -73,6 +73,13 @@ public class HomeController {
 		model.addAttribute("carpoolcount", carpoolService.count());
 		System.out.println("home 吏꾩엯 �쟾");
 		model.addAttribute("accompanycount", accompanyService.count());
+		
+
+		model.addAttribute("map1", accompanyService.getHomeMap(1));
+		model.addAttribute("map2", accompanyService.getHomeMap(2));
+		model.addAttribute("map3", accompanyService.getHomeMap(3));
+		model.addAttribute("map4", accompanyService.getHomeMap(4));
+		model.addAttribute("map5", accompanyService.getHomeMap(5));
 
 		List<Carpool_ListVO> carpoolAll = carpoolService.carpoolAll();
 		model.addAttribute("carpoolAll", carpoolAll);

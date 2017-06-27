@@ -341,102 +341,493 @@ height: 250px;}
                style="margin-left: 0px; width: 5760px;">
 
                <li class=""><article>
-                  <div id="map"
-                     style="margin-top: 0px; left: 0px; height: 191px; width: 340px"></div>
-                  <span class="news-topic-label sochi2014">Europe</span> <br>
-                  <h2>
-                     <a href="/news/sochi-2014-bids-farewell">10 days recommeding
-                        route in Eastern Europe</a>
-                  </h2>
-                  <time datetime="23 Feb 2014">Jiwoong</time> </article></li>
+						<div id="map1"
+							style="margin-top: 0px; left: 0px; height: 191px; width: 340px"></div>
+						<span class="news-topic-label sochi2014"> <script>
+							
+						</script> <c:set var="doneLoop" value="false" /> <c:forEach
+								items="${map1}" var="list">
+								<c:if test="${not doneLoop}">
+									<c:if test="${1 == 1}"> 
+							${list.title}
+							<c:set var="doneLoop" value="true" />
+									</c:if>
+								</c:if>
+							</c:forEach></span> <br>
+						<h2>
+							<a href="/news/sochi-2014-bids-farewell"> <c:set
+									var="doneLoop" value="false" /> <c:forEach items="${map1}"
+									var="list">
+									<c:if test="${not doneLoop}">
+										<c:if test="${1 == 1}"> 
+							${list.content}
+							<c:set var="doneLoop" value="true" />
+										</c:if>
+									</c:if>
+								</c:forEach></a>
+						</h2>
+						<time datetime="23 Feb 2014"></time> <c:set var="doneLoop"
+							value="false" /> <c:forEach items="${map1}" var="list">
+							<c:if test="${not doneLoop}">
+								<c:if test="${1 == 1}"> 
+							${list.u_id}
+							<c:set var="doneLoop" value="true" />
+								</c:if>
+							</c:if>
+						</c:forEach> </time> </article></li>
 
-               <li class=""><article> <a
-                     href="/news/women-make-a-name-for-themselves-in-sochi"> <picture
-                        class="image"> <!--[if IE 9]><video style="display: none;"><![endif]-->
+					<li class=""><article>
+						<div id="map2"
+							style="margin-top: 0px; left: 0px; height: 191px; width: 340px"></div>
+						<span class="news-topic-label sochi2014"> <script>
+							
+						</script> <c:set var="doneLoop" value="false" /> <c:forEach
+								items="${map2}" var="list">
+								<c:if test="${not doneLoop}">
+									<c:if test="${1 == 1}"> 
+							${list.title}
+							<c:set var="doneLoop" value="true" />
+									</c:if>
+								</c:if>
+							</c:forEach></span> <br>
+						<h2>
+							<a href="/news/sochi-2014-bids-farewell"> <c:set
+									var="doneLoop" value="false" /> <c:forEach items="${map2}"
+									var="list">
+									<c:if test="${not doneLoop}">
+										<c:if test="${1 == 1}"> 
+							${list.content}
+							<c:set var="doneLoop" value="true" />
+										</c:if>
+									</c:if>
+								</c:forEach></a>
+						</h2>
+						<time datetime="23 Feb 2014"></time> <c:set var="doneLoop"
+							value="false" /> <c:forEach items="${map2}" var="list">
+							<c:if test="${not doneLoop}">
+								<c:if test="${1 == 1}"> 
+							${list.u_id}
+							<c:set var="doneLoop" value="true" />
+								</c:if>
+							</c:if>
+						</c:forEach> </time> </article></li>
 
-                     <source
-                        srcset="https://stillmed.olympic.org/Global/Images/News/2014-02/22/SwissHockey_630x364.jpg?interpolation=lanczos-none&resize=340:191, https://stillmed.olympic.org/Global/Images/News/2014-02/22/SwissHockey_630x364.jpg?interpolation=lanczos-none&resize=680:382 2x"
-                        media="(min-width: 1024px)"> <source
-                        srcset="https://stillmed.olympic.org/Global/Images/News/2014-02/22/SwissHockey_630x364.jpg?interpolation=lanczos-none&resize=340:191, https://stillmed.olympic.org/Global/Images/News/2014-02/22/SwissHockey_630x364.jpg?interpolation=lanczos-none&resize=680:382 2x"
-                        media="(min-width: 768px)"> <!--[if IE 9]></video><![endif]-->
+					<li class=""><article>
+						<div id="map3"
+							style="margin-top: 0px; left: 0px; height: 191px; width: 340px"></div>
+						<span class="news-topic-label sochi2014"> <script>
+							
+						</script> <c:set var="doneLoop" value="false" /> <c:forEach
+								items="${map3}" var="list">
+								<c:if test="${not doneLoop}">
+									<c:if test="${1 == 1}"> 
+							${list.title}
+							<c:set var="doneLoop" value="true" />
+									</c:if>
+								</c:if>
+							</c:forEach></span> <br>
+						<h2>
+							<a href="/news/sochi-2014-bids-farewell"> <c:set
+									var="doneLoop" value="false" /> <c:forEach items="${map3}"
+									var="list">
+									<c:if test="${not doneLoop}">
+										<c:if test="${1 == 1}"> 
+							${list.content}
+							<c:set var="doneLoop" value="true" />
+										</c:if>
+									</c:if>
+								</c:forEach></a>
+						</h2>
+						<time datetime="23 Feb 2014"></time> <c:set var="doneLoop"
+							value="false" /> <c:forEach items="${map3}" var="list">
+							<c:if test="${not doneLoop}">
+								<c:if test="${1 == 1}"> 
+							${list.u_id}
+							<c:set var="doneLoop" value="true" />
+								</c:if>
+							</c:if>
+						</c:forEach> </time> </article></li>
 
-                     <img
-                        srcset="https://stillmed.olympic.org/Global/Images/News/2014-02/22/SwissHockey_630x364.jpg?interpolation=lanczos-none&resize=250:140, https://stillmed.olympic.org/Global/Images/News/2014-02/22/SwissHockey_630x364.jpg?interpolation=lanczos-none&resize=500:280 2x"
-                        alt=""></picture>
+					<li class=""><article>
+						<div id="map4"
+							style="margin-top: 0px; left: 0px; height: 191px; width: 340px"></div>
+						<span class="news-topic-label sochi2014"> <script>
+							
+						</script> <c:set var="doneLoop" value="false" /> <c:forEach
+								items="${map4}" var="list">
+								<c:if test="${not doneLoop}">
+									<c:if test="${1 == 1}"> 
+							${list.title}
+							<c:set var="doneLoop" value="true" />
+									</c:if>
+								</c:if>
+							</c:forEach></span> <br>
+						<h2>
+							<a href="/news/sochi-2014-bids-farewell"> <c:set
+									var="doneLoop" value="false" /> <c:forEach items="${map4}"
+									var="list">
+									<c:if test="${not doneLoop}">
+										<c:if test="${1 == 1}"> 
+							${list.content}
+							<c:set var="doneLoop" value="true" />
+										</c:if>
+									</c:if>
+								</c:forEach></a>
+						</h2>
+						<time datetime="23 Feb 2014"></time> <c:set var="doneLoop"
+							value="false" /> <c:forEach items="${map4}" var="list">
+							<c:if test="${not doneLoop}">
+								<c:if test="${1 == 1}"> 
+							${list.u_id}
+							<c:set var="doneLoop" value="true" />
+								</c:if>
+							</c:if>
+						</c:forEach> </time> </article></li>
 
-                  </a> <span class="news-topic-label sochi2014">Sochi 2014</span>
-                  <h2>
-                     <a href="/news/women-make-a-name-for-themselves-in-sochi">Women
-                        make a name for themselves in Sochi</a>
-                  </h2>
-                  <time datetime="22 Feb 2014">22 Feb 2014</time> </article></li>
+					<li class=""><article>
+						<div id="map5"
+							style="margin-top: 0px; left: 0px; height: 191px; width: 340px"></div>
+						<span class="news-topic-label sochi2014"> <script>
+							
+						</script> <c:set var="doneLoop" value="false" /> <c:forEach
+								items="${map5}" var="list">
+								<c:if test="${not doneLoop}">
+									<c:if test="${1 == 1}"> 
+							${list.title}
+							<c:set var="doneLoop" value="true" />
+									</c:if>
+								</c:if>
+							</c:forEach></span> <br>
+						<h2>
+							<a href="/news/sochi-2014-bids-farewell"> <c:set
+									var="doneLoop" value="false" /> <c:forEach items="${map5}"
+									var="list">
+									<c:if test="${not doneLoop}">
+										<c:if test="${1 == 1}"> 
+							${list.content}
+							<c:set var="doneLoop" value="true" />
+										</c:if>
+									</c:if>
+								</c:forEach></a>
+						</h2>
+						<time datetime="23 Feb 2014"></time> <c:set var="doneLoop"
+							value="false" /> <c:forEach items="${map5}" var="list">
+							<c:if test="${not doneLoop}">
+								<c:if test="${1 == 1}"> 
+							${list.u_id}
+							<c:set var="doneLoop" value="true" />
+								</c:if>
+							</c:if>
+						</c:forEach> </time> </article></li>
 
-               <li class=""><article> <a
-                     href="/news/golden-oldies-a-tribute-to-the-veterans-who-have-made-their-mark-on-sochi-2014">
-                     <picture class="image"> <!--[if IE 9]><video style="display: none;"><![endif]-->
 
-                     <source
-                        srcset="https://stillmed.olympic.org/Global/Images/News/2014-02/21/Oldies_BG.jpg?interpolation=lanczos-none&resize=340:191, https://stillmed.olympic.org/Global/Images/News/2014-02/21/Oldies_BG.jpg?interpolation=lanczos-none&resize=680:382 2x"
-                        media="(min-width: 1024px)"> <source
-                        srcset="https://stillmed.olympic.org/Global/Images/News/2014-02/21/Oldies_BG.jpg?interpolation=lanczos-none&resize=340:191, https://stillmed.olympic.org/Global/Images/News/2014-02/21/Oldies_BG.jpg?interpolation=lanczos-none&resize=680:382 2x"
-                        media="(min-width: 768px)"> <!--[if IE 9]></video><![endif]-->
+					<script>
+						var cor_region = [];
+						var longi = [];
+						var lati = [];
+						var index = 0;
+						var latLngList = [];
 
-                     <img
-                        srcset="https://stillmed.olympic.org/Global/Images/News/2014-02/21/Oldies_BG.jpg?interpolation=lanczos-none&resize=250:140, https://stillmed.olympic.org/Global/Images/News/2014-02/21/Oldies_BG.jpg?interpolation=lanczos-none&resize=500:280 2x"
-                        alt=""></picture>
+						var cor_region_2 = [];
+						var longi_2 = [];
+						var lati_2 = [];
+						var index_2 = 0;
+						var latLngList_2 = [];
 
-                  </a> <span class="news-topic-label sochi2014">Sochi 2014</span>
-                  <h2>
-                     <a
-                        href="/news/golden-oldies-a-tribute-to-the-veterans-who-have-made-their-mark-on-sochi-2014">Golden
-                        oldies: A tribute to the 'veterans' who have made their mark on
-                        Sochi 2014</a>
-                  </h2>
-                  <time datetime="21 Feb 2014">21 Feb 2014</time> </article></li>
+						var cor_region_3 = [];
+						var longi_3 = [];
+						var lati_3 = [];
+						var index_3 = 0;
+						var latLngList_3 = [];
 
-               <li class=""><article> <a
-                     href="/news/a-day-in-the-life-of-the-sochi-2014-olympic-medals">
-                     <picture class="image"> <!--[if IE 9]><video style="display: none;"><![endif]-->
+						var cor_region_4 = [];
+						var longi_4 = [];
+						var lati_4 = [];
+						var index_4 = 0;
+						var latLngList_4 = [];
 
-                     <source
-                        srcset="https://stillmed.olympic.org/Global/Images/News/2014-02/18/Medal_630x364.jpg?interpolation=lanczos-none&resize=340:191, https://stillmed.olympic.org/Global/Images/News/2014-02/18/Medal_630x364.jpg?interpolation=lanczos-none&resize=680:382 2x"
-                        media="(min-width: 1024px)"> <source
-                        srcset="https://stillmed.olympic.org/Global/Images/News/2014-02/18/Medal_630x364.jpg?interpolation=lanczos-none&resize=340:191, https://stillmed.olympic.org/Global/Images/News/2014-02/18/Medal_630x364.jpg?interpolation=lanczos-none&resize=680:382 2x"
-                        media="(min-width: 768px)"> <!--[if IE 9]></video><![endif]-->
+						var cor_region_5 = [];
+						var longi_5 = [];
+						var lati_5 = [];
+						var index_5 = 0;
+						var latLngList_5 = [];
+					</script>
+					<c:forEach items="${map1}" var="list">
+						<c:set var="cor_region" value="${list.cor_region}"></c:set>
+						<c:set var="longi" value="${list.cor_longi}"></c:set>
+						<c:set var="lati" value="${list.cor_lati}"></c:set>
+						<script>
+							cor_region[index] = "${cor_region}";
+							longi[index] = "${longi}";
+							lati[index] = "${lati}";
+							index++;
+						</script>
+					</c:forEach>
 
-                     <img
-                        srcset="https://stillmed.olympic.org/Global/Images/News/2014-02/18/Medal_630x364.jpg?interpolation=lanczos-none&resize=250:140, https://stillmed.olympic.org/Global/Images/News/2014-02/18/Medal_630x364.jpg?interpolation=lanczos-none&resize=500:280 2x"
-                        alt=""></picture>
+					<c:forEach items="${map2}" var="list">
+						<c:set var="cor_region_2" value="${list.cor_region}"></c:set>
+						<c:set var="longi_2" value="${list.cor_longi}"></c:set>
+						<c:set var="lati_2" value="${list.cor_lati}"></c:set>
+						<script>
+							cor_region_2[index_2] = "${cor_region_2}";
+							longi_2[index_2] = "${longi_2}";
+							lati_2[index_2] = "${lati_2}";
+							index_2++;
+						</script>
+					</c:forEach>
 
-                  </a> <span class="news-topic-label sochi2014">Sochi 2014</span>
-                  <h2>
-                     <a
-                        href="/news/a-day-in-the-life-of-the-sochi-2014-olympic-medals">A
-                        day in the life of the Sochi 2014 Olympic medals</a>
-                  </h2>
-                  <time datetime="18 Feb 2014">18 Feb 2014</time> </article></li>
+					<c:forEach items="${map3}" var="list">
+						<c:set var="cor_region_3" value="${list.cor_region}"></c:set>
+						<c:set var="longi_3" value="${list.cor_longi}"></c:set>
+						<c:set var="lati_3" value="${list.cor_lati}"></c:set>
+						<script>
+							cor_region_3[index_3] = "${cor_region_3}";
+							longi_3[index_3] = "${longi_3}";
+							lati_3[index_3] = "${lati_3}";
+							index_3++;
+						</script>
+					</c:forEach>
 
-               <li class=""><article> <a
-                     href="/news/sochi-2014-volunteers-helping-to-create-special-atmosphere">
-                     <picture class="image"> <!--[if IE 9]><video style="display: none;"><![endif]-->
+					<c:forEach items="${map3}" var="list">
+						<c:set var="cor_region_3" value="${list.cor_region}"></c:set>
+						<c:set var="longi_3" value="${list.cor_longi}"></c:set>
+						<c:set var="lati_3" value="${list.cor_lati}"></c:set>
+						<script>
+							cor_region_3[index_3] = "${cor_region_3}";
+							longi_3[index_3] = "${longi_3}";
+							lati_3[index_3] = "${lati_3}";
+							index_3++;
+						</script>
+					</c:forEach>
 
-                     <source
-                        srcset="https://stillmed.olympic.org/Global/Images/News/2014-02/16/Vol_BIG.jpg?interpolation=lanczos-none&resize=340:191, https://stillmed.olympic.org/Global/Images/News/2014-02/16/Vol_BIG.jpg?interpolation=lanczos-none&resize=680:382 2x"
-                        media="(min-width: 1024px)"> <source
-                        srcset="https://stillmed.olympic.org/Global/Images/News/2014-02/16/Vol_BIG.jpg?interpolation=lanczos-none&resize=340:191, https://stillmed.olympic.org/Global/Images/News/2014-02/16/Vol_BIG.jpg?interpolation=lanczos-none&resize=680:382 2x"
-                        media="(min-width: 768px)"> <!--[if IE 9]></video><![endif]-->
+					<c:forEach items="${map4}" var="list">
+						<c:set var="cor_region_4" value="${list.cor_region}"></c:set>
+						<c:set var="longi_4" value="${list.cor_longi}"></c:set>
+						<c:set var="lati_4" value="${list.cor_lati}"></c:set>
+						<script>
+							cor_region_4[index_4] = "${cor_region_4}";
+							longi_4[index_4] = "${longi_4}";
+							lati_4[index_4] = "${lati_4}";
+							index_4++;
+						</script>
+					</c:forEach>
 
-                     <img
-                        srcset="https://stillmed.olympic.org/Global/Images/News/2014-02/16/Vol_BIG.jpg?interpolation=lanczos-none&resize=250:140, https://stillmed.olympic.org/Global/Images/News/2014-02/16/Vol_BIG.jpg?interpolation=lanczos-none&resize=500:280 2x"
-                        alt=""></picture>
+					<c:forEach items="${map5}" var="list">
+						<c:set var="cor_region_5" value="${list.cor_region}"></c:set>
+						<c:set var="longi_5" value="${list.cor_longi}"></c:set>
+						<c:set var="lati_5" value="${list.cor_lati}"></c:set>
+						<script>
+							cor_region_5[index_5] = "${cor_region_5}";
+							longi_5[index_5] = "${longi_5}";
+							lati_5[index_5] = "${lati_5}";
+							index_5++;
+						</script>
+					</c:forEach>
+					<script>
+						var map1;
+						var map2;
+						var map3;
+						var map4;
+						var map5;
 
-                  </a> <span class="news-topic-label sochi2014">Sochi 2014</span>
-                  <h2>
-                     <a
-                        href="/news/sochi-2014-volunteers-helping-to-create-special-atmosphere">Sochi
-                        2014 volunteers helping to create “special atmosphere”</a>
-                  </h2>
-                  <time datetime="16 Feb 2014">16 Feb 2014</time> </article></li>
+						function initMap() {
+							var sumLat = Number(0);
+							var sumLng = Number(0);
+							for (var i = 0; i < index; i++) {
+								sumLat += Number(lati[i]);
+								sumLng += Number(longi[i]);
+							}
+							var avgLat = sumLat / index;
+							var avgLng = sumLng / index;
+							var center = {
+								lat : avgLat,
+								lng : avgLng
+							};
+
+							var sumLat = Number(0);
+							var sumLng = Number(0);
+							for (var i = 0; i < index_2; i++) {
+								sumLat += Number(lati_2[i]);
+								sumLng += Number(longi_2[i]);
+							}
+							var avgLat = sumLat / index_2;
+							var avgLng = sumLng / index_2;
+							var center_2 = {
+								lat : avgLat,
+								lng : avgLng
+							};
+
+							var sumLat = Number(0);
+							var sumLng = Number(0);
+							for (var i = 0; i < index_3; i++) {
+								sumLat += Number(lati_3[i]);
+								sumLng += Number(longi_3[i]);
+							}
+							var avgLat = sumLat / index_3;
+							var avgLng = sumLng / index_3;
+							var center_3 = {
+								lat : avgLat,
+								lng : avgLng
+							};
+
+							var sumLat = Number(0);
+							var sumLng = Number(0);
+							for (var i = 0; i < index_4; i++) {
+								sumLat += Number(lati_4[i]);
+								sumLng += Number(longi_4[i]);
+							}
+							var avgLat = sumLat / index_4;
+							var avgLng = sumLng / index_4;
+							var center_4 = {
+								lat : avgLat,
+								lng : avgLng
+							};
+
+							var sumLat = Number(0);
+							var sumLng = Number(0);
+							for (var i = 0; i < index_5; i++) {
+								sumLat += Number(lati_5[i]);
+								sumLng += Number(longi_5[i]);
+							}
+							var avgLat = sumLat / index_5;
+							var avgLng = sumLng / index_5;
+							var center_5 = {
+								lat : avgLat,
+								lng : avgLng
+							};
+
+							map1 = new google.maps.Map(document
+									.getElementById('map1'), {
+								zoom : 3,
+								center : center
+							});
+
+							map2 = new google.maps.Map(document
+									.getElementById('map2'), {
+								zoom : 2,
+								center : center_2
+							});
+
+							map3 = new google.maps.Map(document
+									.getElementById('map3'), {
+								zoom : 3,
+								center : center_3
+							});
+
+							map4 = new google.maps.Map(document
+									.getElementById('map4'), {
+								zoom : 2,
+								center : center_4
+							});
+
+							map5 = new google.maps.Map(document
+									.getElementById('map5'), {
+								zoom : 5,
+								center : center_5
+							});
+
+							for (i = 0; i < index; i++) {
+								var latlng = {
+									lat : Number(lati[i]),
+									lng : Number(longi[i])
+								};
+								var marker = new google.maps.Marker(
+										{
+											position : latlng,
+											map : map1,
+											title : cor_region[i],
+											icon : "http://www.stubbyplanner.com/img_v8/selectcityICON_red.png"
+										});
+								marker.setMap(map1);
+								latLngList.push(latlng);
+							}
+
+							for (i = 0; i < index_2; i++) {
+								var latlng_2 = {
+									lat : Number(lati_2[i]),
+									lng : Number(longi_2[i])
+								};
+								var marker_2 = new google.maps.Marker(
+										{
+											position : latlng_2,
+											map : map2,
+											title : cor_region_2[i],
+											icon : "http://www.stubbyplanner.com/img_v8/selectcityICON_red.png"
+										});
+								marker_2.setMap(map2);
+								latLngList_2.push(latlng_2);
+							}
+
+							for (i = 0; i < index_3; i++) {
+								var latlng_3 = {
+									lat : Number(lati_3[i]),
+									lng : Number(longi_3[i])
+								};
+								var marker_3 = new google.maps.Marker(
+										{
+											position : latlng_3,
+											map : map3,
+											title : cor_region_3[i],
+											icon : "http://www.stubbyplanner.com/img_v8/selectcityICON_red.png"
+										});
+								marker_3.setMap(map3);
+								latLngList_3.push(latlng_3);
+							}
+
+							for (i = 0; i < index_4; i++) {
+								var latlng_4 = {
+									lat : Number(lati_4[i]),
+									lng : Number(longi_4[i])
+								};
+								var marker_4 = new google.maps.Marker(
+										{
+											position : latlng_4,
+											map : map4,
+											title : cor_region_4[i],
+											icon : "http://www.stubbyplanner.com/img_v8/selectcityICON_red.png"
+										});
+								marker_4.setMap(map4);
+								latLngList_4.push(latlng_4);
+							}
+
+							for (i = 0; i < index_5; i++) {
+								var latlng_5 = {
+									lat : Number(lati_5[i]),
+									lng : Number(longi_5[i])
+								};
+								var marker_5 = new google.maps.Marker(
+										{
+											position : latlng_5,
+											map : map5,
+											title : cor_region_5[i],
+											icon : "http://www.stubbyplanner.com/img_v8/selectcityICON_red.png"
+										});
+								marker_5.setMap(map5);
+								latLngList_5.push(latlng_5);
+							}
+
+							function createLine(latLngList, map) {
+								var movingPath = new google.maps.Polyline({
+									path : latLngList,
+									geodesic : true,
+									strokeColor : '#000000',
+									strokeOpacity : 10.0,
+									strokeWeight : 1
+								});
+								if (latLngList.length > 1) {
+									movingPath.setMap(map);
+								}
+							}
+							createLine(latLngList, map1);
+							createLine(latLngList_2, map2);
+							createLine(latLngList_3, map3);
+							createLine(latLngList_4, map4);
+							createLine(latLngList_5, map5);
+
+						}
+					</script>
+
+
             </ul>
          </div>
       </div>
@@ -712,19 +1103,8 @@ height: 250px;}
    </div>
    <a href="/fr/sotchi-2014" class="lang-switcher link">Fr</a>
    </div>
-   <script>
-      var map;
-      function initMap() {
-         var paris = {
-            lat : 48.856667,
-            lng : 2.350833
-         };
-         map = new google.maps.Map(document.getElementById('map'), {
-            zoom : 5,
-            center : paris
-         });
-      }
-   </script>
+   
+
    <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnrWQ2SHvedNrvdozheYo32pHwCbuvPgs&callback=initMap">
       
