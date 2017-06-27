@@ -190,10 +190,9 @@ public class BlogController {
     
 	@RequestMapping(value="/updatePost", method=RequestMethod.POST)
     public String updatePost(@RequestParam("bp_postnum") String bp_postnum, String bp_contents, Model model, HttpSession session) throws Exception{
-       
+       System.out.println("update in" + bp_postnum);
 		BlogPostVO blogPost = new BlogPostVO();
 		System.out.println("update method in");
-		System.out.println(blogPost.toString());
        blogPost=service.postDetail(bp_postnum);
        blogPost.setBp_contents(bp_contents);
       
@@ -204,7 +203,7 @@ public class BlogController {
        model.addAttribute("id", id);
        System.out.println("blogupdate controller out");
        
-       return "redirect:/blog/myBlog";
+       return "redirect:/blog/myBlog?u_id="+id;
     }
    
 

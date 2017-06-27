@@ -29,7 +29,7 @@
 					<div class="tab-section">
 
 
-						<form id="results-form" action="/blog/updateBlog" class="results-form"
+						<form id="results-form" action="/blog/updatePost" class="results-form"
 							method="post">
 							
 							<td class="value"><input type="hidden" name="u_id" id="u_id"
