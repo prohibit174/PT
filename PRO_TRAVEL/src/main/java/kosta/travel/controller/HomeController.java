@@ -81,7 +81,7 @@ public class HomeController {
 		model.addAttribute("map4", accompanyService.getHomeMap(4));
 		model.addAttribute("map5", accompanyService.getHomeMap(5));
 
-		List<Carpool_ListVO> carpoolAll = carpoolService.carpoolAll();
+		List<Carpool_ListVO> carpoolAll = carpoolService.mainCarpoolList();
 		model.addAttribute("carpoolAll", carpoolAll);
 		System.out.println("product 吏꾩엯");
 		Integer productAll = productService.productAll();

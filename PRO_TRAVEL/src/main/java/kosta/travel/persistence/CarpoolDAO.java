@@ -30,6 +30,8 @@ public interface CarpoolDAO {
 	
 	public void addPerson(Integer c_num)throws Exception;
 	
+	public List<Carpool_ListVO> mainCarpoolList()throws Exception;
+	
 	//마이페이지
 	public List<CarpoolVO> myMakeCarpool(String u_id)throws Exception;
 	

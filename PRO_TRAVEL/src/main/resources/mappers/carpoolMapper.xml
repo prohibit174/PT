@@ -158,6 +158,16 @@
 	
 	</select>
 	
+	<!-- 조인해서 카풀리스트 5개뽑음(메인에사용) -->
+	<select id="mainCarpoolList" resultType="kosta.travel.domain.Carpool_ListVO">
+		select * 
+		from car_list c, users u
+		where c.u_id=u.u_id
+		and c_person>0
+		and 5>=rownum
+		order by c_num desc
+	</select>
+	
 	<!-- 나의 경로와 맞는 추천 카풀리스트뽑기 -->
 	<select id="recommendList" resultType="kosta.travel.domain.Carpool_ListVO">
 		select * 
@@ -193,5 +203,7 @@
 		 or (start_point = #{start_point} and way_point =#{dest_point}))
 		 
 	</select>	 
+	
+	
 
 </mapper>	

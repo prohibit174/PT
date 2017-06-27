@@ -77,6 +77,13 @@ public class CarpoolDAOImpl implements CarpoolDAO {
 		session.update(namespace+".addPerson", c_num);
 		
 	}
+	
+	@Override
+	public List<Carpool_ListVO> mainCarpoolList() throws Exception {
+		return session.selectList(namespace+".mainCarpoolList");
+	}
+	
+	
 
 	
 	//Mypage
@@ -147,6 +154,8 @@ public class CarpoolDAOImpl implements CarpoolDAO {
 		/*System.out.println(session.selectList(namespace+".searchCarpool", user).get(0).toString());*/
 		return session.selectList(namespace+".searchCarpool", user);
 	}
+
+
 
 
 

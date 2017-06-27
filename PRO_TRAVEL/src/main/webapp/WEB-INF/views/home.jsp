@@ -888,8 +888,7 @@ height: 250px;}
          </c:forEach>
 
       </ul>
-      <span class="btn-more"> <a href="/carpool/listAll">More</a>
-      </span> </section>
+      <span class="btn-more"> <a href="/carpool/listAll">More</a></span> </section>
       <hr>
       <section class="mosaic-box"> <header class="heading">
       <h2>BLOG</h2>

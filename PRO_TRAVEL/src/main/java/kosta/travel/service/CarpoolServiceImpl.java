@@ -64,6 +64,11 @@ public class CarpoolServiceImpl implements CarpoolService {
 	public List<Carpool_ListVO> carpoolAll() throws Exception {
 		return dao.carpoolAll();
 	}
+	
+	@Override
+	public List<Carpool_ListVO> mainCarpoolList() throws Exception {
+		return dao.mainCarpoolList();
+	}
 
 	
 	//Mypage
@@ -137,6 +142,8 @@ public class CarpoolServiceImpl implements CarpoolService {
 	public List<CarpoolRequestUser> searchCarpool(CarpoolRequestUser user) throws Exception {
 		return dao.searchCarpool(user);
 	}
+
+
 
 
 
