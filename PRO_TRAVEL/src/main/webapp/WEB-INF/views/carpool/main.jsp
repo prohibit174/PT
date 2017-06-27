@@ -21,9 +21,7 @@
 		Elements contents = doc.select("div.body_contents");
 		String result = contents.html();
 		request.setAttribute("result", result);
-	} catch (Exception e) {
-		e.printStackTrace();
-	}
+	} 
 	</script>
 
 <script type="text/javascript">
@@ -225,9 +223,9 @@ $(function(){
 	            data: frm.serialize(),
 	            success : function (data) {
 	            	var eachCounter = 0;
-	            	var htmlText = '<section class="results ajax-area" data-tmpl="athleteResults_tmpl">';
+	            	var htmlText = '<section class="results ajax-area">';
 	            	htmlText += '<div class="heading">';
-	            	htmlText += '<h2>Group Searching accompanies</h2>';
+	            	htmlText += '<h2>Search List</h2>';
 	            	htmlText += '</div>';
 	            	htmlText += '<ul class="table2 ajax-content">';
 	            	htmlText += '<li>';
@@ -350,9 +348,7 @@ $(function(){
 								
 		
 				</div>
-		<div class="accompanyList row">
-		
-		</div>
+
 			<div style="padding-left: 0%; float: none;" class="calendar-form">
 			
 		<input class="btn-more ajaxbtn" type="submit" value="search" style="margin-right: 41%; margin-top: 30px; width: 120px; height: 50px; font-size: medium; " />
@@ -365,7 +361,10 @@ $(function(){
 	</div>
 </form>
 
-<section class="results ajax-area" data-tmpl="athleteResults_tmpl">
+<section class="results ajax-area" style="margin-top:10px;">
+		<div class="accompanyList row">
+		
+		</div>
         <div class="heading">
             <h2>recommend list</h2>
             <ul class="add-links">

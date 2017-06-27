@@ -9,7 +9,7 @@
 			 c_year,  c_month,  c_date,  c_hour,  c_minute, c_person
 		)
 		values(
-			#{c_num}, #{u_id}, #{start_point}, #{dest_point}, #{way_point}, #{c_price}, 
+			#{c_num}, #{u_id}, initcap(#{start_point}), initcap(#{dest_point}), initcap(#{way_point}), #{c_price}, 
 			#{c_year}, #{c_month}, #{c_date}, #{c_hour}, #{c_minute}, #{c_person}
 		)
 	</insert>
@@ -185,11 +185,12 @@
 		
 	
 	<select id="searchCarpool" resultType ="CarpoolRequestUser" parameterType="CarpoolRequestUser">
-		select * from car_list 
+		select *
+		from car_list 
 		where c_year = #{c_year} and c_month = #{c_month} and c_date = #{c_date}
 		 and ((start_point = #{start_point} and dest_point = #{dest_point})
-	 	 or (WAY_POINT = #{start_point} and dest_point = #{dest_point})
-		 or (START_POINT = #{start_point} and way_point =#{dest_point}))
+	 	 or (way_point = #{start_point} and dest_point = #{dest_point})
+		 or (start_point = #{start_point} and way_point =#{dest_point}))
 		 
 	</select>	 
 
