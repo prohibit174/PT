@@ -189,7 +189,7 @@ function rejectLink(URL){
 				
 					</c:forEach>
 					 <c:if test="${empty waitList}">
-							신고 목록이 없습니다.
+							Not exist
 						</c:if>
 					</li>
 					</ul>

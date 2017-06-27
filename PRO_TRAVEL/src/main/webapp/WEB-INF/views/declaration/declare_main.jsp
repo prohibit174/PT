@@ -128,8 +128,8 @@ $(function(){
 $(function(){
 	$("#receipt").on("click", function(){
 		if($("#d_reported").val() != "" & $(".d_small").val() != "" & $("#d_content").val() != "")	{
-			alert("성공적으로 접수 되었습니다.");
-			alert("관리자가 확인 후 결과를 쪽지로 발송해드리겠습니다.");
+			alert("Success.");
+			alert("The manager will confirm and send the result to you as a note.");
 		}
 	});
 });
@@ -233,36 +233,37 @@ cursor: pointer;
    <div class="close" style="float: right; margin-right: 20px; margin-top: 10px;" onclick=""></div>
    <br><br>
    
-   <h1 style="padding-left: 30px; font-size: 30px">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp   ▶ 일반 신고 접수 ◀</h1>
+   <h1 style="padding-left: 30px; font-size: 30px">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp   ▶ 
+General ◀</h1>
       <ol>
          <li>
-         <label style="font-weight: bold;">신고자 : </label>
+         <label style="font-weight: bold;">reporter : </label>
             <input id="u_id" name="u_id" readonly="readonly" value="<%=session.getAttribute("login") %>" type="text" placeholder="Name" required="">
          </li>
 		<br>
          <li>
-         <label style="font-weight: bold;">신고할 유저 : </label>
+         <label style="font-weight: bold;">User to report : </label>
             <input id="d_reported" name="d_reported" type="text" placeholder="recipient ID." required="">
          </li>
 		<br>
          <li>
-         <label style="font-weight: bold;">카테고리를 선택하세요 : </label>
+         <label style="font-weight: bold;">Category : </label>
             <select class="d_small" name="d_small" required="">
                <option value=""></option>
-               <option value="abuse">욕설</option>
-               <option value="exchange_scam">교환 사기</option>
-               <option value="calumny">비방글</option>
+               <option value="abuse">Abuse</option>
+               <option value="exchange_scam">Scam</option>
+               <option value="calumny">Slander</option>
             </select>
          </li>
 		<br>
          <li>
-         <label style="font-weight: bold;">상세한 내용을 입력해주세요 : </label>
+         <label style="font-weight: bold;">Contents : </label>
          <br><br>
             <textarea id="d_content" style="width:380px; height:150px;" name="d_content" required=""></textarea>
          </li>
 	<br>
          <li>
-         <label style="font-weight: bold;">신고 자료가 있다면 첨부파일을 추가 해주시기 바랍니다.</label><br><br>
+         <label style="font-weight: bold;">File</label><br><br>
          <input type="file" value="파일 첨부" name="img_file"  /> 
          </li>
       </ol>
@@ -276,35 +277,35 @@ cursor: pointer;
    <fieldset style="border:0; background: white; width: 50%;">
    <div class="close" style="float: right; margin-right: 20px; margin-top: 10px;" onclick=""></div>
    <br><br>
-   <h1 style="padding-left: 30px; font-size: 30px">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp   ▶ 동행 신고 접수 ◀</h1>
+   <h1 style="padding-left: 30px; font-size: 30px">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp   ▶ Accompany ◀</h1>
       <ol>
          <li>
-         <label style="font-weight: bold;">신고자 : </label>
+         <label style="font-weight: bold;">reporter : </label>
             <input id="u_id" name="u_id" readonly="readonly" value="<%=session.getAttribute("login") %>" type="text" placeholder="Name" required="">
          </li>
 		<br>
          <li>
-         <label style="font-weight: bold;">신고할 유저 : </label>
+         <label style="font-weight: bold;">User to report : </label>
             <input id="d_reported" name="d_reported" type="text" placeholder="recipient ID." required="">
          </li>
 		<br>
          <li>
-         <label style="font-weight: bold;">카테고리를 선택하세요 : </label>
+         <label style="font-weight: bold;">category : </label>
             <select class="d_small" name="d_small">
                <option value=""></option>
-               <option value="inappropriateness">부적절한 동행글</option>
-               <option value="papering">동행글 도배</option>
+               <option value="inappropriateness">Inappropriate companions</option>
+               <option value="papering">Companion</option>
             </select>
          </li>
 		<br>
          <li>
-         <label style="font-weight: bold;">상세한 내용을 입력해주세요 : </label>
+         <label style="font-weight: bold;">Contents : </label>
          <br><br>
             <textarea id="d_content" style="width:380px; height:150px;" name="d_content"></textarea>
          </li>
 	<br>
          <li>
-         <label style="font-weight: bold;">신고 자료가 있다면 첨부파일을 추가 해주시기 바랍니다.</label><br><br>
+         <label style="font-weight: bold;">File</label><br><br>
          <input type="file" value="파일 첨부" name="img_file" /> 
          </li>
       </ol>
@@ -318,35 +319,35 @@ cursor: pointer;
    <fieldset style="border:0; background: white; width: 50%;">
    <div class="close" style="float: right; margin-right: 20px; margin-top: 10px;" onclick=""></div>
    <br><br>
-   <h1 style="padding-left: 30px; font-size: 30px">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp   ▶ 카풀 신고 접수 ◀</h1>
+   <h1 style="padding-left: 30px; font-size: 30px">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp   ▶ Carpool ◀</h1>
       <ol>
          <li>
-         <label style="font-weight: bold;">신고자 : </label>
+         <label style="font-weight: bold;">Reporter : </label>
             <input id="u_id" name="u_id" readonly="readonly" value="<%=session.getAttribute("login") %>" type="text" placeholder="Name" required="">
          </li>
 		<br>
          <li>
-         <label style="font-weight: bold;">신고할 유저 : </label>
+         <label style="font-weight: bold;">User to report : </label>
             <input id="d_reported" name="d_reported" type="text" placeholder="recipient ID." required="">
          </li>
 		<br>
          <li>
-         <label style="font-weight: bold;">카테고리를 선택하세요 : </label>
+         <label style="font-weight: bold;">Category : </label>
             <select class="d_small" name="d_small"  required="">
                <option value=""></option>
-               <option value="inappropriateness">부적절한 카풀</option>
-               <option value="papering">카풀글 도배</option>
+               <option value="inappropriateness">Inappropriate carpool</option>
+               <option value="papering">Carpool Wrap</option>
             </select>
          </li>
 		<br>
          <li>
-         <label style="font-weight: bold;">상세한 내용을 입력해주세요 : </label>
+         <label style="font-weight: bold;">Contents : </label>
          <br><br>
             <textarea id="d_content" style="width:380px; height:150px;" name="d_content"  required=""></textarea>
          </li>
 	<br>
          <li>
-         <label style="font-weight: bold;">신고 자료가 있다면 첨부파일을 추가 해주시기 바랍니다.</label><br><br>
+         <label style="font-weight: bold;">File</label><br><br>
          <input type="file" value="파일 첨부" name="img_file" /> 
          </li>
       </ol>
@@ -359,27 +360,32 @@ cursor: pointer;
     <div class="l-box">
       <div id="de-select">
         <div class="select-box-l box-1" style="width: 300px; height: 500px; margin-left: 140px;">
-          <h3>일반신고 접수</h3>
-          <p>욕설이나 비방, 교환에 대한 신고하시기 바랍니다.</p>
+          <h3>
+General</h3>
+          <p>Please report abuse or slander, exchange.</p>
           <div class="select-box-s">
-            <h4>일반 신고</h4>
-            <p>프로동행러 이용자의 부적절한 행위를 증빙할 수 있는 자료를 첨부하시어 신고 접수하시면 도움이 됩니다.</p>
-            <button id="normal_button" style="margin-left: 50px;" href="#normal-form">신고하기</button>
+            <h4>General</h4>
+            <p>
+It is helpful to attach a document that can prove inappropriate behavior of a professional traveling companion.</p>
+            <button id="normal_button" style="margin-left: 50px;" href="#normal-form">Report</button>
           </div>
         </div><div class="select-box-l box-2" style="width: 700px; height: 500px;">
-          <h3>여행신고 접수</h3>
-          <p>허위 동행 정보나 카풀에 대한 신고내용을 접수할 수 있습니다.<br>※ 카풀과 동행 참여 고객에 한하여 시행하고 있습니다.<br/><a href="about">* (주)프로동행러</a>
+          <h3>Travel</h3>
+          <p>
+You can receive information on false travel or carpool information.<br>※ 
+Carpooling and participating customers only.<br/><a href="about">* ProTravel</a>
           </p>
           <div class="select-box-s">
             <h4>Accompany</h4>
             <table class="table-1">
               <tr>
-                <th>부적절한 동행글</th>
-                <td>성적인 내용이나 허위정보를 담은 게시글을 올렸을 경우</td>
+                <th>
+Inappropriate companions</th>
+                <td>You posted a post that contains sexual content or false information.</td>
               </tr>
               <tr>
-                <th>게시글 도배<span></span></th>
-                <td>빠른 동행을 목적으로 한 무단 게시글 도배</td>
+                <th>Many posts<span></span></th>
+                <td>Registered many articles for the purpose of fast companionship</td>
               </tr>
             </table>
             <button id="accompany_button" style="margin-left: 80px; margin-top: 20px;" href="#accompany-form">신고하기</button>
@@ -387,12 +393,14 @@ cursor: pointer;
             <h4>Carpool</h4>
             <table class="table-2">
               <tr>
-                <th>부적절한 카풀</th>
-                <td>허위 정보 입력, 무단 카풀 취소 </td>
+                <th>
+Inappropriate carpool</th>
+                <td>
+False information input, unauthorized carpool cancel </td>
               </tr>
               <tr>
-                <th>게시글 도배</th>
-                <td>빠른 카풀을 목적으로 한 무단 게시글 도배</td>
+                <th>Many posts</th>
+                <td>Registered many articles  </td>
               </tr>
             </table>
             <button id="carpool_button" style="margin-left: 80px; margin-top: 40px;" href="#carpool-form">신고하기</button>

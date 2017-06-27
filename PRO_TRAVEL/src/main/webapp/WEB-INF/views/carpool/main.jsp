@@ -15,14 +15,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-   	<script type="text/javascript">
+<!--    	<script type="text/javascript">
 	try {
 		Document doc = Jsoup.connect("http://www.alamo.co.kr/rent/carInfo.php?vendor=AL").get();
 		Elements contents = doc.select("div.body_contents");
 		String result = contents.html();
 		request.setAttribute("result", result);
 	} 
-	</script>
+	</script> -->
 
 <script type="text/javascript">
 
@@ -37,9 +37,9 @@ function detailForm(u_id){
 	
 	
 function applyLink(URL){
-	if(confirm("신청하시겠습니까?") == true){
+	if(confirm("Do you want to join?") == true){
 		location.href=URL;
-		alert('신청되었습니다');
+		alert('I joined');
 
 	}
 	else{
@@ -391,7 +391,7 @@ $(function(){
 
  <form id="detailForm${carpool_ListVO.u_id }" name="detailForm${carpool_ListVO.u_id }" method="post" 
  action="/user?u_id=${carpool_ListVO.u_id }" target="popup_window">
-    <a onclick = "detailForm(${carpool_ListVO.u_id });">
+    <a onclick = "detailForm('${carpool_ListVO.u_id }');">
     
 <picture class="picture">
 
@@ -490,7 +490,7 @@ $(function(){
 
  <form id="detailForm${carpool_ListVO.u_id }" name="detailForm${carpool_ListVO.u_id }" method="post" 
  action="/user?u_id=${carpool_ListVO.u_id }" target="popup_window">
-    <a onclick = "detailForm(${carpool_ListVO.u_id });">
+    <a onclick = "detailForm('${carpool_ListVO.u_id }');">
     
 <picture class="picture">
 

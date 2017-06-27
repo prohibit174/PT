@@ -27,9 +27,9 @@ function detailForm(u_id){
 	}
 
 function applyLink(URL){
-	if(confirm("신청하시겠습니까?") == true){
+	if(confirm("Do you want to join?") == true){
 		location.href=URL;
-		alert('신청되었습니다');
+		alert('I joined');
 
 	}
 	else{
@@ -158,7 +158,7 @@ function applyLink(URL){
 
  <form id="detailForm${carpool_ListVO.u_id }" name="detailForm${carpool_ListVO.u_id }" method="post" 
  action="/user?u_id=${carpool_ListVO.u_id }" target="popup_window">
-    <a onclick = "detailForm(${carpool_ListVO.u_id });">
+    <a onclick = "detailForm('${carpool_ListVO.u_id }')">
     
 <picture class="picture">
 
@@ -168,7 +168,8 @@ function applyLink(URL){
         <div class="area">
             <strong class="name">${carpool_ListVO.u_name } </strong>
         </div>
-  </a> </form>
+  </a> 
+  </form>
                 </div>
 
                 

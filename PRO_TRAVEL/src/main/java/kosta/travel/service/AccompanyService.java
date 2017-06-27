@@ -348,8 +348,8 @@ public class AccompanyService {
 		try {
 			temp = dao.getHomeMap1(num);
 			System.out.println("정상 작동");
-			temp.get(0).toString();
-			return temp;
+/*			temp.get(0).toString();
+*/			return temp;
 		} catch (Exception e) {
 			System.out.println("error occured : ");
 			return temp;

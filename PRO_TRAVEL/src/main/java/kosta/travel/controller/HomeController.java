@@ -137,7 +137,7 @@ public class HomeController {
 	public String user(Model model, @RequestParam("u_id")  String u_id) throws Exception {
 		UsersVO user = userService.userDetail(u_id);
 		model.addAttribute("user", user);
-	
+		
 		return "/userPopup";
 	}
 }

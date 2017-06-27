@@ -188,7 +188,7 @@ function rejectLink(URL){
 				
 					</c:forEach>
 					 <c:if test="${empty acceptList}">
-							수락 목록이 없습니다.
+							Not Exist
 						</c:if>
 					</li>
 					</ul>
