@@ -46,6 +46,7 @@ function applyLink(URL){
   margin: 0 auto;
   padding-left: 100px;
   max-width: 1000px;
+  min-height: 320px;
 }
 
 .table {

@@ -58,6 +58,7 @@ function removeLink(URL){
   margin: 0 auto;
   padding-left: 20px;
   max-width: 800px;
+  min-height: 320px;
 }
 
 

@@ -388,7 +388,7 @@ Inappropriate companions</th>
                 <td>Registered many articles for the purpose of fast companionship</td>
               </tr>
             </table>
-            <button id="accompany_button" style="margin-left: 80px; margin-top: 20px;" href="#accompany-form">신고하기</button>
+            <button id="accompany_button" style="margin-left: 80px; margin-top: 20px;" href="#accompany-form">REPORT</button>
           </div><div class="select-box-s l-margin">
             <h4>Carpool</h4>
             <table class="table-2">
@@ -403,7 +403,7 @@ False information input, unauthorized carpool cancel </td>
                 <td>Registered many articles  </td>
               </tr>
             </table>
-            <button id="carpool_button" style="margin-left: 80px; margin-top: 40px;" href="#carpool-form">신고하기</button>
+            <button id="carpool_button" style="margin-left: 80px; margin-top: 40px;" href="#carpool-form">REPORT</button>
           </div>
         </div>
       </div>

@@ -27,10 +27,9 @@ function detailForm(u_id){
 @CHARSET "EUC-KR";
 .wrapper {
   margin: 0 auto;
-  padding-left: 30px;
-  max-width: 800px;
+  padding-left: 100px;
+  max-width: 1000px;
   min-height: 320px;
-  height: auto;
 }
 
 .table {
@@ -78,25 +77,33 @@ function detailForm(u_id){
 
 .table2 .col-first {
 	width: 10%;
-	padding: 0px 30px 0px 0px !important;
+	padding: 0px 30px 0px 0px;
+	margin: 0px 10px 0px 0px;
+}
+
+.table2 .col1 {
+	width: 10%;
+	padding: 0px 30px 0px 0px;
 	margin: 0px 10px 0px 0px;
 }
 
 .table2 .col2 {
-	width: 18%;
+	width: 25%;
 
 	margin: 0px 10px 0px 0px;
 }
 
 .table2 .col3 {
-	width: 15%;
+	width: 10%;
 	margin: 0px 10px 0px 0px;
 }
 
-.table2 .col5 {
-	width: 12%;
+.table2 .col4 {
+	width: 10%;
 	margin: 0px 10px 0px 0px;
 }
+
+
 </style>
 
 
@@ -124,40 +131,91 @@ function detailForm(u_id){
 	
 
 
-		<ul class="table2 ajax-content">
+		<ul class="table2 ajax-content" >
 			<li >
-				<div class="th col-first">DRIVER</div>
-				<div class="th col1">ACCEPT</div>
+				<div class="th col1">DRIVER</div>
+				<div class="th col2">ACCEPT</div>
 				<div class="th col2">DATE</div>
-				<div class="th col2">TIME</div>
+				<div class="th col3">TIME</div>
 				<div class="th col3">START</div>
-				<div class="th col5">DETAIL</div>
+				<div class="th col4">DETAIL</div>
 
 			</li>
 
 
 			<li style="margin-top: 20px">
-			<c:forEach items="${requestList}" var="carpool">
-			 <form id="detailForm${carpool.c_u_id }" name="detailForm${carpool.c_u_id }" method="post" 
- 				action="/user?u_id=${carpool.c_u_id }" target="popup_window">
- 				<a onclick = "detailForm(${carpool.c_u_id });">
- 				
-					<div class="th col-first">
-					 <img src="/resources/upload/${carpool.u_u_img }" width="30" height="30" >
-					 ${carpool.c_u_name }
-					 
-					 </div>
-				</a> 
-				</form>
-				
-				
-					<div class="th col1">${carpool.cr_ox}</div>
-					<div class="th col2">${carpool.c_month }/${carpool.c_date }</div>
-					<div class="th col2">${carpool.c_hour }:${carpool.c_minute }</div>
-					<div class="th col3">${carpool.start_point }</div>
-					<div class="th col5"><strong><a href = '/mypage/requestRead?cr_num=${carpool.cr_num }&c_num=${carpool.c_num}'> Go </a></strong></div>
-					<br><br> 
-					</c:forEach>
+			            <c:forEach items="${requestList}" var="carpool">
+                <li>
+
+                <div class="td col1">
+<%-- onclick="detailForm(${listMessage.m_num});" --%>
+
+ <form id="detailForm${carpool.c_u_id }" name="detailForm${carpool.c_u_id }" method="post" 
+ action="/user?u_id=${carpool.c_u_id }" target="popup_window">
+    <a onclick = "detailForm('${carpool.c_u_id }')">
+    
+<picture class="picture">
+
+<img src="/resources/upload/${carpool.u_u_img }" width="50" height="50" >
+<span class="mask"></span>
+</picture>
+        <div class="area">
+            <strong class="name">${carpool.c_u_name } </strong>
+        </div>
+  </a> 
+  </form>
+                </div>
+
+                
+                
+                <div class="td col2">
+
+        <div class="area">
+            <strong> ${carpool.cr_ox}   </strong>
+        </div>
+                </div>
+                
+                 <div class="td col2">
+
+        <div class="area">
+            <strong> ${carpool.c_month }/${carpool.c_date }</strong>
+        </div>
+                </div>
+               
+
+
+                
+                
+                
+                        <div class="td col3">
+
+        <div class="area">
+            <strong> ${carpool.c_hour }:${carpool.c_minute } </strong>
+        </div>
+                </div>        
+                
+                         <div class="td col3">
+
+        <div class="area">
+            <strong> ${carpool.start_point } </strong>
+        </div>
+                </div>   
+                
+                <div class="td col4">
+
+
+                <div class="area">
+                    <ul class="medal-box">
+
+                        <li>
+                            <a href = '/mypage/requestRead?cr_num=${carpool.cr_num }&c_num=${carpool.c_num}'>GO</a>
+                        </li>
+
+                    </ul>
+                </div>
+                </div>
+    </li>
+            </c:forEach>
 					 <c:if test="${empty requestList}">
 			요청 목록이 없습니다.
 		</c:if>
