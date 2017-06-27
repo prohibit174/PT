@@ -139,7 +139,7 @@
                
             }
        });
-       alert("출발지가 추가 되었습니다.")
+       alert("Add Startpoint")
        return false;
        }else if(count == 2){
        
@@ -156,10 +156,10 @@
              $('select.destination option.destination').text(data).attr("selected", "selected");
             }
       });
-      alert("목적지가 추가 되었습니다.");
+      alert("Add Destinationpoint");
       return false;
        }else if(count == 3){
-          if(confirm("경유지로 추가 하시겠습니까?") == true){
+          if(confirm("Add Waypoint") == true){
              this.setMap(null);
                marker_zoom6[i] = new google.maps.Marker({
                     position: this.getPosition(),
@@ -247,16 +247,16 @@
                
                   <span class="label">Location</span> 
                    <select class="destination" name="dest_point">
-                     <option class="destination"  value="">목적지를 지도에 마크하세요</option>
+                     <option class="destination"  value="">Click</option>
                   </select> 
                   <select  class="start"  name="start_point">
-                     <option class="start" value="">출발지를 지도에 마크하세요</option>
+                     <option class="start" value="">Click</option>
                   </select>
                </div>
                <div class="row" style="font-size: 20px;">
                   <span class="label">WayPoint</span> 
                    <select class="way_point" name="way_point">
-                     <option class="way_point"  value="">경유지를 지도에 마크하세요</option>
+                     <option class="way_point"  value="">Click</option>
                   </select> 
                </div>               
                <div class="row" style="font-size: 20px;">
