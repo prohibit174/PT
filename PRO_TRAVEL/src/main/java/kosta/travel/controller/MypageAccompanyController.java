@@ -29,7 +29,7 @@ public class MypageAccompanyController {
 	@Inject
 	private AccompanyService service;
 
-	@RequestMapping(value = "/mypage_accompCheck", method = RequestMethod.GET)
+	@RequestMapping(value = "/mypage_accompCheck2", method = RequestMethod.GET)
 	public String accompCheck(Model model, HttpSession session) throws Exception {
 		String u_id = (String) session.getAttribute("login");
 
@@ -63,7 +63,7 @@ public class MypageAccompanyController {
 */		}
 		model.addAttribute("groupVO2", groupVO2);
 
-		return "/mypage/mypage_accompCheck";
+		return "/mypage/mypage_accompCheck2";
 	}
 
 	@RequestMapping(value = "/accom_read", method = RequestMethod.GET)
@@ -87,13 +87,13 @@ public class MypageAccompanyController {
 	@RequestMapping(value = "/Accom_accept", method = RequestMethod.GET)
 	public String Accom_accept(GroupVO groupVO, @RequestParam("acr_num") int acr_num ) throws Exception {
 		service.Accom_accept(acr_num);
-		return "redirect:/mypage/mypage_accompCheck";
+		return "redirect:/mypage/mypage_accompCheck2";
 	}
 	
 	@RequestMapping(value = "/Accom_reject", method = RequestMethod.GET)
 	public String Accom_reject(GroupVO groupVO, @RequestParam("acr_num") int acr_num ) throws Exception {
 		service.Accom_reject(acr_num);
-		return "redirect:/mypage/mypage_accompCheck";	
+		return "redirect:/mypage/mypage_accompCheck2";	
 	}
 	
 	@RequestMapping(value = "/remove_accom_group", method = RequestMethod.GET)
@@ -101,7 +101,7 @@ public class MypageAccompanyController {
 			HttpSession session) throws Exception {
 
 		service.remove_accom_group(accomp_group_num);
-		return "/mypage/mypage_accompCheck";
+		return "/mypage/mypage_accompCheck2";
 	}
 	
 	@RequestMapping(value = "/mypage_accomp_edit", method = RequestMethod.GET)
@@ -142,6 +142,6 @@ public class MypageAccompanyController {
 */		
 		service.mypage_accomp_edit_post(newGroupVO);
 			
-		return "/mypage/mypage_accompCheck";
+		return "/mypage/mypage_accompCheck2";
 	}
 }
