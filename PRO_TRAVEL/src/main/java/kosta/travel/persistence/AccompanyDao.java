@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
+import kosta.travel.domain.Accomp_home_map;
 import kosta.travel.domain.AccompanyVO;
 import kosta.travel.domain.CordinatesVO;
 import kosta.travel.domain.GroupVO;
@@ -141,7 +142,10 @@ public class AccompanyDao {
 			return session.selectList(namespace + ".getUser_havingTripInfo");
 		}
 		
-		
+		public List<Accomp_home_map> getHomeMap1(int home_map_num) {
+			return session.selectList(namespace + ".getHomeMap1", home_map_num);
+		}
+
 }
 
 

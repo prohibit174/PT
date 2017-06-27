@@ -221,5 +221,13 @@
 		where u.u_id=t.u_id
 	</select>
 
+	<select id="getHomeMap1" resultType="Accomp_home_map" parameterType="Integer">
+	<![CDATA[
+		select tp.u_id, tp.cor_region, tp.tp_date, ac.title, ac.content, ac.zoom, c.cor_lati, c.cor_longi from trip_plan tp, 
+		(select rownum rn, u_id, title, zoom, content from accomp_admin) ac, cordinates c
+		where tp.u_id = ac.u_id and rn > #{home_map_num}-1 and rn < #{home_map_num}+1 and
+		c.cor_region=tp.cor_region order by tp_date
+		]]>
+	</select>
 </mapper>
   
